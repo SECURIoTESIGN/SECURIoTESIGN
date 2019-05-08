@@ -1,4 +1,4 @@
-# The Requierments to develop your tool are: 
+# The Requirements to develop your tool are: 
 ---
 ---
 ## Confidentiality                           
@@ -48,8 +48,8 @@ IoT entities is undeniable
 ---
 ## Accountability                            
 
-The property that ensures that every action   
-can be traced back to a single user or device 
+The property that ensures that every action  
+can be traced back to a single user or device
 ---
 ## Reliability                               
 

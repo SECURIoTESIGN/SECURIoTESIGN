@@ -15,6 +15,8 @@ forgeryResistance = 0
 tamperDetection = 0
 dataFreshness = 0
 confinement = 0
+interoperability = 0
+dataOrigin = 0
 
 print ( "#   SECURIoTEQUIREMENTS\n"
         "    The  **SECURIoTEQUIREMENTS** is a custom made program. It helps in the creation of IoT tools with security\n"
@@ -33,10 +35,11 @@ while True :
         print "   3 - Smart Manufacturing \n"
         print "   4 - Smart Wearables\n"
         print "   5 - Smart Toy \n"
+        print "   6 - Smart Transportation\n"
         print "   Answer: \n"
         q1 = raw_input()
         print "\n"
-        if (q1 < '6' ) :
+        if (q1 < '7' ) :
                 break
 
 
@@ -93,27 +96,38 @@ if q1 == '5':
        integrity = 1
        tamperDetection = 1
 
+if q1 == '6':
+        confidentiality = 1
+        integrity = 1
+        availability = 1
+        authentication = 1
+        authorization = 1
+        nonRepudiation = 1
+        accountability = 1
+        reliability = 1
+        privacy = 1
+        physicalSecurity = 1
+
+
 
 while True:
         print "#  Question 2 \n"
-        print "## Type of users: \n"
-        print "   1 - Individual user \n"
-        print "   2 -  Corporate user \n"
-        print "   3 - Admin user \n"
-        print "   4 - No user \n"
+        print "## Will the system have a user? \n"
+        print "   1 - Yes \n"
+        print "   2 - No \n"
         print "   Answer: \n"
 
         q2 = raw_input()
         print("\n")
-        if (q2 <'5'):
+        if (q2 <'3'):
                 break;
 
 q2_2=-1
 q2_1=-1
-if (q2 < '4'):
+if (q2 == '1'):
         while True:
                 print "##  Question 2.1 \n"
-                print "### Does the system has user LogIn? \n"
+                print "### Will the system have user LogIn? \n"
                 print "    1 - Yes \n"
                 print "    2 - No  \n"
                 print "   Answer:  \n"
@@ -133,7 +147,7 @@ if (q2 < '4'):
 
         while True :
                 print "##  Question 2.2 \n"
-                print "### Does the system hold any user information? \n"
+                print "### Will the system hold any user information? \n"
                 print "    1 - Yes \n"
                 print "    2 - No \n"
                 print "   Answer: \n"
@@ -153,10 +167,10 @@ if (q2 < '4'):
                 confidentiality = 0
 
 q2_3=-1
-if q2 == '4':
+if q2 == '2' or q2_2=='2':
         while True:
                 print "##  Question 2.3 \n"
-                print "### Does the system store any kind of information? \n"
+                print "### Will the system store any kind of information? \n"
                 print "    1 - Yes \n"
                 print "    2 - No \n"
                 print "   Answer: \n"
@@ -210,8 +224,6 @@ if (q2_2 == '1') or (q2_3 == '1'):
                 physicalSecurity = 1
                 authorization = 1
                 forgeryResistance = 1
-                dataFreshness = 1
-                tamperDetection = 1
                 nonRepudiation = 1
                 authentication = 1
 
@@ -229,7 +241,6 @@ if (q2_2 == '1') or (q2_3 == '1'):
                         break
 
         if(q2_5 == '1'):
-                tamperDetection = 1
                 nonRepudiation = 1
                 authentication = 1
                 confinement = 1
@@ -311,7 +322,7 @@ if(q5 == '1'):
 
 while True:
         print "#  Question 6 \n"
-        print "## Will the system work with third parties software? \n"
+        print "## Will the system work with third-party software? \n"
         print "   1 - Yes \n"
         print "   2 - No \n"
         print "   Answer: \n"
@@ -324,13 +335,93 @@ while True:
 
 if(q6 == '1'):
         confinement = 1
+        interoperability = 1
+
+while True:
+        print "#  Question 7 \n"
+        print "## Is there a possibility of the communications being eavesdropped? \n"
+        print "   1 - Yes \n"
+        print "   2 - No \n"
+        print "   Answer: \n"
+
+        q7 = raw_input()
+        print " \n"
+
+        if q7 < '3':
+                break
+
+if (q7 == '1'):
+        authorization = 1
+
+while True:
+        print "#  Question 8 \n"
+        print "## Could de messages sent between the system components be captured and resend? \n"
+        print "   1 - Yes \n"
+        print "   2 - No \n"
+        print "   Answer: \n"
+
+        q8 = raw_input()
+        print "\n"
+
+        if (q8 < '3'):
+            break
+
+if (q8 == '1'):
+        dataOrigin = 1
+        dataFreshness = 1
+
+while True:
+        print "#  Question 9 \n"
+        print "## Can someone try to impersonate a user to gain access to private information? \n"
+        print "   1 - Yes \n"
+        print "   2 - No \n"
+        print "   Answer: \n"
+
+        q8 = raw_input()
+
+        if (q8 < '3'):
+            break;
+
+if (q8 == '1'):
+    authentication = 1
+
+while True:
+        print "#  Question 10 \n"
+        print "## Can someone with bad intentions gain physical access to the location where this \n software will be running and obtain private information?? \n"
+        print "   1 - Yes \n"
+        print "   2 - No \n"
+        print "   Answer: \n"
+
+        q10 = raw_input()
+
+        if (q10 < '3') :
+                break
+
+if (q10 == '1'):
+       physicalSecurity = 1
+
+
+while True:
+        print "#  Question 11 \n"
+        print "## Can someone gain physical access to the machine where the system operates or \n some of the system components and preform some type of modification\n to its hardware? \n"
+        print "   1 - Yes \n"
+        print "   2 - No \n"
+        print "   Answer: \n"
+
+        q11 = raw_input()
+
+        if (q11 < '3'):
+                break
+
+if (q11 == '1'):
+        tamperDetection = 1
 
 print "# Analysis done check your requirements \n"
 
-f = open("requierments.txt", "w")
+f = open("requirements.txt", "w")
 
 
-f.write("# The Requierments to develop your tool are: \n")
+f.write("# The Requirements to develop your tool are: \n")
 f.write("---\n")
 f.write("---\n")
 
@@ -396,8 +487,8 @@ if (accountability == 1):
     f.write("---\n")
     f.write("## Accountability                            \n")
     f.write("\n")
-    f.write("The property that ensures that every action   \n"
-            "can be traced back to a single user or device \n")
+    f.write("The property that ensures that every action  \n"
+            "can be traced back to a single user or device\n")
 
 if (reliability == 1):
     f.write("---\n")
@@ -465,3 +556,27 @@ if (confinement == 1):
     f.write("Ensures that even if a party is corrupted,   \n"
             "the spreading of the effects of the attack is\n"
             "as confined as possible.                     \n")
+
+
+if( interoperability == 1):
+    f.write("---\n")
+    f.write("## Interoperability                          \n")
+    f.write("\n")
+    f.write("Is the propriety that ensures that different \n"
+            " software communicates and works well with   \n"
+            "each-other. I.e a software in health-care    \n"
+            "that works with data that comes from a       \n"
+            "third-party needs to be able to use and      \n"
+            "process the information given to it by this  \n"
+            "software                                     \n")
+
+
+if( dataOrigin == 1):
+    f.write("---\n")
+    f.write("## Data Origin Authentication                \n")
+    f.write("\n")
+    f.write("Ensures that the data being received by the  \n"
+            "software comes from the source it claims to  \n"
+            "be. In other words it ensures that the data  \n"
+            "being received is authentic and from a       \n"
+            "trusted party                                \n")
