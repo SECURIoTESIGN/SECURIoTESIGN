@@ -15,7 +15,7 @@ It is part of the outputs of project Project SECURIoTESIGN, with funding with fu
   See [https://metacpan.org/release/Graph-Easy](https://metacpan.org/release/Graph-Easy)
 
 
-***Other packages***
+***Other packages***  
 * `pip install markdown`
 * `pip install xhtml2pdf`
 * `pip install svglib`
