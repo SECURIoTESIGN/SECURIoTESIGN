@@ -1,15 +1,13 @@
-﻿#   SECURIoTEQUIREMENTS
-
-    The  **SECURIoTEQUIREMENTS** is a custom made program. It helps in the 
+#   SECURIoTEQUIREMENTS
+    The  **SECURIoTEQUIREMENTS** is a custom made program. It helps in the    
     creation of IoT tools with security by providing the security requirements
-    before the creation of the tool It is part of the outputs of project 
-    Project SECURIoTESIGN, with funding  by FCT-Fundação para a Ciência e 
-    Tecnologia (Portugal) through the  research grant SFRH/BD/133838/2017.
-
+    before the creation of the tool It is part of the outputs of project      
+    Project SECURIoTESIGN, with funding  by FCT-Fundação para a Ciência e     
+    Tecnologia (Portugal) through the  research grant SFRH/BD/133838/2017.    
 ##  License
-
-    Developed by Carolina Lopes and Pedro R. M. Inácio Department of Computer Science Universidade da Beira
-    Interior Copyright 2019 Carolina Lopes and Pedro R. M. Inácio  SPDX-License-Identifier: Apache-2.0
+    Developed by Carolina Lopes and Pedro R. M. Inácio Department of Computer 
+    Science Universidade da Beira Interior Copyright 2019 Carolina Lopes and  
+    Pedro R. M. Inácio  SPDX-License-Identifier: Apache-2.0                 
 
 # The Requirements to develop your tool are: 
 
@@ -17,253 +15,235 @@
 
 ## Confidentiality                           
 
-The property that ensures that information is
-not disclosed or made available to any       
-unauthorized entity. In other words,personal 
-information cannot be accessed by an         
-unauthorized third party                     
-This requirement is applied were the information  is stored.                                  
+The property that ensures that information is not disclosed or made available 
+to any unauthorized entity. In other words,personal information cannot be     
+accessed by an unauthorized third party                                       
+This requirement is applied were the information is stored                    
 
 ---
 
 ## Integrity                                 
 
-Is the property of safeguarding the          
-correctness and completeness of assets in an 
-IoT system. In other words it involves       
-maintaining the data consistent, trustworthy 
-and accurate during it life-cycle            
-This requirement is applied in the Cloud.        
-This requirement is applied in the database     
+Is the property of safeguarding the correctness and completeness of assets in
+an IoT system. In other words it involves maintaining the data consistent,   
+trustworthy and accurate during it life-cycle                                
+This requirement is applied in the Cloud                                 
+This requirement is applied in the database                              
 
-Not addressing this requirement may lead to vulnerabilities explored 
-by attacks such as:
+Not addressing this requirement may lead to vulnerabilities explored by     
+attacks such as:                                                              
 
-  * Sinkhole Attack:                           
-    in this attack some nods are made more     
-    attractive than others by tampering with   
-    the routing information, when arriving to  
-    the sinkhole node the messages may be      
-    dropped or altered                         
+	* Sinkhole Attack:                                                          
+	  in this attack some nods are made more attractive than others by tampering
+	  with the routing information, when arriving to the sinkhole node the      
+	  messages may be dropped or altered                                        
 
-  * Malicious  code  injection:                
-in  this  attack  the  perpetrator         
-injects  malicious code in the system to    
-gain access to information or even to gain 
-control of the entire system                
+	* Malicious  code  injection:                                               
+	  in  this  attack  the  perpetrator injects  malicious code in the system  
+	  to gain access to information or even to gain control of the entire system
 
 ---
 
-## Availability                              
+## Availability                                                               
 
-Refers to the property which ensures that an 
-IoT device or system is accessible and usable
-upon demand by authorized entities. In other 
-words the device needs to be always available
-to access by authorized people               
-Apply this requirement in the Cloud         
-Apply this requirement in the database      
-Apply this requirement in the system        
+Refers to the property which ensures that an IoT device or system is          
+accessible and usable upon demand by authorized entities. In other words the  
+device needs to be always available to access by authorized people            
+This requirement is applied in the Cloud                                  
+This requirement is applied in the database                               
+This requirement is applied in the system                                 
 
 ---
-## Authentication                            
 
-Is the assurance that information transaction
-is from the source it claims to be from. The 
-device authenticates itself prior to         
-receiving or transmitting any information.   
-It assures that the information received     
-is authentic                                 
-Apply this requirement in the device        
-Apply this requirement in communications    
-via Internet                                
-Apply this requirement in the Cloud         
-Apply this requirement in the database      
+## Authentication                                                             
 
- By not applying this requirement you may 
-suffer from:                                
-Node Replication:                           
-when an attacker copies the identity of an  
-user and send false data in his name.       
-Sinkhole Attack:                            
-in this attack some nods are made more      
-attractive than others by tampering with the
-routing information, when arriving to the   
-sinkhole node the messages may be dropped or 
-altered.                                    
-Impersonation Attack:                       
-in this attack the attacker pretends to be  
-one of the users of the system to fulfill is
-bad intentions.                             
+Is the assurance that information transaction is from the source it claims to 
+be from. The device authenticates itself prior to receiving or transmitting   
+any information. It assures that the information received is authentic        
+This requirement is applied in the device                                     
+This requirement is applied in the communications via Internet                
+This requirement is applied in the Cloud                                      
+This requirement is applied in the database                                   
+
+Not addressing this requirement may lead to vulnerabilities explored by     
+attacks such as:                                                              
+
+	* Node Replication:                                                         
+	  when an attacker copies the identity of an user and send false data in his
+	  name.                                                                     
+
+	* Sinkhole Attack:                                                          
+	  in this attack some nods are made more attractive than others by tampering
+	  with the routing information, when arriving to the sinkhole node the      
+	  messages may be dropped or altered.                                       
+
+	* Impersonation Attack:                                                     
+	  in this attack the attacker pretends to be one of the users of the system 
+	  to fulfill is bad intentions.                                             
+
 ---
-## Authorization                             
 
-The property that determines whether the user
-or device has rights/privileges to access a  
-resource, or issue commands                  
-Apply this requirement were the information 
-might be accessed from                      
-Apply this requirement between the          
-communications                              
+## Authorization                                                              
 
- By not applying this requirement you may 
-suffer from:                                
-Eavesdropping:                              
-is when an attacker has access to the data  
-being sent between  two  trusted  entities. 
-Malicious  code  injection:                
-in  this  attack  the  perpetrator         
-injects  malicious code in the system to    
-gain access to information or even to gain 
-control of the entire system                
+The property that determines whether the user or device has rights/privileges 
+to access a resource, or issue commands                                       
+This requirement is applied were the information might be accessed from       
+This requirement is applied between the communications                        
+
+Not addressing this requirement may lead to vulnerabilities explored by     
+attacks such as:                                                              
+
+	* Eavesdropping:                                                            
+	  is when an attacker has access to the data being sent between  two        
+	  trusted  entities.                                                        
+
+	* Malicious  code  injection:                                               
+	  in  this  attack  the  perpetrator injects  malicious code in the system  
+	  to gain access to information or even to gain control of the entire system
+
 ---
-## Non-Repudiation                           
 
-The security property that ensures that the  
-transfer of messages or credentials between 2
-IoT entities is undeniable                   
-Apply this requirement between              
-information transactions                    
-Apply this requirement between              
-information transactions over the Internet  
-Apply this requirement in the Cloud         
-Apply this requirement in the database      
+## Non-Repudiation                                                            
+
+The security property that ensures that the transfer of messages or           
+credentials between 2 IoT entities is undeniable                              
+This requirement is applied between information transactions                  
+This requirement is applied between information transactions over the Internet
+This requirement is applied in the Cloud                                       
+This requirement is applied in the database                                    
+
 ---
-## Accountability                            
 
-The property that ensures that every action  
-can be traced back to a single user or device
-Apply this requirement over Internet         
-transactions                                 
+## Accountability                                                             
 
- By not applying this requirement you may 
-suffer from:                                
-Node Replication:                           
-when an attacker copies the identity of an  
-user and send false data in his name.       
+The property that ensures that every action can be traced back to a single    
+user or device                                                                
+This requirement is applied over Internet transactions                        
+
+Not addressing this requirement may lead to vulnerabilities explored by     
+attacks such as:                                                              
+
+	* Node Replication:                                                         
+	  when an attacker copies the identity of an user and send false data in his
+	  name.                                                                     
+
 ---
-## Reliability                               
 
-Refers to the property that guarantees       
-consistent intended behavior of an a general 
-system, in this case applied to IoT          
-Apply this requirement over Internet         
-transactions
+## Reliability                                                                
+
+Refers to the property that guarantees consistent intended behavior of an a   
+general system, in this case applied to IoT                                   
+This requirement is applied over Internet transactions                        
+
 ---
-## Privacy                                   
 
-In the context of IoT, privacy refers to the 
-control of the user over the disclosure of   
-his data. In other words only the user has   
-control of the sharing of is personal        
-information, is data is only made public if  
-the user allowed it                          
-Apply this requirement were the information  
-is stored                                    
+## Privacy                                                                    
+
+In the context of IoT, privacy refers to the control of the user over the     
+disclosure of his data. In other words only the user has control of the       
+sharing of is personal information, is data is only made public if the user   
+allowed it                                                                    
+This requirement is applied were the information is stored                    
+
 ---
-## Physical Security                         
 
-Refers to the security measures designed to  
-deny unauthorized physical access to IoT     
-devices and equipment, and to protect them   
-from damage or in other words gaining        
-physical access to the device won't give     
-access to it's information                   
-Apply this requirement were the information 
-is stored                                   
-Apply this requirement to the device        
+## Physical Security                                                          
 
- By not applying this requirement you may 
-suffer from:                                
-Physical Attack:                            
-is when the perpetrator gains physical      
-access to the location where the system is  
-operating and tries to gain information     
-stored in the system using his physical     
-access                                      
+Refers to the security measures designed to deny unauthorized physical access 
+to IoT devices and equipment, and to protect them from damage or in other     
+words gaining physical access to the device won't give access to it's         
+information                                                                   
+This requirement is applied were the information is stored                    
+Apply this requirement to the device                                          
+
+Not addressing this requirement may lead to vulnerabilities explored by     
+attacks such as:                                                              
+
+	* Physical Attack:                                                          
+	  is when the perpetrator gains physical access to the location where the   
+	  system is operating and tries to gain information stored in the system    
+	  using his physical access                                                 
+
 ---
-## Forgery Resistance                        
 
-Is the propriety that ensures that the       
-contents shared between entities cannot be   
-forged by a third party trying to damage or  
-harm the system or its users. In other words 
-no one can try to forge content and send it  
-in the name of another entities              
-Apply this requirement in the device        
-Apply this requirement in the Cloud         
-Apply this requirement in the database      
+## Forgery Resistance                                                         
 
- By not applying this requirement you may 
-suffer from:                                
-Impersonation Attack:                       
-in this attack the attacker pretends to be  
-one of the users of the system to fulfill is
-bad intentions.                             
+Is the propriety that ensures that the contents shared between entities cannot
+be forged by a third party trying to damage or harm the system or its users.  
+In other words no one can try to forge content and send it in the name of     
+another entities                                                              
+This requirement is applied in the device                                     
+This requirement is applied in the Cloud                                      
+This requirement is applied in the database                                   
+
+Not addressing this requirement may lead to vulnerabilities explored by     
+attacks such as:                                                              
+
+	* Impersonation Attack:                                                     
+	  in this attack the attacker pretends to be one of the users of the system 
+	  to fulfill is bad intentions.                                             
+
 ---
-## Tamper Detection                            
 
-Ensures all devices are physically secured,    
-such that any tampering attempt is detected    
-Apply this requirement to the device       
+## Tamper Detection                                                           
 
- By not applying this requirement you may 
-suffer from:                               
-Tampering:                                 
-is when a attacker preforms physical       
-modifications on the hardware where the    
-software is implemented                    
-Sinkhole Attack:                           
-in this attack some nods are made more     
-attractive than others by tampering with   
-the routing information, when arriving to  
-the sinkhole node the messages may be      
-dropped or altered                         
+Ensures all devices are physically secured, such that any tampering attempt is
+detected                                                                      
+This requirement is applied in the device                                     
+
+Not addressing this requirement may lead to vulnerabilities explored by     
+attacks such as:                                                              
+
+	* Tampering:                                                                
+	  is when a attacker preforms physical modifications on the hardware where  
+	  the software is implemented                                               
+
+	* Sinkhole Attack:                                                          
+	  in this attack some nods are made more attractive than others by tampering
+ 	  with the routing information, when arriving to the sinkhole node the      
+	  messages may be dropped or altered                                        
+
 ---
-## Data Freshness                            
 
-Status that ensures that data is the most    
-recent, and that old messages are not        
-mistakenly used as fresh or purposely        
-replayed by perpetrators. In other words this
-requirement provides the guarantee that the  
-data displayed is the most recent            
-Apply this requirement in the Cloud         
-Apply this requirement between the          
-communications                              
+## Data Freshness                                                             
+
+Status that ensures that data is the most recent, and that old messages are   
+not mistakenly used as fresh or purposely replayed by perpetrators. In other  
+words this requirement provides the guarantee that the data displayed is the  
+most recent                                                                   
+This requirement is applied in the Cloud                                      
+This requirement is applied between the communications                        
+
 ---
-## Confinement                               
 
-Ensures that even if a party is corrupted,   
-the spreading of the effects of the attack is
-as confined as possible.                     
-Apply this requirement to the entire system 
+## Confinement                                                                
+
+Ensures that even if a party is corrupted, the spreading of the effects of the
+attack is as confined as possible.                                            
+This requirement is applied in the entire system                              
+
 ---
-## Interoperability                          
 
-Is the propriety that ensures that different 
- software communicates and works well with   
-each-other. I.e a software in health-care    
-that works with data that comes from a       
-third-party needs to be able to use and      
-process the information given to it by this  
-software                                     
-Apply this requirement to the entire system 
+## Interoperability                                                           
+
+Is the propriety that ensures that different software communicates and works  
+well with each-other. I.e a software in health-care that works with data that 
+comes from a third-party needs to be able to use and process the information  
+given to it by this software                                                  
+This requirement is applied in the entire system                              
+
 ---
-## Data Origin Authentication                
 
-Ensures that the data being received by the  
-software comes from the source it claims to  
-be. In other words it ensures that the data  
-being received is authentic and from a       
-trusted party                                
-Apply this requirement between the          
-communications                              
+## Data Origin Authentication                                                 
 
- By not applying this requirement you may 
-suffer from:                                
-Replay attack:                              
-is when an attacker gains access to a packet
-and re-sends it when it’s beneficial to him,
-resulting in him gaining the trust of the   
-system.                                     
+Ensures that the data being received by the software comes from the source it 
+claims to be. In other words it ensures that the data being received is       
+authentic and from a trusted party                                            
+This requirement is applied between the communications                        
+
+Not addressing this requirement may lead to vulnerabilities explored by     
+attacks such as:                                                              
+
+	* Replay attack:                                                            
+	  is when an attacker gains access to a packet and re-sends it when it’s    
+	  beneficial to him, resulting in him gaining the trust of the system.      

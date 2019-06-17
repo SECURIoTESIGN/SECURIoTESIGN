@@ -35,7 +35,7 @@ while True :
         print "   Answer\n"
         q0 = raw_input()
         print "\n"
-        if (q0 < '3') :
+        if (q0 < '3'and q0!='') :
                 break
 
 
@@ -92,7 +92,7 @@ else:
             print "   Answer: \n"
             q1 = raw_input()
             print "\n"
-            if (q1 < '7'):
+            if (q1 < '7' and q1!=''):
                 break
 
 
@@ -106,7 +106,7 @@ else:
 
             q2 = raw_input()
             print("\n")
-            if (q2 < '3'):
+            if (q2 < '3'and q2!=''):
                 break;
 
         q2_2 = -1
@@ -121,7 +121,7 @@ else:
 
                 q2_1 = raw_input()
                 print "\n"
-                if (q2_1 < '3'):
+                if (q2_1 < '3'and q2_1!=''):
                     break
 
 
@@ -136,7 +136,7 @@ else:
                 q2_2 = raw_input()
                 print "\n"
 
-                if (q2_2 < '3'):
+                if (q2_2 < '3'and q2_2!=''):
                     break
 
 
@@ -153,7 +153,7 @@ else:
                 q2_3 = raw_input()
                 print "\n"
 
-                if (q2_3 < '3'):
+                if (q2_3 < '3'and q2_3!=''):
                     break
 
 
@@ -171,7 +171,7 @@ else:
                 q2_4 = raw_input()
                 print "\n"
 
-                if (q2_4 < '4'):
+                if (q2_4 < '4'and q2_4!=''):
                     break
 
 
@@ -186,7 +186,7 @@ else:
                 q2_5 = raw_input()
                 print "\n"
 
-                if (q2_5 < '3'):
+                if (q2_5 < '3'and q2_5!=''):
                     break
 
 
@@ -200,7 +200,7 @@ else:
 
             q3 = raw_input()
             print "\n"
-            if (q3 < '3'):
+            if (q3 < '3'and q3!=''):
                 break
 
         q3_1 = -1
@@ -217,7 +217,7 @@ else:
                 q3_1 = raw_input()
                 print "\n"
 
-                if (q3_1 < '3'):
+                if (q3_1 < '3'and q3_1!=''):
                     break
 
 
@@ -231,7 +231,7 @@ else:
             q4 = raw_input()
             print "\n"
 
-            if (q4 < '3'):
+            if (q4 < '3'and q4!=''):
                 break
 
 
@@ -246,7 +246,7 @@ else:
             q5 = raw_input()
             print "\n"
 
-            if (q5 < '3'):
+            if (q5 < '3'and q5!=''):
                 break
 
 
@@ -261,7 +261,7 @@ else:
             q6 = raw_input()
             print "\n"
 
-            if (q6 < '3'):
+            if (q6 < '3'and q6!=''):
                 break
 
 
@@ -275,7 +275,7 @@ else:
             q7 = raw_input()
             print " \n"
 
-            if q7 < '3':
+            if q7 < '3' and q7!='':
                 break
 
 
@@ -290,7 +290,7 @@ else:
             q8 = raw_input()
             print "\n"
 
-            if (q8 < '3'):
+            if (q8 < '3' and q8!=''):
                 break
 
 
@@ -303,35 +303,38 @@ else:
 
             q9 = raw_input()
 
-            if (q9 < '3'):
+            if (q9 < '3'and q9!=''):
                 break
 
 
 
         while True:
             print "#  Question 10 \n"
-            print "## Can someone with bad intentions gain physical access to the location where this \n software will be running and obtain private information? \n"
+            print "## Can someone with bad intentions gain physical access to the location where \n" \
+                  "   this software will be running and obtain private information?              \n"
             print "   1 - Yes \n"
             print "   2 - No \n"
             print "   Answer: \n"
 
             q10 = raw_input()
 
-            if (q10 < '3'):
+            if (q10 < '3'and q10!=''):
                 break
 
 
 
         while True:
             print "#  Question 11 \n"
-            print "## Can someone gain physical access to the machine where the system operates or \n some of the system components and preform some type of modification\n to its hardware? \n"
+            print "## Can someone gain physical access to the machine where the system operates  \n" \
+                  "   or some of the system components and preform some type of modification to  \n" \
+                  "   it's hardware?                                                             \n"
             print "   1 - Yes \n"
             print "   2 - No \n"
             print "   Answer: \n"
 
             q11 = raw_input()
 
-            if (q11 < '3'):
+            if (q11 < '3'and q11!=''):
                 break
 
 
@@ -342,7 +345,7 @@ else:
             print "   Answer: \n"
 
             verbose = raw_input()
-            if (verbose <'3'):
+            if (verbose <'3'and verbose!=''):
                 break
 
         while True:
@@ -353,7 +356,7 @@ else:
 
             qsave= raw_input()
 
-            if(qsave < '3'):
+            if(qsave < '3'and qsave!=''):
                 break
 
         if (qsave == '1'):
@@ -538,356 +541,347 @@ print "# Analysis done check your requirements \n"
 f = open("requirements.txt", "w")
 
 f.write("#   SECURIoTEQUIREMENTS\n"
-        "    The  **SECURIoTEQUIREMENTS** is a custom made program. It helps in the creation of IoT tools with security\n"
-        "    by providing the security requirements before the creation of the tool It is part of the outputs of\n"
-        "    project Project SECURIoTESIGN, with funding  by FCT-Fundação para a Ciência e Tecnologia (Portugal) through\n"
-        "    the  research grant SFRH/BD/133838/2017.\n"
-        "##  License\n "
-        "   Developed by Carolina Lopes and Pedro R. M. Inácio Department of Computer Science Universidade da Beira\n"
-        "    Interior Copyright 2019 Carolina Lopes and Pedro R. M. Inácio  SPDX-License-Identifier: Apache-2.0\n\n" )
+        "    The  **SECURIoTEQUIREMENTS** is a custom made program. It helps in the    \n"
+        "    creation of IoT tools with security by providing the security requirements\n"
+        "    before the creation of the tool It is part of the outputs of project      \n"
+        "    Project SECURIoTESIGN, with funding  by FCT-Fundação para a Ciência e     \n"
+        "    Tecnologia (Portugal) through the  research grant SFRH/BD/133838/2017.    \n"
+        "##  License\n"
+        "    Developed by Carolina Lopes and Pedro R. M. Inácio Department of Computer \n"
+        "    Science Universidade da Beira Interior Copyright 2019 Carolina Lopes and  \n"
+        "    Pedro R. M. Inácio  SPDX-License-Identifier: Apache-2.0                 \n\n" )
 
 
 f.write("# The Requirements to develop your tool are: \n")
+f.write("\n")
 f.write("---\n")
-f.write("---\n")
+f.write("\n")
 
 
 if (confidentiality == 1):
 
     f.write("## Confidentiality                           \n")
     f.write("\n")
-    f.write("The property that ensures that information is\n"
-            "not disclosed or made available to any       \n"
-            "unauthorized entity. In other words,personal \n"
-            "information cannot be accessed by an         \n"
-            "unauthorized third party                     \n")
+    f.write("The property that ensures that information is not disclosed or made available \n"
+            "to any unauthorized entity. In other words,personal information cannot be     \n"
+            "accessed by an unauthorized third party                                       \n")
     if(q2_2 == '1' or q2_3 == '1' or q2_4 == '1' or q2_4 == '2' or q2_4 == '3'):
-        f.write("Apply this requirement were the information \n"
-                "is stored                                   \n")
+        f.write("This requirement is applied were the information is stored                    \n")
 
 if (integrity == 1):
+    f.write("\n")
     f.write("---\n")
+    f.write("\n")
     f.write("## Integrity                                 \n")
     f.write("\n")
-    f.write("Is the property of safeguarding the          \n"
-            "correctness and completeness of assets in an \n"
-            "IoT system. In other words it involves       \n"
-            "maintaining the data consistent, trustworthy \n"
-            "and accurate during it life-cycle            \n")
+    f.write("Is the property of safeguarding the correctness and completeness of assets in\n"
+            "an IoT system. In other words it involves maintaining the data consistent,   \n"
+            "trustworthy and accurate during it life-cycle                                \n")
 
     if(q3_1 == '1'):
-        f.write("Apply this requirement in the Cloud        \n")
+        f.write("This requirement is applied in the Cloud                                 \n")
 
     if (q4 == '1'):
-        f.write("Apply this requirement in the database     \n")
+        f.write("This requirement is applied in the database                              \n")
 
     if (verbose =='1'):
-        f.write("\nBy not applying this requirement you may \n"
-                "suffer from:                               \n")
-        f.write("Sinkhole Attack:                           \n"
-                "in this attack some nods are made more     \n"
-                "attractive than others by tampering with   \n"
-                "the routing information, when arriving to  \n"
-                "the sinkhole node the messages may be      \n"
-                "dropped or altered                         \n")
-        f.write("Malicious  code  injection:                \n"
-                "in  this  attack  the  perpetrator         \n"
-                "injects  malicious code in the system to    \n"
-                "gain access to information or even to gain \n"
-                "control of the entire system                \n")
+        f.write("\nNot addressing this requirement may lead to vulnerabilities explored by     \n"
+                "attacks such as:                                                              \n")
+        f.write("\n")
+        f.write("\t* Sinkhole Attack:                                                          \n"
+                "\t  in this attack some nods are made more attractive than others by tampering\n"
+                "\t  with the routing information, when arriving to the sinkhole node the      \n"
+                "\t  messages may be dropped or altered                                        \n")
+        f.write("\n")
+        f.write("\t* Malicious  code  injection:                                               \n"
+                "\t  in  this  attack  the  perpetrator injects  malicious code in the system  \n"
+                "\t  to gain access to information or even to gain control of the entire system\n")
 
 if (availability == 1):
-    f.write("---\n")
-    f.write("## Availability                              \n")
     f.write("\n")
-    f.write("Refers to the property which ensures that an \n"
-            "IoT device or system is accessible and usable\n"
-            "upon demand by authorized entities. In other \n"
-            "words the device needs to be always available\n"
-            "to access by authorized people               \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Availability                                                               \n")
+    f.write("\n")
+    f.write("Refers to the property which ensures that an IoT device or system is          \n"
+            "accessible and usable upon demand by authorized entities. In other words the  \n"
+            "device needs to be always available to access by authorized people            \n")
     if (q3_1 == '1'):
-        f.write("Apply this requirement in the Cloud         \n")
+        f.write("This requirement is applied in the Cloud                                  \n")
 
     if (q4 == '1'):
-        f.write("Apply this requirement in the database      \n")
+        f.write("This requirement is applied in the database                               \n")
 
     if(q5 == '1'):
-        f.write("Apply this requirement in the system        \n")
+        f.write("This requirement is applied in the system                                 \n")
 
 if (authentication == 1):
-    f.write("---\n")
-    f.write("## Authentication                            \n")
     f.write("\n")
-    f.write("Is the assurance that information transaction\n"
-            "is from the source it claims to be from. The \n"
-            "device authenticates itself prior to         \n"
-            "receiving or transmitting any information.   \n"
-            "It assures that the information received     \n"
-            "is authentic                                 \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Authentication                                                             \n")
+    f.write("\n")
+    f.write("Is the assurance that information transaction is from the source it claims to \n"
+            "be from. The device authenticates itself prior to receiving or transmitting   \n"
+            "any information. It assures that the information received is authentic        \n")
     if(q2_1=='1' or q2_4 == '2' or q2_4 == '3' or q9 == '1'):
-        f.write("Apply this requirement in the device        \n")
+        f.write("This requirement is applied in the device                                     \n")
 
     if(q2_5 == '1'):
-        f.write("Apply this requirement in communications    \n"
-                "via Internet                                \n")
+        f.write("This requirement is applied in the communications via Internet                \n")
 
     if (q3_1 == '1'):
-        f.write("Apply this requirement in the Cloud         \n")
+        f.write("This requirement is applied in the Cloud                                      \n")
 
     if (q4 == '1'):
-        f.write("Apply this requirement in the database      \n")
+        f.write("This requirement is applied in the database                                   \n")
 
     if (verbose == '1'):
-        f.write("\nBy not applying this requirement you may \n"
-                "suffer from:                                \n")
-        f.write("Node Replication:                           \n"
-                "when an attacker copies the identity of an  \n"
-                "user and send false data in his name.       \n")
-        f.write("Sinkhole Attack:                            \n"
-                "in this attack some nods are made more      \n"
-                "attractive than others by tampering with the\n"
-                "routing information, when arriving to the   \n"
-                "sinkhole node the messages may be dropped or \n"
-                "altered.                                    \n")
-        f.write("Impersonation Attack:                       \n"
-                "in this attack the attacker pretends to be  \n"
-                "one of the users of the system to fulfill is\n"
-                "bad intentions.                             \n")
+        f.write("\nNot addressing this requirement may lead to vulnerabilities explored by     \n"
+                "attacks such as:                                                              \n")
+        f.write("\n")
+        f.write("\t* Node Replication:                                                         \n"
+                "\t  when an attacker copies the identity of an user and send false data in his\n"
+                "\t  name.                                                                     \n")
+        f.write("\n")
+        f.write("\t* Sinkhole Attack:                                                          \n"
+                "\t  in this attack some nods are made more attractive than others by tampering\n"
+                "\t  with the routing information, when arriving to the sinkhole node the      \n"
+                "\t  messages may be dropped or altered.                                       \n")
+        f.write("\n")
+        f.write("\t* Impersonation Attack:                                                     \n"
+                "\t  in this attack the attacker pretends to be one of the users of the system \n"
+                "\t  to fulfill is bad intentions.                                             \n")
 
 if (authorization == 1):
-    f.write("---\n")
-    f.write("## Authorization                             \n")
     f.write("\n")
-    f.write("The property that determines whether the user\n"
-            "or device has rights/privileges to access a  \n"
-            "resource, or issue commands                  \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Authorization                                                              \n")
+    f.write("\n")
+    f.write("The property that determines whether the user or device has rights/privileges \n"
+            "to access a resource, or issue commands                                       \n")
     if(q2_4 == '2' or q2_4 == '3'):
-        f.write("Apply this requirement were the information \n"
-                "might be accessed from                      \n")
+        f.write("This requirement is applied were the information might be accessed from       \n")
 
     if(q7 == '1'):
-        f.write("Apply this requirement between the          \n"
-                "communications                              \n")
+        f.write("This requirement is applied between the communications                        \n")
 
     if (verbose == '1'):
-        f.write("\nBy not applying this requirement you may \n"
-                "suffer from:                                \n")
-        f.write("Eavesdropping:                              \n"
-                "is when an attacker has access to the data  \n"
-                "being sent between  two  trusted  entities. \n")
-        f.write("Malicious  code  injection:                \n"
-                "in  this  attack  the  perpetrator         \n"
-                "injects  malicious code in the system to    \n"
-                "gain access to information or even to gain \n"
-                "control of the entire system                \n")
+        f.write("\nNot addressing this requirement may lead to vulnerabilities explored by     \n"
+                "attacks such as:                                                              \n")
+        f.write("\n")
+        f.write("\t* Eavesdropping:                                                            \n"
+                "\t  is when an attacker has access to the data being sent between  two        \n"
+                "\t  trusted  entities.                                                        \n")
+        f.write("\n")
+        f.write("\t* Malicious  code  injection:                                               \n"
+                "\t  in  this  attack  the  perpetrator injects  malicious code in the system  \n"
+                "\t  to gain access to information or even to gain control of the entire system\n")
 
 if (nonRepudiation == 1):
-    f.write("---\n")
-    f.write("## Non-Repudiation                           \n")
     f.write("\n")
-    f.write("The security property that ensures that the  \n"
-            "transfer of messages or credentials between 2\n"
-            "IoT entities is undeniable                   \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Non-Repudiation                                                            \n")
+    f.write("\n")
+    f.write("The security property that ensures that the transfer of messages or           \n"
+            "credentials between 2 IoT entities is undeniable                              \n")
     if (q2_1 == '1' or q2_4 == '3' or q2_5 == '1' ):
-        f.write("Apply this requirement between              \n"
-                "information transactions                    \n")
+        f.write("This requirement is applied between information transactions                  \n")
     if(q3 == '1'):
-        f.write("Apply this requirement between              \n"
-                "information transactions over the Internet  \n")
+        f.write("This requirement is applied between information transactions over the Internet\n")
 
     if (q3_1 == '1'):
-        f.write("Apply this requirement in the Cloud         \n")
+        f.write("This requirement is applied in the Cloud                                       \n")
 
     if (q4 == '1'):
-        f.write("Apply this requirement in the database      \n")
+        f.write("This requirement is applied in the database                                    \n")
 
 if (accountability == 1):
-    f.write("---\n")
-    f.write("## Accountability                            \n")
     f.write("\n")
-    f.write("The property that ensures that every action  \n"
-            "can be traced back to a single user or device\n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Accountability                                                             \n")
+    f.write("\n")
+    f.write("The property that ensures that every action can be traced back to a single    \n"
+            "user or device                                                                \n")
     if(q3 == '1'):
-        f.write("Apply this requirement over Internet         \n"
-                "transactions                                 \n")
+        f.write("This requirement is applied over Internet transactions                        \n")
 
     if (verbose == '1'):
-        f.write("\nBy not applying this requirement you may \n"
-                "suffer from:                                \n")
-        f.write("Node Replication:                           \n"
-                "when an attacker copies the identity of an  \n"
-                "user and send false data in his name.       \n")
+        f.write("\nNot addressing this requirement may lead to vulnerabilities explored by     \n"
+                "attacks such as:                                                              \n")
+        f.write("\n")
+        f.write("\t* Node Replication:                                                         \n"
+                "\t  when an attacker copies the identity of an user and send false data in his\n"
+                "\t  name.                                                                     \n")
 
 if (reliability == 1):
-    f.write("---\n")
-    f.write("## Reliability                               \n")
     f.write("\n")
-    f.write("Refers to the property that guarantees       \n"
-            "consistent intended behavior of an a general \n"
-            "system, in this case applied to IoT          \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Reliability                                                                \n")
+    f.write("\n")
+    f.write("Refers to the property that guarantees consistent intended behavior of an a   \n"
+            "general system, in this case applied to IoT                                   \n")
     if (q3 == '1'):
-        f.write("Apply this requirement over Internet         \n"
-                "transactions\n")
+        f.write("This requirement is applied over Internet transactions                        \n")
 
 if(privacy == 1):
-    f.write("---\n")
-    f.write("## Privacy                                   \n")
     f.write("\n")
-    f.write("In the context of IoT, privacy refers to the \n"
-            "control of the user over the disclosure of   \n"
-            "his data. In other words only the user has   \n"
-            "control of the sharing of is personal        \n"
-            "information, is data is only made public if  \n"
-            "the user allowed it                          \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Privacy                                                                    \n")
+    f.write("\n")
+    f.write("In the context of IoT, privacy refers to the control of the user over the     \n"
+            "disclosure of his data. In other words only the user has control of the       \n"
+            "sharing of is personal information, is data is only made public if the user   \n"
+            "allowed it                                                                    \n")
     if (q2_2 == '1' or q2_3 == '1' or q2_4 == '1' or q2_4 == '2' or q2_4 == '3'):
-        f.write("Apply this requirement were the information  \n"
-                "is stored                                    \n")
+        f.write("This requirement is applied were the information is stored                    \n")
 
 
 if (physicalSecurity ==1):
-    f.write("---\n")
-    f.write("## Physical Security                         \n")
     f.write("\n")
-    f.write("Refers to the security measures designed to  \n"
-            "deny unauthorized physical access to IoT     \n"
-            "devices and equipment, and to protect them   \n"
-            "from damage or in other words gaining        \n"
-            "physical access to the device won't give     \n"
-            "access to it's information                   \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Physical Security                                                          \n")
+    f.write("\n")
+    f.write("Refers to the security measures designed to deny unauthorized physical access \n"
+            "to IoT devices and equipment, and to protect them from damage or in other     \n"
+            "words gaining physical access to the device won't give access to it's         \n"
+            "information                                                                   \n")
 
     if (q2_4 == '1' or q2_4 == '2' or q2_4 == '3' or q4 == '1'):
-        f.write("Apply this requirement were the information \n"
-                "is stored                                   \n")
+        f.write("This requirement is applied were the information is stored                    \n")
 
     if(q10 == '1'):
-        f.write("Apply this requirement to the device        \n")
+        f.write("Apply this requirement to the device                                          \n")
 
     if (verbose == '1'):
-        f.write("\nBy not applying this requirement you may \n"
-                "suffer from:                                \n")
-        f.write("Physical Attack:                            \n"
-                "is when the perpetrator gains physical      \n"
-                "access to the location where the system is  \n"
-                "operating and tries to gain information     \n"
-                "stored in the system using his physical     \n"
-                "access                                      \n")
+        f.write("\nNot addressing this requirement may lead to vulnerabilities explored by     \n"
+                "attacks such as:                                                              \n")
+        f.write("\n")
+        f.write("\t* Physical Attack:                                                          \n"
+                "\t  is when the perpetrator gains physical access to the location where the   \n"
+                "\t  system is operating and tries to gain information stored in the system    \n"
+                "\t  using his physical access                                                 \n")
 
 
 if(forgeryResistance == 1):
-    f.write("---\n")
-    f.write("## Forgery Resistance                        \n")
     f.write("\n")
-    f.write("Is the propriety that ensures that the       \n"
-            "contents shared between entities cannot be   \n"
-            "forged by a third party trying to damage or  \n"
-            "harm the system or its users. In other words \n"
-            "no one can try to forge content and send it  \n"
-            "in the name of another entities              \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Forgery Resistance                                                         \n")
+    f.write("\n")
+    f.write("Is the propriety that ensures that the contents shared between entities cannot\n"
+            "be forged by a third party trying to damage or harm the system or its users.  \n"
+            "In other words no one can try to forge content and send it in the name of     \n"
+            "another entities                                                              \n")
     if (q2_4 == '2' or q2_4 == '3'):
-        f.write("Apply this requirement in the device        \n")
+        f.write("This requirement is applied in the device                                     \n")
     if (q3_1 == '1'):
-        f.write("Apply this requirement in the Cloud         \n")
+        f.write("This requirement is applied in the Cloud                                      \n")
 
     if (q4 == '1'):
-        f.write("Apply this requirement in the database      \n")
+        f.write("This requirement is applied in the database                                   \n")
 
     if (verbose == '1'):
-        f.write("\nBy not applying this requirement you may \n"
-                "suffer from:                                \n")
-        f.write("Impersonation Attack:                       \n"
-                "in this attack the attacker pretends to be  \n"
-                "one of the users of the system to fulfill is\n"
-                "bad intentions.                             \n")
+        f.write("\nNot addressing this requirement may lead to vulnerabilities explored by     \n"
+                "attacks such as:                                                              \n")
+        f.write("\n")
+        f.write("\t* Impersonation Attack:                                                     \n"
+                "\t  in this attack the attacker pretends to be one of the users of the system \n"
+                "\t  to fulfill is bad intentions.                                             \n")
 
 if (tamperDetection == 1):
-    f.write("---\n")
-    f.write("## Tamper Detection                            \n")
     f.write("\n")
-    f.write("Ensures all devices are physically secured,    \n"
-            "such that any tampering attempt is detected    \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Tamper Detection                                                           \n")
+    f.write("\n")
+    f.write("Ensures all devices are physically secured, such that any tampering attempt is\n"
+            "detected                                                                      \n")
     if (q11 == '1'):
-        f.write("Apply this requirement to the device       \n")
+        f.write("This requirement is applied in the device                                     \n")
 
 
     if (verbose =='1'):
-        f.write("\nBy not applying this requirement you may \n"
-                "suffer from:                               \n")
-        f.write("Tampering:                                 \n"
-                "is when a attacker preforms physical       \n"
-                "modifications on the hardware where the    \n"
-                "software is implemented                    \n" )
-        f.write("Sinkhole Attack:                           \n"
-                "in this attack some nods are made more     \n"
-                "attractive than others by tampering with   \n"
-                "the routing information, when arriving to  \n"
-                "the sinkhole node the messages may be      \n"
-                "dropped or altered                         \n")
+        f.write("\nNot addressing this requirement may lead to vulnerabilities explored by     \n"
+                "attacks such as:                                                              \n")
+        f.write("\n")
+        f.write("\t* Tampering:                                                                \n"
+                "\t  is when a attacker preforms physical modifications on the hardware where  \n"
+                "\t  the software is implemented                                               \n" )
+        f.write("\n")
+        f.write("\t* Sinkhole Attack:                                                          \n"
+                "\t  in this attack some nods are made more attractive than others by tampering\n "
+                "\t  with the routing information, when arriving to the sinkhole node the      \n"
+                "\t  messages may be dropped or altered                                        \n")
 
 if (dataFreshness == 1):
-    f.write("---\n")
-    f.write("## Data Freshness                            \n")
     f.write("\n")
-    f.write("Status that ensures that data is the most    \n"
-            "recent, and that old messages are not        \n"
-            "mistakenly used as fresh or purposely        \n"
-            "replayed by perpetrators. In other words this\n"
-            "requirement provides the guarantee that the  \n"
-            "data displayed is the most recent            \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Data Freshness                                                             \n")
+    f.write("\n")
+    f.write("Status that ensures that data is the most recent, and that old messages are   \n"
+            "not mistakenly used as fresh or purposely replayed by perpetrators. In other  \n"
+            "words this requirement provides the guarantee that the data displayed is the  \n"
+            "most recent                                                                   \n")
     if (q3_1 == '1'):
-        f.write("Apply this requirement in the Cloud         \n")
+        f.write("This requirement is applied in the Cloud                                      \n")
 
     if (q8 == '1'):
-        f.write("Apply this requirement between the          \n"
-                "communications                              \n")
+        f.write("This requirement is applied between the communications                        \n")
 
 if (confinement == 1):
-    f.write("---\n")
-    f.write("## Confinement                               \n")
     f.write("\n")
-    f.write("Ensures that even if a party is corrupted,   \n"
-            "the spreading of the effects of the attack is\n"
-            "as confined as possible.                     \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Confinement                                                                \n")
+    f.write("\n")
+    f.write("Ensures that even if a party is corrupted, the spreading of the effects of the\n"
+            "attack is as confined as possible.                                            \n")
     if(q2_5 == '1' or q6 == '1'):
-        f.write("Apply this requirement to the entire system \n")
+        f.write("This requirement is applied in the entire system                              \n")
 
 
 if( interoperability == 1):
-    f.write("---\n")
-    f.write("## Interoperability                          \n")
     f.write("\n")
-    f.write("Is the propriety that ensures that different \n"
-            "software communicates and works well with    \n"
-            "each-other. I.e a software in health-care    \n"
-            "that works with data that comes from a       \n"
-            "third-party needs to be able to use and      \n"
-            "process the information given to it by this  \n"
-            "software                                     \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Interoperability                                                           \n")
+    f.write("\n")
+    f.write("Is the propriety that ensures that different software communicates and works  \n"
+            "well with each-other. I.e a software in health-care that works with data that \n"
+            "comes from a third-party needs to be able to use and process the information  \n"
+            "given to it by this software                                                  \n")
 
     if (q6 == '1'):
-        f.write("Apply this requirement to the entire system \n")
+        f.write("This requirement is applied in the entire system                              \n")
 
 
 if( dataOrigin == 1):
-    f.write("---\n")
-    f.write("## Data Origin Authentication                \n")
     f.write("\n")
-    f.write("Ensures that the data being received by the  \n"
-            "software comes from the source it claims to  \n"
-            "be. In other words it ensures that the data  \n"
-            "being received is authentic and from a       \n"
-            "trusted party                                \n")
+    f.write("---\n")
+    f.write("\n")
+    f.write("## Data Origin Authentication                                                 \n")
+    f.write("\n")
+    f.write("Ensures that the data being received by the software comes from the source it \n"
+            "claims to be. In other words it ensures that the data being received is       \n"
+            "authentic and from a trusted party                                            \n")
     if (q8 == '1'):
-        f.write("Apply this requirement between the          \n"
-                "communications                              \n")
+        f.write("This requirement is applied between the communications                        \n")
 
     if (verbose == '1'):
-        f.write("\nBy not applying this requirement you may  \n"
-                "suffer from:                                \n")
-        f.write("Replay attack:                              \n"
-                "is when an attacker gains access to a packet\n"
-                "and re-sends it when it’s beneficial to him,\n"
-                "resulting in him gaining the trust of the   \n"
-                "system.                                     \n")
+        f.write("\nNot addressing this requirement may lead to vulnerabilities explored by     \n"
+                "attacks such as:                                                              \n")
+        f.write("\n")
+        f.write("\t* Replay attack:                                                            \n"
+                "\t  is when an attacker gains access to a packet and re-sends it when it’s    \n"
+                "\t  beneficial to him, resulting in him gaining the trust of the system.      \n")
 
 
 
