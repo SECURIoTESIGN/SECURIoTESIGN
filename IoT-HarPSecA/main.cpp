@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <windows.h>
 #include <mysql.h>
@@ -32,8 +31,6 @@ int qstate;
 int strength = 0;
 bool authorized_to_be_Admin = false;
 
-
-
 static const char alphanum[] =
 "0123456789"
 "!@$&%^*"
@@ -41,7 +38,6 @@ static const char alphanum[] =
 "abcdefghijklmnopqrstuvwxyz";
 
 int stringLength = sizeof(alphanum) -1;
-
 
 char genRandom()
 {
@@ -60,8 +56,6 @@ std::string generateSalt()
 
 	return salti;
 }
-
-
 
 class Processing_and_Output
 {
@@ -176,9 +170,7 @@ auto Processing_and_Output::mapping1(string userR, string r_1, string r_2, strin
      int flag6 = searchString(userR, r6);
 
     return result {flag1, flag2, flag3, flag4, flag5, flag6};
-
 }
-
 
 //Function that maps user security requirements to security mechanisms. The function returns multiple integer values using tuple.
 auto Processing_and_Output::mapping1b(string userR, string r_1, string r_2, string r_3, string r_4, string r_5, string r_6, string r1, string r2, string r3, string r4, string r5, string r6)
@@ -203,7 +195,6 @@ auto Processing_and_Output::mapping1b(string userR, string r_1, string r_2, stri
      int flag6 = searchString(userR, r6);
 
     return result {flag1, flag2, flag3, flag4, flag5, flag6};
-
 }
 
 
@@ -257,7 +248,6 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
             double fms4 = 1.00, rs4 = 1.00, fms44 = 1.00, rs44 = 1.00; 
             double fms5 = 1.00, rs5 = 1.00, fms55 = 1.00, rs55 = 1.00; 
 
-
         if(flagx == -1)
         {
             num1 = 0; num2 = 0; 
@@ -305,7 +295,6 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
             }
 
         }
-        // Same condition as above but application area (ds) is not sensitive.
         else if((flagx == 1) && (ds != 1) && (cpu_int >= cpu1) && (fms_doub <= 32212254*fms1 && fms_doub >= 2000000*fms11) && (rs_doub <= 10000000*rs1 && rs_doub >= 250000*rs11))
         {
              if(n_SC == 1)
@@ -331,8 +320,7 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
                 num1 = 3; num2 = 0;
                 return result {num1, num2};
             }
-        }
-        
+        } 
         else if((flagx == 1) && (ds != 1) && (cpu_int >= cpu2) && (fms_doub <= 3221225*fms2 && fms_doub >= 100000*fms22) && (rs_doub <= 1000000*rs2 && rs_doub >= 1000*rs22))
         {
               if(n_SC == 1)
@@ -430,14 +418,11 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
                 cctay3 = 1.0, cctaz3 = 1.0, tpy3 = 1.0, tpz3 = 1.0;
             }
 
-
-
         if(flagx == -1)
         {
             num1 = 0; num2 = 0; 
             return result {num1, num2};
         }
-       // If a mechanism exist and the application area (ds) is sensitive.
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay1 && cctax <= cctaz1) && (tpx >= tpy1& tpx <= tpz1))
         {
             if(n_SC == 1)
@@ -451,7 +436,6 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
                 return result {num1, num2};
             }
         }
-       
         else if((flagx == 1) && (ds != 1) && (cctax >= cctay1 && cctax <= cctaz1) && (tpx >= tpy1 && tpx <= tpz1))
         {
              if(n_SC == 1)
@@ -465,7 +449,6 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
                 return result {num1, num2};
             }
         }
-    
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay2 && cctax <= cctaz2) && (tpx >= tpy2 && tpx <= tpz2))
         {
              if(n_SC == 1)//stream cipher needed
@@ -479,7 +462,6 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
                 return result {num1, num2};
             }
         }
-       
         else if((flagx == 1) && (ds != 1) && (cctax >= cctay2 && cctax <= cctaz2) && (tpx >= tpy2 && tpx <= tpz2))
         {
               if(n_SC == 1)//stream cipher needed
@@ -526,7 +508,6 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
         }
 }
 
-
 //Function that suggests the best marching algorithm based on some parameters. The function returns two integers: num1 suggests an algorithm, and num2 indicates whether a stream cipher is needed or not. This function is for hardware requests.
 auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, int n_SC, double cctax, double tpx, string type)
 {
@@ -559,7 +540,6 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
             num1 = 0; num2 = 0; 
             return result {num1, num2};
         }
-       
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay1 && cctax <= cctaz1) && (tpx >= tpy1& tpx <= tpz1))
         {
             if(n_SC == 1)
@@ -573,7 +553,6 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
                 return result {num1, num2};
             }
         }
-     
         else if((flagx == 1) && (ds != 1) && (cctax >= cctay1 && cctax <= cctaz1) && (tpx >= tpy1 && tpx <= tpz1))
         {
              if(n_SC == 1)
@@ -587,7 +566,6 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
                 return result {num1, num2};
             }
         }
-    
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay2 && cctax <= cctaz2) && (tpx >= tpy2 && tpx <= tpz2))
         {
              if(n_SC == 1)
@@ -601,7 +579,6 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
                 return result {num1, num2};
             }
         }
-       
         else if((flagx == 1) && (ds != 1) && (cctax >= cctay2 && cctax <= cctaz2) && (tpx >= tpy2 && tpx <= tpz2))
         {
               if(n_SC == 1)
@@ -667,7 +644,6 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
                 return result {num1, num2}; 
             }
         }
-
         else
         {
             num1 = -1, num2 = 0;
@@ -841,7 +817,7 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
                 return result {num1, num2}; 
             }
         }
-          else if((flagx == 1) && (ds == 1) && (cctax >= cctay6 && cctax <= cctaz6) && (tpx >= tpy6 && tpx <= tpz6))
+        else if((flagx == 1) && (ds == 1) && (cctax >= cctay6 && cctax <= cctaz6) && (tpx >= tpy6 && tpx <= tpz6))
         {
              if(n_SC == 1)
             {
@@ -895,7 +871,6 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
                 cctay5 = 1.0, cctaz5 = 1.0, tpy5 = 1.0, tpz5 = 1.0;
                 cctay6 = 1.0, cctaz6 = 1.0, tpy6 = 1.0, tpz6 = 1.0;
                 cctay7 = 1.0, cctaz6 = 1.0, tpy6 = 1.0, tpz6 = 1.0;
-
             }
             else if(type == "ASIC")
             {
@@ -1240,7 +1215,7 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
                     return result {num1, num2}; 
                 }
             }
-             else if((flagx == 1) && (ds == 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
+            else if((flagx == 1) && (ds == 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
             {
                  if(n_SC == 1)
                 {
@@ -1253,7 +1228,7 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
                     return result {num1, num2};
                 }
             }
-             else if((flagx == 1) && (ds != 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
+            else if((flagx == 1) && (ds != 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
             {
                   if(n_SC == 1)
                 {
@@ -1322,7 +1297,7 @@ auto Processing_and_Output::mapping2(int flag1, int flag2, int flag3, int flag4,
        int needFor_SC = Check_if_streamCipherNeeded(ps);
        int n_SC = needFor_SC; 
 
-        auto s_MA_result1 = select_MarchingAlgo(flag1, ds, n_SC, cpu_int, fms_doub, rs_doub); 
+       auto s_MA_result1 = select_MarchingAlgo(flag1, ds, n_SC, cpu_int, fms_doub, rs_doub); 
        algo1 = s_MA_result1.n1; ps1 = s_MA_result1.n2;
 
        auto s_MA_result2 = select_MarchingAlgo(flag2, ds, n_SC, cpu_int, fms_doub, rs_doub);
@@ -1391,7 +1366,6 @@ auto Processing_and_Output::mapping2Hardware(int flag1, int flag2, int flag3, in
 
     return result {algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6};
 }
-
 
 //Function that fetches appropriate algorithms from the database
 string Processing_and_Output::fetch_Algo(string IDx)
@@ -1882,7 +1856,6 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
   return result {algName1, algName2, algName3, algName4, algName5, algName6};
 }
 
-
 //Function that displays the result of the mapping of security mechanisms to security algorithms for hardware requests
 auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int algo3, int algo4, int algo5, int algo6, int ps1, int ps4, int ps6, string energy)
 {
@@ -2256,7 +2229,6 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                         alg3_name = fetch_Algo(ID3);
                     }
 
-
                     if(algo5 != 0)
                     {
                         if(algo5 == 1)
@@ -2498,7 +2470,6 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                           }
                         }
 
-
                         if(algo4 != 0)
                         {
                             if(ps4 != 1) //Block Ciphers for Ultra-Low Energy (User privacy)
@@ -2638,7 +2609,6 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                            alg4_name = fetch_Algo(ID4);
                         }
 
-
                          if(algo2 != 0)
                         {
                             if(algo2 == 1)
@@ -2728,7 +2698,6 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                             }
                           alg3_name =  fetch_Algo(ID3);
                         }
-
 
                         if(algo5 != 0)
                         {
@@ -2874,7 +2843,6 @@ void Processing_and_Output::format_Print_output(string s1, string s2, string s3,
          algo_name6 = "*No matching Algo found!";
      }
 
-
                 cout << left << setw(38) << setfill('-') << left << '+'
                 << setw(30) << setfill('-') << left << '+'
                 << setw(26)<< setfill('-') << '+' << '+' << endl;
@@ -2954,7 +2922,6 @@ void Processing_and_Output::format_Print_output(string s1, string s2, string s3,
     }
 }
 
-
 //Function that formats the final output which is printed in a text file
 void Processing_and_Output::format_TextOutput(string s1, string s2, string s3, string s4, string s5, string s6, int f1, int f2, int f3, int f4, int f5, int f6, string algo_name1, string algo_name2, string algo_name3, string algo_name4, string algo_name5, string algo_name6, double total_reqWeight,  double fms, double rs, double fms_, double rs_, string request_id)
 {
@@ -2999,7 +2966,6 @@ void Processing_and_Output::format_TextOutput(string s1, string s2, string s3, s
          {
             file << "\nYOUR SECURITY REQUIREMENTS AND RECOMMENDED SECURITY MECHANISMS AND SECURITY ALGORITHMS ARE: \n" << endl;
          }
-
 
           file << setfill(' ') << ' ' << left << setw(37) << "SECURITY REQUIREMENT(S)"
                 << setfill(' ') << ' ' << setw(29) << "SECURITY MECHANISM(S)"
@@ -3410,7 +3376,7 @@ class UserInput
 	//A Function that returns how many integers are in a string, returns the length of the string, and returns the first character of the string
     auto UserInput::countDigits_lengthOfString_firstCharacter(string& st)
     {
-       struct result //This structure enables the function to return two integers as opposed to just one integer.
+       struct result 
                 {
                     int n1;
                     int n2;
@@ -3582,11 +3548,11 @@ class UserInput
                         std::cout<<"\n\n\tSelect Your Option (1-2): ";
 
                        string state1;
-						std::cin>>ch;
+		       std::cin>>ch;
 
-						switch(ch)
-						{
-						case '1':
+		switch(ch)
+		{
+			case '1':
                             state1= "1";
                             state = "On";
                             break;
@@ -3594,10 +3560,10 @@ class UserInput
                             state1 = "0";
                             state = "Off";
                             break;
-						default:
-							std::cout << "\tSorry! Wrong option selected." << std:: endl;
+	     		default:
+			    std::cout << "\tSorry! Wrong option selected." << std:: endl;
                         goto level0;
-						}
+		 }
 
                     char cho;
                     level2:
