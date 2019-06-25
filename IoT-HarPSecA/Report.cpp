@@ -1,4 +1,4 @@
-Report.h
+/* Report.h */
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef REPORT_H
@@ -47,7 +47,7 @@ class Report
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Report.cpp
+/* Report.cpp */
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -66,24 +66,6 @@ void Report::formatReport_for_Consle(string request_id, int flag, string algo_na
        //Function that formats the report that will be displayed on the Console
         if(flag == 1)
         {
-          /*
-           // system("cls");
-           // std::cout << "\n" "***********************************************************************************************************" << endl;
-            std::cout << "\n\t\t    A BRIEF OVERVIEW OF THE FUNCTIONALITY OF THE IoT-HarPSecA TOOL " <<endl <<endl;
-            std::cout << "  The Requirement Elicitation component of this tool can generate diverse security requirements, hence\n";
-            std::cout << "  its application is not limited to the IoT. It can be used to generate security requirements for stan- \n";
-            std::cout << "  dard computer systems. However, the application of the tool's component that recommends security \n";
-            std::cout << "  algorithms does not extend to the standard security algorithms. Its application is only limited to the\n";
-            std::cout << "  IoT space because it can only recommend lightweight security algorithms suitable for resource-constra-\n";
-            std::cout << "  ined environments, which can be implemented in software or hardware.\n";
-
-
-            //The Requirement Elicitation component of this tool can generate diverse security requirements, hence its application is not
-           // limited to the IoT. It can be used to generate security requirements for standard computer systems. However, the application
-             //of the tool's component that recommends security algorithms does not extend to the standard security algorithms. Its application
-             //is only limited to the IoT space because it can only recommend lightweight security algorithms suitable for resource-constrained
-             // environments, which can be implemented in software or hardware.
-*/
                 std::cout << endl << endl;
                 std::cout << "\n\t\t     A REPORT ON THE REQUEST OF THE USER WITH REQUEST ID No.: " << request_id <<endl <<endl;
                 std::cout << "   This report consists of brief information about the recommended Lightweight Cryptographic Algorithms\n";
@@ -207,15 +189,6 @@ void Report::formatReport_for_Consle(string request_id, int flag, string algo_na
         }
         else if(flag == 2)
         {
-          /*
-            std::cout << endl << endl;
-                std::cout << "\n\t\t    A REPORT ON THE REQUEST OF THE USER WITH REQUEST ID No.: " << request_id <<endl <<endl;
-                std::cout << "  The Requirement Elicitation component of this tool can generate diverse security requirements, hence\n";
-                std::cout << "  its application is not limited to IoT. It can be used to generate security requirements for standard\n";
-                std::cout << "  computer systems. However, the application of the tool's component that recommends security algorithms\n";
-                std::cout << "  is only limited to the IoT Space because it can only recommend lightweight security algorithms that can\n";
-                std::cout << "  be implemented in software or hardware, and not standard security algorithms.\n";
-           */
                 std::cout << endl << endl;
                 std::cout << "\n\t\t     A REPORT ON THE REQUEST OF THE USER WITH REQUEST ID No.: " << request_id <<endl <<endl;
                 std::cout << "   This report consists of brief information about the recommended Lightweight Cryptographic Algorithms\n";
@@ -272,7 +245,6 @@ void Report::formatReport_for_Consle(string request_id, int flag, string algo_na
                  }
                    counter = 0;
             }
-
 }
 
 
