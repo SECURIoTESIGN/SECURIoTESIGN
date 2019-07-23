@@ -19,8 +19,8 @@ confinement = 0
 interoperability = 0
 dataOrigin = 0
 
-print ("#   SECloudMobilEQUIREMENTS\n"
-        "    The  **SECloudMobilEQUEREMENTS** is a custom made program. It helps in the creation of cloud and mobile tools apps security\n"
+print ("#   SECURECloudMobilEQUIREMENTS\n"
+        "    The  **SECURECloudMobilEQUIREMENTS** is a custom made program. It helps in the creation of cloud and mobile tools apps security\n"
         "    by providing the security requirements before the creation of the tool It is part of the outputs of\n"
         "    project Systematization of the Security Engineering Process in the Cloud and Mobile Ecosystem \n"
         "##  License\n "
@@ -917,8 +917,8 @@ print ("# Analysis done! Check your requirements \n")
 
 f = open("requirements.txt", "w")
 
-f.write("#   SECloudMobilEQUIREMENTS                                                                              \n"
-        "    The  **SECloudMobilEQUIREMENTS** is a custom made program. It helps in the                           \n"
+f.write("#   SECURECloudMobilEQUIREMENTS                                                                              \n"
+        "    The  **SECURECloudMobilEQUIREMENTS** is a custom made program. It helps in the                           \n"
         "    creation of Cloud and Mobile tools with security by providing the security requirements              \n"
         "    before the creation of the tool It is part of the outputs of PHD Thesis  entitled                    \n"
         "    Systematization of the Security Engineering Process in the Cloud and Mobile Ecosystem.               \n" 
