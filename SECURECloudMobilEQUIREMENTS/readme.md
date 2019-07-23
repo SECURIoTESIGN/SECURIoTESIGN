@@ -9,4 +9,4 @@ Engineering Process in Cloud and Mobile Ecosystem.
 
  # Installation  
    * Install Python 3x;
-   * Run the application from IDLE, Visual Studio Code, PyCharme or another compatible IDE to the Python programming language.
+   * Run the application from IDLE, Visual Studio Code, PyCharm or another compatible IDE to the Python programming language.
