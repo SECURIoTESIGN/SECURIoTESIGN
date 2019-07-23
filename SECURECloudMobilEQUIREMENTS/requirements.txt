@@ -1,6 +1,6 @@
-#   SECloudMobilEQUIREMENTS\n"
+#   SECURECloudMobilEQUIREMENTS\n"
 
-The  **SECloudMobilEQUEREMENTS** is a custom made program. It helps in the creation of cloud and mobile apps with security by providing the security requirements before the creation of the tool. It is part of the outputs of project Systematization of the Security Engineering Process in the Cloud and Mobile Ecosystem.
+The  **SECURECloudMobilEQUIREMENTS** is a custom made program. It helps in the creation of cloud and mobile apps with security by providing the security requirements before the creation of the tool. It is part of the outputs of project Systematization of the Security Engineering Process in the Cloud and Mobile Ecosystem.
 
 ##  License
 Developed by Francisco Chimuco and Pedro R. M. Inácio Department of Computer Science Universidade da Beira Interior Copyright 2019 Francisco Chimuco and Pedro R. M. Inácio  SPDX-License-Identifier:   Apache-2.0
