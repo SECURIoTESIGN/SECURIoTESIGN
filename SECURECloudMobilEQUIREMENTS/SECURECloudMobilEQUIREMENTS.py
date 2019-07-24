@@ -22,7 +22,7 @@ dataOrigin = 0
 print ("#   SECURECloudMobilEQUIREMENTS\n"
         "    The  **SECURECloudMobilEQUIREMENTS** is a custom made program. It helps in the creation of cloud and mobile tools apps security\n"
         "    by providing the security requirements before the creation of the tool It is part of the outputs of\n"
-        "    project Systematization of the Security Engineering Process in the Cloud and Mobile Ecosystem \n"
+        "    project ystematization of the Safety Engineering Process in the Cloud and Mobile Ecosystem. \n"
         "##  License\n "
         "    Developed by Francisco Chimuco and Pedro R. M. Inácio Department of Computer Science Universidade da Beira\n"
         "    Interior Copyright 2019 Francisco and Pedro R. M. Inácio  SPDX-License-Identifier: Apache-2.0\n")
@@ -921,7 +921,7 @@ f.write("#   SECURECloudMobilEQUIREMENTS                                        
         "    The  **SECURECloudMobilEQUIREMENTS** is a custom made program. It helps in the                           \n"
         "    creation of Cloud and Mobile tools with security by providing the security requirements              \n"
         "    before the creation of the tool It is part of the outputs of PHD Thesis  entitled                    \n"
-        "    Systematization of the Security Engineering Process in the Cloud and Mobile Ecosystem.               \n" 
+        "    ystematization of the Safety Engineering Process in the Cloud and Mobile Ecosystem.               \n" 
         "##  License                                                                                              \n"
         "    Developed by Francisco T. Chimuco and Pedro R. M. Inácio Department of Computer                      \n"
         "    Science Universidade da Beira Interior Copyright 2019 Francisco T. Chimuco and                       \n"
