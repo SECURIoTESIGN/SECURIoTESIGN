@@ -5,10 +5,10 @@ to which the user (software developer) is submitted. The tool is part of the out
 project Systematization of the Safety Engineering Process in the Cloud and Mobile Ecosystem.
 
 # Installation
- * Graph::Easy *
+ * Graph::Easy
   * Need perl install
   * install Graph::Easy --- See https://metacpan.org/release/Graph-Easy
- # Other Packages
+ * Other Packages
   * pip install markdown
   * pip install xhtml2pdf
   * pip install svgli
