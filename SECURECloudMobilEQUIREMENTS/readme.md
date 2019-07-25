@@ -7,5 +7,5 @@ generated as a consequence of not incorporating security mechanisms that guarant
 security requirement. It is part of the outputs of project Systematization of the Safety Engineering Process in the Cloud and Mobile Ecosystem.
 
  # Installation  
-   * Install Python 3x;
+   * Install Python 3.x;
    * Run the application from IDLE, Visual Studio Code, PyCharm or another compatible IDE to the Python programming language.
