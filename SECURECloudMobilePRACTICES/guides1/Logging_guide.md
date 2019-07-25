@@ -1,6 +1,7 @@
 ## Logging and Error Handling 
 
 **Purpose of logging**
+
 Application logging should be always be included for security events. Application logs are invaluable data for:
 
 Identifying security incidents	
