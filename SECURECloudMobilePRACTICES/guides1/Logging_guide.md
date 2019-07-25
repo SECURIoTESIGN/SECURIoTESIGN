@@ -2,15 +2,14 @@
 
 **Purpose of logging**
 
-Application logging should be always be included for security events. Application logs are invaluable data for:
-
-Identifying security incidents	
-Monitoring policy violations	
-Establishing baselines	
-Assisting non-repudiation controls	
-Providing information about problems and unusual conditions	
-Contributing additional application-specific data for incident investigation which is lacking in other log sources	
-Helping defend against vulnerability identification and exploitation through attack detection	
+*Application logging should be always be included for security events. Application logs are invaluable data for:
+*Identifying security incidents	
+*Monitoring policy violations	
+*Establishing baselines	
+*Assisting non-repudiation controls	
+*Providing information about problems and unusual conditions	
+*Contributing additional application-specific data for incident investigation which is lacking in other log sources	
+*Helping defend against vulnerability identification and exploitation through attack detection	
 
 > Each log entry needs to include sufficient information for the intended subsequent monitoring and analysis. It could be full content data, but is more likely to be an extract or just summary properties.
 
