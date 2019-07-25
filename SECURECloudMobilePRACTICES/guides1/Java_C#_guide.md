@@ -1,4 +1,4 @@
-## Java and C# Security Flavour Implementation
+## Secure Java and C # Deployment
 
 Since mobile-application security for the permissions-based Android platform and currently use Java and C# programming languages, in order to ensure security in the software, the SDLC should take into account the following procedures:
 
