@@ -134,7 +134,7 @@ else:
             print("   8 - Multi-user Collaboration \n")
             print("   9 - Entertainment \n")
             print("  10 - Smart Agriculture \n")
-            print("  11 - Smart Air Quality; \n")
+            print("  11 - Smart Air Quality \n")
             print("  12 - Smart Healthcare \n")
             print("  13 - Smart Home \n")
             print("  14 - Smart Manufacturing \n")
