@@ -1,6 +1,6 @@
 ## Authentication
 
-**Authentication** is the process of verification that an individual, entity or website is who it claims to be. Authentication in the context of mobile applications is commonly performed by submitting a user name or ID and one or more items of private information that only a given user should know. 
+**Authentication** is the process of verification that an individual, entity or website is who it claims to be. Authentication in the context of mobile or web applications is commonly performed by submitting a user name or ID and one or more items of private information that only a given user should know. 
 
 **User ID's**		
 Make sure your usernames/userids are case insensitive.	
