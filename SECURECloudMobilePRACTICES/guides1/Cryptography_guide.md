@@ -41,7 +41,7 @@ CCM or GCM are approved Authenticated Encryption modes based on AES algorithm.
 * If a password is being used to protect keys then the password strength should be sufficient for the strength of the keys it is protecting.  * When 3DES is used, ensure K1 != K2 != K3, and the minimum key length must be 192 bits .  
 * Do not use ECB mode for encrypting lots of data (the other modes are better because they chain the blocks of data together to improve the data security).
 
-## Use strong random numbers**	
+## Use strong random numbers	
 
  * Ensure that all random numbers, especially those used for cryptographic parameters (keys, IV's, MAC tags), random file names, random GUIDs, and random strings are generated in a cryptographically strong fashion. 
  * Ensure that random algorithms are seeded with sufficient entropy. 
