@@ -105,17 +105,16 @@ question2 = {
 "5" : "m-Learning",
 "6" : "m-Payment",
 "7" : "m-Social Networking",
-"8" : "Multi-user Collaboration",
+"8" : "Multi User Collaboration",
 "9" : "m-Tourism",
 "10" : "Smart Agriculture",
 "11" : "Smart Air Quality",
-"12" : "Smart City",
-"13" : "Smart Healthcare",
-"14" : "Smart Home",
-"15" : "Smart Manufacturing",
-"16" : "Smart Transportation",
-"17" : "Smart Waste Monitoring",
-"18" : "Smart Wearables"
+"12" : "Smart Healthcare",
+"13" : "Smart Home",
+"14" : "Smart Manufacturing",
+"15" : "Smart Transportation",
+"16" : "Smart Waste Monitoring",
+"17" : "Smart Wearables"
 }
 
 question3 = {
@@ -410,8 +409,8 @@ def domain(version):
 	print("  5 - m-Learning ")
 	print("  6 - m-Payment ")
 	print("  7 - m-Social Networking ")
-	print("  8 - m-Tourism ")
-	print("  9 - m-Mult User Collaboration ")
+	print("  8 - Multi User Collaboration ")
+	print("  9 - m-Tourism ")
 	print(" 10 - Smart Agriculture ")
 	print(" 11 - Smart Air Quality ")
 	print(" 12 - Smart Healthcare ")
