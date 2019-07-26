@@ -10,7 +10,7 @@ An architectural decision must be made to determine the appropriate method to pr
  * Cryptographic means are not mixed with each other: e.g. you do not sign with a public key, or try to reuse a keypair used for a signature to do encryption.
  * Cryptographic parameters are well defined within reasonable range. This includes, but is not limited to: cryptographic salt, which should be at least the same length as hash function output, reasonable choice of password derivation function and iteration count (e.g. PBKDF2, scrypt or bcrypt), IVs being random and unique, fit-for-purpose block encryption modes (e.g. ECB should not be used, except specific cases), key management being done properly (e.g. 3DES should have three independent keys) and so on.
  
-* Recommended Algorithms: *
+## Recommended Algorithms:
  * Confidentiality algorithms: AES-GCM-256 or ChaCha20-Poly1305;
  * Integrity algorithms: SHA-256, SHA-384, SHA-512, Blake2;
  * Digital signature algorithms: RSA (3072 bits and higher), ECDSA with NIST P-384;
@@ -20,7 +20,7 @@ An architectural decision must be made to determine the appropriate method to pr
 Additionally, you should always rely on secure hardware (if available) for storing encryption keys, performing cryptographic operations, etc.
 
 
-**Secure Cryptographic Storage Design:** 
+## Secure Cryptographic Storage Design: 
 
  * All protocols and algorithms for authentication and secure communication should be well vetted by the cryptographic community. 
  * Ensure certificates are properly validated against the hostnames users  whom they are meant for. 
@@ -28,10 +28,10 @@ Additionally, you should always rely on secure hardware (if available) for stori
  * Maintain a cryptographic standard to ensure that the developer community knows about the approved ciphersuits for network security protocols, algorithms, permitted use, cryptoperiods and Key Management. 
  * Only store sensitive data that you need 
 
-**Use strong approved Authenticated Encryption**		
+## Use strong approved Authenticated Encryption		
 CCM or GCM are approved Authenticated Encryption modes based on AES algorithm. 
 
-**Use strong approved cryptographic algorithms** 
+## Use strong approved cryptographic algorithms 
 
 * Do not implement an existing cryptographic algorithm on your own, no matter how easy it appears. * Instead, use widely accepted algorithms and widely accepted implementations.  
 * Only use approved public algorithms such as AES, RSA public key cryptography, and SHA-256 or better for hashing. 
@@ -41,7 +41,7 @@ CCM or GCM are approved Authenticated Encryption modes based on AES algorithm.
 * If a password is being used to protect keys then the password strength should be sufficient for the strength of the keys it is protecting.  * When 3DES is used, ensure K1 != K2 != K3, and the minimum key length must be 192 bits .  
 * Do not use ECB mode for encrypting lots of data (the other modes are better because they chain the blocks of data together to improve the data security).
 
-**Use strong random numbers**	
+## Use strong random numbers**	
 
  * Ensure that all random numbers, especially those used for cryptographic parameters (keys, IV's, MAC tags), random file names, random GUIDs, and random strings are generated in a cryptographically strong fashion. 
  * Ensure that random algorithms are seeded with sufficient entropy. 
@@ -50,8 +50,8 @@ reading e.g. 128MB of data from the RNG source and then assessing its randomness
 
 The following libraries are considered weak random numbers generators and should not be used: 
 
-C library: random(), rand(), use getrandom(2) instead		
-Java library: java.util.Random() instead use java.security.SecureRandom instead		
+ * C library: random(), rand(), use getrandom(2) instead		
+ * Java library: java.util.Random() instead use java.security.SecureRandom instead		
 For secure random number generation, refer to NIST SP 800-90A. CTR-DRBG, HASH-DRBG, HMAC-DRBG are recommended
 
 
