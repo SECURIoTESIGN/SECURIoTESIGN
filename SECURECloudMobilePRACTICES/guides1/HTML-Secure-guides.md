@@ -1,9 +1,9 @@
-## Html secure fashion
+# Html secure fashion
 Below are some good security engineering practices that serve as a guide to implementing HTML 5 in building mobile applications in a secure way.
-** Communication APIs **
-*Web Messaging*
+## Communication APIs
+### Web Messaging
 Web Messaging (also known as Cross Domain Messaging) provides a means of messaging between documents from different origins in a way that is generally safer than the multiple hacks used in the past to accomplish this task. However, there are still some recommendations to keep in mind:
-*When posting a message, explicitly state the expected origin as the second argument to postMessage rather than  in order to prevent sending the message to an unknown origin after a redirect or some other means of the target window's origin changing.
+ * When posting a message, explicitly state the expected origin as the second argument to postMessage rather than  in order to prevent sending the message to an unknown origin after a redirect or some other means of the target window's origin changing.
 *The receiving page should always: 1) Check the origin attribute of the sender to verify the data is originating from the expected location; 2) Perform input validation on the data attribute of the event to ensure that it's in the desired format.
 *Don't assume you have control over the data attribute. A single Cross Site Scripting flaw in the sending page allows an attacker to send messages of any given format.
 *Both pages should only interpret the exchanged messages as data. Never evaluate passed messages as code (e.g. via eval()) or insert it to a page DOM (e.g. via innerHTML), as that would create a DOM-based XSS vulnerability. For more information see DOM based XSS Prevention Cheat Sheet.
