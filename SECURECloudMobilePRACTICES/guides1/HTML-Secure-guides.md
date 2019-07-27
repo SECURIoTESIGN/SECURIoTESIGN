@@ -10,7 +10,7 @@ Web Messaging (also known as Cross Domain Messaging) provides a means of messagi
  * To assign the data value to an element, instead of using a insecure method like element.innerHTML=data;, use the safer option: element.textContent=data;
  * Check the origin properly exactly to match the FQDN(s) you expect. Note that the following code: if(message.origin.indexOf(".owasp.org")!=-1) { /* ... */ } is very insecure and will not have the desired behavior as www.owasp.org.attacker.com will match.
  * If you need to embed external content/untrusted gadgets and allow user-controlled scripts (which is highly discouraged), consider using a JavaScript rewriting framework such as Google Caja or check the information on sandboxed frames.
- * Cross Origin Resource Sharing*
+### Cross Origin Resource Sharing
  * Validate URLs passed to XMLHttpRequest.open. Current browsers allow these URLs to be cross domain; this behavior can lead to code injection by a remote attacker. Pay extra attention to absolute URLs.
  * Ensure that URLs responding with Access-Control-Allow-Origin: * do not include any sensitive content or information that might aid attacker in further attacks. Use the Access-Control-Allow-Origin header only on chosen URLs that need to be accessed cross-domain. Don't use the header for the whole domain.
  * Allow only selected, trusted domains in the Access-Control-Allow-Origin header. Prefer whitelisting domains over blacklisting or allowing any domain (do not use * wildcard nor blindly return the Origin header content without any checks).
@@ -29,60 +29,35 @@ Web Messaging (also known as Cross Domain Messaging) provides a means of messagi
  * When implementing servers, check the Origin: header in the Websockets handshake. Though it might be spoofed outside a browser, browsers always add the Origin of the page that initiated the Websockets connection.
  * As a WebSockets client in a browser is accessible through JavaScript calls, all Websockets communication can be spoofed or hijacked through Cross Site Scripting. Always validate data coming through a WebSockets connection.
 ### Server-Sent Events
-*Validate URLs passed to the EventSource constructor, even though only same-origin URLs are allowed.
-*As mentioned before, process the messages (event.data) as data and never evaluate the content as HTML or script code.
-*Always check the origin attribute of the message (event.origin) to ensure the message is coming from a trusted domain. Use a whitelist approach.
-### Storage APIs
-#### Local Storage
+ * Validate URLs passed to the EventSource constructor, even though only same-origin URLs are allowed.
+ * As mentioned before, process the messages (event.data) as data and never evaluate the content as HTML or script code.
+ * Always check the origin attribute of the message (event.origin) to ensure the message is coming from a trusted domain. Use a whitelist approach.
+## Storage APIs
+### Local Storage
  * Also known as Offline Storage, Web Storage. Underlying storage mechanism may vary from one user agent to the next. In other words, any authentication your application requires can be bypassed by a user with local privileges to the machine on which the data is stored. Therefore, it's recommended not to store any sensitive information in local storage.
  * Use the object sessionStorage instead of localStorage if persistent storage is not needed. sessionStorage object is available only to that window/tab until the window is closed.
-*A single Cross Site Scripting can be used to steal all the data in these objects, so again it's recommended not to store sensitive information in local storage.
-*A single Cross Site Scripting can be used to load malicious data into these objects too, so don't consider objects in these to be trusted.
-*Pay extra attention to “localStorage.getItem” and “setItem” calls implemented in HTML5 page. It helps in detecting when developers build solutions that put sensitive information in local storage, which is a bad practice.
-*Do not store session identifiers in local storage as the data is always accesible by JavaScript. Cookies can mitigate this risk using the httpOnly flag.
-*There is no way to restrict the visibility of an object to a specific path like with the attribute path of HTTP Cookies, every object is shared within an origin and protected with the Same Origin Policy. Avoid host multiple applications on the same origin, all of them would share the same localStorage object, use different subdomains instead.
-Client-side databases
-Use a new standard Indexed Database API or IndexedDB (formerly WebSimpleDB) is actively developed, which provides key/value database storage and methods for performing advanced queries.
-It's recommended not to store any sensitive information in local storage.
+ * A single Cross Site Scripting can be used to steal all the data in these objects, so again it's recommended not to store sensitive information in local storage.
+ * A single Cross Site Scripting can be used to load malicious data into these objects too, so don't consider objects in these to be trusted.
+ * Pay extra attention to “localStorage.getItem” and “setItem” calls implemented in HTML5 page. It helps in detecting when developers build solutions that put sensitive information in local storage, which is a bad practice.
+ * Do not store session identifiers in local storage as the data is always accesible by JavaScript. Cookies can mitigate this risk using the httpOnly flag.
+ * There is no way to restrict the visibility of an object to a specific path like with the attribute path of HTTP Cookies, every object is shared within an origin and protected with the Same Origin Policy. Avoid host multiple applications on the same origin, all of them would share the same localStorage object, use different subdomains instead.
+### Client-side databases
+ * Use a new standard Indexed Database API or IndexedDB (formerly WebSimpleDB) is actively developed, which provides key/value database storage and methods for performing advanced queries.
+ * It's recommended not to store any sensitive information in local storage.
 If utilized, WebDatabase content on the client side can be vulnerable to SQL injection and needs to have proper validation and parameterization.
-Like Local Storage, a single Cross Site Scripting can be used to load malicious data into a web database as well. Don't consider data in these to be trusted.
-Geolocation
-•	The Geolocation RFC recommends that the user agent ask the user's permission before calculating location. Whether or how this decision is remembered varies from browser to browser. Some user agents require the user to visit the page again in order to turn off the ability to get the user's location without asking, so for privacy reasons, it's recommended to require user input before calling getCurrentPosition or watchPosition.
-Sandboxed frames
-•	Use the sandbox attribute of an iframe for untrusted content.
-•	The sandbox attribute of an iframe enables restrictions on content within an iframe. The following restrictions are active when the sandbox attribute is set:
-i.	All markup is treated as being from a unique origin.
-ii.	All forms and scripts are disabled.
-iii.	All links are prevented from targeting other browsing contexts.
-iv.	All features that trigger automatically are blocked.
-v.	All plugins are disabled.
-Offline Applications
-•	Whether the user agent requests permission from the user to store data for offline browsing and when this cache is deleted, varies from one browser to the next. Cache poisoning is an issue if a user connects through insecure networks, so for privacy reasons it is encouraged to require user input before sending any manifest file.
-•	Users should only cache trusted websites and clean the cache after browsing through open or insecure networks.
-HTTP Headers to enhance security
+ * Like Local Storage, a single Cross Site Scripting can be used to load malicious data into a web database as well. Don't consider data in these to be trusted.
+## Geolocation
+ * The Geolocation RFC recommends that the user agent ask the user's permission before calculating location. Whether or how this decision is remembered varies from browser to browser. Some user agents require the user to visit the page again in order to turn off the ability to get the user's location without asking, so for privacy reasons, it's recommended to require user input before calling getCurrentPosition or watchPosition.
+## Sandboxed frames
+ * Use the sandbox attribute of an iframe for untrusted content.
+ * The sandbox attribute of an iframe enables restrictions on content within an iframe. The following restrictions are active when the sandbox attribute is set:
+   * All markup is treated as being from a unique origin.
+   * All forms and scripts are disabled.
+   * All links are prevented from targeting other browsing contexts.
+   * All features that trigger automatically are blocked.
+   * All plugins are disabled.
+## Offline Applications
+ * Whether the user agent requests permission from the user to store data for offline browsing and when this cache is deleted, varies from one browser to the next. Cache poisoning is an issue if a user connects through insecure networks, so for privacy reasons it is encouraged to require user input before sending any manifest file.
+ * Users should only cache trusted websites and clean the cache after browsing through open or insecure networks.
+## HTTP Headers to enhance security
 Consult the project OWASP Secure Headers in order to obtains the list of HTTP security headers that an application should use to enable defenses at browser level.
-WebSocket implementation hints
-In addition to the elements mentioned above, this is the list of areas for which caution must be taken during the implementation.
-•	Access filtering through the "Origin" HTTP request header
-•	Input / Output validation
-•	Authentication
-•	Authorization
-•	Access token explicit invalidation
-•	Confidentiality and Integrity
-The section below will propose some implementation hints for every area and will go along with an application example showing all the points described.
-The complete source code of the example application is available here.
-Access filtering
-During a websocket channel initiation, the browser sends the Origin HTTP request header that contains the source domain initiation for the request to handshake. Even if this header can be spoofed in a forged HTTP request (not browser based), it cannot be overridden or forced in a browser context. It then represents a good candidate to apply filtering according to an expected value.
-Authentication and Input/Output validation
-When using websocket as communication channel, it's important to use an authentication method allowing the user to receive an access Token that is not automatically sent by the browser and then must be explicitly sent by the client code during each exchange.
-JSON Web Token is a good candidate, because it allows the transport of access ticket information in a stateless and not alterable way. Moreover, it defines a validity timeframe. You can find additional information about JWT token hardening on this cheat sheet.
-JSON Validation Schema are used to define and validate the expected content in input and ouput messages.
-The code below defines the complete authentication messages flow handling:
-Authorization and access token explicit invalidation
-Authorization information is stored in the access token using the JWT Claim feature (in the POC the name of the claim is access_level). Authorization is validated when a request is received and before any other action using the user input information.
-The access token is passed with every message sent to the message endpoint and a blacklist is used in order to allow the user to request an explicit token invalidation.
-Explicit token invalidation is interesting from a user's point of view because, often when tokens are used, the validity timeframe of the token is relatively long (it's common to see a valid timeframe superior to 1 hour) so it's important to allow a user to have a way to indicate to the system "OK, I have finished my exchange with you, so you can close our exchange session and cleanup associated links".
-It also helps the user to revoke itself of current access if a malicious concurrent access is detected using the same token (case of token stealing).
-Confidentiality and Integrity
-If the raw version of the protocol is used (protocol ws://) then the transfered data is exposed to eavesdropping and potential on-the-fly alteration.
-Expose WebSocket endpoints only on wss:// protocol (WebSockets over SSL/TLS) in order to ensure Confidentiality and Integrity of the traffic like using HTTP over SSL/TLS to secure HTTP exchanges.
