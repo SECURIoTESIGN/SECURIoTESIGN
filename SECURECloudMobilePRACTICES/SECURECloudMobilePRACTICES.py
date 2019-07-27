@@ -84,17 +84,11 @@ question1 = {
 	"2" : "iOS App",
 	"3" : "Hongmeng OS App",
 	"4" : "Hybrid Application",
-	"5" : "Kai OS Application",
-	"6" : "LineageOS Application",
-	"7" : "Plasma Mobile Application",
-	"8" : "postmarketOS Application",
-	"9" : "PureOS Application",
-   "10" : "Sailfish OS Application",
-   "11" : "Tizen Application",
-   "12" : "Ubuntu Touch Application",
-   "13" : "Web Application",
-   "14" : "Embedded System",
-   "15" : ""
+	"5" : "Tizen Application",
+    "6" : "Ubuntu Touch Application",
+    "7" : "Web Application",
+    "8" : "Embedded System",
+    "9" : ""
 }
 
 question2 = {
@@ -176,14 +170,15 @@ question9 = {
 
 question10 = {
 	"1" : "C#",
-	"2" : "C/C++",
+	"2" : "C/C++/Objective C",
 	"3" : "HTML5",
 	"4" : "Java",
 	"5" : "Javascript",
 	"6" : "PHP",
 	"7" : "Python",
 	"8" : "Ruby",
-	"9" : ""
+    "9" : "Kotlin",
+   "10" : ""
 }
 
 question11 = {
@@ -356,17 +351,11 @@ def arqui(version):
 	print( "  2 - iOS Application  ")
 	print( "  3 - Hongmeng OS  ")
 	print( "  4 - Hybrid Application  ")
-	print( "  5 - Kai OS Application  ")
-	print( "  6 - LineageOS Application  ")
-	print( "  7 - Plasma Mobile Application  ")
-	print( "  8 - postmarketOS Application  ")
-	print( "  9 - PureOS Application  ")
-	print( "  10 - Sailfish OS Application  ")
-	print( "  11 - Tizen Application  ")
-	print( "  12 - Ubuntu Touch Application  ")
-	print( "  13 - Web Application  ")
-	print( "  14 - Embedded System  ")
-	print( "  15 - Others  ")
+	print( "  5 - Tizen Application  ")
+	print( "  6 - Ubuntu Touch Application  ")
+	print( "  7 - Web Application  ")
+	print( "  8 - Embedded System  ")
+	print( "  9 - Others  ")
 	print("")
 
 	# function input() interprets the input
@@ -409,7 +398,7 @@ def domain(version):
 	print("  5 - m-Learning ")
 	print("  6 - m-Payment ")
 	print("  7 - m-Social Networking ")
-	print("  8 - Multi User Collaboration ")
+	print("  8 - Mult User Collaboration ")
 	print("  9 - m-Tourism ")
 	print(" 10 - Smart Agriculture ")
 	print(" 11 - Smart Air Quality ")
@@ -625,18 +614,19 @@ def languages(version):
 	print("  (This is a multiple choice question. Enter several options and end with 0.)  ")
 	print("")
 	print( "  1 - C#  ")
-	print( "  2 - C/C++  ")
+	print( "  2 - C/C++/Objective C" )
 	print( "  3 - HTML5  ")
 	print( "  4 - Java  ")
 	print( "  5 - Javascript  ")
 	print( "  6 - PHP  " )
 	print( "  7 - Python  " )
-	print( "  8 - Ruby  ")
-	print( "  9 - Other/Property Language  ")
+	print( "  8 - Kotlin  ")
+	print( "  9 - Ruby  " )
+	print( " 10 - Other/Property Language  ")
 	print("")
 
 	while(1):
-		value=validateInput(1,10)
+		value=validateInput(1,11)
 		if value == 0:
 			return 
 		if value == 9:
@@ -1369,34 +1359,17 @@ def processingInformation():
 		designFile.write("<-- -->[Mobile Device] <-- https --> [Cloud]")
 	
 	if questions_and_answers["Q1"].find("5") != -1:
-		designFile.write("<-- -->[Kai Device] <-- https --> [Cloud]")
-	
-	if questions_and_answers["Q1"].find("6") != -1:
-		designFile.write("<-- -->[LineageOS Device] <-- https --> [Cloud]")
-	
-	if questions_and_answers["Q1"].find("7") != -1:
-		designFile.write("<-- -->[Plasma Device] <-- https --> [Cloud]")
-	
-	if questions_and_answers["Q1"].find("8") != -1:
-		designFile.write("<-- -->[PostmarketOS Device] <-- https --> [Cloud]")
-
-	if questions_and_answers["Q1"].find("9") != -1:
-		designFile.write("<-- -->[PureOS Device] <-- https --> [Cloud]")
-	
-	if questions_and_answers["Q1"].find("10") != -1:
-		designFile.write("<-- -->[Sailfish Device] <-- https --> [Cloud]")
-
-	if questions_and_answers["Q1"].find("11") != -1:
 		designFile.write("<-- -->[Tizen Device] <-- https --> [Cloud]")
 	
-	if questions_and_answers["Q1"].find("12") != -1:
+	if questions_and_answers["Q1"].find("6") != -1:
 		designFile.write("<-- -->[Ubuntu Touch Device] <-- https --> [Cloud]")
 	
-	if questions_and_answers["Q1"].find("13") != -1:
+	if questions_and_answers["Q1"].find("7") != -1:
 		designFile.write("<-- -->[Client] <-- https --> [Server]")
 	
-	if questions_and_answers["Q1"].find("14") != -1:
+	if questions_and_answers["Q1"].find("8") != -1:
 		designFile.write("<-- -->[Embedded System]")
+
 
 	# ---------------------------------------------------
 	if questions_and_answers["Q4"].find("1") != -1:
@@ -1419,14 +1392,14 @@ def processingInformation():
 	
 
 	# check if embebbed systems are chosen
-	if questions_and_answers["Q1"].find("14") != -1:
+	if questions_and_answers["Q1"].find("8") != -1:
 		report.write("\n")
 		report.write("\n")
 		report.write( open("guides1/IOT_Security_guide.md","r").read() )	
 
 
 	# check if database is choosed
-	if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q4"].find("1"):
+	if questions_and_answers["Q4"].find("1") != -1 and questions_and_answers["Q5"].find("1"):
 		report.write("\n")
 		report.write("\n")
 
@@ -1457,7 +1430,7 @@ def processingInformation():
 		report.write( open("guides1/Input_Validation_guide.md","r").read() )	
 
 
-	if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("13") != -1 : 
+	if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("7") != -1 : 
 		
 		report.write("\n")
 		report.write("\n")
@@ -1468,23 +1441,34 @@ def processingInformation():
 		report.write("\n")
 
 		# write XSS guide
-		report.write( open("guides1/Cross_Site_Scripting_guide.md","r").read() )	
+		report.write( open("guides1/Cross_Site_Scripting_guide.md","r").read() )
+
+		report.write("\n")
+		report.write("\n")
+
+        # write HTML5 guide
+		report.write(open("guides1/HTML_Secure_guides.md","r").read())
+        #report.write(open("guides1/HTML_Secure_guides.md","r").read()) 	
 
 
 	report.write("\n")
 	report.write("\n")
+
+    # write Buffer Overflows guide
+	if questions_and_answers["Q10"].find("2") != -1:
+		report.write(open("guides1/Buffer_overflows_guides.md","r").read())
 
 	# write Cryptography guide
 	report.write( open("guides1/Cryptography_guide.md","r").read() )	
 
 	# write SSL/TLS guide
-	if ((questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("13") != -1) and (questions_and_answers["Q6"].find("2") != -1 or questions_and_answers["Q6"].find("3") != -1)):
+	if ((questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("7") != -1) and (questions_and_answers["Q6"].find("2") != -1 or questions_and_answers["Q6"].find("3") != -1)):
 		report.write("\n")
 		report.write("\n")
 		report.write( open("guides1/TLS_guide.md","r").read() )
 
 
-	if questions_and_answers["Q9"].find("1") != -1 :
+	if questions_and_answers["Q4"].find("1") != -1  and (questions_and_answers["Q6"].find("2") != -1 or questions_and_answers["Q6"].find("3") != -1):
 
 		report.write("\n")
 		report.write("\n")
@@ -1556,9 +1540,9 @@ if __name__ == "__main__":
 	print("")
 	print("#  Welcome to ")
 	print("")
-	print("#  SECloudMobilEQUIREMENTS")
+	print("#  SECUREloudMobilePRACTICES")
 	print("")
-	print("  The **SECloudMobilEQUIREMENTS** is a custom made program.") 
+	print("  The **SECURECloudMobilePRACTICES** is a custom made program.") 
 	print("  This program implements a questionnaire about the development")
 	print("  of mobile cloud-based application and generate a report with secure development guides.")
 	print("  It is part of the outputs of project PHD Thesis entitled Systematization of the ")
