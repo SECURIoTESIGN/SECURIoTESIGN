@@ -1,4 +1,4 @@
-# Html secure fashion
+# HTML secure fashion
 Below are some good security engineering practices that serve as a guide to implementing HTML 5 in building mobile applications in a secure way.
 ## Communication APIs
 ### Web Messaging
