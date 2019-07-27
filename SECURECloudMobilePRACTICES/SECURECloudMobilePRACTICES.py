@@ -85,30 +85,30 @@ question1 = {
 	"3" : "Hongmeng OS App",
 	"4" : "Hybrid Application",
 	"5" : "Tizen Application",
-    "6" : "Ubuntu Touch Application",
-    "7" : "Web Application",
-    "8" : "Embedded System",
-    "9" : ""
+        "6" : "Ubuntu Touch Application",
+        "7" : "Web Application",
+        "8" : "Embedded System",
+        "9" : ""
 }
 
 question2 = {
-"1" : "Entertainment",
-"2" : "Mobile Game",
-"3" : "m-Commerce ",
-"4" : "m-Health",
-"5" : "m-Learning",
-"6" : "m-Payment",
-"7" : "m-Social Networking",
-"8" : "Multi User Collaboration",
-"9" : "m-Tourism",
-"10" : "Smart Agriculture",
-"11" : "Smart Air Quality",
-"12" : "Smart Healthcare",
-"13" : "Smart Home",
-"14" : "Smart Manufacturing",
-"15" : "Smart Transportation",
-"16" : "Smart Waste Monitoring",
-"17" : "Smart Wearables"
+       "1" : "Entertainment",
+       "2" : "Mobile Game",
+       "3" : "m-Commerce ",
+       "4" : "m-Health",
+       "5" : "m-Learning",
+       "6" : "m-Payment",
+       "7" : "m-Social Networking",
+       "8" : "Multi User Collaboration",
+       "9" : "m-Tourism",
+      "10" : "Smart Agriculture",
+      "11" : "Smart Air Quality",
+      "12" : "Smart Healthcare",
+      "13" : "Smart Home",
+      "14" : "Smart Manufacturing",
+      "15" : "Smart Transportation",
+      "16" : "Smart Waste Monitoring",
+      "17" : "Smart Wearables"
 }
 
 question3 = {
@@ -143,11 +143,11 @@ question6 = {
 	"7" : "Cassandra",
 	"8" : "CosmosDB",
 	"9" : "DynamoDB",
-   "10" : "JADE",
-   "11" : "HBase",
-   "12" : "Neo4J",
-   "13" : "Redis",
-   "14" : ""
+       "10" : "JADE",
+       "11" : "HBase",
+       "12" : "Neo4J",
+       "13" : "Redis",
+       "14" : ""
 }
 
 question7 = {
@@ -177,8 +177,8 @@ question10 = {
 	"6" : "PHP",
 	"7" : "Python",
 	"8" : "Ruby",
-    "9" : "Kotlin",
-   "10" : ""
+    	"9" : "Kotlin",
+       "10" : ""
 }
 
 question11 = {
