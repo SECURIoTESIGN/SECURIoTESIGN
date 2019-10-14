@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <windows.h>
 #include <mysql.h>
 #include <vector>
@@ -14,10 +15,15 @@
 #include <chrono>
 #include <thread>
 #include <fstream>
+
 #include <ctime>
+
 #include "sha256.h"
 
 using std::string;
+using std::cout;
+using std::endl;
+
 
 #include "Preliminary.h"
 #include "Report.h"
@@ -30,6 +36,8 @@ MYSQL_RES *res;
 int qstate;
 int strength = 0;
 bool authorized_to_be_Admin = false;
+string status = "";
+
 
 static const char alphanum[] =
 "0123456789"
@@ -38,6 +46,7 @@ static const char alphanum[] =
 "abcdefghijklmnopqrstuvwxyz";
 
 int stringLength = sizeof(alphanum) -1;
+
 
 char genRandom()
 {
@@ -56,6 +65,8 @@ std::string generateSalt()
 
 	return salti;
 }
+
+
 
 class Processing_and_Output
 {
@@ -83,16 +94,731 @@ class Processing_and_Output
      double reqWeighting(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6);
      void displayReq_Mech_mapping(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, string algo_name1, string algo_name2, string algo_name3, string algo_name4, string algo_name5, string algo_name6, double total_reqWeight, int warn1, string request_id);
      void write_Req_Mech_mapping(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, string algo_name1, string algo_name2, string algo_name3, string algo_name4, string algo_name5, string algo_name6, double total_reqWeight, double fms, double rs, double fms_, double rs_, string request_id);
+     auto select_MarchingAlgo3(int flagx, int ds, int n_SC, double FMx, double RAMx);
+     auto display_Mech_Algo_mapping3(string type, int algo1, int algo2, int algo3, int algo4, int algo5, int algo6, int ps1, int ps4, int ps6);
+     auto mapping2_3(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, double FM1_doub, double RAM1_doub, double FM2_doub, double RAM2_doub, double FM3_doub, double RAM3_doub, double FM4_doub, double RAM4_doub, double FM5_doub, double RAM5_doub, double FM6_doub, double RAM6_doub, string ad, string ps);
+     void displayReq_Mech_mapping3(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, string algo_name1, string algo_name2, string algo_name3, string algo_name4, string algo_name5, string algo_name6, string request_id);
+     void write_security_requirements_in_textFile(string Reqst_ID);
+     void write_bestPracticeGuide_in_textFile(string Reqst_ID);
 };
-
 
 Processing_and_Output::Processing_and_Output()
 {
 
 }
 
+    void Processing_and_Output::write_security_requirements_in_textFile(string Reqst_ID)
+    {
+                        system("cls");
+                        string findbyID_query = "select * from users_requests_re where Reqst_ID = " + ("'"+Reqst_ID+"'");
+                        const char* qn = findbyID_query.c_str();
+                        qstate = mysql_query(conn, qn);
 
-//A function that determines if a string s1 contains a given string s2. It returns 1 or -1 depending on whether s2 is found in s1 or not.
+                        string state, Domain, anyUsr, Login, stoUsrInfo, stoAnyInfo, InfoType, infoSent2E, connected, dataSent2Cloud, dataStoredInDb, update, use3rdPrtySfw, evesdrop, capt_Resent, impersontUsr, physiclAcces;
+
+                        if(!qstate)
+                        {
+                            res = mysql_store_result(conn);
+                            while((row = mysql_fetch_row(res)))
+                            {
+                                state = row[1];
+                                Domain = row[2];
+                                anyUsr = row[3];
+                                Login = row[4];
+                                stoUsrInfo = row[5];
+                                stoAnyInfo = row[6];
+                                InfoType = row[7];
+                                infoSent2E = row[8];
+                                connected = row[9];
+                                dataSent2Cloud = row[10];
+                                dataStoredInDb = row[11];
+                                update = row[12];
+                                use3rdPrtySfw = row[13];
+                                evesdrop = row[14];
+                                capt_Resent = row[15];
+                                impersontUsr = row[16];
+                                physiclAcces = row[17];
+                            }
+                        }
+                        else
+                        {
+                            cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+                        }
+
+                int domainSensitivity = checkSensitivity_of_User_ApplcArea(Domain);
+
+                string flag1 = "1", flag2 = "1", flag3 = "1", flag4 = "1", flag5 = "1", flag6 = "1", flag7 = "1", flag8 = "1", flag9 = "", flag10 = "1", flag11 = "1", flag12 = "1", flag13 = "1", flag14 = "1", flag15 = "1", flag16 = "1", flag17 = "1", flag18 = "1", flag19 = "1", flag20 = "1";
+                string flag21 = "1", flag22 = "1", flag23 = "1", flag24 = "1", flag25 = "1", flag26 = "1", flag27 = "1", flag28 = "1", flag29 = "1", flag30 = "1", flag6_, flag_6;
+                string flag31 = "1", flag32 = "1", flag33 = "1", flag34 = "1", flag35 = "1", flag36 = "1", flag37 = "1", flag38 = "1", flag39 = "1", flag40 = "1", flag41 = "1", flag42 = "1", flag43 = "1", flag44 = "1";
+                string Reqmt_1, Reqmt_2, Reqmt_3, Reqmt_4, Reqmt_5, Reqmt_6, Reqmt_7, Reqmt_8, Reqmt_9, Reqmt_10, Reqmt_11, Reqmt_12, Reqmt_13, Reqmt_14, Reqmt_15;
+
+
+            fstream file;
+            file.open("Security_Requirements.txt", ios::out | ios::trunc);
+            if(file.is_open())
+            {
+                    file << "\n" "***********************************************************************************************************" << endl;
+                    file << "\t   THE SECURITY REQUIREMENTS FOR THE IoT SYSTMEM OF THE USER WITH REQUEST ID No.: " << Reqst_ID << endl << endl;
+
+                        file << left << setw(21) << setfill('-') << left << '+'
+                        << setw(84) << setfill('-') << '+' << '+' << endl;
+
+                        file << setfill(' ') << '|' << left << setw(20) << "SECURITY REQUIREMENT"
+                        << setfill(' ') << '|' << left << setw(83) << "DESCRIPTION" << '|' << endl;
+
+                         file << left << setw(21) << setfill('-') << left<< '+'
+                         << setw(84) << setfill('-') << '+' << '+' << endl;
+
+                         if(anyUsr == "Yes" && Login == "Yes")//
+                         {
+                            flag1 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authentication"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the assurance that information transaction is from the source it claims to" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "be from." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_3 = "AUTH";
+                         }
+                         if(stoUsrInfo == "Yes" && anyUsr == "Yes")
+                         {
+                            flag2 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Privacy"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to users control over the disclosure of their personal information, menani- " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "ng that only the users should decide whether they want to share their data or not." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_4 = "PRIV";
+                         }
+                         if(stoUsrInfo == "Yes" && stoAnyInfo == "Yes")
+                         {
+                            flag3 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Confidentiality"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the property that ensures that information is not disclosed or made availa-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "ble to any unauthorized entity." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_1 = "CONF";
+                         }
+                         if(stoAnyInfo == "Yes" && flag3 != "2")
+                         {
+                            flag4 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Confidentiality"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the property that ensures that information is not disclosed or made availa-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "ble to any unauthorized entity." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_1 = "CONF";
+                         }
+                         if(InfoType == "Normal" && flag2 != "2" && !stoUsrInfo.empty())
+                         {
+                            flag2 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Privacy"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to users control over the disclosure of their personal information, menani- " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "ng that only the users should decide whether they want to share their data or not." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_4 = "PRIV";
+                         }
+                         if(InfoType == "Normal" && flag3 != "2" && flag4 != "2")
+                         {
+                            flag6 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Confidentiality"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the property that ensures that information is not disclosed or made availa-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "ble to any unauthorized entity." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_1 = "CONF";
+                         }
+                         if(InfoType == "Normal" || InfoType == "Sensitive" || InfoType == "Critical")
+                         {
+                             flag6_ = "2";
+                             file << setfill(' ') << '|' << left << setw(20) << "Integrity"
+                            << setfill(' ') << '|' << left << setw(83) << "Is the property of safeguarding the correctness, consistency, and trustworthiness " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "of data over its entire life cycle in an IoT system." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_2 = "INTG";
+                         }
+                         if(InfoType == "Normal" || InfoType == "Sensitive" || InfoType == "Critical")
+                         {
+                             flag_6 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Availability"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the property which ensures that an IoT device or system is accessible and" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << " usable upon demand by authorized entities." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_6 = "AVAI";
+                         }
+
+                         if(InfoType == "Normal" || InfoType == "Sensitive" || InfoType == "Critical")
+                         {
+                            flag7 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Physical Security"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the security measures designed to deny unauthorized physical access to " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "IoT devices or systems, and to protect them from damage or tampering." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_7 = "PHYS";
+                         }
+                         if(InfoType == "Sensitive" && stoUsrInfo == "Yes")
+                         {
+
+                         }
+                         if(InfoType == "Sensitive" && stoUsrInfo != "Yes")
+                         {
+
+                         }
+                         if(InfoType == "Sensitive" && flag3 != "2" && flag4 != "2" && flag6 != "2")
+                         {
+                            flag8 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Confidentiality"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the property that ensures that information is not disclosed or made availa-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "ble to any unauthorized entity." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_1 = "CONF";
+                         }
+                         if(InfoType == "Sensitive")
+                         {
+                            flag9 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authorization"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the property that determines whether the user or device has rights/privi-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "leges to access a resource, or issue commands." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_8 = "AUTR";
+                         }
+                         if(InfoType == "Sensitive")
+                         {
+                            flag10 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Forgery Resistance"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the propriety that ensures that the data shared between entities cannot be " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "forged by a third party trying to damage or harm the system or its users." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_9 = "FORE";
+                         }
+                         if(InfoType == "Sensitive" && flag1 != "2")
+                         {
+                            flag11 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authentication"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the assurance that information transaction is from the source it claims to" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "be from." << '|' << endl;
+
+                            cout << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_3 = "AUTH";
+                         }
+                         if(InfoType == "Critical" && flag2 != "2" && flag5 != "2")
+                         {
+                            flag2 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Privacy"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to users control over the disclosure of their personal information, menani- " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "ng that only the users should decide whether they want to share their data or not." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_4 = "PRIV";
+                         }
+                         if(InfoType == "Critical" && flag3 != "2" && flag4 != "2" && flag6 != "2" && flag8 != "2")
+                         {
+                            flag13 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Confidentiality"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the property that ensures that information is not disclosed or made availa-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "ble to any unauthorized entity." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_1 = "CONF";
+                         }
+                         if(InfoType == "Critical" && flag7 != "2")
+                         {
+                            flag14 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Physical Security"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the security measures designed to deny unauthorized physical access to " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "IoT devices or systems, and to protect them from damage or tampering." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_7 = "PHYS";
+                         }
+                         if(InfoType == "Critical" && flag9 != "2")
+                         {
+                            flag15 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authorization"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the property that determines whether the user or device has rights/privi-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "leges to access a resource, or issue commands." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_8 = "AUTR";
+                         }
+                         if(InfoType == "Critical" && flag10 != "2")
+                         {
+                            flag16 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Forgery Resistance"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the propriety that ensures that the data shared between entities cannot be " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "forged by a third party trying to damage or harm the system or its users." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_9 = "FORE";
+                         }
+                         if(InfoType == "Critical" && domainSensitivity == 1)
+                         {
+                            flag17 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Non-Repudiation"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the security property that ensures that the transfer of messages or cred-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "entials between 2 IoT entities is undeniable." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_5 = "NONR";
+                         }
+                         if(InfoType == "Critical" && flag1 != "2" && flag11 != "2")
+                         {
+                            flag18 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authentication"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the assurance that information transaction is from the source it claims to" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "be from." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_3 = "AUTH";
+                         }
+                         if(infoSent2E == "Yes" && flag17 != "2" && domainSensitivity == 1)
+                         {
+                             flag19 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Non-Repudiation"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the security property that ensures that the transfer of messages or cred-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "entials between 2 IoT entities is undeniable." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_5 = "NONR";
+                         }
+                         if(infoSent2E == "Yes" && flag1 != "2" && flag11 != "2" && flag18 != "2")
+                         {
+                            flag20 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authentication"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the assurance that information transaction is from the source it claims to" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "be from." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_3 = "AUTH";
+                         }
+                         if(infoSent2E == "Yes")
+                         {
+                            flag21 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Confinement"
+                            << setfill(' ') << '|' << left << setw(83) << "Ensures that even if a party is corrupted, the spreading of the effects of the" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "attack is as confined as possible." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_10 = "CFMT";
+                         }
+                         if(connected == "Yes" && flag17 != "2" && flag19 != "2" && domainSensitivity == 1)
+                         {
+                             flag22 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Non-Repudiation"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the security property that ensures that the transfer of messages or cred-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "entials between 2 IoT entities is undeniable." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_5 = "NONR";
+                         }
+                         if(connected == "Yes" && domainSensitivity == 1)
+                         {
+                             flag23 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Accountability"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the property that ensures that every action can be traced back to a single " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "user or device." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_11 = "ACCT";
+                         }
+                         if(connected == "Yes")
+                         {
+                             flag24 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Reliability"
+                            << setfill(' ') << '|' << left << setw(83) << "Is the property that guarantees consistent intended behavior of an IoT system." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_12 = "RELI";
+                         }
+                         if(dataSent2Cloud == "Yes" && flag6_ != "2")
+                         {
+                             flag25 = "2";
+                             file << setfill(' ') << '|' << left << setw(20) << "Integrity"
+                            << setfill(' ') << '|' << left << setw(83) << "Is the property of safeguarding the correctness, consistency, and trustworthiness " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "of data over its entire life cycle in an IoT system." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_2 = "INTG";
+                         }
+                         if(dataSent2Cloud == "Yes" && flag_6 != "2")
+                         {
+                             flag26 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Availability"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the property which ensures that an IoT device or system is accessible and" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << " usable upon demand by authorized entities." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_6 = "AVAI";
+                         }
+                         if(dataSent2Cloud == "Yes")
+                         {
+                            flag27 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Data Freshness"
+                            << setfill(' ') << '|' << left << setw(83) << "Ensures that data is the most recent, and that old messages cannot be replayed." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_13 = "DAFR";
+                          }
+                         if(dataSent2Cloud == "Yes" && flag10 != "2" && flag16 != "2")
+                         {
+                            flag28 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Forgery Resistance"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the propriety that ensures that the data shared between entities cannot be " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "forged by a third party trying to damage or harm the system or its users." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_9 = "FORE";
+                         }
+                         if(dataSent2Cloud == "Yes" && flag17 != "2" && flag19 != "2" && flag22 != "2" && domainSensitivity == 1)
+                         {
+                             flag29 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Non-Repudiation"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the security property that ensures that the transfer of messages or cred-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "entials between 2 IoT entities is undeniable." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_5 = "NONR";
+                         }
+                         if(dataStoredInDb == "Yes" && flag7 != "2" && flag14 != "2" && flag22 != "2" )
+                         {
+                            flag30 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Physical Security"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the security measures designed to deny unauthorized physical access to " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "IoT devices or systems, and to protect them from damage or tampering." << '|' << endl;
+
+                            file<< left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_7 = "PHYS";
+                         }
+                         if(dataStoredInDb == "Yes" && flag6_ != "2" && flag25 != "2")
+                         {
+                             flag31 = "2";
+                             file << setfill(' ') << '|' << left << setw(20) << "Integrity"
+                            << setfill(' ') << '|' << left << setw(83) << "Is the property of safeguarding the correctness, consistency, and trustworthiness " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "of data over its entire life cycle in an IoT system." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_2 = "INTG";
+                         }
+                         if(dataStoredInDb == "Yes" && flag_6 != "2" && flag26 != "2")
+                         {
+                             flag32 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Availability"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the property which ensures that an IoT device or system is accessible and" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << " usable upon demand by authorized entities." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_6 = "AVAI";
+                         }
+                         if(dataStoredInDb == "Yes" && flag10 != "2" && flag16 != "2" && flag28 != "2")
+                         {
+                            flag33 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Forgery Resistance"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the propriety that ensures that the data shared between entities cannot be " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "forged by a third party trying to damage or harm the system or its users." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_9 = "FORE";
+                         }
+                         if(dataStoredInDb == "Yes" && flag1 != "2" && flag11 != "2" && flag18 != "2" && flag20 != "2")
+                         {
+                            flag34 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authentication"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the assurance that information transaction is from the source it claims to" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "be from." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_3 = "AUTH";
+                         }
+                         if(dataStoredInDb == "Yes" && flag17 != "2" && flag19 != "2" && flag22 != "2" && flag29 != "2" && domainSensitivity == 1)
+                         {
+                             flag35 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Non-Repudiation"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the security property that ensures that the transfer of messages or cred-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "entials between 2 IoT entities is undeniable." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_5 = "NONR";
+                         }
+                         if(update == "Yes" && flag_6 != "2" && flag26 != "2" && flag32 != "2")
+                         {
+                             flag36 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Availability"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the property which ensures that an IoT device or system is accessible and" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << " usable upon demand by authorized entities." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_6 = "AVAI";
+                         }
+
+                         if(use3rdPrtySfw == "Yes" && flag21 != "2")
+                         {
+                            flag37 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Confinement"
+                            << setfill(' ') << '|' << left << setw(83) << "Ensures that even if a party is corrupted, the spreading of the effects of the" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "attack is as confined as possible." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_10 = "CFMT";
+                         }
+
+                         if(evesdrop == "Yes" && flag9 != "2" && flag15 != "2" && (infoSent2E == "Yes" || dataSent2Cloud == "Yes" || dataStoredInDb == "Yes"))
+                         {
+                            flag39 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authorization"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the property that determines whether the user or device has rights/privi-" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "leges to access a resource, or issue commands." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_8 = "AUTR";
+                         }
+                         if(capt_Resent == "Yes" && (infoSent2E == "Yes" || dataSent2Cloud == "Yes" || dataStoredInDb == "Yes") && flag1 != "2" && flag11 != "2" && flag18 != "2" && flag20 != "2" && flag34 != "2")
+                         {
+                            flag40 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authentication"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the assurance that information transaction is from the source it claims to" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "be from." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_3 = "AUTH";
+                         }
+                         if(capt_Resent == "Yes" && flag27 != "2" && (infoSent2E == "Yes" || dataSent2Cloud == "Yes" || dataStoredInDb == "Yes"))
+                         {
+                            flag41 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Data Freshness"
+                            << setfill(' ') << '|' << left << setw(83) << "Ensures that data is the most recent, and that old messages cannot be replayed." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_13 = "DAFR";
+                          }
+                         // impersontUsr
+                         if(impersontUsr == "Yes" && Login == "Yes" && flag1 != "2" && flag11 != "2" && flag18 != "2" && flag20 != "2" && flag34 != "2" && flag40 != "2")
+                           {
+                            flag42 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Authentication"
+                            << setfill(' ') << '|' << left << setw(83) << "This is the assurance that information transaction is from the source it claims to" << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "be from." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_3 = "AUTH";
+                         }
+                        if(physiclAcces == "Yes" && flag7 != "2" && flag14 != "2" && flag22 != "2" && flag30 != "2")
+                         {
+                            flag43 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Physical Security"
+                            << setfill(' ') << '|' << left << setw(83) << "Refers to the security measures designed to deny unauthorized physical access to " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "IoT devices or systems, and to protect them from damage or tampering." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_7 = "PHYS";
+                         }
+                         if(use3rdPrtySfw == "Yes")
+                        {
+                            file << setfill(' ') << '|' << left << setw(20) << "Counterfeit "
+                            << setfill(' ') << '|' << left << setw(83) << "Is the property that ensures effective validation of software such that any fake " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << "Resistance "
+                            << setfill(' ') << '|' << left << setw(83) << "or maliciously modified software is rejected." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_14 = "CNFR";
+                        }
+                         if(physiclAcces == "Yes")
+                         {
+                             flag44 = "2";
+                            file << setfill(' ') << '|' << left << setw(20) << "Tamper Detection"
+                            << setfill(' ') << '|' << left << setw(83) << "Ensures all devices are physically secured, such that any tampering attempt is " << '|' << endl;
+                            file << setfill(' ') << '|' << left << setw(20) << " "
+                            << setfill(' ') << '|' << left << setw(83) << "detected." << '|' << endl;
+
+                            file << left << setw(21) << setfill('-') << left<< '+'
+                            << setw(84) << setfill('-') << '+' << '+' << endl;
+                            Reqmt_15 = "TAMD";
+                         }
+                         flag1.erase(); flag2.erase(); flag3.erase(); flag4.erase(); flag5.erase();
+                         state.erase(); Domain.erase(); anyUsr.erase(); Login.erase(); stoUsrInfo.erase(); stoAnyInfo.erase(); InfoType.erase(); infoSent2E.erase(); connected.erase(); dataSent2Cloud.erase(); dataStoredInDb.erase(); update.erase(); use3rdPrtySfw.erase(); evesdrop.erase(); capt_Resent.erase(); impersontUsr.erase(); physiclAcces.erase();
+
+                          string request_query = "insert into generated_requirements (Reqst_ID, Reqmt_1, Reqmt_2, Reqmt_3, Reqmt_4, Reqmt_5, Reqmt_6, Reqmt_7, Reqmt_8, Reqmt_9, Reqmt_10, Reqmt_11, Reqmt_12, Reqmt_13, Reqmt_14, Reqmt_15) values('"+Reqst_ID+"', '"+Reqmt_1+"', '"+Reqmt_2+"', '"+Reqmt_3+"', '"+Reqmt_4+"', '"+Reqmt_5+"', '"+Reqmt_6+"', '"+Reqmt_7+"', '"+Reqmt_8+"', '"+Reqmt_9+"', '"+Reqmt_10+"', '"+Reqmt_11+"', '"+Reqmt_12+"', '"+Reqmt_13+"', '"+Reqmt_14+"', '"+Reqmt_15+"')";
+
+                          const char* qr = request_query.c_str();
+                          qstate = mysql_query(conn, qr);
+
+                            if(!qstate)
+                            {
+                                 Reqmt_1.erase(); Reqmt_2.erase(); Reqmt_3.erase(); Reqmt_4.erase(); Reqmt_5.erase(); Reqmt_6.erase(); Reqmt_7.erase(); Reqmt_8.erase(); Reqmt_9.erase(); Reqmt_10.erase(); Reqmt_11.erase(); Reqmt_12.erase(); Reqmt_13.erase(); Reqmt_14.erase(); Reqmt_15.erase();
+                            }
+                    file.close();
+             }
+             else
+             {
+                cout <<"\n\tFile failed to open!" << endl;
+             }
+    }
+
+    void Processing_and_Output::write_bestPracticeGuide_in_textFile(string Request_ID)
+    {
+            system("cls");
+            string findbyID_query = "select * from users_requests_bp where Request_ID = " + ("'"+Request_ID+"'");
+            const char* qn = findbyID_query.c_str();
+            qstate = mysql_query(conn, qn);
+
+            string Status, Struct1, Struct2, Struct3, Struct4, Struct5, Struct6, Struct7, Struct8, Struct9, Struct10, Struct11, anyUsr, usrRegist, typeOfRegist, anyUsrLogin, usrInput, holdUsrInfo, storeAnyInfo, sensitivOfInfo, typeOfAUTH, useDb;
+            string typeOfDataStorg, typeOfDb, progrm1, progrm2, progrm3, progrm4, progrm5, progrm6, progrm7, progrm8, fileUpload, sysLog;
+
+            if(!qstate)
+            {
+                res = mysql_store_result(conn);
+                while((row = mysql_fetch_row(res)))
+                {
+                    Status = row[1];
+                    Struct1 = row[2];
+                    Struct2 = row[3];
+                    Struct3 = row[4];
+                    Struct4 = row[5];
+                    Struct5 = row[6];
+                    Struct6 = row[7];
+                    Struct7 = row[8];
+                    Struct8 = row[9];
+                    Struct9 = row[10];
+                    Struct10 = row[11];
+                    Struct11 = row[12];
+                    anyUsr = row[13];
+                    usrRegist = row[14];
+                    typeOfRegist = row[15];
+                    anyUsrLogin = row[16];
+                    usrInput = row[17];
+                    holdUsrInfo = row[18];
+                    storeAnyInfo = row[19];
+                    sensitivOfInfo = row[20];
+                    typeOfAUTH = row[21];
+                    useDb = row[22];
+                    typeOfDataStorg = row[23];
+                    typeOfDb = row[24];
+                    progrm1 = row[25];
+                    progrm2 = row[26];
+                    progrm3 = row[27];
+                    progrm4 = row[28];
+                    progrm5 = row[29];
+                    progrm6 = row[30];
+                    progrm7 = row[31];
+                    progrm8 = row[32];
+                    fileUpload = row[33];
+                    sysLog = row[34];
+                }
+            }
+            else
+            {
+                cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+            }
+
+            fstream file;
+            file.open("file_1.txt", ios::out | ios::trunc);
+            if(file.is_open())
+            {
+                file << "\t  # THE BEST PRACTICE GUIDE FOR SECURE DEVELOPMENT REQUEST OF THE USER WITH REQUEST ID No.: " << Request_ID << endl << endl;
+
+
+
+                file.close();
+            }
+            else
+            {
+                cout <<"\n\tFile failed to open!" << endl;
+            }
+
+    }
+
 int Processing_and_Output::searchString(string s1, string s2)
 {
     string s11, s22;
@@ -108,7 +834,6 @@ int Processing_and_Output::searchString(string s1, string s2)
 	}
 }
 
-//Function that checks the capability of micro-controller development board. It returns either TRUE or FALSE depending on hardware capability
 bool Processing_and_Output::isCapable(int cpu, double fms, double rs, double cs, int cpu_, double flash, double ram, double clock)
 {
     if((cpu >= cpu_) && (fms >= flash) && (rs >= ram) && (cs >= clock))
@@ -121,7 +846,6 @@ bool Processing_and_Output::isCapable(int cpu, double fms, double rs, double cs,
     }
 }
 
-//Function that concatenates the individual security requirement variables into one string variable, which serves as s1 in the searchString function.
 string Processing_and_Output::concatStrings(string r1, string r2, string r3, string r4, string r5, string r6)
 {
   string reqmts;
@@ -147,7 +871,6 @@ string Processing_and_Output::concatStrings(string r1, string r2, string r3, str
   return reqmts;
 }
 
-//Function that maps user security requirements to security mechanisms. The function returns multiple integer values using tuple.
 auto Processing_and_Output::mapping1(string userR, string r_1, string r_2, string r_3, string r_4, string r_5, string r_6, string r1, string r2, string r3, string r4, string r5, string r6)
 {
             struct result
@@ -161,7 +884,6 @@ auto Processing_and_Output::mapping1(string userR, string r_1, string r_2, strin
             };
 
     userR = concatStrings(r_1, r_2, r_3, r_4, r_5, r_6);
-
      int flag1 = searchString(userR, r1);
      int flag2 = searchString(userR, r2);
      int flag3 = searchString(userR, r3);
@@ -172,7 +894,6 @@ auto Processing_and_Output::mapping1(string userR, string r_1, string r_2, strin
     return result {flag1, flag2, flag3, flag4, flag5, flag6};
 }
 
-//Function that maps user security requirements to security mechanisms. The function returns multiple integer values using tuple.
 auto Processing_and_Output::mapping1b(string userR, string r_1, string r_2, string r_3, string r_4, string r_5, string r_6, string r1, string r2, string r3, string r4, string r5, string r6)
 {
             struct result
@@ -193,12 +914,9 @@ auto Processing_and_Output::mapping1b(string userR, string r_1, string r_2, stri
      int flag4 = searchString(userR, r4);
      int flag5 = searchString(userR, r5);
      int flag6 = searchString(userR, r6);
-
     return result {flag1, flag2, flag3, flag4, flag5, flag6};
 }
 
-
-//Function that checks the sensitivity of user application area. It returns 1 if application area is sensitive, and -1 if not.
 int Processing_and_Output::checkSensitivity_of_User_ApplcArea(string as)
 {
     string sensitive_areas = "Healthcare Health Connected_Car Military Security Transportation Agriculture Agric Retail Industrial Factory Supply_Chain Financial Finance Bank Banking Elderly Child Kid Grid City Wearable Home";
@@ -214,7 +932,6 @@ int Processing_and_Output::checkSensitivity_of_User_ApplcArea(string as)
     }
 }
 
-//Function that checks if a stream cipher is needed or not. It returns 1 if needed and -1 if not.
 int Processing_and_Output::Check_if_streamCipherNeeded(string ps)
 {
     string where_SC_needed = "continuous unknown";
@@ -230,10 +947,9 @@ int Processing_and_Output::Check_if_streamCipherNeeded(string ps)
     }
 }
 
-//Function that suggests the best marching algorithm based on some parameters. The function returns two integers: num1 suggests an algorithm, and num2 indicates whether a stream cipher is needed or not. This function is for software requests.
 auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int cpu_int, double fms_doub, double rs_doub)
 {
-         struct result 
+         struct result
             {
                 int n1;
                 int n2;
@@ -242,23 +958,23 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
             int num1, num2;
 
             int cpu1 = 32, cpu2 = 16, cpu3 = 8, cpu4 = 8, cpu5 = 64;
-            double fms1 = 1.00, rs1 = 1.00, fms11 = 1.00, rs11 = 1.00; 
-            double fms2 = 10.00, rs2 = 1.00, fms22 = 1.00, rs22 = 1.00; 
-            double fms3 = 1.00, rs3 = 1.00, fms33 = 1.00, rs33 = 1.00; 
-            double fms4 = 1.00, rs4 = 1.00, fms44 = 1.00, rs44 = 1.00; 
-            double fms5 = 1.00, rs5 = 1.00, fms55 = 1.00, rs55 = 1.00; 
+            double fms1 = 1.00, rs1 = 1.00, fms11 = 1.00, rs11 = 1.00;
+            double fms2 = 10.00, rs2 = 1.00, fms22 = 1.00, rs22 = 1.00;
+            double fms3 = 1.00, rs3 = 1.00, fms33 = 1.00, rs33 = 1.00;
+            double fms4 = 1.00, rs4 = 1.00, fms44 = 1.00, rs44 = 1.00;
+            double fms5 = 1.00, rs5 = 1.00, fms55 = 1.00, rs55 = 1.00;
+
 
         if(flagx == -1)
         {
-            num1 = 0; num2 = 0; 
+            num1 = 0; num2 = 0;
             return result {num1, num2};
         }
-        
         else if((flagx == 1) && (ds == 1) && (cpu_int >= cpu5) && (fms_doub <= 524288000*fms5 && fms_doub >= 4000000*fms55) && (rs_doub <= 16777216*rs5 && rs_doub >= 1000000*rs55))
         {
             if(n_SC == 1)
               {
-                num1 = 9; num2 = 1; 
+                num1 = 9; num2 = 1;
                 return result {num1, num2};
               }
             else
@@ -271,40 +987,38 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
         {
             if(n_SC == 1)
              {
-                num1 = 10; num2 = 1; 
+                num1 = 10; num2 = 1;
                 return result {num1, num2};
              }
             else
             {
-                num1 = 10; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 10; num2 = 0;
+                return result {num1, num2};
             }
         }
-       // If a mechanism exist and the application area (ds) is sensitive.
        else if((flagx == 1) && (ds == 1) && (cpu_int >= cpu1) && (fms_doub <= 32212254*fms1 && fms_doub >= 2000000*fms11) && (rs_doub <= 10000000*rs1 && rs_doub >= 250000*rs11))
         {
             if(n_SC == 1)
             {
-                num1 = 1; num2 = 1; 
-                return result {num1, num2}; 
+                num1 = 1; num2 = 1;
+                return result {num1, num2};
             }
             else
             {
-                num1 = 1; num2 = 0; 
+                num1 = 1; num2 = 0;
                 return result {num1, num2};
             }
-
         }
         else if((flagx == 1) && (ds != 1) && (cpu_int >= cpu1) && (fms_doub <= 32212254*fms1 && fms_doub >= 2000000*fms11) && (rs_doub <= 10000000*rs1 && rs_doub >= 250000*rs11))
         {
              if(n_SC == 1)
             {
-                num1 = 2; num2 = 1; 
+                num1 = 2; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 2; num2 = 0; 
+                num1 = 2; num2 = 0;
                 return result {num1, num2};
             }
         }
@@ -312,7 +1026,7 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
         {
              if(n_SC == 1)
             {
-                num1 = 3; num2 = 1; 
+                num1 = 3; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -320,25 +1034,25 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
                 num1 = 3; num2 = 0;
                 return result {num1, num2};
             }
-        } 
+        }
         else if((flagx == 1) && (ds != 1) && (cpu_int >= cpu2) && (fms_doub <= 3221225*fms2 && fms_doub >= 100000*fms22) && (rs_doub <= 1000000*rs2 && rs_doub >= 1000*rs22))
         {
               if(n_SC == 1)
             {
-                num1 = 4; num2 = 1; 
+                num1 = 4; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 4; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 4; num2 = 0;
+                return result {num1, num2};
             }
         }
          else if((flagx == 1) && (ds == 1) && (cpu_int >= cpu3) && (fms_doub <= 322122*fms3 && fms_doub >= 64*fms33) && (rs_doub <= 10000*rs3 && rs_doub >= 6*rs33))
         {
              if(n_SC == 1)
             {
-                num1 = 5; num2 = 1; 
+                num1 = 5; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -351,13 +1065,13 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
         {
               if(n_SC == 1)
             {
-                num1 = 6; num2 = 1; 
+                num1 = 6; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 6; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 6; num2 = 0;
+                return result {num1, num2};
             }
         }
         else if((flagx == 1) && (ds == 1) && (cpu_int >= cpu4) && (fms_doub <= 32212*fms4 && fms_doub >= 10*fms44) && (rs_doub <= 5000*rs4 && rs_doub >= 4*rs44))
@@ -377,13 +1091,13 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
         {
              if(n_SC == 1)
              {
-                num1 = 8; num2 = 1; 
+                num1 = 8; num2 = 1;
                 return result {num1, num2};
              }
             else
             {
-                num1 = 8; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 8; num2 = 0;
+                return result {num1, num2};
             }
         }
         else
@@ -393,17 +1107,16 @@ auto Processing_and_Output::select_MarchingAlgo(int flagx, int ds, int n_SC, int
         }
 }
 
-//Function that suggests the best marching algorithm based on some parameters. The function returns two integers: num1 suggests an algorithm, and num2 indicates whether a stream cipher is needed or not. This function is for hardware requests.
 auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, int n_SC, double cctax, double tpx, string type)
 {
-         struct result 
+         struct result
         {
             int n1;
             int n2;
         };
             int num1, num2;
 
-            double cctay1, cctaz1, tpy1, tpz1, cctay2, cctaz2, tpy2, tpz2, cctay3, cctaz3, tpy3, tpz3; //cctay4, cctaz4, tpy4, tpz4, cctay5, cctaz5, tpy5, tpz5;
+            double cctay1, cctaz1, tpy1, tpz1, cctay2, cctaz2, tpy2, tpz2, cctay3, cctaz3, tpy3, tpz3;
 
             if(type == "FPGA")
             {
@@ -418,23 +1131,26 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
                 cctay3 = 1.0, cctaz3 = 1.0, tpy3 = 1.0, tpz3 = 1.0;
             }
 
+
+
         if(flagx == -1)
         {
-            num1 = 0; num2 = 0; 
+            num1 = 0; num2 = 0;
             return result {num1, num2};
         }
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay1 && cctax <= cctaz1) && (tpx >= tpy1& tpx <= tpz1))
         {
             if(n_SC == 1)
             {
-                num1 = 1; num2 = 1; 
-                return result {num1, num2}; 
+                num1 = 1; num2 = 1;
+                return result {num1, num2};
             }
             else
             {
-                num1 = 1; num2 = 0; 
+                num1 = 1; num2 = 0;
                 return result {num1, num2};
             }
+
         }
         else if((flagx == 1) && (ds != 1) && (cctax >= cctay1 && cctax <= cctaz1) && (tpx >= tpy1 && tpx <= tpz1))
         {
@@ -445,15 +1161,15 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
             }
             else
             {
-                num1 = 2; num2 = 0; 
+                num1 = 2; num2 = 0;
                 return result {num1, num2};
             }
         }
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay2 && cctax <= cctaz2) && (tpx >= tpy2 && tpx <= tpz2))
         {
-             if(n_SC == 1)//stream cipher needed
+             if(n_SC == 1)
             {
-                num1 = 3; num2 = 1; 
+                num1 = 3; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -464,22 +1180,22 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
         }
         else if((flagx == 1) && (ds != 1) && (cctax >= cctay2 && cctax <= cctaz2) && (tpx >= tpy2 && tpx <= tpz2))
         {
-              if(n_SC == 1)//stream cipher needed
+              if(n_SC == 1)
             {
-                num1 = 4; num2 = 1; 
+                num1 = 4; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 4; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 4; num2 = 0;
+                return result {num1, num2};
             }
         }
          else if((flagx == 1) && (ds == 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
         {
              if(n_SC == 1)
             {
-                num1 = 5; num2 = 1; 
+                num1 = 5; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -492,7 +1208,7 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
         {
               if(n_SC == 1)
             {
-                num1 = 6; num2 = 1; 
+                num1 = 6; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -508,10 +1224,9 @@ auto Processing_and_Output::select_MarchingAlgo2_ThreeSteps(int flagx, int ds, i
         }
 }
 
-//Function that suggests the best marching algorithm based on some parameters. The function returns two integers: num1 suggests an algorithm, and num2 indicates whether a stream cipher is needed or not. This function is for hardware requests.
 auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, int n_SC, double cctax, double tpx, string type)
 {
-         struct result 
+         struct result
         {
             int n1;
             int n2;
@@ -537,15 +1252,15 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
 
         if(flagx == -1)
         {
-            num1 = 0; num2 = 0; 
+            num1 = 0; num2 = 0;
             return result {num1, num2};
         }
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay1 && cctax <= cctaz1) && (tpx >= tpy1& tpx <= tpz1))
         {
             if(n_SC == 1)
             {
-                num1 = 1; num2 = 1; 
-                return result {num1, num2}; 
+                num1 = 1; num2 = 1;
+                return result {num1, num2};
             }
             else
             {
@@ -557,12 +1272,12 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
         {
              if(n_SC == 1)
             {
-                num1 = 2; num2 = 1; 
+                num1 = 2; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 2; num2 = 0; 
+                num1 = 2; num2 = 0;
                 return result {num1, num2};
             }
         }
@@ -570,7 +1285,7 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
         {
              if(n_SC == 1)
             {
-                num1 = 3; num2 = 1; 
+                num1 = 3; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -583,20 +1298,20 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
         {
               if(n_SC == 1)
             {
-                num1 = 4; num2 = 1; 
+                num1 = 4; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 4; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 4; num2 = 0;
+                return result {num1, num2};
             }
         }
          else if((flagx == 1) && (ds == 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
         {
              if(n_SC == 1)
             {
-                num1 = 5; num2 = 1; 
+                num1 = 5; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -609,12 +1324,12 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
         {
               if(n_SC == 1)
             {
-                num1 = 6; num2 = 1; 
+                num1 = 6; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 6; num2 = 0; 
+                num1 = 6; num2 = 0;
                 return result {num1, num2};
             }
         }
@@ -622,7 +1337,7 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
         {
              if(n_SC == 1)
             {
-                num1 = 7; num2 = 1; 
+                num1 = 7; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -635,15 +1350,16 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
         {
               if(n_SC == 1)
             {
-                num1 = 8; num2 = 1; 
+                num1 = 8; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 8; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 8; num2 = 0;
+                return result {num1, num2};
             }
         }
+
         else
         {
             num1 = -1, num2 = 0;
@@ -651,10 +1367,9 @@ auto Processing_and_Output::select_MarchingAlgo2_FourSteps(int flagx, int ds, in
         }
 }
 
-//Function that suggests the best marching algorithm based on some parameters. The function returns two integers: num1 suggests an algorithm, and num2 indicates whether a stream cipher is needed or not. This function is for hardware requests.
 auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int n_SC, double cctax, double tpx, string type)
 {
-         struct result 
+         struct result
         {
             int n1;
             int n2;
@@ -691,12 +1406,12 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
         {
             if(n_SC == 1)
             {
-                num1 = 1; num2 = 1; 
-                return result {num1, num2}; 
+                num1 = 1; num2 = 1;
+                return result {num1, num2};
             }
             else
             {
-                num1 = 1; num2 = 0; 
+                num1 = 1; num2 = 0;
                 return result {num1, num2};
             }
         }
@@ -704,12 +1419,12 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
         {
              if(n_SC == 1)
             {
-                num1 = 2; num2 = 1; 
+                num1 = 2; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 2; num2 = 0; 
+                num1 = 2; num2 = 0;
                 return result {num1, num2};
             }
         }
@@ -717,7 +1432,7 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
         {
              if(n_SC == 1)
             {
-                num1 = 3; num2 = 1; 
+                num1 = 3; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -730,20 +1445,20 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
         {
               if(n_SC == 1)
             {
-                num1 = 4; num2 = 1; 
+                num1 = 4; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 4; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 4; num2 = 0;
+                return result {num1, num2};
             }
         }
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
         {
              if(n_SC == 1)
             {
-                num1 = 5; num2 = 1; 
+                num1 = 5; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -761,15 +1476,15 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
             }
             else
             {
-                num1 = 6; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 6; num2 = 0;
+                return result {num1, num2};
             }
         }
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay4 && cctax <= cctaz4) && (tpx >= tpy4 && tpx <= tpz4))
         {
-             if(n_SC == 1)//stream cipher needed
+             if(n_SC == 1)
             {
-                num1 = 7; num2 = 1; 
+                num1 = 7; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -782,20 +1497,20 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
         {
               if(n_SC == 1)
             {
-                num1 = 8; num2 = 1; 
+                num1 = 8; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 8; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 8; num2 = 0;
+                return result {num1, num2};
             }
         }
         else if((flagx == 1) && (ds == 1) && (cctax >= cctay5 && cctax <= cctaz5) && (tpx >= tpy5 && tpx <= tpz5))
         {
              if(n_SC == 1)
             {
-                num1 = 9; num2 = 1; 
+                num1 = 9; num2 = 1;
                 return result {num1, num2};
             }
             else
@@ -808,16 +1523,16 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
         {
               if(n_SC == 1)
             {
-                num1 = 10; num2 = 1; 
+                num1 = 10; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
-                num1 = 10; num2 = 0; 
-                return result {num1, num2}; 
+                num1 = 10; num2 = 0;
+                return result {num1, num2};
             }
         }
-        else if((flagx == 1) && (ds == 1) && (cctax >= cctay6 && cctax <= cctaz6) && (tpx >= tpy6 && tpx <= tpz6))
+          else if((flagx == 1) && (ds == 1) && (cctax >= cctay6 && cctax <= cctaz6) && (tpx >= tpy6 && tpx <= tpz6))
         {
              if(n_SC == 1)
             {
@@ -834,13 +1549,13 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
         {
               if(n_SC == 1)
             {
-                num1 = 12; num2 = 1; 
+                num1 = 12; num2 = 1;
                 return result {num1, num2};
             }
             else
             {
                 num1 = 12; num2 = 0;
-                return result {num1, num2}; 
+                return result {num1, num2};
             }
         }
         else
@@ -850,10 +1565,9 @@ auto Processing_and_Output::select_MarchingAlgo2_SixSteps(int flagx, int ds, int
         }
 }
 
-//Function that suggests the best marching algorithm based on some parameters. The function returns two integers: num1 suggests an algorithm, and num2 indicates whether a stream cipher is needed or not. This function is for hardware requests.
 auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, int n_SC, double cctax, double tpx, string type)
 {
-         struct result 
+         struct result
         {
             int n1;
             int n2;
@@ -871,6 +1585,7 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
                 cctay5 = 1.0, cctaz5 = 1.0, tpy5 = 1.0, tpz5 = 1.0;
                 cctay6 = 1.0, cctaz6 = 1.0, tpy6 = 1.0, tpz6 = 1.0;
                 cctay7 = 1.0, cctaz6 = 1.0, tpy6 = 1.0, tpz6 = 1.0;
+
             }
             else if(type == "ASIC")
             {
@@ -887,14 +1602,14 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
     {
                if(flagx == -1)
                {
-                    num1 = 0; num2 = 0; 
+                    num1 = 0; num2 = 0;
                     return result {num1, num2};
               }
             else if((flagx == 1) && (ds == 1) && (cctax >= cctay5 && cctax <= cctaz5))
             {
                 if(n_SC == 1)
                   {
-                    num1 = 9; num2 = 1; 
+                    num1 = 9; num2 = 1;
                     return result {num1, num2};
                   }
                 else
@@ -907,20 +1622,20 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                 if(n_SC == 1)
                  {
-                    num1 = 10; num2 = 1; 
+                    num1 = 10; num2 = 1;
                     return result {num1, num2};
                  }
                 else
                 {
-                    num1 = 10; num2 = 0; 
-                    return result {num1, num2}; 
+                    num1 = 10; num2 = 0;
+                    return result {num1, num2};
                 }
             }
             else if((flagx == 1) && (ds == 1) && (cctax >= cctay6 && cctax <= cctaz6))
             {
                 if(n_SC == 1)
                   {
-                    num1 = 11; num2 = 1; 
+                    num1 = 11; num2 = 1;
                     return result {num1, num2};
                   }
                 else
@@ -933,20 +1648,20 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                 if(n_SC == 1)
                  {
-                    num1 = 12; num2 = 1; 
+                    num1 = 12; num2 = 1;
                     return result {num1, num2};
                  }
                 else
                 {
-                    num1 = 12; num2 = 0; 
-                    return result {num1, num2}; 
+                    num1 = 12; num2 = 0;
+                    return result {num1, num2};
                 }
             }
             else if((flagx == 1) && (ds == 1) && (cctax >= cctay7 && cctax <= cctaz7))
             {
                 if(n_SC == 1)
                   {
-                    num1 = 13; num2 = 1; 
+                    num1 = 13; num2 = 1;
                     return result {num1, num2};
                   }
                 else
@@ -964,7 +1679,7 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
                  }
                 else
                 {
-                    num1 = 14; num2 = 0; 
+                    num1 = 14; num2 = 0;
                     return result {num1, num2};
                 }
             }
@@ -972,12 +1687,12 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                 if(n_SC == 1)
                 {
-                    num1 = 1; num2 = 1; 
-                    return result {num1, num2}; 
+                    num1 = 1; num2 = 1;
+                    return result {num1, num2};
                 }
                 else
                 {
-                    num1 = 1; num2 = 0; 
+                    num1 = 1; num2 = 0;
                     return result {num1, num2};
                 }
             }
@@ -985,12 +1700,12 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                  if(n_SC == 1)
                 {
-                    num1 = 2; num2 = 1; 
+                    num1 = 2; num2 = 1;
                     return result {num1, num2};
                 }
                 else
                 {
-                    num1 = 2; num2 = 0; 
+                    num1 = 2; num2 = 0;
                     return result {num1, num2};
                 }
             }
@@ -998,7 +1713,7 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                  if(n_SC == 1)
                 {
-                    num1 = 3; num2 = 1; 
+                    num1 = 3; num2 = 1;
                     return result {num1, num2};
                 }
                 else
@@ -1016,15 +1731,15 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
                 }
                 else
                 {
-                    num1 = 4; num2 = 0; 
-                    return result {num1, num2}; 
+                    num1 = 4; num2 = 0;
+                    return result {num1, num2};
                 }
             }
              else if((flagx == 1) && (ds == 1) && (cctax >= cctay3 && cctax <= cctaz3))
             {
                  if(n_SC == 1)
                 {
-                    num1 = 5; num2 = 1; 
+                    num1 = 5; num2 = 1;
                     return result {num1, num2};
                 }
                 else
@@ -1037,20 +1752,20 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                   if(n_SC == 1)
                 {
-                    num1 = 6; num2 = 1; 
+                    num1 = 6; num2 = 1;
                     return result {num1, num2};
                 }
                 else
                 {
-                    num1 = 6; num2 = 0; 
-                    return result {num1, num2}; 
+                    num1 = 6; num2 = 0;
+                    return result {num1, num2};
                 }
             }
             else if((flagx == 1) && (ds == 1) && (cctax >= cctay4 && cctax <= cctaz4))
             {
                   if(n_SC == 1)
                 {
-                    num1 = 7; num2 = 1; 
+                    num1 = 7; num2 = 1;
                     return result {num1, num2};
                 }
                 else
@@ -1063,13 +1778,13 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                  if(n_SC == 1)
                 {
-                    num1 = 8; num2 = 1; 
+                    num1 = 8; num2 = 1;
                     return result {num1, num2};
                 }
                 else
                 {
-                    num1 = 8; num2 = 0; 
-                    return result {num1, num2}; 
+                    num1 = 8; num2 = 0;
+                    return result {num1, num2};
                 }
             }
             else
@@ -1080,16 +1795,16 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
     }
     else
     {
-          if(flagx == -1)//If flagx is not equal to 1 means there is no such mechanism, which means that no need for an algorithm.
+          if(flagx == -1)
                {
-                    num1 = 0; num2 = 0; 
+                    num1 = 0; num2 = 0;
                     return result {num1, num2};
               }
             else if((flagx == 1) && (ds == 1) && (cctax >= cctay5 && cctax <= cctaz5) && (tpx >= tpy5 && tpx <= tpz5))
             {
                 if(n_SC == 1)
                   {
-                    num1 = 9; num2 = 1; 
+                    num1 = 9; num2 = 1;
                     return result {num1, num2};
                   }
                 else
@@ -1102,20 +1817,21 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                 if(n_SC == 1)
                  {
-                    num1 = 10; num2 = 1; 
+                    num1 = 10; num2 = 1;
                     return result {num1, num2};
                  }
                 else
                 {
                     num1 = 10; num2 = 0;
-                    return result {num1, num2}; 
+                    return result {num1, num2};
                 }
+
             }
             else if((flagx == 1) && (ds == 1) && (cctax >= cctay6 && cctax <= cctaz6) && (tpx >= tpy6 && tpx <= tpz6))
             {
                 if(n_SC == 1)
                   {
-                    num1 = 11; num2 = 1; 
+                    num1 = 11; num2 = 1;
                     return result {num1, num2};
                   }
                 else
@@ -1128,20 +1844,20 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                 if(n_SC == 1)
                  {
-                    num1 = 12; num2 = 1; 
+                    num1 = 12; num2 = 1;
                     return result {num1, num2};
                  }
                 else
                 {
-                    num1 = 12; num2 = 0; 
-                    return result {num1, num2}; 
+                    num1 = 12; num2 = 0;
+                    return result {num1, num2};
                 }
             }
             else if((flagx == 1) && (ds == 1) && (cctax >= cctay7 && cctax <= cctaz7) && (tpx >= tpy7 && tpx <= tpz7))
             {
                 if(n_SC == 1)
                   {
-                    num1 = 13; num2 = 1; 
+                    num1 = 13; num2 = 1;
                     return result {num1, num2};
                   }
                 else
@@ -1154,13 +1870,13 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                 if(n_SC == 1)
                  {
-                    num1 = 14; num2 = 1; 
+                    num1 = 14; num2 = 1;
                     return result {num1, num2};
                  }
                 else
                 {
-                    num1 = 14; num2 = 0; 
-                    return result {num1, num2}; 
+                    num1 = 14; num2 = 0;
+                    return result {num1, num2};
                 }
             }
             else if((flagx == 1) && (ds == 1) && (cctax >= cctay1 && cctax <= cctaz1) && (tpx >= tpy1 && tpx <= tpz1))
@@ -1168,11 +1884,11 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
                 if(n_SC == 1)
                 {
                     num1 = 1; num2 = 1;
-                    return result {num1, num2}; 
+                    return result {num1, num2};
                 }
                 else
                 {
-                    num1 = 1; num2 = 0; 
+                    num1 = 1; num2 = 0;
                     return result {num1, num2};
                 }
             }
@@ -1180,12 +1896,12 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                  if(n_SC == 1)
                 {
-                    num1 = 2; num2 = 1; 
+                    num1 = 2; num2 = 1;
                     return result {num1, num2};
                 }
                 else
                 {
-                    num1 = 2; num2 = 0; 
+                    num1 = 2; num2 = 0;
                     return result {num1, num2};
                 }
             }
@@ -1193,7 +1909,7 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                  if(n_SC == 1)
                 {
-                    num1 = 3; num2 = 1; 
+                    num1 = 3; num2 = 1;
                     return result {num1, num2};
                 }
                 else
@@ -1206,20 +1922,20 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                   if(n_SC == 1)
                 {
-                    num1 = 4; num2 = 1; 
+                    num1 = 4; num2 = 1;
                     return result {num1, num2};
                 }
                 else
                 {
                     num1 = 4; num2 = 0;
-                    return result {num1, num2}; 
+                    return result {num1, num2};
                 }
             }
-            else if((flagx == 1) && (ds == 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
+             else if((flagx == 1) && (ds == 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
             {
                  if(n_SC == 1)
                 {
-                    num1 = 5; num2 = 1; 
+                    num1 = 5; num2 = 1;
                     return result {num1, num2};
                 }
                 else
@@ -1228,16 +1944,16 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
                     return result {num1, num2};
                 }
             }
-            else if((flagx == 1) && (ds != 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
+             else if((flagx == 1) && (ds != 1) && (cctax >= cctay3 && cctax <= cctaz3) && (tpx >= tpy3 && tpx <= tpz3))
             {
                   if(n_SC == 1)
                 {
-                    num1 = 6; num2 = 1; 
+                    num1 = 6; num2 = 1;
                     return result {num1, num2};
                 }
                 else
                 {
-                    num1 = 6; num2 = 0; 
+                    num1 = 6; num2 = 0;
                     return result {num1, num2};
                 }
             }
@@ -1245,7 +1961,7 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                   if(n_SC == 1)
                 {
-                    num1 = 7; num2 = 1; 
+                    num1 = 7; num2 = 1;
                     return result {num1, num2};
                 }
                 else
@@ -1258,13 +1974,13 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
             {
                  if(n_SC == 1)
                 {
-                    num1 = 8; num2 = 1; 
+                    num1 = 8; num2 = 1;
                     return result {num1, num2};
                 }
                 else
                 {
-                    num1 = 8; num2 = 0; 
-                    return result {num1, num2}; 
+                    num1 = 8; num2 = 0;
+                    return result {num1, num2};
                 }
             }
             else
@@ -1275,10 +1991,9 @@ auto Processing_and_Output::select_MarchingAlgo2_SevenSteps(int flagx, int ds, i
     }
 }
 
-//Function that maps security mechanisms to security algorithms. The function returns multiple integer values using tuple.
 auto Processing_and_Output::mapping2(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, int cpu_int, double fms_doub, double rs_doub, string as, string ps)
 {
-            struct result 
+            struct result
             {
                 int int_1;
                 int p1;
@@ -1292,12 +2007,13 @@ auto Processing_and_Output::mapping2(int flag1, int flag2, int flag3, int flag4,
             };
 
         int algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6;
-       int domain_sensitivity = checkSensitivity_of_User_ApplcArea(as);
-       int ds = domain_sensitivity; 
-       int needFor_SC = Check_if_streamCipherNeeded(ps);
-       int n_SC = needFor_SC; 
 
-       auto s_MA_result1 = select_MarchingAlgo(flag1, ds, n_SC, cpu_int, fms_doub, rs_doub); 
+       int domain_sensitivity = checkSensitivity_of_User_ApplcArea(as);
+       int ds = domain_sensitivity;
+       int needFor_SC = Check_if_streamCipherNeeded(ps);
+       int n_SC = needFor_SC;
+
+        auto s_MA_result1 = select_MarchingAlgo(flag1, ds, n_SC, cpu_int, fms_doub, rs_doub);
        algo1 = s_MA_result1.n1; ps1 = s_MA_result1.n2;
 
        auto s_MA_result2 = select_MarchingAlgo(flag2, ds, n_SC, cpu_int, fms_doub, rs_doub);
@@ -1316,18 +2032,11 @@ auto Processing_and_Output::mapping2(int flag1, int flag2, int flag3, int flag4,
        algo6 = s_MA_result6.n1; ps6 = s_MA_result6.n2;
 
     return result {algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6};
-    //algo1 represents algorithm for Encryption (Data Confidentiality)
-    //algo2 represents algorithm for Hash Functions
-    //algo3 represents algorithm for Message Authentication Code
-    //algo4 represents algorithm for Encryption (user privacy)
-    //algo5 represents algorithm for Digital Signature
-    //algo6 represents algorithm for Authenticated Encryption
 }
 
-//Function that maps security mechanisms to security algorithms. The function returns multiple integer values using tuple. This function is for the hardware request.
 auto Processing_and_Output::mapping2Hardware(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, double ccta1_doub, double tp1_doub, double ccta2_doub, double tp2_doub, double ccta3_doub, double tp3_doub, double ccta4_doub, double tp4_doub, double ccta5_doub, double tp5_doub, double ccta6_doub, double tp6_doub, string as, string ps, string type)
 {
-            struct result 
+            struct result
             {
                 int int_1;
                 int p1;
@@ -1341,33 +2050,26 @@ auto Processing_and_Output::mapping2Hardware(int flag1, int flag2, int flag3, in
             };
 
         int algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6;
-
        int domain_sensitivity = checkSensitivity_of_User_ApplcArea(as);
-       int ds = domain_sensitivity; 
+       int ds = domain_sensitivity;
        int needFor_StreamCipher = Check_if_streamCipherNeeded(ps);
-       int n_SC = needFor_StreamCipher; 
-
-       auto s_MA_result1 = select_MarchingAlgo2_SevenSteps(flag1, ds, n_SC, ccta1_doub, tp1_doub, type); 
+       int n_SC = needFor_StreamCipher;
+       auto s_MA_result1 = select_MarchingAlgo2_SevenSteps(flag1, ds, n_SC, ccta1_doub, tp1_doub, type);
        algo1 = s_MA_result1.n1; ps1 = s_MA_result1.n2;
        auto s_MA_result2 = select_MarchingAlgo2_SixSteps(flag2, ds, n_SC, ccta2_doub, tp2_doub, type);
        algo2 = s_MA_result2.n1;
-
        auto s_MA_result3 = select_MarchingAlgo2_ThreeSteps(flag3, ds, n_SC, ccta3_doub, tp3_doub, type);
        algo3 = s_MA_result3.n1;
-
        auto s_MA_result4 = select_MarchingAlgo2_SevenSteps(flag4, ds, n_SC, ccta4_doub, tp4_doub, type);
        algo4 = s_MA_result4.n1; ps4 = s_MA_result4.n2;
-
        auto s_MA_result5 = select_MarchingAlgo2_ThreeSteps(flag5, ds, n_SC, ccta5_doub, tp5_doub, type);
        algo5 = s_MA_result5.n1;
-
        auto s_MA_result6 = select_MarchingAlgo2_FourSteps(flag6, ds, n_SC, ccta6_doub, tp6_doub, type);
        algo6 = s_MA_result6.n1; ps6 = s_MA_result6.n2;
 
     return result {algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6};
 }
 
-//Function that fetches appropriate algorithms from the database
 string Processing_and_Output::fetch_Algo(string IDx)
 {
      string ID, block_size, key_size, cipher_name;
@@ -1380,7 +2082,7 @@ string Processing_and_Output::fetch_Algo(string IDx)
     }
     else
     {
-        string findbyID_query = "select * from crypto_algor where ID = " + ("'" + ID + "'"); 
+        string findbyID_query = "select * from crypto_algor where ID = " + ("'" + ID + "'");
         const char* qn = findbyID_query.c_str();
         qstate = mysql_query(conn, qn);
 
@@ -1402,7 +2104,6 @@ string Processing_and_Output::fetch_Algo(string IDx)
     }
 }
 
-//Function that displays the result of the mapping of security mechanisms to security algorithms for software requests
 auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int algo3, int algo4, int algo5, int algo6, int ps1, int ps4, int ps6)
 {
      struct result
@@ -1416,52 +2117,51 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
             };
 
     string algName1, algName2, algName3, algName4, algName5, algName6;
-
     string ID1, ID2, ID3, ID4, ID5, ID6;
 
     if(algo1 != 0)
     {
-       if(ps1 != 1)// Block cipher is needed
+       if(ps1 != 1)
        {
             if(algo1 == 1)
             {
-                ID1 = "B30";//Clefia 128/256
+                ID1 = "B30";
             }
             else if(algo1 == 2)
             {
-                ID1 = "B29";//Clefia 128/192
+                ID1 = "B29";
             }
             else if(algo1 == 3)
             {
-                ID1 = "B33";// PRESENT 64/128
+                ID1 = "B33";
             }
             else if(algo1 == 4)
             {
-                ID1 = "B2";//SPECK 96/144
+                ID1 = "B2";
             }
             else if(algo1 == 5)
             {
-                ID1 = "B14"; //SPECK 64/128
+                ID1 = "B14";
             }
              else if(algo1 == 6)
             {
-                ID1 = "B13";//SPECK 64/96
+                ID1 = "B13";
             }
             else if(algo1 == 7)
             {
-                ID1 = "B13";//SPECK 64/96
+                ID1 = "B13";
             }
             else if(algo1 == 8)
             {
-                ID1 = "B11";//SPECK 48/72
+                ID1 = "B11";
             }
              else if(algo1 == 9)
             {
-                ID1 = "B29";//Clefia 128/192
+                ID1 = "B29";
             }
             else if(algo1 == 10)
             {
-                ID1 = "B28";//Clefia 128/128
+                ID1 = "B28";
             }
             else
             {
@@ -1469,93 +2169,93 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
             }
          algName1 = fetch_Algo(ID1);
        }
-       else if(ps1 ==1)//Stream cipher is needed
+       else if(ps1 ==1)
        {
            if(algo1 == 1)
             {
-                ID1 = "S2"; //ChaCha20 256 [Serial number of relevant stream cipher should be entered here]
+                ID1 = "S2";
             }
             else if(algo1 == 2)
             {
-                ID1 = "S2"; //ChaCha20 256
+                ID1 = "S2";
             }
             else if(algo1 == 3)
             {
-                ID1 = "S2"; // ChaCha20 256
+                ID1 = "S2";
             }
             else if(algo1 == 4)
             {
-                ID1 = "S1"; // Enocoro 80
+                ID1 = "S1";
             }
              else if(algo1 == 5)
             {
-                ID1 = "S2";//ChaCha20 256
+                ID1 = "S2";
             }
              else if(algo1 == 6)
             {
-                ID1 = "S1";// Enocoro 80
+                ID1 = "S1";
             }
              else if(algo1 == 7)
             {
-                ID1 = "S2";//ChaCha20 256
+                ID1 = "S2";
             }
             else if(algo1 == 8)
             {
-                ID1 = "S1";// Enocoro 80
+                ID1 = "S1";
             }
              else if(algo1 == 9)
             {
-                ID1 = "S1";//  Enocoro 80
+                ID1 = "S2";
             }
             else if(algo1 == 10)
             {
-                ID1 = "S1";// Enocoro 80
+                ID1 = "S3";
             }
            algName1 = fetch_Algo(ID1);
       }
     }
-
+ // /*
     if(algo2 != 0)
     {
         if(algo2 == 1)
         {
-            ID2 = "H10";//PHOTON 224/32/32
+            ID2 = "H10";
         }
         else if(algo2 == 2)
         {
-            ID2 = "H10"; //PHOTON 224/32/32
+            ID2 = "H10";
         }
         else if(algo2 == 3)
         {
-            ID2 = "H8";//PHOTON 160/36/36
+            ID2 = "H8";
         }
         else if(algo2 == 4)
         {
-            ID2 = "H8";//PHOTON 160/36/36
+            ID2 = "H8";
         }
         else if(algo2 == 5)
         {
-            ID2 = "H6";//PHOTON 128/16/16
+            ID2 = "H6";
         }
         else if(algo2 == 6)
         {
-            ID2 = "H6";//PHOTON 128/16/16
+            ID2 = "H6";
         }
         else if(algo2 == 7)
         {
-            ID2 = "H4";//PHOTON 80/20/16
+            ID2 = "H4";
         }
         else if(algo2 == 8)
         {
-            ID2 = "H4";//PHOTON 80/20/16
+            ID2 = "H4";
         }
         else if(algo2 == 9)
         {
-            ID2 = "H12";//PHOTON 256/32/32
+            ID2 = "H12";
         }
         else if(algo2 == 10)
         {
-            ID2 = "H12";//PHOTON 256/32/32
+            ID2 = "H12";
         }
         else
         {
@@ -1600,11 +2300,11 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
         }
         else if(algo3 == 9)
         {
-            ID3 = "M1";//SipHash 128
+            ID3 = "M1";
         }
         else if(algo3 == 10)
         {
-            ID3 = "M1";//SipHash 128
+            ID3 = "M1";
         }
         else
         {
@@ -1619,43 +2319,43 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
         {
             if(algo4 == 1)
             {
-                ID4 = "B30";//Clefia 128/256
+                ID4 = "B30";
             }
             else if(algo4 == 2)
             {
-                ID4 = "B28";//Clefia 128/128
+                ID4 = "B28";
             }
             else if(algo4 == 3)
             {
-                ID4 = "B33";//PRESENT 64/128
+                ID4 = "B33";
             }
             else if(algo4 == 4)
             {
-                ID4 = "B2";//SPECK 96/144
+                ID4 = "B2";
             }
             else if(algo4 == 5)
             {
-                ID4 = "B14";//SPECK 64/128
+                ID4 = "B14";
             }
             else if(algo4 == 6)
             {
-                ID4 = "B13";//SPECK 64/96
+                ID4 = "B13";
             }
             else if(algo4 == 7)
             {
-                ID4 = "B12";// SPECK 48/96
+                ID4 = "B12";
             }
             else if(algo4 == 8)
             {
-                ID4 = "B11";//SPECK 48/72
+                ID4 = "B11";
             }
             else if(algo4 == 9)
             {
-                ID4 = "B29";//Clefia 128/192
+                ID4 = "B29";
             }
             else if(algo4 == 10)
             {
-                ID4 = "B28";//Clefia 128/128
+                ID4 = "B28";
             }
             else
             {
@@ -1667,43 +2367,43 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
         {
             if(algo4 == 1)
             {
-                ID4 = "S2"; //Chacha20 256
+                ID4 = "S2";
             }
             else if(algo4 == 2)
             {
-                ID4 = "S2"; //Chacha20 256
+                ID4 = "S2";
             }
             else if(algo4 == 3)
             {
-                ID4 = "S2"; //Chacha20 256
+                ID4 = "S2";
             }
             else if(algo4 == 4)
             {
-                ID4 = "S1"; //Enocoro 80
+                ID4 = "S1";
             }
             else if(algo4 == 5)
             {
-                ID4 = "S2";//Chacha20 256
+                ID4 = "S2";
             }
             else if(algo4 == 6)
             {
-                ID4 = "S1";//Enocoro 80
+                ID4 = "S1";
             }
              else if(algo4 == 7)
             {
-                ID4 = "S2";//Chacha20 256
+                ID4 = "S2";
             }
             else if(algo4 == 8)
             {
-                ID4 = "S1";//Enocoro 80
+                ID4 = "S1";
             }
             else if(algo4 == 9)
             {
-                ID4 = "S2";//Chacha20 256
+                ID4 = "S2";
             }
             else if(algo4 == 10)
             {
-                ID4 = "S2";//Chacha20 256
+                ID4 = "S2";
             }
           algName4 = fetch_Algo(ID4);
         }
@@ -1760,47 +2460,47 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
 
     if(algo6 != 0)
     {
-       if(ps6 != 1) //
+       if(ps6 != 1)
        {
             if(algo6 == 1)
             {
-                ID6 = "A10";//ACORN
+                ID6 = "A13";
             }
             else if(algo6 == 2)
             {
-                ID6 = "A13";//Ascon
+                ID6 = "A13";
             }
             else if(algo6 == 3)
             {
-                ID6 = "A5";//SILC-AES
+                ID6 = "A4";
             }
             else if(algo6 == 4)
             {
-                ID6 = "A4";//CLOC-AES
+                ID6 = "A12";
             }
             else if(algo6 == 5)
             {
-                ID6 = "A7";//JAMBU-AES
+                ID6 = "A4";
             }
             else if(algo6 == 6)
             {
-                ID6 = "A13";//Ascon
+                ID6 = "A13";
             }
             else if(algo6 == 7)
             {
-                ID6 = "A1";// CLOC-TWINE
+                ID6 = "A1";
             }
             else if(algo6 == 8)
             {
-                ID6 = "A2";//SILC-PRESENT
+                ID6 = "A1";
             }
             else if(algo6 == 9)
             {
-                ID6 = "A3";//JAMBI-SIMON
+                ID6 = "A13";
             }
             else if(algo6 == 10)
             {
-                ID6 = "A8";//AES-OCB
+                ID6 = "A6";
             }
             else
             {
@@ -1808,11 +2508,11 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
             }
          algName6 =  fetch_Algo(ID6);
        }
-       else if(ps6 == 1) //Algorithms that are stream cipher based
+       else if(ps6 == 1)
        {
             if(algo6 == 1)
             {
-                ID6 = "A7"; //JAMBU-AES  (lightweight authenticated cipher) is a stream-based AE scheme and is one of the finalists in CAESAR. it is better than AES-GCM mode in hardware especially in constrained environment (resources and energy consumption) and software (small code size).
+                ID6 = "A10";
             }
             else if(algo6 == 2)
             {
@@ -1824,7 +2524,7 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
             }
             else if(algo6 == 4)
             {
-                ID6 = "A10"; //ACORN Serial number of relevant stream cipher should be entered here
+                ID6 = "A10";
             }
             else if(algo6 == 5)
             {
@@ -1844,8 +2544,8 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
             }
             else if(algo6 == 9)
             {
-                ID6 = "A9"; 
-            }              
+                ID6 = "A9";
+            }
             else if(algo6 == 10)
             {
                 ID6 = "A9";//AES-GCM
@@ -1856,7 +2556,6 @@ auto Processing_and_Output::display_Mech_Algo_mapping(int algo1, int algo2, int 
   return result {algName1, algName2, algName3, algName4, algName5, algName6};
 }
 
-//Function that displays the result of the mapping of security mechanisms to security algorithms for hardware requests
 auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int algo3, int algo4, int algo5, int algo6, int ps1, int ps4, int ps6, string energy)
 {
     struct result
@@ -1872,74 +2571,74 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
 
     string ID1, ID2, ID3, ID4, ID5, ID6;
 
-        if(energy == "Low") //Low Energy
+        if(energy == "Low")
         {
-                    if(algo1 != 0)  // Low Energy - Block Cipher (For Data Confidentiality)
+                    if(algo1 != 0)
                     {
                        if(ps1 != 1)
                        {
                             if(algo1 == 1)
                             {
-                                ID1 = "B40";//SIMON64/128
+                                ID1 = "B40";
                             }
                             else if(algo1 == 2)
                             {
-                                ID1 = "B39";//SIMON64/96
+                                ID1 = "B39";
                             }
                             else if(algo1 == 3)
                             {
-                                ID1 = "B25";//Piccolo64/80
+                                ID1 = "B25";
                             }
                             else if(algo1 == 4)
                             {
-                                ID1 = "B25";//Piccolo64/80
+                                ID1 = "B25";
                             }
                             else if(algo1 == 5)
                             {
-                                ID1 = "B26";//Piccolo64/128
+                                ID1 = "B26";
                             }
                              else if(algo1 == 6)
                             {
-                                ID1 = "B26";//Piccolo64/128
+                                ID1 = "B26";
                             }
                             else if(algo1 == 7)
                             {
-                                ID1 = "B26";//Piccolo64/128
+                                ID1 = "B26";
                             }
                             else if(algo1 == 8)
                             {
-                                ID1 = "B26";//Piccolo64/128
+                                ID1 = "B26";
                             }
                             else if(algo1 == 9)
                             {
-                                ID1 = "B34";//TWINE64/80
+                                ID1 = "B34";
                             }
                             else if(algo1 == 10)
                             {
-                                ID1 = "B34";//TWINE64/80
+                                ID1 = "B34";
                             }
                             else if(algo1 == 11)
                             {
-                                ID1 = "B35";//TWINE64/128
+                                ID1 = "B35";
                             }
                             else if(algo1 == 12)
                             {
-                                ID1 = "B3";//Midori64/128
+                                ID1 = "B3";
                             }
                             else if(algo1 == 13)
                             {
-                                ID1 = "B4";//Midori128/128
+                                ID1 = "B4";
                             }
                             else if(algo1 == 14)
                             {
-                                ID1 = "B28";//Clefia128/128
+                                ID1 = "B28";
                             }
                             else
                             {
                                 ID1 = "0";
                             }
                        }
-                       else if(ps1 ==1) // Low Energy- Stream Cipher (For Data Confidentiality)
+                       else if(ps1 ==1)
                        {
                            if(algo1 == 1)
                             {
@@ -1959,113 +2658,113 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                             }
                              else if(algo1 == 5)
                             {
-                                ID1 = "S7";//Grain_v1 128
+                                ID1 = "S7";
                             }
                              else if(algo1 == 6)
                             {
-                                ID1 = "S7";//Grain_v1 128
+                                ID1 = "S7";
                             }
                              else if(algo1 == 7)
                             {
-                                ID1 = "S7";//Grain_v1 128
+                                ID1 = "S7";
                             }
                             else if(algo1 == 8)
                             {
-                                ID1 = "S7";//Grain_v1 128
+                                ID1 = "S7";
                             }
                             else if(algo1 == 9)
                             {
-                                ID1 = "S7";//Grain_v1 128
+                                ID1 = "S7";
                             }
                             else if(algo1 == 10)
                             {
-                                ID1 = "S7";//Grain_v1 128
+                                ID1 = "S7";
                             }
                              else if(algo1 == 11)
                             {
-                                ID1 = "S3";//Enocoro_v2 128
+                                ID1 = "S3";
                             }
                             else if(algo1 == 12)
                             {
-                                ID1 = "S7";//Grain_v1 128
+                                ID1 = "S7";
                             }
                             else if(algo1 == 13)
                             {
-                                ID1 = "S5";//Trivium 80
+                                ID1 = "S5";
                             }
                             else if(algo1 == 14)
                             {
-                                ID1 = "S4";//MICKEY_20-80
+                                ID1 = "S4";
                             }
                       }
                     }
 
-                    if(algo4 != 0) //Low Energy- Block Cipher (For USer Privacy)
+                    if(algo4 != 0)
                     {
                         if(ps4 != 1)
                         {
                             if(algo4 == 1)
                             {
-                                ID4 = "B40";//SIMON 64/128
+                                ID4 = "B40";
                             }
                             else if(algo4 == 2)
                             {
-                                ID4 = "B39";//SIMON 64/96
+                                ID4 = "B39";
                             }
                             else if(algo4 == 3)
                             {
-                                ID4 = "B25";//Piccolo 64/80
+                                ID4 = "B25";
                             }
                             else if(algo4 == 4)
                             {
-                                ID4 = "B25";//Piccolo 64/80
+                                ID4 = "B25";
                             }
                             else if(algo4 == 5)
                             {
-                                ID4 = "B26";//Piccolo 64/128
+                                ID4 = "B26";
                             }
                             else if(algo4 == 6)
                             {
-                                ID4 = "B26";//Piccolo 64/128
+                                ID4 = "B26";
                             }
                             else if(algo4 == 7)
                             {
-                                ID4 = "B26";//Piccolo 64/128
+                                ID4 = "B26";
                             }
                             else if(algo4 == 8)
                             {
-                                ID4 = "B26";//Piccolo 64/128
+                                ID4 = "B26";
                             }
                             else if(algo4 == 9)
                             {
-                                ID4 = "B34";//TWINE 64/80
+                                ID4 = "B34";
                             }
                             else if(algo4 == 10)
                             {
-                                ID4 = "B34";//TWINE 64/80
+                                ID4 = "B34";
                             }
                              else if(algo4 == 11)
                             {
-                                ID4 = "B35";//TWINE 64/128
+                                ID4 = "B35";
                             }
                             else if(algo4 == 12)
                             {
-                                ID4 = "B3";//Midori 64/128
+                                ID4 = "B3";
                             }
                             else if(algo4 == 13)
                             {
-                                ID4 = "B4";//Midori 128/128
+                                ID4 = "B4";
                             }
                             else if(algo4 == 14)
                             {
-                                ID4 = "B28";//Clefia 128/128
+                                ID4 = "B28";
                             }
                             else
                             {
                                 ID4 = "0";
                             }
                         }
-                        else if(ps4 == 1) // Low Energy- Stream Cipher (For User Privacy)
+                        else if(ps4 == 1)
                         {
                             if(algo4 == 1)
                             {
@@ -2085,43 +2784,43 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                             }
                             else if(algo4 == 5)
                             {
-                                ID4 = "S6";//Grain_v1 80
+                                ID4 = "S6";
                             }
                             else if(algo4 == 6)
                             {
-                                ID4 = "S6";//Grain_v1 80
+                                ID4 = "S6";
                             }
                              else if(algo4 == 7)
                             {
-                                ID4 = "S6";//Grain_v1 80
+                                ID4 = "S6";
                             }
                             else if(algo4 == 8)
                             {
-                                ID4 = "S6";//Grain_v1 80
+                                ID4 = "S6";
                             }
                             else if(algo4 == 9)
                             {
-                                ID4 = "S6";//Grain_v1 80
+                                ID4 = "S6";
                             }
                             else if(algo4 == 10)
                             {
-                                ID4 = "S6";//Grain_v1 80
+                                ID4 = "S6";
                             }
                              else if(algo4 == 11)
                             {
-                                ID4 = "S3";//Enocoro_v2 128
+                                ID4 = "S3";
                             }
                             else if(algo4 == 12)
                             {
-                                ID4 = "S7";//Grain_v1 128
+                                ID4 = "S7";
                             }
                             else if(algo4 == 13)
                             {
-                                ID4 = "S5";//Trivium 80
+                                ID4 = "S5";
                             }
                             else if(algo4 == 14)
                             {
-                                ID4 = "S4";//MICKEY_20-80
+                                ID4 = "S4";
                             }
                         }
                     }
@@ -2143,51 +2842,51 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                     {
                         if(algo2 == 1)
                         {
-                            ID2 = "H4";//PHOTON 80/20/16
+                            ID2 = "H4";
                         }
                         else if(algo2 == 2)
                         {
-                            ID2 = "H20";//SPONGENT 88/80/8 GE 738 TP 0.8
+                            ID2 = "H20";
                         }
                         else if(algo2 == 3)
                         {
-                            ID2 = "H4";//PHOTON 80/20/16 GE 865 TP 2.8
+                            ID2 = "H4";
                         }
                         else if(algo2 == 4)
                         {
-                            ID2 = "H22";//SPONGENT 128/128/8 GE 1060 TP 0.3
+                            ID2 = "H22";
                         }
                         else if(algo2 == 5)
                         {
-                            ID2 = "H5";//PHOTON 80/20/16 GE 1168 TP 14.4
+                            ID2 = "H5";
                         }
                         else if(algo2 == 6)
                         {
-                            ID2 = "H21";//SPONGENT 88/80/8 GE 1127 TP 17.8
+                            ID2 = "H21";
                         }
                         else if(algo2 == 7)
                         {
-                            ID2 = "H4";//PHOTON 80/20/16 GE 865 TP 2.8
+                            ID2 = "H1";
                         }
                         else if(algo2 == 8)
                         {
-                            ID2 = "H1";//Keccak-f[100]
+                            ID2 = "H4";
                         }
                         else if(algo2 == 9)
                         {
-                            ID2 = "H23";//SPONGENT 128/128/8 GE 1687 TP 11.4
+                            ID2 = "H23";
                         }
                         else if(algo2 == 10)
                         {
-                            ID2 = "H15";//U-QUARK
+                            ID2 = "H15";
                         }
                         else if(algo2 == 11)
                         {
-                            ID2 = "H12";//PHOTON 256/32/32
+                            ID2 = "H12";
                         }
                         else if(algo2 == 12)
                         {
-                            ID2 = "H15";//U-QUARK
+                            ID2 = "H15";
                         }
                         else
                         {
@@ -2200,7 +2899,7 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                     {
                         if(algo3 == 1)
                         {
-                            ID3 = "0";// Zero means no Algorithm marching the search specification is found
+                            ID3 = "0";
                         }
                         else if(algo3 == 2)
                         {
@@ -2229,11 +2928,12 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                         alg3_name = fetch_Algo(ID3);
                     }
 
+
                     if(algo5 != 0)
                     {
                         if(algo5 == 1)
                         {
-                            ID5 = "0"; // Zero means no Algorithm marching the search specification is found
+                            ID5 = "0";
                         }
                         else if(algo5 == 2)
                         {
@@ -2268,35 +2968,35 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                        {
                             if(algo6 == 1)
                             {
-                                ID6 = "A10";//ACORN
+                                ID6 = "A10";
                             }
                             else if(algo6 == 2)
                             {
-                                ID6 = "A6";//AES-OTR
+                                ID6 = "A6";
                             }
                             else if(algo6 == 3)
                             {
-                                ID6 = "A1";//CLOC-TWINE
+                                ID6 = "A2";
                             }
                             else if(algo6 == 4)
                             {
-                                ID6 = "A2";//SILC-PRESENT
+                                ID6 = "A2";
                             }
                             else if(algo6 == 5)
                             {
-                                ID6 = "A4";//CLOC-AES
+                                ID6 = "A5";
                             }
                             else if(algo6 == 6)
                             {
-                                ID6 = "A13";//Ascon
+                                ID6 = "A13";
                             }
                             else if(algo6 == 7)
                             {
-                                ID6 = "A10";//ACORN
+                                ID6 = "A14";
                             }
                             else if(algo6 == 8)
                             {
-                                ID6 = "A14";//Deoxys
+                                ID6 = "A10";
                             }
                             else
                             {
@@ -2308,290 +3008,290 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                        {
                             if(algo6 == 1)
                             {
-                                ID6 = "A9"; //AES-GCM
+                                ID6 = "A9";
                             }
                             else if(algo6 == 2)
                             {
-                                ID6 = "A9"; //AES-GCM
+                                ID6 = "A9";
                             }
                             else if(algo6 == 3)
                             {
-                                ID6 = "A10"; //ACORN
+                                ID6 = "A10";
                             }
                             else if(algo6 == 4)
                             {
-                                ID6 = "A10"; //ACORN
+                                ID6 = "A10";
                             }
                             else if(algo6 == 5)
                             {
-                                ID6 = "A10";//ACORN
+                                ID6 = "A10";
                             }
                             else if(algo6 == 6)
                             {
-                                ID6 = "A10";//ACORN
+                                ID6 = "A10";
                             }
                             else if(algo6 == 7)
                             {
-                                ID6 = "A10";//ACORN
+                                ID6 = "A10";
                             }
                             else if(algo6 == 8)
                             {
-                                ID6 = "A10";//ACORN
+                                ID6 = "A10";
                             }
                          alg6_name =  fetch_Algo(ID6);
                        }
                     }
         }
-        else       //Ultra-Low Energy
+        else
         {
-                        if(algo1 != 0)   //Ultra-Low Energy - Block Cipher (For Data Confidentiality)
+                        if(algo1 != 0)
                         {
                            if(ps1 != 1)
                            {
                                 if(algo1 == 1)
                                 {
-                                    ID1 = "B40";//SIMON 64/128
+                                    ID1 = "B40";
                                 }
                                 else if(algo1 == 2)
                                 {
-                                    ID1 = "B39";//SIMON 64/96
+                                    ID1 = "B39";
                                 }
                                 else if(algo1 == 3)
                                 {
-                                    ID1 = "B40";//SIMON 64/128
+                                    ID1 = "B40";
                                 }
                                 else if(algo1 == 4)
                                 {
-                                    ID1 = "B39";//SIMON 64/96
+                                    ID1 = "B39";
                                 }
                                 else if(algo1 == 5)
                                 {
-                                    ID1 = "B25";//Piccolo 64/80
+                                    ID1 = "B25";
                                 }
                                  else if(algo1 == 6)
                                 {
-                                    ID1 = "B40";//SIMON 64/128
+                                    ID1 = "B40";
                                 }
                                 else if(algo1 == 7)
                                 {
-                                    ID1 = "B3";//Midori 64/128
+                                    ID1 = "B3";
                                 }
                                 else if(algo1 == 8)
                                 {
-                                    ID1 = "B40";//SIMON 64/128
+                                    ID1 = "B40";
                                 }
                                 else if(algo1 == 9)
                                 {
-                                    ID1 = "B3";//Midori 64/128
+                                    ID1 = "B3";
                                 }
                                 else if(algo1 == 10)
                                 {
-                                    ID1 = "B34";//TWINE 64/80
+                                    ID1 = "B34";
                                 }
                                  else if(algo1 == 11)
                                 {
-                                    ID1 = "B34";//TWINE 64/80
+                                    ID1 = "B34";
                                 }
                                 else if(algo1 == 12)
                                 {
-                                    ID1 = "B3";//Midori 64/128
+                                    ID1 = "B3";
                                 }
                                 else if(algo1 == 13)
                                 {
-                                    ID1 = "B35";//TWINE 64/128
+                                    ID1 = "B35";
                                 }
                                 else if(algo1 == 14)
                                 {
-                                    ID1 = "B3";//Midori 64/128
+                                    ID1 = "B3";
                                 }
                                 else
                                 {
                                     ID1 = "0";
                                 }
                            }
-                           else if(ps1 ==1)  //Stream Ciphers for Ultra-Low Energy
+                           else if(ps1 ==1)
                            {
                                if(algo1 == 1)
                                 {
-                                    ID1 = "0"; // Serial number of relevant stream cipher should be entered here
+                                    ID1 = "0";
                                 }
                                 else if(algo1 == 2)
                                 {
-                                    ID1 = "0"; 
+                                    ID1 = "0"; //
                                 }
                                 else if(algo1 == 3)
                                 {
-                                    ID1 = "0"; 
+                                    ID1 = "0"; //
                                 }
                                 else if(algo1 == 4)
                                 {
-                                    ID1 = "0"; 
+                                    ID1 = "0"; //
                                 }
                                  else if(algo1 == 5)
                                 {
-                                    ID1 = "S6";//Grain_v1 80
+                                    ID1 = "S6";
                                 }
                                  else if(algo1 == 6)
                                 {
-                                    ID1 = "S6";//Grain_v1 80
+                                    ID1 = "S6";
                                 }
                                  else if(algo1 == 7)
                                 {
-                                    ID1 = "S6";//Grain_v1 80
+                                    ID1 = "S6";
                                 }
                                 else if(algo1 == 8)
                                 {
-                                    ID1 = "S6";//Grain_v1 80
+                                    ID1 = "S6";
                                 }
                                 else if(algo1 == 9)
                                 {
-                                    ID1 = "S6";//Grain_v1 80
+                                    ID1 = "S6";
                                 }
                                 else if(algo1 == 10)
                                 {
-                                    ID1 = "S6";//Grain_v1 80
+                                    ID1 = "S6";
                                 }
                                  else if(algo1 == 11)
                                 {
-                                    ID1 = "S7";//Grain_v1 128
+                                    ID1 = "S7";
                                 }
                                 else if(algo1 == 12)
                                 {
-                                    ID1 = "S7";//Grain_v1 128
+                                    ID1 = "S7";
                                 }
                                 else if(algo1 == 13)
                                 {
-                                    ID1 = "S3";//Enocoro_v2 128
+                                    ID1 = "S3";
                                 }
                                 else if(algo1 == 14)
                                 {
-                                    ID1 = "S5";//Trivium 80
+                                    ID1 = "S5";
                                 }
                           }
                         }
 
                         if(algo4 != 0)
                         {
-                            if(ps4 != 1) //Block Ciphers for Ultra-Low Energy (User privacy)
+                            if(ps4 != 1)
                             {
                                 if(algo4 == 1)
                                 {
-                                    ID4 = "B40";//SIMON 64/128
+                                    ID4 = "B40";
                                 }
                                 else if(algo4 == 2)
                                 {
-                                    ID4 = "B39";//SIMON 64/96
+                                    ID4 = "B39";
                                 }
                                 else if(algo4 == 3)
                                 {
-                                    ID4 = "B40";//SIMON 64/128
+                                    ID4 = "B40";
                                 }
                                 else if(algo4 == 4)
                                 {
-                                    ID4 = "B39";//SIMON 64/96
+                                    ID4 = "B39";
                                 }
                                 else if(algo4 == 5)
                                 {
-                                    ID4 = "B3";//Midori 64/128
+                                    ID4 = "B3";
                                 }
                                 else if(algo4 == 6)
                                 {
-                                    ID4 = "B40";//SIMON 64/128
+                                    ID4 = "B40";
                                 }
                                 else if(algo4 == 7)
                                 {
-                                    ID4 = "B3";//Midori 64/128
+                                    ID4 = "B3";
                                 }
                                 else if(algo4 == 8)
                                 {
-                                    ID4 = "B40";//SIMON 64/128
+                                    ID4 = "B40";
                                 }
                                 else if(algo4 == 9)
                                 {
-                                    ID4 = "B29";// Clefia 128/192
+                                    ID4 = "B29";
                                 }
                                 else if(algo4 == 10)
                                 {
-                                    ID4 = "B34";//TWINE 64/80
+                                    ID4 = "B34";
                                 }
                                  else if(algo4 == 11)
                                 {
-                                    ID4 = "B3";//Midori 64/128
+                                    ID4 = "B3";
                                 }
                                 else if(algo4 == 12)
                                 {
-                                    ID4 = "B34";//TWINE 64/80
+                                    ID4 = "B34";
                                 }
                                 else if(algo4 == 13)
                                 {
-                                    ID4 = "B35";//TWINE 64/128
+                                    ID4 = "B35";
                                 }
                                 else if(algo4 == 14)
                                 {
-                                    ID4 = "B3";//Midori 64/128
+                                    ID4 = "B3";
                                 }
                                 else
                                 {
                                     ID4 = "0";
                                 }
                             }
-                            else if(ps4 == 1) //Stream Ciphers for Ultra-Low Energy (User privacy)
+                            else if(ps4 == 1)
                             {
                                 if(algo4 == 1)
                                 {
-                                    ID4 = "0"; 
+                                    ID4 = "0"; //
                                 }
                                 else if(algo4 == 2)
                                 {
-                                    ID4 = "0"; 
+                                    ID4 = "0"; //
                                 }
                                 else if(algo4 == 3)
                                 {
-                                    ID4 = "0"; 
+                                    ID4 = "0"; //
                                 }
                                 else if(algo4 == 4)
                                 {
-                                    ID4 = "0"; 
+                                    ID4 = "0"; //
                                 }
                                 else if(algo4 == 5)
                                 {
-                                    ID4 = "S6";//Grain_v1 80
+                                    ID4 = "S6";
                                 }
                                 else if(algo4 == 6)
                                 {
-                                    ID4 = "S6";//Grain_v1 80
+                                    ID4 = "S6";
                                 }
                                  else if(algo4 == 7)
                                 {
-                                    ID4 = "S6";//Grain_v1 80
+                                    ID4 = "S6";
                                 }
                                 else if(algo4 == 8)
                                 {
-                                    ID4 = "S6";//Grain_v1 80
+                                    ID4 = "S6";
                                 }
                                 else if(algo4 == 9)
                                 {
-                                    ID4 = "S6";//Grain_v1 80
+                                    ID4 = "S6";
                                 }
                                 else if(algo4 == 10)
                                 {
-                                    ID4 = "S6";//Grain_v1 80
+                                    ID4 = "S6";
                                 }
                                  else if(algo4 == 11)
                                 {
-                                    ID4 = "S7";//Grain_v1 128
+                                    ID4 = "S7";
                                 }
                                 else if(algo4 == 12)
                                 {
-                                    ID4 = "S7";//Grain_v1 128
+                                    ID4 = "S7";
                                 }
                                 else if(algo4 == 13)
                                 {
-                                    ID4 = "S3";//Enocoro_v2 128
+                                    ID4 = "S3";
                                 }
                                 else if(algo4 == 14)
                                 {
-                                    ID4 = "S5";//Trivium 80
+                                    ID4 = "S5";
                                 }
                             }
                         }
@@ -2609,23 +3309,24 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                            alg4_name = fetch_Algo(ID4);
                         }
 
+
                          if(algo2 != 0)
                         {
                             if(algo2 == 1)
                             {
-                                ID2 = "H20";//SPONGENT 88/80/8 GE 738 TP 0.8
+                                ID2 = "H20";
                             }
                             else if(algo2 == 2)
                             {
-                                ID2 = "H20";//SPONGENT 88/80/8 GE 738 TP 0.8
+                                ID2 = "H20";
                             }
                             else if(algo2 == 3)
                             {
-                                ID2 = "H22";//SPONGENT 128/128/8 GE 1060 TP 0.3
+                                ID2 = "H22";
                             }
                             else if(algo2 == 4)
                             {
-                                ID2 = "H22";//SPONGENT 128/128/8 GE 1060 TP 0.3
+                                ID2 = "H22";
                             }
                             else if(algo2 == 5)
                             {
@@ -2633,31 +3334,31 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                             }
                             else if(algo2 == 6)
                             {
-                                ID2 = "H22";//SPONGENT 128/128/8 GE 1060 TP 0.3
+                                ID2 = "H22";
                             }
                             else if(algo2 == 7)
                             {
-                                ID2 = "H23";//SPONGENT 128/128/8 GE 1687 TP 11.4
+                                ID2 = "H23";
                             }
                             else if(algo2 == 8)
                             {
-                                ID2 = "H8";//PHOTON 160/36/36
+                                ID2 = "H8";
                             }
                             else if(algo2 == 9)
                             {
-                                ID2 = "H23";//SPONGENT 128/128/8 GE 1687 TP 11.4
+                                ID2 = "H23";
                             }
                             else if(algo2 == 10)
                             {
-                                ID2 = "H12";//PHOTON 256/32/32
+                                ID2 = "H12";
                             }
                             else if(algo2 == 11)
                             {
-                                ID2 = "H24";//SPONGENT 160/160/16 GE 1329 TP 0.4
+                                ID2 = "H24";
                             }
                             else if(algo2 == 12)
                             {
-                                ID2 = "H18";//S-QUARK
+                                ID2 = "H18";
                             }
                             else
                             {
@@ -2699,6 +3400,7 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                           alg3_name =  fetch_Algo(ID3);
                         }
 
+
                         if(algo5 != 0)
                         {
                             if(algo5 == 1)
@@ -2738,35 +3440,35 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                            {
                                 if(algo6 == 1)
                                 {
-                                    ID6 = "A5";//SILC-AES
+                                    ID6 = "A5";
                                 }
                                 else if(algo6 == 2)
                                 {
-                                    ID6 = "A4";//CLOC-AES
+                                    ID6 = "A4";
                                 }
                                 else if(algo6 == 3)
                                 {
-                                    ID6 = "A6";//AES-OTR
+                                    ID6 = "A6";
                                 }
                                 else if(algo6 == 4)
                                 {
-                                    ID6 = "A6";//AES-OTR
+                                    ID6 = "A6";
                                 }
                                 else if(algo6 == 5)
                                 {
-                                    ID6 = "A13";//Ascon
+                                    ID6 = "A13";
                                 }
                                 else if(algo6 == 6)
                                 {
-                                    ID6 = "A13";//Ascon
+                                    ID6 = "A13";
                                 }
                                 else if(algo6 == 7)
                                 {
-                                    ID6 = "A10";//ACORN
+                                    ID6 = "A10";
                                 }
                                 else if(algo6 == 8)
                                 {
-                                    ID6 = "A7";//JAMBU-AES
+                                    ID6 = "A7";
                                 }
                                 else
                                 {
@@ -2778,44 +3480,1846 @@ auto Processing_and_Output::display_Mech_Algo_mapping2(int algo1, int algo2, int
                            {
                                 if(algo6 == 1)
                                 {
-                                    ID6 = "A9"; //AES-GCM
+                                    ID6 = "A9";
                                 }
                                 else if(algo6 == 2)
                                 {
-                                    ID6 = "A9"; //AES-GCM
+                                    ID6 = "A9";
                                 }
                                 else if(algo6 == 3)
                                 {
-                                    ID6 = "A10"; //ACORN
+                                    ID6 = "A10";
                                 }
                                 else if(algo6 == 4)
                                 {
-                                    ID6 = "A10"; //ACORN
+                                    ID6 = "A10";
                                 }
                                 else if(algo6 == 5)
                                 {
-                                    ID6 = "A10";//ACORN
+                                    ID6 = "A10";
                                 }
                                 else if(algo6 == 6)
                                 {
-                                    ID6 = "A10";//ACORN
+                                    ID6 = "A10";
                                 }
                                 else if(algo6 == 7)
                                 {
-                                    ID6 = "A10";//ACORN
+                                    ID6 = "A10";
                                 }
                                 else if(algo6 == 8)
                                 {
-                                    ID6 = "A10";//ACORN
+                                    ID6 = "A10";
                                 }
                               alg6_name =  fetch_Algo(ID6);
                            }
                         }
+
     }
+
     return result {alg1_name, alg2_name, alg3_name, alg4_name, alg5_name, alg6_name};
 }
 
-//Function that formats the final output which is printed on the Console
+auto Processing_and_Output::select_MarchingAlgo3(int flagx, int ds, int n_SC, double FMx, double RAMx)
+{
+         struct result
+        {
+            int n1;
+            int n2;
+        };
+            int num1, num2;
+
+            double FMy1, FMz1, RAMy1, RAMz1, FMy2, FMz2, RAMy2, RAMz2, FMy3, FMz3, RAMy3, RAMz3, FMy4, FMz4, RAMy4, RAMz4;
+
+                FMy1 = 300.0, FMz1 = 980.0, RAMy1 = 200.0, RAMz1 = 400.0;
+                FMy2 = 981.0, FMz2 = 2000.0, RAMy2 = 200.0, RAMz2 = 460.0;
+                FMy3 = 2001.0, FMz3 = 4200.0, RAMy3 = 200.0, RAMz3 = 655.0;
+                FMy4 = 4201.0, FMz4 = 7100.0, RAMy4 = 200.0, RAMz4 = 660.0;
+
+        if(flagx == -1)
+        {
+            num1 = 0; num2 = 0;
+            return result {num1, num2};
+        }
+        else if((flagx == 1) && (ds == 1) && (FMx >= FMy1 && FMx <= FMz1) && (RAMx >= RAMy1 && RAMx <= RAMz1))
+        {
+            if(n_SC == 1)
+            {
+                num1 = 1; num2 = 1;
+                return result {num1, num2};
+            }
+            else
+            {
+                num1 = 1; num2 = 0;
+                return result {num1, num2};
+            }
+        }
+        else if((flagx == 1) && (ds != 1) && (FMx >= FMy1 && FMx <= FMz1) && (RAMx >= RAMy1 && RAMx <= RAMz1))
+        {
+             if(n_SC == 1)
+            {
+                num1 = 2; num2 = 1;
+                return result {num1, num2};
+            }
+            else
+            {
+                num1 = 2; num2 = 0;
+                return result {num1, num2};
+            }
+        }
+        else if((flagx == 1) && (ds == 1) && (FMx >= FMy2 && FMx <= FMz2) && (RAMx >= RAMy2 && RAMx <= RAMz2))
+        {
+             if(n_SC == 1)
+            {
+                num1 = 3; num2 = 1;
+                return result {num1, num2};
+            }
+            else
+            {
+                num1 = 3; num2 = 0;
+                return result {num1, num2};
+            }
+        }
+        else if((flagx == 1) && (ds != 1) && (FMx >= FMy2 && FMx <= FMz2) && (RAMx >= RAMy2 && RAMx <= RAMz2))
+        {
+              if(n_SC == 1)
+            {
+                num1 = 4; num2 = 1;
+                return result {num1, num2};
+            }
+            else
+            {
+                num1 = 4; num2 = 0;
+                return result {num1, num2};
+            }
+        }
+         else if((flagx == 1) && (ds == 1) && (FMx >= FMy3 && FMx <= FMz3) && (RAMx >= RAMy3 && RAMx <= RAMz3))
+        {
+             if(n_SC == 1)
+            {
+                num1 = 5; num2 = 1;
+                return result {num1, num2};
+            }
+            else
+            {
+                num1 = 5; num2 = 0;
+                return result {num1, num2};
+            }
+        }
+         else if((flagx == 1) && (ds != 1) && (FMx >= FMy3 && FMx <= FMz3) && (RAMx >= RAMy3 && RAMx <= RAMz3))
+        {
+              if(n_SC == 1)
+            {
+                num1 = 6; num2 = 1;
+                return result {num1, num2};
+            }
+            else
+            {
+                num1 = 6; num2 = 0;
+                return result {num1, num2};
+            }
+        }
+         else if((flagx == 1) && (ds == 1) && (FMx >= FMy4 && FMx <= FMz4) && (RAMx >= RAMy4 && RAMx <= RAMz4))
+        {
+             if(n_SC == 1)
+            {
+                num1 = 7; num2 = 1;
+                return result {num1, num2};
+            }
+            else
+            {
+                num1 = 7; num2 = 0;
+                return result {num1, num2};
+            }
+        }
+         else if((flagx == 1) && (ds != 1) && (FMx >= FMy4 && FMx <= FMz4) && (RAMx >= RAMy4 && RAMx <= RAMz4))
+        {
+              if(n_SC == 1)
+            {
+                num1 = 8; num2 = 1;
+                return result {num1, num2};
+            }
+            else
+            {
+                num1 = 8; num2 = 0;
+                return result {num1, num2};
+            }
+        }
+
+        else
+        {
+            num1 = -1, num2 = 0;
+            return result {num1, num2};
+        }
+}
+
+auto Processing_and_Output::mapping2_3(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, double FM1_doub, double RAM1_doub, double FM2_doub, double RAM2_doub, double FM3_doub, double RAM3_doub, double FM4_doub, double RAM4_doub, double FM5_doub, double RAM5_doub, double FM6_doub, double RAM6_doub, string ad, string ps)
+{
+            struct result
+            {
+                int int_1;
+                int p1;
+                int int_2;
+                int int_3;
+                int int_4;
+                int p4;
+                int int_5;
+                int int_6;
+                int p6;
+            };
+
+        int algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6;
+
+       int domain_sensitivity = checkSensitivity_of_User_ApplcArea(ad);
+       int ds = domain_sensitivity;
+       int needFor_StreamCipher = Check_if_streamCipherNeeded(ps);
+       int n_SC = needFor_StreamCipher;
+       auto s_MA_result1 = select_MarchingAlgo3(flag1, ds, n_SC, FM1_doub, RAM1_doub);
+       algo1 = s_MA_result1.n1; ps1 = s_MA_result1.n2;
+       auto s_MA_result2 = select_MarchingAlgo3(flag2, ds, n_SC, FM2_doub, RAM2_doub);
+       algo2 = s_MA_result2.n1;
+       auto s_MA_result3 = select_MarchingAlgo3(flag3, ds, n_SC, FM3_doub, RAM3_doub);
+       algo3 = s_MA_result3.n1;
+       auto s_MA_result4 = select_MarchingAlgo3(flag4, ds, n_SC, FM4_doub, RAM4_doub);
+       algo4 = s_MA_result4.n1; ps4 = s_MA_result4.n2;
+       auto s_MA_result5 = select_MarchingAlgo3(flag5, ds, n_SC, FM5_doub, RAM5_doub);
+       algo5 = s_MA_result5.n1;
+       auto s_MA_result6 = select_MarchingAlgo3(flag6, ds, n_SC, FM6_doub, RAM6_doub);
+       algo6 = s_MA_result6.n1; ps6 = s_MA_result6.n2;
+
+    return result {algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6};
+}
+
+void Processing_and_Output::displayReq_Mech_mapping3(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, string algo_name1, string algo_name2, string algo_name3, string algo_name4, string algo_name5, string algo_name6, string request_id)
+{
+        std::cout << "\n" "****************************************************************************************************" << endl;
+        std::cout<<"\t\t FINAL RESULTS FOR USER WITH REQUEST ID No.: " << request_id << endl << endl;
+
+
+    string s1, s2, s3, s4, s5, s6;
+    s1.erase(); s2.erase(); s3.erase(); s4.erase(); s5.erase(); s6.erase();
+    int flag_1, flag_2, flag_3, flag_4, flag_5, flag_6;
+
+    if(flag1 == 1 && flag4 ==1)
+    {
+        s1 = "Data Confidentiality/User Privacy";
+        flag_1 = 1;
+    }
+    else if(flag1 == 1 && flag4 !=1)
+    {
+         s1 ="Data Confidentiality";
+         flag_1 = 1;
+    }
+    if(flag2 == 1)
+    {
+        s2 = "Message Integrity";
+        flag_2 = 1;
+    }
+    if(flag3 ==1)
+    {
+      s3 = "Authentication";
+      flag_3 = 1;
+    }
+    if(flag4 ==1 && flag1 != 1)
+    {
+         s4 = "User Privacy";
+         flag_4 = 1;
+    }
+    if(flag5 == 1)
+    {
+       s5 = "Non-repudiation";
+       flag_5 = 1;
+    }
+    if(flag6 ==1)
+    {
+        s6 = "Confidentiality & Authenticity";
+        flag_6 = 1;
+    }
+
+
+        cout << "\n YOUR SECURITY REQUIREMENTS AND RECOMMENDED SECURITY MECHANISMS AND SECURITY ALGORITHMS ARE: \n" << endl;
+
+
+    format_Print_output(s1, s2, s3, s4, s5, s6, flag_1, flag_2, flag_3, flag_4, flag_5, flag_6, algo_name1, algo_name2, algo_name3, algo_name4, algo_name5, algo_name6);
+
+    Report report;
+
+					char ch;
+                    level:
+					int flac = 0;
+
+                    if(!algo_name1.empty() || !algo_name2.empty() || !algo_name1.empty() || !algo_name4.empty() || !algo_name5.empty() || !algo_name6.empty())
+                    {
+						flac = 2;
+                        std::cout << "\n\n   \tWould you like to see a detailed report on the recommended algorithms?: \n";
+                    }
+                    else
+                    {
+                        std::cout << "\n\n\n  You don't have any security requirement, or no algorithms matching your security requirements are found.\n";
+                        cout << "\n\n\t\t\t\tPress Enter to return to MAIN MENU \n";
+                        return;
+                    }
+
+                        std::cout<<"\n\t\t1. Yes ";
+                        std::cout<<"\n\t\t2. No, thank you";
+                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+
+						std::cin>>ch;
+
+						switch(ch)
+						{
+						case '1':
+                                 {
+                                    system("cls");
+                                    std::cout << "\n" "****************************************************************************************************" << endl;
+									 std::cout<<"\t\t FINAL RESULTS FOR USER WITH REQUEST ID No.: " << request_id << endl << endl;
+
+
+									string s1, s2, s3, s4, s5, s6;
+									s1.erase(); s2.erase(); s3.erase(); s4.erase(); s5.erase(); s6.erase();
+									int flag_1, flag_2, flag_3, flag_4, flag_5, flag_6;
+
+									if(flag1 == 1 && flag4 ==1)
+									{
+										s1 = "Data Confidentiality/User Privacy";
+										flag_1 = 1;
+									}
+									else if(flag1 == 1 && flag4 !=1)
+									{
+										 s1 ="Data Confidentiality";
+										 flag_1 = 1;
+									}
+									if(flag2 == 1)
+									{
+										s2 = "Message Integrity";
+										flag_2 = 1;
+									}
+									if(flag3 ==1)
+									{
+									  s3 = "Authentication";
+									  flag_3 = 1;
+									}
+									if(flag4 ==1 && flag1 != 1)
+									{
+										 s4 = "User Privacy";
+										 flag_4 = 1;
+									}
+									if(flag5 == 1)
+									{
+									   s5 = "Non-repudiation";
+									   flag_5 = 1;
+									}
+									if(flag6 ==1)
+									{
+										s6 = "Confidentiality & Authenticity";
+										flag_6 = 1;
+									}
+
+
+										cout << "\n YOUR SECURITY REQUIREMENTS AND RECOMMENDED SECURITY MECHANISMS AND SECURITY ALGORITHMS ARE: \n" << endl;
+
+
+									format_Print_output(s1, s2, s3, s4, s5, s6, flag_1, flag_2, flag_3, flag_4, flag_5, flag_6, algo_name1, algo_name2, algo_name3, algo_name4, algo_name5, algo_name6);
+
+                                    string Re_6 = "", Re_7 = "", Re_8 = "", Re_9 = "", Re_10 = "", Re_11 = "", Re_12 = "", Re_13 = "", Re_14 = "", Re_15 = "";
+
+                                    report.formatReport_for_Consle(request_id, flac, algo_name1, algo_name2, algo_name3, algo_name4, algo_name5, algo_name6, Re_6, Re_7, Re_8, Re_9, Re_10, Re_11, Re_12, Re_13, Re_14, Re_15);
+                            break;
+                            }
+                        case '2':
+
+                            break;
+						default:
+							system("cls");
+							std::cout << "\n\t\tSorry! Wrong option selected." << std:: endl;
+                            goto level;
+						}
+
+                        flac = 0;
+
+
+        cout << "\n\n\t\t\t\tPress Enter to return to MAIN MENU \n";
+
+}
+
+auto Processing_and_Output::display_Mech_Algo_mapping3(string type, int algo1, int algo2, int algo3, int algo4, int algo5, int algo6, int ps1, int ps4, int ps6)
+{
+     struct result
+            {
+                string st_1;
+                string st_2;
+                string st_3;
+                string st_4;
+                string st_5;
+                string st_6;
+            };
+
+    string algName1, algName2, algName3, algName4, algName5, algName6;
+    string ID1, ID2, ID3, ID4, ID5, ID6;
+
+	if(type == "AVR")
+	{
+		if(algo1 != 0)
+			{
+			   if(ps1 != 1)
+			   {
+					if(algo1 == 1)
+					{
+						ID1 = "B14";
+					}
+					else if(algo1 == 2)
+					{
+						ID1 = "B13";
+					}
+					else if(algo1 == 3)
+					{
+						ID1 = "B14";
+					}
+					else if(algo1 == 4)
+					{
+						ID1 = "B13";
+					}
+					else if(algo1 == 5)
+					{
+						ID1 = "B25";
+					}
+					 else if(algo1 == 6)
+					{
+						ID1 = "B32";
+					}
+					else if(algo1 == 7)
+					{
+						ID1 = "B18";
+					}
+					else if(algo1 == 8)
+					{
+						ID1 = "B17";
+					}
+					else
+					{
+						ID1 = "0";
+					}
+				 algName1 = fetch_Algo(ID1);
+			   }
+			   else if(ps1 ==1)
+			   {
+				   if(algo1 == 1)
+					{
+						ID1 = "0";
+					}
+					else if(algo1 == 2)
+					{
+						ID1 = "0";
+					}
+					else if(algo1 == 3)
+					{
+						ID1 = "S8";
+					}
+					else if(algo1 == 4)
+					{
+						ID1 = "S8";
+					}
+					 else if(algo1 == 5)
+					{
+						ID1 = "S2";
+					}
+					 else if(algo1 == 6)
+					{
+						ID1 = "S5";
+					}
+					 else if(algo1 == 7)
+					{
+						ID1 = "S2";
+					}
+					else if(algo1 == 8)
+					{
+						ID1 = "S2";
+					}
+				   algName1 = fetch_Algo(ID1);
+			  }
+			}
+		 // /*
+			if(algo2 != 0)
+			{
+				if(algo2 == 1)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 2)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 3)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 4)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 5)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 6)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 7)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 8)
+				{
+					ID2 = "H12";
+				}
+				else
+				{
+					ID2 = "0";
+				}
+			  algName2 = fetch_Algo(ID2);
+			}
+
+			if(algo3 != 0)
+			{
+				if(algo3 == 1)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 2)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 3)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 4)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 5)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 6)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 7)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 8)
+				{
+					ID3 = "0";
+				}
+				else
+				{
+					ID3 = "0";
+				}
+			 algName3 = fetch_Algo(ID3);
+			}
+
+			if(algo4 != 0)
+			{
+				if(ps4 != 1)
+				{
+					if(algo4 == 1)
+					{
+						ID4 = "B14";
+					}
+					else if(algo4 == 2)
+					{
+						ID4 = "B13";
+					}
+					else if(algo4 == 3)
+					{
+						ID4 = "B14";
+					}
+					else if(algo4 == 4)
+					{
+						ID4 = "B13";
+					}
+					else if(algo4 == 5)
+					{
+						ID4 = "B25";
+					}
+					else if(algo4 == 6)
+					{
+						ID4 = "B32";
+					}
+					else if(algo4 == 7)
+					{
+						ID4 = "B18";
+					}
+					else if(algo4 == 8)
+					{
+						ID4 = "B17";
+					}
+					else
+					{
+						ID4 = "0";
+					}
+				 algName4 = fetch_Algo(ID4);
+				}
+				else if(ps4 == 1)
+				{
+					if(algo4 == 1)
+					{
+						ID4 = "0";
+					}
+					else if(algo4 == 2)
+					{
+						ID4 = "0";
+					}
+					else if(algo4 == 3)
+					{
+						ID4 = "S8";
+					}
+					else if(algo4 == 4)
+					{
+						ID4 = "S8";
+					}
+					else if(algo4 == 5)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 6)
+					{
+						ID4 = "S5";
+					}
+					 else if(algo4 == 7)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 8)
+					{
+						ID4 = "S2";
+					}
+				  algName4 = fetch_Algo(ID4);
+				}
+			}
+
+			if(algo5 != 0)
+			{
+				if(algo5 == 1)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 2)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 3)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 4)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 5)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 6)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 7)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 8)
+				{
+					ID5 = "0";
+				}
+				else
+				{
+					ID5 = "0";
+				}
+			  algName5 = fetch_Algo(ID5);
+			}
+
+			if(algo6 != 0)
+			{
+			   if(ps6 != 1) //
+			   {
+					if(algo6 == 1)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 2)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 3)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 4)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 5)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 6)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 7)
+					{
+						ID6 = "0";// A3
+					}
+					else if(algo6 == 8)
+					{
+						ID6 = "0";
+					}
+					else
+					{
+						ID6 = "0";
+					}
+				 algName6 =  fetch_Algo(ID6);
+			   }
+			   else if(ps6 == 1)
+			   {
+					if(algo6 == 1)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 2)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 3)
+					{
+						ID6 = "A10";
+					}
+					else if(algo6 == 4)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 5)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 6)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 7)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 8)
+					{
+						ID6 = "0";
+					}
+				   algName6 = fetch_Algo(ID6);
+			   }
+			}
+	}
+	else if(type == "MSP")
+	{
+		if(algo1 != 0)
+			{
+			   if(ps1 != 1)
+			   {
+					if(algo1 == 1)
+					{
+						ID1 = "B14";
+					}
+					else if(algo1 == 2)
+					{
+						ID1 = "B13";
+					}
+					else if(algo1 == 3)
+					{
+						ID1 = "B14";
+					}
+					else if(algo1 == 4)
+					{
+						ID1 = "B13";
+					}
+					else if(algo1 == 5)
+					{
+						ID1 = "B25";
+					}
+					 else if(algo1 == 6)
+					{
+						ID1 = "B32";
+					}
+					else if(algo1 == 7)
+					{
+						ID1 = "B34";
+					}
+					else if(algo1 == 8)
+					{
+						ID1 = "B34";
+					}
+					else
+					{
+						ID1 = "0";
+					}
+				 algName1 = fetch_Algo(ID1);
+			   }
+			   else if(ps1 ==1)
+			   {
+				   if(algo1 == 1)
+					{
+						ID1 = "S8";
+					}
+					else if(algo1 == 2)
+					{
+						ID1 = "S8";
+					}
+					else if(algo1 == 3)
+					{
+						ID1 = "S2";
+					}
+					else if(algo1 == 4)
+					{
+						ID1 = "S5";
+					}
+					 else if(algo1 == 5)
+					{
+						ID1 = "S2";
+					}
+					 else if(algo1 == 6)
+					{
+						ID1 = "S5";
+					}
+					 else if(algo1 == 7)
+					{
+						ID1 = "S2";
+					}
+					else if(algo1 == 8)
+					{
+						ID1 = "S5";
+					}
+				   algName1 = fetch_Algo(ID1);
+			  }
+			}
+		 // /*
+			if(algo2 != 0)
+			{
+				if(algo2 == 1)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 2)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 3)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 4)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 5)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 6)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 7)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 8)
+				{
+					ID2 = "H12";
+				}
+				else
+				{
+					ID2 = "0";
+				}
+			  algName2 = fetch_Algo(ID2);
+			}
+
+			if(algo3 != 0)
+			{
+				if(algo3 == 1)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 2)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 3)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 4)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 5)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 6)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 7)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 8)
+				{
+					ID3 = "0";
+				}
+				else
+				{
+					ID3 = "0";
+				}
+			 algName3 = fetch_Algo(ID3);
+			}
+
+			if(algo4 != 0)
+			{
+				if(ps4 != 1)
+				{
+					if(algo4 == 1)
+					{
+						ID4 = "B14";
+					}
+					else if(algo4 == 2)
+					{
+						ID4 = "B13";
+					}
+					else if(algo4 == 3)
+					{
+						ID4 = "B14";
+					}
+					else if(algo4 == 4)
+					{
+						ID4 = "B13";
+					}
+					else if(algo4 == 5)
+					{
+						ID4 = "B25";
+					}
+					else if(algo4 == 6)
+					{
+						ID4 = "B32";
+					}
+					else if(algo4 == 7)
+					{
+						ID4 = "B34";
+					}
+					else if(algo4 == 8)
+					{
+						ID4 = "B34";
+					}
+					else
+					{
+						ID4 = "0";
+					}
+				 algName4 = fetch_Algo(ID4);
+				}
+				else if(ps4 == 1)
+				{
+					if(algo4 == 1)
+					{
+						ID4 = "S8";
+					}
+					else if(algo4 == 2)
+					{
+						ID4 = "S8";
+					}
+					else if(algo4 == 3)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 4)
+					{
+						ID4 = "S5";
+					}
+					else if(algo4 == 5)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 6)
+					{
+						ID4 = "S5";
+					}
+					 else if(algo4 == 7)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 8)
+					{
+						ID4 = "S5";
+					}
+				  algName4 = fetch_Algo(ID4);
+				}
+			}
+
+			if(algo5 != 0)
+			{
+				if(algo5 == 1)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 2)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 3)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 4)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 5)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 6)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 7)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 8)
+				{
+					ID5 = "0";
+				}
+				else
+				{
+					ID5 = "0";
+				}
+			  algName5 = fetch_Algo(ID5);
+			}
+
+			if(algo6 != 0)
+			{
+			   if(ps6 != 1) //
+			   {
+					if(algo6 == 1)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 2)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 3)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 4)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 5)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 6)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 7)
+					{
+						ID6 = "0";// A3
+					}
+					else if(algo6 == 8)
+					{
+						ID6 = "0";
+					}
+					else
+					{
+						ID6 = "0";
+					}
+				 algName6 =  fetch_Algo(ID6);
+			   }
+			   else if(ps6 == 1)
+			   {
+					if(algo6 == 1)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 2)
+					{
+						ID6 = "0"; //
+					}
+					else if(algo6 == 3)
+					{
+						ID6 = "0"; //
+					}
+					else if(algo6 == 4)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 5)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 6)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 7)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 8)
+					{
+						ID6 = "0";
+					}
+				   algName6 = fetch_Algo(ID6);
+			   }
+			}
+	}
+	else if(type == "ARM")
+	{
+		if(algo1 != 0)
+			{
+			   if(ps1 != 1)
+			   {
+					if(algo1 == 1)
+					{
+						ID1 = "B14";
+					}
+					else if(algo1 == 2)
+					{
+						ID1 = "B13";
+					}
+					else if(algo1 == 3)
+					{
+						ID1 = "B14";
+					}
+					else if(algo1 == 4)
+					{
+						ID1 = "B25";
+					}
+					else if(algo1 == 5)
+					{
+						ID1 = "B25";
+					}
+					 else if(algo1 == 6)
+					{
+						ID1 = "B34";
+					}
+					else if(algo1 == 7)
+					{
+						ID1 = "B43";
+					}
+					else if(algo1 == 8)
+					{
+						ID1 = "B31";
+					}
+					else
+					{
+						ID1 = "0";
+					}
+				 algName1 = fetch_Algo(ID1);
+			   }
+			   else if(ps1 ==1)
+			   {
+				   if(algo1 == 1)
+					{
+						ID1 = "S2";
+					}
+					else if(algo1 == 2)
+					{
+						ID1 = "S8";
+					}
+					else if(algo1 == 3)
+					{
+						ID1 = "S2";
+					}
+					else if(algo1 == 4)
+					{
+						ID1 = "S5";
+					}
+					 else if(algo1 == 5)
+					{
+						ID1 = "S2";
+					}
+					 else if(algo1 == 6)
+					{
+						ID1 = "S5";
+					}
+					 else if(algo1 == 7)
+					{
+						ID1 = "S2";
+					}
+					else if(algo1 == 8)
+					{
+						ID1 = "S5";
+					}
+				   algName1 = fetch_Algo(ID1);
+			  }
+			}
+
+			if(algo2 != 0)
+			{
+				if(algo2 == 1)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 2)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 3)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 4)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 5)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 6)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 7)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 8)
+				{
+					ID2 = "H12";
+				}
+				else
+				{
+					ID2 = "0";
+				}
+			  algName2 = fetch_Algo(ID2);
+			}
+
+			if(algo3 != 0)
+			{
+				if(algo3 == 1)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 2)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 3)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 4)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 5)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 6)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 7)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 8)
+				{
+					ID3 = "0";
+				}
+				else
+				{
+					ID3 = "0";
+				}
+			 algName3 = fetch_Algo(ID3);
+			}
+
+			if(algo4 != 0)
+			{
+				if(ps4 != 1)
+				{
+					if(algo4 == 1)
+					{
+						ID4 = "B14";
+					}
+					else if(algo4 == 2)
+					{
+						ID4 = "B13";
+					}
+					else if(algo4 == 3)
+					{
+						ID4 = "14";
+					}
+					else if(algo4 == 4)
+					{
+						ID4 = "B25";
+					}
+					else if(algo4 == 5)
+					{
+						ID4 = "B25";
+					}
+					else if(algo4 == 6)
+					{
+						ID4 = "B34";
+					}
+					else if(algo4 == 7)
+					{
+						ID4 = "B43";
+					}
+					else if(algo4 == 8)
+					{
+						ID4 = "B31";
+					}
+					else
+					{
+						ID4 = "0";
+					}
+				 algName4 = fetch_Algo(ID4);
+				}
+				else if(ps4 == 1)
+				{
+					if(algo4 == 1)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 2)
+					{
+						ID4 = "S8";
+					}
+					else if(algo4 == 3)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 4)
+					{
+						ID4 = "S5";
+					}
+					else if(algo4 == 5)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 6)
+					{
+						ID4 = "S5";
+					}
+					 else if(algo4 == 7)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 8)
+					{
+						ID4 = "S5";
+					}
+				  algName4 = fetch_Algo(ID4);
+				}
+			}
+
+			if(algo5 != 0)
+			{
+				if(algo5 == 1)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 2)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 3)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 4)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 5)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 6)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 7)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 8)
+				{
+					ID5 = "0";
+				}
+				else
+				{
+					ID5 = "0";
+				}
+			  algName5 = fetch_Algo(ID5);
+			}
+
+			if(algo6 != 0)
+			{
+			   if(ps6 != 1) //
+			   {
+					if(algo6 == 1)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 2)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 3)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 4)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 5)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 6)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 7)
+					{
+						ID6 = "0";// A3
+					}
+					else if(algo6 == 8)
+					{
+						ID6 = "0";
+					}
+					else
+					{
+						ID6 = "0";
+					}
+				 algName6 =  fetch_Algo(ID6);
+			   }
+			   else if(ps6 == 1)
+			   {
+					if(algo6 == 1)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 2)
+					{
+						ID6 = "0"; //
+					}
+					else if(algo6 == 3)
+					{
+						ID6 = "0"; //
+					}
+					else if(algo6 == 4)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 5)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 6)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 7)
+					{
+						ID6 = "0";
+					}
+					else if(algo6 == 8)
+					{
+						ID6 = "0";
+					}
+				   algName6 = fetch_Algo(ID6);
+			   }
+			}
+	}
+	else
+	{
+		if(algo1 != 0)
+			{
+			   if(ps1 != 1)
+			   {
+					if(algo1 == 1)
+					{
+						ID1 = "B14";
+					}
+					else if(algo1 == 2)
+					{
+						ID1 = "B13";
+					}
+					else if(algo1 == 3)
+					{
+						ID1 = "B14";
+					}
+					else if(algo1 == 4)
+					{
+						ID1 = "B13";
+					}
+					else if(algo1 == 5)
+					{
+						ID1 = "B25";
+					}
+					 else if(algo1 == 6)
+					{
+						ID1 = "B32";
+					}
+					else if(algo1 == 7)
+					{
+						ID1 = "B18";
+					}
+					else if(algo1 == 8)
+					{
+						ID1 = "B17";
+					}
+					else
+					{
+						ID1 = "0";
+					}
+				 algName1 = fetch_Algo(ID1);
+			   }
+			   else if(ps1 ==1)
+			   {
+				   if(algo1 == 1)
+					{
+						ID1 = "S8";
+					}
+					else if(algo1 == 2)
+					{
+						ID1 = "S8";
+					}
+					else if(algo1 == 3)
+					{
+						ID1 = "S2";
+					}
+					else if(algo1 == 4)
+					{
+						ID1 = "S8";
+					}
+					 else if(algo1 == 5)
+					{
+						ID1 = "S2";
+					}
+					 else if(algo1 == 6)
+					{
+						ID1 = "S5";
+					}
+					 else if(algo1 == 7)
+					{
+						ID1 = "S2";
+					}
+					else if(algo1 == 8)
+					{
+						ID1 = "S5";
+					}
+				   algName1 = fetch_Algo(ID1);
+			  }
+			}
+
+			if(algo2 != 0)
+			{
+				if(algo2 == 1)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 2)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 3)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 4)
+				{
+					ID2 = "H8";
+				}
+				else if(algo2 == 5)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 6)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 7)
+				{
+					ID2 = "H12";
+				}
+				else if(algo2 == 8)
+				{
+					ID2 = "H12";
+				}
+				else
+				{
+					ID2 = "0";
+				}
+			  algName2 = fetch_Algo(ID2);
+			}
+
+			if(algo3 != 0)
+			{
+				if(algo3 == 1)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 2)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 3)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 4)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 5)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 6)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 7)
+				{
+					ID3 = "0";
+				}
+				else if(algo3 == 8)
+				{
+					ID3 = "0";
+				}
+				else
+				{
+					ID3 = "0";
+				}
+			 algName3 = fetch_Algo(ID3);
+			}
+
+			if(algo4 != 0)
+			{
+				if(ps4 != 1)
+				{
+					if(algo4 == 1)
+					{
+						ID4 = "B14";
+					}
+					else if(algo4 == 2)
+					{
+						ID4 = "B13";
+					}
+					else if(algo4 == 3)
+					{
+						ID4 = "B14";
+					}
+					else if(algo4 == 4)
+					{
+						ID4 = "B13";
+					}
+					else if(algo4 == 5)
+					{
+						ID4 = "B25";
+					}
+					else if(algo4 == 6)
+					{
+						ID4 = "B32";
+					}
+					else if(algo4 == 7)
+					{
+						ID4 = "B18";
+					}
+					else if(algo4 == 8)
+					{
+						ID4 = "B17";
+					}
+					else
+					{
+						ID4 = "0";
+					}
+				 algName4 = fetch_Algo(ID4);
+				}
+				else if(ps4 == 1)
+				{
+					if(algo4 == 1)
+					{
+						ID4 = "S8";
+					}
+					else if(algo4 == 2)
+					{
+						ID4 = "S8";
+					}
+					else if(algo4 == 3)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 4)
+					{
+						ID4 = "S5";
+					}
+					else if(algo4 == 5)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 6)
+					{
+						ID4 = "S5";
+					}
+					 else if(algo4 == 7)
+					{
+						ID4 = "S2";
+					}
+					else if(algo4 == 8)
+					{
+						ID4 = "S5";
+					}
+				  algName4 = fetch_Algo(ID4);
+				}
+			}
+
+			if(algo5 != 0)
+			{
+				if(algo5 == 1)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 2)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 3)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 4)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 5)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 6)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 7)
+				{
+					ID5 = "0";
+				}
+				else if(algo5 == 8)
+				{
+					ID5 = "0";
+				}
+				else
+				{
+					ID5 = "0";
+				}
+			  algName5 = fetch_Algo(ID5);
+			}
+
+			if(algo6 != 0)
+			{
+			   if(ps6 != 1) //
+			   {
+					if(algo6 == 1)
+					{
+						ID6 = "A1";
+					}
+					else if(algo6 == 2)
+					{
+						ID6 = "A1";
+					}
+					else if(algo6 == 3)
+					{
+						ID6 = "A13";
+					}
+					else if(algo6 == 4)
+					{
+						ID6 = "A12";
+					}
+					else if(algo6 == 5)
+					{
+						ID6 = "A9";
+					}
+					else if(algo6 == 6)
+					{
+						ID6 = "A9";
+					}
+					else if(algo6 == 7)
+					{
+						ID6 = "A7";
+					}
+					else if(algo6 == 8)
+					{
+						ID6 = "A7";
+					}
+					else
+					{
+						ID6 = "0";
+					}
+				 algName6 =  fetch_Algo(ID6);
+			   }
+			   else if(ps6 == 1)
+			   {
+					if(algo6 == 1)
+					{
+						ID6 = "A10";
+					}
+					else if(algo6 == 2)
+					{
+						ID6 = "A10";
+					}
+					else if(algo6 == 3)
+					{
+						ID6 = "A10";
+					}
+					else if(algo6 == 4)
+					{
+						ID6 = "A9";
+					}
+					else if(algo6 == 5)
+					{
+						ID6 = "A9";
+					}
+					else if(algo6 == 6)
+					{
+						ID6 = "A9";
+					}
+					else if(algo6 == 7)
+					{
+						ID6 = "A9";
+					}
+					else if(algo6 == 8)
+					{
+						ID6 = "A9";
+					}
+				   algName6 = fetch_Algo(ID6);
+			   }
+			}
+	}
+  // */
+  return result {algName1, algName2, algName3, algName4, algName5, algName6};
+}
+
 void Processing_and_Output::format_Print_output(string s1, string s2, string s3, string s4, string s5, string s6, int f1, int f2, int f3, int f4, int f5, int f6, string algo_name1, string algo_name2, string algo_name3, string algo_name4, string algo_name5, string algo_name6)
 {
      if(algo_name1.empty())
@@ -2843,19 +5347,20 @@ void Processing_and_Output::format_Print_output(string s1, string s2, string s3,
          algo_name6 = "*No matching Algo found!";
      }
 
+
                 cout << left << setw(38) << setfill('-') << left << '+'
                 << setw(30) << setfill('-') << left << '+'
                 << setw(26)<< setfill('-') << '+' << '+' << endl;
 
                 cout << setfill(' ') << '|' << left << setw(37) << "SECURITY REQUIREMENT(S)"
                 << setfill(' ') << '|' << setw(29) << "SECURITY MECHANISM(S)"
-                << setfill(' ') << '|' << left << setw(25) << "SECURITY ALGORITHM(S)" << '|' << endl; //The left can be changed to right
+                << setfill(' ') << '|' << left << setw(25) << "SECURITY ALGORITHM(S)" << '|' << endl;
 
                  cout << left << setw(38) << setfill('-') << left<< '+'
                  << setw(30) << setfill('-') << left << '+'
                  << setw(26) << setfill('-') << '+' << '+' << endl;
 
-                 if(f1 == 1)//If user requirement include data confidentiality
+                 if(f1 == 1)
                  {
                      cout << setfill(' ') << '|' << left << setw(37) << s1
                     << setfill(' ') << '|' << setw(29) << "Encryption"
@@ -2865,7 +5370,7 @@ void Processing_and_Output::format_Print_output(string s1, string s2, string s3,
                      << setw(30) << setfill('-') << left << '+'
                      << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
-                 if(f2 == 1)//If user requirement include message integrity
+                 if(f2 == 1)
                  {
                      cout << setfill(' ') << '|' << left << setw(37) << s2
                     << setfill(' ') << '|' << setw(29) << "Hash Function"
@@ -2875,7 +5380,7 @@ void Processing_and_Output::format_Print_output(string s1, string s2, string s3,
                      << setw(30) << setfill('-') << left << '+'
                      << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
-                 if(f3 == 1)//If user requirement include authentication
+                 if(f3 == 1)
                  {
                      cout << setfill(' ') << '|' << left << setw(37) << s3
                     << setfill(' ') << '|' << setw(29) << "Message Authentication Code"
@@ -2885,7 +5390,7 @@ void Processing_and_Output::format_Print_output(string s1, string s2, string s3,
                      << setw(30) << setfill('-') << left << '+'
                      << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
-                 if(f4 == 1)//If user requirement include user privacy
+                 if(f4 == 1)
                  {
                      cout << setfill(' ') << '|' << left << setw(37) << s4
                     << setfill(' ') << '|' << setw(29) << "Encryption"
@@ -2895,7 +5400,7 @@ void Processing_and_Output::format_Print_output(string s1, string s2, string s3,
                      << setw(30) << setfill('-') << left << '+'
                      << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
-                 if(f5 == 1)//If user requirement include non-repudiation
+                 if(f5 == 1)
                  {
                      cout << setfill(' ') << '|' << left << setw(37) << s5
                     << setfill(' ') << '|' << setw(29) << "Digital Signature"
@@ -2905,7 +5410,7 @@ void Processing_and_Output::format_Print_output(string s1, string s2, string s3,
                      << setw(30) << setfill('-') << left << '+'
                      << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
-                 if(f6 == 1)//If user requirement include confidentiality and authenticity
+                 if(f6 == 1)
                  {
                      cout << setfill(' ') << '|' << left << setw(37) << s6
                     << setfill(' ') << '|' << setw(29) << "Authenticated Encryption"
@@ -2918,11 +5423,10 @@ void Processing_and_Output::format_Print_output(string s1, string s2, string s3,
 
     if((algo_name1 == "*No matching Algo found!" && f1 == 1) || (algo_name2 == "*No matching Algo found!" && f2 == 1) || (algo_name3 == "*No matching Algo found!" && f3 == 1) || (algo_name4 == "*No matching Algo found!" && f4 == 1) || (algo_name5 == "*No matching Algo found!" && f5 == 1) || (algo_name6 == "*No matching Algo found!" && f6 == 1))
     {
-        cout << "\n *No algorithm matching the security requirement is found!" << endl; //Prints the full meaning of "*No matching Algo found"
+        cout << "\n *No algorithm matching the security requirement is found!" << endl;
     }
 }
 
-//Function that formats the final output which is printed in a text file
 void Processing_and_Output::format_TextOutput(string s1, string s2, string s3, string s4, string s5, string s6, int f1, int f2, int f3, int f4, int f5, int f6, string algo_name1, string algo_name2, string algo_name3, string algo_name4, string algo_name5, string algo_name6, double total_reqWeight,  double fms, double rs, double fms_, double rs_, string request_id)
 {
      if(algo_name1.empty())
@@ -2954,9 +5458,8 @@ void Processing_and_Output::format_TextOutput(string s1, string s2, string s3, s
      file.open("Final_Result.txt", ios::out | ios::trunc);
      if(file.is_open())
      {
-        file << "\n" "***********************************************************************************************************" << endl;
-        //file <<"\t\t\t\t\t  FINAL RESULTS \n\n";
-        file << "\t\t FINAL RESULTS FOR THE USER WITH REQUEST ID No.: " << request_id << endl << endl;
+        file << "\n" "*****************************************************************************************************************" << endl;
+        file << " FINAL RESULTS FOR THE USER WITH REQUEST ID No.: " << request_id << endl << endl;
 
          if(total_reqWeight == 2.5)
          {
@@ -2966,47 +5469,77 @@ void Processing_and_Output::format_TextOutput(string s1, string s2, string s3, s
          {
             file << "\nYOUR SECURITY REQUIREMENTS AND RECOMMENDED SECURITY MECHANISMS AND SECURITY ALGORITHMS ARE: \n" << endl;
          }
+          file << left << setw(38) << setfill('-') << left << '+'
+                << setw(30) << setfill('-') << left << '+'
+                << setw(26)<< setfill('-') << '+' << '+' << endl;
 
-          file << setfill(' ') << ' ' << left << setw(37) << "SECURITY REQUIREMENT(S)"
-                << setfill(' ') << ' ' << setw(29) << "SECURITY MECHANISM(S)"
-                << setfill(' ') << ' ' << left << setw(25) << "SECURITY ALGORITHM(S)" << ' ' << endl; //The left can be changed to right
+           file << setfill(' ') << '|' << left << setw(37) << "SECURITY REQUIREMENT(S)"
+                << setfill(' ') << '|' << setw(29) << "SECURITY MECHANISM(S)"
+                << setfill(' ') << '|' << left << setw(25) << "SECURITY ALGORITHM(S)" << '|' << endl;
 
-                 if(f1 == 1)//If user requirement include data confidentiality
-                 {
-                     file << setfill(' ') << ' ' << left << setw(37) << s1
-                    << setfill(' ') << ' ' << setw(29) << "Encryption"
-                    << setfill(' ') << ' ' << left << setw(25) << algo_name1 << ' ' << endl;
+           file << left << setw(38) << setfill('-') << left<< '+'
+                 << setw(30) << setfill('-') << left << '+'
+                 << setw(26) << setfill('-') << '+' << '+' << endl;
 
-                 }
-                 if(f2 == 1)//If user requirement include message integrity
+                 if(f1 == 1)
                  {
-                     file << setfill(' ') << ' ' << left << setw(37) << s2
-                    << setfill(' ') << ' ' << setw(29) << "Hash Function"
-                    << setfill(' ') << ' ' << left << setw(25) << algo_name2 << ' ' << endl;
+                     file << setfill(' ') << '|' << left << setw(37) << s1
+                    << setfill(' ') << '|' << setw(29) << "Encryption"
+                    << setfill(' ') << '|' << left << setw(25) << algo_name1 << '|' << endl;
+
+                    file << left << setw(38) << setfill('-') << left<< '+'
+                     << setw(30) << setfill('-') << left << '+'
+                     << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
-                 if(f3 == 1)//If user requirement include authentication
+                 if(f2 == 1)
                  {
-                     file << setfill(' ') << ' ' << left << setw(37) << s3
-                    << setfill(' ') << ' ' << setw(29) << "Message Authentication Code"
-                    << setfill(' ') << ' ' << left << setw(25) << algo_name3 << ' ' << endl;
+                     file << setfill(' ') << '|' << left << setw(37) << s2
+                    << setfill(' ') << '|' << setw(29) << "Hash Function"
+                    << setfill(' ') << '|' << left << setw(25) << algo_name2 << '|' << endl;
+
+                    file << left << setw(38) << setfill('-') << left<< '+'
+                     << setw(30) << setfill('-') << left << '+'
+                     << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
-                 if(f4 == 1)//If user requirement include user privacy
+                 if(f3 == 1)
                  {
-                     file << setfill(' ') << ' ' << left << setw(37) << s4
-                    << setfill(' ') << ' ' << setw(29) << "Encryption"
-                    << setfill(' ') << ' ' << left << setw(25) << algo_name4 << ' ' << endl;
+                     file << setfill(' ') << '|' << left << setw(37) << s3
+                    << setfill(' ') << '|' << setw(29) << "Message Authentication Code"
+                    << setfill(' ') << '|' << left << setw(25) << algo_name3 << '|' << endl;
+
+                    file << left << setw(38) << setfill('-') << left<< '+'
+                     << setw(30) << setfill('-') << left << '+'
+                     << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
-                 if(f5 == 1)//If user requirement include non-repudiation
+                 if(f4 == 1)
                  {
-                     file << setfill(' ') << ' ' << left << setw(37) << s5
-                    << setfill(' ') << ' ' << setw(29) << "Digital Signature"
-                    << setfill(' ') << ' ' << left << setw(25) << algo_name5 << ' ' << endl;
+                     file << setfill(' ') << '|' << left << setw(37) << s4
+                    << setfill(' ') << '|' << setw(29) << "Encryption"
+                    << setfill(' ') << '|' << left << setw(25) << algo_name4 << '|' << endl;
+
+                    file << left << setw(38) << setfill('-') << left<< '+'
+                     << setw(30) << setfill('-') << left << '+'
+                     << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
-                 if(f6 == 1)//If user requirement include confidentiality and authenticity
+                 if(f5 == 1)
                  {
-                     file << setfill(' ') << ' ' << left << setw(37) << s6
-                    << setfill(' ') << ' ' << setw(29) << "Authenticated Encryption"
-                    << setfill(' ') << ' ' << left << setw(25) << algo_name6 << ' ' << endl;
+                     file << setfill(' ') << '|' << left << setw(37) << s5
+                    << setfill(' ') << '|' << setw(29) << "Digital Signature"
+                    << setfill(' ') << '|' << left << setw(25) << algo_name5 << '|' << endl;
+
+                    file << left << setw(38) << setfill('-') << left<< '+'
+                     << setw(30) << setfill('-') << left << '+'
+                     << setw(26) << setfill('-') << '+' << '+' << endl;
+                 }
+                 if(f6 == 1)
+                 {
+                     file << setfill(' ') << '|' << left << setw(37) << s6
+                    << setfill(' ') << '|' << setw(29) << "Authenticated Encryption"
+                    << setfill(' ') << '|' << left << setw(25) << algo_name6 << '|' << endl;
+
+                    file << left << setw(38) << setfill('-') << left<< '+'
+                     << setw(30) << setfill('-') << left << '+'
+                     << setw(26) << setfill('-') << '+' << '+' << endl;
                  }
 
             if((algo_name1 == "*No matching Algo found!" && f1 == 1) || (algo_name2 == "*No matching Algo found!" && f2 == 1) || (algo_name3 == "*No matching Algo found!" && f3 == 1) || (algo_name4 == "*No matching Algo found!" && f4 == 1) || (algo_name5 == "*No matching Algo found!" && f5 == 1) || (algo_name6 == "*No matching Algo found!" && f6 == 1))
@@ -3014,9 +5547,9 @@ void Processing_and_Output::format_TextOutput(string s1, string s2, string s3, s
                 file << "\n *No algorithm matching the security requirement is found!" << endl; //Prints the full meaning of "*No matching Algo found"
             }
 
-            if(total_reqWeight > 5.0 && fms < fms_ || rs < rs_) // (reqWeight > 5.0) && (fms < fms_ )&& (rs < rs_)
+            if(total_reqWeight > 5.0 && fms < fms_ || rs < rs_)
             {
-                file << "\n\n\t\t\t\t WARNING! LIMITED RESOURCES!  " << endl;
+                file << "\n\n\t\t\t\t WARNING! LIMITED RESOURCES  " << endl;
                 file << "\t      Implementing all algorithms may have negative impact on performance." << endl;
             }
 
@@ -3028,16 +5561,15 @@ void Processing_and_Output::format_TextOutput(string s1, string s2, string s3, s
      }
 }
 
-//Function that returns the requirements total weight, which for now it is 2.5 per requirement.
 double Processing_and_Output::reqWeighting(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6)
 {
     double total_reqWeight = 0, reqWeight1 = 0, reqWeight2 = 0, reqWeight3 = 0, reqWeight4 = 0, reqWeight5 = 0, reqWeight6 = 0;
 
-    if(flag1 == 1 && flag4 ==1) //If user requirements include both data confidentiality and user privacy
+    if(flag1 == 1 && flag4 ==1)
     {
         reqWeight1 = 2.5;
     }
-    else if(flag1 == 1 && flag4 !=1) //If user requirements include data confidentiality and no user privacy
+    else if(flag1 == 1 && flag4 !=1)
     {
          reqWeight1 = 2.5;
     }
@@ -3049,7 +5581,7 @@ double Processing_and_Output::reqWeighting(int flag1, int flag2, int flag3, int 
     {
       reqWeight3 = 2.5;
     }
-    if(flag4 ==1 && flag1 != 1)//If user requirements include user privacy but no data confidentiality
+    if(flag4 ==1 && flag1 != 1)
     {
          reqWeight4 = 2.5;
     }
@@ -3067,7 +5599,6 @@ double Processing_and_Output::reqWeighting(int flag1, int flag2, int flag3, int 
     return total_reqWeight;
 }
 
-//Function that displays the result of the mapping of security requirements to security mechanisms and security algorithms on the console.
 void Processing_and_Output::displayReq_Mech_mapping(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, string algo_name1, string algo_name2, string algo_name3, string algo_name4, string algo_name5, string algo_name6, double total_reqWeight, int warn1, string request_id)
 {
         std::cout << "\n" "***********************************************************************************************************" << endl;
@@ -3078,12 +5609,12 @@ void Processing_and_Output::displayReq_Mech_mapping(int flag1, int flag2, int fl
     s1.erase(); s2.erase(); s3.erase(); s4.erase(); s5.erase(); s6.erase();
     int flag_1, flag_2, flag_3, flag_4, flag_5, flag_6;
 
-    if(flag1 == 1 && flag4 ==1) //If user requirements include both data confidentiality and user privacy
+    if(flag1 == 1 && flag4 ==1)
     {
         s1 = "Data Confidentiality/User Privacy";
         flag_1 = 1;
     }
-    else if(flag1 == 1 && flag4 !=1) //If user requirements include data confidentiality and no user privacy
+    else if(flag1 == 1 && flag4 !=1)
     {
          s1 ="Data Confidentiality";
          flag_1 = 1;
@@ -3098,7 +5629,7 @@ void Processing_and_Output::displayReq_Mech_mapping(int flag1, int flag2, int fl
       s3 = "Authentication";
       flag_3 = 1;
     }
-    if(flag4 ==1 && flag1 != 1)//If user requirements include user privacy but no data confidentiality
+    if(flag4 ==1 && flag1 != 1)
     {
          s4 = "User Privacy";
          flag_4 = 1;
@@ -3168,12 +5699,12 @@ void Processing_and_Output::displayReq_Mech_mapping(int flag1, int flag2, int fl
                     if((!algo_name1.empty() || !algo_name2.empty() || !algo_name1.empty() || !algo_name4.empty() || !algo_name5.empty() || !algo_name6.empty()) && (!Re_6.empty() || !Re_7.empty() || !Re_8.empty() || !Re_9.empty() || !Re_10.empty() || !Re_11.empty() || !Re_12.empty() || !Re_13.empty() || !Re_14.empty() || !Re_15.empty()))
                     {
                          flac = 1;
-                         std::cout << "\n\n\n   Would you like to see a detailed report on the recommended algorithms and the other requirements?: \n";
+                         std::cout << "\n  Would you like to see a detailed report on the recommended algorithms and the other requirements?: \n";
                     }
                     else if(!algo_name1.empty() || !algo_name2.empty() || !algo_name1.empty() || !algo_name4.empty() || !algo_name5.empty() || !algo_name6.empty())
                     {
                         flac = 2;
-                        std::cout << "\n\n\n   \tWould you like to see a detailed report on the recommended algorithms?: \n";
+                        std::cout << "\n   \tWould you like to see a detailed report on the recommended algorithms?: \n";
                     }
                     else
                     {
@@ -3201,12 +5732,12 @@ void Processing_and_Output::displayReq_Mech_mapping(int flag1, int flag2, int fl
                                         s1.erase(); s2.erase(); s3.erase(); s4.erase(); s5.erase(); s6.erase();
                                         int flag_1, flag_2, flag_3, flag_4, flag_5, flag_6;
 
-                                        if(flag1 == 1 && flag4 ==1) //If user requirements include both data confidentiality and user privacy
+                                        if(flag1 == 1 && flag4 ==1)
                                         {
                                             s1 = "Data Confidentiality/User Privacy";
                                             flag_1 = 1;
                                         }
-                                        else if(flag1 == 1 && flag4 !=1) //If user requirements include data confidentiality and no user privacy
+                                        else if(flag1 == 1 && flag4 !=1)
                                         {
                                              s1 ="Data Confidentiality";
                                              flag_1 = 1;
@@ -3221,7 +5752,7 @@ void Processing_and_Output::displayReq_Mech_mapping(int flag1, int flag2, int fl
                                           s3 = "Authentication";
                                           flag_3 = 1;
                                         }
-                                        if(flag4 ==1 && flag1 != 1)//If user requirements include user privacy but no data confidentiality
+                                        if(flag4 ==1 && flag1 != 1)
                                         {
                                              s4 = "User Privacy";
                                              flag_4 = 1;
@@ -3262,6 +5793,7 @@ void Processing_and_Output::displayReq_Mech_mapping(int flag1, int flag2, int fl
 						}
 
                         flac = 0;
+
     if(warn1 == 1)
     {
 
@@ -3272,19 +5804,18 @@ void Processing_and_Output::displayReq_Mech_mapping(int flag1, int flag2, int fl
     }
 }
 
-//Function that writes the result of the mapping of security requirements to security mechanisms and security algorithms in a text file.
 void Processing_and_Output::write_Req_Mech_mapping(int flag1, int flag2, int flag3, int flag4, int flag5, int flag6, string algo_name1, string algo_name2, string algo_name3, string algo_name4, string algo_name5, string algo_name6, double total_reqWeight, double fms, double rs, double fms_, double rs_, string request_id)
 {
     string s1, s2, s3, s4, s5, s6;
     s1.erase(); s2.erase(); s3.erase(); s4.erase(); s5.erase(); s6.erase();
     int flag_1, flag_2, flag_3, flag_4, flag_5, flag_6;
 
-    if(flag1 == 1 && flag4 ==1) 
+    if(flag1 == 1 && flag4 ==1)
     {
         s1 = "Data Confidentiality/User Privacy";
         flag_1 = 1;
     }
-    else if(flag1 == 1 && flag4 !=1) 
+    else if(flag1 == 1 && flag4 !=1)
     {
          s1 ="Data Confidentiality";
          flag_1 = 1;
@@ -3314,10 +5845,62 @@ void Processing_and_Output::write_Req_Mech_mapping(int flag1, int flag2, int fla
         s6 = "Confidentiality & Authenticity";
         flag_6 = 1;
     }
-    format_TextOutput(s1, s2, s3, s4, s5, s6, flag_1, flag_2, flag_3, flag_4, flag_5, flag_6, algo_name1, algo_name2, algo_name3, algo_name4, algo_name5, algo_name6, total_reqWeight, fms, rs, fms_, rs_, request_id);
-}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    format_TextOutput(s1, s2, s3, s4, s5, s6, flag_1, flag_2, flag_3, flag_4, flag_5, flag_6, algo_name1, algo_name2, algo_name3, algo_name4, algo_name5, algo_name6, total_reqWeight, fms, rs, fms_, rs_, request_id);
+
+    Report report;
+
+     string REQST_id,	Re_1, Re_2, Re_3, Re_4, Re_5, Re_6, Re_7, Re_8, Re_9, Re_10, Re_11, Re_12, Re_13, Re_14, Re_15;
+                REQST_id = request_id;
+
+                string findbyID_query = "select * from requirements_for_report where REQST_id = " + ("'"+REQST_id+"'");
+                        const char* qn = findbyID_query.c_str();
+                        qstate = mysql_query(conn, qn);
+
+                        if(!qstate)
+                        {
+                            res = mysql_store_result(conn);
+                            while((row = mysql_fetch_row(res)))
+                            {
+                                Re_1 = row[1];
+                                Re_2 = row[2];
+                                Re_3 = row[3];
+                                Re_4 = row[4];
+                                Re_5 = row[5];
+                                Re_6 = row[6];
+                                Re_7 = row[7];
+                                Re_8 = row[8];
+                                Re_9 = row[9];
+                                Re_10 = row[10];
+                                Re_11 = row[11];
+                                Re_12 = row[12];
+                                Re_13 = row[13];
+                                Re_14 = row[14];
+                                Re_15 = row[15];
+                            }
+                        }
+                        else
+                        {
+                            cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+                        }
+
+                    int flac = 0;
+
+                    if((!algo_name1.empty() || !algo_name2.empty() || !algo_name1.empty() || !algo_name4.empty() || !algo_name5.empty() || !algo_name6.empty()) && (!Re_6.empty() || !Re_7.empty() || !Re_8.empty() || !Re_9.empty() || !Re_10.empty() || !Re_11.empty() || !Re_12.empty() || !Re_13.empty() || !Re_14.empty() || !Re_15.empty()))
+                    {
+                         flac = 1;
+                    }
+                    else if(!algo_name1.empty() || !algo_name2.empty() || !algo_name1.empty() || !algo_name4.empty() || !algo_name5.empty() || !algo_name6.empty())
+                    {
+                        flac = 2;
+                    }
+
+    report.formatReport_for_TextFile(request_id, flac, algo_name1, algo_name2, algo_name3, algo_name4, algo_name5, algo_name6, Re_6, Re_7, Re_8, Re_9, Re_10, Re_11, Re_12, Re_13, Re_14, Re_15);
+
+    std::ofstream Detail_Results_Combined("Detail_Results_Combined");
+    if(report.mergeFiles("C:\\Users\\Admin\\Desktop\\My_WorkSpace\\Tool_with_passwordAndSalt\\Final_Result.txt",  Detail_Results_Combined));
+    if(report.mergeFiles("C:\\Users\\Admin\\Desktop\\My_WorkSpace\\Tool_with_passwordAndSalt\\Detail_Result.txt",  Detail_Results_Combined));
+}
 
 class UserInput
 {
@@ -3325,37 +5908,42 @@ class UserInput
 
    public:
    string Request_ID, Hardware_type, CPU, FlashMem_size, Ram_size, Clock_speed, Applic_Domain, Payload_size, Req_1, Req_2, Req_3, Req_4, Req_5, Req_6, Energy, cct_area_1 = "", tp_1 = "", cct_area_2, tp_2, cct_area_3, tp_3, cct_area_4, tp_4, cct_area_5, tp_5, cct_area_6, tp_6;
-   string Reqst_ID, state, state2, Domain, anyUsr, anyUsrLogin, holdUsrInfo, storeAnyInfo, sensitivOfInfo, infoSent2E, connected, dataSent2Cloud, dataStoredInDb, regulaUpdate, use3rdPrtySfw, possibltOfEvesdrop, possibltOfCapt_Resent, possibltOfImpersontUsr, possibltOfPhysiclAcces;
+   string Reqst_ID, state, Domain, anyUsr, anyUsrLogin, holdUsrInfo, storeAnyInfo, sensitivOfInfo, infoSent2E, connected, dataSent2Cloud, dataStoredInDb, regulaUpdate, use3rdPrtySfw, possibltOfEvesdrop, possibltOfCapt_Resent, possibltOfImpersontUsr, possibltOfPhysiclAcces;
    string Reqmt_1, Reqmt_2, Reqmt_3, Reqmt_4, Reqmt_5, Reqmt_6, Reqmt_7, Reqmt_8, Reqmt_9, Reqmt_10, Reqmt_11, Reqmt_12, Reqmt_13, Reqmt_14, Reqmt_15;
    string REQST_id,	Re_1, Re_2, Re_3, Re_4, Re_5, Re_6, Re_7, Re_8, Re_9, Re_10, Re_11, Re_12, Re_13, Re_14, Re_15;
+   string FM_1, RAM_1, FM_2, RAM_2, FM_3, RAM_3, FM_4, RAM_4, FM_5, RAM_5, FM_6, RAM_6;
+   string Status, Struct1, Struct2, Struct3, Struct4, Struct5, Struct6, Struct7, Struct8, Struct9, Struct10, Struct11, usrRegist, typeOfRegist, usrInput, typeOfAUTH, useDb, typeOfDataStorg, typeOfDb, progrm1, progrm2, progrm3, progrm4, progrm5, progrm6, progrm7, progrm8, fileUpload, sysLog;
 
-   UserInput();  // Constructor that takes care of the database connection
-   auto countDigits_lengthOfString_firstCharacter(string& st); //A Function that returns how many integers are in a string, returns the length of the string, and returns the first character of the string
-   void getUserInput_RE();  // Function that takes user input for Requirements Elicitation
-   void modifyUserRequirements_Elicitation_requests(); //Function that modifies the Requirements Elicitation requests
-   void deleteRequest_RE(); //Function that a user uses to delete his/her request
-   void showAndDeleteUser_Request_RE();  //Function that an Admin user uses to shows all users and deletes a user request
-   void getUserInput();  // Function that takes user input
-   void selectSecurityRequirements_Software();  //Function that gets the security requirements. It was initially at the end of the 'getOther_inputs()' function but now removed to be able to import security requirements from the 'Requirements Elicitation Tool'
-   void selectSecurityRequirements_Hardware(); //Function that gets the security requirements for hardware implementation.
-   void importSecReqmts_Software(); //Function that imports security requirements of users that used the requirements elicitation tool.
-   void importSecReqmts_Hardware(); //Function that imports security requirements of users that used the requirements elicitation tool.
-   void getOther_inputs();//Function that gets the remaining user requests such as Application area, payload size, and security requirements
-   void getInput_for_HardwareImplementaion(); // Function that gets user input for Hardware implementation
-   void getInput_for_softwareImplementaion(); // Function that gets user input for Software implementation
-   void showAndModifyUser_request(); // Function that manages the modification of data for both software and hardware implementation requests
-   void modifySoftware_request(); //Function that modifies the software implementation requests
-   void modifyHardware_request(); //Function that modifies the hardware implementation requests
-   void deleteRequest(); //Function that a user uses to delete his/her request (for both software and hardware requests)
-   void showAndDeleteUser_Request();  //Function that an Admin user uses to shows all users and deletes a user request
+   UserInput();
+   auto countDigits_lengthOfString_firstCharacter(string& st);
+   void getUserInput_RE();
+   void modifyUserRequirements_Elicitation_requests();
+   void deleteRequest_RE();
+   void showAndDeleteUser_Request_RE();
+   void getUserInput();
+   void selectSecurityRequirements_Software();
+   void selectSecurityRequirements_Hardware();
+   void importSecReqmts_Software();
+   void importSecReqmts_Hardware();
+   void getOther_inputs();
+   void getInput_for_HardwareImplementaion();
+   void getInput_for_softwareImplementaion();
+   void showAndModifyUser_request();
+   void modifySoftware_request();
+   void modifyHardware_request();
+   void deleteRequest();
+   void showAndDeleteUser_Request();
+   void selectSecurityRequirements_existing();
+   void getUserInput_BestPractGuide();
+   void modifyBestPractGuide_requests();
+   void deleteBestPractGuide();
+   void showAndDeleteUser_BestPractGuide();
 
    friend class SecurityMngr;
 };
 
-    // Constructor that takes care of the database connection
 	UserInput::UserInput()
 	{
-        // Database connection
 		conn = mysql_init(0);
 		if(conn)
 			cout << "Connection object is OK, conn = " << conn << endl;
@@ -3373,10 +5961,9 @@ class UserInput
        }
 	}
 
-	//A Function that returns how many integers are in a string, returns the length of the string, and returns the first character of the string
     auto UserInput::countDigits_lengthOfString_firstCharacter(string& st)
     {
-       struct result 
+       struct result
                 {
                     int n1;
                     int n2;
@@ -3394,7 +5981,6 @@ class UserInput
          return result {count_, length, first_character};
     }
 
-	// Function that takes user input for Requirements Elicitation
 	void UserInput::getUserInput_RE()
 	{
 	    Preliminary pre;
@@ -3406,7 +5992,6 @@ class UserInput
            system("cls");
             std::cout << "\n***********************************************************************************************************\n";
             std::cout<<"\t\t\t\t\tNEW REQUIREMENT ELICITATION REQUEST \n\n";
-            //string Hardware_type;
             std::cout << "\n\t\t   YOU NEED TO CHOOSE A UNIQUE REQUEST ID. THE ID SHOULD START WITH AN R,"<< endl;
             std::cout <<"\t\t\t\t  FOLLOWED BY 4 INTEGERS (e.g., R1234)" << endl;
             std::cout << "\n\t\t\t\tPlease enter your unique request ID: ";
@@ -3539,32 +6124,35 @@ class UserInput
                             break;
                 }
 
+
             system("cls");
             std::cout<<"\n" "***********************************************************************************************************\n";
-            std::cout << "\n\tIs it an existing IoT system, or you are about to design it?: \n";
+            std::cout << "\n\tWhat is the development phase of the IoT system, or it is an existing system? \n";
 
-                        std::cout<<"\n\t\t1. Existing System ";
-                        std::cout<<"\n\t\t2. About be to Designed";
+                        std::cout<<"\n\t\t1. Conception, Planning, Analysis, Design";
+                        std::cout<<"\n\t\t2. Existing System";
                         std::cout<<"\n\n\tSelect Your Option (1-2): ";
 
                        string state1;
-		       std::cin>>ch;
+						std::cin>>ch;
 
-		switch(ch)
-		{
-			case '1':
-                            state1= "1";
-                            state = "On";
-                            break;
-                        case '2':
+						switch(ch)
+						{
+						case '1':
                             state1 = "0";
                             state = "Off";
                             break;
-	     		default:
-			    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                        case '2':
+                             state1= "1";
+                             state = "On";
+                            break;
+						default:
+							std::cout << "\tSorry! Wrong option selected." << std:: endl;
                         goto level0;
-		 }
+						}
 
+
+                    //std::cin.ignore();
                     char cho;
                     level2:
                     system("cls");
@@ -3572,11 +6160,11 @@ class UserInput
 
                      if(state1 == "1")
                     {
-                        std::cout << "\n\tDoes the system have a user?: \n";
+                        std::cout << "\n\tDoes the system have a user? \n";
                     }
                     else
                     {
-                        std::cout << "\n\tWill the system have a user?: \n";
+                        std::cout << "\n\tWill the system have a user? \n";
                     }
                         std::cout<<"\n\t\t1. Yes ";
                         std::cout<<"\n\t\t2. No";
@@ -3605,11 +6193,11 @@ class UserInput
                     {
                         if(state1 == "1")
                             {
-                                std::cout << "\n\tDoes the system have a user LogIn?: \n";
+                                std::cout << "\n\tDoes the system have a user LogIn? \n";
                             }
                             else
                             {
-                                std::cout << "\n\tWill the system have a user LogIn?: \n";
+                                std::cout << "\n\tWill the system have a user LogIn? \n";
                             }
                                         std::cout<<"\n\t\t1. Yes ";
                                         std::cout<<"\n\t\t2. No";
@@ -3635,11 +6223,11 @@ class UserInput
                                 std::cout<<"\n" "***********************************************************************************************************\n";
                                 if(state1 == "1")
                                 {
-                                    std::cout << "\n\tDoes the system store user information?: \n";
+                                    std::cout << "\n\tDoes the system store user information? \n";
                                 }
                                 else
                                 {
-                                    std::cout << "\n\tWill the system store any user information?: \n";
+                                    std::cout << "\n\tWill the system store any user information? \n";
                                 }
                                             std::cout<<"\n\t\t1. Yes ";
                                             std::cout<<"\n\t\t2. No";
@@ -3666,12 +6254,12 @@ class UserInput
                                 if(state1 == "1")
                                 {
                                     flag_1 = 1;
-                                    std::cout << "\n\tDoes the system store any other information?: \n";
+                                    std::cout << "\n\tDoes the system store any other information? \n";
                                 }
                                 else
                                 {
                                     flag_1 = 1;
-                                    std::cout << "\n\tWill the system store any other information?: \n";
+                                    std::cout << "\n\tWill the system store any other information? \n";
                                 }
                                             std::cout<<"\n\t\t1. Yes ";
                                             std::cout<<"\n\t\t2. No";
@@ -3692,6 +6280,7 @@ class UserInput
                                             }
                     }
 
+
             if(holdUsrInfo != "Yes" && flag_1 != 1)
             {
                   char choict;
@@ -3700,11 +6289,11 @@ class UserInput
                 std::cout<<"\n" "***********************************************************************************************************\n";
                 if(state1 == "1")
                 {
-                    std::cout << "\n\tDoes the system store any kind of information?: \n";
+                    std::cout << "\n\tDoes the system store any kind of information? \n";
                 }
                 else
                 {
-                    std::cout << "\n\tWill the system store any kind of information?: \n";
+                    std::cout << "\n\tWill the system store any kind of information? \n";
                 }
                             std::cout<<"\n\t\t1. Yes ";
                             std::cout<<"\n\t\t2. No";
@@ -3734,11 +6323,11 @@ class UserInput
                 std::cout<<"\n" "***********************************************************************************************************\n";
                 if(state1 == "1")
                 {
-                     std::cout << "\n\tWhat type of information does the system store?: \n";
+                     std::cout << "\n\tWhat type of information does the system store? \n";
                 }
                 else
                 {
-                     std::cout << "\n\tWhat type of information will the system store?: \n";
+                     std::cout << "\n\tWhat type of information will the system store? \n";
                 }
 
                             std::cout<<"\n\t\t1. Normal Information ";
@@ -3765,6 +6354,7 @@ class UserInput
                             }
             }
 
+
              if(holdUsrInfo == "Yes" || storeAnyInfo == "Yes")
             {
                  char choicm;
@@ -3773,11 +6363,11 @@ class UserInput
                 std::cout<<"\n" "***********************************************************************************************************\n";
                 if(state1 == "1")
                 {
-                    std::cout << "\n\tDoes the system send the information to an entity?: \n";
+                    std::cout << "\n\tDoes the system send the information to an entity? \n";
                 }
                 else
                 {
-                    std::cout << "\n\tWill the information be sent to an entity?: \n";
+                    std::cout << "\n\tWill the information be sent to an entity? \n";
                 }
                             std::cout<<"\n\t\t1. Yes ";
                             std::cout<<"\n\t\t2. No";
@@ -3798,17 +6388,18 @@ class UserInput
                             }
             }
 
+
               char choa;
          level8:
             system("cls");
             std::cout<<"\n" "***********************************************************************************************************\n";
            	if(state1 == "1")
             {
-                std::cout << "\n\tIs the system connected to the Internet?: \n";
+                std::cout << "\n\tIs the system connected to the Internet? \n";
             }
             else
             {
-                std::cout << "\n\tWill the system be connected to the Internet?: \n";
+                std::cout << "\n\tWill the system be connected to the Internet? \n";
             }
                         std::cout<<"\n\t\t1. Yes ";
                         std::cout<<"\n\t\t2. No";
@@ -3828,17 +6419,18 @@ class UserInput
                         goto level8;
 						}
 
+
                 char choe;
          level9:
             system("cls");
             std::cout<<"\n" "***********************************************************************************************************\n";
             if(state1 == "1")
             {
-                std::cout << "\n\tDoes it send data to a cloud?: \n";
+                std::cout << "\n\tDoes it send data to a cloud? \n";
             }
             else
             {
-                std::cout << "\n\tWill it send its data to a cloud?: \n";
+                std::cout << "\n\tWill it send its data to a cloud? \n";
             }
                         std::cout<<"\n\t\t1. Yes ";
                         std::cout<<"\n\t\t2. No";
@@ -3864,11 +6456,11 @@ class UserInput
                 std::cout<<"\n" "***********************************************************************************************************\n";
                 if(state1 == "1")
                 {
-                    std::cout << "\n\tDoes it store data in a database?: \n";
+                    std::cout << "\n\tDoes it store data in a database? \n";
                 }
                 else
                 {
-                    std::cout << "\n\tWill it store data in a database?: \n";
+                    std::cout << "\n\tWill it store data in a database? \n";
                 }
                         std::cout<<"\n\t\t1. Yes ";
                         std::cout<<"\n\t\t2. No";
@@ -3895,11 +6487,11 @@ class UserInput
 
                 if(state1 == "1")
                 {
-                    std::cout << "\n\tDoes the system receive regular updates?:  \n";
+                    std::cout << "\n\tDoes the system receive regular updates?  \n";
                 }
                 else
                 {
-                    std::cout << "\n\tWill the system receive regular updates?:  \n";
+                    std::cout << "\n\tWill the system receive regular updates?  \n";
                 }
 
                         std::cout<<"\n\t\t1. Yes ";
@@ -3926,11 +6518,11 @@ class UserInput
                 std::cout<<"\n" "***********************************************************************************************************\n";
                 if(state1 == "1")
                 {
-                    std::cout << "\n\tDoes the system use third-party software?:  \n";
+                    std::cout << "\n\tDoes the system use third-party software?  \n";
                 }
                 else
                 {
-                    std::cout << "\n\tWill the system use third-party software?:  \n";
+                    std::cout << "\n\tWill the system use third-party software?  \n";
                 }
                         std::cout<<"\n\t\t1. Yes ";
                         std::cout<<"\n\t\t2. No";
@@ -3957,7 +6549,7 @@ class UserInput
                         level13:
                         system("cls");
                         std::cout<<"\n" "***********************************************************************************************************\n";
-                        std::cout << "\n\tIs there a possibility of the communications being eavesdropped?: \n";
+                        std::cout << "\n\tIs there a possibility of the communications being eavesdropped? \n";
                                     std::cout<<"\n\t\t1. Yes ";
                         std::cout<<"\n\t\t2. No";
                         std::cout<<"\n\n\tSelect Your Option (1-2): ";
@@ -3984,7 +6576,7 @@ class UserInput
                             level14:
                             system("cls");
                             std::cout<<"\n" "***********************************************************************************************************\n";
-                            std::cout << "\n\tCould the messages sent between the system components be captured and resend?: \n";
+                            std::cout << "\n\tCould the messages sent between the system components be captured and resend? \n";
 
                             std::cout<<"\n\t\t1. Yes ";
                             std::cout<<"\n\t\t2. No";
@@ -4005,13 +6597,14 @@ class UserInput
                             }
                     }
 
+
                      if(anyUsr == "Yes")
                      {
                         char key;
                             level15:
                             system("cls");
                             std::cout<<"\n" "***********************************************************************************************************\n";
-                            std::cout << "\n\tCan someone try to impersonate a user to gain access to private information?: \n";
+                            std::cout << "\n\tCan someone try to impersonate a user to gain access to private information? \n";
 
                             std::cout<<"\n\t\t1. Yes ";
                             std::cout<<"\n\t\t2. No";
@@ -4036,7 +6629,7 @@ class UserInput
                         level16:
                         system("cls");
                         std::cout<<"\n" "***********************************************************************************************************\n";
-                        std::cout << "\n\tCan someone with bad intentions gain physical access to the system?: \n";
+                        std::cout << "\n\tCan someone with bad intentions gain physical access to the system? \n";
 
                         std::cout<<"\n\t\t1. Yes ";
                         std::cout<<"\n\t\t2. No";
@@ -4056,7 +6649,7 @@ class UserInput
                         goto level16;
 						}
 
-             string request_query = "insert into users_requests_re (Reqst_ID, state, Domain, anyUsr, anyUsrLogin, holdUsrInfo, storeAnyInfo, sensitivOfInfo, infoSent2E, connected, dataSent2Cloud, dataStoredInDb, regulaUpdate, use3rdPrtySfw, possibltOfEvesdrop, possibltOfCapt_Resent, possibltOfImpersontUsr, possibltOfPhysiclAcces) values('"+Reqst_ID+"', '"+state+"', '"+Domain +"', '"+anyUsr+"', '"+anyUsrLogin +"', '"+holdUsrInfo +"', '"+storeAnyInfo +"', '"+sensitivOfInfo +"', '"+infoSent2E +"', '"+connected +"', '"+dataSent2Cloud +"', '"+dataStoredInDb +"', '"+regulaUpdate +"', '"+use3rdPrtySfw +"', '"+possibltOfEvesdrop +"', '"+possibltOfCapt_Resent +"', '"+possibltOfImpersontUsr +"', '"+possibltOfPhysiclAcces+"')";
+               string request_query = "insert into users_requests_re (Reqst_ID, state, Domain, anyUsr, anyUsrLogin, holdUsrInfo, storeAnyInfo, sensitivOfInfo, infoSent2E, connected, dataSent2Cloud, dataStoredInDb, regulaUpdate, use3rdPrtySfw, possibltOfEvesdrop, possibltOfCapt_Resent, possibltOfImpersontUsr, possibltOfPhysiclAcces) values('"+Reqst_ID+"', '"+state+"', '"+Domain +"', '"+anyUsr+"', '"+anyUsrLogin +"', '"+holdUsrInfo +"', '"+storeAnyInfo +"', '"+sensitivOfInfo +"', '"+infoSent2E +"', '"+connected +"', '"+dataSent2Cloud +"', '"+dataStoredInDb +"', '"+regulaUpdate +"', '"+use3rdPrtySfw +"', '"+possibltOfEvesdrop +"', '"+possibltOfCapt_Resent +"', '"+possibltOfImpersontUsr +"', '"+possibltOfPhysiclAcces+"')";
 
               const char* qr = request_query.c_str();
               qstate = mysql_query(conn, qr);
@@ -4078,15 +6671,988 @@ class UserInput
                     cout << "\n\n\tError Number 1062 implies that the entered Request ID already exist in database.\n" << endl;
                     cout << endl << "\n\n\tPlease press Enter to go back to the Main Menu and repeat the process with a unique ID." << endl;
                 }
+
 	}
 
-	//Function that modifies the Requirements Elicitation requests
+	void UserInput::getUserInput_BestPractGuide()
+	{
+	    Preliminary pre;
+
+            int num_digits;
+            int string_length;
+           char first_letter;
+
+           system("cls");
+            std::cout << "\n***********************************************************************************************************\n";
+            std::cout<<"\t\t\t   NEW BEST PRACTICE GUIDE FOR SECURE DEVELOPMENT REQUEST \n\n";
+            std::cout << "\n\t\t   YOU NEED TO CHOOSE A UNIQUE REQUEST ID. THE ID SHOULD START WITH A 'B',"<< endl;
+            std::cout <<"\t\t\t\t  FOLLOWED BY 4 INTEGERS (e.g., B1234)" << endl;
+            std::cout << "\n\t\t\t\tPlease enter your unique request ID: ";
+            std::cin >> Request_ID;
+
+           pre.convert_lowerC_to_upperC(Request_ID);
+
+            auto collector = countDigits_lengthOfString_firstCharacter(Request_ID);
+            num_digits = collector.n1;
+            string_length = collector.n2;
+            first_letter = collector.c;
+
+            while(num_digits !=4 || string_length != 5 || first_letter != 'B')
+            {
+                system("cls");
+                std::cout << "\n***********************************************************************************************************\n";
+                std::cout << "\n\t\t\t     ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                std::cout << "\n\t\t   YOU NEED TO CHOOSE A UNIQUE REQUEST ID. THE ID SHOULD START WITH A B,"<< endl;
+                std::cout <<"\t\t\t  FOLLOWED BY 4 INTEGERS (e.g., B1234)" << endl;
+                std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                std::cin >> Request_ID;
+
+               pre.convert_lowerC_to_upperC(Request_ID);
+
+                auto collector = countDigits_lengthOfString_firstCharacter(Request_ID);
+                num_digits = collector.n1;
+                string_length = collector.n2;
+                first_letter = collector.c;
+            }
+
+             char ch;
+         level0:
+            system("cls");
+            std::cout<<"\n" "***********************************************************************************************************\n";
+           	std::cout << "\n    THIS TOOL WILL GENERATE A BEST PRACTICE GUIDE FOR YOUR SYSTEM BASED ON THE ANSWERS YOU PROVIDE.\n\n" << endl;
+           	std::cout << "\n\n\n\n\n\t\t\t\t\t   Press enter to start. ";
+            cin.get() != '\n';
+
+
+	    system("cls");
+            std::cout<<"\n" "***********************************************************************************************************\n";
+            std::cout << "\n\tWhat is the development phase of the IoT system, or it is an existing system?  \n";
+
+                        std::cout<<"\n\t\t1. Conception, Planning, Analysis, Design";
+                        std::cout<<"\n\t\t2. Existing System ";
+                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+
+                       string state;
+						std::cin>>ch;
+
+						switch(ch)
+						{
+						case '1':
+                            state = "0";
+                            Status = "NotYet";
+                            break;
+                        case '2':
+                            state = "1";
+                            Status = "Exist";
+                            break;
+						default:
+							std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                        goto level0;
+						}
+
+
+        int choose;
+         level_tk:
+            system("cls");
+            std::cout<<"\n" "***********************************************************************************************************\n";
+			std::cout << "  Choose what best describes your IoT System architecture (you can choose multiple options) \n";
+
+        do{
+                std::cout << "\n\t1) Device Management (e.g., Sensors, Actuators, Gateways)";
+                std::cout << "\n\t2) Data Collection";
+                std::cout << "\n\t3) Connectivity Management";
+                std::cout << "\n\t4) API Services";
+                std::cout << "\n\t5) Data Management";
+                std::cout << "\n\t6) Data Processing";
+                std::cout << "\n\t7) Big Data Analytics/Advanced Analytics";
+                std::cout << "\n\t8) Data Center and Cloud Services";
+                std::cout << "\n\t9) Web Services/Web apps (e.g., Web apps, Mobile apps, Desktop apps development, etc.)";
+                std::cout << "\n\t10) Embedded Systems";
+                std::cout << "\n\t11) Other";
+                std::cout << "\n\t12) Done! \n";
+
+            cout << endl << "  Enter the S/N of your option (1-11) and press enter each time, and 12 when you are done: ";
+            cin >> choose;
+
+            switch(choose)
+            {
+                case 1:
+                    Struct1 = "Device_Mgmt";
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tYou have selected Device Management! Select other IoT System Structure or Done." <<endl;
+                     break;
+                case 2:
+                Struct2 = "Data_Collect";
+                 system("cls");
+                 std::cout<<"\n" "***********************************************************************************************************\n";
+                  cout << "\n\tYou have selected Data Collection! Select other IoT System Structure or Done." <<endl;
+                    break;
+                  case 3:
+                   Struct3 = "Connect_Mgmt";
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tYou have selected Connectivity Management! Select other IoT System Structure or Done." <<endl;
+                    break;
+                  case 4:
+                   Struct4 = "API_Service";
+                   system("cls");
+                   std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tYou have selected API Services! Select other IoT System Structure or Done." <<endl;
+                    break;
+                  case 5:
+                   Struct5 = "Data_Mgmt";
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tYou have selected Data Management! Select other IoT System Structure or Done." <<endl;
+                    break;
+                case 6:
+                   Struct6 = "Data_Process";
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tYou have selected Data Processing! Select other IoT System Structure or Done." <<endl;
+                    break;
+                case 7:
+                    Struct7 = "Analytics";
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tYou have selected Big Data Analytics/Advanced Analytics! Select other IoT System Structure or Done." <<endl;
+                     break;
+                case 8:
+                    Struct8 = "Cloud_Service";
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tYou have selected Data Center and Cloud Services! Select other IoT System Structure or Done." <<endl;
+                     break;
+                case 9:
+                    Struct9 = "Web";
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tYou have selected Web Services/Web apps! Select other IoT System Structure or Done." <<endl;
+                     break;
+                case 10:
+                    Struct10 = "Embedded_Sys";
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                     cout << "\n\tYou have selected Visualization! Select other IoT System Structure or Done." <<endl;
+                     break;
+                case 11:
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    std::cout << "\n\tEnter one word that best describes your IoT system structure: ";
+                    cin >> Struct11;
+                     break;
+                case 12:
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                  cout << "\n\tDone!" <<endl;
+                    break;
+
+                default: cout << "Please choose between 1-8 (Press Enter to continue ...)";
+                goto level_tk;
+                break;
+            }
+
+        }while(choose != 12);
+                    char cho;
+                    level2:
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+
+                     if(state == "1")
+                    {
+                        std::cout << "\n\tDoes the system have a user? \n";
+                    }
+                    else
+                    {
+                        std::cout << "\n\tWill the system have a user? \n";
+                    }
+                        std::cout<<"\n\t\t1. Yes ";
+                        std::cout<<"\n\t\t2. No";
+                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+						std::cin>>cho;
+
+						switch(cho)
+						{
+						case '1':
+                            anyUsr= "Yes";
+                            break;
+                        case '2':
+                            anyUsr = "No";
+                            break;
+						default:
+							std::cout << "\tSorry! Wrong option selected." << std:: endl;//
+                        goto level2;
+						}
+
+                    char chic;
+                    level2a:
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    if(anyUsr == "Yes")
+                    {
+                         if(state == "1")
+                            {
+                                std::cout << "\n\tDoes the system have a provision for user registration? \n";
+                            }
+                            else
+                            {
+                                std::cout << "\n\tWill the system have any provision for user registration? \n";
+                            }
+                                std::cout<<"\n\t\t1. Yes ";
+                                std::cout<<"\n\t\t2. No";
+                                std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                std::cin>>chic;
+
+                                switch(chic)
+                                {
+                                case '1':
+                                    usrRegist= "Yes";
+                                    break;
+                                case '2':
+                                    usrRegist = "No";
+                                    break;
+                                default:
+                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                goto level2a;
+                                }
+                    }
+
+                    char chac;
+                    level2b:
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    if(anyUsr == "Yes" && usrRegist == "Yes")
+                    {
+                         if(state == "1")
+                            {
+                                std::cout << "\n\tWho registers users? \n";
+                            }
+                            else
+                            {
+                                std::cout << "\n\tWho will register users? \n";
+                            }
+                                std::cout<<"\n\t\t1. Users themselves ";
+                                std::cout<<"\n\t\t2. An administrator";
+                                std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                std::cin>>chac;
+
+                                switch(chac)
+                                {
+                                case '1':
+                                    typeOfRegist= "Users";
+                                    break;
+                                case '2':
+                                    typeOfRegist = "Admin";
+                                    break;
+                                default:
+                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                goto level2b;
+                                }
+                    }
+
+
+                    char choi;
+                    level3:
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    if(anyUsr == "Yes" && usrRegist == "Yes")
+                    {
+                        if(state == "1")
+                            {
+                                std::cout << "\n\tDoes the system have a user LogIn? \n";
+                            }
+                            else
+                            {
+                                std::cout << "\n\tWill the system have a user LogIn? \n";
+                            }
+                                        std::cout<<"\n\t\t1. Yes ";
+                                        std::cout<<"\n\t\t2. No";
+                                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                        std::cin>>choi;
+
+                                        switch(choi)
+                                        {
+                                        case '1':
+                                            anyUsrLogin= "Yes";
+                                            break;
+                                        case '2':
+                                            anyUsrLogin = "No";
+                                            break;
+                                        default:
+                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;//
+                                        goto level3;
+                                        }
+                    }
+
+                    char choia;
+                    level3a:
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    int flag_1 = 0;
+                    if(anyUsr == "Yes")
+                    {
+                        if(state == "1")
+                            {
+                                std::cout << "\n\tDoes the system allow users to enter any input? \n";
+                            }
+                            else
+                            {
+                                std::cout << "\n\tWill the system allow users to enter any input? \n";
+                            }
+                                        std::cout<<"\n\t\t1. Yes ";
+                                        std::cout<<"\n\t\t2. No";
+                                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                        std::cin>>choia;
+
+                                        switch(choia)
+                                        {
+                                        case '1':
+                                            usrInput= "Yes";
+                                            break;
+                                        case '2':
+                                            usrInput = "No";
+                                            break;
+                                        default:
+                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                        goto level3a;
+                                        }
+                        }
+
+                                char choic;
+                                level4:
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                 if(anyUsr == "Yes")
+                                 {
+                                     if(state == "1")
+                                        {
+                                            std::cout << "\n\tDoes the system store user information? \n";
+                                        }
+                                        else
+                                        {
+                                            std::cout << "\n\tWill the system store any user information? \n";
+                                        }
+                                                    std::cout<<"\n\t\t1. Yes ";
+                                                    std::cout<<"\n\t\t2. No";
+                                                    std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                    std::cin>>choic;
+
+                                                    switch(choic)
+                                                    {
+                                                    case '1':
+                                                        holdUsrInfo = "Yes";
+                                                        break;
+                                                    case '2':
+                                                        holdUsrInfo = "No";
+                                                        break;
+                                                    default:
+                                                        std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                    goto level4;
+                                                    }
+                                 }
+
+                             char choic_;
+                             level4_:
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                if(holdUsrInfo == "Yes")
+                                {
+                                    if(state == "1")
+                                        {
+                                            flag_1 = 1;
+                                            std::cout << "\n\tDoes the system store any other information? \n";
+                                        }
+                                        else
+                                        {
+                                            flag_1 = 1;
+                                            std::cout << "\n\tWill the system store any other information? \n";
+                                        }
+                                                    std::cout<<"\n\t\t1. Yes ";
+                                                    std::cout<<"\n\t\t2. No";
+                                                    std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                    std::cin>>choic_;
+
+                                                    switch(choic_)
+                                                    {
+                                                    case '1':
+                                                        storeAnyInfo = "Yes";
+                                                        break;
+                                                    case '2':
+                                                        storeAnyInfo = "No";
+                                                        break;
+                                                    default:
+                                                        std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                    goto level4_;
+                                                    }
+                                }
+
+                            //
+
+
+            if(holdUsrInfo != "Yes" && flag_1 != 1)
+            {
+                  char choict;
+                level5:
+                system("cls");
+                std::cout<<"\n" "***********************************************************************************************************\n";
+                if(state == "1")
+                {
+                    std::cout << "\n\tDoes the system store any kind of information? \n";
+                }
+                else
+                {
+                    std::cout << "\n\tWill the system store any kind of information? \n";
+                }
+                            std::cout<<"\n\t\t1. Yes ";
+                            std::cout<<"\n\t\t2. No";
+                            std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                            std::cin>>choict;
+
+                            switch(choict)
+                            {
+                            case '1':
+                                storeAnyInfo = "Yes";
+                                break;
+                            case '2':
+                                storeAnyInfo = "No";
+                                break;
+                            default:
+                                std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                            goto level5;
+                            }
+            }
+                flag_1 = 0;
+
+            if(holdUsrInfo == "Yes" || storeAnyInfo == "Yes")
+            {
+                 char choicn;
+                level6:
+                system("cls");
+                std::cout<<"\n" "***********************************************************************************************************\n";
+                if(state == "1")
+                {
+                     std::cout << "\n\tWhat type of information does the system store? \n";
+                }
+                else
+                {
+                     std::cout << "\n\tWhat type of information will the system store? \n";
+                }
+
+                            std::cout<<"\n\t\t1. Normal Information ";
+                            std::cout<<"\n\t\t2. Sensitive Information";
+                            std::cout<<"\n\t\t3. Critical Information";
+
+                            std::cout<<"\n\n\tSelect Your Option (1-3): ";
+                            std::cin>>choicn;
+
+                            switch(choicn)
+                            {
+                            case '1':
+                                sensitivOfInfo = "Normal";
+                                break;
+                            case '2':
+                                sensitivOfInfo = "Sensitive";
+                                break;
+                            case '3':
+                                sensitivOfInfo = "Critical";
+                                break;
+                            default:
+                                std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                            goto level6;
+                            }
+            }
+
+
+                 char choicm;
+                level7:
+                system("cls");
+                std::cout<<"\n" "***********************************************************************************************************\n";
+                if(state == "1")
+                {
+                    std::cout << "\n\tWhat type of authentication is implemented in the system? \n";
+                }
+                else
+                {
+                    std::cout << "\n\tWhat type of authentication will be implemented in the system? \n";
+                }
+                            std::cout<<"\n\t\t1. No Authentication ";
+                            std::cout<<"\n\t\t2. Username and Password";
+                            std::cout<<"\n\t\t3. Social Networks/Email Authentication";
+                            std::cout<<"\n\t\t4. SmartCard";
+                            std::cout<<"\n\t\t5. Biometrics";
+                            std::cout<<"\n\t\t6. Two Factor Authentication ";
+                            std::cout<<"\n\t\t7. Multi Factor Authentication ";
+                            std::cout<<"\n\n\tSelect Your Option (1-7): ";
+                            std::cin>>choicm;
+
+                            switch(choicm)
+                            {
+                            case '1':
+                                typeOfAUTH = "No_AUTH";
+                                break;
+                            case '2':
+                               typeOfAUTH = "usernam_passw";
+                                break;
+                            case '3':
+                               typeOfAUTH = "SociNet_Email";
+                                break;
+                            case '4':
+                               typeOfAUTH = "SmartCard";
+                                break;
+                            case '5':
+                               typeOfAUTH = "Biometrics";
+                                break;
+                            case '6':
+                               typeOfAUTH = "2Factor_AUTH";
+                                break;
+                            case '7':
+                               typeOfAUTH = "MultFact_AUTH";
+                                break;
+                            default:
+                                std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                            goto level7;
+                            }
+
+              char chou;
+                level8:
+                system("cls");
+                std::cout<<"\n" "***********************************************************************************************************\n";
+                if(state == "1")
+                {
+                    std::cout << "\n\tDoes it store data in a database? \n";
+                }
+                else
+                {
+                    std::cout << "\n\tWill it store data in a database? \n";
+                }
+                        std::cout<<"\n\t\t1. Yes ";
+                        std::cout<<"\n\t\t2. No";
+                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+						std::cin>>chou;
+
+						switch(chou)
+						{
+						case '1':
+                            useDb = "Yes";
+                            break;
+                        case '2':
+                            useDb = "No";
+                            break;
+						default:
+							std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                        goto level8;
+						}
+
+            char choa;
+            level9:
+            system("cls");
+            std::cout<<"\n" "***********************************************************************************************************\n";
+            if(useDb == "Yes")
+            {
+                 if(state == "1")
+                    {
+                        std::cout << "\n\tWhat is the type of data storage? \n";
+                    }
+                    else
+                    {
+                        std::cout << "\n\tWhat will be the type of data storage? \n";
+                    }
+                                std::cout<<"\n\t\t1. SQL ";
+                                std::cout<<"\n\t\t2. NoSQL ";
+                                std::cout<<"\n\t\t3. Local Storage";
+                                std::cout<<"\n\t\t4. Distributed Storage";
+                                std::cout<<"\n\n\tSelect Your Option (1-4): ";
+                                std::cin>>choa;
+
+                                switch(choa)
+                                {
+                                case '1':
+                                    typeOfDataStorg = "SQL";
+                                    break;
+                                case '2':
+                                    typeOfDataStorg = "NoSQL";
+                                    break;
+                                case '3':
+                                    typeOfDataStorg = "Local_Storage";
+                                    break;
+                                case '4':
+                                    typeOfDataStorg = "Distr_Storage";
+                                    break;
+                                default:
+                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                goto level9;
+                                }
+            }
+
+            char choae;
+            level10:
+            system("cls");
+            std::cout<<"\n" "***********************************************************************************************************\n";
+            if(useDb == "Yes")
+            {
+                 if(state == "1")
+                    {
+                        std::cout << "\n\tWhat type of database is used? \n";
+                    }
+                    else
+                    {
+                        std::cout << "\n\tWhat type of database will be used? \n";
+                    }
+                                std::cout<<"\n\t\t1. SQL Server ";
+                                std::cout<<"\n\t\t2. MySQL ";
+                                std::cout<<"\n\t\t3. PostgreSQL";
+                                std::cout<<"\n\t\t4. SQLite";
+                                std::cout<<"\n\t\t5. OracleDB";
+                                std::cout<<"\n\t\t6. MariaDB";
+                                std::cout<<"\n\t\t7. MongoDB";
+                                std::cout<<"\n\t\t8. CosmosDB";
+                                std::cout<<"\n\t\t9. DynamoDB";
+                                std::cout<<"\n\t\t10. Cassandra";
+                                std::cout<<"\n\t\t11. Other";
+                                std::cout<<"\n\n\tSelect Your Option (1-11): ";
+                                std::cin>>choae;
+
+                                switch(choae)
+                                {
+                                case '1':
+                                    typeOfDb = "SQL_Server";
+                                    break;
+                                case '2':
+                                    typeOfDb = "MySQL";
+                                    break;
+                                case '3':
+                                    typeOfDb = "PostgreSQL";
+                                    break;
+                                case '4':
+                                    typeOfDb = "SQLite";
+                                    break;
+                                case '5':
+                                    typeOfDb = "OracleDB";
+                                    break;
+                                case '6':
+                                    typeOfDb = "MariaDB";
+                                    break;
+                                case '7':
+                                    typeOfDb = "MongoDB";
+                                    break;
+                                case '8':
+                                    typeOfDb = "CosmosDB";
+                                    break;
+                                case '9':
+                                    typeOfDb = "DynamoDB";
+                                    break;
+                                case '10':
+                                    typeOfDb = "Cassandra";
+                                    break;
+                                case '11':
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                    std::cout << "\n\tEnter one word that best describes the database: ";
+                                    cin >> typeOfDb;
+                                    break;
+                                default:
+                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                goto level10;
+                                }
+            }
+
+            if(state == "1")
+            {
+                int chuse;
+                    level_11:
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    std::cout << "  Select the programming language(s) used in the implementation (you can choose multiple options) \n";
+
+                    do{
+                            std::cout << "\n\t1) C#";
+                            std::cout << "\n\t2) C/C++";
+                            std::cout << "\n\t3) Java";
+                            std::cout << "\n\t4) Javascript";
+                            std::cout << "\n\t5) PHP";
+                            std::cout << "\n\t6) Python ";
+                            std::cout << "\n\t7) Ruby ";
+                            std::cout << "\n\t8) Other";
+                            std::cout << "\n\t9) Done! \n";
+
+                        cout << endl << "  Enter the S/N of your option (1-8) and press enter each time, and 9 when you are done: ";
+                        cin >> chuse;
+
+                        switch(chuse)
+                        {
+                            case 1:
+                                progrm1 = "C#";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected C#! Select other programing language or Done." <<endl;
+                                 break;
+                            case 2:
+                            progrm2 = "C/C++";
+                             system("cls");
+                             std::cout<<"\n" "***********************************************************************************************************\n";
+                              cout << "\n\tYou have selected C/C++! Select other programing language or Done." <<endl;
+                                break;
+                              case 3:
+                               progrm3 = "Java";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected Java! Select other programing language or Done." <<endl;
+                                break;
+                              case 4:
+                               progrm4 = "JavaSc";
+                               system("cls");
+                               std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected Javascript! Select other programing language or Done." <<endl;
+                                break;
+                              case 5:
+                               progrm5 = "PHP";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected PHP! Select other programing language or Done." <<endl;
+                                break;
+                            case 6:
+                               progrm6 = "Python";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected Python! Select other programing language or Done." <<endl;
+                                break;
+                            case 7:
+                                progrm7 = "Ruby";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected Ruby! Select other programing language or Done." <<endl;
+                                 break;
+                            case 8:
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                std::cout << "\n\tEnter one word that best describes the programming language: ";
+                                cin >> progrm8;
+                                 break;
+                            case 9:
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                              cout << "\n\tDone!" <<endl;
+                                break;
+
+                            default: cout << "Please choose between 1-8 (Press Enter to continue ...)";
+                            goto level_11;
+                            break;
+                        }
+
+                    }while(chuse != 9);
+            }
+            else
+            {
+                int chuse;
+                    level_11b:
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    std::cout << "  Select the programming language(s) to be used in the implementation (you can choose multiple options) \n";
+
+                    do{
+                            std::cout << "\n\t1) C#";
+                            std::cout << "\n\t2) C/C++";
+                            std::cout << "\n\t3) Java";
+                            std::cout << "\n\t4) Javascript";
+                            std::cout << "\n\t5) PHP";
+                            std::cout << "\n\t6) Python ";
+                            std::cout << "\n\t7) Ruby ";
+                            std::cout << "\n\t8) Other";
+                            std::cout << "\n\t9) Done! \n";
+
+                        cout << endl << "  Enter the S/N of your option (1-8) and press enter each time, and 9 when you are done: ";
+                        cin >> chuse;
+
+                        switch(chuse)
+                        {
+                            case 1:
+                                progrm1 = "C#";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected C#! Select other programing language or Done." <<endl;
+                                 break;
+                            case 2:
+                            progrm2 = "C/C++";
+                             system("cls");
+                             std::cout<<"\n" "***********************************************************************************************************\n";
+                              cout << "\n\tYou have selected C/C++! Select other programing language or Done." <<endl;
+                                break;
+                              case 3:
+                               progrm3 = "Java";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected Java! Select other programing language or Done." <<endl;
+                                break;
+                              case 4:
+                               progrm4 = "JavaSc";
+                               system("cls");
+                               std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected Javascript! Select other programing language or Done." <<endl;
+                                break;
+                              case 5:
+                               progrm5 = "PHP";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected PHP! Select other programing language or Done." <<endl;
+                                break;
+                            case 6:
+                               progrm6 = "Python";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected Python! Select other programing language or Done." <<endl;
+                                break;
+                            case 7:
+                                progrm7 = "Ruby";
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                cout << "\n\tYou have selected Ruby! Select other programing language or Done." <<endl;
+                                 break;
+                            case 8:
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                std::cout << "\n\tEnter one word that best describes the programming language: ";
+                                cin >> progrm8;
+                                 break;
+                            case 9:
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                              cout << "\n\tDone!" <<endl;
+                                break;
+
+                            default: cout << "Please choose between 1-8 (Press Enter to continue ...)";
+                            goto level_11b;
+                            break;
+                        }
+
+                    }while(chuse != 9);
+            }
+
+                char choe;
+         level11:
+            system("cls");
+            std::cout<<"\n" "***********************************************************************************************************\n";
+            if(state == "1")
+            {
+                std::cout << "\n\tDoes it allow file uploads? \n";
+            }
+            else
+            {
+                std::cout << "\n\tWill it allow file uploads? \n";
+            }
+                        std::cout<<"\n\t\t1. Yes ";
+                        std::cout<<"\n\t\t2. No";
+                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+						std::cin>>choe;
+
+						switch(choe)
+						{
+						case '1':
+                            	fileUpload = "Yes";
+                            break;
+                        case '2':
+                            	fileUpload= "No";
+                            break;
+						default:
+							std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                        goto level11;
+						}
+
+				char choke;
+                level12:
+                system("cls");
+                std::cout<<"\n" "***********************************************************************************************************\n";
+                if(state == "1")
+                {
+                    std::cout << "\n\tDoes the system generate a log file?  \n";
+                }
+                else
+                {
+                    std::cout << "\n\tWill the system generate a log file?  \n";
+                }
+                        std::cout<<"\n\t\t1. Yes ";
+                        std::cout<<"\n\t\t2. No";
+                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+						std::cin>>choke;
+
+						switch(choke)
+						{
+						case '1':
+                            sysLog = "Yes";
+                            break;
+                        case '2':
+                            sysLog = "No";
+                            break;
+						default:
+							std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                        goto level12;
+						}
+
+            string request_query = "insert into users_requests_bp (Request_ID, Status, Struct1, Struct2, Struct3, Struct4, Struct5, Struct6, Struct7, Struct8, Struct9, Struct10, Struct11, anyUsr, usrRegist, typeOfRegist,  anyUsrLogin, usrInput, holdUsrInfo, storeAnyInfo, sensitivOfInfo, typeOfAUTH, useDb, typeOfDataStorg, typeOfDb, progrm1, progrm2, progrm3, progrm4, progrm5, progrm6, progrm7, progrm8, fileUpload, sysLog) values('"+Request_ID+"', '"+Status+"', '"+Struct1+"', '"+Struct2+"', '"+Struct3+"', '"+Struct4+"', '"+Struct5+"', '"+Struct6+"', '"+Struct7+"', '"+Struct8+"', '"+Struct9+"', '"+Struct10+"', '"+Struct11+"', '"+anyUsr+"', '"+usrRegist+"', '"+typeOfRegist+"', '"+anyUsrLogin+"', '"+usrInput+"', '"+holdUsrInfo+"', '"+storeAnyInfo+"', '"+sensitivOfInfo+"', '"+typeOfAUTH+"', '"+useDb+"', '"+typeOfDataStorg+"', '"+typeOfDb+"', '"+progrm1+"', '"+progrm2+"', '"+progrm3+"', '"+progrm4+"', '"+progrm5+"', '"+progrm6+"', '"+progrm7+"', '"+progrm8+"', '"+fileUpload+"', '"+sysLog+"')";
+
+              const char* qr = request_query.c_str();
+              qstate = mysql_query(conn, qr);
+
+                if(!qstate)
+                {
+                     system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    std::cout << "\n\n\t\tData being saved .....\n";
+                     sensitivOfInfo.erase();
+
+                    cout << endl << "\n\n\t\tRequest Successfully added in the database!" << endl;
+
+                    cout << endl << "\n\n\t\tPress Enter to go back to the Main Menu." << endl;
+                }
+                else
+                {
+                    cout << "\n\n\tQuery Execution Problem! Error Number: " << mysql_errno(conn) << endl;
+                    cout << "\n\n\tError Number 1062 implies that the entered Request ID already exist in database.\n" << endl;
+                    cout << endl << "\n\n\tPlease press Enter to go back to the Main Menu and repeat the process with a unique ID." << endl;
+                }
+
+	}
+
 	void UserInput::modifyUserRequirements_Elicitation_requests()
 	{
+        Processing_and_Output po;
+        UserInput usrIp;
+
         system("cls");
         std::cout << "\n" "***********************************************************************************************************\n";
         std::cout<<"\t\tMODIFY REQUEST\n\n";
         std::cout << "\n\t Enter your Request ID: "; std::cin >> Reqst_ID;
+
+        Preliminary pre;
+
+            pre.convert_lowerC_to_upperC(Reqst_ID);
+
+            int num_digits;
+            int string_length;
+            char first_letter;
+
+            auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
+            num_digits = collector.n1;
+            string_length = collector.n2;
+            first_letter = collector.c;
+
+             while(num_digits !=4 || string_length != 5 || first_letter != 'R')
+            {
+                system("cls");
+                std::cout << "\n***********************************************************************************************************\n";
+                std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                std::cin >> Reqst_ID;
+
+                pre.convert_lowerC_to_upperC(Reqst_ID);
+
+                auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
+                num_digits = collector.n1;
+                string_length = collector.n2;
+                first_letter = collector.c;
+            }
 
         string findbyRequestID_query = "select * from users_requests_re where Reqst_ID like '%"+Reqst_ID+"%'";
 		const char* qr = findbyRequestID_query.c_str();
@@ -4094,6 +7660,7 @@ class UserInput
 
 		string additionalInfo = "";
         string userInfo = "";
+        string state2 = "";
 
          system("cls");
          std::cout<<"\n" "***********************************************************************************************************\n";
@@ -4111,58 +7678,59 @@ class UserInput
 				cout << "\t\tApplication Domain: " << row[2] << endl;
 				if(state2 == "On")
                 {
-                    cout << "\t\tDoes the system have a user?: " << row[3] << endl;
+                    cout << "\t\tDoes the system have a user? " << row[3] << endl;
                 }
                 else
                 {
-                    cout << "\t\tWill the system have a user?: " << row[3] << endl;
+                    cout << "\t\tWill the system have a user? " << row[3] << endl;
                 }
 				if(state2 == "On")
                 {
-                    cout << "\t\tDoes the system have user LogIn?: " << row[4] << endl;
+                    cout << "\t\tDoes the system have user LogIn? " << row[4] << endl;
                 }
                 else
                 {
-                    cout << "\t\tWill the system have user LogIn?: " << row[4] << endl;
+                    cout << "\t\tWill the system have user LogIn? " << row[4] << endl;
                 }
 				if(state2 == "On")
                 {
-                    cout << "\t\tDoes the system store any user information?: " << row[5] << endl;
+                    cout << "\t\tDoes the system store any user information? " << row[5] << endl;
                 }
                 else
                 {
-                    cout << "\t\tWill the system hold any user information?: " << row[5] << endl;
+                    cout << "\t\tWill the system hold any user information? " << row[5] << endl;
                 }
                 if(userInfo == "Yes")
                 {
                     if(state2 == "On")
                     {
-                        cout << "\t\tDoes the system store other information aside from the user information?: " << row[6] << endl;
+                        cout << "\t\tDoes the system store other information aside from the user information? " << row[6] << endl;
                     }
                     else
                     {
-                        cout << "\t\tWill the system store other information aside from the user information?: " << row[6] << endl;
+                        cout << "\t\tWill the system store other information aside from the user information? " << row[6] << endl;
                     }
                 }
                 else
                 {
                     if(state2 == "On")
                     {
-                        cout << "\t\tDoes the system store any kind of information?: " << row[6] << endl;
+                        cout << "\t\tDoes the system store any kind of information? " << row[6] << endl;
                     }
                     else
                     {
-                        cout << "\t\tWill the system store any kind of information?: " << row[6] << endl;
+                        cout << "\t\tWill the system store any kind of information? " << row[6] << endl;
                     }
                 }
 
+
 				if(state2 == "On")
                 {
-                    cout << "\t\tWhat type of information does the system store?: " << row[7] << endl;
+                    cout << "\t\tWhat type of information does the system store? " << row[7] << endl;
                 }
                 else
                 {
-                    cout << "\t\tWhat type of information will the system store?: " << row[7] << endl;
+                    cout << "\t\tWhat type of information will the system store? " << row[7] << endl;
                 }
 				if(state2 == "On")
                 {
@@ -4174,43 +7742,43 @@ class UserInput
                 }
 				if(state2 == "On")
                 {
-                    cout << "\t\tIs the system connected to the Internet?: " << row[9] << endl;
+                    cout << "\t\tIs the system connected to the Internet? " << row[9] << endl;
                 }
                 else
                 {
-                    cout << "\t\tWill the system be connected to the Internet?: " << row[9] << endl;
+                    cout << "\t\tWill the system be connected to the Internet? " << row[9] << endl;
                 }
 				if(state2 == "On")
                 {
-                    cout << "\t\tDoes it send any data to a cloud?: " << row[10] << endl;
+                    cout << "\t\tDoes it send any data to a cloud? " << row[10] << endl;
                 }
                 else
                 {
-                    cout << "\t\tWill it send any data to a cloud?: " << row[10] << endl;
+                    cout << "\t\tWill it send any data to a cloud? " << row[10] << endl;
                 }
 				if(state2 == "On")
                 {
-                    cout << "\t\tDoes it store data in a db?: " << row[11] << endl;
+                    cout << "\t\tDoes it store data in a db? " << row[11] << endl;
                 }
                 else
                 {
-                    cout << "\t\tWill it store data in a db?: " << row[11] << endl;
+                    cout << "\t\tWill it store data in a db? " << row[11] << endl;
                 }
 				if(state2 == "On")
                 {
-                    cout << "\t\tDoes it receive regular updates?: " << row[12] << endl;
+                    cout << "\t\tDoes it receive regular updates? " << row[12] << endl;
                 }
                 else
                 {
-                    cout << "\t\tWill the system receive regular updates?: " << row[12] << endl;
+                    cout << "\t\tWill the system receive regular updates? " << row[12] << endl;
                 }
 				if(state2 == "On")
                 {
-                   cout << "\t\tDoes the system use third-party software?: " << row[13] << endl;
+                   cout << "\t\tDoes the system use third-party software? " << row[13] << endl;
                 }
                 else
                 {
-                    cout << "\t\tWill the system use third-party software?: " << row[13] << endl;
+                    cout << "\t\tWill the system use third-party software? " << row[13] << endl;
                 }
                     cout << "\t\tIs there a possibility of the communications being eavesdropped?: " << row[14] << endl;
                     cout << "\t\tCould the messages sent between the system components be captured and resend?: " << row[15] << endl;
@@ -4239,112 +7807,113 @@ class UserInput
                 std::cout << "\n\tYou can change your Domain or the answer to one or more questions by entering the S/No. below: \n" << endl;
 
                     cout << "\t\t1. Application Domain " << endl;
+
                     if(state2 == "On")
                     {
-                        cout << "\t\t2. Does the system have a user?: " << endl;
+                        cout << "\t\t2. Does the system have a user? " << endl;
                     }
                     else
                     {
-                        cout << "\t\t2. Will the system have a user?: " << endl;
+                        cout << "\t\t2. Will the system have a user? " << endl;
                     }
                     if(state2 == "On")
                     {
-                        cout << "\t\t3. Does the system have user LogIn?: " << endl;
+                        cout << "\t\t3. Does the system have user LogIn? " << endl;
                     }
                     else
                     {
-                        cout << "\t\t3. Will the system have user LogIn?: " << endl;
+                        cout << "\t\t3. Will the system have user LogIn? " << endl;
                     }
                     if(state2 == "On")
                     {
-                        cout << "\t\t4. Does the system store any user information?: " << endl;
+                        cout << "\t\t4. Does the system store any user information? " << endl;
                     }
 
                     {
-                        cout << "\t\t4. Will the system hold any user information?: " << endl;
+                        cout << "\t\t4. Will the system hold any user information? " << endl;
                     }
                      if(userInfo == "Yes")
                     {
                         if(state2 == "On")
                         {
-                            cout << "\t\t5. Does the system store other information aside from the user information?: " << endl;
+                            cout << "\t\t5. Does the system store other information aside from the user information? " << endl;
                         }
                         else
                         {
-                            cout << "\t\t5. Will the system store other information aside from the user information?: " << endl;
+                            cout << "\t\t5. Will the system store other information aside from the user information? " << endl;
                         }
                     }
                     else
                     {
                         if(state2 == "On")
                         {
-                            cout << "\t\t5. Does the system store any kind of information?: " << endl;
+                            cout << "\t\t5. Does the system store any kind of information? " << endl;
                         }
                         else
                         {
-                            cout << "\t\t5. Will the system store any kind of information?: " << endl;
+                            cout << "\t\t5. Will the system store any kind of information? " << endl;
                         }
                     }
                     if(state2 == "On")
                     {
-                        cout << "\t\t6. What type of information does the system store?: " << endl;
+                        cout << "\t\t6. What type of information does the system store? " << endl;
                     }
                     else
                     {
-                        cout << "\t\t6. What type of information will the system store?: " << endl;
+                        cout << "\t\t6. What type of information will the system store? " << endl;
                     }
                     if(state2 == "On")
                     {
-                        cout << "\t\t7. Does the system send information to an entity?: " << endl;
+                        cout << "\t\t7. Does the system send information to an entity? " << endl;
                     }
                     else
                     {
-                        cout << "\t\t7. Will this information be sent to an entity?: " << endl;
+                        cout << "\t\t7. Will this information be sent to an entity? " << endl;
                     }
                     if(state2 == "On")
                     {
-                        cout << "\t\t8. Is the system connected to the Internet?: " << endl;
+                        cout << "\t\t8. Is the system connected to the Internet? " << endl;
                     }
                     else
                     {
-                        cout << "\t\t8. Will the system be connected to the Internet?: " << endl;
+                        cout << "\t\t8. Will the system be connected to the Internet? " << endl;
                     }
                     if(state2 == "On")
                     {
-                        cout << "\t\t9. Does it send any data to a cloud?: " << endl;
+                        cout << "\t\t9. Does it send any data to a cloud? " << endl;
                     }
                     else
                     {
-                        cout << "\t\t9. Will it send any data to a cloud?: " << endl;
+                        cout << "\t\t9. Will it send any data to a cloud? " << endl;
                     }
                     if(state2 == "On")
                     {
-                        cout << "\t\t10. Does it store data in a database?: " << endl;
+                        cout << "\t\t10. Does it store data in a database? " << endl;
                     }
                     else
                     {
-                        cout << "\t\t10. Will it store data in a database?: " << endl;
+                        cout << "\t\t10. Will it store data in a database? " << endl;
                     }
                     if(state2 == "On")
                     {
-                        cout << "\t\t11. Does it receive regular updates?: " << endl;
+                        cout << "\t\t11. Does it receive regular updates? " << endl;
                     }
                     else
                     {
-                        cout << "\t\t11. Will the system receive regular updates?: " << endl;
+                        cout << "\t\t11. Will the system receive regular updates? " << endl;
                     }
                     if(state2 == "On")
                     {
-                        cout << "\t\t12. Does the system use third-party software?: " << endl;
+                        cout << "\t\t12. Does the system use third-party software? " << endl;
                     }
                     else
                     {
-                        cout << "\t\t12. Will the system use third-party software?: " << endl;
+                        cout << "\t\t12. Will the system use third-party software? " << endl;
                     }
-                    cout << "\t\t13. Is there a possibility of the communications being eavesdropped?: " << endl;
-                    cout << "\t\t14. Could the messages sent between the system components be captured and resend?: " << endl;
-                    cout << "\t\t15. Can someone try to impersonate a user to gain access to private information?: " << endl;
-                    cout << "\t\t16. Can someone with bad intentions gain physical access to the system?: " << endl;
+                    cout << "\t\t13. Is there a possibility of the communications being eavesdropped? " << endl;
+                    cout << "\t\t14. Could the messages sent between the system components be captured and resend? " << endl;
+                    cout << "\t\t15. Can someone try to impersonate a user to gain access to private information? " << endl;
+                    cout << "\t\t16. Can someone with bad intentions gain physical access to the system? " << endl;
                     cout << "\t\t17. Done!" << endl << endl;
 
                     cout << "\tEnter a S/No. one at a time and press Enter, and enter 14 when you are done:  "; cin >> choice;
@@ -4451,13 +8020,13 @@ class UserInput
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
 
-                                     if(state1 == "On")
+                                     if(state2 == "On")
                                     {
-                                        std::cout << "\n\tDoes the system have a user?: \n";
+                                        std::cout << "\n\tDoes the system have a user? \n";
                                     }
                                     else
                                     {
-                                        std::cout << "\n\tWill the system have a user?: \n";
+                                        std::cout << "\n\tWill the system have a user? \n";
                                     }
                                         std::cout<<"\n\t\t1. Yes ";
                                         std::cout<<"\n\t\t2. No";
@@ -4484,14 +8053,16 @@ class UserInput
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
 
-                                    if(state1 == "On")
+                                    if(state2 == "On")
                                     {
-                                        std::cout << "\n\tDoes the system have a user LogIn?: \n";
+                                        std::cout << "\n\tDoes the system have a user LogIn? \n";
                                     }
                                     else
                                     {
-                                        std::cout << "\n\tWill the system have a user LogIn?: \n";
+                                        std::cout << "\n\tWill the system have a user LogIn? \n";
                                     }
+
+
                                         std::cout<<"\n\t\t1. Yes ";
                                         std::cout<<"\n\t\t2. No";
                                         std::cout<<"\n\n\tSelect Your Option (1-2): ";
@@ -4516,13 +8087,13 @@ class UserInput
                                     level4:
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    if(state1 == "On")
+                                    if(state2 == "On")
                                     {
-                                        std::cout << "\n\tDoes the system store user information?: \n";
+                                        std::cout << "\n\tDoes the system store user information? \n";
                                     }
                                     else
                                     {
-                                        std::cout << "\n\tWill the system hold any user information?: \n";
+                                        std::cout << "\n\tWill the system hold any user information? \n";
                                     }
                                     std::cout<<"\n\t\t1. Yes ";
                                     std::cout<<"\n\t\t2. No";
@@ -4552,24 +8123,24 @@ class UserInput
 
                                         if(userInfo == "Yes")
                                         {
-                                            if(state1 == "On")
+                                            if(state2 == "On")
                                             {
-                                                cout << "\t\tDoes the system store other information aside from the user information?: " << endl;
+                                                cout << "\t\tDoes the system store other information aside from the user information? " << endl;
                                             }
                                             else
                                             {
-                                                cout << "\t\tWill the system store other information aside from the user information?: " << endl;
+                                                cout << "\t\tWill the system store other information aside from the user information? " << endl;
                                             }
                                         }
                                         else
                                         {
-                                            if(state1 == "On")
+                                            if(state2 == "On")
                                             {
-                                                cout << "\t\tDoes the system store any kind of information?: " << endl;
+                                                cout << "\t\tDoes the system store any kind of information? " << endl;
                                             }
                                             else
                                             {
-                                                cout << "\t\tWill the system store any kind of information?: " << endl;
+                                                cout << "\t\tWill the system store any kind of information? " << endl;
                                             }
                                         }
                                         std::cout<<"\n\t\t1. Yes ";
@@ -4596,13 +8167,13 @@ class UserInput
                                         level6:
                                         system("cls");
                                         std::cout<<"\n" "***********************************************************************************************************\n";
-                                        if(state1 == "On")
+                                        if(state2 == "On")
                                         {
-                                             std::cout << "\n\tWhat type of information does the system store?: \n";
+                                             std::cout << "\n\tWhat type of information does the system store? \n";
                                         }
                                         else
                                         {
-                                             std::cout << "\n\tWhat type of information will the system store?: \n";
+                                             std::cout << "\n\tWhat type of information will the system store? \n";
                                         }
 
                                         std::cout<<"\n\t\t1. Normal Information ";
@@ -4634,13 +8205,13 @@ class UserInput
                                         level7:
                                         system("cls");
                                         std::cout<<"\n" "***********************************************************************************************************\n";
-                                        if(state1 == "On")
+                                        if(state2 == "On")
                                         {
-                                            std::cout << "\n\tDoes the system send information to an entity?: \n";
+                                            std::cout << "\n\tDoes the system send information to an entity? \n";
                                         }
                                         else
                                         {
-                                            std::cout << "\n\tWill the information be sent to an entity?: \n";
+                                            std::cout << "\n\tWill the information be sent to an entity? \n";
                                         }
                                         std::cout<<"\n\t\t1. Yes ";
                                         std::cout<<"\n\t\t2. No";
@@ -4659,7 +8230,6 @@ class UserInput
                                                 std::cout << "\tSorry! Wrong option selected." << std:: endl;
                                             goto level7;
                                         }
-
                                     update_query = "UPDATE `users_requests_re` SET `infoSent2E` = '"+infoSent2E+"' WHERE `Reqst_ID` = '"+Reqst_ID+"'";
                                 break;
                          case 8:
@@ -4667,13 +8237,13 @@ class UserInput
                                     level8:
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    if(state1 == "On")
+                                    if(state2 == "On")
                                     {
-                                        std::cout << "\n\tIs the system connected to the Internet?: \n";
+                                        std::cout << "\n\tIs the system connected to the Internet? \n";
                                     }
                                     else
                                     {
-                                        std::cout << "\n\tWill the system be connected to the Internet?: \n";
+                                        std::cout << "\n\tWill the system be connected to the Internet? \n";
                                     }
                                     std::cout<<"\n\t\t1. Yes ";
                                     std::cout<<"\n\t\t2. No";
@@ -4699,13 +8269,13 @@ class UserInput
                                     level9:
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    if(state1 == "On")
+                                    if(state2 == "On")
                                     {
-                                        std::cout << "\n\tDoes it send data to a cloud?: \n";
+                                        std::cout << "\n\tDoes it send data to a cloud? \n";
                                     }
                                     else
                                     {
-                                        std::cout << "\n\tWill it send its data to a cloud?: \n";
+                                        std::cout << "\n\tWill it send its data to a cloud? \n";
                                     }
                                     std::cout<<"\n\t\t1. Yes ";
                                     std::cout<<"\n\t\t2. No";
@@ -4731,13 +8301,13 @@ class UserInput
                                     level10:
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    if(state1 == "On")
+                                    if(state2 == "On")
                                     {
-                                        std::cout << "\n\tDoes it store data in a database?: \n";
+                                        std::cout << "\n\tDoes it store data in a database? \n";
                                     }
                                     else
                                     {
-                                        std::cout << "\n\tWill it store data in a database?: \n";
+                                        std::cout << "\n\tWill it store data in a database? \n";
                                     }
                                     std::cout<<"\n\t\t1. Yes ";
                                     std::cout<<"\n\t\t2. No";
@@ -4764,13 +8334,13 @@ class UserInput
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
 
-                                    if(state1 == "On")
+                                    if(state2 == "On")
                                     {
-                                        std::cout << "\n\tDoes the system receive regular updates?:  \n";
+                                        std::cout << "\n\tDoes the system receive regular updates?  \n";
                                     }
                                     else
                                     {
-                                        std::cout << "\n\tWill the system receive regular updates?:  \n";
+                                        std::cout << "\n\tWill the system receive regular updates?  \n";
                                     }
 
                                     std::cout<<"\n\t\t1. Yes ";
@@ -4797,13 +8367,13 @@ class UserInput
                                     level12:
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    if(state1 == "On")
+                                    if(state2 == "On")
                                     {
-                                        std::cout << "\n\tDoes the system use third-party software?:  \n";
+                                        std::cout << "\n\tDoes the system use third-party software?  \n";
                                     }
                                     else
                                     {
-                                        std::cout << "\n\tWill the system use third-party software?:  \n";
+                                        std::cout << "\n\tWill the system use third-party software?  \n";
                                     }
                                     std::cout<<"\n\t\t1. Yes ";
                                     std::cout<<"\n\t\t2. No";
@@ -4829,7 +8399,7 @@ class UserInput
                                     level13:
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    std::cout << "\n\tIs there a possibility of the communications being eavesdropped?: \n";
+                                    std::cout << "\n\tIs there a possibility of the communications being eavesdropped? \n";
                                     std::cout<<"\n\t\t1. Yes ";
                                     std::cout<<"\n\t\t2. No";
                                     std::cout<<"\n\n\tSelect Your Option (1-2): ";
@@ -4854,7 +8424,7 @@ class UserInput
                                     level14:
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    std::cout << "\n\tCould the messages sent between the system components be captured and resend?: \n";
+                                    std::cout << "\n\tCould the messages sent between the system components be captured and resend? \n";
 
                                     std::cout<<"\n\t\t1. Yes ";
                                     std::cout<<"\n\t\t2. No";
@@ -4880,7 +8450,7 @@ class UserInput
                                     level15:
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    std::cout << "\n\tCan someone try to impersonate a user to gain access to private information?: \n";
+                                    std::cout << "\n\tCan someone try to impersonate a user to gain access to private information? \n";
                                     std::cout<<"\n\t\t1. Yes ";
                                     std::cout<<"\n\t\t2. No";
                                     std::cout<<"\n\n\tSelect Your Option (1-2): ";
@@ -4905,7 +8475,7 @@ class UserInput
                                     level16:
                                     system("cls");
                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    std::cout << "\n\tCan someone with bad intentions gain physical access to the system?: \n";
+                                    std::cout << "\n\tCan someone with bad intentions gain physical access to the system? \n";
                                     std::cout<<"\n\t\t1. Yes ";
                                     std::cout<<"\n\t\t2. No";
                                     std::cout<<"\n\n\tSelect Your Option (1-2): ";
@@ -4948,6 +8518,1301 @@ class UserInput
                     }
 
             }while(choice != 17);
+            state2.erase();
+		}
+		else
+		{
+			system("cls");
+			std::cout<<"\n" "***********************************************************************************************************\n";
+			std::cout << "\n\tPress Enter to return to the Main Menu. ";
+			return;
+		}
+
+	}
+
+	void UserInput::modifyBestPractGuide_requests()
+	{
+         Processing_and_Output po;
+         UserInput usrIp;
+
+        system("cls");
+        std::cout << "\n" "***********************************************************************************************************\n";
+        std::cout<<"\t\tMODIFY REQUEST\n\n";
+        std::cout << "\n\t Enter your Request ID: "; std::cin >> Request_ID;
+
+            Preliminary pre;
+
+            pre.convert_lowerC_to_upperC(Request_ID);
+
+            int num_digits;
+            int string_length;
+            char first_letter;
+
+            auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+            num_digits = collector.n1;
+            string_length = collector.n2;
+            first_letter = collector.c;
+
+             while(num_digits !=4 || string_length != 5 || first_letter != 'B')
+            {
+                system("cls");
+                std::cout << "\n***********************************************************************************************************\n";
+                std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                std::cin >> Request_ID;
+
+                pre.convert_lowerC_to_upperC(Request_ID);
+
+                auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                num_digits = collector.n1;
+                string_length = collector.n2;
+                first_letter = collector.c;
+            }
+
+        string findbyRequestID_query = "select * from users_requests_bp where Request_ID like '%"+Request_ID+"%'";
+		const char* qr = findbyRequestID_query.c_str();
+		qstate = mysql_query(conn, qr);
+
+		string Stat ="";
+		string anyUsr = "";
+        string usrRegist = "";
+        string holdUsrInfo = "";
+        string storeAnyInfo = "";
+        string useDb = "";
+        int flag_1 = 0;
+        string state2;
+        string userInfo;
+
+         system("cls");
+         std::cout<<"\n" "***********************************************************************************************************\n";
+		cout << endl << "\tShowing your requests ...." << endl << endl;
+		if(!qstate)
+		{
+			res = mysql_store_result(conn);
+			while((row = mysql_fetch_row(res)))
+			{
+				cout << "\t\tRequest ID: " << row[0] << endl;
+				Stat = row[1];
+				anyUsr= row[13];
+				usrRegist = row[14];
+				holdUsrInfo = row[18];
+				storeAnyInfo = row[19];
+				useDb = row[22];
+                Struct1 = row[2]; Struct2 = row[3]; Struct3 = row[4]; Struct4 = row[5]; Struct5 = row[6]; Struct6 = row[7];
+                Struct7 = row[8]; Struct8 = row[9]; Struct9 = row[10]; Struct10 = row[11]; Struct11 = row[12];
+                progrm1 = row[25]; progrm2 = row[26]; progrm3 = row[27]; progrm4 = row[28]; progrm5 = row[29]; progrm6 = row[30]; progrm7 = row[31]; progrm8 = row[32];
+
+				std::cout << "\t\tWhat's the category of your IoT System Structure? (you can choose multiple options) " << endl;
+				if(!Struct1.empty())
+                {
+                    cout << "\t\t  - " << row[2] << endl;
+                }
+                if(!Struct2.empty())
+                {
+                    cout << "\t\t  - " << row[3] << endl;
+                }
+                if(!Struct3.empty())
+                {
+                    cout << "\t\t  - " << row[4] << endl;
+                }
+                if(!Struct4.empty())
+                {
+                    cout << "\t\t  - " << row[5] << endl;
+                }
+                if(!Struct5.empty())
+                {
+                    cout << "\t\t  - " << row[6] << endl;
+                }
+                if(!Struct6.empty())
+                {
+                    cout << "\t\t  - " << row[7] << endl;
+                }
+                if(!Struct7.empty())
+                {
+                    cout << "\t\t  - " << row[8] << endl;
+                }
+                if(!Struct8.empty())
+                {
+                    cout << "\t\t  - " << row[9] << endl;
+                }
+                if(!Struct9.empty())
+                {
+                    cout << "\t\t  - " << row[10] << endl;
+                }
+                if(!Struct10.empty())
+                {
+                    cout << "\t\t  - " << row[11] << endl;
+                }
+                if(!Struct11.empty())
+                {
+                    cout << "\t\t  - " << row[12] << endl;
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tDoes the system have a user? - " << row[13] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWill the system have a user? - " << row[13] << endl;
+                }
+				if(anyUsr == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                        std::cout << "\t\tDoes the system have a provision for user registration? - " << row[14] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system have any provision for user registration? - " << row[14] << endl;
+                    }
+                }
+
+                if(usrRegist == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                        std::cout << "\t\tWho registers users? - " << row[15] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWho will register users? - " << row[15] << endl;
+                    }
+                }
+                if(anyUsr == "Yes" && usrRegist == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                        std::cout << "\t\tDoes the system have a user LogIn? - " << row[16] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system have a user LogIn? - " << row[16] << endl;
+                    }
+                }
+                if(anyUsr == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tDoes the system allow users to enter any input? - " << row[17] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system allow users to enter any input? - " << row[17] << endl;
+                    }
+                }
+                if(anyUsr == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tDoes the system store user information? - " << row[18] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system store any user information? - " << row[18] << endl;
+                    }
+                }
+                if(holdUsrInfo == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         flag_1 = 1;
+                         std::cout << "\t\tDoes the system store any other information? - " << row[19] << endl;
+                    }
+                    else
+                    {
+                        flag_1 = 1;
+                        std::cout << "\t\tWill the system store any other information? - " << row[19] << endl;
+                    }
+                }
+                if(holdUsrInfo != "Yes" && flag_1 != 1)
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tDoes the system store any kind of information? - " << row[19] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system store any kind of information? - " << row[19] << endl;
+                    }
+                }
+                if(holdUsrInfo == "Yes" || storeAnyInfo == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tWhat type of information does the system store? - " << row[20] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWhat type of information will the system store? - " << row[20] << endl;
+                    }
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tWhat type of authentication is implemented in the system? - " << row[21] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWhat type of authentication will be implemented in the system? - " << row[21] << endl;
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tDoes it store data in a database? - " << row[22] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWill it store data in a database? - " << row[22] << endl;
+                }
+                if(useDb == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tWhat is the type of data storage? - " << row[23] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWhat will be the type of data storage? - " << row[23] << endl;
+                    }
+                }
+                if(useDb == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tWhat type of database is used? - " << row[24] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWhat type of database will be used? - " << row[24] << endl;
+                    }
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tWhat's the programming language used? (you can choose multiple options) \n";
+                }
+                else
+                {
+                    std::cout << "\t\tWhat programming language will be used? (you can choose multiple options) \n";
+                }
+				if(!progrm1.empty())
+                {
+                    cout << "\t\t  - " << row[25] << endl;
+                }
+                if(!progrm2.empty())
+                {
+                    cout << "\t\t  - " << row[26] << endl;
+                }
+                if(!progrm3.empty())
+                {
+                    cout << "\t\t  - " << row[27] << endl;
+                }
+                if(!progrm4.empty())
+                {
+                    cout << "\t\t  - " << row[28] << endl;
+                }
+                if(!progrm5.empty())
+                {
+                    cout << "\t\t  - " << row[29] << endl;
+                }
+                if(!progrm6.empty())
+                {
+                    cout << "\t\t  - " << row[30] << endl;
+                }
+                if(!progrm7.empty())
+                {
+                    cout << "\t\t  - " << row[31] << endl;
+                }
+                if(!progrm8.empty())
+                {
+                    cout << "\t\t  - " << row[32] << endl;
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tDoes it allow file uploads? - " << row[33] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWill it allow file uploads? - " << row[33] << endl;
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tDoes the system generate a log file? - " << row[34] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWill the system generate a log file? - " << row[34] << endl;
+                }
+			}
+		}
+		else
+		{
+			cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+		}
+
+		string ID; char ch;
+		cout << endl;
+		cout << "\tDo you wish to modify your answers? (y/n): "; cin >> ch;
+
+		bool validWord = false;
+
+		if(ch == 'y' || ch == 'Y')
+		{
+            string update_query, state1;
+
+            int choice;
+
+            do{
+                system("cls");
+                std::cout<<"\n" "***********************************************************************************************************\n";
+                std::cout << "\n\tYou can change the answer to one or more questions by entering the S/No. below: \n" << endl;
+                    cout << "\t    --------------------------------------------------------------------------------------- " << endl;
+                    cout << "\t    Select the category of IoT System Structure to change (you can choose multiple options) " << endl;
+                    std::cout << "\t\t1. Device Management (e.g., Sensors, Actuators, Gateways)";
+                    std::cout << "\n\t\t2. Data Collection";
+                    std::cout << "\n\t\t3. Connectivity Management";
+                    std::cout << "\n\t\t4. API Services";
+                    std::cout << "\n\t\t5. Data Management";
+                    std::cout << "\n\t\t6. Data Processing";
+                    std::cout << "\n\t\t7. Big Data Analytics/Advanced Analytics";
+                    std::cout << "\n\t\t8. Data Center and Cloud Services";
+                    std::cout << "\n\t\t9. Web Services/Web apps (e.g., Mobile apps, Desktop apps development, etc.)";
+                    std::cout << "\n\t\t10. Embedded Systems";
+                    std::cout << "\n\t\t11. Other" << endl;
+                    cout << "\t        ----------------------------------------------------------------------------------- " << endl;
+
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t12. Does the system have a user? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t12. Will the system have a user? " << endl;
+                    }
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t13. Does the system have a provision for user registration? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t13. Will the system have any provision for user registration? " << endl;
+                    }
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t14. Who registers users? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t14. Who will register users? " << endl;
+                    }
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t15. Does the system have a user LogIn? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t15. Will the system have a user LogIn? " << endl;
+                    }
+
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t16. Does the system allow users to enter any input? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t16. Will the system allow users to enter any input? " << endl;
+                    }
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t17. Does the system store user information? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t17. Will the system store any user information? " << endl;
+                    }
+                    if(holdUsrInfo == "Yes")
+                    {
+                        if(Stat == "Exist")
+                        {
+                            cout << "\t\t18. Does the system store any other information? " << endl;
+                        }
+                        else
+                        {
+                            cout << "\t\t18. Will the system store any other information? " << endl;
+                        }
+                    }
+                    else if(holdUsrInfo != "Yes" && flag_1 != 1)
+                    {
+                        if(Stat == "Exist")
+                        {
+                            cout << "\t\t18. Does the system store any kind of information? " << endl;
+                        }
+                        else
+                        {
+                            cout << "\t\t18. Will the system store any kind of information? " << endl;
+                        }
+                    }
+                    if(holdUsrInfo == "Yes" || storeAnyInfo == "Yes")
+                    {
+                        if(Stat == "Exist")
+                        {
+                            cout << "\t\t19. What type of information does the system store? " << endl;
+                        }
+                        else
+                        {
+                            cout << "\t\t19. What type of information will the system store? " << endl;
+                        }
+                    }
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t20. What type of authentication is implemented in the system? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t20. What type of authentication will be implemented in the system? " << endl;
+                    }
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t21. Does it store data in a database? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t21. Will it store data in a database? " << endl;
+                    }
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t22. What is the type of data storage? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t22. What will be the type of data storage? " << endl;
+                    }
+                    if(useDb == "Yes")
+                    {
+                        if(Stat == "Exist")
+                        {
+                            cout << "\t\t23. What type of database is used? " << endl;
+                        }
+                        else
+                        {
+                            cout << "\t\t23. What type of database will be used? " << endl;
+                        }
+                    }
+                    cout << "\t        ----------------------------------------------------------------------------------- " << endl;
+                    if(Stat == "Exist")
+                    {
+
+                        cout << "\t\tWhat's the programming language used? (you can choose multiple options) " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t What programming language will be used? (you can choose multiple options) " << endl;
+                    }
+                            std::cout << "\t\t24. C#";
+                            std::cout << "\n\t\t25. C/C++";
+                            std::cout << "\n\t\t26. Java";
+                            std::cout << "\n\t\t27. Javascript";
+                            std::cout << "\n\t\t28. PHP";
+                            std::cout << "\n\t\t29. Python ";
+                            std::cout << "\n\t\t30. Ruby ";
+                            std::cout << "\n\t\t31. Other\n";
+                     cout << "\t        ----------------------------------------------------------------------------------- " << endl;
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t32. Does it allow file uploads? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t32. Will it allow file uploads? " << endl;
+                    }
+                    if(Stat == "Exist")
+                    {
+                        cout << "\t\t33. Does the system generate any log file? " << endl;
+                    }
+                    else
+                    {
+                        cout << "\t\t33. Will the system generate any log file? " << endl;
+                    }
+                    cout << "\t\t34. Done!" << endl << endl;
+
+                    cout << "\tEnter a S/No. one at a time and press Enter, and enter 35 when you are done:  "; cin >> choice;
+
+
+                    switch(choice)
+                    {
+                        case 1:
+                                 do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <Device_Mgmt or ' '> to Add or Delete Device Management: "; getline(cin, Struct1);
+                                   }while(Struct1 != "Device_Mgmt" && Struct1 != "' '");
+                                   update_query = "UPDATE `users_requests_bp` SET `Struct1` = '"+Struct1+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                        case 2:
+                                    do{
+                                            system("cls");
+                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                            cout << endl << "\tType <Data_Collect or ' '> to Add or Delete Data Collection: "; getline(cin, Struct2);
+                                    }while(Struct2 != "Data_Collect" && Struct2 != "' '");
+                                    update_query = "UPDATE `users_requests_bp` SET `Struct2` = '"+Struct2+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 3:
+                                    do{
+                                            system("cls");
+                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                            cout << endl << "\tType <Connect_Mgmt or ' '> to Add or Delete Connectivity Management: "; getline(cin, Struct3);
+                                    }while(Struct3 != "Connect_Mgmt" && Struct3 != "' '");
+                                    update_query = "UPDATE `users_requests_bp` SET `Struct3` = '"+Struct3+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                        case 4:
+                                    do{
+                                            system("cls");
+                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                            cout << endl << "\tType <API_Service or ' '> to Add or Delete selected API Services: "; getline(cin, Struct4);
+                                    }while(Struct4 != "API_Service" && Struct4 != "' '");
+                                    update_query = "UPDATE `users_requests_bp` SET `Struct4` = '"+Struct4+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 5:
+                                  do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <Data_Mgmt or ' '> to Add or Delete Data Management: "; getline(cin, Struct5);
+                                    }while(Struct5 != "Data_Mgmt" && Struct5 != "' '");
+                                    update_query = "UPDATE `users_requests_bp` SET `Struct5` = '"+Struct5+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 6:
+                                    do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <Data_Process or ' '> to Add or Delete Data Processing: "; getline(cin, Struct6);
+                                    }while(Struct6 != "Data_Process" && Struct6 != "' '");
+                                    update_query = "UPDATE `users_requests_bp` SET `Struct6` = '"+Struct6+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 7:
+                                  do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <Analytics or ' '> to Add or Delete Big Data Analytics/Advanced Analytics: "; getline(cin, Struct7);
+                                    }while(Struct7 != "Analytics" && Struct7 != "' '");
+                                   update_query = "UPDATE `users_requests_bp` SET `Struct7` = '"+Struct7+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 8:
+                                    do{
+                                         system("cls");
+                                         std::cout<<"\n" "***********************************************************************************************************\n";
+                                         cout << endl << "\tType <Cloud_Service or ' '> to Add or Delete Data Center and Cloud Services: "; getline(cin, Struct8);
+                                    }while(Struct8 != "Cloud_Service" && Struct8 != "' '");
+                                    update_query = "UPDATE `users_requests_bp` SET `Struct8` = '"+Struct8+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 9:
+                                    do{
+                                            system("cls");
+                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                            cout << endl << "\tType <Web or ' '> to Add or Delete Web Services/Web apps: "; getline(cin, Struct9);
+                                     }while(Struct9 != "Web" && Struct9 != "' '");
+                                     update_query = "UPDATE `users_requests_bp` SET `Struct9` = '"+Struct9+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 10:
+                                    do{
+                                            system("cls");
+                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                            cout << endl << "\tType <Embedded_Sys or ' '> to Add or Delete Embedded Systems: "; getline(cin, Struct10);
+                                     }while(Struct10 != "Embedded_Sys" && Struct10 != "' '");
+                                     update_query = "UPDATE `users_requests_bp` SET `Struct10` = '"+Struct10+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 11:
+                                  do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        std::cout << "\n\tEnter one word that best describes your IoT system structure or ' ' to delete IoT system structure: "; getline(cin, Struct11);
+                                         validWord = pre.validString(Struct11);
+                                     }while(validWord != true && Struct11 != "' '");
+                                    update_query = "UPDATE `users_requests_bp` SET `Struct11` = '"+Struct11+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 12:
+                                char cho;
+                                level2:
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+
+                                 if(Stat == "Exist")
+                                {
+                                    std::cout << "\n\tDoes the system have a user? \n";
+                                }
+                                else
+                                {
+                                    std::cout << "\n\tWill the system have a user? \n";
+                                }
+                                    std::cout<<"\n\t\t1. Yes ";
+                                    std::cout<<"\n\t\t2. No";
+                                    std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                    std::cin>>cho;
+
+                                    switch(cho)
+                                    {
+                                    case '1':
+                                        anyUsr= "Yes";
+                                        break;
+                                    case '2':
+                                        anyUsr = "No";
+                                        break;
+                                    default:
+                                        std::cout << "\tSorry! Wrong option selected." << std:: endl;//
+                                    goto level2;
+                                    }
+                                    update_query = "UPDATE `users_requests_bp` SET `anyUsr` = '"+anyUsr+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                        case 13:
+                                   char chic;
+                                    level2a:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                    if(anyUsr == "Yes")
+                                    {
+                                         if(Stat == "Exist")
+                                            {
+                                                std::cout << "\n\tDoes the system have a provision for user registration? \n";
+                                            }
+                                            else
+                                            {
+                                                std::cout << "\n\tWill the system have any provision for user registration? \n";
+                                            }
+                                                std::cout<<"\n\t\t1. Yes ";
+                                                std::cout<<"\n\t\t2. No";
+                                                std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                std::cin>>chic;
+
+                                                switch(chic)
+                                                {
+                                                case '1':
+                                                    usrRegist= "Yes";
+                                                    break;
+                                                case '2':
+                                                    usrRegist = "No";
+                                                    break;
+                                                default:
+                                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                goto level2a;
+                                                }
+                                    }
+                                    update_query = "UPDATE `users_requests_bp` SET `usrRegist` = '"+usrRegist+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 14:
+                                    char chac;
+                                    level2b:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                    if(usrRegist == "Yes")
+                                    {
+                                         if(Stat == "Exist")
+                                            {
+                                                std::cout << "\n\tWho registers users? \n";
+                                            }
+                                            else
+                                            {
+                                                std::cout << "\n\tWho will register users? \n";
+                                            }
+                                                std::cout<<"\n\t\t1. Users themselves ";
+                                                std::cout<<"\n\t\t2. An administrator";
+                                                std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                std::cin>>chac;
+
+                                                switch(chac)
+                                                {
+                                                case '1':
+                                                    typeOfRegist= "Users";
+                                                    break;
+                                                case '2':
+                                                    typeOfRegist = "Admin";
+                                                    break;
+                                                default:
+                                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                goto level2b;
+                                                }
+                                    }
+                                    update_query = "UPDATE `users_requests_bp` SET `typeOfRegist` = '"+typeOfRegist+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 15:
+                                   char choi;
+                                    level3:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                   // int flag_1 = 0;
+                                    if(anyUsr == "Yes" && usrRegist == "Yes")
+                                    {
+                                        if(Stat == "Exist")
+                                            {
+                                                std::cout << "\n\tDoes the system have a user LogIn? \n";
+                                            }
+                                            else
+                                            {
+                                                std::cout << "\n\tWill the system have a user LogIn? \n";
+                                            }
+                                                        std::cout<<"\n\t\t1. Yes ";
+                                                        std::cout<<"\n\t\t2. No";
+                                                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                        std::cin>>choi;
+
+                                                        switch(choi)
+                                                        {
+                                                        case '1':
+                                                            anyUsrLogin= "Yes";
+                                                            break;
+                                                        case '2':
+                                                            anyUsrLogin = "No";
+                                                            break;
+                                                        default:
+                                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;//
+                                                        goto level3;
+                                                        }
+                                    }
+                                    update_query = "UPDATE `users_requests_bp` SET `anyUsrLogin` = '"+anyUsrLogin+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 16:
+                                    {
+                                    char choia;
+                                    level3a:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                    int flag_1 = 0;
+                                    if(anyUsr == "Yes")
+                                    {
+                                        if(Stat == "Exist")
+                                            {
+                                                std::cout << "\n\tDoes the system allow users to enter any input? \n";
+                                            }
+                                            else
+                                            {
+                                                std::cout << "\n\tWill the system allow users to enter any input? \n";
+                                            }
+                                                        std::cout<<"\n\t\t1. Yes ";
+                                                        std::cout<<"\n\t\t2. No";
+                                                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                        std::cin>>choia;
+
+                                                        switch(choia)
+                                                        {
+                                                        case '1':
+                                                            usrInput= "Yes";
+                                                            break;
+                                                        case '2':
+                                                            usrInput = "No";
+                                                            break;
+                                                        default:
+                                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                        goto level3a;
+                                                        }
+                                        }
+                                    update_query = "UPDATE `users_requests_bp` SET `usrInput` = '"+usrInput+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                                }
+                         case 17:
+                                 {
+                                     char choic;
+                                    level4:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                     if(anyUsr == "Yes")
+                                     {
+                                         if(Stat == "Exist")
+                                            {
+                                                std::cout << "\n\tDoes the system store user information? \n";
+                                            }
+                                            else
+                                            {
+                                                std::cout << "\n\tWill the system store any user information? \n";
+                                            }
+                                                        std::cout<<"\n\t\t1. Yes ";
+                                                        std::cout<<"\n\t\t2. No";
+                                                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                        std::cin>>choic;
+
+                                                        switch(choic)
+                                                        {
+                                                        case '1':
+                                                            holdUsrInfo = "Yes";
+                                                            break;
+                                                        case '2':
+                                                            holdUsrInfo = "No";
+                                                            break;
+                                                        default:
+                                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                        goto level4;
+                                                        }
+                                     }
+                                     update_query = "UPDATE `users_requests_bp` SET `holdUsrInfo` = '"+holdUsrInfo+"' WHERE `Request_ID` = '"+Request_ID+"'";
+
+                                break;
+                                }
+                        case 18:
+                                if(holdUsrInfo == "Yes")
+                                {
+                                    char choic_;
+                                     level4_:
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        if(holdUsrInfo == "Yes")
+                                        {
+                                            if(Stat == "Exist")
+                                                {
+                                                    flag_1 = 1;
+                                                    std::cout << "\n\tDoes the system store any other information? \n";
+                                                }
+                                                else
+                                                {
+                                                    flag_1 = 1;
+                                                    std::cout << "\n\tWill the system store any other information? \n";
+                                                }
+                                                            std::cout<<"\n\t\t1. Yes ";
+                                                            std::cout<<"\n\t\t2. No";
+                                                            std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                            std::cin>>choic_;
+
+                                                            switch(choic_)
+                                                            {
+                                                            case '1':
+                                                                storeAnyInfo = "Yes";//This variable also serves as other info aside from usr info
+                                                                break;
+                                                            case '2':
+                                                                storeAnyInfo = "No";
+                                                                break;
+                                                            default:
+                                                                std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                            goto level4_;
+                                                            }
+                                        }
+                                        update_query = "UPDATE `users_requests_bp` SET `storeAnyInfo` = '"+storeAnyInfo+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                }
+                                else if(holdUsrInfo != "Yes" && flag_1 != 1)
+                                {
+                                        char choict;
+                                        level5:
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        if(Stat == "Exist")
+                                        {
+                                            std::cout << "\n\tDoes the system store any kind of information? \n";
+                                        }
+                                        else
+                                        {
+                                            std::cout << "\n\tWill the system store any kind of information? \n";
+                                        }
+                                                    std::cout<<"\n\t\t1. Yes ";
+                                                    std::cout<<"\n\t\t2. No";
+                                                    std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                    std::cin>>choict;
+
+                                                    switch(choict)
+                                                    {
+                                                    case '1':
+                                                        storeAnyInfo = "Yes";
+                                                        break;
+                                                    case '2':
+                                                        storeAnyInfo = "No";
+                                                        break;
+                                                    default:
+                                                        std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                    goto level5;
+                                                    }
+                                    }
+                                        flag_1 = 0;
+                                    update_query = "UPDATE `users_requests_bp` SET `storeAnyInfo` = '"+storeAnyInfo+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                        case 19:
+                                 if(holdUsrInfo == "Yes" || storeAnyInfo == "Yes")
+                                 {
+                                      char choicn;
+                                        level6:
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        if(Stat == "Exist")
+                                        {
+                                             std::cout << "\n\tWhat type of information does the system store? \n";
+                                        }
+                                        else
+                                        {
+                                             std::cout << "\n\tWhat type of information will the system store? \n";
+                                        }
+
+                                                    std::cout<<"\n\t\t1. Normal Information ";
+                                                    std::cout<<"\n\t\t2. Sensitive Information";
+                                                    std::cout<<"\n\t\t3. Critical Information";
+
+                                                    std::cout<<"\n\n\tSelect Your Option (1-3): ";
+                                                    std::cin>>choicn;
+
+                                                    switch(choicn)
+                                                    {
+                                                    case '1':
+                                                        sensitivOfInfo = "Normal";
+                                                        break;
+                                                    case '2':
+                                                        sensitivOfInfo = "Sensitive";
+                                                        break;
+                                                    case '3':
+                                                        sensitivOfInfo = "Critical";
+                                                        break;
+                                                    default:
+                                                        std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                    goto level6;
+                                                    }
+                                 }
+                                 update_query = "UPDATE `users_requests_bp` SET `sensitivOfInfo` = '"+sensitivOfInfo+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                 break;
+                         case 20:
+                                    char choicm;
+                                    level7:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                    if(Stat == "Exist")
+                                    {
+                                        std::cout << "\n\tWhat type of authentication is implemented in the system? \n";
+                                    }
+                                    else
+                                    {
+                                        std::cout << "\n\tWhat type of authentication will be implemented in the system? \n";
+                                    }
+                                                std::cout<<"\n\t\t1. No Authentication ";
+                                                std::cout<<"\n\t\t2. Username and Password";
+                                                std::cout<<"\n\t\t3. Social Networks/Email Authentication";
+                                                std::cout<<"\n\t\t4. SmartCard";
+                                                std::cout<<"\n\t\t5. Biometrics";
+                                                std::cout<<"\n\t\t6. Two Factor Authentication ";
+                                                std::cout<<"\n\t\t7. Multi Factor Authentication ";
+                                                std::cout<<"\n\n\tSelect Your Option (1-7): ";
+                                                std::cin>>choicm;
+
+                                                switch(choicm)
+                                                {
+                                                case '1':
+                                                    typeOfAUTH = "No_AUTH";
+                                                    break;
+                                                case '2':
+                                                   typeOfAUTH = "usernam_passw";
+                                                    break;
+                                                case '3':
+                                                   typeOfAUTH = "SociNet_Email";
+                                                    break;
+                                                case '4':
+                                                   typeOfAUTH = "SmartCard";
+                                                    break;
+                                                case '5':
+                                                   typeOfAUTH = "Biometrics";
+                                                    break;
+                                                case '6':
+                                                   typeOfAUTH = "2Factor_AUTH";
+                                                    break;
+                                                case '7':
+                                                   typeOfAUTH = "MultFact_AUTH";
+                                                    break;
+                                                default:
+                                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                goto level7;
+                                                }
+                                    update_query = "UPDATE `users_requests_bp` SET `typeOfAUTH` = '"+typeOfAUTH+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 21:
+                                 char chou;
+                                level8:
+                                system("cls");
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                if(Stat == "Exist")
+                                {
+                                    std::cout << "\n\tDoes it store data in a database? \n";
+                                }
+                                else
+                                {
+                                    std::cout << "\n\tWill it store data in a database? \n";
+                                }
+                                        std::cout<<"\n\t\t1. Yes ";
+                                        std::cout<<"\n\t\t2. No";
+                                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                        std::cin>>chou;
+
+                                        switch(chou)
+                                        {
+                                        case '1':
+                                            useDb = "Yes";
+                                            break;
+                                        case '2':
+                                            useDb = "No";
+                                            break;
+                                        default:
+                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                        goto level8;
+                                        }
+                                    update_query = "UPDATE `users_requests_bp` SET `useDb` = '"+useDb+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 22:
+                                    char choa;
+                                    level9:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                    if(useDb == "Yes")
+                                    {
+                                         if(Stat == "Exist")
+                                            {
+                                                std::cout << "\n\tWhat is the type of data storage? \n";
+                                            }
+                                            else
+                                            {
+                                                std::cout << "\n\tWhat will be the type of data storage? \n";
+                                            }
+                                                        std::cout<<"\n\t\t1. SQL ";
+                                                        std::cout<<"\n\t\t2. NoSQL ";
+                                                        std::cout<<"\n\t\t3. Local Storage";
+                                                        std::cout<<"\n\t\t4. Distributed Storage";
+                                                        std::cout<<"\n\n\tSelect Your Option (1-4): ";
+                                                        std::cin>>choa;
+
+                                                        switch(choa)
+                                                        {
+                                                        case '1':
+                                                            typeOfDataStorg = "SQL";
+                                                            break;
+                                                        case '2':
+                                                            typeOfDataStorg = "NoSQL";
+                                                            break;
+                                                        case '3':
+                                                            typeOfDataStorg = "Local_Storage";
+                                                            break;
+                                                        case '4':
+                                                            typeOfDataStorg = "Distr_Storage";
+                                                            break;
+                                                        default:
+                                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                        goto level9;
+                                                        }
+                                    }
+                                  update_query = "UPDATE `users_requests_bp` SET `typeOfDataStorg` = '"+typeOfDataStorg+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 23:
+                                    char choae;
+                                    level10:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                    if(useDb == "Yes")
+                                    {
+                                         if(Stat == "Exist")
+                                            {
+                                                std::cout << "\n\tWhat type of database is used? \n";
+                                            }
+                                            else
+                                            {
+                                                std::cout << "\n\tWhat type of database will be used? \n";
+                                            }
+                                                        std::cout<<"\n\t\t1. SQL Server ";
+                                                        std::cout<<"\n\t\t2. MySQL ";
+                                                        std::cout<<"\n\t\t3. PostgreSQL";
+                                                        std::cout<<"\n\t\t4. SQLite";
+                                                        std::cout<<"\n\t\t5. OracleDB";
+                                                        std::cout<<"\n\t\t6. MariaDB";
+                                                        std::cout<<"\n\t\t7. MongoDB";
+                                                        std::cout<<"\n\t\t8. CosmosDB";
+                                                        std::cout<<"\n\t\t9. DynamoDB";
+                                                        std::cout<<"\n\t\t10. Cassandra";
+                                                        std::cout<<"\n\t\t11. Other";
+                                                        std::cout<<"\n\n\tSelect Your Option (1-11): ";
+                                                        std::cin>>choae;
+
+                                                        switch(choae)
+                                                        {
+                                                        case '1':
+                                                            typeOfDb = "SQL_Server";
+                                                            break;
+                                                        case '2':
+                                                            typeOfDb = "MySQL";
+                                                            break;
+                                                        case '3':
+                                                            typeOfDb = "PostgreSQL";
+                                                            break;
+                                                        case '4':
+                                                            typeOfDb = "SQLite";
+                                                            break;
+                                                        case '5':
+                                                            typeOfDb = "OracleDB";
+                                                            break;
+                                                        case '6':
+                                                            typeOfDb = "MariaDB";
+                                                            break;
+                                                        case '7':
+                                                            typeOfDb = "MongoDB";
+                                                            break;
+                                                        case '8':
+                                                            typeOfDb = "CosmosDB";
+                                                            break;
+                                                        case '9':
+                                                            typeOfDb = "DynamoDB";
+                                                            break;
+                                                        case '10':
+                                                            typeOfDb = "Cassandra";
+                                                            break;
+                                                        case '11':
+                                                            system("cls");
+                                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                                            std::cout << "\n\tEnter one word that best describes the database: ";
+                                                            cin >> typeOfDb;
+                                                            break;
+                                                        default:
+                                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                        goto level10;
+                                                        }
+                                    }
+                                   update_query = "UPDATE `users_requests_bp` SET `typeOfDb` = '"+typeOfDb+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 24:
+                                 do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <C# or ' '> to Add or Delete C#: "; getline(cin, progrm1);
+                                        pre.convert_lowerC_to_upperC(progrm1);
+                                   }while(progrm1 != "C#" && progrm1 != "' '");
+                                   update_query = "UPDATE `users_requests_bp` SET `progrm1` = '"+progrm1+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 25:
+                                 do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <C/C++ or ' '> to Add or Delete C/C++: "; getline(cin, progrm2);
+                                        pre.convert_lowerC_to_upperC(progrm2);
+                                   }while(progrm2 != "C/C++" && progrm2 != "' '");
+                                   update_query = "UPDATE `users_requests_bp` SET `progrm2` = '"+progrm2+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 26:
+                                 do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <Java or ' '> to Add or Delete Java: "; getline(cin, progrm3);
+                                   }while(progrm3 != "Java" && progrm3 != "' '");
+                                   update_query = "UPDATE `users_requests_bp` SET `progrm3` = '"+progrm3+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 27:
+                                 do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <JavaSc or ' '> to Add or Delete Javascript: "; getline(cin, progrm4);
+                                   }while(progrm4 != "JavaSc" && progrm4 != "' '");
+                                   update_query = "UPDATE `users_requests_bp` SET `progrm4` = '"+progrm4+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 28:
+                                 do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <PHP or ' '> to Add or Delete PHP: "; getline(cin, progrm5);
+                                       pre.convert_lowerC_to_upperC(progrm5);
+                                   }while(progrm5 != "PHP" && progrm5 != "' '");
+                                   update_query = "UPDATE `users_requests_bp` SET `progrm5` = '"+progrm5+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 29:
+                                 do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <Python or ' '> to Add or Delete Python: "; getline(cin, progrm6);
+                                   }while(progrm6 != "Python" && progrm6 != "' '");
+                                   update_query = "UPDATE `users_requests_bp` SET `progrm6` = '"+progrm6+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 30:
+                                 do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tType <Ruby or ' '> to Add or Delete Ruby: "; getline(cin, progrm7);
+                                   }while(progrm7 != "Ruby" && progrm7 != "' '");
+                                   update_query = "UPDATE `users_requests_bp` SET `progrm7` = '"+progrm7+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 31:
+                                 do{
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        std::cout << "\n\tEnter one word that best describes your progrm. language or ' ' to delete progrm. lang.: "; getline(cin, progrm8);
+                                         validWord = pre.validString(progrm8);
+                                     }while(validWord != true && progrm8 != "' '");
+                                    update_query = "UPDATE `users_requests_bp` SET `progrm8` = '"+progrm8+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 32:
+                                     char choe;
+                                    level11:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                    if(Stat == "Exist")
+                                    {
+                                        std::cout << "\n\tDoes it allow file uploads? \n";
+                                    }
+                                    else
+                                    {
+                                        std::cout << "\n\tWill it allow file uploads? \n";
+                                    }
+                                                std::cout<<"\n\t\t1. Yes ";
+                                                std::cout<<"\n\t\t2. No";
+                                                std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                                std::cin>>choe;
+
+                                                switch(choe)
+                                                {
+                                                case '1':
+                                                        fileUpload = "Yes";
+                                                    break;
+                                                case '2':
+                                                        fileUpload= "No";
+                                                    break;
+                                                default:
+                                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                goto level11;
+                                                }
+                                        update_query = "UPDATE `users_requests_bp` SET `fileUpload` = '"+fileUpload+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                   break;
+                         case 33:
+                                     char choke;
+                                    level12:
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                    if(Stat == "Exist")
+                                    {
+                                        std::cout << "\n\tDoes the system generate a log file?  \n";
+                                    }
+                                    else
+                                    {
+                                        std::cout << "\n\tWill the system generate a log file?  \n";
+                                    }
+                                            std::cout<<"\n\t\t1. Yes ";
+                                            std::cout<<"\n\t\t2. No";
+                                            std::cout<<"\n\n\tSelect Your Option (1-2): ";
+                                            std::cin>>choke;
+
+                                            switch(choke)
+                                            {
+                                            case '1':
+                                                sysLog = "Yes";
+                                                break;
+                                            case '2':
+                                                sysLog = "No";
+                                                break;
+                                            default:
+                                                std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                            goto level12;
+                                            }
+                                       update_query = "UPDATE `users_requests_bp` SET `sysLog` = '"+sysLog+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                break;
+                         case 34:
+                               system("cls");
+                               std::cout<<"\n" "***********************************************************************************************************\n";
+                               std::cout << endl << "\n\t\t\t Done!" << endl;
+                                break;
+
+                        default:
+                                cout << "Please choose a correct number" << endl;
+                    }
+                    const char* qm = update_query.c_str();
+                    qstate = mysql_query(conn, qm);
+
+                    if(!qstate)
+                    {
+                        cout << endl << "\t\t\t Database successfully updated." << endl;
+                        cout << "\n\n\t\t\t Press Enter to return to the Admin Menu. ";
+                    }
+                    else
+                    {
+                        cout << "\tQuery Execution Problem!" << mysql_errno(conn) << endl;
+                    }
+
+            }while(choice != 34);
 		}
 		else
 		{
@@ -4958,18 +9823,45 @@ class UserInput
 		}
 	}
 
-	//Function that a user uses to delete his/her request
 	void UserInput::deleteRequest_RE()
 	{
+	    Processing_and_Output po;
+        UserInput usrIp;
+
 	    system("cls");
         std::cout << "\n***********************************************************************************************************\n";
         std::cout<<"\t\t\t\t   DELETE REQUIREMENTS ELICITATION REQUEST \n\n";
         cout << "\n\t\t   Enter your Request ID to delete your requirementS elicitation request: "; cin >> Reqst_ID;
 
-        Preliminary pre;
+            Preliminary pre;
 
-        pre.convert_lowerC_to_upperC(Reqst_ID);
+            pre.convert_lowerC_to_upperC(Reqst_ID);
 
+            int num_digits;
+            int string_length;
+            char first_letter;
+
+            auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
+            num_digits = collector.n1;
+            string_length = collector.n2;
+            first_letter = collector.c;
+
+             while(num_digits !=4 || string_length != 5 || first_letter != 'R')
+            {
+                system("cls");
+                std::cout << "\n***********************************************************************************************************\n";
+                std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                std::cin >> Reqst_ID;
+
+                pre.convert_lowerC_to_upperC(Reqst_ID);
+
+                auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
+                num_digits = collector.n1;
+                string_length = collector.n2;
+                first_letter = collector.c;
+            }
 
                         string delete_query = "delete from users_requests_re where Reqst_ID = '"+Reqst_ID+"'";
                         const char* qd = delete_query.c_str();
@@ -4978,7 +9870,8 @@ class UserInput
                         if(!qstate)
                         {
                             system("cls");
-                            cout << "\n\tSuccessfully Deleted from Database! ";
+                            cout << "\n\t\t\tSuccessfully Deleted from Database! \n\n\n";
+                            std::cout << "\n\t\t\tPress Enter to return to the Main Menu. ";
                         }
                         else
                         {
@@ -4987,175 +9880,311 @@ class UserInput
                         }
 	}
 
-	//Function that an Admin user uses to shows all users and deletes a user request
-	void UserInput::showAndDeleteUser_Request_RE()
+	void UserInput::deleteBestPractGuide()
 	{
-        system("cls");
-        std::cout<<"\n***********************************************************************************************************\n";
-                        std::cout<<"\n\tSHOW AND DELETE REQUIREMENTS ELICITATION USERS REQUESTS\n";
+	    Processing_and_Output po;
+        UserInput usrIp;
 
-                            qstate = mysql_query(conn, "select * from users_requests_re");
-                        system("cls");
-                        cout << "         Showing all requirements elicitation users requests .... " << endl << endl;
+	    system("cls");
+        std::cout << "\n***********************************************************************************************************\n";
+        std::cout<<"\t\t\t\t   DELETE BEST PRACTICE GUIDE REQUEST \n\n";
+        cout << "\n\t\t   Enter your Request ID to delete your requirementS elicitation request: "; cin >> Request_ID;
 
-                         res = mysql_use_result(conn);
+            Preliminary pre;
 
-                        cout << left << setw(9) << setfill('-') << left << '+'
-                        << setw(6) << setfill('-') << left << '+'
-                        << setw(14)<< setfill('-') << left << '+'
-                        << setw(5)<< setfill('-') << left << '+'
-                        << setw(6)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(4)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(6)<< setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << '+' << '+' << endl;
+            pre.convert_lowerC_to_upperC(Request_ID);
 
-                        cout << setfill(' ') << '|' << left << setw(8) << "Rqst. ID"
-                        << setfill(' ') << '|' << setw(5) << "State"
-                        << setfill(' ') << '|' << setw(13) << "Domain"
-                        << setfill(' ') << '|' << setw(4) << "User"
-                        << setfill(' ') << '|' << setw(5) << "Login"
-                        << setfill(' ') << '|' << setw(7) << "UsrInfo"
-                        << setfill(' ') << '|' << setw(7) << "AnyInfo"
-                        << setfill(' ') << '|' << setw(9) << "Info_type"
-                        << setfill(' ') << '|' << setw(6) << "Sent2E"
-                        << setfill(' ') << '|' << setw(3) << "Web"
-                        << setfill(' ') << '|' << setw(7) << "Sent2Cl"
-                        << setfill(' ') << '|' << setw(8) << "StoIn_Db"
-                        << setfill(' ') << '|' << setw(7) << "Updates"
-                        << setfill(' ') << '|' << setw(8) << "3rdP_Sfw"
-                        << setfill(' ') << '|' << setw(5) << "Evesd"
-                        << setfill(' ') << '|' << setw(8) << "Capt_Res"
-                        << setfill(' ') << '|' << setw(7) << "Imperso"
-                        << setfill(' ') << '|' << left << setw(9) << "PhysAcces"<< '|' << endl; //The left can be changed to right
+            int num_digits;
+            int string_length;
+            char first_letter;
 
-                        cout << left << setw(9) << setfill('-') << left << '+'
-                        << setw(6) << setfill('-') << left << '+'
-                        << setw(14)<< setfill('-') << left << '+'
-                        << setw(5)<< setfill('-') << left << '+'
-                        << setw(6)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(4)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(6)<< setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << '+' << '+' << endl;
+            auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+            num_digits = collector.n1;
+            string_length = collector.n2;
+            first_letter = collector.c;
+
+             while(num_digits !=4 || string_length != 5 || first_letter != 'B')
+            {
+                system("cls");
+                std::cout << "\n***********************************************************************************************************\n";
+                std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                std::cin >> Request_ID;
+
+                pre.convert_lowerC_to_upperC(Request_ID);
+
+                auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                num_digits = collector.n1;
+                string_length = collector.n2;
+                first_letter = collector.c;
+            }
+                        string delete_query = "delete from users_requests_bp where Request_ID = '"+Request_ID+"'";
+                        const char* qd = delete_query.c_str();
+                        qstate = mysql_query(conn, qd);
 
                         if(!qstate)
                         {
-                             while((row = mysql_fetch_row(res)))
-                             {
-                                    cout << setfill(' ') << '|' << left << setw(8) << row[0]
-                                    << setfill(' ') << '|' << setw(5) << row[1]
-                                    << setfill(' ') << '|' << setw(13) << row[2]
-                                    << setfill(' ') << '|' << setw(4) << row[3]
-                                    << setfill(' ') << '|' << setw(5) << row[4]
-                                    << setfill(' ') << '|' << setw(7) << row[5]
-                                    << setfill(' ') << '|' << setw(7) << row[6]
-                                    << setfill(' ') << '|' << setw(9) << row[7]
-                                    << setfill(' ') << '|' << setw(6) << row[8]
-                                    << setfill(' ') << '|' << setw(3) << row[9]
-                                    << setfill(' ') << '|' << setw(7) << row[10]
-                                    << setfill(' ') << '|' << setw(8) << row[11]
-                                    << setfill(' ') << '|' << setw(7) << row[12]
-                                    << setfill(' ') << '|' << setw(8) << row[13]
-                                    << setfill(' ') << '|' << setw(5) << row[14]
-                                    << setfill(' ') << '|' << setw(8) << row[15]
-                                    << setfill(' ') << '|' << setw(7) << row[16]
-                                    << setfill(' ') << '|' << left << setw(9) << row[17] << '|' << endl; //The left can be changed to right
-                             }
+                            system("cls");
+                            cout << "\n\t\t\tSuccessfully Deleted from Database! \n\n\n";
+                            std::cout << "\n\t\t\tPress Enter to return to the Main Menu. ";
                         }
                         else
                         {
-                            cout << "Query error!" << mysql_errno(conn) << endl;
+                            system("cls");
+                            cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
                         }
-                        cout << left << setw(9) << setfill('-') << left << '+'
-                        << setw(6) << setfill('-') << left << '+'
-                        << setw(14)<< setfill('-') << left << '+'
-                        << setw(5)<< setfill('-') << left << '+'
-                        << setw(6)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(4)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(6)<< setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(8)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << '+' << '+' << endl;
-                        mysql_free_result(res); //Frees the memory allocated for a result set by mysql_store_result().
+	}
+
+	void UserInput::showAndDeleteUser_Request_RE()
+	{
+                            level:
+                            qstate = mysql_query(conn, "select * from users_requests_re");
+                            system("cls");
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            cout << "         Showing Request IDs for all Requirements Elicitation users.... " << endl << endl;
+
+                             res = mysql_use_result(conn);
+
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << "Request ID" << '|'<< endl;
+
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            if(!qstate)
+                            {
+                                 while((row = mysql_fetch_row(res)))
+                                 {
+                                        cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << row[0] << '|' << endl;
+                                 }
+                            }
+                            else
+                            {
+                                cout << "Query error!" << mysql_errno(conn) << endl;
+                            }
+                            cout << "\t\t"<< left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            mysql_free_result(res);
+
 
                         string Request_ID; char ch;
                         cout << "\n\tDo you want to delete any user request? (y/n): "; cin >> ch;
 
                         if(ch == 'y' || ch == 'Y')
                         {
-                            cout << "\n\tEnter the request ID of the user request you want to delete: "; cin >> Reqst_ID;
 
-                            string delete_query = "delete from users_requests_re where Reqst_ID = '"+Reqst_ID+"'";
-                            const char* qd = delete_query.c_str();
-                            qstate = mysql_query(conn, qd);
+                                system("cls");
+                                std::cout << "\n" "***********************************************************************************************************\n";
+                                std::cout<<"\n\t\tDELETE  A REQUIREMENTS ELICITATION USER REQUEST\n\n";
+                                std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                std::cin.ignore();
+
+                                if(cin.get() == '\n')
+                                {
+                                    system("cls");
+                                    std::cout<<"\n***********************************************************************************************************\n\n";
+                                    cout << "\n\tEnter the request ID of the user request you want to delete: "; cin >> Reqst_ID;
+
+                                     Preliminary pre;
+                                     UserInput usrIp;
+
+                                    pre.convert_lowerC_to_upperC(Reqst_ID);
+
+                                    int num_digits;
+                                    int string_length;
+                                    char first_letter;
+
+                                    auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
+                                    num_digits = collector.n1;
+                                    string_length = collector.n2;
+                                    first_letter = collector.c;
+
+                                    while(num_digits !=4 || string_length != 5 || first_letter != 'R')
+                                    {
+                                        system("cls");
+                                        std::cout << "\n***********************************************************************************************************\n";
+                                        std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                                        std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                                        std::cin >> Reqst_ID;
+
+                                        pre.convert_lowerC_to_upperC(Reqst_ID);
+
+                                        auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
+                                        num_digits = collector.n1;
+                                        string_length = collector.n2;
+                                        first_letter = collector.c;
+                                    }
+
+                                    string delete_query = "delete from users_requests_re where Reqst_ID = '"+Reqst_ID+"'";
+                                    const char* qd = delete_query.c_str();
+                                    qstate = mysql_query(conn, qd);
+
+                                    if(!qstate)
+                                    {
+                                        system("cls");
+                                         std::cout<<"\n***********************************************************************************************************\n\n";
+                                        cout << "\n\t\tSuccessfully Deleted from Database!\n" << endl;
+                                        std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
+                                    }
+                                    else
+                                    {
+                                        system("cls");
+                                        cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
+                                    }
+                                }
+                                else
+                                {
+                                    goto level;
+                                }
+                        }
+                        else
+                        {
+                            system("cls");
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
+                            return;
+                        }
+	}
+
+	void UserInput::showAndDeleteUser_BestPractGuide()
+	{
+                            level:
+                            qstate = mysql_query(conn, "select * from users_requests_bp");
+                            system("cls");
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            cout << "     Showing Request IDs for all Best Practice Guidelines for Secure Development users.... " << endl << endl;
+
+                             res = mysql_use_result(conn);
+
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << "Request ID" << '|'<< endl;
+
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
 
                             if(!qstate)
                             {
-                                system("cls");
-                                cout << "\n\tSuccessfully Deleted from Database!" << endl;
+                                 while((row = mysql_fetch_row(res)))
+                                 {
+                                        cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << row[0] << '|' << endl;
+                                 }
                             }
                             else
                             {
-                                system("cls");
-                                cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
+                                cout << "Query error!" << mysql_errno(conn) << endl;
                             }
+                            cout << "\t\t"<< left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            mysql_free_result(res);
+
+
+                        string Request_ID; char ch;
+                        cout << "\n\tDo you want to delete any user request? (y/n): "; cin >> ch;
+
+                        if(ch == 'y' || ch == 'Y')
+                        {
+
+                                system("cls");
+                                std::cout << "\n" "***********************************************************************************************************\n";
+                                std::cout<<"\n\t\tDELETE  A BEST PRACTICE GUIDE FOR SECURE DEVELOPMENT USER REQUEST\n\n";
+                                std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                std::cin.ignore();
+
+                                if(cin.get() == '\n')
+                                {
+                                    system("cls");
+                                    std::cout<<"\n***********************************************************************************************************\n\n";
+                                    cout << "\n\tEnter the request ID of the user request you want to delete: "; cin >> Request_ID;
+
+                                    Preliminary pre;
+                                     UserInput usrIp;
+
+                                    pre.convert_lowerC_to_upperC(Request_ID);
+
+                                    int num_digits;
+                                    int string_length;
+                                    char first_letter;
+
+                                    auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                                    num_digits = collector.n1;
+                                    string_length = collector.n2;
+                                    first_letter = collector.c;
+
+                                    while(num_digits !=4 || string_length != 5 || first_letter != 'B')
+                                    {
+                                        system("cls");
+                                        std::cout << "\n***********************************************************************************************************\n";
+                                        std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                                        std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                                        std::cin >> Request_ID;
+
+                                        pre.convert_lowerC_to_upperC(Request_ID);
+
+                                        auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                                        num_digits = collector.n1;
+                                        string_length = collector.n2;
+                                        first_letter = collector.c;
+                                    }
+
+                                    string delete_query = "delete from users_requests_bp where Request_ID = '"+Request_ID+"'";
+                                    const char* qd = delete_query.c_str();
+                                    qstate = mysql_query(conn, qd);
+
+                                    if(!qstate)
+                                    {
+                                        system("cls");
+                                         std::cout<<"\n***********************************************************************************************************\n\n";
+                                        cout << "\n\t\tSuccessfully Deleted from Database!\n" << endl;
+                                        std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
+                                    }
+                                    else
+                                    {
+                                        system("cls");
+                                        cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
+                                    }
+                                }
+                                else
+                                {
+                                    goto level;
+                                }
                         }
-                         else
+                        else
                         {
                             system("cls");
-                            std::cout<<"\n***********************************************************************************************************\n";
-                            cout << "\n\n\t\t\t Press Enter to return to the Admin Menu. ";
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
                             return;
                         }
-
 	}
 
-    //Function that gets the security requirements for software implementation. It was initially at the end of the 'getOther_inputs()' function but now removed to be able to import security requirements from the 'Requirements Elicitation Tool'
     void UserInput::selectSecurityRequirements_Software()
     {
          int choose;
          level_tk:
             system("cls");
             std::cout<<"\n" "***********************************************************************************************************\n";
-			std::cout << "\tSelect your security requirements one at a time: \n";
+			std::cout << "  Select your security requirements one at a time: \n";
 
         do{
-                std::cout << "\n\t\t1) Confidentiality";
-                std::cout << "\n\t\t2) Integrity";
-                std::cout << "\n\t\t3) Authentication";
-                std::cout << "\n\t\t4) Privacy";
-                std::cout << "\n\t\t5) Non-Repudiation";
-                std::cout << "\n\t\t6) Confidentiality & Authenticity";
-                std::cout << "\n\t\t7) Done! \n";
+                std::cout << "\n\t1) Confidentiality";
+                std::cout << "\n\t2) Integrity";
+                std::cout << "\n\t3) Authentication";
+                std::cout << "\n\t4) Privacy";
+                std::cout << "\n\t5) Non-Repudiation";
+                std::cout << "\n\t6) Confidentiality & Authenticity";
+                std::cout << "\n\t7) Select All";
+                std::cout << "\n\t8) Done! \n";
 
-            cout << endl << "\tEnter the S/N of your option (1-6) and 7 when done. Press enter each time: ";
+            cout << endl << "  Enter the S/N of your option (1-6) and press enter each time, or enter 7 to select all; and 8 when done: ";
             cin >> choose;
 
             switch(choose)
@@ -5203,22 +10232,36 @@ class UserInput
                     cout << "\n\tYou have selected Confidentiality & Authenticity! Select other requirement or Done." <<endl;
                     break;
                 case 7:
+                    Req_1 = "CONF";
+                    Re_1 = "CONF";
+                    Req_2 = "INTG";
+                    Re_2 = "INTG";
+                    Req_3 = "AUTH";
+                    Re_3 = "AUTH";
+                    Req_4 = "PRIV";
+                    Re_4 = "PRIV";
+                    Req_5 = "NONR";
+                    Re_5 = "NONR";
+                    Req_6 = "COAU";
+                    system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tYou have selected all!" <<endl;
+                     break;
+                case 8:
                     system("cls");
                     std::cout<<"\n" "***********************************************************************************************************\n";
                   cout << "\n\tDone!" <<endl;
-                  //system("cls");
                     break;
 
-                default: cout << "Please choose between 1-7 (Press Enter to continue ...)";
+                default: cout << "Please choose between 1-8 (Press Enter to continue ...)";
                 goto level_tk;
                 break;
             }
 
-        }while(choose != 7);
+        }while(choose != 8);
     }
 
-     //Function that gets the security requirements for hardware implementation.
-    void UserInput::selectSecurityRequirements_Hardware()
+     void UserInput::selectSecurityRequirements_existing()
     {
          std::cin.ignore();
             int choose;
@@ -5229,6 +10272,7 @@ class UserInput
 			std::cout << "\tSelect your security requirements one at a time: \n";
 
         do{
+
                 std::cout << "\n\t\t1) Confidentiality";
                 std::cout << "\n\t\t2) Integrity";
                 std::cout << "\n\t\t3) Authentication";
@@ -5243,8 +10287,123 @@ class UserInput
             switch(choose)
             {
                 case 1:
+                             Req_1 = "CONF";
 
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+
+                                    cout << "\n\tEnter the available flash memory space for confidentiality (in Bytes): "; cin >> FM_1;
+                                    system("cls");
+                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                    cout << "\n\tEnter the RAM space reserved for confidentiality (in Bytes): "; cin >> RAM_1;
+                                    system("cls");
+                                    cout << "\n\tYou have selected Confidentiality! Select other requirement or Done." <<endl;
+                     break;
+
+                case 2:
+                     Req_2 = "INTG";
+                                    system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+
+                                    cout << "\n\tEnter the available flash memory space for integrity (in Bytes): "; cin >> FM_2;
+                                    system("cls");
+                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                    cout << "\n\tEnter the RAM space reserved for integrity (in Bytes): "; cin >> RAM_2;
+                                    system("cls");
+                                    cout << "\n\tYou have selected Integrity! Select other requirement or Done." <<endl;
+                     break;
+                  case 3:
+                       Req_3 = "AUTH";
+                       system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+
+                                    cout << "\n\tEnter the available flash memory space for authentication (in Bytes): "; cin >> FM_3;
+                                    system("cls");
+                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                    cout << "\n\tEnter the RAM space reserved for authentication (in Bytes): "; cin >> RAM_3;
+                                    system("cls");
+                                    cout << "\n\tYou have selected Authentication! Select other requirement or Done." <<endl;
+                       break;
+                  case 4:
+
+                        system("cls");
+
+                             Req_4 = "PRIV";
+							   system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+
+                                    cout << "\n\tEnter the available flash memory space for privacy (in Bytes): "; cin >> FM_4;
+                                    system("cls");
+                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                    cout << "\n\tEnter the RAM space reserved for privacy (in Bytes): "; cin >> RAM_4;
+                                    system("cls");
+                                    cout << "\n\tYou have selected Privacy! Select other requirement or Done." <<endl;
+
+                       break;
+                  case 5:
+                       Req_5 = "NONR";
+                       system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+
+                                    cout << "\n\tEnter the available flash memory space for non-repudiation (in Bytes): "; cin >> FM_5;
+                                    system("cls");
+                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                    cout << "\n\tEnter the RAM space reserved for non-repudiation (in Bytes): "; cin >> RAM_5;
+                                    system("cls");
+                                    cout << "\n\tYou have selected Non-Repudiation! Select other requirement or Done." <<endl;
+                       break;
+                case 6:
+                       Req_6 = "COAU";
+                       system("cls");
+                                    std::cout<<"\n" "***********************************************************************************************************\n";
+
+                                    cout << "\n\tEnter the available flash memory space for confidentiality & authenticity (in Bytes): "; cin >> FM_6;
+                                    system("cls");
+                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                    cout << "\n\tEnter the RAM space reserved for confidentiality & authenticity (in Bytes): "; cin >> RAM_6;
+                                    system("cls");
+                                    cout << "\n\tYou have selected Confidentiality & Authenticity! Select other requirement or Done." <<endl;
+                       break;
+                case 7:
                     system("cls");
+                    std::cout<<"\n" "***********************************************************************************************************\n";
+                    cout << "\n\tDone!" <<endl;
+                    break;
+
+                default: cout << "Please choose between 1-7 (Press Enter to continue ...)";
+               goto level_kl;
+                ; break;
+            }
+
+        }while(choose != 7);
+    }
+
+    void UserInput::selectSecurityRequirements_Hardware()
+    {
+         std::cin.ignore();
+            int choose;
+            cout << endl;
+            level_kl:
+            system("cls");
+            std::cout<<"\n" "***********************************************************************************************************\n";
+			std::cout << "\tSelect your security requirements one at a time: \n";
+
+        do{
+
+                std::cout << "\n\t\t1) Confidentiality";
+                std::cout << "\n\t\t2) Integrity";
+                std::cout << "\n\t\t3) Authentication";
+                std::cout << "\n\t\t4) Privacy";
+                std::cout << "\n\t\t5) Non-Repudiation";
+                std::cout << "\n\t\t6) Confidentiality & Authenticity";
+                std::cout << "\n\t\t7) Done! \n";
+
+            cout << endl << "\tEnter the S/N of your option (1-6) and 7 when done. Press enter each time: ";
+            cin >> choose;
+
+            switch(choose)
+            {
+                case 1:
                              Req_1 = "CONF";
                                 if(Hardware_type == "FPGA")
                                 {
@@ -5372,6 +10531,7 @@ class UserInput
                     }
                        break;
                   case 4:
+
                         system("cls");
 
                              Req_4 = "PRIV";
@@ -5419,6 +10579,7 @@ class UserInput
 								std::cout<<"\n" "***********************************************************************************************************\n";
 								cout << "\n\tYou have selected Privacy! Select other requirement or Done." <<endl;
 							}
+
                        break;
                   case 5:
                        Req_5 = "NONR";
@@ -5516,7 +10677,6 @@ class UserInput
         }while(choose != 7);
     }
 
-    //Function that imports security requirements of users that used the requirements elicitation tool.
     void UserInput::importSecReqmts_Hardware()
     {
          cout << endl;
@@ -5526,8 +10686,13 @@ class UserInput
         system("cls");
         std::cout<<"\n" "***********************************************************************************************************\n";
 
-        std::cout << "\n   IF YOU HAVE USED THE REQUIREMENTS ELICITATION (RE) TOOL TO GENERATE YOUR SECURITY REQUIREMENTS, YOU CAN \n";
-        std::cout << "\t\t\t ENTER YOUR RE REQUEST ID TO IMPORT YOUR SECURITY REQUIREMENTS. \n\n";
+        std::cout << "\n IF YOU HAVE USED THE SECURITY REQUIREMENTS ELICITATION (SRE) TOOL TO GENERATE YOUR SECURITY REQUIREMENTS,  \n";
+        std::cout << "\t\t  YOU CAN ENTER YOUR SRE REQUEST ID TO IMPORT YOUR SECURITY REQUIREMENTS. \n\n\n";
+
+        std::cout << "\n *NOTE THAT FOR HARDWARE IMPLEMATION REQUESTS, AFTER IMPORTING YOUR SECURITY REQUIREMENTS, YOU NEED TO GO  \n";
+        std::cout << "  TO THE MAIN MENU AND SELECT OPTION 10 TO INCLUDE THE GEs AND THROUGHPUTS FOR THE GIVEN SECURITY REQMNTS. \n\n";
+
+
 
         std::cout << "\n\tHave you used the tool? \n";
 
@@ -5541,84 +10706,125 @@ class UserInput
             {
                 case '1':
                     {
-                        Processing_and_Output po;
-                        UserInput usrIp;
-
-                        string Reqst_ID;
                         system("cls");
-                        std::cout << "\n***********************************************************************************************************\n";
-                        cout << "\tPlease enter your Requirements Elicitation Request ID: "; cin >> Reqst_ID;
+                        std::cout << "\n" "***********************************************************************************************************\n";
+                        std::cout<<"\n\t\tYES, I HAVE USED IT AND I WANT TO IMPORT THE SECURITY REQUIREMENTS.\n\n";
+                        std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                        std::cin.ignore();
 
-                        Preliminary pre;
-
-                        pre.convert_lowerC_to_upperC(Reqst_ID);
-
-                        int num_digits;
-                        int string_length;
-                        char first_letter;
-
-                        auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
-                        num_digits = collector.n1;
-                        string_length = collector.n2;
-                        first_letter = collector.c;
-
-                        while(num_digits !=4 || string_length != 5 || first_letter != 'R')
+                        if(cin.get() == '\n')
                         {
+                            Processing_and_Output po;
+                            UserInput usrIp;
+
+                            string Reqst_ID;
                             system("cls");
                             std::cout << "\n***********************************************************************************************************\n";
-                            std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+                            cout << "\tPlease enter your Requirements Elicitation Request ID: "; cin >> Reqst_ID;
 
-                            std::cout << "\n\t\t\t\tPlease enter a valid Requirements Elicitation Request ID: ";
-                            std::cin >> Reqst_ID;
-
+                            Preliminary pre;
 
                             pre.convert_lowerC_to_upperC(Reqst_ID);
+
+                            int num_digits;
+                            int string_length;
+                            char first_letter;
 
                             auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
                             num_digits = collector.n1;
                             string_length = collector.n2;
                             first_letter = collector.c;
-                        }
 
-                        system("cls");
-                        string findbyID_query = "select * from generated_requirements where Reqst_ID = " + ("'"+Reqst_ID+"'");
-                        const char* qn = findbyID_query.c_str();
-                        qstate = mysql_query(conn, qn);
-
-                        if(!qstate)
-                        {
-                            res = mysql_store_result(conn);
-                            while((row = mysql_fetch_row(res)))
+                            while(num_digits !=4 || string_length != 5 || first_letter != 'R')
                             {
-                                Re_1 = Reqmt_1 = row[1];
-                                Re_2 = Reqmt_2 = row[2];
-                                Re_3 =Reqmt_3 = row[3];
-                                Re_4 =  Reqmt_4 = row[4];
-                                Re_5 =  Reqmt_5 = row[5];
-                                Re_6 =  Reqmt_6 = row[6];
-                                Re_7 =  Reqmt_7 = row[7];
-                                Re_8 =  Reqmt_8 = row[8];
-                                Re_9 =  Reqmt_9 = row[9];
-                                Re_10 =  Reqmt_10 = row[10];
-                                Re_11 =  Reqmt_11 = row[11];
-                                Re_12 =  Reqmt_12 = row[12];
-                                Re_13 =  Reqmt_13 = row[13];
-                                Re_14 =  Reqmt_14 = row[14];
-                                Re_15 =  Reqmt_15 = row[15];
+                                system("cls");
+                                std::cout << "\n***********************************************************************************************************\n";
+                                std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                                std::cout << "\n\t\t\t\tPlease enter a valid Requirements Elicitation Request ID: ";
+                                std::cin >> Reqst_ID;
+
+
+                                pre.convert_lowerC_to_upperC(Reqst_ID);
+
+                                auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
+                                num_digits = collector.n1;
+                                string_length = collector.n2;
+                                first_letter = collector.c;
                             }
+
+                            system("cls");
+                            string findbyID_query = "select * from generated_requirements where Reqst_ID = " + ("'"+Reqst_ID+"'");
+                            const char* qn = findbyID_query.c_str();
+                            qstate = mysql_query(conn, qn);
+
+                            if(!qstate)
+                            {
+                                res = mysql_store_result(conn);
+                                while((row = mysql_fetch_row(res)))
+                                {
+                                    Re_1 = Reqmt_1 = row[1];
+                                    Re_2 = Reqmt_2 = row[2];
+                                    Re_3 =Reqmt_3 = row[3];
+                                    Re_4 =  Reqmt_4 = row[4];
+                                    Re_5 =  Reqmt_5 = row[5];
+                                    Re_6 =  Reqmt_6 = row[6];
+                                    Re_7 =  Reqmt_7 = row[7];
+                                    Re_8 =  Reqmt_8 = row[8];
+                                    Re_9 =  Reqmt_9 = row[9];
+                                    Re_10 =  Reqmt_10 = row[10];
+                                    Re_11 =  Reqmt_11 = row[11];
+                                    Re_12 =  Reqmt_12 = row[12];
+                                    Re_13 =  Reqmt_13 = row[13];
+                                    Re_14 =  Reqmt_14 = row[14];
+                                    Re_15 =  Reqmt_15 = row[15];
+
+                                }
+                            }
+                            else
+                            {
+                                cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+                            }
+                                Req_1 = Reqmt_1;  Req_2 = Reqmt_2; Req_3 = Reqmt_3; Req_4 = Reqmt_4;  Req_5 = Reqmt_5;
                         }
                         else
                         {
-                            cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+                            goto levelk;
                         }
-                            Req_1 = Reqmt_1;  Req_2 = Reqmt_2; Req_3 = Reqmt_3; Req_4 = Reqmt_4;  Req_5 = Reqmt_5;
                     break;
                     }
                 case '2':
-                        selectSecurityRequirements_Hardware();
+                        system("cls");
+                        std::cout << "\n" "***********************************************************************************************************\n";
+                        std::cout<<"\n\t   YES, I HAVE USED THE TOOL, BUT I WANT TO SELECT THE SECURITY REQUIREMENTS MANUALLY.\n\n";
+                        std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                        std::cin.ignore();
+
+                        if(cin.get() == '\n')
+                        {
+                           selectSecurityRequirements_Hardware();
+                        }
+                        else
+                        {
+                            goto levelk;
+                        }
+
                     break;
                 case '3':
-                        selectSecurityRequirements_Hardware();
+                        system("cls");
+                        std::cout << "\n" "***********************************************************************************************************\n";
+                        std::cout<<"\n\t   NO, I HAVE NOT USED THE TOOL. I WILL SELECT THE SECURITY REQUIREMENTS MANUALLY.\n\n";
+                        std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                        std::cin.ignore();
+
+                        if(cin.get() == '\n')
+                        {
+                           selectSecurityRequirements_Hardware();
+                        }
+                        else
+                        {
+                            goto levelk;
+                        }
                     break;
                 default:
                         std::cout << "\tSorry! Wrong option selected." << std:: endl;
@@ -5626,116 +10832,162 @@ class UserInput
             }
     }
 
-   //Function that imports security requirements of users that used the requirements elicitation tool.
     void UserInput::importSecReqmts_Software()
     {
-        cout << endl;
-        char choa;
-        levelk:
-        system("cls");
-        std::cout<<"\n" "***********************************************************************************************************\n";
 
-        std::cout << "\n   IF YOU HAVE USED THE REQUIREMENTS ELICITATION (RE) TOOL TO GENERATE YOUR SECURITY REQUIREMENTS, YOU CAN \n";
-        std::cout << "\t\t\t ENTER YOUR RE REQUEST ID TO IMPORT YOUR SECURITY REQUIREMENTS. \n\n";
+        if(status == "new")
+        {
+                 cout << endl;
 
-        std::cout << "\n\tHave you used the tool? \n";
+                char choa;
+                levelk:
+                system("cls");
+                std::cout<<"\n" "***********************************************************************************************************\n";
 
-        std::cout<<"\n\t\t1. Yes, I have used it and I want to import the generated security requirements.";
-        std::cout<<"\n\t\t2. Yes, I have used the tool, but I want to select the security requirements manually.";
-        std::cout<<"\n\t\t3. No, I have not used the tool. I will select the security requirements manually.";
-        std::cout<<"\n\n\tSelect Your Option (1-3): ";
-        std::cin>>choa;
+                std::cout << "\n IF YOU HAVE USED THE SECURITY REQUIREMENTS ELICITATION (SRE) TOOL TO GENERATE YOUR SECURITY REQUIREMENTS,  \n";
+                std::cout << "\t\t  YOU CAN ENTER YOUR SRE REQUEST ID TO IMPORT YOUR SECURITY REQUIREMENTS. \n\n";
 
-            switch(choa)
-            {
-                case '1':
-                    {
-                        Processing_and_Output po;
-                        UserInput usrIp;
+                std::cout << "\n\tHave you used the tool? \n";
 
-                        string Reqst_ID;
-                        system("cls");
-                        std::cout << "\n***********************************************************************************************************\n";
-                        cout << "\tPlease enter your Requirements Elicitation Request ID: "; cin >> Reqst_ID;
+                std::cout<<"\n\t\t1. Yes, I have used it and I want to import the generated security requirements.";
+                std::cout<<"\n\t\t2. Yes, I have used the tool, but I want to select the security requirements manually.";
+                std::cout<<"\n\t\t3. No, I have not used the tool. I will select the security requirements manually.";
+                std::cout<<"\n\n\tSelect Your Option (1-3): ";
+                std::cin>>choa;
 
-                        Preliminary pre;
-
-                        pre.convert_lowerC_to_upperC(Reqst_ID);
-
-                        int num_digits;
-                        int string_length;
-                        char first_letter;
-
-                        auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
-                        num_digits = collector.n1;
-                        string_length = collector.n2;
-                        first_letter = collector.c;
-
-                        while(num_digits !=4 || string_length != 5 || first_letter != 'R')
+                switch(choa)
+                {
+                    case '1':
                         {
                             system("cls");
-                            std::cout << "\n***********************************************************************************************************\n";
-                            std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+                            std::cout << "\n" "***********************************************************************************************************\n";
+                            std::cout<<"\n\t   YES, I HAVE USED IT AND I WANT TO IMPORT THE SECURITY REQUIREMENTS.\n\n";
+                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                            std::cin.ignore();
 
-                            std::cout << "\n\t\t\t\tPlease enter a valid Requirements Elicitation Request ID: ";
-                            std::cin >> Reqst_ID;
-
-
-                            pre.convert_lowerC_to_upperC(Reqst_ID);
-
-                            auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
-                            num_digits = collector.n1;
-                            string_length = collector.n2;
-                            first_letter = collector.c;
-                        }
-
-                        system("cls");
-                        string findbyID_query = "select * from generated_requirements where Reqst_ID = " + ("'"+Reqst_ID+"'");
-                        const char* qn = findbyID_query.c_str();
-                        qstate = mysql_query(conn, qn);
-
-                        if(!qstate)
-                        {
-                            res = mysql_store_result(conn);
-                            while((row = mysql_fetch_row(res)))
+                            if(cin.get() == '\n')
                             {
-                                Re_1 = Reqmt_1 = row[1];
-                                Re_2 = Reqmt_2 = row[2];
-                                Re_3 =Reqmt_3 = row[3];
-                                Re_4 =  Reqmt_4 = row[4];
-                                Re_5 =  Reqmt_5 = row[5];
-                                Re_6 =  Reqmt_6 = row[6];
-                                Re_7 =  Reqmt_7 = row[7];
-                                Re_8 =  Reqmt_8 = row[8];
-                                Re_9 =  Reqmt_9 = row[9];
-                                Re_10 =  Reqmt_10 = row[10];
-                                Re_11 =  Reqmt_11 = row[11];
-                                Re_12 =  Reqmt_12 = row[12];
-                                Re_13 =  Reqmt_13 = row[13];
-                                Re_14 =  Reqmt_14 = row[14];
-                                Re_15 =  Reqmt_15 = row[15];
+                               Processing_and_Output po;
+                                UserInput usrIp;
+
+                                string Reqst_ID;
+                                system("cls");
+                                std::cout << "\n***********************************************************************************************************\n";
+                                cout << "\tPlease enter your Requirements Elicitation Request ID: "; cin >> Reqst_ID;
+
+                                Preliminary pre;
+
+                                pre.convert_lowerC_to_upperC(Reqst_ID);
+
+                                int num_digits;
+                                int string_length;
+                                char first_letter;
+
+                                auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
+                                num_digits = collector.n1;
+                                string_length = collector.n2;
+                                first_letter = collector.c;
+
+                                while(num_digits !=4 || string_length != 5 || first_letter != 'R')
+                                {
+                                    system("cls");
+                                    std::cout << "\n***********************************************************************************************************\n";
+                                    std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                                    std::cout << "\n\t\t\t\tPlease enter a valid Requirements Elicitation Request ID: ";
+                                    std::cin >> Reqst_ID;
+
+
+                                    pre.convert_lowerC_to_upperC(Reqst_ID);
+
+                                    auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Reqst_ID);
+                                    num_digits = collector.n1;
+                                    string_length = collector.n2;
+                                    first_letter = collector.c;
+                                }
+
+                                system("cls");
+                                string findbyID_query = "select * from generated_requirements where Reqst_ID = " + ("'"+Reqst_ID+"'");
+                                const char* qn = findbyID_query.c_str();
+                                qstate = mysql_query(conn, qn);
+
+                                if(!qstate)
+                                {
+                                    res = mysql_store_result(conn);
+                                    while((row = mysql_fetch_row(res)))
+                                    {
+                                        Re_1 = Reqmt_1 = row[1];
+                                        Re_2 = Reqmt_2 = row[2];
+                                        Re_3 = Reqmt_3 = row[3];
+                                        Re_4 =  Reqmt_4 = row[4];
+                                        Re_5 =  Reqmt_5 = row[5];
+                                        Re_6 =  Reqmt_6 = row[6];
+                                        Re_7 =  Reqmt_7 = row[7];
+                                        Re_8 =  Reqmt_8 = row[8];
+                                        Re_9 =  Reqmt_9 = row[9];
+                                        Re_10 =  Reqmt_10 = row[10];
+                                        Re_11 =  Reqmt_11 = row[11];
+                                        Re_12 =  Reqmt_12 = row[12];
+                                        Re_13 =  Reqmt_13 = row[13];
+                                        Re_14 =  Reqmt_14 = row[14];
+                                        Re_15 =  Reqmt_15 = row[15];
+                                    }
+                                }
+                                else
+                                {
+                                    cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+                                }
+                                    Req_1 = Reqmt_1;  Req_2 = Reqmt_2; Req_3 = Reqmt_3; Req_4 = Reqmt_4;  Req_5 = Reqmt_5;
                             }
+                            else
+                            {
+                                goto levelk;
+                            }
+                        break;
                         }
-                        else
-                        {
-                            cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
-                        }
-                            Req_1 = Reqmt_1;  Req_2 = Reqmt_2; Req_3 = Reqmt_3; Req_4 = Reqmt_4;  Req_5 = Reqmt_5;
-                    break;
-                    }
-                case '2':
-                        selectSecurityRequirements_Software();
-                    break;
-                case '3':
-                        selectSecurityRequirements_Software();
-                    break;
-                default:
-                        std::cout << "\tSorry! Wrong option selected." << std:: endl;
-                        goto levelk;
-            }
+                    case '2':
+                                system("cls");
+                                std::cout << "\n" "***********************************************************************************************************\n";
+                                std::cout<<"\n\t   YES, I HAVE USED THE TOOL, BUT I WANT TO SELECT THE SECURITY REQUIREMENTS MANUALLY.\n\n";
+                                std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                std::cin.ignore();
+
+                                if(cin.get() == '\n')
+                                {
+                                    selectSecurityRequirements_Software();
+                                }
+                                else
+                                {
+                                    goto levelk;
+                                }
+                        break;
+                    case '3':
+                                system("cls");
+                                std::cout << "\n" "***********************************************************************************************************\n";
+                                std::cout<<"\n\t   NO, I HAVE NOT USED THE TOOL. I WILL SELECT THE SECURITY REQUIREMENTS MANUALLY.\n\n";
+                                std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                std::cin.ignore();
+
+                                if(cin.get() == '\n')
+                                {
+                                    selectSecurityRequirements_Software();
+                                }
+                                else
+                                {
+                                    goto levelk;
+                                }
+                        break;
+                    default:
+                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                            goto levelk;
+                }
+        }
+        else if(status == "old")
+        {
+            selectSecurityRequirements_existing();
+        }
     }
 
-	//Function that gets the remaining user requests such as Application area, payload size, and security requirements
 	void UserInput::getOther_inputs()
 	{
          int choice = 0, choice3;
@@ -5878,14 +11130,12 @@ class UserInput
                     ; break;
             }
 
-            importSecReqmts_Software();
-
+                importSecReqmts_Software();
 	}
 
-	// Function that gets user input for Hardware implementation
 	void UserInput::getInput_for_HardwareImplementaion()
 	{
-	    chrono::steady_clock::time_point start2 = chrono::steady_clock::now();// Start time for hardware request
+	    chrono::steady_clock::time_point start2 = chrono::steady_clock::now();
 
         system("cls");
 
@@ -5914,7 +11164,7 @@ class UserInput
                         goto level;
 						}
 
-            int choice1; //choose, choice3;
+                int choice1;
             level_kg:
             system("cls");
             std::cout<<"\n" "***********************************************************************************************************\n";
@@ -6081,7 +11331,7 @@ class UserInput
 						}
 
 
-                    importSecReqmts_Hardware(); // Calling the import security requirements for hardware function
+                    importSecReqmts_Hardware();
 
                      string request_query = "insert into users_requests_2 (Request_ID, Hardware_type, Applic_Domain, Payload_size, Energy, Req_1, cct_area_1, tp_1, Req_2, cct_area_2, tp_2, Req_3, cct_area_3, tp_3, Req_4, cct_area_4, tp_4, Req_5, cct_area_5, tp_5, Req_6, cct_area_6, tp_6) values('"+Request_ID+"', '"+Hardware_type+"', '"+Applic_Domain+"', '"+Payload_size+"', '"+Energy+"', '"+Req_1+"', '"+cct_area_1+"', '"+tp_1+"', '"+Req_2+"', '"+cct_area_2+"', '"+tp_2+"', '"+Req_3+"', '"+cct_area_3+"', '"+tp_3+"', '"+Req_4+"', '"+cct_area_4+"', '"+tp_4+"', '"+Req_5+"', '"+cct_area_5+"', '"+tp_5+"', '"+Req_6+"', '"+cct_area_6+"', '"+tp_6+"')";
 
@@ -6115,7 +11365,6 @@ class UserInput
 
                 if(!qstate)
                 {
-                    // This is to erase the previous value from the variable so that when a particular variable is not selected, its space will be empty, instead inserting the previous value.
                     Re_1.erase(); Re_2.erase(); Re_3.erase(); Re_4.erase(); Reqmt_5.erase(); Re_6.erase(); Re_7.erase(); Re_8.erase(); Re_9.erase(); Re_10.erase(); Re_11.erase(); Re_12.erase(); Re_13.erase(); Re_14.erase(); Re_15.erase();
                 }
                 else
@@ -6123,165 +11372,392 @@ class UserInput
 
                 }
 
-        chrono::steady_clock::time_point end2 = chrono::steady_clock::now();// end time for hardware request
+        chrono::steady_clock::time_point end2 = chrono::steady_clock::now();
 
-        double elapsed_time2_ns = double(std::chrono::duration_cast <std::chrono::nanoseconds> (end2 -start2).count());// time difference
-        std::cout << "\n\n\t\tElapsed Time for Hardware Request (s): " << elapsed_time2_ns / 1e9 << std::endl;   //Print elapsed time
+        double elapsed_time2_ns = double(std::chrono::duration_cast <std::chrono::nanoseconds> (end2 -start2).count());
+        std::cout << "\n\n\t\tElapsed Time for Hardware Request (s): " << elapsed_time2_ns / 1e9 << std::endl;
 	}
 
-    // Function that gets user input for Software implementation
 	void UserInput::getInput_for_softwareImplementaion()
 	{
-      chrono::steady_clock::time_point start3 = chrono::steady_clock::now();  //start time for software request
+      chrono::steady_clock::time_point start3 = chrono::steady_clock::now();
 
-        system("cls");
-        do{
+            level_:
+                char ch;
             system("cls");
             std::cout<<"\n" "***********************************************************************************************************\n";
-            cout << "\n Enter Hardware Type (Microntroller or Single Board Computer) [MCU or SBC]: ";
-            cin >> Hardware_type;
-            Preliminary pre;
+            cout << "\t\t\t\t\tSYSTEM DEVELOPMENT PHASE\n" << endl;
 
-          pre.convert_lowerC_to_upperC(Hardware_type); //calling the conversion function
+            std::cout << "\n\tWhat is the development phase of the IoT system, or it is an existing system? \n";
 
-                if(Hardware_type == "MCU")
-                {
-                     char choice;
-                     level:
-                    system("cls");
-                    std::cout<<"\n" "***********************************************************************************************************\n";
-                     std::cout << "\n\tSelect your Microntroller Type: \n";
+                        std::cout<<"\n\t\t1. Conception, Planning, Analysis, Design";
+                         std::cout<<"\n\t\t2. Existing System ";
+                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
 
-						std::cout<<"\n\t\t1. AVR (8 or 32-bit RISC CPU) ";
-                        std::cout<<"\n\t\t2. MSP (16-bit RISC CPU)";
-                        std::cout<<"\n\t\t3. ARM (32 or 64-bit RISC CPU)";
-                        std::cout<<"\n\t\t4. PIC (8, 16 or 32-bit RISC CPU)";
-                        std::cout<<"\n\t\t5. Other";
-                        std::cout<<"\n\n\tSelect Your Option (1-5): ";
-						std::cin>>choice;
-                        Preliminary pre;
-						switch(choice)
+						std::cin>>ch;
+
+
+						switch(ch)
 						{
 						case '1':
-                            Hardware_type = "AVR";
-                            break;
+						     {
+                                    system("cls");
+                                    std::cout << "\n" "***********************************************************************************************************\n";
+                                    std::cout<<"\n\t\tCONCEPTION, PLANNING, ANALYSIS, DESIGN\n\n";
+                                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                    std::cin.ignore();
+
+                                        if(cin.get() == '\n')
+                                        {
+                                                status = "new";
+                                                do{
+                                                    system("cls");
+                                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                                    cout << "\n Enter Hardware Type (Microntroller or Single Board Computer) [MCU or SBC]: ";
+                                                    cin >> Hardware_type;
+                                                    Preliminary pre;
+
+                                                  pre.convert_lowerC_to_upperC(Hardware_type); //calling the conversion function
+
+                                                        if(Hardware_type == "MCU")
+                                                        {
+                                                             char choice;
+
+                                                             level:
+                                                            system("cls");
+                                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                                             std::cout << "\n\tSelect your Microcontroller Type: \n";
+
+                                                                std::cout<<"\n\t\t1. AVR (8 or 32-bit RISC CPU) ";
+                                                                std::cout<<"\n\t\t2. MSP (16-bit RISC CPU)";
+                                                                std::cout<<"\n\t\t3. ARM (32 or 64-bit RISC CPU)";
+                                                                std::cout<<"\n\t\t4. PIC (8, 16 or 32-bit RISC CPU)";
+                                                                std::cout<<"\n\t\t5. Other";
+                                                                std::cout<<"\n\n\tSelect Your Option (1-5): ";
+                                                                std::cin>>choice;
+                                                                Preliminary pre;
+                                                                switch(choice)
+                                                                {
+                                                                case '1':
+                                                                    Hardware_type = "AVR";
+                                                                    break;
+                                                                case '2':
+                                                                    Hardware_type = "MSP";
+                                                                    break;
+                                                                case '3':
+                                                                    Hardware_type = "ARM";
+                                                                    break;
+                                                                case '4':
+                                                                    Hardware_type = "PIC";
+                                                                    break;
+                                                                case '5':
+                                                                    cout << "\n\tEnter your MCU brand name (< or = 6 characters): "; cin >> Hardware_type;
+                                                                   pre.convert_lowerC_to_upperC(Hardware_type);
+                                                                    break;
+                                                                default :
+                                                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                                    goto level;
+                                                                }
+                                                            break;
+                                                        }
+                                                }while(((Hardware_type != "SBC") && (Hardware_type != "MCU")));
+
+
+                                                            int choice2;
+                                                            level2:
+                                                            system("cls");
+                                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                                             std::cout << "\n\tSelect your CPU Type: \n";
+
+                                                                std::cout<<"\n\t\t1. 8-bit";
+                                                                std::cout<<"\n\t\t2. 16-bit";
+                                                                std::cout<<"\n\t\t3. 32-bit";
+                                                                std::cout<<"\n\t\t4. 64-bit";
+                                                                std::cout<<"\n\t\t5. Other";
+                                                                std::cout<<"\n\n\tSelect Your Option (1-5): ";
+                                                                std::cin>>choice2;
+
+                                                                switch(choice2)
+                                                                {
+                                                                case 1:
+                                                                    CPU = "8";
+                                                                    break;
+                                                                case 2:
+                                                                    CPU = "16";
+                                                                    break;
+                                                                case 3:
+                                                                    CPU = "32";
+                                                                    break;
+                                                                case 4:
+                                                                    CPU = "64";
+                                                                    break;
+                                                                case 5:
+                                                                    cout << "\n\tEnter the bit number of your CPU(e.g., 4): "; cin >> CPU;
+                                                                    break;
+                                                                default :
+                                                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                                    goto level2;
+                                                                    break;
+                                                                }
+                                                     system("cls");
+                                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                                    std::cout << "\n\tEnter flash memory size (in KB): ";
+                                                    std::cin >> FlashMem_size;
+                                                     system("cls");
+                                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                                    std::cout << "\n\tEnter RAM size (in KB): ";
+                                                    std::cin >> Ram_size;
+                                                     system("cls");
+                                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                                    std::cout << "\n\tEnter processor speed or frequency (in MHz): ";
+                                                    std::cin >> Clock_speed;
+
+                                                    getOther_inputs();
+
+                                                      string request_query = "insert into users_requests (Request_ID, Hardware_type, CPU, FlashMem_size, Ram_size, Clock_speed, Applic_Domain, Payload_size, Req_1, Req_2, Req_3, Req_4, Req_5, Req_6) values('"+Request_ID+"', '"+Hardware_type+"', '"+CPU+"', '"+FlashMem_size+"', '"+Ram_size+"', '"+Clock_speed+"', '"+Applic_Domain+"', '"+Payload_size+"', '"+Req_1+"', '"+Req_2+"', '"+Req_3+"', '"+Req_4+"', '"+Req_5+"', '"+Req_6+"')";
+
+                                                      const char* qr = request_query.c_str();
+                                                      qstate = mysql_query(conn, qr);
+
+                                                        if(!qstate)
+                                                        {
+                                                            system("cls");
+                                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                                            std::cout << "\n\n\t\tData being saved .....\n";
+
+                                                             Req_1.erase(); Req_2.erase(); Req_3.erase(); Req_4.erase(); Req_5.erase(); // This is to erase the variable in order to avoid doublicate entry.
+
+                                                            status.erase();
+                                                            cout << endl << "\n\n\t\tRequest Successfully added in the database!" << endl;
+
+                                                            cout << endl << "\n\n\t\tPress Enter to go back to the Main Menu." << endl;
+                                                        }
+                                                        else
+                                                        {
+                                                            cout << "\n\n\t Query Execution Problem! Error Number: " << mysql_errno(conn) << endl;
+                                                            cout << "\n\n\tError Number 1062 implies that the entered Request ID already exist in database.\n" << endl;
+                                                             cout << endl << "\n\n\tPlease press Enter to go back to the Main Menu and repeat the process with a unique ID." << endl;
+                                                        }
+
+
+                                                         REQST_id = Request_ID;
+                                                        string request_query2 = "insert into requirements_for_report (REQST_id, Re_1, Re_2, Re_3, Re_4, Re_5, Re_6, Re_7, Re_8, Re_9, Re_10, Re_11, Re_12, Re_13, Re_14, Re_15) values('"+REQST_id+"', '"+Re_1+"', '"+Re_2+"', '"+Re_3+"', '"+Re_4+"', '"+Re_5+"', '"+Re_6+"', '"+Re_7+"', '"+Re_8+"', '"+Re_9+"', '"+Re_10+"', '"+Re_11+"', '"+Re_12+"', '"+Re_13+"', '"+Re_14+"', '"+Re_15+"')";
+
+                                                        const char* qr2 = request_query2.c_str();
+                                                        qstate = mysql_query(conn, qr2);
+
+                                                        if(!qstate)
+                                                        {
+                                                            Re_1.erase(); Re_2.erase(); Re_3.erase(); Re_4.erase(); Reqmt_5.erase(); Re_6.erase(); Re_7.erase(); Re_8.erase(); Re_9.erase(); Re_10.erase(); Re_11.erase(); Re_12.erase(); Re_13.erase(); Re_14.erase(); Re_15.erase();
+                                                        }
+                                                        else
+                                                        {
+
+                                                        }
+
+                                                      chrono::steady_clock::time_point end3 = chrono::steady_clock::now();
+
+                                                    double elapsed_time3_ns = double(std::chrono::duration_cast <std::chrono::nanoseconds> (end3 -start3).count());//time difference
+                                                    std::cout << "\n\n\t\tElapsed Time for Software Request (s): " << elapsed_time3_ns / 1e9 << std::endl;//print elapsed time for software request
+                                        }
+                                        else
+                                        {
+                                            goto level_;
+                                        }
+                                        break;
+                                }
                         case '2':
-                            Hardware_type = "MSP";
-                            break;
-                        case '3':
-                            Hardware_type = "ARM";
-                            break;
-                        case '4':
-                            Hardware_type = "PIC";
-                            break;
-                        case '5':
-                            cout << "\n\tEnter your MCU brand name (< or = 6 characters): "; cin >> Hardware_type;
-                           pre.convert_lowerC_to_upperC(Hardware_type);
-                            break;
-						default :
+                            {
+                                    system("cls");
+                                    std::cout << "\n" "***********************************************************************************************************\n";
+                                    std::cout<<"\n\t\tEXISTING SYSTEM\n";
+                                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                    std::cin.ignore();
+
+                                    if(cin.get() == '\n')
+                                        {
+                                           status = "old";
+                                            do{
+                                                    system("cls");
+                                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                                    cout << "\n Enter Hardware Type (Microcontroller or Single Board Computer) [MCU or SBC]: ";
+                                                    cin >> Hardware_type;
+                                                    Preliminary pre;
+
+                                                  pre.convert_lowerC_to_upperC(Hardware_type);
+
+                                                        if(Hardware_type == "MCU")
+                                                        {
+                                                             int lia;
+
+                                                           do
+                                                           {
+                                                               system("cls");
+                                                               std::cout<<"\n" "***********************************************************************************************************\n";
+                                                               std::cout << "\n\tSelect your Microcontroller Type: \n";
+
+                                                                std::cout<<"\n\t\t1. AVR (8 or 32-bit RISC CPU) ";
+                                                                std::cout<<"\n\t\t2. MSP (16-bit RISC CPU)";
+                                                                std::cout<<"\n\t\t3. ARM (32 or 64-bit RISC CPU)";
+                                                                std::cout<<"\n\t\t4. Other";
+                                                                std::cout<<"\n\n\tSelect Your Option (1-4): ";
+                                                                std::cin>>lia;
+
+                                                                        while(std::cin.fail())
+                                                                        {
+                                                                            system("cls");
+                                                                           std::cout << "\n" "***********************************************************************************************************\n";
+                                                                            std::cout << "\n\t\tERROR! This is not an integer: ";
+                                                                             std::cin.clear();
+                                                                            std::cin.ignore(256,'\n');
+                                                                            std::cin >> lia;
+                                                                        }
+                                                                Preliminary pre;
+                                                                switch(lia)
+                                                                {
+                                                                case 1:
+                                                                    Hardware_type = "AVR";
+                                                                    break;
+                                                                case 2:
+                                                                    Hardware_type = "MSP";
+                                                                    break;
+                                                                case 3:
+                                                                    Hardware_type = "ARM";
+                                                                    break;
+                                                                case 4:
+                                                                    system("cls");
+                                                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                                                    cout << "\n\tEnter your MCU brand name (< or = 6 characters): "; cin >> Hardware_type;
+                                                                   pre.convert_lowerC_to_upperC(Hardware_type);
+                                                                    break;
+                                                                default :
+                                                                    system("cls");
+                                                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                                                    std::cout << "\tError! Wrong option selected." << std:: endl;
+                                                                  }
+                                                           }while(lia != 1 && lia != 2 && lia != 3 && lia != 4);
+                                                           break;
+                                                        }
+                                                }while(((Hardware_type != "SBC") && (Hardware_type != "MCU")));
+
+
+                                                            int lau;
+                                                        do
+                                                        {
+                                                            system("cls");
+                                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                                             std::cout << "\n\tSelect your CPU Type: \n";
+
+                                                                std::cout<<"\n\t\t1. 8-bit";
+                                                                std::cout<<"\n\t\t2. 16-bit";
+                                                                std::cout<<"\n\t\t3. 32-bit";
+                                                                std::cout<<"\n\t\t4. 64-bit";
+                                                                std::cout<<"\n\t\t5. Other";
+                                                                std::cout<<"\n\n\tSelect Your Option (1-5): ";
+                                                                std::cin>> lau;
+
+                                                                        while(std::cin.fail())
+                                                                        {
+                                                                            system("cls");
+                                                                           std::cout << "\n" "***********************************************************************************************************\n";
+                                                                            std::cout << "\n\t\tERROR! This is not an integer: ";
+                                                                             std::cin.clear();
+                                                                            std::cin.ignore(256,'\n');
+                                                                            std::cin >> lau;
+                                                                        }
+
+                                                                switch(lau)
+                                                                {
+                                                                case 1:
+                                                                    CPU = "8";
+                                                                    break;
+                                                                case 2:
+                                                                    CPU = "16";
+                                                                    break;
+                                                                case 3:
+                                                                    CPU = "32";
+                                                                    break;
+                                                                case 4:
+                                                                    CPU = "64";
+                                                                    break;
+                                                                case 5:
+                                                                    system("cls");
+                                                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                                                    cout << "\n\tEnter the bit number of your CPU(e.g., 4): "; cin >> CPU;
+                                                                    break;
+                                                                default :
+                                                                    system("cls");
+                                                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                                                    std::cout << "\tError! Wrong option selected." << std:: endl;
+                                                                }
+                                                        }while(lau != 1 && lau != 2 && lau != 3 && lau != 4 && lau != 5);
+
+                                                    system("cls");
+                                                    std::cout<<"\n" "***********************************************************************************************************\n";
+                                                    std::cout << "\n\tEnter processor speed or frequency (in MHz): ";
+                                                    std::cin >> Clock_speed;
+
+                                                    getOther_inputs();
+
+                                                      string request_query = "insert into users_requests_ (Request_ID, Hardware_type, CPU, Clock_speed, Applic_Domain, Payload_size, Req_1, FM_1, RAM_1, Req_2, FM_2, RAM_2, Req_3, FM_3, RAM_3, Req_4, FM_4, RAM_4, Req_5, FM_5, RAM_5, Req_6, FM_6, RAM_6) values('"+Request_ID+"', '"+Hardware_type+"', '"+CPU+"', '"+Clock_speed+"', '"+Applic_Domain+"', '"+Payload_size+"', '"+Req_1+"', '"+FM_1+"', '"+RAM_1+"', '"+Req_2+"', '"+FM_2+"', '"+RAM_2+"', '"+Req_3+"', '"+FM_3+"', '"+RAM_3+"', '"+Req_4+"', '"+FM_4+"', '"+RAM_4+"', '"+Req_5+"', '"+FM_5+"', '"+RAM_5+"', '"+Req_6+"', '"+FM_6+"', '"+RAM_6+"')";
+
+                                                      const char* qr = request_query.c_str();
+                                                      qstate = mysql_query(conn, qr);
+
+                                                        if(!qstate)
+                                                        {
+                                                            system("cls");
+                                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                                            std::cout << "\n\n\t\tData being saved .....\n";
+
+                                                             Req_1.erase(); Req_2.erase(); Req_3.erase(); Req_4.erase(); Req_5.erase();
+
+                                                            status.erase();
+                                                            cout << endl << "\n\n\t\tRequest Successfully added in the database!" << endl;
+
+                                                            cout << endl << "\n\n\t\tPress Enter to go back to the Main Menu." << endl;
+                                                        }
+                                                        else
+                                                        {
+                                                            cout << "\n\n\t Query Execution Problem! Error Number: " << mysql_errno(conn) << endl;
+                                                            cout << "\n\n\tError Number 1062 implies that the entered Request ID already exist in database.\n" << endl;
+                                                             cout << endl << "\n\n\tPlease press Enter to go back to the Main Menu and repeat the process with a unique ID." << endl;
+                                                        }
+
+
+                                                         REQST_id = Request_ID;
+                                                        string request_query2 = "insert into requirements_for_report (REQST_id, Re_1, Re_2, Re_3, Re_4, Re_5, Re_6, Re_7, Re_8, Re_9, Re_10, Re_11, Re_12, Re_13, Re_14, Re_15) values('"+REQST_id+"', '"+Re_1+"', '"+Re_2+"', '"+Re_3+"', '"+Re_4+"', '"+Re_5+"', '"+Re_6+"', '"+Re_7+"', '"+Re_8+"', '"+Re_9+"', '"+Re_10+"', '"+Re_11+"', '"+Re_12+"', '"+Re_13+"', '"+Re_14+"', '"+Re_15+"')";
+
+                                                        const char* qr2 = request_query2.c_str();
+                                                        qstate = mysql_query(conn, qr2);
+
+                                                        if(!qstate)
+                                                        {
+                                                            Re_1.erase(); Re_2.erase(); Re_3.erase(); Re_4.erase(); Reqmt_5.erase(); Re_6.erase(); Re_7.erase(); Re_8.erase(); Re_9.erase(); Re_10.erase(); Re_11.erase(); Re_12.erase(); Re_13.erase(); Re_14.erase(); Re_15.erase();
+                                                        }
+                                                        else
+                                                        {
+
+                                                        }
+
+                                                      chrono::steady_clock::time_point end3 = chrono::steady_clock::now();
+
+                                                    double elapsed_time3_ns = double(std::chrono::duration_cast <std::chrono::nanoseconds> (end3 -start3).count());
+                                                    std::cout << "\n\n\t\tElapsed Time for Software Request (s): " << elapsed_time3_ns / 1e9 << std::endl;
+
+                                        }
+                                        else
+                                        {
+                                            goto level_;
+                                        }
+                                    break;
+                                }
+						default:
 							std::cout << "\tSorry! Wrong option selected." << std:: endl;
-							goto level;
+                        goto level_;
 						}
-                    break;
-                }
-        }while(((Hardware_type != "SBC") && (Hardware_type != "MCU")));
-
-                    int choice2;
-                    level2:
-                    system("cls");
-                    std::cout<<"\n" "***********************************************************************************************************\n";
-                     std::cout << "\n\tSelect your CPU Type: \n";
-
-						std::cout<<"\n\t\t1. 8-bit";
-                        std::cout<<"\n\t\t2. 16-bit";
-                        std::cout<<"\n\t\t3. 32-bit";
-                        std::cout<<"\n\t\t4. 64-bit";
-                        std::cout<<"\n\t\t5. Other";
-                        std::cout<<"\n\n\tSelect Your Option (1-5): ";
-						std::cin>>choice2;
-
-						switch(choice2)
-						{
-						case 1:
-                            CPU = "8";
-                            break;
-                        case 2:
-                            CPU = "16";
-                            break;
-                        case 3:
-                            CPU = "32";
-                            break;
-                        case 4:
-                            CPU = "64";
-                            break;
-                        case 5:
-                            cout << "\n\tEnter the bit number of your CPU(e.g., 4): "; cin >> CPU;
-                            break;
-						default :
-							std::cout << "\tSorry! Wrong option selected." << std:: endl;
-							goto level2;
-                            break;
-						}
-             system("cls");
-             std::cout<<"\n" "***********************************************************************************************************\n";
-            std::cout << "\n\tEnter flash memory size (in KB): ";
-			std::cin >> FlashMem_size;
-             system("cls");
-             std::cout<<"\n" "***********************************************************************************************************\n";
-			std::cout << "\n\tEnter RAM size (in KB): ";
-			std::cin >> Ram_size;
-             system("cls");
-             std::cout<<"\n" "***********************************************************************************************************\n";
-			std::cout << "\n\tEnter processor speed or frequency (in MHz): ";
-			std::cin >> Clock_speed;
-
-            getOther_inputs(); //Calling the function that gets the remaining user requests
-
-              string request_query = "insert into users_requests (Request_ID, Hardware_type, CPU, FlashMem_size, Ram_size, Clock_speed, Applic_Domain, Payload_size, Req_1, Req_2, Req_3, Req_4, Req_5, Req_6) values('"+Request_ID+"', '"+Hardware_type+"', '"+CPU+"', '"+FlashMem_size+"', '"+Ram_size+"', '"+Clock_speed+"', '"+Applic_Domain+"', '"+Payload_size+"', '"+Req_1+"', '"+Req_2+"', '"+Req_3+"', '"+Req_4+"', '"+Req_5+"', '"+Req_6+"')";
-
-              const char* qr = request_query.c_str();
-              qstate = mysql_query(conn, qr);
-
-                if(!qstate)
-                {
-                    std::cout << "\n\n\t\tData being saved .....\n";
-
-                     Req_1.erase(); Req_2.erase(); Req_3.erase(); Req_4.erase(); Req_5.erase(); // This is to erase the variable in order to avoid doublicate entry.
-
-                    cout << endl << "\n\n\t\tRequest Successfully added in the database!" << endl;
-
-                    cout << endl << "\n\n\t\tPress Enter to go back to the Main Menu." << endl;
-                }
-                else
-                {
-                    cout << "\n\n\t Query Execution Problem! Error Number: " << mysql_errno(conn) << endl;
-                    cout << "\n\n\tError Number 1062 implies that the entered Request ID already exist in database.\n" << endl;
-                     cout << endl << "\n\n\tPlease press Enter to go back to the Main Menu and repeat the process with a unique ID." << endl;
-                }
-
-
-                 REQST_id = Request_ID;
-                string request_query2 = "insert into requirements_for_report (REQST_id, Re_1, Re_2, Re_3, Re_4, Re_5, Re_6, Re_7, Re_8, Re_9, Re_10, Re_11, Re_12, Re_13, Re_14, Re_15) values('"+REQST_id+"', '"+Re_1+"', '"+Re_2+"', '"+Re_3+"', '"+Re_4+"', '"+Re_5+"', '"+Re_6+"', '"+Re_7+"', '"+Re_8+"', '"+Re_9+"', '"+Re_10+"', '"+Re_11+"', '"+Re_12+"', '"+Re_13+"', '"+Re_14+"', '"+Re_15+"')";
-
-                const char* qr2 = request_query2.c_str();
-                qstate = mysql_query(conn, qr2);
-
-                if(!qstate)
-                {
-                    Re_1.erase(); Re_2.erase(); Re_3.erase(); Re_4.erase(); Reqmt_5.erase(); Re_6.erase(); Re_7.erase(); Re_8.erase(); Re_9.erase(); Re_10.erase(); Re_11.erase(); Re_12.erase(); Re_13.erase(); Re_14.erase(); Re_15.erase();
-                }
-                else
-                {
-
-                }
-
-              chrono::steady_clock::time_point end3 = chrono::steady_clock::now();//end time for software request
-
-            double elapsed_time3_ns = double(std::chrono::duration_cast <std::chrono::nanoseconds> (end3 -start3).count());//time difference
-            std::cout << "\n\n\t\tElapsed Time for Software Request (s): " << elapsed_time3_ns / 1e9 << std::endl;//print elapsed time for software request
 	}
 
-	// Function that takes user input for both hardware and software implementation. The function simply combines the 'getInput_for_softwareImplementaion()' and the 'getInput_for_hardwareImplementaion()' in a switch case statement and selects the appropriate one.
 	void UserInput::getUserInput()
 	{
         Preliminary pre;
@@ -6347,7 +11823,6 @@ class UserInput
         }
     }
 
-    //Function that modifies the hardware implementation requests
     void UserInput::modifyHardware_request()
     {
         string findbyRequestID_query = "select * from users_requests_2 where Request_ID like '%"+Request_ID+"%'";
@@ -6372,44 +11847,44 @@ class UserInput
                 string type2 = row[1];
                 type = type2;
 
-                cout << "\n\t\tYOUR SECURITY REQUIREMENTS ARE:" << endl;
+                cout << "\n\t  YOUR SECURITY REQUIREMENTS ARE:" << endl;
 				if(!Req_1.empty())
                 {
-                    cout << "\t\t  Confidentiality " << endl;
-                    cout << "\t\t    Estimated gate equivalents (GE)/number of slices for Confidentiality: " << row [6]<< endl;
-                    cout << "\t\t    Desired throughput/Max. frequency for Confidentiality: " << row [7]<< endl;
+                    cout << "\t     Confidentiality " << endl;
+                    cout << "\t       Estimated gate equivalents (GE)/number of slices for Confidentiality: " << row [6]<< endl;
+                    cout << "\t       Desired throughput/Max. frequency for Confidentiality: " << row [7]<< endl;
                 }
 				if(!Req_2.empty())
                 {
-                   cout << "\t\t  Integrity " << endl;
-                   cout << "\t\t    Estimated gate equivalents (GE)/number of slices for Integrity: " << row [9]<< endl;
-                   cout << "\t\t    Desired throughput/Max. frequency for Integrity: " << row [10]<< endl;
+                   cout << "\t     Integrity " << endl;
+                   cout << "\t       Estimated gate equivalents (GE)/number of slices for Integrity: " << row [9]<< endl;
+                   cout << "\t       Desired throughput/Max. frequency for Integrity: " << row [10]<< endl;
                 }
 				if(!Req_3.empty())
                 {
-                    cout << "\t\t  Authentication " << endl;
-                    cout << "\t\t    Estimated gate equivalents (GE)/number of slices for Authentication: " << row [12]<< endl;
-                    cout << "\t\t    Desired throughput/Max. frequency for Authentication: " << row [13]<< endl;
+                    cout << "\t     Authentication " << endl;
+                    cout << "\t       Estimated gate equivalents (GE)/number of slices for Authentication: " << row [12]<< endl;
+                    cout << "\t       Desired throughput/Max. frequency for Authentication: " << row [13]<< endl;
                 }
 				if(!Req_4.empty())
                 {
-                    cout << "\t\t  Privacy " << endl;
-                    cout << "\t\t    Estimated gate equivalents (GE)/number of slices for Privacy: " << row [15]<< endl;
-                    cout << "\t\t    Desired throughput/Max. frequency for Privacy: " << row [16]<< endl;
+                    cout << "\t     Privacy " << endl;
+                    cout << "\t       Estimated gate equivalents (GE)/number of slices for Privacy: " << row [15]<< endl;
+                    cout << "\t       Desired throughput/Max. frequency for Privacy: " << row [16]<< endl;
                 }
 
 				if(!Req_5.empty())
                 {
-                   cout << "\t\t  Non-Repudiation " << endl;
-                   cout << "\t\t    Estimated gate equivalents (GE)/number of slices for Non-Repudiation: " << row [18]<< endl;
-                   cout << "\t\t    Desired throughput/Max. frequency for Non-Repudiation: " << row [19]<< endl;
+                   cout << "\t     Non-Repudiation " << endl;
+                   cout << "\t       Estimated gate equivalents (GE)/number of slices for Non-Repudiation: " << row [18]<< endl;
+                   cout << "\t       Desired throughput/Max. frequency for Non-Repudiation: " << row [19]<< endl;
                 }
 
                 if(!Req_6.empty())
                 {
-                   cout << "\t\t  Confidentiality & Authenticity " << endl;
-                   cout << "\t\t    Estimated gate equivalents (GE)/No. of slices for Confidentiality & Authenticity: " << row [21]<< endl;
-                   cout << "\t\t    Desired throughput/Max. frequency for Confidentiality & Authenticity: " << row [22]<< endl;
+                   cout << "\t     Confidentiality & Authenticity " << endl;
+                   cout << "\t       Estimated gate equivalents (GE)/No. of slices for Confidentiality & Authenticity: " << row [21]<< endl;
+                   cout << "\t       Desired throughput/Max. frequency for Confidentiality & Authenticity: " << row [22]<< endl;
                 }
 			}
 		}
@@ -6910,7 +12385,7 @@ class UserInput
                                 system("cls");
                                 std::cout<<"\n" "***********************************************************************************************************\n";
                                std::cout << endl << "\n\t\t\t Done!" << endl;
-                                break;
+                           break;
 
                         default:
                                 cout << "Please choose a correct number" << endl;
@@ -6938,338 +12413,803 @@ class UserInput
 		}
     }
 
-    //Function that modifies the software implementation requests
     void UserInput::modifySoftware_request()
     {
-        string findbyRequestID_query = "select * from users_requests where Request_ID like '%"+Request_ID+"%'";
-		const char* qr = findbyRequestID_query.c_str();
-		qstate = mysql_query(conn, qr);
+         level_:
+             int state = 0;
+        char ch;
+        system("cls");
+        std::cout<<"\n" "***********************************************************************************************************\n";
+        std::cout << "\n\tWhat is the development phase of the IoT system, or it is an existing system? \n";
 
-         system("cls");
-         std::cout<<"\n" "***********************************************************************************************************\n";
-		cout << endl << "\tShowing your requests ...." << endl << endl;
-		if(!qstate)
-		{
-			res = mysql_store_result(conn);
-			while((row = mysql_fetch_row(res)))
-			{
-				cout << "\t\tRequest ID: " << row[0] << endl;
-				cout << "\t\tHardware Type: " << row[1] << endl;
-				cout << "\t\tCPU Type: " << row[2] << endl;
-				cout << "\t\tFlash Memory Size: " << row[3] << endl;
-				cout << "\t\tRam Size: " << row[4] << endl;
-				cout << "\t\tClock Speed: " << row[5] << endl;
-				cout << "\t\tApplication Area: " << row[6] << endl;
-				cout << "\t\tPayload Size: " << row[7] << endl;
-                Req_1 = row[8];Req_2 = row[9];Req_3 = row[10];Req_4 = row[11];Req_5 = row[12];Req_6 = row[13];
+                        std::cout<<"\n\t\t1. Conception, Planning, Analysis, Design";
+                        std::cout<<"\n\t\t2. Existing System ";
+                        std::cout<<"\n\n\tSelect Your Option (1-2): ";
 
-                cout << "\n\t\tYOUR SECURITY REQUIREMENTS ARE:" << endl;
-				if(!Req_1.empty())
-				cout << "\t\t  Confidentiality " << endl;
-				if(!Req_2.empty())
-				cout << "\t\t  Integrity " << endl;
-				if(!Req_3.empty())
-				cout << "\t\t  Authentication " << endl;
-				if(!Req_4.empty())
-				cout << "\t\t  Privacy " << endl;
-				if(!Req_5.empty())
-				cout << "\t\t  Non-Repudiation " << endl;
-				if(!Req_6.empty())
-				cout << "\t\t  Confidentiality & Authenticity " << endl;
-			}
-		}
-		else
-		{
-			cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
-		}
+						std::cin>>ch;
 
-		string ID; char ch;
-		cout << endl;
-		cout << "\tDo you wish to modify your request? (y/n): "; cin >> ch;
+						switch(ch)
+						{
+						case '1':
+						     {
+                                    state = 1;
 
-		if(ch == 'y' || ch == 'Y')
-		{
-            string update_query;
-            int choice;
-
-            do{
-                system("cls");
-                std::cout<<"\n" "***********************************************************************************************************\n";
-                std::cout << "\n\tSelect specific inputs you want to update, one at a time: \n" << endl;
-
-                    cout << "\t\t1. Hardware Type " << endl;
-                    cout << "\t\t2. CPU Type " << endl;
-                    cout << "\t\t3. Flash Memory Size " << endl;
-                    cout << "\t\t4. Ram Size " << endl;
-                    cout << "\t\t5. Clock Speed " << endl;
-                    cout << "\t\t6. Application Area " << endl;
-                    cout << "\t\t7. Payload Size " << endl;
-                    cout << "\t\t8. Add/Delete Confidentiality " << endl;
-                    cout << "\t\t9. Add/Delete Integrity " << endl;
-                    cout << "\t\t10. Add/Delete Authentication " << endl;
-                    cout << "\t\t11. Add/Delete Privacy " << endl;
-                    cout << "\t\t12. Add/Delete Non-Repudiation " << endl;
-                    cout << "\t\t13. Add/Delete Confidentiality & Authenticity " << endl;
-                    cout << "\t\t14. Done!" << endl << endl;
-
-                    cout << "\tEnter the S/N of an input you want to update, and type 14 when done:  "; cin >> choice;
-
-                    Preliminary pre;
-
-                    switch(choice)
-                    {
-                        case 1:
-                                cin.ignore(); //
-                            do{
-                                     system("cls");
-                                     std::cout<<"\n" "***********************************************************************************************************\n";
-                                    cout << "\n\tEnter Hardware Type (Microntroller-based or Single Board Computer) [MCU or SBC]: ";
-                                    getline(cin, Hardware_type);
-
-                                    pre.convert_lowerC_to_upperC(Hardware_type);
-
-                                    if(Hardware_type == "MCU")
-                                    {
-                                         char choice;
-                                         level:
                                     system("cls");
-                                     std::cout<<"\n" "***********************************************************************************************************\n";
+                                    std::cout << "\n" "***********************************************************************************************************\n";
+                                     cout << "\t\t\t\t\tSYSTEM DEVELOPMENT PHASE\n" << endl;
+                                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                    std::cin.ignore();
 
-                                         std::cout << "\n\tSelect your Microntroller Type: \n";
+                                    if(cin.get() == '\n')
+                                    {
+                                        status = "new";
+                                        string findbyRequestID_query = "select * from users_requests where Request_ID like '%"+Request_ID+"%'";
+                                        const char* qr = findbyRequestID_query.c_str();
+                                        qstate = mysql_query(conn, qr);
 
-                                        std::cout<<"\n\t\t1. AVR (8 or 32-bit RISC CPU) ";
-                                        std::cout<<"\n\t\t2. MSP (16-bit RISC CPU)";
-                                        std::cout<<"\n\t\t3. ARM (32 or 64-bit RISC CPU)";
-                                        std::cout<<"\n\t\t4. PIC (8, 16 or 32-bit RISC CPU)";
-                                        std::cout<<"\n\t\t5. Other";
-                                        std::cout<<"\n\n\tSelect Your Option (1-5): ";
+                                         system("cls");
+                                         std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tShowing your requests ...." << endl << endl;
+                                        if(!qstate)
+                                        {
+                                            res = mysql_store_result(conn);
+                                            while((row = mysql_fetch_row(res)))
+                                            {
+                                                cout << "\t\tRequest ID: " << row[0] << endl;
+                                                cout << "\t\tHardware Type: " << row[1] << endl;
+                                                cout << "\t\tCPU Type: " << row[2] << endl;
+                                                cout << "\t\tFlash Memory Size: " << row[3] << endl;
+                                                cout << "\t\tRam Size: " << row[4] << endl;
+                                                cout << "\t\tClock Speed: " << row[5] << endl;
+                                                cout << "\t\tApplication Area: " << row[6] << endl;
+                                                cout << "\t\tPayload Size: " << row[7] << endl;
+                                                Req_1 = row[8];Req_2 = row[9];Req_3 = row[10];Req_4 = row[11];Req_5 = row[12];Req_6 = row[13];
+
+                                                cout << "\n\t\tYOUR SECURITY REQUIREMENTS ARE:" << endl;
+                                                if(!Req_1.empty())
+                                                cout << "\t\t  Confidentiality " << endl;
+                                                if(!Req_2.empty())
+                                                cout << "\t\t  Integrity " << endl;
+                                                if(!Req_3.empty())
+                                                cout << "\t\t  Authentication " << endl;
+                                                if(!Req_4.empty())
+                                                cout << "\t\t  Privacy " << endl;
+                                                if(!Req_5.empty())
+                                                cout << "\t\t  Non-Repudiation " << endl;
+                                                if(!Req_6.empty())
+                                                cout << "\t\t  Confidentiality & Authenticity " << endl;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        goto level_;
+                                    }
+                                    break;
+                                }
+                        case '2':
+                            {
+                                    state = 2;
+
+                                    system("cls");
+                                    std::cout << "\n" "***********************************************************************************************************\n";
+                                    std::cout<<"\n\t\tEXISTING SYSTEM\n";
+                                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                    std::cin.ignore();
+
+                                    if(cin.get() == '\n')
+                                    {
+                                        status = "old";
+                                        string findbyRequestID_query = "select * from users_requests_ where Request_ID like '%"+Request_ID+"%'";
+                                        const char* qr = findbyRequestID_query.c_str();
+                                        qstate = mysql_query(conn, qr);
+
+                                         system("cls");
+                                         std::cout<<"\n" "***********************************************************************************************************\n";
+                                        cout << endl << "\tShowing your requests ...." << endl << endl;
+                                        if(!qstate)
+                                        {
+                                            res = mysql_store_result(conn);
+                                            while((row = mysql_fetch_row(res)))
+                                            {
+                                                cout << "\t\tRequest ID: " << row[0] << endl;
+                                                cout << "\t\tHardware Type: " << row[1] << endl;
+                                                cout << "\t\tCPU Type: " << row[2] << endl;
+                                                cout << "\t\tClock Speed: " << row[3] << endl;
+                                                cout << "\t\tApplication Area: " << row[4] << endl;
+                                                cout << "\t\tPayload Size: " << row[5] << endl;
+                                                Req_1 = row[6]; FM_1 = row[7]; RAM_1 = row[8]; Req_2 = row[9]; FM_2 = row[10]; RAM_2 = row[11]; Req_3 = row[12]; FM_3 = row[13]; RAM_3 = row[14]; Req_4 = row[15]; FM_4 = row[16]; RAM_4 = row[17]; Req_5 = row[18]; FM_5 = row[19]; RAM_5 = row[20]; Req_6 = row[21]; FM_6 = row[22]; RAM_6 = row[23];
+                                                double FM1 = atof(FM_1.c_str()); double RAM1 = atof(RAM_1.c_str()); double FM2 = atof(FM_2.c_str()); double RAM2 = atof(RAM_2.c_str());
+                                                double FM3 = atof(FM_3.c_str()); double RAM3 = atof(RAM_3.c_str()); double FM4 = atof(FM_4.c_str()); double RAM4 = atof(RAM_4.c_str());
+                                                double FM5 = atof(FM_5.c_str()); double RAM5 = atof(RAM_5.c_str()); double FM6 = atof(FM_6.c_str()); double RAM6 = atof(RAM_6.c_str());
+
+                                                cout << "\n\t\tYOUR SECURITY REQUIREMENTS ARE:" << endl;
+                                                if(!Req_1.empty())
+                                                cout << "\t\t  Confidentiality " << endl;
+                                                if(FM1 != 0.0)
+                                                cout << "\t\t   Available flash memory space for confidentiality: " << FM_1 << endl;
+                                                if(RAM1 != 0.0)
+                                                cout << "\t\t   Available RAM for confidentiality: " << RAM_1 << endl;
+                                                if(!Req_2.empty())
+                                                cout << "\t\t  Integrity " << endl;
+                                                if(FM2 != 0.0)
+                                                cout << "\t\t   Available flash memory space for integrity: " << FM_2 << endl;
+                                                if(RAM2 != 0.0)
+                                                cout << "\t\t   Available RAM for integrity: " << RAM_2 << endl;
+                                                if(!Req_3.empty())
+                                                cout << "\t\t  Authentication " << endl;
+                                                if(FM3 != 0.0)
+                                                cout << "\t\t   Available flash memory space for authentication: " << FM_3 << endl;
+                                                if(RAM3 != 0.0)
+                                                cout << "\t\t   Available RAM for authentication: " << RAM_3 << endl;
+                                                if(!Req_4.empty())
+                                                cout << "\t\t  Privacy " << endl;
+                                                if(FM4 != 0.0)
+                                                cout << "\t\t   Available flash memory space for privacy: " << FM_4 << endl;
+                                                if(RAM4 != 0.0)
+                                                cout << "\t\t   Available RAM for privacy: " << RAM_4 << endl;
+                                                if(!Req_5.empty())
+                                                cout << "\t\t  Non-Repudiation " << endl;
+                                                if(FM5 != 0.0)
+                                                cout << "\t\t   Available flash memory space for non-repudiation: " << FM_5 << endl;
+                                                if(RAM5 != 0.0)
+                                                cout << "\t\t   Available RAM for non-repudiation: " << RAM_5 << endl;
+                                                if(!Req_6.empty())
+                                                cout << "\t\t  Confidentiality & Authenticity " << endl;
+                                                if(FM6 != 0.0)
+                                                cout << "\t\t   Available flash memory space for confidentiality & authenticity: " << FM_6 << endl;
+                                                if(RAM6 != 0.0)
+                                                cout << "\t\t   Available RAM for confidentiality & authenticity: " << RAM_6 << endl;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        goto level_;
+                                    }
+                                    break;
+                                }
+						default:
+							std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                        goto level_;
+						}
+
+		string ID; char chi;
+		cout << endl;
+		launi:
+		cout << "\tDo you wish to modify your request? (y/n): "; cin >> chi;
+            if(state == 1)
+            {
+                if(chi == 'y' || chi == 'Y')
+                {
+                        string update_query;
+
+                        int choice;
+
+                        do{
+                            system("cls");
+                            std::cout<<"\n" "***********************************************************************************************************\n";
+                            std::cout << "\n\tSelect specific inputs you want to update, one at a time: \n" << endl;
+
+                                cout << "\t\t1. Hardware Type " << endl;
+                                cout << "\t\t2. CPU Type " << endl;
+                                cout << "\t\t3. Flash Memory Size " << endl;
+                                cout << "\t\t4. Ram Size " << endl;
+                                cout << "\t\t5. Clock Speed " << endl;
+                                cout << "\t\t6. Application Area " << endl;
+                                cout << "\t\t7. Payload Size " << endl;
+                                cout << "\t\t8. Add/Delete Confidentiality " << endl;
+                                cout << "\t\t9. Add/Delete Integrity " << endl;
+                                cout << "\t\t10. Add/Delete Authentication " << endl;
+                                cout << "\t\t11. Add/Delete Privacy " << endl;
+                                cout << "\t\t12. Add/Delete Non-Repudiation " << endl;
+                                cout << "\t\t13. Add/Delete Confidentiality & Authenticity " << endl;
+                                cout << "\t\t14. Done!" << endl << endl;
+
+                                cout << "\tEnter the S/N of an input you want to update, and type 14 when done:  "; cin >> choice;
+
+                                Preliminary pre;
+
+                                switch(choice)
+                                {
+                                    case 1:
+                                            cin.ignore(); //
+                                        do{
+                                                 system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << "\n\tEnter Hardware Type (Microntroller-based or Single Board Computer) [MCU or SBC]: ";
+                                                getline(cin, Hardware_type);
+
+                                                pre.convert_lowerC_to_upperC(Hardware_type);
+
+                                                if(Hardware_type == "MCU")
+                                                {
+                                                     char choice;
+                                                     level:
+                                                system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+
+                                                     std::cout << "\n\tSelect your Microntroller Type: \n";
+
+                                                    std::cout<<"\n\t\t1. AVR (8 or 32-bit RISC CPU) ";
+                                                    std::cout<<"\n\t\t2. MSP (16-bit RISC CPU)";
+                                                    std::cout<<"\n\t\t3. ARM (32 or 64-bit RISC CPU)";
+                                                    std::cout<<"\n\t\t4. PIC (8, 16 or 32-bit RISC CPU)";
+                                                    std::cout<<"\n\t\t5. Other";
+                                                    std::cout<<"\n\n\tSelect Your Option (1-5): ";
+                                                        std::cin>>choice;
+
+                                                        switch(choice)
+                                                        {
+                                                        case '1':
+                                                            Hardware_type = "AVR";
+                                                            break;
+                                                        case '2':
+                                                            Hardware_type = "MSP";
+                                                            break;
+                                                        case '3':
+                                                            Hardware_type = "ARM";
+                                                            break;
+                                                        case '4':
+                                                            Hardware_type = "PIC";
+                                                            break;
+                                                        case '5':
+                                                            system("cls");
+                                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                                            cout << "\n\tEnter your MCU brand name (< or = 6 characters): "; cin >> Hardware_type;
+                                                            pre.convert_lowerC_to_upperC(Hardware_type);
+                                                            break;
+                                                        default :
+                                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                            goto level;
+                                                        }
+                                                    break;
+                                                }
+
+                                            }while(((Hardware_type != "SBC") && (Hardware_type != "MCU")));
+
+                                        update_query = "UPDATE `users_requests` SET `Hardware_type` = '"+Hardware_type+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                    case 2:
+                                       char choice;
+                                        level2:
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                         std::cout << "\n\t\tSelect your CPU Type: ";
+
+                                            std::cout<<"\n\t\t1. 8-bit";
+                                            std::cout<<"\n\t\t2. 16-bit";
+                                            std::cout<<"\n\t\t3. 32-bit";
+                                            std::cout<<"\n\t\t4. 64-bit";
+                                            std::cout<<"\n\t\t5. Other";
+                                            std::cout<<"\n\n\tSelect Your Option (1-5): ";
                                             std::cin>>choice;
 
                                             switch(choice)
                                             {
                                             case '1':
-                                                Hardware_type = "AVR";
+                                                CPU = "8";
                                                 break;
                                             case '2':
-                                                Hardware_type = "MSP";
+                                                CPU = "16";
                                                 break;
                                             case '3':
-                                                Hardware_type = "ARM";
+                                                CPU = "32";
                                                 break;
                                             case '4':
-                                                Hardware_type = "PIC";
+                                                CPU = "64";
                                                 break;
                                             case '5':
                                                 system("cls");
                                                 std::cout<<"\n" "***********************************************************************************************************\n";
-                                                cout << "\n\tEnter your MCU brand name (< or = 6 characters): "; cin >> Hardware_type;
-                                                pre.convert_lowerC_to_upperC(Hardware_type);
+                                                cout << "\n\tEnter the bit number of your CPU(e.g., 4): "; cin >> CPU;
                                                 break;
                                             default :
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
                                                 std::cout << "\tSorry! Wrong option selected." << std:: endl;
-                                                goto level;
+                                                goto level2;
+                                                break;
                                             }
+
+
+                                       update_query = "UPDATE `users_requests` SET `CPU` = '"+CPU+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                       break;
+                                     case 3:
+                                            cin.ignore();
+                                            system("cls");
+                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                            cout << endl << "\tEnter New Flash Memory Size: "; getline(cin, FlashMem_size);
+                                        update_query = "UPDATE `users_requests` SET `FlashMem_size` = '"+FlashMem_size+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                    case 4:
+                                           cin.ignore();
+                                           system("cls");
+                                           std::cout<<"\n" "***********************************************************************************************************\n";
+                                            cout << endl << "\tEnter New Ram Size: "; getline(cin, Ram_size);
+                                        update_query = "UPDATE `users_requests` SET `Ram_size` = '"+Ram_size+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 5:
+                                            cin.ignore();
+                                            system("cls");
+                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                            cout << endl << "\tEnter New Clock Speed: "; getline(cin, Clock_speed);
+                                        update_query = "UPDATE `users_requests` SET `Clock_speed` = '"+Clock_speed+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 6:
+                                           cin.ignore();
+                                           system("cls");
+                                           std::cout<<"\n" "***********************************************************************************************************\n";
+                                           std::cout << "\n\tType only keyword in <> for the specific domain you want to update, or keyword of other domain: " << endl;
+                                            std::cout << "\n\t\t1) Smart <Home>";
+                                            std::cout << "\n\t\t2) Smart <City>";
+                                            std::cout << "\n\t\t3) Smart Agriculture";
+                                            std::cout << "\n\t\t4) Smart <Grid>";
+                                            std::cout << "\n\t\t5) Smart <Healthcare>";
+                                            std::cout << "\n\t\t6) Smart <Elderly> Monitoring";
+                                            std::cout << "\n\t\t7) Smart <Kid> Monitoring";
+                                            std::cout << "\n\t\t8) Smart <pet> Monitoring";
+                                            std::cout << "\n\t\t9) Smart Banking/<Financial> applications";
+                                            std::cout << "\n\t\t10) <Industrial> Automation";
+                                            std::cout << "\n\t\t11) Smart <Supply_Chain>";
+                                            std::cout << "\n\t\t12) Smart <Retail>";
+                                            std::cout << "\n\t\t13) Smart <Environmental> Monitoring";
+                                            std::cout << "\n\t\t14) Smart Automotive/<Transportation>";
+                                            std::cout << "\n\t\t15) <Connected_Car>";
+                                            std::cout << "\n\t\t16) Other Domain";
+                                            cout << endl << "\n\tType the keyword of your New Application area: "; getline(cin, Applic_Domain);
+                                        update_query = "UPDATE `users_requests` SET `Applic_Domain` = '"+Applic_Domain+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 7:
+                                        cin.ignore();
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                           std::cout << "\n\tEnter the Payload Size (e.g., small or average): " << endl;
+                                            std::cout << "\n\t\t1) Small (1-128 bytes)";
+                                            std::cout << "\n\t\t2) Average (129-256 bytes)";
+                                            std::cout << "\n\t\t3) Large (> 256 bytes)";
+                                            std::cout << "\n\t\t4) Continuous";
+                                            std::cout << "\n\t\t5) Unknown";
+
+                                           do{
+                                                cout << endl << "\n\tType your New Payload Size in lowercase characters (please ensure that there's no typo): "; getline(cin, Payload_size);
+                                           }while((Payload_size != "small") && (Payload_size != "average") && (Payload_size != "large") && (Payload_size != "continuous") && (Payload_size != "unknown"));
+
+                                        update_query = "UPDATE `users_requests` SET `Payload_size` = '"+Payload_size+"' WHERE `Request_ID` = '"+Request_ID+"'";
                                         break;
-                                    }
+                                     case 8:
+                                           cin.ignore();
+                                           do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <CONF or ' '> to Add or Delete Confidentiality: "; getline(cin, Req_1);
+                                           }while((Req_1 != "CONF") && Req_1 != "' '");
+                                        update_query = "UPDATE `users_requests` SET `Req_1` = '"+Req_1+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 9:
+                                           cin.ignore();
+                                           do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <INTG or ' '> to Add or Delete Integrity: "; getline(cin, Req_2);
+                                           }while((Req_2 != "INTG") && Req_2 != "' '");
+                                        update_query = "UPDATE `users_requests` SET `Req_2` = '"+Req_2+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 10:
+                                          cin.ignore();
+                                          do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <AUTH or ' '> to Add or Delete Authentication: "; getline(cin, Req_3);
+                                           }while((Req_3 != "AUTH") && Req_3 != "' '");
+                                        update_query = "UPDATE `users_requests` SET `Req_3` = '"+Req_3+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 11:
+                                        cin.ignore();
+                                        do{
+                                              system("cls");
+                                              std::cout<<"\n" "***********************************************************************************************************\n";
+                                              cout << endl << "\tType <PRIV or ' '> to Add or Delete Privacy: "; getline(cin, Req_4);
+                                           }while((Req_4 != "PRIV") && Req_4 != "' '");
+                                        update_query = "UPDATE `users_requests` SET `Req_4` = '"+Req_4+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 12:
+                                          cin.ignore();
+                                          do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <NONR or ' '> to Add or Delete Non-Repudiation: "; getline(cin, Req_5);
+                                           }while((Req_5 != "NONR") && Req_5 != "' '");
+                                        update_query = "UPDATE `users_requests` SET `Req_5` = '"+Req_5+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                    case 13:
+                                          cin.ignore();
+                                          do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <COAU or ' '> to Add or Delete Confidentiality & Authenticity: "; getline(cin, Req_6);
+                                           }while((Req_6 != "COAU") && Req_6 != "' '");
+                                        update_query = "UPDATE `users_requests` SET `Req_6` = '"+Req_6+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 14:
+                                           system("cls");
+                                           std::cout<<"\n" "***********************************************************************************************************\n";
+                                           std::cout << endl << "\n\t\t\t Done!" << endl;
+                                            break;
 
-                                }while(((Hardware_type != "SBC") && (Hardware_type != "MCU")));
-
-                            update_query = "UPDATE `users_requests` SET `Hardware_type` = '"+Hardware_type+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                        case 2:
-                           char choice;
-                            level2:
-                            system("cls");
-                            std::cout<<"\n" "***********************************************************************************************************\n";
-                             std::cout << "\n\t\tSelect your CPU Type: ";
-
-                                std::cout<<"\n\t\t1. 8-bit";
-                                std::cout<<"\n\t\t2. 16-bit";
-                                std::cout<<"\n\t\t3. 32-bit";
-                                std::cout<<"\n\t\t4. 64-bit";
-                                std::cout<<"\n\t\t5. Other";
-                                std::cout<<"\n\n\tSelect Your Option (1-5): ";
-                                std::cin>>choice;
-
-                                switch(choice)
-                                {
-                                case '1':
-                                    CPU = "8";
-                                    break;
-                                case '2':
-                                    CPU = "16";
-                                    break;
-                                case '3':
-                                    CPU = "32";
-                                    break;
-                                case '4':
-                                    CPU = "64";
-                                    break;
-                                case '5':
-                                    system("cls");
-                                    std::cout<<"\n" "***********************************************************************************************************\n";
-                                    cout << "\n\tEnter the bit number of your CPU(e.g., 4): "; cin >> CPU;
-                                    break;
-                                default :
-                                    system("cls");
-                                    std::cout<<"\n" "***********************************************************************************************************\n";
-                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
-                                    goto level2;
-                                    break;
+                                    default:
+                                            cout << "Please choose a correct number" << endl;
                                 }
+                                const char* qm = update_query.c_str();
+                                qstate = mysql_query(conn, qm);
 
-
-                           update_query = "UPDATE `users_requests` SET `CPU` = '"+CPU+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                           break;
-                         case 3:
-                                cin.ignore();
-                                system("cls");
-                                std::cout<<"\n" "***********************************************************************************************************\n";
-                                cout << endl << "\tEnter New Flash Memory Size: "; getline(cin, FlashMem_size);
-                            update_query = "UPDATE `users_requests` SET `FlashMem_size` = '"+FlashMem_size+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                        case 4:
-                               cin.ignore();
-                               system("cls");
-                               std::cout<<"\n" "***********************************************************************************************************\n";
-                                cout << endl << "\tEnter New Ram Size: "; getline(cin, Ram_size);
-                            update_query = "UPDATE `users_requests` SET `Ram_size` = '"+Ram_size+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                         case 5:
-                                cin.ignore();
-                                system("cls");
-                                std::cout<<"\n" "***********************************************************************************************************\n";
-                                cout << endl << "\tEnter New Clock Speed: "; getline(cin, Clock_speed);
-                            update_query = "UPDATE `users_requests` SET `Clock_speed` = '"+Clock_speed+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                         case 6:
-                               cin.ignore();
-                               system("cls");
-                               std::cout<<"\n" "***********************************************************************************************************\n";
-                               std::cout << "\n\tType only keyword in <> for the specific domain you want to update, or keyword of other domain: " << endl;
-                                std::cout << "\n\t\t1) Smart <Home>";
-                                std::cout << "\n\t\t2) Smart <City>";
-                                std::cout << "\n\t\t3) Smart Agriculture";
-                                std::cout << "\n\t\t4) Smart <Grid>";
-                                std::cout << "\n\t\t5) Smart <Healthcare>";
-                                std::cout << "\n\t\t6) Smart <Elderly> Monitoring";
-                                std::cout << "\n\t\t7) Smart <Kid> Monitoring";
-                                std::cout << "\n\t\t8) Smart <pet> Monitoring";
-                                std::cout << "\n\t\t9) Smart Banking/<Financial> applications";
-                                std::cout << "\n\t\t10) <Industrial> Automation";
-                                std::cout << "\n\t\t11) Smart <Supply_Chain>";
-                                std::cout << "\n\t\t12) Smart <Retail>";
-                                std::cout << "\n\t\t13) Smart <Environmental> Monitoring";
-                                std::cout << "\n\t\t14) Smart Automotive/<Transportation>";
-                                std::cout << "\n\t\t15) <Connected_Car>";
-                                std::cout << "\n\t\t16) Other Domain";
-                                cout << endl << "\n\tType the keyword of your New Application area: "; getline(cin, Applic_Domain);
-                            update_query = "UPDATE `users_requests` SET `Applic_Domain` = '"+Applic_Domain+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                         case 7:
-                            cin.ignore();
-                            system("cls");
-                            std::cout<<"\n" "***********************************************************************************************************\n";
-                               std::cout << "\n\tEnter the Payload Size (e.g., small or average): " << endl;
-                                std::cout << "\n\t\t1) Small (1-128 bytes)";
-                                std::cout << "\n\t\t2) Average (129-256 bytes)";
-                                std::cout << "\n\t\t3) Large (> 256 bytes)";
-                                std::cout << "\n\t\t4) Continuous";
-                                std::cout << "\n\t\t5) Unknown";
-
-                               do{
-                                    cout << endl << "\n\tType your New Payload Size in lowercase characters (please ensure that there's no typo): "; getline(cin, Payload_size);
-                               }while((Payload_size != "small") && (Payload_size != "average") && (Payload_size != "large") && (Payload_size != "continuous") && (Payload_size != "unknown"));
-
-                            update_query = "UPDATE `users_requests` SET `Payload_size` = '"+Payload_size+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                            break;
-                         case 8:
-                               cin.ignore();
-                               do{
-                                    system("cls");
-                                    std::cout<<"\n" "***********************************************************************************************************\n";
-                                    cout << endl << "\tType <CONF or ' '> to Add or Delete Confidentiality: "; getline(cin, Req_1);
-                               }while((Req_1 != "CONF") && Req_1 != "' '");
-                            update_query = "UPDATE `users_requests` SET `Req_1` = '"+Req_1+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                         case 9:
-                               cin.ignore();
-                               do{
-                                    system("cls");
-                                    std::cout<<"\n" "***********************************************************************************************************\n";
-                                    cout << endl << "\tType <INTG or ' '> to Add or Delete Integrity: "; getline(cin, Req_2);
-                               }while((Req_2 != "INTG") && Req_2 != "' '");
-                            update_query = "UPDATE `users_requests` SET `Req_2` = '"+Req_2+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                         case 10:
-                              cin.ignore();
-                              do{
-                                    system("cls");
-                                    std::cout<<"\n" "***********************************************************************************************************\n";
-                                    cout << endl << "\tType <AUTH or ' '> to Add or Delete Authentication: "; getline(cin, Req_3);
-                               }while((Req_3 != "AUTH") && Req_3 != "' '");
-                            update_query = "UPDATE `users_requests` SET `Req_3` = '"+Req_3+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                         case 11:
-                            cin.ignore();
-                            do{
-                                  system("cls");
-                                  std::cout<<"\n" "***********************************************************************************************************\n";
-                                  cout << endl << "\tType <PRIV or ' '> to Add or Delete Privacy: "; getline(cin, Req_4);
-                               }while((Req_4 != "PRIV") && Req_4 != "' '");
-                            update_query = "UPDATE `users_requests` SET `Req_4` = '"+Req_4+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                         case 12:
-                              cin.ignore();
-                              do{
-                                    system("cls");
-                                    std::cout<<"\n" "***********************************************************************************************************\n";
-                                    cout << endl << "\tType <NONR or ' '> to Add or Delete Non-Repudiation: "; getline(cin, Req_5);
-                               }while((Req_5 != "NONR") && Req_5 != "' '");
-                            update_query = "UPDATE `users_requests` SET `Req_5` = '"+Req_5+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                        case 13:
-                              cin.ignore();
-                              do{
-                                    system("cls");
-                                    std::cout<<"\n" "***********************************************************************************************************\n";
-                                    cout << endl << "\tType <COAU or ' '> to Add or Delete Confidentiality & Authenticity: "; getline(cin, Req_6);
-                               }while((Req_5 != "COAU") && Req_5 != "' '");
-                            update_query = "UPDATE `users_requests` SET `Req_6` = '"+Req_6+"' WHERE `Request_ID` = '"+Request_ID+"'";
-                        break;
-                         case 14:
-                               system("cls");
-                               std::cout<<"\n" "***********************************************************************************************************\n";
-                               std::cout << endl << "\n\t\t\t Done!" << endl;
-                                break;
-
-                        default:
-                                cout << "Please choose a correct number" << endl;
-                    }
-                    const char* qm = update_query.c_str();
-                    qstate = mysql_query(conn, qm);
-
-                    if(!qstate)
-                    {
-                        cout << endl << "\t\t\t Database successfully updated." << endl;
-                        cout << "\n\n\t\t\t Press Enter to return to the Admin Menu. ";
+                                if(!qstate)
+                                {
+                                    cout << endl << "\t\t\t Database successfully updated." << endl;
+                                    cout << "\n\n\t\t\t Press Enter to return to the Admin Menu. ";
+                                }
+                                else
+                                {
+                                    cout << "\tQuery Execution Problem!" << mysql_errno(conn) << endl;
+                                }
+                        }while(choice != 14);
                     }
                     else
                     {
-                        cout << "\tQuery Execution Problem!" << mysql_errno(conn) << endl;
+                        system("cls");
+                        std::cout<<"\n" "***********************************************************************************************************\n";
+                        std::cout << "\n\tPress Enter to return to the Main Menu. ";
+                        return;
                     }
-            }while(choice != 14);
-		}
-		else
-		{
-			system("cls");
-			std::cout<<"\n" "***********************************************************************************************************\n";
-			std::cout << "\n\tPress Enter to return to the Main Menu. ";
-			return;
-		}
+            }
+            else if(state == 2)
+            {
+                if(chi == 'y' || chi == 'Y')
+                    {
+
+
+                        string update_query;
+
+                        int choice;
+
+                        do{
+                            system("cls");
+                            std::cout<<"\n" "***********************************************************************************************************\n";
+                            std::cout << "\n\tSelect specific inputs you want to update, one at a time: \n" << endl;
+
+                                cout << "\t\t1. Hardware Type " << endl;
+                                cout << "\t\t2. CPU Type " << endl;
+                                cout << "\t\t3. Clock Speed " << endl;
+                                cout << "\t\t4. Application Area " << endl;
+                                cout << "\t\t5. Payload Size " << endl;
+                                cout << "\t\t6. Add/Delete Confidentiality " << endl;
+                                cout << "\t\t7. Add/Delete Integrity " << endl;
+                                cout << "\t\t8. Add/Delete Authentication " << endl;
+                                cout << "\t\t9. Add/Delete Privacy " << endl;
+                                cout << "\t\t10. Add/Delete Non-Repudiation " << endl;
+                                cout << "\t\t11. Add/Delete Confidentiality & Authenticity " << endl;
+                                cout << "\t\t12. Done!" << endl << endl;
+
+                                cout << "\tEnter the S/N of an input you want to update, and type 12 when done:  "; cin >> choice;
+
+                                Preliminary pre;
+
+                                switch(choice)
+                                {
+                                    case 1:
+                                            cin.ignore(); //
+                                        do{
+                                                 system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << "\n\tEnter Hardware Type (Microntroller-based or Single Board Computer) [MCU or SBC]: ";
+                                                getline(cin, Hardware_type);
+
+                                                pre.convert_lowerC_to_upperC(Hardware_type);
+
+                                                if(Hardware_type == "MCU")
+                                                {
+
+                                                      char choice;
+                                                    lev:
+                                                system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+
+                                                     std::cout << "\n\tSelect your Microntroller Type: \n";
+
+                                                    std::cout<<"\n\t\t1. AVR (8 or 32-bit RISC CPU) ";
+                                                    std::cout<<"\n\t\t2. MSP (16-bit RISC CPU)";
+                                                    std::cout<<"\n\t\t3. ARM (32 or 64-bit RISC CPU)";
+                                                    std::cout<<"\n\t\t4. Other";
+                                                    std::cout<<"\n\n\tSelect Your Option (1-4): ";
+                                                        std::cin>>choice;
+
+                                                        switch(choice)
+                                                        {
+                                                        case '1':
+                                                            Hardware_type = "AVR";
+                                                            break;
+                                                        case '2':
+                                                            Hardware_type = "MSP";
+                                                            break;
+                                                        case '3':
+                                                            Hardware_type = "ARM";
+                                                            break;
+                                                        case '4':
+                                                            system("cls");
+                                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                                            cout << "\n\tEnter your MCU brand name (< or = 6 characters): "; cin >> Hardware_type;
+                                                            pre.convert_lowerC_to_upperC(Hardware_type);
+                                                            break;
+                                                        default :
+                                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                            goto lev;
+
+                                                        }
+                                                    break;
+                                                }
+
+                                            }while(((Hardware_type != "SBC") && (Hardware_type != "MCU")));
+
+                                        update_query = "UPDATE `users_requests_` SET `Hardware_type` = '"+Hardware_type+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                    case 2:
+                                       char choice;
+                                        logo:
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                         std::cout << "\n\t\tSelect your CPU Type: ";
+
+                                            std::cout<<"\n\t\t1. 8-bit";
+                                            std::cout<<"\n\t\t2. 16-bit";
+                                            std::cout<<"\n\t\t3. 32-bit";
+                                            std::cout<<"\n\t\t4. 64-bit";
+                                            std::cout<<"\n\t\t5. Other";
+                                            std::cout<<"\n\n\tSelect Your Option (1-5): ";
+                                            std::cin>>choice;
+
+                                            switch(choice)
+                                            {
+                                            case '1':
+                                                CPU = "8";
+                                                break;
+                                            case '2':
+                                                CPU = "16";
+                                                break;
+                                            case '3':
+                                                CPU = "32";
+                                                break;
+                                            case '4':
+                                                CPU = "64";
+                                                break;
+                                            case '5':
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << "\n\tEnter the bit number of your CPU(e.g., 4): "; cin >> CPU;
+                                                break;
+                                            default :
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                                goto logo;
+                                                break;
+                                            }
+                                       update_query = "UPDATE `users_requests_` SET `CPU` = '"+CPU+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                       break;
+                                     case 3:
+                                            cin.ignore();
+                                            system("cls");
+                                            std::cout<<"\n" "***********************************************************************************************************\n";
+                                            cout << endl << "\tEnter New Clock Speed: "; getline(cin, Clock_speed);
+                                        update_query = "UPDATE `users_requests_` SET `Clock_speed` = '"+Clock_speed+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 4:
+                                           cin.ignore();
+                                           system("cls");
+                                           std::cout<<"\n" "***********************************************************************************************************\n";
+                                           std::cout << "\n\tType only keyword in <> for the specific domain you want to update, or keyword of other domain: " << endl;
+                                            std::cout << "\n\t\t1) Smart <Home>";
+                                            std::cout << "\n\t\t2) Smart <City>";
+                                            std::cout << "\n\t\t3) Smart Agriculture";
+                                            std::cout << "\n\t\t4) Smart <Grid>";
+                                            std::cout << "\n\t\t5) Smart <Healthcare>";
+                                            std::cout << "\n\t\t6) Smart <Elderly> Monitoring";
+                                            std::cout << "\n\t\t7) Smart <Kid> Monitoring";
+                                            std::cout << "\n\t\t8) Smart <pet> Monitoring";
+                                            std::cout << "\n\t\t9) Smart Banking/<Financial> applications";
+                                            std::cout << "\n\t\t10) <Industrial> Automation";
+                                            std::cout << "\n\t\t11) Smart <Supply_Chain>";
+                                            std::cout << "\n\t\t12) Smart <Retail>";
+                                            std::cout << "\n\t\t13) Smart <Environmental> Monitoring";
+                                            std::cout << "\n\t\t14) Smart Automotive/<Transportation>";
+                                            std::cout << "\n\t\t15) <Connected_Car>";
+                                            std::cout << "\n\t\t16) Other Domain";
+                                            cout << endl << "\n\tType the keyword of your New Application area: "; getline(cin, Applic_Domain);
+                                        update_query = "UPDATE `users_requests_` SET `Applic_Domain` = '"+Applic_Domain+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 5:
+                                        cin.ignore();
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                           std::cout << "\n\tEnter the Payload Size (e.g., small or average): " << endl;
+                                            std::cout << "\n\t\t1) Small (1-128 bytes)";
+                                            std::cout << "\n\t\t2) Average (129-256 bytes)";
+                                            std::cout << "\n\t\t3) Large (> 256 bytes)";
+                                            std::cout << "\n\t\t4) Continuous";
+                                            std::cout << "\n\t\t5) Unknown";
+
+                                           do{
+                                                cout << endl << "\n\tType your New Payload Size in lowercase characters (please ensure that there's no typo): "; getline(cin, Payload_size);
+                                           }while((Payload_size != "small") && (Payload_size != "average") && (Payload_size != "large") && (Payload_size != "continuous") && (Payload_size != "unknown"));
+
+                                        update_query = "UPDATE `users_requests_` SET `Payload_size` = '"+Payload_size+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                        break;
+                                     case 6:
+                                           cin.ignore();
+                                           do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <CONF or ' '> to Add or Delete Confidentiality: "; getline(cin, Req_1);
+                                           }while((Req_1 != "CONF") && Req_1 != "' '");
+                                        update_query = "UPDATE `users_requests_` SET `Req_1` = '"+Req_1+"' WHERE `Request_ID` = '"+Request_ID+"'";
+
+                                          do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "  Enter new a value or ' ' to Modify or Delete available flash memory space for confidentiality (Bytes): "; getline(cin, FM_1);
+                                            }while(cin.fail() && FM_1 != "' ' ");
+
+                                            do{
+                                                 system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+                                                 cout << endl << "  Enter new a value or ' ' to Modify or Delete RAM space for confidentiality (Bytes): "; getline(cin, RAM_1);
+                                             }while(cin.fail() && RAM_1 != "' '");
+                                         update_query = "UPDATE `users_requests_` SET `Req_1` = '"+Req_1+"', `FM_1` = '"+FM_1+"', `RAM_1` = '"+RAM_1+"' WHERE `Request_ID` = '"+Request_ID+"'";//This is how to update multiple columns in mysql table at the same time.
+                                    break;
+                                     case 7:
+                                           cin.ignore();
+                                           do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <INTG or ' '> to Add or Delete Integrity: "; getline(cin, Req_2);
+                                           }while((Req_2 != "INTG") && Req_2 != "' '");
+                                       do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "  Enter new a value or ' ' to Modify or Delete available flash memory space for integrity (Bytes): "; getline(cin, FM_2);
+                                            }while(cin.fail() && FM_2 != "' ' ");
+
+                                            do{
+                                                 system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+                                                 cout << endl << "  Enter new a value or ' ' to Modify or Delete RAM space for integrity (Bytes): "; getline(cin, RAM_2);
+                                             }while(cin.fail() && RAM_2 != "' '");
+                                         update_query = "UPDATE `users_requests_` SET `Req_2` = '"+Req_2+"', `FM_2` = '"+FM_2+"', `RAM_2` = '"+RAM_2+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 8:
+                                          cin.ignore();
+                                          do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <AUTH or ' '> to Add or Delete Authentication: "; getline(cin, Req_3);
+                                           }while((Req_3 != "AUTH") && Req_3 != "' '");
+                                        do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "  Enter new a value or ' ' to Modify or Delete available flash memory space for authentication (Bytes): "; getline(cin, FM_3);
+                                            }while(cin.fail() && FM_3 != "' ' ");
+
+                                            do{
+                                                 system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+                                                 cout << endl << "  Enter new a value or ' ' to Modify or Delete RAM space for authentication (Bytes): "; getline(cin, RAM_3);
+                                             }while(cin.fail() && RAM_3 != "' '");
+                                         update_query = "UPDATE `users_requests_` SET `Req_3` = '"+Req_3+"', `FM_3` = '"+FM_3+"', `RAM_3` = '"+RAM_3+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 9:
+                                        cin.ignore();
+                                        do{
+                                              system("cls");
+                                              std::cout<<"\n" "***********************************************************************************************************\n";
+                                              cout << endl << "\tType <PRIV or ' '> to Add or Delete Privacy: "; getline(cin, Req_4);
+                                           }while((Req_4 != "PRIV") && Req_4 != "' '");
+                                        do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "  Enter new a value or ' ' to Modify or Delete available flash memory space for privacy (Bytes): "; getline(cin, FM_4);
+                                            }while(cin.fail() && FM_4 != "' ' ");
+
+                                            do{
+                                                 system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+                                                 cout << endl << "  Enter new a value or ' ' to Modify or Delete RAM space for privacy (Bytes): "; getline(cin, RAM_4);
+                                             }while(cin.fail() && RAM_4 != "' '");
+                                         update_query = "UPDATE `users_requests_` SET `Req_4` = '"+Req_4+"', `FM_4` = '"+FM_4+"', `RAM_4` = '"+RAM_4+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 10:
+                                          cin.ignore();
+                                          do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <NONR or ' '> to Add or Delete Non-Repudiation: "; getline(cin, Req_5);
+                                           }while((Req_5 != "NONR") && Req_5 != "' '");
+                                        do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "Enter new a value or ' ' to Modify or Delete available flash memory space for non-repudiation (Bytes): "; getline(cin, FM_5);
+                                            }while(cin.fail() && FM_5 != "' ' ");
+
+                                            do{
+                                                 system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+                                                 cout << endl << "  Enter new a value or ' ' to Modify or Delete RAM space for non-repudiation (Bytes): "; getline(cin, RAM_5);
+                                             }while(cin.fail() && RAM_5 != "' '");
+                                         update_query = "UPDATE `users_requests_` SET `Req_5` = '"+Req_5+"', `FM_5` = '"+FM_5+"', `RAM_5` = '"+RAM_5+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                    case 11:
+                                          cin.ignore();
+                                          do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "\tType <COAU or ' '> to Add or Delete Confidentiality & Authenticity: "; getline(cin, Req_6);
+                                           }while((Req_6 != "COAU") && Req_6 != "' '");
+                                        do{
+                                                system("cls");
+                                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                                cout << endl << "  Enter new a value or ' ' to Modify or Delete available flash memory space for confidentiality & authenticity (Bytes): "; getline(cin, FM_6);
+                                            }while(cin.fail() && FM_6 != "' ' ");
+
+                                            do{
+                                                 system("cls");
+                                                 std::cout<<"\n" "***********************************************************************************************************\n";
+                                                 cout << endl << "  Enter new a value or ' ' to Modify or Delete RAM space for confidentiality & authenticity (Bytes): "; getline(cin, RAM_6);
+                                             }while(cin.fail() && RAM_6 != "' '");
+                                         update_query = "UPDATE `users_requests_` SET `Req_6` = '"+Req_6+"', `FM_6` = '"+FM_6+"', `RAM_6` = '"+RAM_6+"' WHERE `Request_ID` = '"+Request_ID+"'";
+                                    break;
+                                     case 12:
+                                           system("cls");
+                                           std::cout<<"\n" "***********************************************************************************************************\n";
+                                           std::cout << endl << "\n\t\t\t Done!" << endl;
+                                            break;
+
+                                    default:
+                                            cout << "Please choose a correct number" << endl;
+                                }
+                                const char* qm = update_query.c_str();
+                                qstate = mysql_query(conn, qm);
+
+                                if(!qstate)
+                                {
+                                    cout << endl << "\t\t\t Database successfully updated." << endl;
+                                    cout << "\n\n\t\t\t Press Enter to return to the Admin Menu. ";
+                                }
+                                else
+                                {
+                                    cout << "\tQuery Execution Problem!" << mysql_errno(conn) << endl;
+                                }
+                        }while(choice != 12);
+                    }
+                    else
+                    {
+                        system("cls");
+                        std::cout<<"\n" "***********************************************************************************************************\n";
+                        std::cout << "\n\tPress Enter to return to the Main Menu. ";
+                        return;
+                    }
+            }
+            state == 0;
+
     }
 
-   // Function that modifies data
    void UserInput::showAndModifyUser_request()
 	{
         system("cls");
@@ -7300,17 +13240,45 @@ class UserInput
         }
 	}
 
-    //Function that a user uses to delete his/her request (for both software and hardware requests)
 	void UserInput::deleteRequest()
     {
-         system("cls");
+        Processing_and_Output po;
+        UserInput usrIp;
+
+        system("cls");
         std::cout << "\n***********************************************************************************************************\n";
         std::cout<<"\t\tDELETE REQUEST \n\n";
         cout << "\n\tEnter Request ID to delete your request: "; cin >> Request_ID;
 
-        Preliminary pre;
+            Preliminary pre;
 
-        pre.convert_lowerC_to_upperC(Request_ID);
+            pre.convert_lowerC_to_upperC(Request_ID);
+
+            int num_digits;
+            int string_length;
+            char first_letter;
+
+            auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+            num_digits = collector.n1;
+            string_length = collector.n2;
+            first_letter = collector.c;
+
+             while(num_digits !=4 || string_length != 5 || (first_letter != 'S' && first_letter != 'H'))
+            {
+                system("cls");
+                std::cout << "\n***********************************************************************************************************\n";
+                std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                std::cin >> Request_ID;
+
+                pre.convert_lowerC_to_upperC(Request_ID);
+
+                auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                num_digits = collector.n1;
+                string_length = collector.n2;
+                first_letter = collector.c;
+            }
 
        int implemtn_type = pre.determine_requestType(Request_ID);
 
@@ -7318,7 +13286,7 @@ class UserInput
         switch(implemtn_type)
         {
             case 1:
-                    { 
+                    {
                         string delete_query = "delete from users_requests_2 where Request_ID = '"+Request_ID+"'";
                         const char* qd = delete_query.c_str();
                         qstate = mysql_query(conn, qd);
@@ -7337,22 +13305,88 @@ class UserInput
                 break;
             case 2:
                     {
-                        string delete_query = "delete from users_requests where Request_ID = '"+Request_ID+"'";
-                        const char* qd = delete_query.c_str();
-                        qstate = mysql_query(conn, qd);
+                            level_:
+                            char ch;
+                            system("cls");
+                            std::cout<<"\n" "***********************************************************************************************************\n";
+                            std::cout << "\n\tWhat is the development phase of the IoT system, or it is an existing system? \n";
 
-                        if(!qstate)
-                        {
-                            system("cls");
-                            cout << "\n\tSuccessfully Deleted from Database! ";
-                        }
-                        else
-                        {
-                            system("cls");
-                            cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
-                        }
+                            std::cout<<"\n\t\t1. Conception, Planning, Analysis, Design";
+                            std::cout<<"\n\t\t2. Existing System ";
+                            std::cout<<"\n\n\tSelect Your Option (1-2): ";
+
+                            std::cin>>ch;
+
+                            switch(ch)
+                            {
+                            case '1':
+                                 {
+                                        system("cls");
+                                        std::cout << "\n" "***********************************************************************************************************\n";
+                                        std::cout<<"\n\t\tABOUT BE TO DESIGNED\n\n";
+                                        std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                        std::cin.ignore();
+
+                                        if(cin.get() == '\n')
+                                        {
+                                                string delete_query = "delete from users_requests where Request_ID = '"+Request_ID+"'";
+                                                const char* qd = delete_query.c_str();
+                                                qstate = mysql_query(conn, qd);
+
+                                                if(!qstate)
+                                                {
+                                                    system("cls");
+                                                    cout << "\n\tSuccessfully Deleted from Database! ";
+                                                }
+                                                else
+                                                {
+                                                    system("cls");
+                                                    cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
+                                                }
+                                        }
+                                        else
+                                        {
+                                            goto level_;
+                                        }
+                                        break;
+                                    }
+                            case '2':
+                                {
+                                        system("cls");
+                                        std::cout << "\n" "***********************************************************************************************************\n";
+                                        std::cout<<"\n\t\tEXISTING SYSTEM\n";
+                                        std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                        std::cin.ignore();
+
+                                        if(cin.get() == '\n')
+                                        {
+                                                string delete_query = "delete from users_requests_ where Request_ID = '"+Request_ID+"'";
+                                                const char* qd = delete_query.c_str();
+                                                qstate = mysql_query(conn, qd);
+
+                                                if(!qstate)
+                                                {
+                                                    system("cls");
+                                                    cout << "\n\tSuccessfully Deleted from Database! ";
+                                                }
+                                                else
+                                                {
+                                                    system("cls");
+                                                    cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
+                                                }
+                                        }
+                                        else
+                                        {
+                                            goto level_;
+                                        }
+                                        break;
+                                    }
+                            default:
+                                std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                            goto level_;
+                            }
+                    break;
                     }
-                break;
             default:
                 system("cls");
                  std::cout << "\n\n\n\n\n\n\n\n\n\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n\n";
@@ -7361,313 +13395,408 @@ class UserInput
         }
     }
 
-	//Function that an Admin user uses to shows all users and deletes a user request
 	void UserInput::showAndDeleteUser_Request()
 	{
 	     int choice;
+	     level:
 		 system("cls");
         std::cout<<"\n***********************************************************************************************************\n";
-                            std::cout<<"\n\tSHOW AND DELETE USERS REQUESTS\n";
-        std::cout << "\n\tSelect Implementation Type (Hardware or Software): \n";
+                            std::cout<<"\n\tDISPLAY LIGHTWEIGHT SECURITY ALGORITHM IMPLEMENTATION USER REQUEST IDs/DELETE A USER REQUEST\n";
 
-        std::cout<<"\n\t\t1. Hardware";
-        std::cout<<"\n\t\t2. Software";
-        std::cout<<"\n\t\t3. Return to Admin Menu";
-        std::cout<<"\n\n\tSelect Your Option (1-3): ";
+        std::cout << "\n\t\tSelect Implementation Type (Hardware or Software): \n";
+
+        std::cout<<"\n\t\t\t1. Hardware";
+        std::cout<<"\n\t\t\t2. Software (Yet to be Implemented)";
+        std::cout<<"\n\t\t\t3. Software (Existing Systems)";
+        std::cout<<"\n\t\t\t4. Return to Admin Menu";
+        std::cout<<"\n\n\t\tSelect Your Option (1-4): ";
         std::cin>> choice;
 
         switch(choice)
         {
             case 1:
                 {
-                        qstate = mysql_query(conn, "select * from users_requests_2");
-                        system("cls");
-                        cout << "         Showing all hardware implementation users requests .... " << endl << endl;
+                     system("cls");
+                    std::cout << "\n" "***********************************************************************************************************\n";
+                    std::cout<<"\n\t\tSHOW REQUEST IDs FOR ALL HARDWARE IMPLEMENTATION USERS\n\n";
+                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                    std::cin.ignore();
 
-                         res = mysql_use_result(conn);
+                    if(cin.get() == '\n')
+                    {
+                            qstate = mysql_query(conn, "select * from users_requests_2");
+                            system("cls");
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            cout << "         Showing Request IDs for all hardware implementation users.... " << endl << endl;
 
-                        cout << left << setw(9) << setfill('-') << left << '+'
-                        << setw(6) << setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << '+' << '+' << endl;
+                             res = mysql_use_result(conn);
 
-                        cout << setfill(' ') << '|' << left << setw(8) << "Rqst. ID"
-                        << setfill(' ') << '|' << setw(5) << "HW"
-                        << setfill(' ') << '|' << setw(8) << "Applc A"
-                        << setfill(' ') << '|' << setw(9) << "Pyl. S(B)"
-                        << setfill(' ') << '|' << setw(9) << "Energy "
-                        << setfill(' ') << '|' << setw(6) << "Req. 1"
-                        << setfill(' ') << '|' << setw(6) << "cct_a1"
-                        << setfill(' ') << '|' << setw(6) << "TP_1"
-                        << setfill(' ') << '|' << setw(6) << "Req. 2"
-                        << setfill(' ') << '|' << setw(6) << "cct_a2"
-                        << setfill(' ') << '|' << setw(6) << "TP_2"
-                        << setfill(' ') << '|' << setw(6) << "Req. 3"
-                        << setfill(' ') << '|' << setw(6) << "cct_a3"
-                        << setfill(' ') << '|' << setw(6) << "TP_3"
-                        << setfill(' ') << '|' << setw(6) << "Req. 4"
-                        << setfill(' ') << '|' << setw(6) << "cct_a4"
-                        << setfill(' ') << '|' << setw(6) << "TP_4"
-                        << setfill(' ') << '|' << setw(6) << "Req. 5"
-                        << setfill(' ') << '|' << setw(6) << "cct_a5"
-                        << setfill(' ') << '|' << setw(6) << "TP_5"
-                        << setfill(' ') << '|' << setw(6) << "Req. 6"
-                        << setfill(' ') << '|' << setw(6) << "cct_a6"
-                        << setfill(' ') << '|' << left << setw(6) << "TP_6"<< '|' << endl;
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
 
-                        cout << left << setw(9) << setfill('-') << left << '+'
-                        << setw(6) << setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << '+' << '+' << endl;
+                            cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << "Request ID" << '|'<< endl;
 
-                        if(!qstate)
-                        {
-                             while((row = mysql_fetch_row(res)))
-                             {
-                                    cout << setfill(' ') << '|' << left << setw(8) << row[0]
-                                    << setfill(' ') << '|' << setw(5) << row[1]
-                                    << setfill(' ') << '|' << setw(8) << row[2]
-                                    << setfill(' ') << '|' << setw(9) << row[3]
-                                    << setfill(' ') << '|' << setw(9) << row[4]
-                                    << setfill(' ') << '|' << setw(6) << row[5]
-                                    << setfill(' ') << '|' << setw(6) << row[6]
-                                    << setfill(' ') << '|' << setw(6) << row[7]
-                                    << setfill(' ') << '|' << setw(6) << row[8]
-                                    << setfill(' ') << '|' << setw(6) << row[9]
-                                    << setfill(' ') << '|' << setw(6) << row[10]
-                                    << setfill(' ') << '|' << setw(6) << row[11]
-                                    << setfill(' ') << '|' << setw(6) << row[12]
-                                    << setfill(' ') << '|' << setw(6) << row[13]
-                                    << setfill(' ') << '|' << setw(6) << row[14]
-                                    << setfill(' ') << '|' << setw(6) << row[15]
-                                    << setfill(' ') << '|' << setw(6) << row[16]
-                                    << setfill(' ') << '|' << setw(6) << row[17]
-                                    << setfill(' ') << '|' << setw(6) << row[18]
-                                    << setfill(' ') << '|' << setw(6) << row[19]
-                                    << setfill(' ') << '|' << setw(6) << row[20]
-                                    << setfill(' ') << '|' << setw(6) << row[21]
-                                    << setfill(' ') << '|' << left << setw(6) << row[22] << '|' << endl; //The left can be changed to right
-                             }
-                        }
-                        else
-                        {
-                            cout << "Query error!" << mysql_errno(conn) << endl;
-                        }
-                        cout << left << setw(9) << setfill('-') << left << '+'
-                        << setw(6) << setfill('-') << left << '+'
-                        << setw(9)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << left << '+'
-                        << setw(10)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << '+' << '+' << endl;
-                        mysql_free_result(res); //Frees the memory allocated for a result set by mysql_store_result().
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            if(!qstate)
+                            {
+                                 while((row = mysql_fetch_row(res)))
+                                 {
+                                        cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << row[0] << '|' << endl;
+                                 }
+                            }
+                            else
+                            {
+                                cout << "Query error!" << mysql_errno(conn) << endl;
+                            }
+                            cout << "\t\t"<< left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            mysql_free_result(res);
+
+                    }
+                    else
+                    {
+                        goto level;
+                    }
 
                         string Request_ID; char ch;
                         cout << "\n\tDo you want to delete any user request? (y/n): "; cin >> ch;
 
                         if(ch == 'y' || ch == 'Y')
                         {
-                            cout << "\n\tEnter the request ID of the user request you want to delete: "; cin >> Request_ID;
-
-                            string delete_query = "delete from users_requests_2 where Request_ID = '"+Request_ID+"'";
-                            const char* qd = delete_query.c_str();
-                            qstate = mysql_query(conn, qd);
-
-                            if(!qstate)
-                            {
                                 system("cls");
-                                cout << "\n\tSuccessfully Deleted from Database!" << endl;
-                            }
-                            else
-                            {
-                                system("cls");
-                                cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
-                            }
+                                std::cout << "\n" "***********************************************************************************************************\n";
+                                std::cout<<"\n\t\tDELETE  A HARDWARE IMPLEMENTATION USER REQUEST\n\n";
+                                std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                std::cin.ignore();
+
+                                if(cin.get() == '\n')
+                                {
+                                    system("cls");
+                                    std::cout<<"\n***********************************************************************************************************\n\n";
+                                    cout << "\n\tEnter the request ID of the user request you want to delete: "; cin >> Request_ID;
+
+                                    Preliminary pre;
+                                    UserInput usrIp;
+
+                                    pre.convert_lowerC_to_upperC(Request_ID);
+
+                                    int num_digits;
+                                    int string_length;
+                                    char first_letter;
+
+                                    auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                                    num_digits = collector.n1;
+                                    string_length = collector.n2;
+                                    first_letter = collector.c;
+
+                                    while(num_digits !=4 || string_length != 5 || first_letter != 'H')
+                                    {
+                                        system("cls");
+                                        std::cout << "\n***********************************************************************************************************\n";
+                                        std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                                        std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                                        std::cin >> Request_ID;
+
+                                        pre.convert_lowerC_to_upperC(Request_ID);
+
+                                        auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                                        num_digits = collector.n1;
+                                        string_length = collector.n2;
+                                        first_letter = collector.c;
+                                    }
+
+
+                                    string delete_query = "delete from users_requests_2 where Request_ID = '"+Request_ID+"'";
+                                    const char* qd = delete_query.c_str();
+                                    qstate = mysql_query(conn, qd);
+
+                                    if(!qstate)
+                                    {
+                                        system("cls");
+                                         std::cout<<"\n***********************************************************************************************************\n\n";
+                                        cout << "\n\t\tSuccessfully Deleted from Database!\n" << endl;
+                                        std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
+                                    }
+                                    else
+                                    {
+                                        system("cls");
+                                        cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
+                                    }
+                                }
+                                else
+                                {
+                                    goto level;
+                                }
                         }
                         else
                         {
+                            system("cls");
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
                             return;
                         }
+                    break;
                 }
-                break;
             case 2:
                 {
-                        qstate = mysql_query(conn, "select * from users_requests");
-                        system("cls");
-                        cout << "         Showing all software implementation users requests .... " << endl << endl;
+                     system("cls");
+                    std::cout << "\n" "***********************************************************************************************************\n";
+                    std::cout<<"\n\t\tSHOW REQUEST IDs FOR ALL SOFTWARE IMPLEMENTATION USERS (Yet to be Implemented)\n\n";
+                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                    std::cin.ignore();
 
-                         res = mysql_use_result(conn);
+                    if(cin.get() == '\n')
+                    {
+                            qstate = mysql_query(conn, "select * from users_requests");
+                            system("cls");
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            cout << "         Showing Request IDs for all software implementation users (Yet to be Implemented).... " << endl << endl;
 
-                        cout << left << setw(9) << setfill('-') << left << '+'
-                        << setw(9) << setfill('-') << left << '+'
-                        << setw(5)<< setfill('-') << left << '+'
-                        << setw(15)<< setfill('-') << left << '+'
-                        << setw(14)<< setfill('-') << left << '+'
-                        << setw(12)<< setfill('-') << left << '+'
-                        << setw(17)<< setfill('-') << left << '+'
-                        << setw(17)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << '+' << '+' << endl;
+                             res = mysql_use_result(conn);
 
-                        cout << setfill(' ') << '|' << left << setw(8) << "Rqst. ID"
-                        << setfill(' ') << '|' << setw(8) << "Hardware"
-                        << setfill(' ') << '|' << setw(4) << "CPU"
-                        << setfill(' ') << '|' << setw(14) << "Flash Size (B)"
-                        << setfill(' ') << '|' << setw(13) << "Ram Size (B)"
-                        << setfill(' ') << '|' << setw(11) << "Freq. (MHz)"
-                        << setfill(' ') << '|' << setw(16) << "Application Area"
-                        << setfill(' ') << '|' << setw(16) << "Payload Size (B)"
-                        << setfill(' ') << '|' << setw(6) << "Req. 1"
-                        << setfill(' ') << '|' << setw(6) << "Req. 2"
-                        << setfill(' ') << '|' << setw(6) << "Req. 3"
-                        << setfill(' ') << '|' << setw(6) << "Req. 4"
-                        << setfill(' ') << '|' << setw(6) << "Req. 5"
-                        << setfill(' ') << '|' << left << setw(6) << "Req. 6" << '|' << endl; 
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
 
-                         cout << left << setw(9) << setfill('-') << left << '+'
-                        << setw(9) << setfill('-') << left << '+'
-                        << setw(5)<< setfill('-') << left << '+'
-                        << setw(15)<< setfill('-') << left << '+'
-                        << setw(14)<< setfill('-') << left << '+'
-                        << setw(12)<< setfill('-') << left << '+'
-                        << setw(17)<< setfill('-') << left << '+'
-                        << setw(17)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << '+' << '+' << endl;
+                            cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << "Request ID" << '|'<< endl;
 
-                        if(!qstate)
-                        {
-                             while((row = mysql_fetch_row(res)))
-                             {
-                                  cout << setfill(' ') << '|' << left << setw(8) << row[0]
-                                    << setfill(' ') << '|' << setw(8) << row[1]
-                                    << setfill(' ') << '|' << setw(4) << row[2]
-                                    << setfill(' ') << '|' << setw(14) << row[3]
-                                    << setfill(' ') << '|' << setw(13) << row[4]
-                                    << setfill(' ') << '|' << setw(11) << row[5]
-                                    << setfill(' ') << '|' << setw(16) << row[6]
-                                    << setfill(' ') << '|' << setw(16) << row[7]
-                                    << setfill(' ') << '|' << setw(6) << row[8]
-                                    << setfill(' ') << '|' << setw(6) << row[9]
-                                    << setfill(' ') << '|' << setw(6) << row[10]
-                                    << setfill(' ') << '|' << setw(6) << row[11]
-                                    << setfill(' ') << '|' << setw(6) << row[12]
-                                    << setfill(' ') << '|' << left << setw(6) << row[13] << '|' << endl; //The left can be changed to right
-                             }
-                        }
-                        else
-                        {
-                            cout << "Query error!" << mysql_errno(conn) << endl;
-                        }
-                        cout << left << setw(9) << setfill('-') << left << '+'
-                        << setw(9) << setfill('-') << left << '+'
-                        << setw(5)<< setfill('-') << left << '+'
-                        << setw(15)<< setfill('-') << left << '+'
-                        << setw(14)<< setfill('-') << left << '+'
-                        << setw(12)<< setfill('-') << left << '+'
-                        << setw(17)<< setfill('-') << left << '+'
-                        << setw(17)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << left << '+'
-                        << setw(7)<< setfill('-') << '+' << '+' << endl;
-                        mysql_free_result(res); 
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            if(!qstate)
+                            {
+                                 while((row = mysql_fetch_row(res)))
+                                 {
+                                        cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << row[0] << '|' << endl;
+                                 }
+                            }
+                            else
+                            {
+                                cout << "Query error!" << mysql_errno(conn) << endl;
+                            }
+                            cout << "\t\t"<< left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            mysql_free_result(res);
+
+                    }
+                    else
+                    {
+                        goto level;
+                    }
 
                         string Request_ID; char ch;
                         cout << "\n\tDo you want to delete any user request? (y/n): "; cin >> ch;
 
                         if(ch == 'y' || ch == 'Y')
                         {
-                            cout << "\n\tEnter the request ID of the user request you want to delete: "; cin >> Request_ID;
-                            string delete_query = "delete from users_requests where Request_ID = '"+Request_ID+"'";
-                            const char* qd = delete_query.c_str();
-                            qstate = mysql_query(conn, qd);
+                                system("cls");
+                                std::cout << "\n" "***********************************************************************************************************\n";
+                                std::cout<<"\n\t\tDELETE  A SOFTWARE IMPLEMENTATION USER REQUEST\n\n";
+                                std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                std::cin.ignore();
 
-                            if(!qstate)
-                            {
-                                system("cls");
-                                cout << "\n\tSuccessfully Deleted from Database!" << endl;
-                            }
-                            else
-                            {
-                                system("cls");
-                                cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
-                            }
+                                if(cin.get() == '\n')
+                                {
+                                    system("cls");
+                                    std::cout<<"\n***********************************************************************************************************\n\n";
+                                    cout << "\n\tEnter the request ID of the user request you want to delete: "; cin >> Request_ID;
+
+                                    Preliminary pre;
+                                    UserInput usrIp;
+
+                                    pre.convert_lowerC_to_upperC(Request_ID);
+
+                                    int num_digits;
+                                    int string_length;
+                                    char first_letter;
+
+                                    auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                                    num_digits = collector.n1;
+                                    string_length = collector.n2;
+                                    first_letter = collector.c;
+
+                                    while(num_digits !=4 || string_length != 5 || first_letter != 'S')
+                                    {
+                                        system("cls");
+                                        std::cout << "\n***********************************************************************************************************\n";
+                                        std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                                        std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                                        std::cin >> Request_ID;
+
+                                        pre.convert_lowerC_to_upperC(Request_ID);
+
+                                        auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                                        num_digits = collector.n1;
+                                        string_length = collector.n2;
+                                        first_letter = collector.c;
+                                    }
+
+                                    string delete_query = "delete from users_requests where Request_ID = '"+Request_ID+"'";
+                                    const char* qd = delete_query.c_str();
+                                    qstate = mysql_query(conn, qd);
+
+                                    if(!qstate)
+                                    {
+                                        system("cls");
+                                         std::cout<<"\n***********************************************************************************************************\n\n";
+                                        cout << "\n\t\tSuccessfully Deleted from Database!\n" << endl;
+                                        std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
+                                    }
+                                    else
+                                    {
+                                        system("cls");
+                                        cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
+                                    }
+                                }
+                                else
+                                {
+                                    goto level;
+                                }
                         }
                         else
                         {
+                            system("cls");
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
                             return;
                         }
+                    break;
                 }
-                break;
+             case 3:
+                {
+                     system("cls");
+                    std::cout << "\n" "***********************************************************************************************************\n";
+                    std::cout<<"\n\t\tSHOW REQUEST IDs FOR ALL SOFTWARE IMPLEMENTATION USERS (Existing Systems)\n\n";
+                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                    std::cin.ignore();
 
-            case 3:
+                    if(cin.get() == '\n')
+                    {
+                            qstate = mysql_query(conn, "select * from users_requests_");
+                            system("cls");
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            cout << "         Showing Request IDs for all software implementation users (Existing Systems).... " << endl << endl;
+
+                             res = mysql_use_result(conn);
+
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << "Request ID" << '|'<< endl;
+
+                            cout << "\t\t" << left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            if(!qstate)
+                            {
+                                 while((row = mysql_fetch_row(res)))
+                                 {
+                                        cout << "\t\t" << setfill(' ') << '|' << left << setw(10) << row[0] << '|' << endl;
+                                 }
+                            }
+                            else
+                            {
+                                cout << "Query error!" << mysql_errno(conn) << endl;
+                            }
+                            cout << "\t\t"<< left << setw(11) << setfill('-') << left << '+'
+                            << setw(1) << left << '+' << endl;
+
+                            mysql_free_result(res);
+
+                    }
+                    else
+                    {
+                        goto level;
+                    }
+
+                        string Request_ID; char ch;
+                        cout << "\n\tDo you want to delete any user request? (y/n): "; cin >> ch;
+
+                        if(ch == 'y' || ch == 'Y')
+                        {
+                                system("cls");
+                                std::cout << "\n" "***********************************************************************************************************\n";
+                                std::cout<<"\n\t\tDELETE  A SOFTWARE IMPLEMENTATION USER REQUEST\n\n";
+                                std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                std::cin.ignore();
+
+                                if(cin.get() == '\n')
+                                {
+                                    system("cls");
+                                    std::cout<<"\n***********************************************************************************************************\n\n";
+                                    cout << "\n\tEnter the request ID of the user request you want to delete: "; cin >> Request_ID;
+
+                                    Preliminary pre;
+                                    UserInput usrIp;
+
+                                    pre.convert_lowerC_to_upperC(Request_ID);
+
+                                    int num_digits;
+                                    int string_length;
+                                    char first_letter;
+
+                                    auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                                    num_digits = collector.n1;
+                                    string_length = collector.n2;
+                                    first_letter = collector.c;
+
+                                    while(num_digits !=4 || string_length != 5 || first_letter != 'S')
+                                    {
+                                        system("cls");
+                                        std::cout << "\n***********************************************************************************************************\n";
+                                        std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                                        std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                                        std::cin >> Request_ID;
+
+                                        pre.convert_lowerC_to_upperC(Request_ID);
+
+                                        auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                                        num_digits = collector.n1;
+                                        string_length = collector.n2;
+                                        first_letter = collector.c;
+                                    }
+
+                                    string delete_query = "delete from users_requests_ where Request_ID = '"+Request_ID+"'";
+                                    const char* qd = delete_query.c_str();
+                                    qstate = mysql_query(conn, qd);
+
+                                    if(!qstate)
+                                    {
+                                        system("cls");
+                                         std::cout<<"\n***********************************************************************************************************\n\n";
+                                        cout << "\n\t\tSuccessfully Deleted from Database!\n" << endl;
+                                        std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
+                                    }
+                                    else
+                                    {
+                                        system("cls");
+                                        cout << "\n\tFailed to Delete!" << mysql_errno(conn) << endl;
+                                    }
+                                }
+                                else
+                                {
+                                    goto level;
+                                }
+                        }
+                        else
+                        {
+                            system("cls");
+                            std::cout<<"\n***********************************************************************************************************\n\n";
+                            std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
+                            return;
+                        }
+                    break;
+                }
+            case 4:
                 system("cls");
-                 std::cout << "\n\t\t\tExiting -----\n";
+                 std::cout << "\n" "***********************************************************************************************************\n";
+                std::cout << endl << endl;
                  std::cout << "\n\tPress Enter again to return to Admin Menu.";
                 return;
 
@@ -7678,12 +13807,11 @@ class UserInput
         }
 	}
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 class Cipher
 {
 	public:
 	string ID, cipher_name, block_size, key_size, ramFootPrint, code_size;
+
 	void upLoadCipher();
 	void updateCipher();
 	void retrieveCipher();
@@ -7741,28 +13869,28 @@ class Cipher
                 {
                     case 1:
                             cin.ignore();
-                            cout << "\tEnter Cipher Name: "; //cin >> cipher_name;
+                            cout << "\tEnter Cipher Name: ";
                             getline(cin, cipher_name);
                         update_query = "UPDATE `crypto_algor` SET `cipher_name` = '"+cipher_name+"' WHERE `ID` = '"+ID+"'";
                     break;
                      case 2:
                             cin.ignore();
-                            cout << "\tEnter Block Size: "; getline(cin, block_size);// cin >> block_size;
+                            cout << "\tEnter Block Size: "; getline(cin, block_size);
                         update_query = "UPDATE `crypto_algor` SET `block_size` = '"+block_size+"' WHERE `ID` = '"+ID+"'";
                     break;
                     case 3:
                             cin.ignore();
-                            cout << "\tEnter Key Size: "; getline(cin, key_size);// cin >> key_size;//
+                            cout << "\tEnter Key Size: "; getline(cin, key_size);
                         update_query = "UPDATE `crypto_algor` SET `key_size` = '"+key_size+"' WHERE `ID` = '"+ID+"'";
                     break;
                      case 4:
                             cin.ignore();
-                            cout << "\tEnter Ram Foot Print: "; getline(cin, ramFootPrint);//cin >> ramFootPrint;//
+                            cout << "\tEnter Ram Foot Print: "; getline(cin, ramFootPrint);
                         update_query = "UPDATE `crypto_algor` SET `ramFootPrint` = '"+ramFootPrint+"' WHERE `ID` = '"+ID+"'";
                     break;
                     case 5:
                             cin.ignore();
-                            cout << "\tEnter Code Size: "; getline(cin, code_size);//cin >> ramFootPrint;//
+                            cout << "\tEnter Code Size: "; getline(cin, code_size);
                         update_query = "UPDATE `crypto_algor` SET `code_size` = '"+code_size+"' WHERE `ID` = '"+ID+"'";
                     break;
                      case 6:
@@ -7822,6 +13950,7 @@ class Cipher
         const char* qd = delete_query.c_str();
         qstate = mysql_query(conn, qd);
 
+
         if(!qstate)
         {
             cout << "\n\tSuccessfully Deleted from Database. " << endl;
@@ -7873,7 +14002,7 @@ class Cipher
                     << setfill(' ') << '|' << setw(10) << row[2]
                     << setfill(' ') << '|' << setw(8) << row[3]
                     << setfill(' ') << '|' << setw(13) << row[4]
-                    << setfill(' ') << '|' << left << setw(13) << row[5] << '|' << endl;//The left can be changed to right
+                    << setfill(' ') << '|' << left << setw(13) << row[5] << '|' << endl;
                  }
 		}
 		else
@@ -7886,7 +14015,7 @@ class Cipher
                 << setw(9)<< setfill('-') << left << '+'
                 << setw(14)<< setfill('-') << left << '+'
                 << setw(14)<< setfill('-') << '+' << '+' << endl;
-		mysql_free_result(res); 
+		mysql_free_result(res);
 
       do{
             cout << "\n\tWhat do you want to do?" << endl;
@@ -7920,29 +14049,29 @@ class Cipher
         }while(choose != 4);
     }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 class SecurityMngr
 {
 	public:
 	string ID, label, reqmnt;
 	string M_ID, mechanism;
 
-	void decisionMaker_RE(); //Function that makes decisions on the requirements elicitation
+
+	void decisionMaker_RE();
+	void decisionMaker_BP();
 	void upLoadSecurity_Req();
 	void retrieveSecurity_Req();
 	void deleteSecurity_Req();
-	void show_add_or_deleteSecurity_Req(); // show_add_or_deleteSecurity_Req();
+	void show_add_or_deleteSecurity_Req();
 	void upLoadSecurity_Mech();
 	void retrieveSecurity_Mech();
 	void deleteSecurity_Mech();
 	void show_add_or_deleteSecurity_Mech();
-	void decisionMaker();//Function that makes decisions on the selection of software and hardware security algorithms
+	void decisionMaker();
+
 
 	friend class LoginManager;
 };
 
-    //Function that makes decisions on the requirements elicitation
     void SecurityMngr::decisionMaker_RE()
     {
              Processing_and_Output po;
@@ -7983,6 +14112,8 @@ class SecurityMngr
                 string_length = collector.n2;
                 first_letter = collector.c;
             }
+
+                po.write_security_requirements_in_textFile(Reqst_ID);
 
                         system("cls");
                         string findbyID_query = "select * from users_requests_re where Reqst_ID = " + ("'"+Reqst_ID+"'");
@@ -8026,7 +14157,7 @@ class SecurityMngr
 
                 int domainSensitivity = po.checkSensitivity_of_User_ApplcArea(Domain);
 
-                string flag1 = "1", flag2 = "1", flag3 = "1", flag4 = "1", flag5 = "1", flag6 = "1", flag7 = "1", flag8 = "1", flag9 = "", flag10 = "1", flag11 = "1", flag12 = "1", flag13 = "1", flag14 = "1", flag15 = "1", flag16 = "1", flag17 = "1", flag18 = "1", flag19 = "1", flag20 = "1";
+                string flag1 = "1", flag1_1 = "1", flag2 = "1", flag3 = "1", flag4 = "1", flag5 = "1", flag6 = "1", flag7 = "1", flag8 = "1", flag9 = "", flag10 = "1", flag11 = "1", flag12 = "1", flag13 = "1", flag14 = "1", flag15 = "1", flag16 = "1", flag17 = "1", flag18 = "1", flag19 = "1", flag20 = "1";
                 string flag21 = "1", flag22 = "1", flag23 = "1", flag24 = "1", flag25 = "1", flag26 = "1", flag27 = "1", flag28 = "1", flag29 = "1", flag30 = "1", flag6_, flag_6;
                 string flag31 = "1", flag32 = "1", flag33 = "1", flag34 = "1", flag35 = "1", flag36 = "1", flag37 = "1", flag38 = "1", flag39 = "1", flag40 = "1", flag41 = "1", flag42 = "1", flag43 = "1", flag44 = "1";
                 string Reqmt_1, Reqmt_2, Reqmt_3, Reqmt_4, Reqmt_5, Reqmt_6, Reqmt_7, Reqmt_8, Reqmt_9, Reqmt_10, Reqmt_11, Reqmt_12, Reqmt_13, Reqmt_14, Reqmt_15;
@@ -8035,7 +14166,7 @@ class SecurityMngr
                 << setw(84) << setfill('-') << '+' << '+' << endl;
 
                 cout << setfill(' ') << '|' << left << setw(20) << "SECURITY REQUIREMENT"
-                << setfill(' ') << '|' << left << setw(83) << "                                   DESCRIPTION" << '|' << endl; //The left can be changed to right
+                << setfill(' ') << '|' << left << setw(83) << "DESCRIPTION" << '|' << endl;
 
                  cout << left << setw(21) << setfill('-') << left<< '+'
                  << setw(84) << setfill('-') << '+' << '+' << endl;
@@ -8056,7 +14187,7 @@ class SecurityMngr
                  {
                     flag2 = "2";
                     cout << setfill(' ') << '|' << left << setw(20) << "Privacy"
-                    << setfill(' ') << '|' << left << setw(83) << "Refers to users control over the disclosure of their personal information, menani- " << '|' << endl;
+                    << setfill(' ') << '|' << left << setw(83) << "Refers to users control over the disclosure of their personal information, meani- " << '|' << endl;
                     cout << setfill(' ') << '|' << left << setw(20) << " "
                     << setfill(' ') << '|' << left << setw(83) << "ng that only the users should decide whether they want to share their data or not." << '|' << endl;
 
@@ -8116,9 +14247,9 @@ class SecurityMngr
                  {
                      flag6_ = "2";
                     cout << setfill(' ') << '|' << left << setw(20) << "Integrity"
-                    << setfill(' ') << '|' << left << setw(83) << "Is the property of safeguarding the correctness and completeness of data in an IoT " << '|' << endl;
+                    << setfill(' ') << '|' << left << setw(83) << "Is the property of safeguarding the correctness, consistency, and trustworthiness " << '|' << endl;
                     cout << setfill(' ') << '|' << left << setw(20) << " "
-                    << setfill(' ') << '|' << left << setw(83) << "system." << '|' << endl;
+                    << setfill(' ') << '|' << left << setw(83) << "of data over its entire life cycle in an IoT system." << '|' << endl;
 
                     cout << left << setw(21) << setfill('-') << left<< '+'
                     << setw(84) << setfill('-') << '+' << '+' << endl;
@@ -8130,7 +14261,7 @@ class SecurityMngr
                     cout << setfill(' ') << '|' << left << setw(20) << "Availability"
                     << setfill(' ') << '|' << left << setw(83) << "Refers to the property which ensures that an IoT device or system is accessible and" << '|' << endl;
                     cout << setfill(' ') << '|' << left << setw(20) << " "
-                    << setfill(' ') << '|' << left << setw(83) << " usable upon demand by authorized entities." << '|' << endl;
+                    << setfill(' ') << '|' << left << setw(83) << "usable upon demand by authorized entities." << '|' << endl;
 
                     cout << left << setw(21) << setfill('-') << left<< '+'
                     << setw(84) << setfill('-') << '+' << '+' << endl;
@@ -8195,7 +14326,7 @@ class SecurityMngr
                  }
                  if(InfoType == "Sensitive" && flag1 != "2")
                  {
-                    flag1 = "2";
+                    flag11 = "2";
                     cout << setfill(' ') << '|' << left << setw(20) << "Authentication"
                     << setfill(' ') << '|' << left << setw(83) << "This is the assurance that information transaction is from the source it claims to" << '|' << endl;
                     cout << setfill(' ') << '|' << left << setw(20) << " "
@@ -8362,10 +14493,11 @@ class SecurityMngr
                  if(dataSent2Cloud == "Yes" && flag6_ != "2")
                  {
                      flag25 = "2";
-                    cout << setfill(' ') << '|' << left << setw(20) << "Integrity"
-                    << setfill(' ') << '|' << left << setw(83) << "Is the property of safeguarding the correctness and completeness of data in an IoT " << '|' << endl;
+                     cout << setfill(' ') << '|' << left << setw(20) << "Integrity"
+                    << setfill(' ') << '|' << left << setw(83) << "Is the property of safeguarding the correctness, consistency, and trustworthiness " << '|' << endl;
                     cout << setfill(' ') << '|' << left << setw(20) << " "
-                    << setfill(' ') << '|' << left << setw(83) << "system." << '|' << endl;
+                    << setfill(' ') << '|' << left << setw(83) << "of data over its entire life cycle in an IoT system." << '|' << endl;
+
 
                     cout << left << setw(21) << setfill('-') << left<< '+'
                     << setw(84) << setfill('-') << '+' << '+' << endl;
@@ -8432,10 +14564,11 @@ class SecurityMngr
                  if(dataStoredInDb == "Yes" && flag6_ != "2" && flag25 != "2")
                  {
                      flag31 = "2";
-                    cout << setfill(' ') << '|' << left << setw(20) << "Integrity"
-                    << setfill(' ') << '|' << left << setw(83) << "Is the property of safeguarding the correctness and completeness of data in an IoT " << '|' << endl;
+                     cout << setfill(' ') << '|' << left << setw(20) << "Integrity"
+                    << setfill(' ') << '|' << left << setw(83) << "Is the property of safeguarding the correctness, consistency, and trustworthiness " << '|' << endl;
                     cout << setfill(' ') << '|' << left << setw(20) << " "
-                    << setfill(' ') << '|' << left << setw(83) << "system." << '|' << endl;
+                    << setfill(' ') << '|' << left << setw(83) << "of data over its entire life cycle in an IoT system." << '|' << endl;
+
 
                     cout << left << setw(21) << setfill('-') << left<< '+'
                     << setw(84) << setfill('-') << '+' << '+' << endl;
@@ -8447,7 +14580,7 @@ class SecurityMngr
                     cout << setfill(' ') << '|' << left << setw(20) << "Availability"
                     << setfill(' ') << '|' << left << setw(83) << "Refers to the property which ensures that an IoT device or system is accessible and" << '|' << endl;
                     cout << setfill(' ') << '|' << left << setw(20) << " "
-                    << setfill(' ') << '|' << left << setw(83) << " usable upon demand by authorized entities." << '|' << endl;
+                    << setfill(' ') << '|' << left << setw(83) << "usable upon demand by authorized entities." << '|' << endl;
 
                     cout << left << setw(21) << setfill('-') << left<< '+'
                     << setw(84) << setfill('-') << '+' << '+' << endl;
@@ -8495,13 +14628,23 @@ class SecurityMngr
                     cout << setfill(' ') << '|' << left << setw(20) << "Availability"
                     << setfill(' ') << '|' << left << setw(83) << "Refers to the property which ensures that an IoT device or system is accessible and" << '|' << endl;
                     cout << setfill(' ') << '|' << left << setw(20) << " "
-                    << setfill(' ') << '|' << left << setw(83) << " usable upon demand by authorized entities." << '|' << endl;
+                    << setfill(' ') << '|' << left << setw(83) << "usable upon demand by authorized entities." << '|' << endl;
 
                     cout << left << setw(21) << setfill('-') << left<< '+'
                     << setw(84) << setfill('-') << '+' << '+' << endl;
                     Reqmt_6 = "AVAI";
                  }
+                 if(use3rdPrtySfw == "Yes")
+                 {
+                    cout << setfill(' ') << '|' << left << setw(20) << "Counterfeit "
+                    << setfill(' ') << '|' << left << setw(83) << "Is the property that ensures effective validation of software such that any fake " << '|' << endl;
+                    cout << setfill(' ') << '|' << left << setw(20) << "Resistance "
+                    << setfill(' ') << '|' << left << setw(83) << "or maliciously modified software is rejected." << '|' << endl;
 
+                    cout << left << setw(21) << setfill('-') << left<< '+'
+                    << setw(84) << setfill('-') << '+' << '+' << endl;
+                    Reqmt_14 = "CNFR";
+                 }
                  if(use3rdPrtySfw == "Yes" && flag21 != "2")
                  {
                     flag37 = "2";
@@ -8527,18 +14670,20 @@ class SecurityMngr
                     << setw(84) << setfill('-') << '+' << '+' << endl;
                     Reqmt_8 = "AUTR";
                  }
-                 if(capt_Resent == "Yes" && (infoSent2E == "Yes" || dataSent2Cloud == "Yes" || dataStoredInDb == "Yes"))
+
+                  if(capt_Resent == "Yes" && (infoSent2E == "Yes" || dataSent2Cloud == "Yes" || dataStoredInDb == "Yes") && flag1 != "2" && flag11 != "2" && flag18 != "2" && flag20 != "2" && flag34 != "2")
                  {
                     flag40 = "2";
-                    cout << setfill(' ') << '|' << left << setw(20) << "Data Origin"
-                    << setfill(' ') << '|' << left << setw(83) << "Ensures that the data received came from the source it claimed to be." << '|' << endl;
-                     cout << setfill(' ') << '|' << left << setw(20) << "Authentication"
-                    << setfill(' ') << '|' << left << setw(83) << " " << '|' << endl;
+                    cout << setfill(' ') << '|' << left << setw(20) << "Authentication"
+                    << setfill(' ') << '|' << left << setw(83) << "This is the assurance that information transaction is from the source it claims to" << '|' << endl;
+                     cout << setfill(' ') << '|' << left << setw(20) << " "
+                    << setfill(' ') << '|' << left << setw(83) << "be from." << '|' << endl;
 
                     cout << left << setw(21) << setfill('-') << left<< '+'
                     << setw(84) << setfill('-') << '+' << '+' << endl;
-                    Reqmt_14 = "DOAU";
+                    Reqmt_3 = "AUTH";
                  }
+
                  if(capt_Resent == "Yes" && flag27 != "2" && (infoSent2E == "Yes" || dataSent2Cloud == "Yes" || dataStoredInDb == "Yes"))
                  {
                     flag41 = "2";
@@ -8550,7 +14695,7 @@ class SecurityMngr
                     Reqmt_13 = "DAFR";
                   }
 
-                 if(impersontUsr == "Yes" && Login == "Yes" && flag1 != "2" && flag11 != "2" && flag18 != "2" && flag20 != "2" && flag34 != "2")
+                 if(impersontUsr == "Yes" && Login == "Yes" && flag1 != "2" && flag11 != "2" && flag18 != "2" && flag20 != "2" && flag34 != "2" && flag40 != "2")
                    {
                     flag42 = "2";
                     cout << setfill(' ') << '|' << left << setw(20) << "Authentication"
@@ -8602,6 +14747,434 @@ class SecurityMngr
                     {
 
                     }
+
+                    cout << "\n\n\t\tPress Enter to turn to the Main Menu" << endl;
+    }
+
+    void SecurityMngr::decisionMaker_BP()
+    {
+             Processing_and_Output po;
+             UserInput usrIp;
+
+            string Request_ID;
+            system("cls");
+            std::cout << "\n***********************************************************************************************************\n";
+            std::cout<<"\t\tBEST PRACTICE GUIDE FOR SECURE DEVELOPMENT REQUEST PROCESSING\n\n";
+            cout << "\tPlease enter your Request ID: "; cin >> Request_ID;
+
+            Preliminary pre;
+
+            pre.convert_lowerC_to_upperC(Request_ID);
+
+            int num_digits;
+            int string_length;
+            char first_letter;
+
+            auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+            num_digits = collector.n1;
+            string_length = collector.n2;
+            first_letter = collector.c;
+
+             while(num_digits !=4 || string_length != 5 || first_letter != 'B')
+            {
+                system("cls");
+                std::cout << "\n***********************************************************************************************************\n";
+                std::cout << "\n\t\t\t  ERROR! YOU HAVE ENTERED AN INVALID REQUEST ID.\n\n";
+
+                std::cout << "\n\t\t\t\tPlease enter a valid request ID: ";
+                std::cin >> Request_ID;
+
+                pre.convert_lowerC_to_upperC(Request_ID);
+
+                auto collector = usrIp.countDigits_lengthOfString_firstCharacter(Request_ID);
+                num_digits = collector.n1;
+                string_length = collector.n2;
+                first_letter = collector.c;
+            }
+
+
+            string findbyID_query = "select * from users_requests_bp where Request_ID = " + ("'"+Request_ID+"'");
+            const char* qn = findbyID_query.c_str();
+            qstate = mysql_query(conn, qn);
+
+            string Status, Struct1, Struct2, Struct3, Struct4, Struct5, Struct6, Struct7, Struct8, Struct9, Struct10, Struct11, anyUsr, usrRegist, typeOfRegist, anyUsrLogin, usrInput, holdUsrInfo, storeAnyInfo, sensitivOfInfo, typeOfAUTH, useDb;
+            string typeOfDataStorg, typeOfDb, progrm1, progrm2, progrm3, progrm4, progrm5, progrm6, progrm7, progrm8, fileUpload, sysLog;
+
+            if(!qstate)
+            {
+                res = mysql_store_result(conn);
+                while((row = mysql_fetch_row(res)))
+                {
+                    Status = row[1];
+                    Struct1 = row[2];
+                    Struct2 = row[3];
+                    Struct3 = row[4];
+                    Struct4 = row[5];
+                    Struct5 = row[6];
+                    Struct6 = row[7];
+                    Struct7 = row[8];
+                    Struct8 = row[9];
+                    Struct9 = row[10];
+                    Struct10 = row[11];
+                    Struct11 = row[12];
+                    anyUsr = row[13];
+                    usrRegist = row[14];
+                    typeOfRegist = row[15];
+                    anyUsrLogin = row[16];
+                    usrInput = row[17];
+                    holdUsrInfo = row[18];
+                    storeAnyInfo = row[19];
+                    sensitivOfInfo = row[20];
+                    typeOfAUTH = row[21];
+                    useDb = row[22];
+                    typeOfDataStorg = row[23];
+                    typeOfDb = row[24];
+                    progrm1 = row[25];
+                    progrm2 = row[26];
+                    progrm3 = row[27];
+                    progrm4 = row[28];
+                    progrm5 = row[29];
+                    progrm6 = row[30];
+                    progrm7 = row[31];
+                    progrm8 = row[32];
+                    fileUpload = row[33];
+                    sysLog = row[34];
+                }
+            }
+            else
+            {
+                cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+            }
+
+
+            system("cls");
+            std::cout << "\n***********************************************************************************************************\n";
+            std::cout<<"\t\tTHE QUESTIONS AND ANSWERS PROVIDE BY THE USER WITH REQUEST ID No.: " << Request_ID << endl << endl;
+
+                string findbyRequestID_query = "select * from users_requests_bp where Request_ID like '%"+Request_ID+"%'";
+                const char* qr = findbyRequestID_query.c_str();
+                qstate = mysql_query(conn, qr);
+                int flag_1 = 0;
+
+                if(!qstate)
+                {
+                    res = mysql_store_result(conn);
+                    while((row = mysql_fetch_row(res)))
+                    {
+                        string Stat = Status;
+                        anyUsr= row[13];
+                        usrRegist = row[14];
+                        holdUsrInfo = row[18];
+                        storeAnyInfo = row[19];
+                        useDb = row[22];
+                        Struct1 = row[2]; Struct2 = row[3]; Struct3 = row[4]; Struct4 = row[5]; Struct5 = row[6]; Struct6 = row[7];
+                        Struct7 = row[8]; Struct8 = row[9]; Struct9 = row[10]; Struct10 = row[11]; Struct11 = row[12];
+                        progrm1 = row[25]; progrm2 = row[26]; progrm3 = row[27]; progrm4 = row[28]; progrm5 = row[29]; progrm6 = row[30]; progrm7 = row[31]; progrm8 = row[32];
+
+                        std::cout << "\t\tWhat's the category of your IoT System Structure? (you can choose multiple options) " << endl;
+				if(!Struct1.empty())
+                {
+                    cout << "\t\t  - " << row[2] << endl;
+                }
+                if(!Struct2.empty())
+                {
+                    cout << "\t\t  - " << row[3] << endl;
+                }
+                if(!Struct3.empty())
+                {
+                    cout << "\t\t  - " << row[4] << endl;
+                }
+                if(!Struct4.empty())
+                {
+                    cout << "\t\t  - " << row[5] << endl;
+                }
+                if(!Struct5.empty())
+                {
+                    cout << "\t\t  - " << row[6] << endl;
+                }
+                if(!Struct6.empty())
+                {
+                    cout << "\t\t  - " << row[7] << endl;
+                }
+                if(!Struct7.empty())
+                {
+                    cout << "\t\t  - " << row[8] << endl;
+                }
+                if(!Struct8.empty())
+                {
+                    cout << "\t\t  - " << row[9] << endl;
+                }
+                if(!Struct9.empty())
+                {
+                    cout << "\t\t  - " << row[10] << endl;
+                }
+                if(!Struct10.empty())
+                {
+                    cout << "\t\t  - " << row[11] << endl;
+                }
+                if(!Struct11.empty())
+                {
+                    cout << "\t\t  - " << row[12] << endl;
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tDoes the system have a user? - " << row[13] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWill the system have a user? - " << row[13] << endl;
+                }
+				if(anyUsr == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                        std::cout << "\t\tDoes the system have a provision for user registration? - " << row[14] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system have any provision for user registration? - " << row[14] << endl;
+                    }
+                }
+
+                if(usrRegist == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                        std::cout << "\t\tWho registers users? - " << row[15] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWho will register users? - " << row[15] << endl;
+                    }
+                }
+                if(anyUsr == "Yes" && usrRegist == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                        std::cout << "\t\tDoes the system have a user LogIn? - " << row[16] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system have a user LogIn? - " << row[16] << endl;
+                    }
+                }
+                if(anyUsr == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tDoes the system allow users to enter any input? - " << row[17] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system allow users to enter any input? - " << row[17] << endl;
+                    }
+                }
+                if(anyUsr == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tDoes the system store user information? - " << row[18] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system store any user information? - " << row[18] << endl;
+                    }
+                }
+                if(holdUsrInfo == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         flag_1 = 1;
+                         std::cout << "\t\tDoes the system store any other information? - " << row[19] << endl;
+                    }
+                    else
+                    {
+                        flag_1 = 1;
+                        std::cout << "\t\tWill the system store any other information? - " << row[19] << endl;
+                    }
+                }
+                if(holdUsrInfo != "Yes" && flag_1 != 1)
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tDoes the system store any kind of information? - " << row[19] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWill the system store any kind of information? - " << row[19] << endl;
+                    }
+                }
+                if(holdUsrInfo == "Yes" || storeAnyInfo == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tWhat type of information does the system store? - " << row[20] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWhat type of information will the system store? - " << row[20] << endl;
+                    }
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tWhat type of authentication is implemented in the system? - " << row[21] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWhat type of authentication will be implemented in the system? - " << row[21] << endl;
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tDoes it store data in a database? - " << row[22] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWill it store data in a database? - " << row[22] << endl;
+                }
+                if(useDb == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tWhat is the type of data storage? - " << row[23] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWhat will be the type of data storage? - " << row[23] << endl;
+                    }
+                }
+                if(useDb == "Yes")
+                {
+                    if(Stat == "Exist")
+                    {
+                         std::cout << "\t\tWhat type of database is used? - " << row[24] << endl;
+                    }
+                    else
+                    {
+                        std::cout << "\t\tWhat type of database will be used? - " << row[24] << endl;
+                    }
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tWhat's the programming language used? (you can choose multiple options) \n";
+                }
+                else
+                {
+                    std::cout << "\t\tWhat programming language will be used? (you can choose multiple options) \n";
+                }
+				if(!progrm1.empty())
+                {
+                    cout << "\t\t  - " << row[25] << endl;
+                }
+                if(!progrm2.empty())
+                {
+                    cout << "\t\t  - " << row[26] << endl;
+                }
+                if(!progrm3.empty())
+                {
+                    cout << "\t\t  - " << row[27] << endl;
+                }
+                if(!progrm4.empty())
+                {
+                    cout << "\t\t  - " << row[28] << endl;
+                }
+                if(!progrm5.empty())
+                {
+                    cout << "\t\t  - " << row[29] << endl;
+                }
+                if(!progrm6.empty())
+                {
+                    cout << "\t\t  - " << row[30] << endl;
+                }
+                if(!progrm7.empty())
+                {
+                    cout << "\t\t  - " << row[31] << endl;
+                }
+                if(!progrm8.empty())
+                {
+                    cout << "\t\t  - " << row[32] << endl;
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tDoes it allow file uploads? - " << row[33] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWill it allow file uploads? - " << row[33] << endl;
+                }
+                if(Stat == "Exist")
+                {
+                    std::cout << "\t\tDoes the system generate a log file? - " << row[34] << endl;
+                }
+                else
+                {
+                    std::cout << "\t\tWill the system generate a log file? - " << row[34] << endl;
+                }
+			}
+		}
+		else
+		{
+			cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+		}
+
+         std::cout << endl << endl;
+
+         std::cout<<"\t\tA BEST PRACTICE GUIDE FOR SECURE DEVELOPMENET OF IoT SYSTEMS IS BEING PREPARED  " << endl << endl;
+
+         std::cout << "\n\n\n\n\t\t\t\t\t- - - - - - - - - -" <<endl ;
+
+            fstream file;
+            file.open("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\The_Tittle.md", ios::out | ios::trunc);
+            if(file.is_open())
+            {
+                    file << "# The Best Practice Guidelines for Secure Development of IoT Systems for the User with Request ID Number: " << Request_ID << endl << endl;
+					file.close();
+             }
+             else
+             {
+                cout <<"\n\tFile failed to open!" << endl;
+             }
+
+         Report r;
+
+        std::string s1 = "Device_Mgmt",  s1_ = "Admin", s2 = "API_Service", s2_ = "Data_Collect", s3 = "Web", s3_ = "Embedded_Sys", s4 = "Data_Mgmt", s5 = "Data_Process", s6 = "Analytics", s7 = "Cloud_Service"; //s2_2 = "Yes", s3 = "No", s3_2 = "ng", s4 = "Yes";
+
+        std::ofstream Best_Practice_Guide("Best_Practice_Guide_path");
+        if(r.check_BP_condition("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\The_Tittle.md",  Best_Practice_Guide));
+        if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\IoT_Security_guide.md",  Best_Practice_Guide, Struct1, s1));
+        if(Struct1.empty())
+        {
+             if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\IoT_Security_guide.md",  Best_Practice_Guide, Struct2, s2_));
+        }
+        if(Struct1.empty() && Struct2.empty())
+        {
+             if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\IoT_Security_guide.md",  Best_Practice_Guide, Struct10, s3_));
+        }
+        if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\API_guide.md",  Best_Practice_Guide, Struct4, s2));
+        if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Cross_Site_Scripting_guide.md",  Best_Practice_Guide, Struct9, s3));
+        if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Session_Management_guide.md",  Best_Practice_Guide, Struct9, s3));
+        if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Web_Service_guide.md",  Best_Practice_Guide, Struct9, s3));
+        if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Intrusion_Detection_guide.md",  Best_Practice_Guide, Struct5, s4));
+        if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Access_Control_guide.md",  Best_Practice_Guide, typeOfRegist, s1_));
+        if(Struct5.empty())
+        {
+             if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Intrusion_Detection_guide.md",  Best_Practice_Guide, Struct6, s5));
+        }
+        if(Struct5.empty() && Struct6.empty())
+        {
+             if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Intrusion_Detection_guide.md",  Best_Practice_Guide, Struct7, s6));
+        }
+        if(Struct5.empty() && Struct6.empty() && Struct7.empty())
+        {
+             if( r.check_BP_condition3("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Intrusion_Detection_guide.md",  Best_Practice_Guide, Struct8, s7));
+        }
+        if(r.check_BP_condition("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Authentication_guide.md",  Best_Practice_Guide));
+        if(r.check_BP_condition2("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Input_Validation_guide.md",  Best_Practice_Guide, usrInput));
+        if(r.check_BP_condition2("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\SQL_Injection_guide.md",  Best_Practice_Guide, useDb));
+        if(r.check_BP_condition2("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\File_Upload_guide.md",  Best_Practice_Guide, fileUpload));
+        if(r.check_BP_condition2("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Logging_guide.md",  Best_Practice_Guide, sysLog));
+        if(r.check_BP_condition("C:\\Users\\Engr. M. G. Samaila\\Documents\\CodeBlocks_Projects\\IoT-HarPSecA_Tool\\Guides\\Cryptography_guide.md",  Best_Practice_Guide));
+
+        cout << "\n\n\t\t\t\t   Press Enter to turn to the Main Menu" << endl;
     }
 
     void SecurityMngr::upLoadSecurity_Req()
@@ -8828,7 +15401,6 @@ class SecurityMngr
         }while(choose != 3);
     }
 
-    // Function that performs the mapping of security requirements to security mechanisms, and selects the most appropriate cipher.
     void SecurityMngr::decisionMaker()
     {
            UserInput usrIp;
@@ -8875,6 +15447,7 @@ class SecurityMngr
             switch(implemtn_type)
             {
                 case 1:
+
                     {
                         string findbyID_query = "select * from users_requests_2 where Request_ID = " + ("'"+Request_ID+"'");
                         const char* qn = findbyID_query.c_str();
@@ -8910,8 +15483,8 @@ class SecurityMngr
                                 tp6 = row[22];
                             }
 
-                                double ccta1_doub = atof(ccta1.c_str());//Converting the string "tp" to the double tp_doub using the "atof" standard
-                                double tp1_doub = atof(tp1.c_str());//Converting the string "tp" to the double tp_doub using the "atof" standard function in C.
+                                double ccta1_doub = atof(ccta1.c_str());
+                                double tp1_doub = atof(tp1.c_str());
                                 double ccta2_doub = atof(ccta2.c_str());
                                 double tp2_doub = atof(tp2.c_str());
                                 double ccta3_doub = atof(ccta3.c_str());
@@ -8923,14 +15496,13 @@ class SecurityMngr
                                 double ccta6_doub = atof(ccta6.c_str());
                                 double tp6_doub = atof(tp6.c_str());
 
-
                                 system("cls");
-
 
                                 string userReqmnts, Req1 = "CONF", Req2 = "INTG", Req3 = "AUTH", Req4 = "PRIV", Req5 = "NONR", Req6 = "COAU";
 
                                 if(type == "FPGA")
                                 {
+
                                          int flag1, flag2, flag3, flag4, flag5, flag6;
 
                                              auto searchingResult = po.mapping1b(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
@@ -8942,8 +15514,6 @@ class SecurityMngr
                                          int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
 
                                          auto result_Al2 = po.mapping2Hardware(flag1, flag2, flag3, flag4, flag5, flag6, ccta1_doub, tp1_doub, ccta2_doub, tp2_doub, ccta3_doub, tp3_doub, ccta4_doub, tp4_doub, ccta5_doub, tp5_doub, ccta6_doub, tp6_doub, as, ps, type);
-
-                                         //auto result_Al = mapping2(flag1, flag2, flag3, flag4, flag5, flag1_2, cpu_int, fms_doub, rs_doub, as, ps);
 
                                          algo1 = result_Al2.int_1; ps1 = result_Al2.p1; algo2 = result_Al2.int_2; algo3 = result_Al2.int_3;
                                          algo4 = result_Al2.int_4; ps4 = result_Al2.p4; algo5 = result_Al2.int_5; algo6 = result_Al2.int_6;
@@ -8966,6 +15536,7 @@ class SecurityMngr
                                 }
                                 else if(type == "ASIC")
                                 {
+
                                           int flag1, flag2, flag3, flag4, flag5, flag6;
 
                                              auto searchingResult = po.mapping1b(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
@@ -9011,350 +15582,615 @@ class SecurityMngr
                     break;
                 case 2:
                     {
-                        //string findbyID_query = "select * from users_requests where Request_ID like '%"+Request_ID+"%'";
-                        string findbyID_query = "select * from users_requests where Request_ID = " + ("'"+Request_ID+"'");
-                        const char* qn = findbyID_query.c_str();
-                        qstate = mysql_query(conn, qn);
-
-                        if(!qstate)
-                        {
-                             string type, cpu, fms, rs, cs, as, ps, r1, r2, r3, r4, r5, r6;
-                            res = mysql_store_result(conn);
-                            while((row = mysql_fetch_row(res)))
-                            {
-                                type = row[1];
-                                cpu = row[2];
-                                fms = row[3];
-                                rs = row[4];
-                                cs = row[5];
-                                as = row[6];
-                                ps = row[7];
-                                r1 = row[8];
-                                r2 = row[9];
-                                r3 = row[10];
-                                r4 = row[11];
-                                r5 = row[12];
-                                r6 = row[13];
-                            }
-                                stringstream Num(cpu); //Num2(fms), Num3(rs), Num4(cs); // object from the class stringstream taking the string variable and converting it to integer
-
-                               // The object has the integer value(s), and in next lines it streams it to the integer fms_int, rs_int, and cs_int.
-                                int cpu_int; //fms_int = 0, rs_int = 0, cs_int = 0;
-                                Num >> cpu_int;
-
-                                double fms_doub = atof(fms.c_str());//Converting the string "fms" to the double fms_doub using the "atof" standard function in C.
-                                double rs_doub = atof(rs.c_str()); 
-                                double cs_doub = atof(cs.c_str()); 
-
+                                level_:
+                                char ch;
                                 system("cls");
-                                string userReqmnts, Req1 = "CONF", Req2 = "INTG", Req3 = "AUTH", Req4 = "PRIV", Req5 = "NONR", Req6 = "COAU";
+                                std::cout<<"\n" "***********************************************************************************************************\n";
+                                std::cout << "\n\tWhat is the development phase of the IoT system, or it is an existing system? \n";
 
-                                if(type == "SBC")
+                                std::cout<<"\n\t\t1. Conception, Planning, Analysis, Design";
+                                std::cout<<"\n\t\t2. Existing System ";
+                                std::cout<<"\n\n\tSelect Your Option (1-2): ";
+
+                                std::cin>>ch;
+
+                                switch(ch)
                                 {
-                                    int cpu = 32;
-                                    double flash = 2000000.00, ram = 252000, clock = 400.00, flash_, ram_;
-                                    flash_ = 0.05*flash + flash;
-                                    ram_ = 0.04*ram + ram;
+                                        case '1':
+                                             {
+                                                    system("cls");
+                                                    std::cout << "\n" "***********************************************************************************************************\n";
+                                                    std::cout<<"\n\t\tABOUT BE TO DESIGNED\n\n";
+                                                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                    std::cin.ignore();
 
-                                    bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
-                                    if(!capable)
-                                    {
-                                        cout << "\n\n\n\n\n\n\t\tERROR! Hardware specifications not typical of SBCs.\n\n\n\n";
+                                                    if(cin.get() == '\n')
+                                                    {
+                                                                string findbyID_query = "select * from users_requests where Request_ID = " + ("'"+Request_ID+"'");
+                                                                const char* qn = findbyID_query.c_str();
+                                                                qstate = mysql_query(conn, qn);
 
-                                        cout << "\n\t Please, press Enter to return to Main Menu and make another request.";
-                                    }
-                                    else
-                                    {
-                                         int flag1, flag2, flag3, flag4, flag5, flag6;
+                                                                if(!qstate)
+                                                                {
+                                                                     string type, cpu, fms, rs, cs, as, ps, r1, r2, r3, r4, r5, r6;
+                                                                    res = mysql_store_result(conn);
+                                                                    while((row = mysql_fetch_row(res)))
+                                                                    {
+                                                                        type = row[1];
+                                                                        cpu = row[2];
+                                                                        fms = row[3];
+                                                                        rs = row[4];
+                                                                        cs = row[5];
+                                                                        as = row[6];
+                                                                        ps = row[7];
+                                                                        r1 = row[8];
+                                                                        r2 = row[9];
+                                                                        r3 = row[10];
+                                                                        r4 = row[11];
+                                                                        r5 = row[12];
+                                                                        r6 = row[13];
+                                                                    }
+                                                                        stringstream Num(cpu);
 
-                                         auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+                                                                        int cpu_int;
+                                                                        Num >> cpu_int;
+                                                                        double fms_doub = atof(fms.c_str());
+                                                                        double rs_doub = atof(rs.c_str());
+                                                                        double cs_doub = atof(cs.c_str());
 
-                                         flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
-                                         flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
-                                         //Aside from displaying the Requirements-to-mechanism mapping, this function also returns the total algorithm weight based on the number of user requirements.
+                                                                        system("cls");
 
-                                         int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+                                                                        string userReqmnts, Req1 = "CONF", Req2 = "INTG", Req3 = "AUTH", Req4 = "PRIV", Req5 = "NONR", Req6 = "COAU";
 
-                                         auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
+                                                                        if(type == "SBC")
+                                                                        {
+                                                                            int cpu = 32;
+                                                                            double flash = 2000000.00, ram = 252000, clock = 400.00, flash_, ram_;
+                                                                            flash_ = 0.05*flash + flash;
+                                                                            bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
+                                                                            if(!capable)
+                                                                            {
+                                                                                cout << "\n\n\n\n\n\n\t\tERROR! Hardware specifications not typical of SBCs.\n\n\n\n";
 
-                                         algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
-                                         algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
-                                         ps6 = result_Al.p6;
+                                                                                cout << "\n\t Please, press Enter to return to Main Menu and make another request.";
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                 int flag1, flag2, flag3, flag4, flag5, flag6;
+                                                                                 auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
 
-                                        string algName1, algName2, algName3, algName4, algName5, algName6;
-                                        auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+                                                                                 flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                 flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
 
-                                        algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
-                                        algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+                                                                                 int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
 
-                                        double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
-                                        int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+                                                                                 auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
 
-                                        po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
+                                                                                 algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                 algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                 ps6 = result_Al.p6;
 
-                                        //This function displays warning if the hardware is too constrained based on the available resources and the user requirements
-                                        pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+                                                                                string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
 
-                                        po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
-                                    }
+                                                                                algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
+                                                                                int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
+
+                                                                                pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                            }
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                          if(type == "AVR")
+                                                                            {
+                                                                               int cpu = 8;
+                                                                               double flash = 48.00, ram = 4.00, clock = 16.00, flash_, ram_;
+                                                                               flash_ = 0.03*flash + flash;
+                                                                               ram_ = 0.02*ram + ram;
+                                                                               bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
+                                                                                if(!capable)
+                                                                                {
+
+                                                                                    cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
+
+                                                                                    cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                      int flag1, flag2, flag3, flag4, flag5, flag6;
+
+                                                                                      auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                       flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                       flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+                                                                                       int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                       auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
+
+                                                                                       algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                       algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                       ps6 = result_Al.p6;
+
+                                                                                    string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                    auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                    algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                    algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                    double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
+                                                                                    int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                    po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
+
+                                                                                    pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                    po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                                }
+                                                                            }
+                                                                            else if(type =="MSP")
+                                                                            {
+                                                                                int cpu = 16;
+                                                                                double flash = 48.00, ram = 8.00, clock = 8.00, flash_, ram_;
+                                                                                flash_ = 0.05*flash + flash;
+                                                                                ram_ = 0.04*ram + ram;
+                                                                               bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
+                                                                                if(!capable)
+                                                                                {
+                                                                                    cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
+
+                                                                                    cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                      int flag1, flag2, flag3, flag4, flag5, flag6;
+
+                                                                                      auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                       flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                       flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+                                                                                       int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                       auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
+
+                                                                                       algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                       algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                       ps6 = result_Al.p6;
+
+                                                                                       string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                        auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                        algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                        algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                        double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
+                                                                                        int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                        po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
+
+                                                                                        pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                        po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                                }
+                                                                            }
+                                                                            else if(type == "ARM")
+                                                                            {
+                                                                                int cpu = 32;
+                                                                                double flash = 256.00, ram = 64.00, clock = 72.00, flash_, ram_;
+                                                                                flash_ = 0.05*flash + flash;
+                                                                                ram_ = 0.04*ram + ram;
+                                                                               bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
+                                                                                if(!capable)
+                                                                                {
+                                                                                    cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
+
+                                                                                    cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                      int flag1, flag2, flag3, flag4, flag5, flag6;
+
+                                                                                      auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                       flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                       flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+
+                                                                                       int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                       auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
+
+                                                                                       algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                       algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                       ps6 = result_Al.p6;
+
+                                                                                       string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                        auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                        algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                        algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                        double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
+                                                                                        int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                        po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
+
+                                                                                        pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                        po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                                }
+                                                                            }
+                                                                            else if(type == "PIC")
+                                                                            {
+                                                                                int cpu = 8;
+                                                                                double flash = 28.00, ram = 4.00, clock = 4.00, flash_, ram_;
+                                                                                flash_ = 0.09*flash + flash;
+                                                                                ram_ = 0.04*ram + ram;
+                                                                               bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
+                                                                                if(!capable)
+                                                                                {
+                                                                                    cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
+
+                                                                                    cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                      int flag1, flag2, flag3, flag4, flag5, flag6;
+
+                                                                                      auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                       flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                       flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+
+                                                                                       int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                       auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
+
+                                                                                       algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                       algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                       ps6 = result_Al.p6;
+
+                                                                                       string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                        auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                        algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                        algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                        double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
+                                                                                        int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                        po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
+
+                                                                                        pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                        po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                                }
+                                                                            }
+                                                                            else if((type != "AVR" || type != "MSP" || type != "ARM" || type != "PIC") && !cpu.empty())
+                                                                            {
+                                                                                int cpu = 4;
+                                                                                double flash = 38.00, ram = 4.00, clock = 10.00, flash_, ram_;
+                                                                                flash_ = 0.05*flash + flash;
+                                                                                ram_ = 0.04*ram + ram;
+                                                                                bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
+                                                                                if(!capable)
+                                                                                {
+                                                                                    cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
+
+                                                                                    cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                      int flag1, flag2, flag3, flag4, flag5, flag6;
+
+                                                                                      auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                       flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                       flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+                                                                                       int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                       auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
+
+                                                                                       algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                       algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                       ps6 = result_Al.p6;
+
+                                                                                       string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                        auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                        algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                        algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                        double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
+                                                                                        int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                        po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
+
+                                                                                        pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
+
+                                                                                        po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                                }
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                int cpu = 4;
+                                                                                double flash = 38.00, ram = 4.00, clock = 10.00, flash_, ram_;
+                                                                                flash_ = 0.05*flash + flash;
+                                                                                ram_ = 0.04*ram + ram;
+                                                                                bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
+                                                                                if(!capable)
+                                                                                {
+                                                                                    cout << "\n\n\n\n\n\n\n\t\t\tERROR! THIS REQUEST ID DOES NOT EXIST IN THE DATABASE." << endl;
+
+                                                                                    cout << "\n\n\n\n\n\n\n\t\t\tPress Enter to return to Main Menu and try again. " << endl;
+                                                                                }
+                                                                            }
+
+                                                                        }
+                                                                }
+                                                                else
+                                                                {
+                                                                    cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+                                                                }
+
+                                                        }
+                                                        else
+                                                        {
+                                                            goto level_;
+                                                        }
+                                                break;
+                                                }
+                                        case '2':
+                                            {
+                                                    system("cls");
+                                                    std::cout << "\n" "***********************************************************************************************************\n";
+                                                    std::cout<<"\n\t\tEXISTING SYSTEM\n";
+                                                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                    std::cin.ignore();
+
+                                                    if(cin.get() == '\n')
+                                                    {
+                                                                string type, cpu, cs, ad, ps, r1, fm1, ram1, r2, fm2, ram2, r3, fm3, ram3, r4, fm4, ram4, r5, fm5, ram5, r6, fm6, ram6;
+                                                                string findbyID_query = "select * from users_requests_ where Request_ID = " + ("'"+Request_ID+"'");
+                                                                const char* qn = findbyID_query.c_str();
+                                                                qstate = mysql_query(conn, qn);
+
+                                                                if(!qstate)
+                                                                {
+                                                                        res = mysql_store_result(conn);
+                                                                        while((row = mysql_fetch_row(res)))
+                                                                        {
+                                                                            type = row[1];
+                                                                            cpu = row[2];
+                                                                            cs = row[3];
+                                                                            ad = row[4];
+                                                                            ps = row[5];
+                                                                            r1 = row[6];
+                                                                            fm1 = row[7];
+                                                                            ram1 = row[8];
+                                                                            r2 = row[9];
+                                                                            fm2 = row[10];
+                                                                            ram2 = row[11];
+                                                                            r3 = row[12];
+                                                                            fm3 = row[13];
+                                                                            ram3 = row[14];
+                                                                            r4 = row[15];
+                                                                            fm4 = row[16];
+                                                                            ram4 = row[17];
+                                                                            r5 = row[18];
+                                                                            fm5 = row[19];
+                                                                            ram5 = row[20];
+                                                                            r6 = row[21];
+                                                                            fm6 = row[22];
+                                                                            ram6 = row[23];
+                                                                        }
+
+                                                                            stringstream Num(cpu);
+
+                                                                            int cpu_int;
+                                                                            Num >> cpu_int;
+
+                                                                            double cs_doub = atof(cs.c_str());
+
+                                                                            double fm1_doub = atof(fm1.c_str());
+                                                                            double ram1_doub = atof(ram1.c_str());
+                                                                            double fm2_doub = atof(fm2.c_str());
+                                                                            double ram2_doub = atof(ram2.c_str());
+                                                                            double fm3_doub = atof(fm3.c_str());
+                                                                            double ram3_doub = atof(ram3.c_str());
+                                                                            double fm4_doub = atof(fm4.c_str());
+                                                                            double ram4_doub = atof(ram4.c_str());
+                                                                            double fm5_doub = atof(fm5.c_str());
+                                                                            double ram5_doub = atof(ram5.c_str());
+                                                                            double fm6_doub = atof(fm6.c_str());
+                                                                            double ram6_doub = atof(ram6.c_str());
+
+                                                                            system("cls");
+
+                                                                            string userReqmnts, Req1 = "CONF", Req2 = "INTG", Req3 = "AUTH", Req4 = "PRIV", Req5 = "NONR", Req6 = "COAU";
+
+                                                                        if(type == "SBC")
+                                                                        {
+
+                                                                                 int flag1, flag2, flag3, flag4, flag5, flag6;
+                                                                                 auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                 flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                 flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+                                                                                 int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                 auto result_Al = po.mapping2_3(flag1, flag2, flag3, flag4, flag5, flag6, fm1_doub, ram1_doub, fm2_doub, ram2_doub, fm3_doub, ram3_doub, fm4_doub, ram4_doub, fm5_doub, ram5_doub, fm6_doub, ram6_doub, ad, ps);
+
+                                                                                 algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                 algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                 ps6 = result_Al.p6;
+
+                                                                                string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                auto result_algo_name_SW = po.display_Mech_Algo_mapping3(type, algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
+
+                                                                                po.displayReq_Mech_mapping3(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, Request_ID);
+
+                                                                                double rs_doub = 0.0, fms_doub = 0.0, flash_ = 0.0, ram_ = 0.0;
+                                                                               po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                          if(type == "AVR")
+                                                                            {
+                                                                                      int flag1, flag2, flag3, flag4, flag5, flag6;
+
+                                                                                      auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                       flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                       flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+                                                                                       int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                       auto result_Al = po.mapping2_3(flag1, flag2, flag3, flag4, flag5, flag6, fm1_doub, ram1_doub, fm2_doub, ram2_doub, fm3_doub, ram3_doub, fm4_doub, ram4_doub, fm5_doub, ram5_doub, fm6_doub, ram6_doub, ad, ps);
+
+                                                                                       algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                       algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                       ps6 = result_Al.p6;
+
+                                                                                    string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                    auto result_algo_name_SW = po.display_Mech_Algo_mapping3(type, algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                    algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                    algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                     po.displayReq_Mech_mapping3(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, Request_ID);
+
+                                                                                    double rs_doub = 0.0, fms_doub = 0.0, flash_ = 0.0, ram_ = 0.0, totalAlgoWeight = 0.0;
+                                                                                     po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                                }
+                                                                                else if(type =="MSP")
+                                                                                {
+                                                                                              int flag1, flag2, flag3, flag4, flag5, flag6;
+
+                                                                                              auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                               flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                               flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+                                                                                               int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                              auto result_Al = po.mapping2_3(flag1, flag2, flag3, flag4, flag5, flag6, fm1_doub, ram1_doub, fm2_doub, ram2_doub, fm3_doub, ram3_doub, fm4_doub, ram4_doub, fm5_doub, ram5_doub, fm6_doub, ram6_doub, ad, ps);
+
+                                                                                               algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                               algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                               ps6 = result_Al.p6;
+
+                                                                                               string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                                auto result_algo_name_SW = po.display_Mech_Algo_mapping3(type, algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                                algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                                algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                               po.displayReq_Mech_mapping3(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, Request_ID);
+
+                                                                                                double rs_doub = 0.0, fms_doub = 0.0, flash_ = 0.0, ram_ = 0.0, totalAlgoWeight = 0.0;
+                                                                                                po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                                    }
+                                                                                    else if(type == "ARM")
+                                                                                    {
+                                                                                              int flag1, flag2, flag3, flag4, flag5, flag6;
+
+                                                                                              auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                               flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                               flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+
+                                                                                               int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                             auto result_Al = po.mapping2_3(flag1, flag2, flag3, flag4, flag5, flag6, fm1_doub, ram1_doub, fm2_doub, ram2_doub, fm3_doub, ram3_doub, fm4_doub, ram4_doub, fm5_doub, ram5_doub, fm6_doub, ram6_doub, ad, ps);
+
+                                                                                               algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                               algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                               ps6 = result_Al.p6;
+
+                                                                                               string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                               auto result_algo_name_SW = po.display_Mech_Algo_mapping3(type, algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                                algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                                algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+
+                                                                                                po.displayReq_Mech_mapping3(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, Request_ID);
+
+                                                                                                  double rs_doub = 0.0, fms_doub = 0.0, flash_ = 0.0, ram_ = 0.0, totalAlgoWeight = 0.0;
+                                                                                                  po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                                    }
+                                                                                    else if((type != "AVR" || type != "MSP" || type != "ARM" || type != "PIC") && !cpu.empty())
+                                                                                    {
+                                                                                              int flag1, flag2, flag3, flag4, flag5, flag6;
+
+                                                                                              auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
+
+                                                                                               flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
+                                                                                               flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
+
+                                                                                               int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
+
+                                                                                               auto result_Al = po.mapping2_3(flag1, flag2, flag3, flag4, flag5, flag6, fm1_doub, ram1_doub, fm2_doub, ram2_doub, fm3_doub, ram3_doub, fm4_doub, ram4_doub, fm5_doub, ram5_doub, fm6_doub, ram6_doub, ad, ps);
+
+                                                                                               algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
+                                                                                               algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
+                                                                                               ps6 = result_Al.p6;
+
+                                                                                               string algName1, algName2, algName3, algName4, algName5, algName6;
+                                                                                               auto result_algo_name_SW = po.display_Mech_Algo_mapping3(type, algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
+
+                                                                                                algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
+                                                                                                algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
+
+                                                                                                po.displayReq_Mech_mapping3(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, Request_ID);
+
+                                                                                                 double rs_doub = 0.0, fms_doub = 0.0, flash_ = 0.0, ram_ = 0.0, totalAlgoWeight = 0.0;
+                                                                                                 po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                            cout << "\n\n\n\n\n\n\n\t\t\tERROR! THIS REQUEST ID DOES NOT EXIST IN THE DATABASE." << endl;
+
+                                                                                            cout << "\n\n\n\n\n\n\n\t\t\tPress Enter to return to Main Menu and try again. " << endl;
+                                                                                    }
+
+                                                                                }
+                                                                }
+                                                                else
+                                                                {
+                                                                    cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
+                                                                }
+
+
+                                                    }
+                                                    else
+                                                    {
+                                                        goto level_;
+                                                    }
+                                                    break;
+                                                }
+                                        default:
+                                            std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                        goto level_;
                                 }
-                                else
-                                {
-                                  if(type == "AVR")
-                                    {
-                                       int cpu = 8; //128.00
-                                       double flash = 48.00, ram = 4.00, clock = 16.00, flash_, ram_;
-                                       flash_ = 0.03*flash + flash;
-                                       ram_ = 0.02*ram + ram;
-                                       bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
-                                        if(!capable)
-                                        {
-                                            cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
-                                            cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
-                                        }
-                                        else
-                                        {
-                                              int flag1, flag2, flag3, flag4, flag5, flag6;
-
-                                              auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
-
-                                               flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
-                                               flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
-
-                                               int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
-
-                                               auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
-
-                                               algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
-                                               algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
-                                               ps6 = result_Al.p6;
-
-                                            string algName1, algName2, algName3, algName4, algName5, algName6;
-                                            auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
-
-                                            algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
-                                            algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
-
-                                            double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
-                                            int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                            po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
-
-                                            //This function displays warning if the hardware is too constrained based on the available resources and the user requirements
-                                            pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                            po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
-                                        }
-                                    }
-                                    else if(type =="MSP")
-                                    {
-                                        int cpu = 16;
-                                        double flash = 48.00, ram = 8.00, clock = 8.00, flash_, ram_;
-                                        flash_ = 0.05*flash + flash;
-                                        ram_ = 0.04*ram + ram;
-                                       bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
-                                        if(!capable)
-                                        {
-                                            cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
-
-                                            cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
-                                        }
-                                        else
-                                        {
-                                              int flag1, flag2, flag3, flag4, flag5, flag6;
-
-                                              auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
-
-                                               flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
-                                               flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
-
-                                               int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
-
-                                               auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
-
-                                               algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
-                                               algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
-                                               ps6 = result_Al.p6;
-
-                                               string algName1, algName2, algName3, algName4, algName5, algName6;
-                                                auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
-
-                                                algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
-                                                algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
-
-                                                double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
-                                                int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                                po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
-
-                                                //This function displays warning if the hardware is too constrained based on the available resources and the user requirements
-                                                pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                                po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
-                                        }
-                                    }
-                                    else if(type == "ARM")
-                                    {
-                                        int cpu = 32;
-                                        double flash = 256.00, ram = 64.00, clock = 72.00, flash_, ram_;
-                                        flash_ = 0.05*flash + flash;
-                                        ram_ = 0.04*ram + ram;
-                                       bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
-                                        if(!capable)
-                                        {
-                                            cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
-
-                                            cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
-                                        }
-                                        else
-                                        {
-                                              int flag1, flag2, flag3, flag4, flag5, flag6;
-
-                                              auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
-
-                                               flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
-                                               flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
-
-
-                                               int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
-
-                                               auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
-
-                                               algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
-                                               algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
-                                               ps6 = result_Al.p6;
-
-                                               string algName1, algName2, algName3, algName4, algName5, algName6;
-                                                auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
-
-                                                algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
-                                                algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
-
-                                                double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
-                                                int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                                po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
-
-                                                //This function displays warning if the hardware is too constrained based on the available resources and the user requirements
-                                                pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                                po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
-                                        }
-                                    }
-                                    else if(type == "PIC")
-                                    {
-                                        int cpu = 8;
-                                        double flash = 28.00, ram = 4.00, clock = 4.00, flash_, ram_;
-                                        flash_ = 0.09*flash + flash;
-                                        ram_ = 0.04*ram + ram;
-                                       bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
-                                        if(!capable)
-                                        {
-                                            cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
-
-                                            cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
-                                        }
-                                        else
-                                        {
-                                              int flag1, flag2, flag3, flag4, flag5, flag6;
-
-                                              auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
-
-                                               flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
-                                               flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
-
-
-                                               int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
-
-                                               auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
-
-                                               algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
-                                               algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
-                                               ps6 = result_Al.p6;
-
-                                               string algName1, algName2, algName3, algName4, algName5, algName6;
-                                                auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
-
-                                                algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
-                                                algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
-
-                                                double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
-                                                int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                                po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
-
-                                                //This function displays warning if the hardware is too constrained based on the available resources and the user requirements
-                                                pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                                po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
-                                        }
-                                    }
-                                    else if((type != "AVR" || type != "MSP" || type != "ARM" || type != "PIC") && !cpu.empty())
-                                    {
-                                        int cpu = 4;
-                                        double flash = 38.00, ram = 4.00, clock = 10.00, flash_, ram_;
-                                        flash_ = 0.05*flash + flash;
-                                        ram_ = 0.04*ram + ram;
-                                        bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
-                                        if(!capable)
-                                        {
-                                            cout << "\n\n\n\n\n\n\n\tSORRY! Your MCU is too constrained for the cryptographic algorithms in the database.\n\n\n\n";
-                                            cout << "\n\t Please, press Enter to return to Main Menu and make another request, or exit.";
-                                        }
-                                        else
-                                        {
-                                              int flag1, flag2, flag3, flag4, flag5, flag6;
-
-                                              auto searchingResult = po.mapping1(userReqmnts, r1, r2, r3, r4, r5, r6, Req1, Req2, Req3, Req4, Req5, Req6);
-
-                                               flag1 = searchingResult.int1;  flag2 = searchingResult.int2;  flag3 = searchingResult.int3;
-                                               flag4 = searchingResult.int4; flag5 = searchingResult.int5;  flag6 = searchingResult.int6;
-
-                                               int algo1, ps1, algo2, algo3, algo4, ps4, algo5, algo6, ps6;
-
-                                               auto result_Al = po.mapping2(flag1, flag2, flag3, flag4, flag5, flag6, cpu_int, fms_doub, rs_doub, as, ps);
-
-                                               algo1 = result_Al.int_1; ps1 = result_Al.p1; algo2 = result_Al.int_2; algo3 = result_Al.int_3;
-                                               algo4 = result_Al.int_4; ps4 = result_Al.p4; algo5 = result_Al.int_5; algo6 = result_Al.int_6;
-                                               ps6 = result_Al.p6;
-
-                                               string algName1, algName2, algName3, algName4, algName5, algName6;
-                                                auto result_algo_name_SW = po.display_Mech_Algo_mapping(algo1, algo2, algo3, algo4, algo5, algo6, ps1, ps4, ps6);
-
-                                                algName1 = result_algo_name_SW.st_1; algName2 = result_algo_name_SW.st_2; algName3 = result_algo_name_SW.st_3;
-                                                algName4 = result_algo_name_SW.st_4; algName5 = result_algo_name_SW.st_5; algName6 = result_algo_name_SW.st_6;
-
-                                                double totalAlgoWeight = po.reqWeighting(flag1, flag2, flag3, flag4, flag5, flag6);
-                                                int warn1 = pre.warning1(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                                po.displayReq_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, warn1, Request_ID);
-
-                                                //This function displays warning if the hardware is too constrained based on the available resources and the user requirements
-                                                pre.warning2(totalAlgoWeight, fms_doub, rs_doub, flash_, ram_);
-
-                                                po.write_Req_Mech_mapping(flag1, flag2, flag3, flag4, flag5, flag6, algName1, algName2, algName3, algName4, algName5, algName6, totalAlgoWeight, fms_doub, rs_doub, flash_, ram_, Request_ID);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        int cpu = 4;
-                                        double flash = 38.00, ram = 4.00, clock = 10.00, flash_, ram_;
-                                        flash_ = 0.05*flash + flash;
-                                        ram_ = 0.04*ram + ram;
-                                        bool capable = po.isCapable(cpu_int, fms_doub, rs_doub, cs_doub, cpu, flash, ram, clock);
-                                        if(!capable)
-                                        {
-                                            cout << "\n\n\n\n\n\n\n\t\t\tERROR! THIS REQUEST ID DOES NOT EXIST IN THE DATABASE." << endl;
-                                            cout << "\n\n\n\n\n\n\n\t\t\tPress Enter to return to Main Menu and try again. " << endl;
-                                        }
-                                    }
-
-                                }
-                        }
-                        else
-                        {
-                            cout << "Query Execution Problems!" << mysql_errno(conn) << endl;
-                        }
                     }
                     break;
                 default:
@@ -9365,44 +16201,39 @@ class SecurityMngr
             }
     }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 class LoginManager
 {
 	public:
-	   // string m_username, m_password, m_adminUsername = "sam", m_adminPassword = "kaz";
 	LoginManager();
-	void setAuthorized_to_be_Admin(); //Function that sets the authorized_to_be_Admin variable
-	bool getAuthorized_to_be_Admin(); //Function that returns the authorized_to_be_Admin variable
-	string maskPassword();//Function that masks password with the asterisk symbol. It returns the typed password
-	string check_password_Strength(string& password);//Function that determines the strength of passwords. It returns only strong or moderate passwords
-	string combine_mask_and_check();//Function that combines the mask and the check_strength functions and returns strong or moderate passwords
-	string maskPassword2(); //Function that masks the Re-entered password with the asterisk symbol. It also returns the re-typed password
-	bool IsLoggedIn(bool admin);  // Function that login registered users
-	void registration(bool flag); // Function that registers new users
-	int login(bool admin);        // Function that verifies the status of users that want to login
-	void show_and_deleteUser_Registr(); //Function that displays users and completely deletes a given user registration
-	void add_one_more_Admin(); //Function that permits Admin1 to add one more Admin user
-	int general_login(); // Function that manages the login in general
+	void setAuthorized_to_be_Admin();
+	bool getAuthorized_to_be_Admin();
+	string maskPassword();
+	string check_password_Strength(string& password);
+	string combine_mask_and_check();
+	string maskPassword2();
+	bool IsLoggedIn(bool admin);
+	void registration(bool flag);
+	int login(bool admin);
+	void show_and_deleteUser_Registr();
+	void add_one_more_Admin();
+	int general_login();
 };
+
     LoginManager::LoginManager()
 	{
 
 	}
 
-	//Function that sets the authorized_to_be_Admin variable
 	void LoginManager::setAuthorized_to_be_Admin()
 	{
 	    authorized_to_be_Admin = true;
 	}
 
-	//Function that returns the authorized_to_be_Admin variable
 	bool LoginManager::getAuthorized_to_be_Admin()
 	{
 	    return authorized_to_be_Admin;
 	}
 
-    //Function that masks password with the asterisk symbol. It returns the typed password
     string LoginManager::maskPassword()
     {
         int ch;
@@ -9410,36 +16241,32 @@ class LoginManager
 
         cout << "\n\t""Enter your password: ";
 
-        while(ch = getch()) // assign ASCII value to ch
+        while(ch = getch())
         {
-            if(ch == 13)//check ch after pressing Enter
+            if(ch == 13)
             {
 
                 return password;
             }
-            else if(ch == 8)//check ch after pressing the backspace key.
+            else if(ch == 8)
             {
-                if(password.length() > 0)//set condition for blocking error while input
+                if(password.length() > 0)
                 {
-                    cout << "\b \b"; //remove Mask * on screen.
-                    password.erase(password.length() - 1); //erases string length.
+                    cout << "\b \b";
+                    password.erase(password.length() - 1);
                 }
             }
             else
             {
                 cout << "*";
-                password += ch; // the input password was assigned to variable passwd.
+                password += ch;
             }
         }
     }
 
-
-//Function that determines the strength of passwords. It returns only strong or moderate passwords
 string LoginManager::check_password_Strength(string& password)
 {
     int n = password.length();
-
-    // Checking lower alphabet in string
     bool hasLower = false, hasUpper = false;
     bool hasDigit = false, specialChar = false;
     string normalChars = "abcdefghijklmnopqrstu"
@@ -9481,7 +16308,6 @@ string LoginManager::check_password_Strength(string& password)
     }
 }
 
-// Function that combines the mask and the check_strength functions and returns strong or moderate passwords
 string LoginManager::combine_mask_and_check()
 {
 	string pw;
@@ -9495,7 +16321,7 @@ string LoginManager::combine_mask_and_check()
 
 	return pw;
 }
-    //Function that masks the Re-entered password with the asterisk symbol. It also returns the re-typed password
+
     string LoginManager::maskPassword2()
     {
         int ch;
@@ -9503,29 +16329,28 @@ string LoginManager::combine_mask_and_check()
 
         cout << "\n\tPlease re-enter your password: ";
 
-        while(ch = getch()) // assign ASCII value to ch
+        while(ch = getch())
         {
-            if(ch == 13)//check ch after pressing Enter
+            if(ch == 13)
             {
                 return password;
             }
-            else if(ch == 8)//check ch after pressing the backspace key.
+            else if(ch == 8)
             {
-                if(password.length() > 0)//set condition for blocking error while input
+                if(password.length() > 0)
                 {
-                    cout << "\b \b"; //remove Mask * on screen.
-                    password.erase(password.length() - 1); //erases string length.
+                    cout << "\b \b";
+                    password.erase(password.length() - 1);
                 }
             }
             else
             {
                 cout << "*";
-                password += ch; // the input password was assigned to variable passwd.
+                password += ch;
             }
         }
     }
 
-// Function that logs in registered users
     bool LoginManager::IsLoggedIn(bool admin)
 	{
 		std::string username, password, usernameAd, passwordAd, un, pw, un_Ad, pw_Ad, st, st_Ad, AdminID, UserID;
@@ -9610,7 +16435,6 @@ string LoginManager::combine_mask_and_check()
 		}
 	}
 
-	 //The function that permits Admin1 to add one more Admin user
 	void LoginManager::add_one_more_Admin()
 	{
 	     string AdminUser, usernameAd;
@@ -9666,7 +16490,6 @@ string LoginManager::combine_mask_and_check()
          }
 	}
 
-// Function that registers new users
 	void LoginManager::registration(bool flag)
 	{
 			std::string username, un, password, password2, usernameAd, passwordAd, passwordAd2, AdminID, AdminUser;
@@ -9698,7 +16521,7 @@ string LoginManager::combine_mask_and_check()
                             cout << "\tQuery Execution Problems!" << mysql_errno(conn) << endl;
                         }
 
-                     if(AdminUser.empty())//if there if no registered Admin user
+                     if(AdminUser.empty())
                      {
                          authorized_to_be_Admin = true;
 
@@ -9763,21 +16586,19 @@ string LoginManager::combine_mask_and_check()
             if(flag)
               {
                 string salt = generateSalt();
-
                 const string input = password + salt;
                 string output1 = sha256(input);
                 string hashedPassword = output1;
-
                 string insert_query = "insert into users_hashedpassword (username, hashedPassword, salt) values('"+username+"', '"+hashedPassword+"', '"+salt+"')";
                 const char* q = insert_query.c_str();
                 qstate = mysql_query(conn, q);
               }
               else
               {
-                string saltAd = generateSalt();
-                std::cout << "\t" << saltAd << std::endl;
+                string saltAd = generateSalt();//*
+                std::cout << "\t" << saltAd << std::endl;//*
 
-                const string input = passwordAd + saltAd;
+                const string input = passwordAd + saltAd;//*
                 string output1 = sha256(input);//*
                 string hashedPasswordAd = output1;
 
@@ -9794,7 +16615,6 @@ string LoginManager::combine_mask_and_check()
                         cout << "\n\n\n\n\n\n\n\tYou are successfully registered!" << std::endl;
                         cout << endl << "\tData successfully added in the database. \n\n" << endl;
                         cout << endl << "\tPress Enter to Continue. \n" << endl;
-
                     }
                     else
                     {
@@ -9819,11 +16639,9 @@ string LoginManager::combine_mask_and_check()
                         cout << "\n\tDuplicate Username Entry! Please choose a unique username and try again." << endl;
                     }
               }
-
-
 			return;
 	}
-// Function that verifies the status of users that want to login
+
 	int LoginManager::login(bool admin)
 	{
 			bool status = IsLoggedIn(admin);
@@ -9841,7 +16659,6 @@ string LoginManager::combine_mask_and_check()
 			}
 	}
 
-    //Function that displays users and completely deletes a given user registration
 	void LoginManager::show_and_deleteUser_Registr()
 	{
 	    kaza:
@@ -9853,7 +16670,6 @@ string LoginManager::combine_mask_and_check()
 
 
 		cout << "         Showing all users .... " << endl << endl;
-
 
         res = mysql_use_result(conn);
 
@@ -9890,8 +16706,7 @@ string LoginManager::combine_mask_and_check()
                 << setw(12) << setfill('-') << '+'
                  << setw(65)<< setfill('-') << '+'
                 << setw(21)<< setfill('-') << '+' << '+' << endl;
-                mysql_free_result(res); //Frees the memory allocated for a result set by mysql_store_result().
-
+                mysql_free_result(res);
 
 		string UserID; char ch;
 
@@ -9900,7 +16715,6 @@ string LoginManager::combine_mask_and_check()
 		if(ch == 'y' || ch == 'Y')
 		{
 			cout << "\n\tEnter the user ID of the user you want to delete: "; cin >> UserID;
-			//cout << "\n\tEnter the user ID of the user you want to delete: "; cin >> username;
 
 			string delete_query = "delete from users_hashedpassword where UserID = '"+UserID+"'";
 			const char* qd = delete_query.c_str();
@@ -9920,7 +16734,8 @@ string LoginManager::combine_mask_and_check()
 		else if(ch == 'N' || ch == 'n')
         {
            system("cls");
-           cout << "\n\tPress Enter to return to Admin Menu  ";
+            std::cout<<"\n***********************************************************************************************************\n\n";
+            std::cout<<"\n\t\tPress Enter to return to Admin Menu ";
             return;
         }
 		else
@@ -9929,9 +16744,8 @@ string LoginManager::combine_mask_and_check()
 			cout << "\n\tERROR! You have entered an invalid input! " << endl;
 			cout << "\n\n\tERROR! Please try again after this timeout " << endl;
 
-            
-            using namespace std::this_thread;     // sleep_for, sleep_until
-            using namespace std::chrono_literals; // ns, us, ms, s, h, etc.
+            using namespace std::this_thread;
+            using namespace std::chrono_literals;
             using std::chrono::system_clock;
             sleep_for(20ms);
             sleep_until(system_clock::now() + 1s);
@@ -9940,7 +16754,6 @@ string LoginManager::combine_mask_and_check()
 		}
 	}
 
-// The main function that manages the login in general
 	int LoginManager::general_login()
 	{
 		UserInput usip;
@@ -9954,28 +16767,36 @@ string LoginManager::combine_mask_and_check()
             system("cls");
        std::cout << "\n" "***********************************************************************************************************\n";
         std::cout<<"\t\t\t\t\tThe IoT-HarPSecA Tool \n";
-		std::cout << "\tThis tool is intended to help users that have little or no security"<< endl;
-        std::cout << "\texpertise to select the appropriate lightweight cryptographic algorithms for their software "<< endl;
-        std::cout <<"\tor hardware implementations.\n" << endl;
+		std::cout << "\n\tThis is version 1.1 of the IoT-HarPSecA Tool, a tool that provides an interface that allows "<< endl;
+		std::cout << "\tusers to use the IoT-HarPSecA framework. The purpose of this framework is threefold."<< endl;
+		std::cout << "\tFirstly, it can help non-security experts to design secure IoT devices and applications by"<< endl;
+		std::cout << "\tproviding them with the necessary security requirements needed to develop secure IoT systems. "<< endl;
+		std::cout << "\tSecondly, it can help non-security experts to generate security best practice guidelines for "<< endl;
+		std::cout << "\tsecure IoT development. Thirdly, the tool is intended to help users with little or no security"<< endl;
+        std::cout << "\texpertise to implement security in their IoT devices and applications by recommending to them   "<< endl;
+        std::cout <<"\tthe most appropriate lightweight cryptographic algorithms for their software and hardware imp-" << endl;
+        std::cout <<"\tlementations.\n" << endl << endl;
         std::cout << "\tIoT-HarPSecA is developed by Musa G. Samaila and Pedro R. M. Inacio from the Instituto de"<< endl;
         std::cout << "\tTelecomunicaçoes, and Department of Computer Science, Universidade da Beira Interior, "<< endl;
         std::cout << "\tCovilha, Portugal.\n"<< endl;
         std::cout << "\t\t\tCopyright 2019 Musa G. Samaila and Pedro R. M. Inacio\n"<< endl;
         std::cout << "\tSPDX-License-Identifier: Apache-2.0. The copy of the License may be obtained at "<< endl;
-        std::cout << "\t\t\thttp://www.apache.org/licenses/LICENSE-2.0 \n"<< endl;
-        std::cout << "\t\t\t\t\t\tA DISCLAIMER! "<< endl;
-        std::cout << "\tThis Tool is provided \"AS IS\" BASIS, without any WARRANTY or INDEMNIFICATION of ANY KIND. \n"<< endl;
+        std::cout << "\t\t\thttp://www.apache.org/licenses/LICENSE-2.0 \n\n"<< endl;
+        std::cout << "\t\t\t\t\t\tDISCLAIMER "<< endl;
+        std::cout << "\tThis Tool is provided \"AS IS\" BASIS, without any express or implied WARRANTY, UNDERTAKING, or"<< endl;
+        std::cout << "\tINDEMNIFICATION of ANY KIND. Thus, no responsibility or liability to a user of this Tool will "<< endl;
+        std::cout << "\tbe accepted by the developers or any institution in connection with this tool. Any such respo- "<< endl;
+        std::cout << "\tnsibility or liability is hereby expressly disclaimed.\n\n"<< endl;
         std::cout << "\tThis work was supported in part by the Centre for Geodesy and Geodynamics, National Space"<< endl;
         std::cout << "\tResearch and Development Agency, Toro, Bauchi State, Nigeria. This work was performed under"<< endl;
         std::cout << "\tthe scope of Project SECURIoTESIGN with funding from FCT/COMPETE/FEDER (Projects with  " << endl;
-        std::cout << "\treference numbers UID/EEA/50008/2013 and POCI-01-0145-FEDER-030657) and FCT research grant " << endl;
+        std::cout << "\treference numbers UID/EEA/50008/2019 and POCI-01-0145-FEDER-030657) and FCT research grant " << endl;
         std::cout << "\tBIM/no32/2018-B00582." << endl;
-        cout << endl << "\n\n\t\t\t\t  Press Enter to use or explore the tool." << endl;
+        cout << endl << "\t\t\t\t  Press Enter to use or explore the tool." << endl;
 
-        }while(cin.get() != '\n');// To wait for an Enter key to be pressed
+        }while(cin.get() != '\n');
 
 		label:
-
 		do
 		{
 			system("cls");
@@ -9995,13 +16816,29 @@ string LoginManager::combine_mask_and_check()
 			switch (choice)
 			{
 			case '1':
+                {
+                        system("cls");
+                        std::cout << "\n" "***********************************************************************************************************\n";
+                        std::cout<<"\n\t\tREGISTER\n\n";
+                        std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                        std::cin.ignore();
+
+
+                        if(cin.get() == '\n')
+                        {
+
+                        }
+                        else
+                        {
+                            goto label;
+                        }
                         char choice;
                         lavel:
                         do
                         {
                             system("cls");
                             std::cout << "\n" "***********************************************************************************************************\n";
-                            std::cout<<"\n\t\tREGISTRATION/LOGIN MENU\n";
+                            std::cout<<"\n\tREGISTRATION/LOGIN MENU\n";
                             std::cout<<"\n\t\t1. User Registration";
                             std::cout<<"\n\t\t2. Admin Registration";
                             std::cout<<"\n\t\t3. User Login";
@@ -10014,24 +16851,117 @@ string LoginManager::combine_mask_and_check()
                             switch(choice)
                             {
                             case '1':
-                                log.registration(true);
-                                break;
+                                 {
+                                        system("cls");
+                                        std::cout << "\n" "***********************************************************************************************************\n";
+                                        std::cout<<"\n\t\tUSER REGISTRATION\n\n";
+                                        std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                        std::cin.ignore();
+
+                                        if(cin.get() == '\n')
+                                        {
+                                            log.registration(true);
+                                        }
+                                        else
+                                        {
+                                            goto lavel;
+                                        }
+                                    break;
+                                    }
                             case '2':
-                                log.registration(false);
-                                break;
+                                    {
+                                            system("cls");
+                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                            std::cout<<"\n\t\tADMIN REGISTRATION\n\n";
+                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                            std::cin.ignore();
+
+                                            if(cin.get() == '\n')
+                                            {
+                                                log.registration(false);
+                                            }
+                                            else
+                                            {
+                                                goto lavel;
+                                            }
+                                    break;
+                                    }
                             case '3':
-                                goto level;
-                                break;
+                                {
+                                            system("cls");
+                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                            std::cout<<"\n\t\tUSER LOGIN\n\n";
+                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                            std::cin.ignore();
+
+                                            if(cin.get() == '\n')
+                                            {
+                                                goto level;
+                                            }
+                                            else
+                                            {
+                                                goto lavel;
+                                            }
+                                        break;
+                                    }
                             case '4':
-                                goto level2;
+                                {
+                                    system("cls");
+                                    std::cout << "\n" "***********************************************************************************************************\n";
+                                    std::cout<<"\n\t\tADMIN LOGIN\n\n";
+                                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                    std::cin.ignore();
+
+                                    if(cin.get() == '\n')
+                                    {
+                                        goto level2;
+                                    }
+                                    else
+                                    {
+                                        goto lavel;
+                                    }
                                 break;
+                                }
                             case '5':
-                                goto label;
+                                {
+                                    system("cls");
+                                    std::cout << "\n" "***********************************************************************************************************\n";
+                                    std::cout<<"\n\t\tRETURN TO LOGIN MENU\n\n";
+                                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                    std::cin.ignore();
+
+                                    if(cin.get() == '\n')
+                                    {
+                                        goto label;
+                                    }
+                                    else
+                                    {
+                                        goto lavel;
+                                    }
                                 break;
+                                }
                             case '6':
-                                std::cout << "Thank you for using IoT-HarPSecA. " << std::endl;
-                                 std::cout << "Exiting ........" << std::endl;
+                                {
+                                    system("cls");
+                                    std::cout << "\n" "***********************************************************************************************************\n";
+                                    std::cout<<"\n\t\tEXIT\n\n";
+                                    std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                    std::cin.ignore();
+
+                                    if(cin.get() == '\n')
+                                    {
+                                        system("cls");
+                                        std::cout << "\n" "***********************************************************************************************************\n";
+                                        std::cout << "Thank you for using IoT-HarPSecA. " << std::endl;
+                                        std::cout << "Exiting ........" << std::endl;
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        goto lavel;
+                                    }
                                 break;
+                                }
                             default :
                                 std::cout << "\tSorry! Wrong option selected." << std:: endl;
                             }
@@ -10040,205 +16970,588 @@ string LoginManager::combine_mask_and_check()
                         }while(choice !='6');
                         return 0;
                     break;
+                  }
 			case '2':
                  {
-                   level:
-                    int flag1;
-                     flag1 = log.login(false);
-                     if(flag1 == 1)
-                     {
-                        int chowa;
-                        UserInput usip;
-                        SecurityMngr mngr;
+                        level:
+                            system("cls");
+                            std::cout << "\n" "***********************************************************************************************************\n";
+                            std::cout<<"\n\t\tUSER LOGIN\n";
+                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                            std::cin.ignore();
 
-                        do
-                        {
-                             system("cls");
-                            std::cout<<"\n***********************************************************************************************************\n";
-                            std::cout<<"\n\tWELCOME TO IoT-HarPSecA MAIN MENU\n";
-                            std::cout<<"\n\tWhat would you like to do?\n";
-                            std::cout<<"\n\t\t1.  Make A New Security Requirement Elicitation Request";
-                            std::cout<<"\n\t\t2.  Display/Modify Security Requirement Elicitation Request";
-                            std::cout<<"\n\t\t3.  Process Security Requirement Elicitation Request";
-                            std::cout<<"\n\t\t4.  Delete Security Requirement Elicitation Request";
-
-                            std::cout<<"\n\t\t5.  Make A New Secure Development Best Practice Guide Request";
-                            std::cout<<"\n\t\t6.  Display/Modify Secure Development Best Practice Guide Request";
-                            std::cout<<"\n\t\t7.  Process Secure Development Best Practice Guide Request";
-                            std::cout<<"\n\t\t8.  Delete Secure Development Best Practice Guide Request";
-                             std::cout<<"\n\t\t9.  Make A New Lightweight Security Algorithm Implementation Request";
-                            std::cout<<"\n\t\t10. Display/Modify Lightweight Security Algorithm Implementation Request";
-                            std::cout<<"\n\t\t11. Process Lightweight Security Algorithm Implementation Request";
-                            std::cout<<"\n\t\t12. Delete Lightweight Security Algorithm Implementation Request";
-                            std::cout<<"\n\t\t13. Return to Login Menu";
-
-                            std::cout<<"\n\t\t14. Exit";
-
-                          std::cout<<"\n\n\tSelect Your Option (1-14): ";
-                           std::cin>>chowa;
-
-                         while(std::cin.fail())
-                         {
-                            std::cout << "\n\t\t\tERROR!";
-                            std::cin.clear();
-                            std::cin.ignore(256,'\n');
-                             std::cout <<"\tPlease enter a real integer. Select Your Option (1-14): ";
-                            std::cin >> chowa;
-                       }
-
-                            switch(chowa)
+                            if(cin.get() == '\n')
                             {
-                                case 1:
-                                       usip.UserInput::getUserInput_RE();
-                                    break;
-                                case 2:
-                                        usip.modifyUserRequirements_Elicitation_requests();
-                                    break;
-                                case 3:
-                                        mngr.decisionMaker_RE();
-                                    break;
-                                case 4:
-                                            usip.deleteRequest_RE();
-                                    break;
-                                case 5:
+                                    int flag1;
+                                     flag1 = log.login(false);
+                                     if(flag1 == 1)
+                                     {
+                                        int chowa;
+                                       // int real_int;
+                                        UserInput usip;
+                                        SecurityMngr mngr;
 
-                                    break;
-                                case 6:
+                                        guga:
+                                        do
+                                        {
+                                             system("cls");
+                                            std::cout<<"\n***********************************************************************************************************\n";
+                                            std::cout<<"\n\tWELCOME TO IoT-HarPSecA MAIN MENU\n";
+                                            std::cout<<"\n\tWhat would you like to do?\n";
+                                            std::cout<<"\n\t\t1.  Make A New Security Requirement Elicitation Request";
+                                            std::cout<<"\n\t\t2.  Display/Modify Your Security Requirement Elicitation Request";
+                                            std::cout<<"\n\t\t3.  Process Your Security Requirement Elicitation Request";
+                                            std::cout<<"\n\t\t4.  Delete Your Security Requirement Elicitation Request";
+                                            std::cout<<"\n\t\t5.  Request A New Security Best Practice Guidelines for Secure Development ";
+                                            std::cout<<"\n\t\t6.  Display/Modify Your Security Best Practice Guidelines Request";
+                                            std::cout<<"\n\t\t7.  Process Your Security Best Practice Guidelines Request";
+                                            std::cout<<"\n\t\t8.  Delete Your Security Best Practice Guidelines Request";
+                                            std::cout<<"\n\t\t9.  Make A New Lightweight Cryptographic Algorithms Recommendation Request";
+                                            std::cout<<"\n\t\t10. Display/Modify Your Lightweight Cryptographic Algorithms Recommendation Request";
+                                            std::cout<<"\n\t\t11. Process Your Lightweight Cryptographic Algorithms Recommendation Request";
+                                            std::cout<<"\n\t\t12. Delete Your Lightweight Cryptographic Algorithms Recommendation Request";
+                                            std::cout<<"\n\t\t13. Return to Login Menu";
 
-                                    break;
-                                case 7:
+                                                std::cout<<"\n\t\t14. Exit";
 
-                                    break;
-                                case 8:
+                                          std::cout<<"\n\n\tSelect Your Option (1-14): ";
+                                           std::cin>>chowa;
 
-                                    break;
-                                case 9:
-                                    usip.getUserInput();
-                                    break;
-                                case 10:
-                                    usip.showAndModifyUser_request();
-                                    break;
-                                case 11:
-                                    mngr.decisionMaker();
-                                    break;
-                                case 12:
-                                    usip.deleteRequest();
-                                    break;
-                                case 13:
-                                    goto label;
-                                    break;
-                                case 14:
-                                    system("cls");
-                                    std::cout << "\n\n\tThank you for using IoT-HarPSecA. " << std::endl;
-                                     std::cout << "\n\n\tExiting ........" << std::endl;
-                                   break;
 
-                               default :
-                                    system("cls");
-                                    std::cout << "\n\n\n\t\t\t\tSORRY! WRONG OPTION SELECTED." << std:: endl;
-                                    cout << endl << "\n\n\t\t\t\tPress Enter to return to the Main Menu and try again." << endl;
-                            }
-                            cin.ignore();
-                            cin.get();
-                       }while(chowa != 14);
-                        return 0;
-                     }
-                     else
-                     {
-                         break;
-                     }
+                                         while(std::cin.fail())
+                                         {
+                                            std::cout << "\n\t\t\tERROR!";
+                                            std::cin.clear();
+                                            std::cin.ignore(256,'\n');
+                                             std::cout <<"\tThis is not an integer. Please select Your Option (1-14): ";
+                                            std::cin >> chowa;
+                                         }
+                                            switch(chowa)
+                                            {
+                                                case 1:
+                                                    {
+                                                        system("cls");
+                                                        std::cout << "\n" "***********************************************************************************************************\n";
+                                                        std::cout<<"\n\t\tMAKE A NEW SECURITY REQUIREMENT ELICITATION REQUEST\n\n";
+                                                        std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                        std::cin.ignore();
 
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.getUserInput_RE();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                    break;
+                                                    }
+                                                case 2:
+                                                        {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDISPLAY/MODIFY SECURITY REQUIREMENT ELICITATION REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.modifyUserRequirements_Elicitation_requests();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                         break;
+                                                        }
+                                                case 3:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tPROCESS SECURITY REQUIREMENT ELICITATION REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                               mngr.decisionMaker_RE();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                    break;
+                                                      }
+                                                case 4:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDELETE SECURITY REQUIREMENT ELICITATION REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                               usip.deleteRequest_RE();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                        break;
+                                                    }
+                                                case 5:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\t\tREQUEST A NEW BEST PRACTICE GUIDE FOR SECURE DEVELOPMENT \n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.getUserInput_BestPractGuide();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                      break;
+                                                    }
+                                                case 6:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDISPLAY/MODIFY SECURE DEVELOPMENT BEST PRACTICE GUIDE REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.modifyBestPractGuide_requests();
+
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                       break;
+                                                    }
+                                                case 7:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tPROCESS SECURE DEVELOPMENT BEST PRACTICE GUIDE REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                mngr.decisionMaker_BP();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                       break;
+                                                    }
+                                                case 8:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDELETE SECURE DEVELOPMENT BEST PRACTICE GUIDE REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.deleteBestPractGuide();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                       break;
+                                                    }
+                                                case 9:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tMAKE A NEW LIGHTWEIGHT SECURITY ALGORITHM IMPLEMENTATION REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.getUserInput();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                       break;
+                                                    }
+                                                case 10:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDISPLAY/MODIFY LIGHTWEIGHT SECURITY ALGORITHM IMPLEMENTATION REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.showAndModifyUser_request();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                       break;
+                                                    }
+                                                case 11:
+                                                    {
+                                                            int lu7 = 0;
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tPROCESS LIGHTWEIGHT SECURITY ALGORITHM IMPLEMENTATION REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                mngr.decisionMaker();//decisionMaker()
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                       break;
+                                                    }
+                                                case 12:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDELETE LIGHTWEIGHT SECURITY ALGORITHM IMPLEMENTATION REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.deleteRequest();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                       break;
+                                                    }
+                                                case 13:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tRETURN TO LOGIN MENU\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                 goto label;
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                       break;
+                                                    }
+                                                case 14:
+                                                    {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tEXIT\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                 system("cls");
+                                                                 std::cout << "\n\n\tThank you for using IoT-HarPSecA. " << std::endl;
+                                                                 std::cout << "\n\n\tExiting ........" << std::endl;
+                                                                return 0;
+                                                            }
+                                                            else
+                                                            {
+                                                                goto guga;
+                                                            }
+                                                       break;
+                                                    }
+
+                                               default :
+                                                    system("cls");
+                                                    std::cout << "\n\n\n\t\t\t\tSORRY! WRONG OPTION SELECTED." << std:: endl;
+                                                    cout << endl << "\n\n\t\t\t\tPress Enter to return to the Main Menu and try again." << endl;
+                                            }
+                                            cin.ignore();
+                                            cin.get();
+                                       }while(chowa != 14);
+                                     }
+                                     else
+                                     {
+                                        goto label;
+                                     }
+                                }
+                                else
+                                {
+                                    break;
+                                }
                     break;
+
                 }
 			case '3':
-                    level2:
-                    int flag2;
-                     flag2 = log.login(true);
-                    if(flag2 == 1)
                     {
-                        char choice;
-                        SecurityMngr mngr;
 
-                        do
-                        {
-                             system("cls");
-                            std::cout<<"\n" "***********************************************************************************************************\n";
-                            std::cout<<"\n\tWELCOME TO IoT-HarPSecA ADMIN MENU\n";
-                            std::cout<<"\n\t   What would you like to do?\n";
-                            std::cout<<"\n\t\t1. Display/Delete User Requests";
-                            std::cout<<"\n\t\t2. Display/Delete User Registrations";
-                            std::cout<<"\n\t\t3. Display, Add or Delete Security Requirements";
-                            std::cout<<"\n\t\t4. Display, Add or Delete Security Mechanisms";
-                            std::cout<<"\n\t\t5. Display, Add, Update, or Delete Cryptographic Algorithms";
-                            std::cout<<"\n\t\t6. Allow one more Admin user";
-                            std::cout<<"\n\t\t7. Go to Registration/Login Menu";
-                            std::cout<<"\n\t\t8. Go to User Login and enter Main Menu as a user";
-                            std::cout<<"\n\t\t9. Exit\n";
-                            std::cout<<"\n\t   Select Your Option (1-9): "; std::cin>>choice; cout << endl;
+                        level2:
+                            system("cls");
+                            std::cout << "\n" "***********************************************************************************************************\n";
+                            std::cout<<"\n\t\tADMIN LOGIN\n";
+                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                            std::cin.ignore();
 
-                            switch(choice)
+                            if(cin.get() == '\n')
                             {
-                                case '1':
-                                    usip.showAndDeleteUser_Request();
-                                    break;
-                                case '2':
-                                    log.show_and_deleteUser_Registr();
-                                    break;
-                                case '3':
-                                    mngr.show_add_or_deleteSecurity_Req();
-                                    break;
-                                case '4':
-                                    mngr.show_add_or_deleteSecurity_Mech();
-                                   break;
-                                case '5':
-                                    cph.show_add_update_or_deleteCipher();
-                                    break;
-                                case '6':
-                                     add_one_more_Admin();
-                                    break;
-                                 case '7':
-                                    goto lavel;
-                                    break;
-                                case '8':
-                                    goto level;
-                                    break;
-                                case '9':
-                                     std::cout << "Exiting ........\n" << std::endl;
-                                    return 0;
-                                default :
-                                    std::cout << "\tSorry! Wrong option selected." << std:: endl;
-                            }
-                            cin.ignore();
-                            cin.get();
-                        }while(choice !='9');
+                                int flag2;
+                                 flag2 = log.login(true);
+                                if(flag2 == 1)
+                                {
+                                    char choice;
+                                    //int ID;
+                                    SecurityMngr mngr;
 
-                    }
-                    else
-                    {
-                        break;
-                    }
+                                    do
+                                    {
+                                        lamua:
+                                        system("cls");
+                                        std::cout<<"\n" "***********************************************************************************************************\n";
+                                        std::cout<<"\n      WELCOME TO IoT-HarPSecA ADMIN MENU\n";
+                                        std::cout<<"\n      What would you like to do?\n";
+                                        std::cout<<"\n\t 1. Display/Delete a User Registration";
+                                        std::cout<<"\n\t 2. Delete a Security Requirements Elicitation Request";
+                                        std::cout<<"\n\t 3. Delete a Security Best Practice Guidelines Request";
+                                        std::cout<<"\n\t 4. Delete a Lightweight Cryptographic Algorithms Recommendation Request";
+                                        std::cout<<"\n\t 5. Display, Add, Update, or Delete Lightweight Cryptographic Algorithms";
+                                        std::cout<<"\n\t 6. Allow one more Admin user";
+                                        std::cout<<"\n\t 7. Go to Registration/Login Menu and enter Main Menu as a user";
+                                        std::cout<<"\n\t 8. Exit\n";
+                                        std::cout<<"\n      Select Your Option (1-8): "; std::cin>>choice; cout << endl;
+
+                                        switch(choice)
+                                        {
+                                            case '1':
+                                                {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDISPLAY/DELETE USER REGISTRATIONS\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                 log.show_and_deleteUser_Registr();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto lamua;
+                                                            }
+                                                       break;
+                                                    }
+                                             case '2':
+                                                {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDISPLAY SECURITY REQUIREMENTS ELICITATION USER REQUEST IDS/DELETE A USER REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.showAndDeleteUser_Request_RE();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto lamua;
+                                                            }
+                                                       break;
+                                                    }
+                                             case '3':
+                                                {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\tDISPLAY BEST PRACTICE GUIDE FOR SECURE DEVELOPMENT USER REQUEST IDS/DELETE A USER REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                usip.showAndDeleteUser_BestPractGuide();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto lamua;
+                                                            }
+                                                       break;
+                                                    }
+                                            case '4':
+                                                {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDISPLAY/DELETE LIGHTWEIGHT SECURITY ALGORITHM IMPLEMENTATION USER REQUEST\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                 usip.showAndDeleteUser_Request();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto lamua;
+                                                            }
+                                                       break;
+                                                    }
+                                            case '5':
+                                                {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tDISPLAY, ADD, UPDATE, OR DELETE CRYPTOGRAPHIC ALGORITHMS\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                 cph.show_add_update_or_deleteCipher();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto lamua;
+                                                            }
+                                                       break;
+                                                    }
+                                            case '6':
+                                                {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tALLOW ONE MORE ADMIN USER\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                 add_one_more_Admin();
+                                                            }
+                                                            else
+                                                            {
+                                                                goto lamua;
+                                                            }
+                                                       break;
+                                                    }
+                                             case '7':
+                                                 {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tGO TO REGISTRATION/LOGIN MENU AND ENTER MAIN MENU AS A USER\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                goto lavel;
+                                                            }
+                                                            else
+                                                            {
+                                                                goto lamua;
+                                                            }
+                                                       break;
+                                                    }
+                                            case '8':
+                                                {
+                                                            system("cls");
+                                                            std::cout << "\n" "***********************************************************************************************************\n";
+                                                            std::cout<<"\n\t\tEXIT\n\n";
+                                                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                                                            std::cin.ignore();
+
+                                                            if(cin.get() == '\n')
+                                                            {
+                                                                system("cls");
+                                                                std::cout << "\n" "***********************************************************************************************************\n";
+                                                                std::cout << "Exiting ........\n" << std::endl;
+                                                                return 0;
+                                                            }
+                                                            else
+                                                            {
+                                                                goto lamua;
+                                                            }
+                                                       break;
+                                                    }
+                                            default :
+                                                std::cout << "\tSorry! Wrong option selected." << std:: endl;
+                                        }
+                                        cin.ignore();
+                                        cin.get();
+                                    }while(choice !='8');//9
+
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                goto label;
+                            }
+
                      break;
+                     }
 			case '4':
-                    std::cout << "Thank you for using IoT-HarPSecA. " << std::endl;
-                    std::cout << "Exiting ........" << std::endl;
+                        {
+                            system("cls");
+                            std::cout << "\n" "***********************************************************************************************************\n";
+                            std::cout<<"\n\t\tEXIT\n";
+                            std::cout<<"\n\t\tPress Enter to Continue, or any other key to go back: ";
+                            std::cin.ignore();
+
+                            if(cin.get() == '\n')
+                            {
+                                system("cls");
+                                std::cout << "\n" "***********************************************************************************************************\n";
+                                std::cout << "\n\t\tThank you for using IoT-HarPSecA. " << std::endl;
+                                std::cout << "\n\n\t\tExiting ........" << std::endl;
+                                std::cout<<"\n\n\t\tKeep pressing Enter to close the application";
+
+                            }
+                            else
+                            {
+                                goto label;
+                            }
                     break;
+                    }
 			default:
 
 				  std::cout << "\tSorry! Wrong option selected." << std:: endl;
-
 			}
 			cin.ignore();
 			cin.get();
 		}while(choice != '4');
 	}
 
-// Driver code
 int main()
 {
-
     SetConsoleTitle("IoT-HarPSecA Tool");
     LoginManager log;
     log.general_login();
 
 	return 0;
 }
+
+
