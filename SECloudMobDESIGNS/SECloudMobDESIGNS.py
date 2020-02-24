@@ -2801,8 +2801,6 @@ def processingInformation2():
     print("  Processing information.....")
     print("")
 
-    printData2()
-
     report = open("GOOD_PRACTICES.md", "w")
     report.write("# Final Report  " + '\n')
     report.write("\n")
@@ -2984,8 +2982,6 @@ def processingInformation3():
     print("")
     print("  Processing information.....")
     print("")
-
-    printData3()
 
     report = open("ATTACKS_MAPPING.md", "w")
     report.write("# Final Report  " + '\n')
@@ -3505,8 +3501,6 @@ def processingInformation4():
     print("")
     print("  Processing information.....")
     print("")
-
-    printData4()
 
     report = open("TEST_SPECIFICATION.md", "w")
     report.write("# Final Report  " + '\n')
