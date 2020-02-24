@@ -6,4 +6,6 @@ To install the markdown, xhtml2pdf and svglib packages follow the procedures bel
   * pip install markdown;
   * easy_install markdown.
 4. pip install xhtml2pdf --pre;
-5. pip install svglib
+5. pip install svglib or if you are using Anaconda or Miniconda, follow the options below:
+  5.1.	$ pip install git+https://github.com/deeplook/svglib;
+  5.2.	$ conda install svglib.
