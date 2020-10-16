@@ -1,6 +1,6 @@
 # Buffer Overflows Attack
 
-As its name implies, buffer overflows occur when data exceeding its capacity is placed in a buffer. This occurs in programs implemented in C or C ++, as these programming languages do not check if buffer limits are violated.
+As its name implies, buffer overflows occur when data exceeding its capacity is placed in a buffer. This occurs in programs implemented in C or C++, as these programming languages do not check if buffer limits are violated.
 
 
 ## Definition

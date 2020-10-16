@@ -9,8 +9,8 @@ In this type of attack, the attacker can spoof the "Caller ID" and impersonate h
   
 ## Attacker Powers
 
- * Falsificar a ID do chamador;
- * Monitorização de chamadas e acesso à informação confidencial dos utilizadores legítimos a partir das mensagens de voz ou de texto.
+ * Faker caller ID;
+ * Monitoring of calls and access to the confidential information of legitimate users from voice or text messages.
 
  
 ## Spoofing Attacks Diagram
