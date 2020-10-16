@@ -1,0 +1,20 @@
+4;                   # Hybrid Application  
+4                    # m-Health            
+2                    # Username and Password
+1                    # Yes                 
+1                    # SQL                 
+2                    # MySQL               
+1;2;3;               # Personal Information ; Confidential Data ; Critical Data
+1                    # Yes                 
+1                    # The users will register themselves
+3;6;                 # HTML5 ; PHP         
+1                    # Yes                 
+1                    # Yes                 
+1                    # Yes                 
+1                    # Yes                 
+1                    # Yes                 
+4                    # Public Cloud        
+1                    # Yes                 
+3                    # Basic Authentication (user/pass)
+1;2;4;5;6;8;         # 4G / LTE ; 3G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC
+1                    # Yes                 

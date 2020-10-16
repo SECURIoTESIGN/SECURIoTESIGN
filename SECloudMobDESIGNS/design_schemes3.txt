@@ -1,0 +1,1 @@
+[Android Device] <-- https --> [Cloud][Hongmeng Device] <-- https --> [Cloud][Mobile Device] <-- https --> [Cloud][Client] <-- https --> [Web Server] <-- TCP/IP --> [Database Server]

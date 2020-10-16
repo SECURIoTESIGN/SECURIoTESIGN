@@ -92,7 +92,7 @@ question1 = {
     "11": "Tizen Application",
     "12": "Ubuntu Touch Application",
     "13": "Web Application",
-    "14": "Embedded System",
+    "14": "IoT System",
     "15": ""
 }
 
@@ -358,7 +358,7 @@ def arqui(version):
     print("  11 - Tizen Application  ")
     print("  12 - Ubuntu Touch Application  ")
     print("  13 - Web Application  ")
-    print("  14 - Embedded System  ")
+    print("  14 - IoT Systems  ")
     print("  15 - Others  ")
     print("")
 
@@ -1363,362 +1363,6 @@ def convertReport2():
     pisa.CreatePDF(html_text, dest=resultFile)
 
 
-# print( pisastatus)
-
-
-# ----------------------------------------------------------------------------
-def printData2():
-    generate_file = open("ans2.txt", "w")
-
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is user input text) OR fix this buy make it simple, verify if it the answer has only letters xD
-    # find if the first caracter is a letter and if the answer has no more options
-    if qans["Q1"][0].isdigit() == False and qans["Q1"].find(";") == -1:
-        list_aux.append(qans["Q1"])
-
-    else:
-
-        # variable aux is a list that contains the answers chosen by the user to the question in cause
-        # cut the string in the delimitator ";"
-        aux = qans["Q1"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-        # print(aux)
-
-        # iterate the answers chosen by the user
-        for item in aux:
-
-            # iterate the options of the question and check what the chosen answers match
-            for option in question1:
-                if item == option:
-                    list_aux.append(question1[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    # print(list_aux)
-    print("{:22} {:3} {:40} ".format("Architeture", ":", ' ; '.join(list_aux)))
-    table_for_report.append(["Architeture", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q1"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question2:
-        item = qans["Q2"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("Application domain type", ":", question2[n]))
-
-            table_for_report.append(["Application domain type", question2[n]])
-
-            answers_list.append(qans["Q2"])
-            comments_list.append(question2[n])
-
-    # --------------------------------------------
-    for n in question3:
-        item = qans["Q3"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("Authentication", ":", question3[n]))
-
-            table_for_report.append(["Authentication", question3[n]])
-
-            answers_list.append(qans["Q3"])
-            comments_list.append(question3[n])
-
-    # --------------------------------------------
-    for n in question4:
-        item = qans["Q4"]
-        if item == n:
-            # print( "Has DB {:>18} ".format(":     ") + question_2[n])
-            print("{:22} {:3} {:40} ".format("Has DB", ":", question4[n]))
-
-            table_for_report.append(["Has DB", question4[n]])
-
-            answers_list.append(qans["Q4"])
-            comments_list.append(question4[n])
-
-    # --------------------------------------------
-    item = qans["Q5"]
-    # case this question is not answered, and the answer it will be "N/A"
-    if qans["Q5"].isdigit() == False:
-        print("{:22} {:3} {:40} ".format("Type of data storage", ":", item))
-
-        table_for_report.append(["Type of data storage", item])
-
-        answers_list.append(qans["Q5"])
-        comments_list.append(item)
-
-    else:
-
-        for n in question5:
-            if item == n:
-                print("{:22} {:3} {:40} ".format("Type of data storage", ":", question5[n]))
-
-                table_for_report.append(["Type of data storage", question5[n]])
-
-                answers_list.append(qans["Q5"])
-                comments_list.append(question5[n])
-
-    # --------------------------------------------
-
-    item = qans["Q6"]
-    for n in question6:
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Which DB", ":", question6[n]))
-
-            table_for_report.append(["Which DB", question6[n]])
-
-            answers_list.append(qans["Q6"])
-            comments_list.append(question6[n])
-
-    # case of user input text
-    if item.isdigit() == False:
-        print("{:22} {:3} {:40} ".format("Which DB", ":", item))
-
-        table_for_report.append(["Which DB", item])
-
-        answers_list.append(qans["Q6"])
-        comments_list.append(item)
-
-    # --------------------------------------------
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is user input text) or not answered
-    if qans["Q7"][0].isdigit() == False and qans["Q7"].find(";") == -1:
-        list_aux.append(qans["Q7"])
-
-    else:
-
-        # variable aux is a list that contains the answers chosen by the user to the question in cause
-        # cut the string in the delimitator ";"
-        aux = qans["Q7"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-
-        for item in aux:
-            for option in question7:
-                if item == option:
-                    list_aux.append(question7[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    print("{:22} {:3} {:40} ".format("Type of data stored", ":", ' ; '.join(list_aux)))
-
-    table_for_report.append(["Type of data stored", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q7"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question8:
-        item = qans["Q8"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("User Registration", ":", question8[n]))
-
-            table_for_report.append(["User Registration", question8[n]])
-
-            answers_list.append(qans["Q8"])
-            comments_list.append(question8[n])
-
-    # --------------------------------------------
-    item = qans["Q9"]
-    if qans["Q9"].isdigit() == False:
-        print("{:22} {:3} {:40} ".format("Type of Registration", ": ", item))
-
-        table_for_report.append(["Type of Registration", item])
-
-        answers_list.append(qans["Q9"])
-        comments_list.append(item)
-
-    else:
-        for n in question9:
-            if item == n:
-                print("{:22} {:3} {:40} ".format("Type of Registration", ": ", question9[n]))
-
-                table_for_report.append(["Type of Registration", question9[n]])
-
-                answers_list.append(qans["Q9"])
-                comments_list.append(question9[n])
-
-    # --------------------------------------------
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is only user input text)
-    if qans["Q10"][0].isdigit() == False and qans["Q10"].find(";") == -1:
-        list_aux.append(qans["Q10"])
-
-    else:
-
-        # cut the string in the delimitator ";"
-        aux = qans["Q10"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-
-        for item in aux:
-            for option in question10:
-                if item == option:
-                    list_aux.append(question10[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    print("{:22} {:3} {:40} ".format("Programming Languages", ":", ' ; '.join(list_aux)))
-
-    table_for_report.append(["Programming Languages", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q10"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question11:
-        item = qans["Q11"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Input Forms", ":", question11[n]))
-
-            table_for_report.append(["Input Forms", question11[n]])
-
-            answers_list.append(qans["Q11"])
-            comments_list.append(question11[n])
-
-    # --------------------------------------------
-    for n in question12:
-        item = qans["Q12"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Upload Files", ":", question12[n]))
-
-            table_for_report.append(["Upload Files", question12[n]])
-
-            answers_list.append(qans["Q12"])
-            comments_list.append(question12[n])
-
-    # --------------------------------------------
-    for n in question13:
-        item = qans["Q13"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("The system has logs", ":", question13[n]))
-
-            table_for_report.append(["The system has logs", question13[n]])
-
-            answers_list.append(qans["Q13"])
-            comments_list.append(question13[n])
-
-    # --------------------------------------------
-    for n in question14:
-        item = qans["Q14"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("The system has regular updates", ":", question14[n]))
-
-            table_for_report.append(["The system has regular updates", question14[n]])
-
-            answers_list.append(qans["Q14"])
-            comments_list.append(question14[n])
-
-    # --------------------------------------------
-    for n in question15:
-        item = qans["Q15"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("The system has third-party", ":", question15[n]))
-
-            table_for_report.append(["The system has third-party", question15[n]])
-
-            answers_list.append(qans["Q15"])
-            comments_list.append(question15[n])
-
-    # --------------------------------------------
-    for n in question16:
-        item = qans["Q16"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("System Cloud Environments", ":", question16[n]))
-
-            table_for_report.append(["System Cloud Environments", question16[n]])
-
-            answers_list.append(qans["Q16"])
-            comments_list.append(question16[n])
-
-    # --------------------------------------------
-    for n in question17:
-        item = qans["Q17"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Hardware Specification", ":", question17[n]))
-
-            table_for_report.append(["Hardware Specification", question17[n]])
-
-            answers_list.append(qans["Q17"])
-            comments_list.append(question17[n])
-
-    # --------------------------------------------
-    for n in question18:
-        item = qans["Q18"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("HW Authentication", ":", question18[n]))
-
-            table_for_report.append(["HW Authentication", question18[n]])
-
-            answers_list.append(qans["Q18"])
-            comments_list.append(question18[n])
-
-    # --------------------------------------------
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is only user input text)
-    if qans["Q19"][0].isdigit() == False and qans["Q19"].find(";") == -1:
-        list_aux.append(qans["Q19"])
-
-    else:
-
-        # cut the string in the delimitator ";"
-        aux = qans["Q19"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-
-        for item in aux:
-            for option in question19:
-                if item == option:
-                    list_aux.append(question19[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    print("{:22} {:3} {:40} ".format("HW Wireless Tech", ":", ' ; '.join(list_aux)))
-
-    table_for_report.append(["HW Wireless Tech", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q19"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question20:
-        item = qans["Q20"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Data Center Phisical Access", ":", question20[n]))
-
-            table_for_report.append(["Data Center Phisical Access", question20[n]])
-
-            answers_list.append(qans["Q20"])
-            comments_list.append(question20[n])
-
-    # -------------------------------------------
-    # write / generate a file with all answers
-    for i in range(0, len(answers_list)):
-        generate_file.write("{:20}{:3}{:20}\n".format(answers_list[i], " # ", comments_list[i]))
-
-    generate_file.close()
-
-
 # ----------------------------------------------------------------------------
 # function to convert the markdown report to html and pdf format
 def convertReport3():
@@ -1738,362 +1382,6 @@ def convertReport3():
 
     resultFile = open("ATTACKS_MAPPING.pdf", "w+b")
     pisa.CreatePDF(html_text, dest=resultFile)
-
-
-# print( pisastatus)
-
-
-# ----------------------------------------------------------------------------
-def printData3():
-    generate_file = open("ans3.txt", "w")
-
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is user input text) OR fix this buy make it simple, verify if it the answer has only letters xD
-    # find if the first caracter is a letter and if the answer has no more options
-    if qans["Q1"][0].isdigit() == False and qans["Q1"].find(";") == -1:
-        list_aux.append(qans["Q1"])
-
-    else:
-
-        # variable aux is a list that contains the answers chosen by the user to the question in cause
-        # cut the string in the delimitator ";"
-        aux = qans["Q1"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-        # print(aux)
-
-        # iterate the answers chosen by the user
-        for item in aux:
-
-            # iterate the options of the question and check what the chosen answers match
-            for option in question1:
-                if item == option:
-                    list_aux.append(question1[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    # print(list_aux)
-    print("{:22} {:3} {:40} ".format("Architeture", ":", ' ; '.join(list_aux)))
-    table_for_report.append(["Architeture", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q1"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question2:
-        item = qans["Q2"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("Application domain type", ":", question2[n]))
-
-            table_for_report.append(["Application domain type", question2[n]])
-
-            answers_list.append(qans["Q2"])
-            comments_list.append(question2[n])
-
-    # --------------------------------------------
-    for n in question3:
-        item = qans["Q3"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("Authentication", ":", question3[n]))
-
-            table_for_report.append(["Authentication", question3[n]])
-
-            answers_list.append(qans["Q3"])
-            comments_list.append(question3[n])
-
-    # --------------------------------------------
-    for n in question4:
-        item = qans["Q4"]
-        if item == n:
-            # print( "Has DB {:>18} ".format(":     ") + question_2[n])
-            print("{:22} {:3} {:40} ".format("Has DB", ":", question4[n]))
-
-            table_for_report.append(["Has DB", question4[n]])
-
-            answers_list.append(qans["Q4"])
-            comments_list.append(question4[n])
-
-    # --------------------------------------------
-    item = qans["Q5"]
-    # case this question is not answered, and the answer it will be "N/A"
-    if qans["Q5"].isdigit() == False:
-        print("{:22} {:3} {:40} ".format("Type of data storage", ":", item))
-
-        table_for_report.append(["Type of data storage", item])
-
-        answers_list.append(qans["Q5"])
-        comments_list.append(item)
-
-    else:
-
-        for n in question5:
-            if item == n:
-                print("{:22} {:3} {:40} ".format("Type of data storage", ":", question5[n]))
-
-                table_for_report.append(["Type of data storage", question5[n]])
-
-                answers_list.append(qans["Q5"])
-                comments_list.append(question5[n])
-
-    # --------------------------------------------
-
-    item = qans["Q6"]
-    for n in question6:
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Which DB", ":", question6[n]))
-
-            table_for_report.append(["Which DB", question6[n]])
-
-            answers_list.append(qans["Q6"])
-            comments_list.append(question6[n])
-
-    # case of user input text
-    if item.isdigit() == False:
-        print("{:22} {:3} {:40} ".format("Which DB", ":", item))
-
-        table_for_report.append(["Which DB", item])
-
-        answers_list.append(qans["Q6"])
-        comments_list.append(item)
-
-    # --------------------------------------------
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is user input text) or not answered
-    if qans["Q7"][0].isdigit() == False and qans["Q7"].find(";") == -1:
-        list_aux.append(qans["Q7"])
-
-    else:
-
-        # variable aux is a list that contains the answers chosen by the user to the question in cause
-        # cut the string in the delimitator ";"
-        aux = qans["Q7"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-
-        for item in aux:
-            for option in question7:
-                if item == option:
-                    list_aux.append(question7[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    print("{:22} {:3} {:40} ".format("Type of data stored", ":", ' ; '.join(list_aux)))
-
-    table_for_report.append(["Type of data stored", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q7"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question8:
-        item = qans["Q8"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("User Registration", ":", question8[n]))
-
-            table_for_report.append(["User Registration", question8[n]])
-
-            answers_list.append(qans["Q8"])
-            comments_list.append(question8[n])
-
-    # --------------------------------------------
-    item = qans["Q9"]
-    if qans["Q9"].isdigit() == False:
-        print("{:22} {:3} {:40} ".format("Type of Registration", ": ", item))
-
-        table_for_report.append(["Type of Registration", item])
-
-        answers_list.append(qans["Q9"])
-        comments_list.append(item)
-
-    else:
-        for n in question9:
-            if item == n:
-                print("{:22} {:3} {:40} ".format("Type of Registration", ": ", question9[n]))
-
-                table_for_report.append(["Type of Registration", question9[n]])
-
-                answers_list.append(qans["Q9"])
-                comments_list.append(question9[n])
-
-    # --------------------------------------------
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is only user input text)
-    if qans["Q10"][0].isdigit() == False and qans["Q10"].find(";") == -1:
-        list_aux.append(qans["Q10"])
-
-    else:
-
-        # cut the string in the delimitator ";"
-        aux = qans["Q10"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-
-        for item in aux:
-            for option in question10:
-                if item == option:
-                    list_aux.append(question10[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    print("{:22} {:3} {:40} ".format("Programming Languages", ":", ' ; '.join(list_aux)))
-
-    table_for_report.append(["Programming Languages", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q10"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question11:
-        item = qans["Q11"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Input Forms", ":", question11[n]))
-
-            table_for_report.append(["Input Forms", question11[n]])
-
-            answers_list.append(qans["Q11"])
-            comments_list.append(question11[n])
-
-    # --------------------------------------------
-    for n in question12:
-        item = qans["Q12"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Upload Files", ":", question12[n]))
-
-            table_for_report.append(["Upload Files", question12[n]])
-
-            answers_list.append(qans["Q12"])
-            comments_list.append(question12[n])
-
-    # --------------------------------------------
-    for n in question13:
-        item = qans["Q13"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("The system has logs", ":", question13[n]))
-
-            table_for_report.append(["The system has logs", question13[n]])
-
-            answers_list.append(qans["Q13"])
-            comments_list.append(question13[n])
-
-    # --------------------------------------------
-    for n in question14:
-        item = qans["Q14"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("The system has regular updates", ":", question14[n]))
-
-            table_for_report.append(["The system has regular updates", question14[n]])
-
-            answers_list.append(qans["Q14"])
-            comments_list.append(question14[n])
-
-    # --------------------------------------------
-    for n in question15:
-        item = qans["Q15"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("The system has third-party", ":", question15[n]))
-
-            table_for_report.append(["The system has third-party", question15[n]])
-
-            answers_list.append(qans["Q15"])
-            comments_list.append(question15[n])
-
-    # --------------------------------------------
-    for n in question16:
-        item = qans["Q16"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("System Cloud Environments", ":", question16[n]))
-
-            table_for_report.append(["System Cloud Environments", question16[n]])
-
-            answers_list.append(qans["Q16"])
-            comments_list.append(question16[n])
-
-    # --------------------------------------------
-    for n in question17:
-        item = qans["Q17"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Hardware Specification", ":", question17[n]))
-
-            table_for_report.append(["Hardware Specification", question17[n]])
-
-            answers_list.append(qans["Q17"])
-            comments_list.append(question17[n])
-
-    # --------------------------------------------
-    for n in question18:
-        item = qans["Q18"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("HW Authentication", ":", question18[n]))
-
-            table_for_report.append(["HW Authentication", question18[n]])
-
-            answers_list.append(qans["Q18"])
-            comments_list.append(question18[n])
-
-    # --------------------------------------------
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is only user input text)
-    if qans["Q19"][0].isdigit() == False and qans["Q19"].find(";") == -1:
-        list_aux.append(qans["Q19"])
-
-    else:
-
-        # cut the string in the delimitator ";"
-        aux = qans["Q19"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-
-        for item in aux:
-            for option in question19:
-                if item == option:
-                    list_aux.append(question19[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    print("{:22} {:3} {:40} ".format("HW Wireless Tech", ":", ' ; '.join(list_aux)))
-
-    table_for_report.append(["HW Wireless Tech", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q19"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question20:
-        item = qans["Q20"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Data Center Phisical Access", ":", question20[n]))
-
-            table_for_report.append(["Data Center Phisical Access", question20[n]])
-
-            answers_list.append(qans["Q20"])
-            comments_list.append(question20[n])
-
-    # -------------------------------------------
-    # write / generate a file with all answers
-    for i in range(0, len(answers_list)):
-        generate_file.write("{:20}{:3}{:20}\n".format(answers_list[i], " # ", comments_list[i]))
-
-    generate_file.close()
 
 # ----------------------------------------------------------------------------
 # function to convert the markdown report to html and pdf format
@@ -2116,360 +1404,6 @@ def convertReport4():
     pisa.CreatePDF(html_text, dest=resultFile)
 
 
-# print( pisastatus)
-
-
-# ----------------------------------------------------------------------------
-def printData4():
-    generate_file = open("ans4.txt", "w")
-
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is user input text) OR fix this buy make it simple, verify if it the answer has only letters xD
-    # find if the first caracter is a letter and if the answer has no more options
-    if qans["Q1"][0].isdigit() == False and qans["Q1"].find(";") == -1:
-        list_aux.append(qans["Q1"])
-
-    else:
-
-        # variable aux is a list that contains the answers chosen by the user to the question in cause
-        # cut the string in the delimitator ";"
-        aux = qans["Q1"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-        # print(aux)
-
-        # iterate the answers chosen by the user
-        for item in aux:
-
-            # iterate the options of the question and check what the chosen answers match
-            for option in question1:
-                if item == option:
-                    list_aux.append(question1[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    # print(list_aux)
-    print("{:22} {:3} {:40} ".format("Architeture", ":", ' ; '.join(list_aux)))
-    table_for_report.append(["Architeture", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q1"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question2:
-        item = qans["Q2"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("Application domain type", ":", question2[n]))
-
-            table_for_report.append(["Application domain type", question2[n]])
-
-            answers_list.append(qans["Q2"])
-            comments_list.append(question2[n])
-
-    # --------------------------------------------
-    for n in question3:
-        item = qans["Q3"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("Authentication", ":", question3[n]))
-
-            table_for_report.append(["Authentication", question3[n]])
-
-            answers_list.append(qans["Q3"])
-            comments_list.append(question3[n])
-
-    # --------------------------------------------
-    for n in question4:
-        item = qans["Q4"]
-        if item == n:
-            # print( "Has DB {:>18} ".format(":     ") + question_2[n])
-            print("{:22} {:3} {:40} ".format("Has DB", ":", question4[n]))
-
-            table_for_report.append(["Has DB", question4[n]])
-
-            answers_list.append(qans["Q4"])
-            comments_list.append(question4[n])
-
-    # --------------------------------------------
-    item = qans["Q5"]
-    # case this question is not answered, and the answer it will be "N/A"
-    if qans["Q5"].isdigit() == False:
-        print("{:22} {:3} {:40} ".format("Type of data storage", ":", item))
-
-        table_for_report.append(["Type of data storage", item])
-
-        answers_list.append(qans["Q5"])
-        comments_list.append(item)
-
-    else:
-
-        for n in question5:
-            if item == n:
-                print("{:22} {:3} {:40} ".format("Type of data storage", ":", question5[n]))
-
-                table_for_report.append(["Type of data storage", question5[n]])
-
-                answers_list.append(qans["Q5"])
-                comments_list.append(question5[n])
-
-    # --------------------------------------------
-
-    item = qans["Q6"]
-    for n in question6:
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Which DB", ":", question6[n]))
-
-            table_for_report.append(["Which DB", question6[n]])
-
-            answers_list.append(qans["Q6"])
-            comments_list.append(question6[n])
-
-    # case of user input text
-    if item.isdigit() == False:
-        print("{:22} {:3} {:40} ".format("Which DB", ":", item))
-
-        table_for_report.append(["Which DB", item])
-
-        answers_list.append(qans["Q6"])
-        comments_list.append(item)
-
-    # --------------------------------------------
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is user input text) or not answered
-    if qans["Q7"][0].isdigit() == False and qans["Q7"].find(";") == -1:
-        list_aux.append(qans["Q7"])
-
-    else:
-
-        # variable aux is a list that contains the answers chosen by the user to the question in cause
-        # cut the string in the delimitator ";"
-        aux = qans["Q7"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-
-        for item in aux:
-            for option in question7:
-                if item == option:
-                    list_aux.append(question7[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    print("{:22} {:3} {:40} ".format("Type of data stored", ":", ' ; '.join(list_aux)))
-
-    table_for_report.append(["Type of data stored", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q7"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question8:
-        item = qans["Q8"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("User Registration", ":", question8[n]))
-
-            table_for_report.append(["User Registration", question8[n]])
-
-            answers_list.append(qans["Q8"])
-            comments_list.append(question8[n])
-
-    # --------------------------------------------
-    item = qans["Q9"]
-    if qans["Q9"].isdigit() == False:
-        print("{:22} {:3} {:40} ".format("Type of Registration", ": ", item))
-
-        table_for_report.append(["Type of Registration", item])
-
-        answers_list.append(qans["Q9"])
-        comments_list.append(item)
-
-    else:
-        for n in question9:
-            if item == n:
-                print("{:22} {:3} {:40} ".format("Type of Registration", ": ", question9[n]))
-
-                table_for_report.append(["Type of Registration", question9[n]])
-
-                answers_list.append(qans["Q9"])
-                comments_list.append(question9[n])
-
-    # --------------------------------------------
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is only user input text)
-    if qans["Q10"][0].isdigit() == False and qans["Q10"].find(";") == -1:
-        list_aux.append(qans["Q10"])
-
-    else:
-
-        # cut the string in the delimitator ";"
-        aux = qans["Q10"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-
-        for item in aux:
-            for option in question10:
-                if item == option:
-                    list_aux.append(question10[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    print("{:22} {:3} {:40} ".format("Programming Languages", ":", ' ; '.join(list_aux)))
-
-    table_for_report.append(["Programming Languages", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q10"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question11:
-        item = qans["Q11"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Input Forms", ":", question11[n]))
-
-            table_for_report.append(["Input Forms", question11[n]])
-
-            answers_list.append(qans["Q11"])
-            comments_list.append(question11[n])
-
-    # --------------------------------------------
-    for n in question12:
-        item = qans["Q12"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Upload Files", ":", question12[n]))
-
-            table_for_report.append(["Upload Files", question12[n]])
-
-            answers_list.append(qans["Q12"])
-            comments_list.append(question12[n])
-
-    # --------------------------------------------
-    for n in question13:
-        item = qans["Q13"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("The system has logs", ":", question13[n]))
-
-            table_for_report.append(["The system has logs", question13[n]])
-
-            answers_list.append(qans["Q13"])
-            comments_list.append(question13[n])
-
-    # --------------------------------------------
-    for n in question14:
-        item = qans["Q14"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("The system has regular updates", ":", question14[n]))
-
-            table_for_report.append(["The system has regular updates", question14[n]])
-
-            answers_list.append(qans["Q14"])
-            comments_list.append(question14[n])
-
-    # --------------------------------------------
-    for n in question15:
-        item = qans["Q15"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("The system has third-party", ":", question15[n]))
-
-            table_for_report.append(["The system has third-party", question15[n]])
-
-            answers_list.append(qans["Q15"])
-            comments_list.append(question15[n])
-
-    # --------------------------------------------
-    for n in question16:
-        item = qans["Q16"]
-        if item == n:
-            print("{:22} {:3} {:40}".format("System Cloud Environments", ":", question16[n]))
-
-            table_for_report.append(["System Cloud Environments", question16[n]])
-
-            answers_list.append(qans["Q16"])
-            comments_list.append(question16[n])
-
-    # --------------------------------------------
-    for n in question17:
-        item = qans["Q17"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Hardware Specification", ":", question17[n]))
-
-            table_for_report.append(["Hardware Specification", question17[n]])
-
-            answers_list.append(qans["Q17"])
-            comments_list.append(question17[n])
-
-    # --------------------------------------------
-    for n in question18:
-        item = qans["Q18"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("HW Authentication", ":", question18[n]))
-
-            table_for_report.append(["HW Authentication", question18[n]])
-
-            answers_list.append(qans["Q18"])
-            comments_list.append(question18[n])
-
-    # --------------------------------------------
-    list_aux = []
-    # it is a multiple question
-
-    # find if the answer correspond to option "others" (means that is only user input text)
-    if qans["Q19"][0].isdigit() == False and qans["Q19"].find(";") == -1:
-        list_aux.append(qans["Q19"])
-
-    else:
-
-        # cut the string in the delimitator ";"
-        aux = qans["Q19"].split(";")
-
-        # delete last item (= None)
-        aux = aux[:-1]
-
-        for item in aux:
-            for option in question19:
-                if item == option:
-                    list_aux.append(question19[option])
-
-            # case of user input text
-            if item.isdigit() == False:
-                list_aux.append(item)
-
-    print("{:22} {:3} {:40} ".format("HW Wireless Tech", ":", ' ; '.join(list_aux)))
-
-    table_for_report.append(["HW Wireless Tech", ' ; '.join(list_aux)])
-
-    answers_list.append(qans["Q19"])
-    comments_list.append(' ; '.join(list_aux))
-
-    # --------------------------------------------
-    for n in question20:
-        item = qans["Q20"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Data Center Phisical Access", ":", question20[n]))
-
-            table_for_report.append(["Data Center Phisical Access", question20[n]])
-
-            answers_list.append(qans["Q20"])
-            comments_list.append(question20[n])
-
-    # -------------------------------------------
-    # write / generate a file with all answers
-    for i in range(0, len(answers_list)):
-        generate_file.write("{:20}{:3}{:20}\n".format(answers_list[i], " # ", comments_list[i]))
-
-    generate_file.close()
 #############################################################################################################
 
 @with_goto
@@ -2582,12 +1516,9 @@ def informationCapture():
     print("\nWelcome to SECloudMobDESIGNS Framework!\n")
     print("\nWhat would you like to do?\n")
     print("\n01. First, Answer the Questions Necessary for Possible Processing")
-
     print("\n02. Process Security Requirement Elicitation Request")
-
     print("\n03. Process Secure Development Best Practice Guide Request ")
-
-    print("\n04. Make A New Secure Development Test Specification Guide Request")
+    print("\n04. Mapping Security Attack Models Request")
     print("\n05. Process Secure Development Test Specification Guide Request")
     print("\n06. Exit")
     print("")
@@ -2617,67 +1548,6 @@ def processingInformation():
     for i in range(0, len(table_for_report)):
         report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
 
-    report.write("\n")
-
-    # constrution of the system model (achiteture)
-    # file to write code that will design the schematics
-    designFile = open("design_schemes.txt", "w")
-
-    designFile.write("[.]")
-
-    if qans["Q1"].find("1") != -1:
-        designFile.write("<-- -->[Android Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("2") != -1:
-        designFile.write("<-- -->[iOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("3") != -1:
-        designFile.write("<-- -->[Hongmeng Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("4") != -1:
-        designFile.write("<-- -->[Mobile Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("5") != -1:
-        designFile.write("<-- -->[Hamony OS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("6") != -1:
-        designFile.write("<-- -->[LineageOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("7") != -1:
-        designFile.write("<-- -->[Plasma Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("8") != -1:
-        designFile.write("<-- -->[PostmarketOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("9") != -1:
-        designFile.write("<-- -->[PureOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("10") != -1:
-        designFile.write("<-- -->[Sailfish Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("11") != -1:
-        designFile.write("<-- -->[Tizen Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("12") != -1:
-        designFile.write("<-- -->[Ubuntu Touch Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("13") != -1:
-        designFile.write("<-- -->[Client] <-- https --> [Server]")
-
-    if qans["Q1"].find("14") != -1:
-        designFile.write("<-- -->[Embedded System]")
-
-    # ---------------------------------------------------
-    if qans["Q4"].find("1") != -1:
-        designFile.write("[.]<-- -->[Database]")
-
-    # designFile.write("<-- -->[..]")
-    designFile.close()
-    designWithGraphEasy()
-
-    # escrever o esquema no report
-    report.write("![alt text](design_schemes.png)")
-    report.write("\n")
     report.write("\n")
 
     ###################################################################################################
@@ -2769,7 +1639,7 @@ def processingInformation():
     ###################################################################################################
     # confinement requirements
     if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-        if qans["Q12"].find("1") != -1 and qans["Q14"].find("1") != -1 and qans["Q15"].find("1") != -1:
+        if qans["Q12"].find("1") != -1 or qans["Q14"].find("1") != -1 or qans["Q15"].find("1") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("guides1/confinement.md", "r").read())
@@ -2783,8 +1653,7 @@ def processingInformation():
 
     ###################################################################################################
     # data origin authentication
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) and qans["Q20"].find(
-            "1") != -1:
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("guides1/dataOriginAuthentication.md", "r").read())
@@ -2817,92 +1686,27 @@ def processingInformation2():
 
     report.write("\n")
 
-    # constrution of the system model (achiteture)
-    # file to write code that will design the schematics
-    designFile = open("design_schemes2.txt", "w")
-
-    designFile.write("[.]")
-
-    if qans["Q1"].find("1") != -1:
-        designFile.write("<-- -->[Android Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("2") != -1:
-        designFile.write("<-- -->[iOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("3") != -1:
-        designFile.write("<-- -->[Hongmeng Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("4") != -1:
-        designFile.write("<-- -->[Mobile Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("5") != -1:
-        designFile.write("<-- -->[Hamony OS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("6") != -1:
-        designFile.write("<-- -->[LineageOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("7") != -1:
-        designFile.write("<-- -->[Plasma Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("8") != -1:
-        designFile.write("<-- -->[PostmarketOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("9") != -1:
-        designFile.write("<-- -->[PureOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("10") != -1:
-        designFile.write("<-- -->[Sailfish Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("11") != -1:
-        designFile.write("<-- -->[Tizen Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("12") != -1:
-        designFile.write("<-- -->[Ubuntu Touch Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("13") != -1:
-        designFile.write("<-- -->[Client] <-- https --> [Server]")
-
-    if qans["Q1"].find("14") != -1:
-        designFile.write("<-- -->[Embedded System]")
-
-    # ---------------------------------------------------
-    if qans["Q4"].find("1") != -1:
-        designFile.write("[.]<-- -->[Database]")
-
-    # designFile.write("<-- -->[..]")
-    designFile.close()
-    designWithGraphEasy2()
-
-    # escrever o esquema no report
-    report.write("![alt text](design_schemes2.png)")
-    report.write("\n")
-    report.write("\n")
-
     # check if embebbed systems are chosen
-    if qans["Q1"].find("14") != -1:
-        report.write("\n")
-        report.write("\n")
-        report.write(open("guides1/IOT_Security_guide.md", "r").read())
-
+    if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1 or qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
+        if qans["Q1"].find("14") != -1:
+            report.write("\n")
+            report.write("\n")
+            report.write(open("guides1/IOT_Security_guide.md", "r").read())
+    
     # check if SQL database is choosed
-    if qans["Q3"].find("1") != -1 and qans["Q4"].find("1"):
-        report.write("\n")
-        report.write("\n")
-
-        # write SQL injection guide
-        report.write(open("guides1/SQL_Injection_guide.md", "r").read())
+    if qans["Q1"].find("4") != -1 and qans["Q1"].find("13"):
+        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1"):
+            report.write("\n")
+            report.write("\n")
+            
+            # write SQL injection guide
+            report.write(open("guides1/SQL_Injection_guide.md", "r").read())
 
     # check if language program are chosen
     if (qans["Q1"].find("1") != -1 and (qans["Q10"].find("1") != -1 or qans["Q10"].find("4") != -1)):
         report.write("\n")
         report.write("\n")
         report.write(open("guides1/Java_C#_guide.md", "r").read())
-
-    # check if API service are chosen
-    # if qans["Q1"].find("7") != -1:
-    #	report.write("\n")
-    #	report.write("\n")
-    #	report.write( open("guides/API_guide.md","r").read() )
 
     # check if input forms is used
     if qans["Q11"].find("1") != -1:
@@ -2913,28 +1717,28 @@ def processingInformation2():
         report.write(open("guides1/Input_Validation_guide.md", "r").read())
 
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
-        report.write("\n")
-        report.write("\n")
+        if qans["Q3"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+            report.write("\n")
+            report.write("\n")
+            
+            # Session Management guide
+            report.write(open("guides1/Session_Management_guide.md", "r").read())
+            report.write("\n")
+            report.write("\n")
+            # write XSS guide
+            report.write(open("guides1/Cross_Site_Scripting_guide.md", "r").read())
 
-        # Session Management guide
-        report.write(open("guides1/Session_Management_guide.md", "r").read())
-        report.write("\n")
-        report.write("\n")
-
-        # write XSS guide
-        report.write(open("guides1/Cross_Site_Scripting_guide.md", "r").read())
-
-    report.write("\n")
-    report.write("\n")
+            report.write("\n")
+            report.write("\n")
 
     # write Cryptography guide
-    if qans["Q4"].find("4") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n\n")
         report.write(open("guides1/Cryptography_guide.md", "r").read())
 
     # write SSL/TLS guide
     if ((qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and (
-            qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1)):
+            qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1)):
         report.write("\n")
         report.write("\n")
         report.write(open("guides1/TLS_guide.md", "r").read())
@@ -2998,159 +1802,82 @@ def processingInformation3():
         report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
 
     report.write("\n")
-
-    # constrution of the system model (achiteture)
-    # file to write code that will design the schematics
-    designFile = open("design_schemes3.txt", "w")
-
-    designFile.write("[.]")
-
-    if qans["Q1"].find("1") != -1:
-        designFile.write("<-- -->[Android Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("2") != -1:
-        designFile.write("<-- -->[iOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("3") != -1:
-        designFile.write("<-- -->[Hongmeng Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("4") != -1:
-        designFile.write("<-- -->[Mobile Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("5") != -1:
-        designFile.write("<-- -->[Hamony OS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("6") != -1:
-        designFile.write("<-- -->[LineageOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("7") != -1:
-        designFile.write("<-- -->[Plasma Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("8") != -1:
-        designFile.write("<-- -->[PostmarketOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("9") != -1:
-        designFile.write("<-- -->[PureOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("10") != -1:
-        designFile.write("<-- -->[Sailfish Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("11") != -1:
-        designFile.write("<-- -->[Tizen Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("12") != -1:
-        designFile.write("<-- -->[Ubuntu Touch Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("13") != -1:
-        designFile.write("<-- -->[Client] <-- https --> [Server]")
-
-    if qans["Q1"].find("14") != -1:
-        designFile.write("<-- -->[Embedded System]")
-
-    # ---------------------------------------------------
-    if qans["Q4"].find("1") != -1:
-        designFile.write("[.]<-- -->[Database]")
-
-    # designFile.write("<-- -->[..]")
-    designFile.close()
-    designWithGraphEasy3()
-
-    # escrever o esquema no report
-    report.write("![alt text](design_schemes3.png)")
     report.write("\n")
     report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
-
     # Database use and public cloud environment MitM attacks
     if qans["Q4"].find("1") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
-        report.write("\n")
-        report.write("\n")
-        report.write(open("guides1/mitmAttack.md", "r").read())
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
+            report.write(open("guides1/mitmAttack.md", "r").read())
 
-        # MitM Attack diagram
-        # constrution of the system model (achiteture)
-        # # escrever o esquema no report
-        report.write("![alt text](mitmAttack.png)")
-        report.write("\n")
-        report.write("\n")
+            # MitM attack tree diagram
+            # Write de scheme in the report
+            report.write("![alt text](mitmAttack.png)")
+            report.write("\n")
+            report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
     # Se a aplicação for web ou híbrida, teremos o XSS
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
-        report.write("\n")
-        report.write("\n")
-        report.write(open("guides1/XSS.md", "r").read())
+    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
+            report.write(open("guides1/XSS.md", "r").read())
 
-        # XSS Attack diagram
-        report.write("![alt text](xssAttack.png)")
-        report.write("\n")
-        report.write("\n")
+            # XSS attack tree diagram
+            # Write de scheme in the report
+            report.write("![alt text](xssAttack.png)")
+            report.write("\n")
+            report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o Google Hacking
+    # If the aplication is web or hybrid, we have Cookie Poisoning
     if (qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and (
             qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/googleHacking.md", "r").read())
+        report.write(open("guides1/dnsPoisoningAttack.md", "r").read())
 
-    # Google Hacking Attack diagram
+        # CookiePoisoning attack tree diagram
 
-    # # escrever o esquema no report
-    # report.write("![alt text](design_schemes3.png)")
-    # report.write("\n")
-    # report.write("\n")
-
-    ###########################################################################################################
-    ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o Cookie Poisoning
-    if (qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and (
-            qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
-        report.write("\n")
-        report.write("\n")
-        report.write(open("guides1/cookiePoisoning.md", "r").read())
-
-        # Google Hacking Attack diagram
-        # constrution of the system model (achiteture)
-
-        # escrever o esquema no report
+        # Write de scheme in the report
         report.write("![alt text](dnsPoisoningAttack.png)")
         report.write("\n")
         report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o Malicious QR Code Attacks
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
-        report.write("\n")
-        report.write("\n")
-        report.write(open("guides1/maliciousQRCode.md", "r").read())
+    # If the application is web or hybrid, we have Malicious QR Code Attacks
+    if qans["Q4"].find("1") != -1:
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
+            report.write(open("guides1/maliciousQRCode.md", "r").read())
+            # Malicious QR Code attack diagram
 
-    # Malicious QR Code Attacks diagram
-    # constrution of the system model (achiteture)
-
-    # # escrever o esquema no report
-    # report.write("![alt text](design_schemes5.png)")
-    # report.write("\n")
-    # report.write("\n")
+            # Write de scheme in the report
+            report.write("![alt text](malicIousQRCodeAttack.png)")
+            report.write("\n")
+            report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o CAPTCHA Breaking Attacks
+    # f the application is web or hybrid, we have CAPTCHA Breaking Attacks
     if (qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and (
             qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("guides1/captchaBreaking.md", "r").read())
 
-    # CAPTCHA Breaking Attacks diagram
-    # constrution of the system model (achiteture)
+    # CAPTCHA Breaking attack tree diagram
 
-    # # escrever o esquema no report
+    # Write de scheme in the report
     # report.write("![alt text](design_schemes6.png)")
     # report.write("\n")
     # report.write("\n")
@@ -3158,19 +1885,19 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # Database use and public cloud environment SQLi attacks
-    if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
-            qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-        report.write("\n")
-        report.write("\n")
-        report.write(open("guides1/SQLi.md", "r").read())
+    if qans["Q1"].find("4") != -1 and qans["Q1"].find("13") != -1:
+        if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+                qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+            report.write("\n")
+            report.write("\n")
+            report.write(open("guides1/SQLi.md", "r").read())
 
-        # SQLi Attacks diagram
-        # constrution of the system model (achiteture)
+            # SQLi attack tree diagram
 
-        # escrever o esquema no report
-        report.write("![alt text](SQLi.png)")
-        report.write("\n")
-        report.write("\n")
+            # Write the scheme in the report
+            report.write("![alt text](SQLi.png)")
+            report.write("\n")
+            report.write("\n")
     
     ###########################################################################################################
     ###########################################################################################################
@@ -3179,21 +1906,19 @@ def processingInformation3():
             qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write(open("guides1/DoS.md", "r").read())
 
-        # DoS Attacks diagram
-        # constrution of the system model (achiteture)
+        # DoS attack tree diagram
 
-        # escrever o esquema no report
+        # Write the scheme in the report
         report.write("![alt text](DoS.png)")
         report.write("\n")
         report.write("\n")
         
-        # DDoS Attacks
+        # DDoS attack tree
         report.write(open("guides1/DDoS.md", "r").read())
 
-        # DDoS Attacks diagram
-        # constrution of the system model (achiteture)
+        # DDoS attack tree diagram
 
-        # escrever o esquema no report
+        # Write the scheme in the report
         report.write("![alt text](DDoS.png)")
         report.write("\n")
         report.write("\n")
@@ -3201,30 +1926,18 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # Sniffer Attacks
-    report.write(open("guides1/Sniffer.md", "r").read())
+    if qans["Q4"].find("1") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+            report.write(open("guides1/Sniffer.md", "r").read())
 
-    # Sniffer Attacks diagram
-    # constrution of the system model (achiteture)
+            # Sniffer attack tree diagram
 
-    # # escrever o esquema no report
-    report.write("![alt text](eavesdropingAttack.png)")
-    report.write("\n")
-    report.write("\n")
+            # Write the scheme in the report
+            report.write("![alt text](eavesdropingAttack.png)")
+            report.write("\n")
+            report.write("\n")
 
-    ###########################################################################################################
-    ###########################################################################################################
-    # Botnet Attacks
-    report.write(open("guides1/Botnet.md", "r").read())
-
-    # Botnet Attacks diagram
-    # constrution of the system model (achiteture)
-
-    # escrever o esquema no report
-    report.write("![alt text](botnetAttack.png)")
-    report.write("\n")
-    report.write("\n")
-
-    # Se a aplicação for web ou híbrida, teremos o DNS Attacks
+    # If the application is web or hybrid, we have DNS Poisoning Attack
 
     ###########################################################################################################
     ###########################################################################################################
@@ -3232,97 +1945,83 @@ def processingInformation3():
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
         report.write(open("guides1/DNS.md", "r").read())
 
-        # DNS Attacks diagram
-        # constrution of the system model (achiteture)
+        # DNS Poisoning attack tree diagram
 
-        # # escrever o esquema no report
-        report.write("![alt text](dnsSpoofingAttack.png)")
-        report.write("\n")
-        report.write("\n")
+        # Write the scheme in the report
 
-        report.write("![alt text](dnsPoisoningAttack.png)")
-        report.write("\n")
-        report.write("\n")
+        # report.write("![alt text](dnsPoisoningAttack.png)")
+        # report.write("\n")
+        # report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o Reused IP Address Attacks
+    # If the application is web or hybrid, we have Reused IP Address Attacks
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("guides1/reusedIPAddress.md", "r").read())
 
-        # DNS Attacks diagram
-        # constrution of the system model (achiteture)
+        # Reused IP Address attack tree diagram
 
-        # # escrever o esquema no report
+        # Write the scheme in the report
         report.write("![alt text](ipSpoofingAttack.png)")
         report.write("\n")
         report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o Pharming Attacks
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
+    # If the application is web or hybrid, we have Phishing Attacks
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/Pharming.md", "r").read())
+        report.write(open("guides1/phishingAttack.md", "r").read())
 
-    # Pharming Attacks diagram
-    # constrution of the system model (achiteture)
+        # Phishing Attack tree diagram
 
-    # # escrever o esquema no report
-    # report.write("![alt text](design_schemes14.png)")
-    # report.write("\n")
-    # report.write("\n")
+        # Write the scheme in the report
+        report.write("![alt text](phishingAttack.png)")
+        report.write("\n")
+        report.write("\n")
+        ###########################################################################################################
+        ###########################################################################################################
+        # Botnet Attacks
+        report.write(open("guides1/Botnet.md", "r").read())
+
+        # Botnet attack tree diagram
+
+        # Write the scheme in the report
+        report.write("![alt text](botnetAttack.png)")
+        report.write("\n")
+        report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o Watering Hole Attacks
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
-        report.write("\n")
-        report.write("\n")
-        report.write(open("guides1/wateringHoleAttack.md", "r").read())
-
-    # Watering Hole Attacks diagram
-    # constrution of the system model (achiteture)
-
-    # # escrever o esquema no report
-    # report.write("![alt text](design_schemes15.png)")
-    # report.write("\n")
-    # report.write("\n")
-
-    ###########################################################################################################
-    ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o XML
+    # If the application is web or hybrid, we have XML
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("guides1/XMLi.md", "r").read())
 
-        # XML Attack diagram
-        # constrution of the system model (achiteture)
+        # XML Attack tree diagram
 
-        # # escrever o esquema no report
+        # Write the scheme in the report
         report.write("![alt text](xmliAttack.png)")
         report.write("\n")
         report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o Session Hijacking
+    # If the application is web or hybrid, we have Session Hijacking and Session Fixation
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
-        if qans["Q3"].find("2") != -1 or qans["Q3"].find("3") != -1 or qans["Q3"].find("4") != -1 or qans["Q3"].find(
-                "5") != -1 or qans["Q3"].find("6") != -1 or qans["Q3"].find("7") != -1:
+        if qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             if qans["Q4"].find("1") != -1 and qans["Q10"].find("6") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("guides1/sessionHijacking.md", "r").read())
 
-                # Session Hijacking Attack diagram
-                # constrution of the system model (achiteture)
+                # Session Hijacking attack tree diagram
 
-                # escrever o esquema no report
+                # Write the scheme in the report
                 report.write("![alt text](sidHijacking.png)")
                 report.write("\n")
                 report.write("\n")
@@ -3334,10 +2033,9 @@ def processingInformation3():
                 report.write("\n")
                 report.write(open("guides1/sessionFixation.md", "r").read())
 
-                # Session Fixation Attack diagram
-                # constrution of the system model (achiteture)
+                # Session Fixation Attack tree diagram
 
-                # escrever o esquema no report
+                # Write the scheme in the report
                 report.write("![alt text](sidFixation.png)")
                 report.write("\n")
                 report.write("\n")
@@ -3351,10 +2049,9 @@ def processingInformation3():
             report.write("\n")
             report.write(open("guides1/bufferOverflows.md", "r").read())
 
-        # Buffer Overflows Attack diagram
-        # constrution of the system model (achiteture)
+        # Buffer Overflows attack diagram
 
-        # # escrever o esquema no report
+        # Write the scheme in the report
         # report.write("![alt text](design_schemes19.png)")
         # report.write("\n")
         # report.write("\n")
@@ -3362,56 +2059,49 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # If the system was development for Android, iOS, Tizen and embedded platforms (Mobile Apllication Spoofing )
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
+    if qans["Q4"].find("1") != -1 :
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("guides1/Spoofing.md", "r").read())
 
-            # Spoofing Attack diagram
-            # constrution of the system model (achiteture)
+            # Spoofing attack tree diagram
 
-            # # escrever o esquema no report
+            # Write the scheme in the report
             report.write("![alt text](spoofingAttack.png)")
             report.write("\n")
             report.write("\n")
+
     ###########################################################################################################
     ###########################################################################################################
     # If the system was development for Android, iOS, Tizen and embedded platforms (Attack on VM at migration )
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
+    if qans["Q4"].find("1") != -1 :
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("guides1/VMMigration.md", "r").read())
 
-            # Attack on VM at migration: diagram
-            # constrution of the system model (achiteture)
+            # Attack on VM at migration tree diagram
 
-            # # escrever o esquema no report
+            # Write the scheme in the report
             report.write("![alt text](vmMigrationAttack.png)")
             report.write("\n")
             report.write("\n")
+
     ###########################################################################################################
     ###########################################################################################################
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Insiders Malicious Attacks)
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
+    if qans["Q4"].find("1") != -1 :
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             if qans["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("guides1/maliciousInsider.md", "r").read())
 
-                # Malicious Insiders Attacks: diagram
-                # constrution of the system model (achiteture)
+                # Malicious Insiders attack tree diagram
 
-                # # escrever o esquema no report
+                # Write the scheme in the report
                 report.write("![alt text](maliciousInsidersAttack.png)")
                 report.write("\n")
                 report.write("\n")
@@ -3419,36 +2109,30 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # If the system was development for Android, iOS, Tizen and embedded platforms (VM Escape Attack)
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
-            report.write("\n")
-            report.write("\n")
-            report.write(open("guides1/VMEscape.md", "r").read())
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+        report.write("\n")
+        report.write("\n")
+        report.write(open("guides1/VMEscape.md", "r").read())
 
-            # VM escape attack: diagram
-            # constrution of the system model (achiteture)
+        # VM Escape attack tree diagram
 
-            # # escrever o esquema no report
-            report.write("![alt text](vmEscapeAttack.png)")
-            report.write("\n")
-            report.write("\n")
+        # Write the scheme in the report
+        report.write("![alt text](vmEscapeAttack.png)")
+        report.write("\n")
+        report.write("\n")
+
     ###########################################################################################################
     ###########################################################################################################
     # If the system was development for Android, iOS, Tizen and embedded platforms (Cross VM Attack)
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
+    if qans["Q4"].find("1") != -1:
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("guides1/crossVM.md", "r").read())
 
-            # Cross VM attack: diagram
-            # constrution of the system model (achiteture)
+            # Cross Side Channel attack tree diagram
 
-            # # escrever o esquema no report
+            # Write the scheme in the report
             report.write("![alt text](sideChannelAttack.png)")
             report.write("\n")
             report.write("\n")
@@ -3456,35 +2140,32 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # If the system was development for Android, iOS, Tizen and embedded platforms (Malware Injection Attacks)
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
-            report.write("\n")
-            report.write("\n")
-            report.write(open("guides1/malwareInjection.md", "r").read())
+        if (qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and qans["Q4"].find("1") != -1:    
+            if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("guides1/malwareInjection.md", "r").read())
 
-            # Cross VM attack: diagram
-            # constrution of the system model (achiteture)
+                # Cross VM attack tree diagram
 
-            # # escrever o esquema no report
-            report.write("![alt text](malwareInjectionAttack.png)")
-            report.write("\n")
-            report.write("\n")
+                # Write the scheme in the report
+                report.write("![alt text](malwareInjectionAttack.png)")
+                report.write("\n")
+                report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
     # If the system was development for Android, iOS, Tizen and embedded platforms (Tampering Attacks)
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
+    if qans["Q4"].find("1") != -1:
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             if qans["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("guides1/tamperingDetection.md", "r").read())
 
-                # # escrever o esquema no report
+                # Tampering Detection attack tree diagram
+
+                # Write the scheme in the report
                 report.write("![alt text](tamperingDetectionAttack.png)")
                 report.write("\n")
                 report.write("\n")
@@ -3517,113 +2198,57 @@ def processingInformation4():
         report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
 
     report.write("\n")
-
-    # constrution of the system model (achiteture)
-    # file to write code that will design the schematics
-    designFile = open("design_schemes4.txt", "w")
-
-    designFile.write("[.]")
-
-    if qans["Q1"].find("1") != -1:
-        designFile.write("<-- -->[Android Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("2") != -1:
-        designFile.write("<-- -->[iOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("3") != -1:
-        designFile.write("<-- -->[Hongmeng Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("4") != -1:
-        designFile.write("<-- -->[Mobile Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("5") != -1:
-        designFile.write("<-- -->[Hamony OS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("6") != -1:
-        designFile.write("<-- -->[LineageOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("7") != -1:
-        designFile.write("<-- -->[Plasma Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("8") != -1:
-        designFile.write("<-- -->[PostmarketOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("9") != -1:
-        designFile.write("<-- -->[PureOS Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("10") != -1:
-        designFile.write("<-- -->[Sailfish Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("11") != -1:
-        designFile.write("<-- -->[Tizen Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("12") != -1:
-        designFile.write("<-- -->[Ubuntu Touch Device] <-- https --> [Cloud]")
-
-    if qans["Q1"].find("13") != -1:
-        designFile.write("<-- -->[Client] <-- https --> [Server]")
-
-    if qans["Q1"].find("14") != -1:
-        designFile.write("<-- -->[Embedded System]")
-
-    # ---------------------------------------------------
-    if qans["Q4"].find("1") != -1:
-        designFile.write("[.]<-- -->[Database]")
-
-    # designFile.write("<-- -->[..]")
-    designFile.close()
-    designWithGraphEasy4()
-
-    # escrever o esquema no report
-    report.write("![alt text](design_schemes4.png)")
     report.write("\n")
     report.write("\n")
 
     ###################################################################################################
     ###################################################################################################
-    # Security Testing against DoS, DDoS Attacks
-    if qans["Q16"].find("1") != -1 or qans["Q16"].find("2") != -1 or qans["Q16"].find("3") != -1 or qans["Q16"].find("4") != -1 :
-        report.write(open("guides1/doSDDoSBotnetTest.md", "r").read())
-        report.write("\n")
-        report.write("\n")
+    # Security Testing against DoS, DDoS and Botnet Attacks
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+        if qans["Q16"].find("1") != -1 or qans["Q16"].find("2") != -1 or qans["Q16"].find("3") != -1 or qans["Q16"].find("4") != -1 :
+            report.write(open("guides1/BOTNETDOSDDOS.TESTmd.md", "r").read())
+            report.write("\n")
+            report.write("\n")
 
     ###################################################################################################
     ###################################################################################################
     # Security Testing against MitM attacks
-    if qans["Q3"].find("1") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
-        report.write("\n")
-        report.write("\n")
-        report.write(open("guides1/mitmAttackMitMTest.md", "r").read())
-        report.write("\n")
-        report.write("\n")
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+        if (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
+            report.write("\n")
+            report.write("\n")
+            report.write(open("guides1/BotnetDoSDDoSPHISINGSPOOFINGPHISHINGMITMTEST.md", "r").read())
+            report.write("\n")
+            report.write("\n")
 
     ###################################################################################################
     ###################################################################################################
     # Security Testing against SQLi, XMLi, CRSF, XSS, googleHacking, etc. and phishing attacks 
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1 or qans["Q1"].find("4") != -1 or  qans["Q1"].find("13") != -1:
-        if (qans["Q3"].find("1") != -1 and qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1)):
-            report.write("\n")
-            report.write("\n")
-            report.write(open("guides1/WebAppTest.md", "r").read())
+    if qans["Q1"].find("4") != -1 or  qans["Q1"].find("13") != -1:
+        if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+            if qans["Q16"].find("1") != -1 and (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
+                report.write("\n")
+                report.write("\n")
+                report.write(open("guides1/SQLiXSSCSRFSPOOFINGTEST.md", "r").read())
 
     ###################################################################################################
     ###################################################################################################
     # Securit Testing against Sniffing, Pharming, Phishing, Spoofing Attacks
-    if (qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and (
-            qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
-        report.write(open("guides1/sniffingPhishingPharmingSpoofingTest.md", "r").read())
-        report.write("\n")
-        report.write("\n")
+    if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1  or qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
+        if qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1:
+            report.write(open("guides1/BOTNETSNIFFINGSPOOFINGPHISHINGTEST.md", "r").read())
+            report.write("\n")
+            report.write("\n")
 
     ###################################################################################################
     ###################################################################################################
     # Malware Spoofing, Watering Hole Attack, Sniffing, etc.
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("2") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("11") != -1 or qans["Q1"].find("13") != -1:
-        if qans["Q3"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) :
+        if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) :
             if qans["Q19"].find("1") != -1 or  qans["Q19"].find("2") != -1 or qans["Q19"].find("4") != -1 or qans["Q19"].find("5") != -1 or qans["Q19"].find("6") != -1 or qans["Q19"].find("8") != -1 :
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/malwareSpoofingSniffingTest.md", "r").read())
+                report.write(open("guides1/BOTSPOOFINGSNIFFINGTEST.md", "r").read())
 
     ###################################################################################################
     ###################################################################################################
@@ -3632,18 +2257,16 @@ def processingInformation4():
         if qans["Q10"].find("2") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/bufferOverflowsTest.md", "r").read())
+            report.write(open("guides1/BUFFEROVERFLOWTEST.md", "r").read())
 
     ###################################################################################################
     ###################################################################################################
     # If the system was development for Android, iOS, Tizen and embedded platforms (Attack on VM at migration )
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
+    if qans["Q4"].find("1") != -1:
+        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/vmEscapeMigrationSideChanelTest.md", "r").read())
+            report.write(open("guides1/MINSIDERVMMIGRATIONTEST.md", "r").read())
             report.write("\n")
             report.write("\n")
     ###################################################################################################
@@ -3657,7 +2280,7 @@ def processingInformation4():
             if qans["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/malwareInjectionTest.md", "r").read())
+                report.write(open("guides1/MALWAREINJECTIONSIDECHANNELTEST.md", "r").read())
                 report.write("\n")
                 report.write("\n")
 
