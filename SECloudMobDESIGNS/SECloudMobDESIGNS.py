@@ -85,7 +85,7 @@ question1 = {
     "4": "Hybrid Application",
     "5": "Harmony OS App",
     "6": "LineageOS Application",
-    "7": "Plasma Mobile Application",
+    "7": "Plasma Mobile Application",
     "8": "postmarketOS Application",
     "9": "PureOS Application",
     "10": "Sailfish OS Application",
@@ -351,7 +351,7 @@ def arqui(version):
     print("  4 - Hybrid Application  ")
     print("  5 - Harmony OS App  ")
     print("  6 - LineageOS Application  ")
-    print("  7 - Plasma Mobile Application  ")
+    print("  7 - Plasma Mobile Application  ")
     print("  8 - postmarketOS Application  ")
     print("  9 - PureOS Application  ")
     print("  10 - Sailfish OS Application  ")
