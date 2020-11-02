@@ -1445,7 +1445,7 @@ def switch1():
             else:
                 print("---")
                 print("")
-                print("  **What is the name of the input file ?**  ")
+                print("  **What is the name of the input file (ans.txt)?**  ")
                 print("")
                 readInputFromFile()
 
@@ -2339,4 +2339,3 @@ if __name__ == "__main__":
     exit(0)
 
 # license Apache-2.0
-
