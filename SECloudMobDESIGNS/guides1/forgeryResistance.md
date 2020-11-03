@@ -1,7 +1,7 @@
 # Forgery Resistance
 Is the propriety that ensures that the contents shared between entities cannot be forged by a third party trying to damage or harm the system or its users. In other words no one can try to forge content and send it in the name of another entities.  
 
-## This requirement is applied in the device, in the cloud, and in the database.  
+### This requirement is applied in the device, in the cloud, and in the database.  
 
 Not addressing this requirement may lead to vulnerabilities explored by attacks such as:
                                                               
