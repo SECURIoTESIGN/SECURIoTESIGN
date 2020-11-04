@@ -1627,7 +1627,7 @@ def processingInformation():
     if qans["Q20"].find("1") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/tamperingDetection.md", "r").read())
+        report.write(open("guides1/tamperDetection.md", "r").read())
 
     ###################################################################################################
     # data freshness requirements
