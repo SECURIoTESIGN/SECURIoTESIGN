@@ -15,7 +15,7 @@ from switch import Switch
 from goto import with_goto
 from PyPDF2 import PdfFileMerger
 
-version = 1
+version = 1.2
 
 # list that contains to answers in the written file
 input_list = []
