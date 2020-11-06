@@ -13,6 +13,7 @@ from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM
 from switch import Switch
 from goto import with_goto
+from PyPDF2 import PdfFileMerger
 
 version = 1
 
@@ -1440,6 +1441,7 @@ def switch1():
                 cloudPlataform(version)
                 hardwareSpecs(version)
                 dataCenterAcess(version)
+                print("**The questionnaire is over!**")
 
             # answers already written in the input file
             else:
@@ -1473,35 +1475,37 @@ def switch1():
             informationCapture()
 
         if case(2):
-            print(
-                "\n***********************************************************************************************************\n");
+            print("\n********************************************************************************************\n")
             print("\t\tREQUEST REQUIREMENTS ELICITATION PROCESSING\n\n")
             processingInformation()
             informationCapture()
 
         if case(3):
-            print(
-                "\n***********************************************************************************************************\n");
+            print("\n********************************************************************************************\n")
             print("\t\tREQUEST BEST PRACTICES ELICITATION PROCESSING\n\n")
             processingInformation2()
             informationCapture()
 
         if case(4):
-            print(
-                "\n***********************************************************************************************************\n");
+            print("\n********************************************************************************************\n")
             print("\t\tREQUEST ATTACK MODELS ELICITATION PROCESSING\n\n")
             processingInformation3()
             informationCapture()
 
         if case(5):
-            print(
-                "\n***********************************************************************************************************\n");
+            print("\n********************************************************************************************\n")
             print("\t\tREQUEST TEST SPECIFICATION ELICITATION PROCESSING\n\n")
-            print("\t\tUnder Construction\n\n")
             processingInformation4()
             informationCapture()
 
         if case(6):
+            print("\n********************************************************************************************\n")
+            print("\t\tREQUEST FULL REPORT PROCESSING\n\n")
+            fullReport()
+            informationCapture()
+
+
+        if case(7):
             exit(0)
 
         if case.default:
@@ -1520,7 +1524,8 @@ def informationCapture():
     print("\n03. Process Secure Development Best Practice Guide Request ")
     print("\n04. Mapping Security Attack Models Request")
     print("\n05. Process Secure Development Test Specification Guide Request")
-    print("\n06. Exit")
+    print("\n06. Process Full Report")
+    print("\n07. Exit")
     print("")
     switch1()
 
@@ -1535,7 +1540,7 @@ def processingInformation():
     printData()
 
     report = open("SECURITY_REQUIREMENTS.md", "w")
-    report.write("# Final Report  " + '\n')
+    report.write("# Final Security Requirements Report " + '\n')
     report.write("\n")
 
     report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", "", "|", "", "|"))
@@ -1671,7 +1676,7 @@ def processingInformation2():
     print("")
 
     report = open("GOOD_PRACTICES.md", "w")
-    report.write("# Final Report  " + '\n')
+    report.write("# Final Security Good Practices " + '\n')
     report.write("\n")
 
     report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", "", "|", "", "|"))
@@ -1788,7 +1793,7 @@ def processingInformation3():
     print("")
 
     report = open("ATTACKS_MAPPING.md", "w")
-    report.write("# Final Report  " + '\n')
+    report.write("# Final Attack Models Report  " + '\n')
     report.write("\n")
 
     report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", "", "|", "", "|"))
@@ -2166,7 +2171,7 @@ def processingInformation3():
                 # Tampering Detection attack tree diagram
 
                 # Write the scheme in the report
-                report.write("![alt text](tamperingDetectionAttack.png)")
+                report.write("![alt text](tamperingAttack.png)")
                 report.write("\n")
                 report.write("\n")
 
@@ -2184,7 +2189,7 @@ def processingInformation4():
     print("")
 
     report = open("TEST_SPECIFICATION.md", "w")
-    report.write("# Final Report  " + '\n')
+    report.write("# Final Security Test Specification and Tools Report  " + '\n')
     report.write("\n")
 
     report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", "", "|", "", "|"))
@@ -2302,6 +2307,23 @@ def processingInformation4():
     convertReport4()
     print("# Processing done! Check your requirements in the TEST_SPECIFICATION.pdf file")
 
+def fullReport():
+    
+    processingInformation()
+    processingInformation2()
+    processingInformation3()
+    processingInformation4()
+
+    pdfs = ['SECURITY_REQUIREMENTS.pdf', 'GOOD_PRACTICES.pdf', 'ATTACKS_MAPPING.pdf', 'TEST_SPECIFICATION.pdf']
+
+    merger = PdfFileMerger()
+
+    for pdf in pdfs:
+        merger.append(pdf)
+
+    merger.write("FINAL_REPORT.pdf")
+    merger.close()
+    print("\n\n *** Processing  done! See the full report requested in the FINAL_REPORT.pdf file. \n\n ***")
 
 if __name__ == "__main__":
     print("---")
