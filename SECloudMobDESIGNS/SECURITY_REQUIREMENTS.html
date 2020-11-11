@@ -1,4 +1,4 @@
-<h1>Final Report</h1>
+<h1>Final Security Requirements Report</h1>
 <table>
 <thead>
 <tr>
@@ -94,7 +94,7 @@
 <h2>This requirement is applied were the information is stored.</h2>
 <h1>Integrity</h1>
 <p>Is the property of safeguarding the correctness and completeness of assets in a Cloud &amp; Mobile system. In other words it involves maintaining the data consistent,   trustworthy and accurate during it life-cycle.</p>
-<p>This requirements is applied in the <em>Cloud</em> and <em>Mobile Ecosystem</em>.</p>
+<h2>This requirements is applied in the Cloud and Mobile Ecosystem.</h2>
 <p>Not addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                        </p>
 <h2>SQL Injection Attacks:</h2>
 <p>In this type of attack, the attacker inserts malicious code with the intention of accessing the unauthorized database for the purpose of obtaining confidential or critical data from the legitimate user.</p>
@@ -103,14 +103,15 @@
 <h2>MITM Attacks:</h2>
 <p>In this type of attack, an attacker attempts to intrude on a mail exchange or continuous message between two users or clients of a cloud-based mobile application (client-server).</p>
 <h2>Cookie Poisoning:</h2>
-<p>This type of attack consists of replacing or modifying cookie content in ways to gain unauthorized access to applications or Web pages. ## Availability </p>
+<p>This type of attack consists of replacing or modifying cookie content in ways to gain unauthorized access to applications or Web pages. # Availability </p>
 <p>Refers to the property which ensures that a mobile device or system is accessible and usable upon demand by authorized entities. In other words the mobile cloud-based application need to be always available to access by authorized people.</p>
-<h3>This requirement is applied were the information is stored.</h3>
+<h2>This requirement is applied were the information is stored.</h2>
 <p>Not addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                                </p>
-<p><strong> DoS Attacks: </strong>          <br />
-In this type of attacks, the attacker attempts to prevent the provision of a service or resource that are signed by authorized users by launching various types of flood                                                              </p>
-<p><strong> DDoS Attacks: </strong><br />
-It is an improved case of DoS attacks in terms of flooding the target server with server with a huge amount of packets.  # Authentication</p>
+<h2>DoS Attacks:</h2>
+<p>In this type of attacks, the attacker attempts to prevent the provision of a service or resource that are signed by authorized users by launching various types of flood                                                              </p>
+<h2>DDoS Attacks:</h2>
+<p>It is an improved case of DoS attacks in terms of flooding the target server with server with a huge amount of packets.  </p>
+<h1>Authentication</h1>
 <p>Is the assurance that information transaction is from the source it claims to be from. The device authenticates itself prior to receiving or transmitting any information. It assures that the information received is authentic. It is assumed that communications may be intercepted by an unauthorized entity and data at rest may be subject to unauthorized access during transport and rest, taking into account the nature of the cloud and mobile ecosystem. </p>
 <p>This security requirement is applied across all layers of the ecosystem under consideration, i.e., communication, transport and storage of information shared or exchanged between authorized entities.</p>
 <h2>Security Verification Requirements</h2>
@@ -193,37 +194,32 @@ This type of attack is carried out by attackers using applications that can capt
 <p>DNS attacks always occur in the case where the attacker makes use of the translation of the domain name in an Internet Protocol (IP) address, in order to access the confidential data of the user in an unauthorized way. </p>
 <h2>MITM Attacks</h2>
 <p>In this type of attack, an attacker attempts to intrude on a mail exchange or continuous message between two users or clients of a cloud-based mobile application (client-server).   </p>
-<h2>Reliability</h2>
+<h1>Reliability</h1>
 <p>Refers to the property that guarantees consistent intended behavior of an a general system, in this case applied to cloud and mobile ecosystem.  </p>
-<h3>This requirement is applied over Internet transactions in the cloud and mobile ecosystem.</h3>
-<h2>Privacy</h2>
-<p>n the context of cloud and mobile, privacy refers to the control of the user over the disclosure of his data. In other words only the user has control of the sharing of is personal information, is data is only made public if the user allowed it.  </p>
-<h3>This requirement is applied where the information is stored  .</h3>
+<h2>This requirement is applied over Internet transactions in the cloud and mobile ecosystem.</h2>
+<h1>Privacy</h1>
+<p>In the context of cloud and mobile, privacy refers to the control of the user over the disclosure of his data. In other words only the user has control of the sharing of is personal information, is data is only made public if the user allowed it.  </p>
+<h2>This requirement is applied where the information is stored  .</h2>
 <h1>Physical Security</h1>
 <p>Refers to the security measures designed to deny unauthorized physical access to mobile devices and equipment, and to protect them from damage or in other words gaining physical access to the device won't give access to it's information.  </p>
 <h2>This requirement is applied were the information is stored in the device.</h2>
 <p>Not addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                              </p>
 <h2>Physical Attack</h2>
 <p>This type of attack occurred when the perpetrator gains physical access to the location where the system is operating and tries to gain information stored in the system using his physical access.</p>
-<h2>Forgery Resistance</h2>
+<h1>Forgery Resistance</h1>
 <p>Is the propriety that ensures that the contents shared between entities cannot be forged by a third party trying to damage or harm the system or its users. In other words no one can try to forge content and send it in the name of another entities.  </p>
 <h3>This requirement is applied in the device, in the cloud, and in the database.</h3>
 <p>Not addressing this requirement may lead to vulnerabilities explored by attacks such as:</p>
-<p><strong> Tampering: </strong>                                               <br />
-This type of attacks occurs when an attacker preforms physical modifications on the hardware where the software is implemented.</p>
-<p><strong> Reused IP Address Attack: </strong> 
-In this attack some nods are made more attractive than others by tampering with the routing information, when arriving to the sinkhole node the  messages may be dropped or altered. </p>
-<h1>Tampering Attacks</h1>
-<p>In this type of attack an attacker preforms physical modifications on the hardware where the software is implemented.  </p>
-<h2>Definition</h2>
-<p>This type of attack occurs whenever an unauthorized user has physical access to the device. When this access is realized, it is possible to loss, leakage, access or unintentionally disclose of the data or applications to unauthorized users, if the mobile devices are misplaced, lost or theft.</p>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Sending high malicious traffic stream;</li>
-<li>Huge messages to targeting mobile devices to make unused or reducing the capability;</li>
-<li>Access and steal users confidential data.</li>
-</ul>
-<h2>Tampering Attacks Diagram</h2>
+<h2>Tampering</h2>
+<p>This type of attacks occurs when an attacker preforms physical modifications on the hardware where the software is implemented.</p>
+<h2>Reused IP Address Attack</h2>
+<p>In this attack some nods are made more attractive than others by tampering with the routing information, when arriving to the sinkhole node the  messages may be dropped or altered. </p>
+<h1>Tamper Detection</h1>
+<p>Ensures all devices are physically secured, such that any tampering attempt is detected.  </p>
+<p><em>This requirement is applied were the information in the device.</em>   </p>
+<p>Not addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                              </p>
+<h2>Tampering</h2>
+<p>Is when an attacker preforms physical modifications on the hardware where the software is implemented.</p>
 <h2>Data Freshness</h2>
 <p>Status that ensures that data is the most recent, and that old messages are not mistakenly used as fresh or purposely replayed by perpetrators. In other words this requirement provides the guarantee that the data displayed is the most recent .  </p>
 <h3>This requirement is applied to the cloud, since it says that messages sent between components of the cloud and mobile ecosystem can be captured and forwarded, by hypothesis and between the communications.</h3>
@@ -232,16 +228,17 @@ In this attack some nods are made more attractive than others by tampering with 
  This type of attacks ocurrs when a attacker preforms physical modifications on the hardware where the software is implemented                                             <br />
 <strong> Reused IP Address Attack: </strong> 
 In this attack some nods are made more attractive than others by tampering with the routing information, when arriving to the sinkhole node the  messages may be dropped or altered. </p>
-<h2>Confinement</h2>
+<h1>Confinement</h1>
 <p>Ensures that even if a party is corrupted, the spreading of the effects of the attack is as confined as possible. </p>
-<h3>This requirement is applied in the entire system.</h3>
+<h2>This requirement is applied in the entire system.</h2>
 <p>ot addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                              <strong> Impersonation Attack: </strong>                              <br />
 In this attack the attacker pretends to be one of the users of the system to fulfill is bad intentions.    </p>
-<h2>Interoperability</h2>
+<h1>Interoperability</h1>
 <p>Is the propriety that ensures that different software communicates and works well with each-other. I.e a software in health-care that works with data that comes from a third-party needs to be able to use and process the information given to it by this software. </p>
-<h3>This requirement is applied in the entire system.</h3>
-<p>ot addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                              <strong> Impersonation Attack: </strong>                              <br />
-In this attack the attacker pretends to be one of the users of the system to fulfill is bad intentions.    </p>
+<h2>This requirement is applied in the entire system.</h2>
+<p>ot addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                             </p>
+<h2>Impersonation Attack:</h2>
+<p>In this attack the attacker pretends to be one of the users of the system to fulfill is bad intentions.    </p>
 <h2>Data Origin Authentication</h2>
 <p>Ensures that the data being received by the software comes from the source it claims to be. In other words it ensures that the data being received is authentic and from a trusted party. </p>
 <h3>This requirement is applied between the communications.</h3>

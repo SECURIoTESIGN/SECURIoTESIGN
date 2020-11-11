@@ -1,4 +1,4 @@
-# Final Report  
+# Final Security Requirements Report 
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
@@ -35,7 +35,7 @@ The property that ensures that information is not disclosed or made available to
 
 Is the property of safeguarding the correctness and completeness of assets in a Cloud & Mobile system. In other words it involves maintaining the data consistent,   trustworthy and accurate during it life-cycle.
 
-This requirements is applied in the *Cloud* and *Mobile Ecosystem*.
+## This requirements is applied in the Cloud and Mobile Ecosystem.
 
 Not addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                        
 
@@ -50,19 +50,20 @@ In this type of attack, an attacker attempts to intrude on a mail exchange or co
 
 
 ## Cookie Poisoning:                                                     
-This type of attack consists of replacing or modifying cookie content in ways to gain unauthorized access to applications or Web pages. ## Availability 
+This type of attack consists of replacing or modifying cookie content in ways to gain unauthorized access to applications or Web pages. # Availability 
 
 Refers to the property which ensures that a mobile device or system is accessible and usable upon demand by authorized entities. In other words the mobile cloud-based application need to be always available to access by authorized people.
 
-### This requirement is applied were the information is stored. 
+## This requirement is applied were the information is stored. 
 
 Not addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                                
 
-** DoS Attacks: **            
+## DoS Attacks:           
 In this type of attacks, the attacker attempts to prevent the provision of a service or resource that are signed by authorized users by launching various types of flood                                                              
 
-** DDoS Attacks: **  
-It is an improved case of DoS attacks in terms of flooding the target server with server with a huge amount of packets.  # Authentication
+## DDoS Attacks:  
+It is an improved case of DoS attacks in terms of flooding the target server with server with a huge amount of packets.  
+# Authentication
 
 Is the assurance that information transaction is from the source it claims to be from. The device authenticates itself prior to receiving or transmitting any information. It assures that the information received is authentic. It is assumed that communications may be intercepted by an unauthorized entity and data at rest may be subject to unauthorized access during transport and rest, taking into account the nature of the cloud and mobile ecosystem. 
 
@@ -172,17 +173,17 @@ DNS attacks always occur in the case where the attacker makes use of the transla
 ## MITM Attacks                                                 
 In this type of attack, an attacker attempts to intrude on a mail exchange or continuous message between two users or clients of a cloud-based mobile application (client-server).   
 
-## Reliability
+# Reliability
 Refers to the property that guarantees consistent intended behavior of an a general system, in this case applied to cloud and mobile ecosystem.  
 
-### This requirement is applied over Internet transactions in the cloud and mobile ecosystem.   
+## This requirement is applied over Internet transactions in the cloud and mobile ecosystem.   
 
 
 
-## Privacy
-n the context of cloud and mobile, privacy refers to the control of the user over the disclosure of his data. In other words only the user has control of the sharing of is personal information, is data is only made public if the user allowed it.  
+# Privacy
+In the context of cloud and mobile, privacy refers to the control of the user over the disclosure of his data. In other words only the user has control of the sharing of is personal information, is data is only made public if the user allowed it.  
 
-### This requirement is applied where the information is stored  .   
+## This requirement is applied where the information is stored  .   
 
 
 
@@ -197,37 +198,29 @@ Not addressing this requirement may lead to vulnerabilities explored by attacks 
 This type of attack occurred when the perpetrator gains physical access to the location where the system is operating and tries to gain information stored in the system using his physical access.
 
 
-## Forgery Resistance
+# Forgery Resistance
 Is the propriety that ensures that the contents shared between entities cannot be forged by a third party trying to damage or harm the system or its users. In other words no one can try to forge content and send it in the name of another entities.  
 
 ### This requirement is applied in the device, in the cloud, and in the database.  
 
 Not addressing this requirement may lead to vulnerabilities explored by attacks such as:
                                                               
-** Tampering: **                                                 
+## Tampering                                                 
 This type of attacks occurs when an attacker preforms physical modifications on the hardware where the software is implemented.
                                                
-** Reused IP Address Attack: ** 
+## Reused IP Address Attack 
 In this attack some nods are made more attractive than others by tampering with the routing information, when arriving to the sinkhole node the  messages may be dropped or altered. 
 
 
-# Tampering Attacks
+# Tamper Detection
+Ensures all devices are physically secured, such that any tampering attempt is detected.  
 
-In this type of attack an attacker preforms physical modifications on the hardware where the software is implemented.  
+*This requirement is applied were the information in the device.*   
 
-## Definition
+Not addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                              
 
-This type of attack occurs whenever an unauthorized user has physical access to the device. When this access is realized, it is possible to loss, leakage, access or unintentionally disclose of the data or applications to unauthorized users, if the mobile devices are misplaced, lost or theft.
-  
-## Attacker Powers
-
- * Sending high malicious traffic stream;
- * Huge messages to targeting mobile devices to make unused or reducing the capability;
- * Access and steal users confidential data.
-
- 
-## Tampering Attacks Diagram
-
+## Tampering
+Is when an attacker preforms physical modifications on the hardware where the software is implemented.
 
 
 
@@ -244,22 +237,24 @@ Not addressing this requirement may lead to vulnerabilities explored by attacks 
 In this attack some nods are made more attractive than others by tampering with the routing information, when arriving to the sinkhole node the  messages may be dropped or altered. 
 
 
-## Confinement    
+# Confinement    
 Ensures that even if a party is corrupted, the spreading of the effects of the attack is as confined as possible. 
 
-### This requirement is applied in the entire system.  
+## This requirement is applied in the entire system.  
 
 ot addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                              ** Impersonation Attack: **                                
 In this attack the attacker pretends to be one of the users of the system to fulfill is bad intentions.    
 
 
 
-## Interoperability     
+# Interoperability     
 Is the propriety that ensures that different software communicates and works well with each-other. I.e a software in health-care that works with data that comes from a third-party needs to be able to use and process the information given to it by this software. 
 
-### This requirement is applied in the entire system.  
+## This requirement is applied in the entire system.  
 
-ot addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                              ** Impersonation Attack: **                                
+ot addressing this requirement may lead to vulnerabilities explored by attacks such as:                                                             
+
+## Impersonation Attack:                               
 In this attack the attacker pretends to be one of the users of the system to fulfill is bad intentions.    
 
 

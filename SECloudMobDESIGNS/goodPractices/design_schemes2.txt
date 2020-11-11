@@ -1,0 +1,1 @@
+@startuml Bob -> Alice: hello return Ok @enduml

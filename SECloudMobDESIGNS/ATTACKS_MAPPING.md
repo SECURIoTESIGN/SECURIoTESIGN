@@ -1,4 +1,4 @@
-# Final Report  
+# Final Attack Models Report  
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
@@ -498,5 +498,5 @@ This type of attack occurs whenever an unauthorized user has physical access to 
 ## Tampering Attacks Diagram
 
 
-![alt text](tamperingDetectionAttack.png)
+![alt text](tamperingAttack.png)
 

@@ -1,4 +1,4 @@
-#!/usr/bin/python coding=utf-8
+1#!/usr/bin/python coding=utf-8
 # !/bin/bash
 
 # Author : Francisco Chimuco
@@ -86,7 +86,7 @@ question1 = {
     "4": "Hybrid Application",
     "5": "Harmony OS App",
     "6": "LineageOS Application",
-    "7": "Plasma Mobile Application",
+    "7": "Plasma Mobile Application",
     "8": "postmarketOS Application",
     "9": "PureOS Application",
     "10": "Sailfish OS Application",
@@ -352,7 +352,7 @@ def arqui(version):
     print("  4 - Hybrid Application  ")
     print("  5 - Harmony OS App  ")
     print("  6 - LineageOS Application  ")
-    print("  7 - Plasma Mobile Application  ")
+    print("  7 - Plasma Mobile Application  ")
     print("  8 - postmarketOS Application  ")
     print("  9 - PureOS Application  ")
     print("  10 - Sailfish OS Application  ")
@@ -448,9 +448,9 @@ def hasDB(version):
     print("---")
     print("")
     if version == 1:
-        print("  **The system will use a Database ?**  ")
+        print("  ** Will the system use a Database?**  ")
     else:
-        print("  **The system use a Database ?**  ")
+        print("  **Does the system use a Database?**  ")
     print("")
     print("  1 - Yes  ")
     print("  2 - No  ")
@@ -478,7 +478,7 @@ def typeOfDatabase(version):
     print("---")
     print("")
     if version == 1:
-        print("  **Which will be type of data storage ?**  ")
+        print("  **What will be the type of data storage?**  ")
     else:
         print("  **What is type of data storage ?**  ")
     print("")
@@ -500,7 +500,7 @@ def whichDatabase(version):
     if version == 1:
         print("  **Which Database will be used ?**  ")
     else:
-        print("  **What is the Database used ?**  ")
+        print("  **What is the Database used?**  ")
 
     print("")
 
@@ -537,9 +537,9 @@ def sensitiveData(version):
     print("---")
     print("")
     if version == 1:
-        print("  **Which type of data will be stored ?**  ")
+        print("  **Which type of data will be stored?**  ")
     else:
-        print("  **What is the type of data stored ?**  ")
+        print("  **What is the type of data stored?**  ")
 
     print("  (This is a multiple choice question. Enter several options and end with 0.)  ")
     print("")
@@ -569,9 +569,9 @@ def userRegist(version):
     print("---")
     print("")
     if version == 1:
-        print("  **There will be a user registration ?**  ")
+        print("  **Will there be a user registration?**  ")
     else:
-        print("  **There is a user registration ?**  ")
+        print("  **Is there a user registration?**  ")
     print("")
     print("  1 - Yes  ")
     print("  2 - No  ")
@@ -648,9 +648,9 @@ def inputForms(version):
     print("---")
     print("")
     if version == 1:
-        print("  **The system will allow user input forms ?**  ")
+        print("  **Will the system allow user input forms?**  ")
     else:
-        print("  **The system has user input forms ?**  ")
+        print("  **Has the system user input forms?**  ")
     print("")
     print("  1 -Yes  ")
     print("  2 - No  ")
@@ -666,9 +666,9 @@ def allowUploadFiles(version):
     print("---")
     print("")
     if version == 1:
-        print("  **The system will allow upload files ?**  ")
+        print("  **Will the system allow upload files?**  ")
     else:
-        print("  **The system allow upload files ?**  ")
+        print("  **Does the system allow upload files?**  ")
     print("")
     print("  1 - Yes  ")
     print("  2 - No  ")
@@ -684,9 +684,9 @@ def systemLogs(version):
     print("---")
     print("")
     if version == 1:
-        print("  **The system will have a regist of logs?**  ")
+        print("  **Will the system record event logs?**  ")
     else:
-        print("  **The system has a logging regist?**  ")
+        print("  **Has The system a logging regist?**  ")
     print("")
     print("  1 - Yes  ")
     print("  2 - No  ")
@@ -702,9 +702,9 @@ def allowUpdateSystem(version):
     print("---")
     print("")
     if version == 1:
-        print("  **The system will allow regular updates?**  ")
+        print("  **Will the system allow regular updates?**  ")
     else:
-        print("  **The system has a regular updates?**  ")
+        print("  **Has the system a regular updates?**  ")
     print("")
     print("  1 - Yes  ")
     print("  2 - No  ")
@@ -720,9 +720,9 @@ def allowThirdParty(version):
     print("---")
     print("")
     if version == 1:
-        print("  **The system will use third-party apps?**  ")
+        print("  **Will the system use third-party apps?**  ")
     else:
-        print("  **The system uses third-party apps?**  ")
+        print("  **Does the system use third-party apps?**  ")
     print("")
     print("  1 - Yes  ")
     print("  2 - No  ")
@@ -801,7 +801,7 @@ def hardwareComunication(version):
     print("---")
     print("")
     if version == 1:
-        print("  **What will be the wireless tecnologies presents in hardware?**  ")
+        print("  **What wireless technologies will be on the hardware?**  ")
     else:
         print("  **What are the wireless tecnologies presents in hardware. Enter several options and end with 0.**  ")
     print("")
@@ -1474,6 +1474,8 @@ def switch1():
 
             informationCapture()
 
+            print("# Processing Done! Choose another option to process the requests!")
+
         if case(2):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST REQUIREMENTS ELICITATION PROCESSING\n\n")
@@ -1562,7 +1564,7 @@ def processingInformation():
             qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/confidentiality.md", "r").read())
+        report.write(open("requirements/confidentiality.md", "r").read())
 
     ###################################################################################################
     # integrity requirements
@@ -1570,26 +1572,26 @@ def processingInformation():
             qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/integrity.md", "r").read())
+        report.write(open("requirements/integrity.md", "r").read())
     # report.write(open("guides1/avaliability.md","r").rea())
 
     ###################################################################################################
     # avaliability requirements
 
-    report.write(open("guides1/avaliability.md", "r").read())
+    report.write(open("requirements/avaliability.md", "r").read())
 
     ###################################################################################################
     # authentication requirements
     if qans["Q4"].find("1") != -1 and (
             qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-        report.write(open("guides1/authentication.md", "r").read())
+        report.write(open("requirements/authentication.md", "r").read())
 
     ###################################################################################################
     # authorization requirements
     # if (qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
     if qans["Q4"].find("1") != -1:
         if qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
-            report.write(open("guides1/authorization.md", "r").read())
+            report.write(open("requirements/authorization.md", "r").read())
 
     ###################################################################################################
     # nonRepudiaton requirements
@@ -1597,19 +1599,19 @@ def processingInformation():
         if qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/nonRepudiation.md", "r").read())
-            report.write(open("guides1/accountability.md", "r").read())
+            report.write(open("requirements/nonRepudiation.md", "r").read())
+            report.write(open("requirements/accountability.md", "r").read())
 
     ###################################################################################################
     # realiability requirements
-    report.write(open("guides1/reliability.md", "r").read())
+    report.write(open("requirements/reliability.md", "r").read())
 
     ###################################################################################################
     # privacy requirements
     if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/privacy.md", "r").read())
+        report.write(open("requirements/privacy.md", "r").read())
 
     ###################################################################################################
     # physical security requirements
@@ -1617,7 +1619,7 @@ def processingInformation():
             "1") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/physicalSecurity.md", "r").read())
+        report.write(open("requirements/physicalSecurity.md", "r").read())
 
     ###################################################################################################
     # forgery resistance requirement
@@ -1625,21 +1627,21 @@ def processingInformation():
             "1") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/forgeryResistance.md", "r").read())
+        report.write(open("requirements/forgeryResistance.md", "r").read())
 
     ###################################################################################################
     # tampering detection requirement
     if qans["Q20"].find("1") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/tamperDetection.md", "r").read())
+        report.write(open("requirements/tamperDetection.md", "r").read())
 
     ###################################################################################################
     # data freshness requirements
     if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/dataFreshness.md", "r").read())
+        report.write(open("requirements/dataFreshness.md", "r").read())
 
     ###################################################################################################
     # confinement requirements
@@ -1647,21 +1649,21 @@ def processingInformation():
         if qans["Q12"].find("1") != -1 or qans["Q14"].find("1") != -1 or qans["Q15"].find("1") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/confinement.md", "r").read())
+            report.write(open("requirements/confinement.md", "r").read())
 
     ###################################################################################################
     # Interoperability requirement
     if qans["Q12"].find("1") != -1 and qans["Q14"].find("1") != -1 and qans["Q15"].find("1") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/interoperability.md", "r").read())
+        report.write(open("requirements/interoperability.md", "r").read())
 
     ###################################################################################################
     # data origin authentication
     if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/dataOriginAuthentication.md", "r").read())
+        report.write(open("requirements/dataOriginAuthentication.md", "r").read())
 
     report.close()
     convertReport()
@@ -1696,7 +1698,7 @@ def processingInformation2():
         if qans["Q1"].find("14") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/IOT_Security_guide.md", "r").read())
+            report.write(open("goodPractices/IOT_Security_guide.md", "r").read())
     
     # check if SQL database is choosed
     if qans["Q1"].find("4") != -1 and qans["Q1"].find("13"):
@@ -1705,13 +1707,13 @@ def processingInformation2():
             report.write("\n")
             
             # write SQL injection guide
-            report.write(open("guides1/SQL_Injection_guide.md", "r").read())
+            report.write(open("goodPractices/SQL_Injection_guide.md", "r").read())
 
     # check if language program are chosen
     if (qans["Q1"].find("1") != -1 and (qans["Q10"].find("1") != -1 or qans["Q10"].find("4") != -1)):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/Java_C#_guide.md", "r").read())
+        report.write(open("goodPractices/Java_C#_guide.md", "r").read())
 
     # check if input forms is used
     if qans["Q11"].find("1") != -1:
@@ -1719,7 +1721,7 @@ def processingInformation2():
         report.write("\n")
 
         # write input validation guide
-        report.write(open("guides1/Input_Validation_guide.md", "r").read())
+        report.write(open("goodPractices/Input_Validation_guide.md", "r").read())
 
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
         if qans["Q3"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
@@ -1727,11 +1729,11 @@ def processingInformation2():
             report.write("\n")
             
             # Session Management guide
-            report.write(open("guides1/Session_Management_guide.md", "r").read())
+            report.write(open("goodPractices/Session_Management_guide.md", "r").read())
             report.write("\n")
             report.write("\n")
             # write XSS guide
-            report.write(open("guides1/Cross_Site_Scripting_guide.md", "r").read())
+            report.write(open("goodPractices/Cross_Site_Scripting_guide.md", "r").read())
 
             report.write("\n")
             report.write("\n")
@@ -1739,46 +1741,46 @@ def processingInformation2():
     # write Cryptography guide
     if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n\n")
-        report.write(open("guides1/Cryptography_guide.md", "r").read())
+        report.write(open("goodPractices/Cryptography_guide.md", "r").read())
 
     # write SSL/TLS guide
     if ((qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and (
             qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1)):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/TLS_guide.md", "r").read())
+        report.write(open("goodPractices/TLS_guide.md", "r").read())
 
     if qans["Q9"].find("1") != -1:
         report.write("\n")
         report.write("\n")
 
         # write Access Control guide
-        report.write(open("guides1/Access_Control_guide.md", "r").read())
+        report.write(open("goodPractices/Access_Control_guide.md", "r").read())
 
     if qans["Q11"].find("1") != -1:
         # check if file upload are chosen
 
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/File_Upload_guide.md", "r").read())
+        report.write(open("goodPractices/File_Upload_guide.md", "r").read())
 
     # logging info
     if qans["Q12"].find("1") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/Logging_guide.md", "r").read())
+        report.write(open("goodPractices/Logging_guide.md", "r").read())
 
     # Update info
     if qans["Q13"].find("1") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/App_Update_guide.md", "r").read())
+        report.write(open("goodPractices/App_Update_guide.md", "r").read())
 
     # Third-party info
     if qans["Q14"].find("1") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/App_Third_Party_guide.md", "r").read())
+        report.write(open("goodPractices/App_Third_Party_guide.md", "r").read())
 
     report.close()
     convertReport2()
@@ -1817,7 +1819,7 @@ def processingInformation3():
         if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/mitmAttack.md", "r").read())
+            report.write(open("attackModels/mitmAttack.md", "r").read())
 
             # MitM attack tree diagram
             # Write de scheme in the report
@@ -1832,7 +1834,7 @@ def processingInformation3():
         if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/XSS.md", "r").read())
+            report.write(open("attackModels/XSS.md", "r").read())
 
             # XSS attack tree diagram
             # Write de scheme in the report
@@ -1847,7 +1849,7 @@ def processingInformation3():
             qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/dnsPoisoningAttack.md", "r").read())
+        report.write(open("attackModels/dnsPoisoningAttack.md", "r").read())
 
         # CookiePoisoning attack tree diagram
 
@@ -1863,7 +1865,7 @@ def processingInformation3():
         if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/maliciousQRCode.md", "r").read())
+            report.write(open("attackModels/maliciousQRCode.md", "r").read())
             # Malicious QR Code attack diagram
 
             # Write de scheme in the report
@@ -1878,7 +1880,7 @@ def processingInformation3():
             qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/captchaBreaking.md", "r").read())
+        report.write(open("attackModels/captchaBreaking.md", "r").read())
 
     # CAPTCHA Breaking attack tree diagram
 
@@ -1895,7 +1897,7 @@ def processingInformation3():
                 qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/SQLi.md", "r").read())
+            report.write(open("attackModels/SQLi.md", "r").read())
 
             # SQLi attack tree diagram
 
@@ -1909,7 +1911,7 @@ def processingInformation3():
     # DoS Attacks
     if qans["Q4"].find("1") != -1 and (
             qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-        report.write(open("guides1/DoS.md", "r").read())
+        report.write(open("attackModels/DoS.md", "r").read())
 
         # DoS attack tree diagram
 
@@ -1919,7 +1921,7 @@ def processingInformation3():
         report.write("\n")
         
         # DDoS attack tree
-        report.write(open("guides1/DDoS.md", "r").read())
+        report.write(open("attackModels/DDoS.md", "r").read())
 
         # DDoS attack tree diagram
 
@@ -1933,7 +1935,7 @@ def processingInformation3():
     # Sniffer Attacks
     if qans["Q4"].find("1") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
         if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
-            report.write(open("guides1/Sniffer.md", "r").read())
+            report.write(open("attackModels/Sniffer.md", "r").read())
 
             # Sniffer attack tree diagram
 
@@ -1948,7 +1950,7 @@ def processingInformation3():
     ###########################################################################################################
     # DNS Attacks
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
-        report.write(open("guides1/DNS.md", "r").read())
+        report.write(open("attackModels/DNS.md", "r").read())
 
         # DNS Poisoning attack tree diagram
 
@@ -1964,7 +1966,7 @@ def processingInformation3():
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/reusedIPAddress.md", "r").read())
+        report.write(open("attackModels/reusedIPAddress.md", "r").read())
 
         # Reused IP Address attack tree diagram
 
@@ -1979,7 +1981,7 @@ def processingInformation3():
     if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/phishingAttack.md", "r").read())
+        report.write(open("attackModels/phishingAttack.md", "r").read())
 
         # Phishing Attack tree diagram
 
@@ -1990,7 +1992,7 @@ def processingInformation3():
         ###########################################################################################################
         ###########################################################################################################
         # Botnet Attacks
-        report.write(open("guides1/Botnet.md", "r").read())
+        report.write(open("attackModels/Botnet.md", "r").read())
 
         # Botnet attack tree diagram
 
@@ -2005,7 +2007,7 @@ def processingInformation3():
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/XMLi.md", "r").read())
+        report.write(open("attackModels/XMLi.md", "r").read())
 
         # XML Attack tree diagram
 
@@ -2022,7 +2024,7 @@ def processingInformation3():
             if qans["Q4"].find("1") != -1 and qans["Q10"].find("6") != -1:
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/sessionHijacking.md", "r").read())
+                report.write(open("attackModels/sessionHijacking.md", "r").read())
 
                 # Session Hijacking attack tree diagram
 
@@ -2036,7 +2038,7 @@ def processingInformation3():
                 # Session Fixation
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/sessionFixation.md", "r").read())
+                report.write(open("attackModels/sessionFixation.md", "r").read())
 
                 # Session Fixation Attack tree diagram
 
@@ -2052,7 +2054,7 @@ def processingInformation3():
         if qans["Q10"].find("2") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/bufferOverflows.md", "r").read())
+            report.write(open("attackModels/bufferOverflows.md", "r").read())
 
         # Buffer Overflows attack diagram
 
@@ -2068,7 +2070,7 @@ def processingInformation3():
         if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/Spoofing.md", "r").read())
+            report.write(open("attackModels/Spoofing.md", "r").read())
 
             # Spoofing attack tree diagram
 
@@ -2084,7 +2086,7 @@ def processingInformation3():
         if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/VMMigration.md", "r").read())
+            report.write(open("attackModels/VMMigration.md", "r").read())
 
             # Attack on VM at migration tree diagram
 
@@ -2102,7 +2104,7 @@ def processingInformation3():
             if qans["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/maliciousInsider.md", "r").read())
+                report.write(open("attackModels/maliciousInsider.md", "r").read())
 
                 # Malicious Insiders attack tree diagram
 
@@ -2117,7 +2119,7 @@ def processingInformation3():
     if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("guides1/VMEscape.md", "r").read())
+        report.write(open("attackModels/VMEscape.md", "r").read())
 
         # VM Escape attack tree diagram
 
@@ -2133,7 +2135,7 @@ def processingInformation3():
         if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/crossVM.md", "r").read())
+            report.write(open("attackModels/crossVM.md", "r").read())
 
             # Cross Side Channel attack tree diagram
 
@@ -2149,7 +2151,7 @@ def processingInformation3():
             if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/malwareInjection.md", "r").read())
+                report.write(open("attackModels/malwareInjection.md", "r").read())
 
                 # Cross VM attack tree diagram
 
@@ -2166,7 +2168,7 @@ def processingInformation3():
             if qans["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/tamperingDetection.md", "r").read())
+                report.write(open("attackModels/tamperingAttack.md", "r").read())
 
                 # Tampering Detection attack tree diagram
 
@@ -2211,7 +2213,7 @@ def processingInformation4():
     # Security Testing against DoS, DDoS and Botnet Attacks
     if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         if qans["Q16"].find("1") != -1 or qans["Q16"].find("2") != -1 or qans["Q16"].find("3") != -1 or qans["Q16"].find("4") != -1 :
-            report.write(open("guides1/BOTNETDOSDDOS.TESTmd.md", "r").read())
+            report.write(open("securityTesting/BOTNETDOSDDOSTEST.md", "r").read())
             report.write("\n")
             report.write("\n")
 
@@ -2222,7 +2224,7 @@ def processingInformation4():
         if (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/BotnetDoSDDoSPHISINGSPOOFINGPHISHINGMITMTEST.md", "r").read())
+            report.write(open("securityTesting/BotnetDoSDDoSPHISINGSPOOFINGPHISHINGMITMTEST.md", "r").read())
             report.write("\n")
             report.write("\n")
 
@@ -2234,14 +2236,14 @@ def processingInformation4():
             if qans["Q16"].find("1") != -1 and (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/SQLiXSSCSRFSPOOFINGTEST.md", "r").read())
+                report.write(open("securityTesting/SQLiXSSCSRFSPOOFINGTEST.md", "r").read())
 
     ###################################################################################################
     ###################################################################################################
     # Securit Testing against Sniffing, Pharming, Phishing, Spoofing Attacks
     if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1  or qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
         if qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1:
-            report.write(open("guides1/BOTNETSNIFFINGSPOOFINGPHISHINGTEST.md", "r").read())
+            report.write(open("securityTesting/BOTNETSNIFFINGSPOOFINGPHISHINGTEST.md", "r").read())
             report.write("\n")
             report.write("\n")
 
@@ -2253,7 +2255,7 @@ def processingInformation4():
             if qans["Q19"].find("1") != -1 or  qans["Q19"].find("2") != -1 or qans["Q19"].find("4") != -1 or qans["Q19"].find("5") != -1 or qans["Q19"].find("6") != -1 or qans["Q19"].find("8") != -1 :
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/BOTSPOOFINGSNIFFINGTEST.md", "r").read())
+                report.write(open("securityTesting/BOTSPOOFINGSNIFFINGTEST.md", "r").read())
 
     ###################################################################################################
     ###################################################################################################
@@ -2262,7 +2264,7 @@ def processingInformation4():
         if qans["Q10"].find("2") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/BUFFEROVERFLOWTEST.md", "r").read())
+            report.write(open("securityTesting/BUFFEROVERFLOWTEST.md", "r").read())
 
     ###################################################################################################
     ###################################################################################################
@@ -2271,7 +2273,7 @@ def processingInformation4():
         if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("guides1/MINSIDERVMMIGRATIONTEST.md", "r").read())
+            report.write(open("securityTesting/MINSIDERVMMIGRATIONTEST.md", "r").read())
             report.write("\n")
             report.write("\n")
     ###################################################################################################
@@ -2285,7 +2287,7 @@ def processingInformation4():
             if qans["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/MALWAREINJECTIONSIDECHANNELTEST.md", "r").read())
+                report.write(open("securityTesting/MALWAREINJECTIONSIDECHANNELTEST.md", "r").read())
                 report.write("\n")
                 report.write("\n")
 
@@ -2299,7 +2301,7 @@ def processingInformation4():
             if qans["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
-                report.write(open("guides1/physicalAttacksTest.md", "r").read())
+                report.write(open("securityTesting/physicalAttacksTest.md", "r").read())
                 report.write("\n")
                 report.write("\n")
 
@@ -2321,7 +2323,7 @@ def fullReport():
     for pdf in pdfs:
         merger.append(pdf)
 
-    merger.write("FINAL_REPORT.pdf")
+    merger.write("FULL_REPORT.pdf")
     merger.close()
     print("\n\n *** Processing  done! See the full report requested in the FINAL_REPORT.pdf file. \n\n ***")
 
