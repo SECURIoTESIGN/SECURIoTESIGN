@@ -19,6 +19,10 @@ Structured Query Language (SQL) Injection Attack is a code injection technique c
  * Bypass authentication;
  * Execute commands;
  * Elevate privileges.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
 ## SQL Injection Attacks Diagram
 

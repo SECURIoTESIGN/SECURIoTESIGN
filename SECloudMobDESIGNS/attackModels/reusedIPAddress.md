@@ -8,7 +8,12 @@ Each node of a network has an IP address which is allocated to a particular user
   
 ## Attacker Powers
 
- * Access confidential information from legitimate/authorized users;
+ * Access confidential information from legitimate/authorized users.
+
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Reused IP Address attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
 
  
 ## Reused IP Address Attacks Diagram

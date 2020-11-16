@@ -12,6 +12,10 @@ In this type of attack, the attacker can spoof the "Caller ID" and impersonate h
  * Faker caller ID;
  * Monitoring of calls and access to the confidential information of legitimate users from voice or text messages.
 
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
 ## Spoofing Attacks Diagram
 

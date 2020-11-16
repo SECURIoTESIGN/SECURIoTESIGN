@@ -15,6 +15,11 @@ In this type of attack, an attacker can change or modify the contents of cookie 
  * Account hijacking;
  * Impersonation of accounts fraudulently.
 
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the Cookie Poisoning attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
  
 ## Cookie Poisoning Attacks Diagram
 

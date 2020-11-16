@@ -1,6 +1,6 @@
 # Man-in-the-Middle Attack
 
-In this type of attack an active Man listening and changing communications between Mobile Device and Cloud. In other hand, in this attack an intruder enters in the ongoing conversation between sender and the receiver and makes them believe that conversation is taking place between them only.
+In this type of attack an active man listen and change communications between Mobile Device and Cloud. In other hand, in this attack an intruder enters in the ongoing conversation between sender and the receiver and makes them believe that conversation is taking place between them only.
 
 
 ## Definition
@@ -15,6 +15,10 @@ The attacker generally and depending on whether the communication situation is e
  * Discover cryptographic key using cryptanalysis;
  * Exploit vulnerabilities in cryptographic algorithm;
  * Exploit vulnerabilities in cryptographic protocol.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious MitM attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
 ## Man-in-the-Middle Attack Diagram
 

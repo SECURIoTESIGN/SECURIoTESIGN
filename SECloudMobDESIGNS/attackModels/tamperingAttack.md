@@ -12,6 +12,10 @@ This type of attack occurs whenever an unauthorized user has physical access to 
  * Huge messages to targeting mobile devices to make unused or reducing the capability;
  * Access and steal users confidential data.
 
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Tampering attack, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
 ## Tampering Attacks Diagram
 

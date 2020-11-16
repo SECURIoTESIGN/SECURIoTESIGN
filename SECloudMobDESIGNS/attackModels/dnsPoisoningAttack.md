@@ -11,6 +11,11 @@ In this kind of attack, the contents of the cookie are changed to get access to 
  * Access confidential information from legitimate/authorized users;
  * Perpetrate other types of attacks like Main-in-the-Middle.
 
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the DNS Poisoning attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
  
 ## DNS Poisoning Attacks Diagram
 

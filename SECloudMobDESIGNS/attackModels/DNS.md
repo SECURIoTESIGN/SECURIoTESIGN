@@ -11,7 +11,10 @@ In DNS reflection attacks, attackers send DNS requests toward multiple open DNS 
  * Access confidential information from legitimate/authorized users;
  * Perpetrate other types of attacks like DDoS and Main-in-the-Middle.
 
- 
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the DNS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
 ## DNS Attacks Diagram
 
 

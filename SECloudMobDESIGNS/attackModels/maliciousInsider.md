@@ -1,6 +1,6 @@
 # Malicious Insiders Attacks
 
-When there is a malicious entity (client, employee, Hypervisor, Cloud Provider/Broker, etc.) that takes advantage of its privileges to covertly carry out any malicious activity such as information theft and data destruction or physical infrastructures.
+This type of attacks ocurre when there is a malicious entity (client, employee, Hypervisor, Cloud Provider/Broker, etc.) takes advantage of its privileges to covertly carry out any malicious activity such as information theft and data destruction or physical infrastructures.
 
 
 ## Definition
@@ -11,6 +11,11 @@ Malicious Hypervisor, Malicious Clients, Malicious Cloud Provider/Broker, etc. a
 
  * Implants malicious codes to destroy everything in the cloud system;
  * Steals confidential data.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to Malicious Insiders attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
 
  
 ## Malicious Insiders Attacks Diagram

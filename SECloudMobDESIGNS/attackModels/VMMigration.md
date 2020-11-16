@@ -12,6 +12,10 @@ VMs roll back to their previous state if an error occurs. Unfortunately, this fa
  * Launch attacks such as man-in-the-middle, DoS and replay;
  * Detect or tamper with data during migration as it is not encrypted.
 
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to VM Migration attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy, confinement, and authenticity of the data.
+
  
 ## VM Migration Attacks Diagram
 

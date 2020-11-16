@@ -15,6 +15,10 @@ XML Injection (XMLi) attacks are carried out by injecting pieces of XML code alo
 
  * Obtain confidential information;
  * Change the underlying business logic of the destination.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
  
 ## XML Injection Attacks Diagram

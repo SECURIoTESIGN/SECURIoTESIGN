@@ -15,7 +15,12 @@ Google Hacking Attacks, also known as Google Dorking is a hacking method that us
  * Account hijacking;
  * Impersonation of accounts fraudulently.
 
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the Google Hacking attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
  
-## Google Hacking Attacksg Attacks Diagram
+## Google Hacking Attacks Diagram
+
 
 

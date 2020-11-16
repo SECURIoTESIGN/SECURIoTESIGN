@@ -15,6 +15,10 @@ Being an attack that exploits vulnerabilities in web applications, the attacker 
  * Circumvent the policy of same origin;
  * Impersonate you to websites and/or web applications you regularly use by obtaining/altering/destroying various types of content.
 
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to XSS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+
 ## Cross Site Scripting Attacks Diagram
 
 

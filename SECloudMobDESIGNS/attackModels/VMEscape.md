@@ -11,6 +11,11 @@ VM escape is where an application running on a VM can directly have access to th
  * Shutdown and eliminate target or victim VMs, resulting in the loss and destruction of data or information;
  * Compromise the hypervisor and other resources.
 
- VM Escape Attacks Diagram
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to VM Escape attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy, authenticity and confinement of the data.
+
+
+## VM Escape Attacks Diagram
 
 
