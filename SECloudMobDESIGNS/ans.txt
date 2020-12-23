@@ -1,20 +1,20 @@
-4;                   # Hybrid Application  
-4                    # m-Health            
+14;                  # IoT System          
+13                   # Smart Home          
 2                    # Username and Password
 1                    # Yes                 
 1                    # SQL                 
 2                    # MySQL               
-1;2;3;               # Personal Information ; Confidential Data ; Critical Data
+1;3;                 # Personal Information ; Critical Data
 1                    # Yes                 
-1                    # The users will register themselves
-3;6;                 # HTML5 ; PHP         
+2                    # Will be a administrator that will register the users
+2;                   # C/C++               
 1                    # Yes                 
+2                    # No                  
 1                    # Yes                 
-1                    # Yes                 
-1                    # Yes                 
-1                    # Yes                 
+2                    # No                  
+2                    # No                  
 4                    # Public Cloud        
 1                    # Yes                 
-3                    # Basic Authentication (user/pass)
-1;2;4;5;6;8;         # 4G / LTE ; 3G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC
+5                    # TPM (Trusted Platform Module)
+5;4;                 # Wi-Fi  ; Bluetooth  
 1                    # Yes                 

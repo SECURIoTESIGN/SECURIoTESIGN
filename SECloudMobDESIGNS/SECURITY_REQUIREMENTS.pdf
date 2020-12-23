@@ -2,7 +2,7 @@
 %“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
 1 0 obj
 <<
-/F1 2 0 R /F2 4 0 R /F3 9 0 R
+/F1 2 0 R /F2 4 0 R /F3 5 0 R
 >>
 endobj
 2 0 obj
@@ -30,19 +30,12 @@ endobj
 endobj
 5 0 obj
 <<
-/Contents 82 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 81 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
-/FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
->>
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
 >>
 endobj
 6 0 obj
 <<
-/Contents 83 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 81 0 R /Resources <<
+/Contents 74 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 73 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
 /FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
 >>
@@ -54,7 +47,7 @@ endobj
 endobj
 7 0 obj
 <<
-/Contents 84 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 81 0 R /Resources <<
+/Contents 75 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 73 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
 /FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
 >>
@@ -66,7 +59,7 @@ endobj
 endobj
 8 0 obj
 <<
-/Contents 85 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 81 0 R /Resources <<
+/Contents 76 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 73 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
 /FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
 >>
@@ -78,12 +71,19 @@ endobj
 endobj
 9 0 obj
 <<
-/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+/Contents 77 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 73 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
+/FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
+>>
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
 >>
 endobj
 10 0 obj
 <<
-/Contents 86 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 81 0 R /Resources <<
+/Contents 78 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 73 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
 /FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
 >>
@@ -95,525 +95,454 @@ endobj
 endobj
 11 0 obj
 <<
-/Contents 87 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 81 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
-/FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
->>
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/Outlines 13 0 R /PageMode /UseNone /Pages 73 0 R /Type /Catalog
 >>
 endobj
 12 0 obj
 <<
-/Outlines 14 0 R /PageMode /UseNone /Pages 81 0 R /Type /Catalog
+/Author () /CreationDate (D:20201223155141+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20201223155141+00'00') /Producer (xhtml2pdf <https://github.com/xhtml2pdf/xhtml2pdf/>) 
+  /Subject () /Title () /Trapped /False
 >>
 endobj
 13 0 obj
 <<
-/Author () /CreationDate (D:20201111160031+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20201111160031+00'00') /Producer (xhtml2pdf <https://github.com/xhtml2pdf/xhtml2pdf/>) 
-  /Subject () /Title () /Trapped /False
+/Count 28 /First 14 0 R /Last 70 0 R /Type /Outlines
 >>
 endobj
 14 0 obj
 <<
-/Count 29 /First 15 0 R /Last 76 0 R /Type /Outlines
+/Dest [ 6 0 R /Fit ] /Next 15 0 R /Parent 13 0 R /Title (Final Security Requirements Report)
 >>
 endobj
 15 0 obj
 <<
-/Dest [ 5 0 R /Fit ] /Next 16 0 R /Parent 14 0 R /Title (Final Security Requirements Report)
+/Dest [ 6 0 R /Fit ] /Next 16 0 R /Parent 13 0 R /Prev 14 0 R /Title (Confidentiality)
 >>
 endobj
 16 0 obj
 <<
-/Count -1 /Dest [ 5 0 R /Fit ] /First 17 0 R /Last 17 0 R /Next 18 0 R /Parent 14 0 R 
-  /Prev 15 0 R /Title (Confidentiality)
+/Count -1 /Dest [ 6 0 R /Fit ] /First 17 0 R /Last 17 0 R /Next 24 0 R /Parent 13 0 R 
+  /Prev 15 0 R /Title (Integrity)
 >>
 endobj
 17 0 obj
 <<
-/Dest [ 5 0 R /Fit ] /Parent 16 0 R /Title (This requirement is applied were the information is stored.)
+/Count -6 /Dest [ 6 0 R /Fit ] /First 18 0 R /Last 23 0 R /Parent 16 0 R /Title (1. SQL Injection Attacks:)
 >>
 endobj
 18 0 obj
 <<
-/Count -8 /Dest [ 5 0 R /Fit ] /First 19 0 R /Last 26 0 R /Next 27 0 R /Parent 14 0 R 
-  /Prev 16 0 R /Title (Integrity)
+/Dest [ 6 0 R /Fit ] /Next 19 0 R /Parent 17 0 R /Title (1. SQL Injection Attacks:)
 >>
 endobj
 19 0 obj
 <<
-/Dest [ 5 0 R /Fit ] /Next 20 0 R /Parent 18 0 R /Title (This requirements is applied in the Cloud and Mobile Ecosystem.)
+/Dest [ 6 0 R /Fit ] /Next 20 0 R /Parent 17 0 R /Prev 18 0 R /Title (2. Wrapping Attacks:)
 >>
 endobj
 20 0 obj
 <<
-/Dest [ 5 0 R /Fit ] /Next 21 0 R /Parent 18 0 R /Prev 19 0 R /Title (SQL Injection Attacks:)
+/Dest [ 6 0 R /Fit ] /Next 21 0 R /Parent 17 0 R /Prev 19 0 R /Title (3. MITM Attacks:)
 >>
 endobj
 21 0 obj
 <<
-/Dest [ 5 0 R /Fit ] /Next 22 0 R /Parent 18 0 R /Prev 20 0 R /Title (Wrapping Attacks:)
+/Dest [ 6 0 R /Fit ] /Next 22 0 R /Parent 17 0 R /Prev 20 0 R /Title (4. Cookie Poisoning:)
 >>
 endobj
 22 0 obj
 <<
-/Dest [ 5 0 R /Fit ] /Next 23 0 R /Parent 18 0 R /Prev 21 0 R /Title (MITM Attacks:)
+/Dest [ 6 0 R /Fit ] /Next 23 0 R /Parent 17 0 R /Prev 21 0 R /Title (1. DoS Attacks)
 >>
 endobj
 23 0 obj
 <<
-/Dest [ 5 0 R /Fit ] /Next 24 0 R /Parent 18 0 R /Prev 22 0 R /Title (Cookie Poisoning:)
+/Dest [ 7 0 R /Fit ] /Parent 17 0 R /Prev 22 0 R /Title (2. DDoS Attacks)
 >>
 endobj
 24 0 obj
 <<
-/Dest [ 5 0 R /Fit ] /Next 25 0 R /Parent 18 0 R /Prev 23 0 R /Title (This requirement is applied were the information is stored.)
+/Count -1 /Dest [ 7 0 R /Fit ] /First 25 0 R /Last 25 0 R /Next 50 0 R /Parent 13 0 R 
+  /Prev 16 0 R /Title (Authenticity)
 >>
 endobj
 25 0 obj
 <<
-/Dest [ 5 0 R /Fit ] /Next 26 0 R /Parent 18 0 R /Prev 24 0 R /Title (DoS Attacks:)
+/Count -24 /Dest [ 7 0 R /Fit ] /First 26 0 R /Last 49 0 R /Parent 24 0 R /Title (Security Verification Requirements)
 >>
 endobj
 26 0 obj
 <<
-/Dest [ 6 0 R /Fit ] /Parent 18 0 R /Prev 25 0 R /Title (DDoS Attacks:)
+/Dest [ 7 0 R /Fit ] /Next 27 0 R /Parent 25 0 R /Title (Security Verification Requirements)
 >>
 endobj
 27 0 obj
 <<
-/Count -23 /Dest [ 6 0 R /Fit ] /First 28 0 R /Last 51 0 R /Next 52 0 R /Parent 14 0 R 
-  /Prev 18 0 R /Title (Authentication)
+/Dest [ 7 0 R /Fit ] /Next 28 0 R /Parent 25 0 R /Prev 26 0 R /Title (1. Botnet Attack)
 >>
 endobj
 28 0 obj
 <<
-/Dest [ 6 0 R /Fit ] /Next 29 0 R /Parent 27 0 R /Title (Security Verification Requirements)
+/Dest [ 7 0 R /Fit ] /Next 29 0 R /Parent 25 0 R /Prev 27 0 R /Title (2. Phishing Attack)
 >>
 endobj
 29 0 obj
 <<
-/Dest [ 6 0 R /Fit ] /Next 30 0 R /Parent 27 0 R /Prev 28 0 R /Title (Botnet Attack)
+/Dest [ 7 0 R /Fit ] /Next 30 0 R /Parent 25 0 R /Prev 28 0 R /Title (3. DNS Attack)
 >>
 endobj
 30 0 obj
 <<
-/Dest [ 6 0 R /Fit ] /Next 31 0 R /Parent 27 0 R /Prev 29 0 R /Title (Phishing Attack)
+/Dest [ 7 0 R /Fit ] /Next 31 0 R /Parent 25 0 R /Prev 29 0 R /Title (4. MITM Attack)
 >>
 endobj
 31 0 obj
 <<
-/Dest [ 6 0 R /Fit ] /Next 32 0 R /Parent 27 0 R /Prev 30 0 R /Title (DNS Attack)
+/Dest [ 7 0 R /Fit ] /Next 32 0 R /Parent 25 0 R /Prev 30 0 R /Title (5. Reused IP Address Attack:)
 >>
 endobj
 32 0 obj
 <<
-/Dest [ 6 0 R /Fit ] /Next 33 0 R /Parent 27 0 R /Prev 31 0 R /Title (MITM Attack)
+/Dest [ 7 0 R /Fit ] /Next 33 0 R /Parent 25 0 R /Prev 31 0 R /Title (6. Wrapping Attacks)
 >>
 endobj
 33 0 obj
 <<
-/Dest [ 6 0 R /Fit ] /Next 34 0 R /Parent 27 0 R /Prev 32 0 R /Title (Reused IP Address Attack:)
+/Dest [ 7 0 R /Fit ] /Next 34 0 R /Parent 25 0 R /Prev 32 0 R /Title (7. Cookie Poisoning Attack)
 >>
 endobj
 34 0 obj
 <<
-/Dest [ 6 0 R /Fit ] /Next 35 0 R /Parent 27 0 R /Prev 33 0 R /Title (Wrapping Attacks)
+/Dest [ 8 0 R /Fit ] /Next 35 0 R /Parent 25 0 R /Prev 33 0 R /Title (8. Google Hacking Attacks)
 >>
 endobj
 35 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 36 0 R /Parent 27 0 R /Prev 34 0 R /Title (Cookie Poisoning Attack)
+/Dest [ 8 0 R /Fit ] /Next 36 0 R /Parent 25 0 R /Prev 34 0 R /Title (9. Hypervisor Attacks:)
 >>
 endobj
 36 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 37 0 R /Parent 27 0 R /Prev 35 0 R /Title (Google Hacking Attacks)
+/Dest [ 8 0 R /Fit ] /Next 37 0 R /Parent 25 0 R /Prev 35 0 R /Title (References)
 >>
 endobj
 37 0 obj
 <<
-/Count -1 /Dest [ 7 0 R /Fit ] /First 38 0 R /Last 38 0 R /Next 39 0 R /Parent 27 0 R 
-  /Prev 36 0 R /Title (Hypervisor Attacks:)
+/Dest [ 8 0 R /Fit ] /Next 38 0 R /Parent 25 0 R /Prev 36 0 R /Title (1. SQL Injection Attack)
 >>
 endobj
 38 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Parent 37 0 R /Title (References)
+/Dest [ 8 0 R /Fit ] /Next 39 0 R /Parent 25 0 R /Prev 37 0 R /Title (2. XSS Attack)
 >>
 endobj
 39 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 40 0 R /Parent 27 0 R /Prev 37 0 R /Title (These requirements or assumptions apply to the secure coding of PHP, C/C++, Java, C#, PHP, HTML, JavaScript, Swift programming languages in building mobile Android application and were the information might be accessed from and between the communications in the cloud and mobile ecosystem.)
+/Dest [ 8 0 R /Fit ] /Next 40 0 R /Parent 25 0 R /Prev 38 0 R /Title (3. Reused IP Address)
 >>
 endobj
 40 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 41 0 R /Parent 27 0 R /Prev 39 0 R /Title (SQL Injection Attack)
+/Dest [ 8 0 R /Fit ] /Next 41 0 R /Parent 25 0 R /Prev 39 0 R /Title (4. Botnet Attacks)
 >>
 endobj
 41 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 42 0 R /Parent 27 0 R /Prev 40 0 R /Title (XSS Attack)
+/Dest [ 8 0 R /Fit ] /Next 42 0 R /Parent 25 0 R /Prev 40 0 R /Title (5. Sniffing Attacks)
 >>
 endobj
 42 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 43 0 R /Parent 27 0 R /Prev 41 0 R /Title (Botnet Attacks)
+/Dest [ 8 0 R /Fit ] /Next 43 0 R /Parent 25 0 R /Prev 41 0 R /Title (6. Wrapping Attacks)
 >>
 endobj
 43 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 44 0 R /Parent 27 0 R /Prev 42 0 R /Title (Wrapping Attacks)
+/Dest [ 8 0 R /Fit ] /Next 44 0 R /Parent 25 0 R /Prev 42 0 R /Title (7. Google Hacking Attacks)
 >>
 endobj
 44 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 45 0 R /Parent 27 0 R /Prev 43 0 R /Title (Google Hacking Attacks)
+/Dest [ 8 0 R /Fit ] /Next 45 0 R /Parent 25 0 R /Prev 43 0 R /Title (8. Hypervisor Attacks)
 >>
 endobj
 45 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 46 0 R /Parent 27 0 R /Prev 44 0 R /Title (Hypervisor Attacks)
+/Dest [ 8 0 R /Fit ] /Next 46 0 R /Parent 25 0 R /Prev 44 0 R /Title (9. OS Command Injection)
 >>
 endobj
 46 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 47 0 R /Parent 27 0 R /Prev 45 0 R /Title (OS Command Injection)
+/Dest [ 8 0 R /Fit ] /Next 47 0 R /Parent 25 0 R /Prev 45 0 R /Title (10. Buffer Overflows)
 >>
 endobj
 47 0 obj
 <<
-/Dest [ 7 0 R /Fit ] /Next 48 0 R /Parent 27 0 R /Prev 46 0 R /Title (Buffer Overflows)
+/Dest [ 9 0 R /Fit ] /Next 48 0 R /Parent 25 0 R /Prev 46 0 R /Title (11. Session Hijacking)
 >>
 endobj
 48 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Next 49 0 R /Parent 27 0 R /Prev 47 0 R /Title (Session Hijacking)
+/Dest [ 9 0 R /Fit ] /Next 49 0 R /Parent 25 0 R /Prev 47 0 R /Title (12. Session Fixation)
 >>
 endobj
 49 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Next 50 0 R /Parent 27 0 R /Prev 48 0 R /Title (Session Fixation)
+/Dest [ 9 0 R /Fit ] /Parent 25 0 R /Prev 48 0 R /Title (References)
 >>
 endobj
 50 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Next 51 0 R /Parent 27 0 R /Prev 49 0 R /Title (Note:)
+/Dest [ 9 0 R /Fit ] /Next 51 0 R /Parent 13 0 R /Prev 24 0 R /Title (Non-Repudiation)
 >>
 endobj
 51 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Parent 27 0 R /Prev 50 0 R /Title (References)
+/Count -1 /Dest [ 9 0 R /Fit ] /First 52 0 R /Last 52 0 R /Next 55 0 R /Parent 13 0 R 
+  /Prev 50 0 R /Title (Accountability)
 >>
 endobj
 52 0 obj
 <<
-/Count -1 /Dest [ 8 0 R /Fit ] /First 53 0 R /Last 53 0 R /Next 54 0 R /Parent 14 0 R 
-  /Prev 27 0 R /Title (Non-Repudiation)
+/Count -2 /Dest [ 9 0 R /Fit ] /First 53 0 R /Last 54 0 R /Parent 51 0 R /Title (1. DNS Attacks)
 >>
 endobj
 53 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Parent 52 0 R /Title (This requirement is applied between information transactions, between information transactions over the Internet in the Cloud and in the database.)
+/Dest [ 9 0 R /Fit ] /Next 54 0 R /Parent 52 0 R /Title (1. DNS Attacks)
 >>
 endobj
 54 0 obj
 <<
-/Count -3 /Dest [ 8 0 R /Fit ] /First 55 0 R /Last 57 0 R /Next 58 0 R /Parent 14 0 R 
-  /Prev 52 0 R /Title (Accountability)
+/Dest [ 9 0 R /Fit ] /Parent 52 0 R /Prev 53 0 R /Title (2. MITM Attacks)
 >>
 endobj
 55 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Next 56 0 R /Parent 54 0 R /Title (This requirement is applied over Internet transactions.)
+/Dest [ 9 0 R /Fit ] /Next 56 0 R /Parent 13 0 R /Prev 51 0 R /Title (Privacy)
 >>
 endobj
 56 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Next 57 0 R /Parent 54 0 R /Prev 55 0 R /Title (DNS Attacks)
+/Count -1 /Dest [ 9 0 R /Fit ] /First 57 0 R /Last 57 0 R /Next 59 0 R /Parent 13 0 R 
+  /Prev 55 0 R /Title (Physical Security)
 >>
 endobj
 57 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Parent 54 0 R /Prev 56 0 R /Title (MITM Attacks)
+/Count -1 /Dest [ 9 0 R /Fit ] /First 58 0 R /Last 58 0 R /Parent 56 0 R /Title (1. Physical Attack)
 >>
 endobj
 58 0 obj
 <<
-/Count -1 /Dest [ 8 0 R /Fit ] /First 59 0 R /Last 59 0 R /Next 60 0 R /Parent 14 0 R 
-  /Prev 54 0 R /Title (Reliability)
+/Dest [ 9 0 R /Fit ] /Parent 57 0 R /Title (1. Physical Attack)
 >>
 endobj
 59 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Parent 58 0 R /Title (This requirement is applied over Internet transactions in the cloud and mobile ecosystem.)
+/Count -1 /Dest [ 9 0 R /Fit ] /First 60 0 R /Last 60 0 R /Next 63 0 R /Parent 13 0 R 
+  /Prev 56 0 R /Title (Forgery Resistance)
 >>
 endobj
 60 0 obj
 <<
-/Count -1 /Dest [ 8 0 R /Fit ] /First 61 0 R /Last 61 0 R /Next 62 0 R /Parent 14 0 R 
-  /Prev 58 0 R /Title (Privacy)
+/Count -2 /Dest [ 10 0 R /Fit ] /First 61 0 R /Last 62 0 R /Parent 59 0 R /Title (1. Tampering)
 >>
 endobj
 61 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Parent 60 0 R /Title (This requirement is applied where the information is stored .)
+/Dest [ 10 0 R /Fit ] /Next 62 0 R /Parent 60 0 R /Title (1. Tampering)
 >>
 endobj
 62 0 obj
 <<
-/Count -2 /Dest [ 8 0 R /Fit ] /First 63 0 R /Last 64 0 R /Next 65 0 R /Parent 14 0 R 
-  /Prev 60 0 R /Title (Physical Security)
+/Dest [ 10 0 R /Fit ] /Parent 60 0 R /Prev 61 0 R /Title (2. Reused IP Address Attack)
 >>
 endobj
 63 0 obj
 <<
-/Dest [ 8 0 R /Fit ] /Next 64 0 R /Parent 62 0 R /Title (This requirement is applied were the information is stored in the device.)
+/Count -1 /Dest [ 10 0 R /Fit ] /First 64 0 R /Last 64 0 R /Next 66 0 R /Parent 13 0 R 
+  /Prev 59 0 R /Title (Tamper Detection)
 >>
 endobj
 64 0 obj
 <<
-/Dest [ 10 0 R /Fit ] /Parent 62 0 R /Prev 63 0 R /Title (Physical Attack)
+/Count -1 /Dest [ 10 0 R /Fit ] /First 65 0 R /Last 65 0 R /Parent 63 0 R /Title (1. Tampering)
 >>
 endobj
 65 0 obj
 <<
-/Count -3 /Dest [ 10 0 R /Fit ] /First 66 0 R /Last 69 0 R /Next 70 0 R /Parent 14 0 R 
-  /Prev 62 0 R /Title (Forgery Resistance)
+/Dest [ 10 0 R /Fit ] /Parent 64 0 R /Title (1. Tampering)
 >>
 endobj
 66 0 obj
 <<
-/Count -1 /Dest [ 10 0 R /Fit ] /First 67 0 R /Last 67 0 R /Next 68 0 R /Parent 65 0 R 
-  /Title (This requirement is applied in the device, in the cloud, and in the database.)
+/Count -1 /Dest [ 10 0 R /Fit ] /First 67 0 R /Last 67 0 R /Next 70 0 R /Parent 13 0 R 
+  /Prev 63 0 R /Title (Data Freshness)
 >>
 endobj
 67 0 obj
 <<
-/Dest [ 10 0 R /Fit ] /Parent 66 0 R /Title (This requirement is applied in the device, in the cloud, and in the database.)
+/Count -2 /Dest [ 10 0 R /Fit ] /First 68 0 R /Last 69 0 R /Parent 66 0 R /Title (1. Tampering)
 >>
 endobj
 68 0 obj
 <<
-/Dest [ 10 0 R /Fit ] /Next 69 0 R /Parent 65 0 R /Prev 66 0 R /Title (Tampering)
+/Dest [ 10 0 R /Fit ] /Next 69 0 R /Parent 67 0 R /Title (1. Tampering)
 >>
 endobj
 69 0 obj
 <<
-/Dest [ 10 0 R /Fit ] /Parent 65 0 R /Prev 68 0 R /Title (Reused IP Address Attack)
+/Dest [ 10 0 R /Fit ] /Parent 67 0 R /Prev 68 0 R /Title (2. Reused IP Address Attack)
 >>
 endobj
 70 0 obj
 <<
-/Count -2 /Dest [ 10 0 R /Fit ] /First 71 0 R /Last 72 0 R /Next 74 0 R /Parent 14 0 R 
-  /Prev 65 0 R /Title (Tamper Detection)
+/Count -1 /Dest [ 10 0 R /Fit ] /First 71 0 R /Last 71 0 R /Parent 13 0 R /Prev 66 0 R 
+  /Title (Data Origin Authentication)
 >>
 endobj
 71 0 obj
 <<
-/Dest [ 10 0 R /Fit ] /Next 72 0 R /Parent 70 0 R /Title (Tampering)
+/Count -1 /Dest [ 10 0 R /Fit ] /First 72 0 R /Last 72 0 R /Parent 70 0 R /Title (1. MITM attack:)
 >>
 endobj
 72 0 obj
 <<
-/Count -1 /Dest [ 10 0 R /Fit ] /First 73 0 R /Last 73 0 R /Parent 70 0 R /Prev 71 0 R 
-  /Title (Data Freshness)
+/Dest [ 10 0 R /Fit ] /Parent 71 0 R /Title (1. MITM attack:)
 >>
 endobj
 73 0 obj
 <<
-/Dest [ 10 0 R /Fit ] /Parent 72 0 R /Title (This requirement is applied to the cloud, since it says that messages sent between components of the cloud and mobile ecosystem can be captured and forwarded, by hypothesis and between the communications.)
+/Count 5 /Kids [ 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R ] /Type /Pages
 >>
 endobj
 74 0 obj
 <<
-/Count -1 /Dest [ 10 0 R /Fit ] /First 75 0 R /Last 75 0 R /Next 76 0 R /Parent 14 0 R 
-  /Prev 70 0 R /Title (Confinement)
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2485
 >>
+stream
+Gb!;fD/\/u')q<+0u*gDF,_'OLnr]#j>\l'+MLch'tse@AOWbtD+H:c>[#\VqO:VcYHb-NP>-B:Ce0f#I--ibB4dG:^rL(qroY$3lRBKX%Nl$c3eq,(NF;T(hG2B\j3re>1U#)1>t\2r>L'lD*KB)'cc8Hk-S1Yj=iuYEm"`\BSVM1jDrfRVI""6eL9$#<0,c.3"O\jpZ6Til^"p^0>RX-8/<.[.(fk8T/D+D@HnPaM5D!SQ60uSN+H-WjX6Yj2MoKI)pj8rS!U&(/AgQ7&]Mh/#iFi/#'8fl(eh+UMUs^o(qC>8>::BjuT0OAD^)*^B!qC-Y5MNF))qMkXB04%?&:"QH^s%@"Znh;!ZJ`gHfGc3C0er/Up'$P(8%)^'Hmpo(S`6Q+82;jBK#f7,)``VaFfTe1!Xs,/LRo__R\gcZdmDV^aGPfmoX_<*`u2+nMCB#'A9A4eraf[f-hMM,M4m-fABTit5ej[2eZ@cGl2i<6D-'UMV\pEM:=-X`/\H@G9oC51s5E?Z#*Q6l4J$#rJ=K!C1kSh%`>7&#it0etL\I]LM,Qq/HbU9jni<u6%*@njMMY3i.V6AN%t6!:GHA;A2;tR#<9eDe3Hccu"o&=-@F[lU/)^r34j@0k:?A_7=GU"Yk:*SZ5ZSL23boHg+nUO<E<kf9PU4PX(',p8;>8G5!ki+_<qN(@J2nY0d%OMmBFJ.R'GDc/MH,IS!Uj1)kYS3RiRuWB%+`t0WulgR9oJJAVmr^q:'8`hp2%6+A!:Zfbff5/7XUY&Z3%0tBce?j!W>rg,UC>e@cZhN;p=(K$nAL"L9HgLCL3OjZAFekog[4HF$pFo>urcb?%]!15'EG_["t7iH]7D.4*i>TERE]X\$i-R.6Iua7ZQ3oSs69RFp5O\+,#fbfk%GM`=]7E2_.>Rj#Y:VjK,b6a&K<QMSi`;F"r1,!:C>`NTPns3e_ePnAdF4S0==rDW0XO<-9&%"\_OcBpaET=`btipqicYF4E`&=8,%$XPka)H+pZSo3<HM(Dk[)8$(<Ra0h0.'I4bQI*\]\hujQbG]8AQK^JSG.9\P$?04.&AkSFoJ5>@^;`i9%kTt[?G.gCp-0r)i-k0<.:04_1]MXu@BeYR=KXYOY$/U9X$NeMGgF1`o/@5:/`p:'3]^=U4]np+':eM7OB_,-1R):nt<NO!(mX^4Xbt8IL!isr"eI8iU.e-mD(>5kB*o,7qJW'UtgQ:gGK;EWie'^&pR\7OHAntXd6eD.MMP`00di!D]KVjTm,rUDtd$R!0Ic4eMJ`]07.!m53_f-mT*gpL*@.1S<:I:R,g/^_E<ZFaLc+Z]<pY.t,L/J[q'fdWNI3`(#dF4XANlIJh0iS8W9e\N8JbI>U^I$%^6Gi2TC&%N<:=9h:(d]hA;ri931@0?>Z'Z?C.Z)(;T%hM]!1cG,Z/*Y1HYW$bp4nLjSA.?j(?udj*bCHMrSA!qDjB]KXW_VPn4707k+#[ZcrLC"QqO9#Y%t%lFQXd5<E!q_blKqX@=%2SUD2A-P5]u#I"im8d(LO!3XF/r#?a6`WmGT-NIRFu'mk:_k84RYm/bc6-"q$-n9hoS)]0t3S\eM9$4J^Q)&FmDS6t@C]]@We&>^fPJIU)c;[1s(*MD/%85)f2=[%rE2O=N\f#G]1ir1:E4us3g?q#XCU@"Ls,]+9#DfbrP.r2:)g**i=.,_it-)m>1H*(6K#mI-JQP`sl=^)\S-X7O%;>PuhG^;1RNHq36Cje>;Jj],2&+2Woa&)aMPC]P)ZH$[=0>nLk>D:e_-?\..YD8\+T$Wh;9UaS#M5!K4e<GG2RmM9Mju&ImQ-d^JkYTuqS[<tt_OD6&W4eG!1Y-T6bC6@tku<;k!1bHLS'4&-FfBNj^:@f_KRU(723`du*j7!(8`ZuU4A87OqRZe-<?Vp"E3CrIaeEEpItUIE(J,tp?>X*Dre<>o2,cg_"[UQ/7?dIWi9js='<':,<0@L>a^qArDpg_,'tu9s<eR9Ij`Rci6TmqP4lEm[ea#dS;N%M6L'p446NTP^VrlM)Ca8I(6LA7`$-V,G60,lLc1L__E=e(-0D[J)!'@D:j7n4-%B9E>&"-K>.KFa[WcErjS1e%$GA!;Y>1=R<@1sb>Y#h.R<E=.hMW+<6A5W<"$fW*V=VmkD"]Totg2#0GnaQ(]5O5&)SrYP+I2jN;kI\q3OU"rcIM*VI;RDUObhg[@#R<7h[<DDCB45J>%/5W<--Jj[BI8psR'1iS2V*sGc*1'_MQMm4(\I$a"(CXUhb7uNT,Aa.o,/$B$f64!2n83e4n5%N2F-<h\G=8epmKGW/dHCMG.B-p"+u6:Q>H]1i"%"j+[9d+;^^._58n3,oX`Vt[Tu88Hf>b\U:0/s_A1#8;<)HQbZnd^!V^VFO(bIP2k:S@^npSLiDeW[kO?%lQd%=4hor!*"o;#5H2M$.^jE-:(nLL_%=]=ls+3E'-p?\?YO-nuaLb0kHP@0ar==gr?i'~>endstream
 endobj
 75 0 obj
 <<
-/Dest [ 10 0 R /Fit ] /Parent 74 0 R /Title (This requirement is applied in the entire system.)
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3082
 >>
+stream
+Gb!;f?$"c3&Ui!/^uV=e7qP.e&uF>1VeKa*e!mp-lGl7u+;0nMPCtOg8l:(dcN54@q($QXFQ1],8)ac`gc^#Xm(tIritK&>H-P!R-%#M4AoY\R-&X.uKJ!5Hrj$qE4$I.to?$<"Da,XUs')V"4IaQm7@qh`A3/bW11"LcaQDMn2UBNVR]uPOe_fomrDai/QHZ+G17QKi2IAl48Xe(R2lC//*r@0Z2GW:Cb4\?_?t.nq*A=-HT!DqPi]+eh=A/@#d?ItQgT&llm':&C,7Uu7X^J/>gfg:VRh:[<n3^mc,3l;LAVt?4fSRVZ$as7+UlhZs[k]3#:?GYK1G+Q#287fS[u>+=N*J<9@&jCiXkbBWs+=Z1DD?77ibaltA@#l0Y,,mH70`(l@EU<?q+#U/<_=*(pCk:8^3dqRZWWME*qS<3O_/h8L>10Kir#*1EU[1a_ss_`P)-f$Y<K3!n#sQ.9r?<K:g?etb+e]J82)V_.!`^@9p(!VF)G5baj^l*-4t9lC[s&u4sdC21bI<p@9jQZo=_N#POG#Yg,2,mWts[7c!(7)28_coB@/!BQ\SmrOeqY[IL"$U-r/31lJ@"/:$6NE`s(YSH$7@?(Vggu.W];76Z&<(0d<7/:J&&$JsF3M6.%GOac'pkDn8o19aU[SQBKDM\Db!qNkgraeaA`b>10^hij*`A\J"=X`0Rp+&2"K=k6Psf9%"VT+_jP$9m:95$b<%jdr0P3/Zkl,]]oB<G%=Ce!&/&g0]#nek1F(V,]H7-llPS4UBA$4`]86UY3NT8a>2O`=NqBK#-n7bF0W-(-lUYp7r1K7=ZTflJm/^Q'@5=ff!($G='n@5koEQ;kBS\=@7@4;iouH38mAbGXTR#3f5q@3.(\+5S_gX1(,&CLVdF_Gg;;ZGX-Kah'=fk'",\(g$F=jEA@R&WhikYpql$Uk`E@>:_(ujeV#?E%'`fP"p]_ejiqHJg;%q8SjL3f83X9C'#P+kr?QY*7K1C4m^u5Il,"G<Q^:<BeR#FEi3XtoKQN)qER]i9?Nr[^#ene/L$3I7&RW!GW-@cB6(SY?I!@#L%8t(<o`q.71n>n,0WH78fKpH:pFnXRLG6\qEko?/P&ORW?a&12"A7]]5K."r.a'%Q+Jk=jMTnhK4WSt)`0R;JNJ44ka%uEkL#O']gCaUMui49iN#!b/)EC4CL6`/+*Qi&TJYJo6J87o&IET]reGUmn##Ug7NIo6e3d1ff=bl?/MOA$J<iamm5Q:O+PLU+&?ET<9gbo7p;Qhp2f0fj=k-*))#SM<+V'WS;GCb6PtGBgT$#P!NJ91]/]a<&kU0W:f?M.XQ8`p!l]P4WEK2:BO!@f$DJEdAEO^ah3'6kbBl7qhUFOnINSF=/\.F^,2Fjg3rM2!6A%Ei5Qo%8Tf8I:dJKUT_*FjN*4g15PGN\2*LZ+6usC&?+F7_]>5D_s-CJEU<6#a'H8</M%j=OBa73.ZG*-*KKk5k=+?#L/huJWn0Fc-'E84]K?I+Yb"IrWfm1o43"d>%H%OBd^a-&O4iLV,W_M+-deR,4nes`9ipG73\m`O,ZCM<IERQW+\;EtbJnd^6)<)[FM0K_XWoc&]b!2W^)`GN>HcsrdTNjk_jPGK87*S4II]sBgr)H94'p%G<L*Gi`cu2(K/Af@6n*uI;!+T(]TArGC"Ka$6"Tu?*h=m;-h>Sdmb^Tl.B@$/=!!XVoJr>h.*LD!kBr!_VdQ.C8A99oUL=s?QbKC8!^-,_k`$.Yf2fB?2+dGl-"&91It!$q%r`=),t^3U5ue>eTsh+%q=X,QIk;/O)VMdB(MX5onDI!<09J^VVueJ/\HGfq^+42MepRPt:#V*[+"iS#2FG3%4W(ih=9L)"FYV[FPN6<G#@?*sE?<A"9]m@>gRbn/><X+rPBd)T).4=#Yg?mL)du+\UV:':-!G'0S*6[HkRU`dh+^9]p(-&gO`F],K'fAdK7b\INL'+P-a-74+/Ck:998csN')%o>7h5sZP>KCa#srd'aAmPa+:eqJom,<.T`6$G5V]dj@,cAFu`$Uk%''1A#Ted88l.V.r(;LZL[Du?al<K@GDS%[%XQ!Aa&HXg%8-H5')Ml8*lePNNcjD4kM;^aR$Ob\F*qUQ+)fD<T(Qj&q4Fb_Fi3(*(gSkmXXO,O=4\@N`!WSTM)?Meo('2D1;9MQ%L_2K4':029dslC5H3K[X,"$S4V>p;Rrj\MQ.u\E8M@Pe9B=n01I@F'eX*pjt-r%(?hH?O:bNsp69%jnk.)*)b(lQ?8I-[=1D8_HuP7EM49e1.$Pth]*bE"&LY[_Mm>Xjq>@oY[(Nq_BSX]j0(8.SNI8M(eW(aDL/F0Q*M^L1LIuau?/NW&cX7loLAKf9't<#eb$M/7Oj19U]b_drgaT@tH9&t*:A9hnMVQ9+=RV!?]:!b4'78G_$eSCS#@@/+K5*7Q;aN(3@JO<$,dV2ArGcY:7dU)o:JZ[8RRE)6#F1Bb>nAI`%VYS-*6sdt#2o4(J.O;-2b7_5m42L%&U3f@iZ/KUTgCcRTK+;M#Q.iTFpAW2'cKIDie#gs]__Q'X!T(&%P>3;2g)LJLGMFXV$r?Yh\$7AEbOtR3S=JM)\)Ld4H=#<N\;^kqt5"*lP"g\BCg&cl[S-4paH@dmtsJlla@ASgMj/#<PMBs*>'#&fsJ,gNL&&?7Rsq7@J;6F_<F!>(H$Y#h6G;:DjeI3PM:o8:U`eWTD?+Er<*[;f3i6cBq#(39V4f@2rR0_jV>DsL^rAb/8aAlrJ%]T:@VZI%CXT1isLCj\M41m,buc.)QsV;/8*&`^!bN>r@1Nck=Xg*3'eTkiV+#_)8sdW_YA\"$Q0Gf-u3O2[_(G<I+&>TXli/ASK6L=R4^b'RZR>o5PY!f7pE_O0k428B==U-G@BdiR6NY`j7/oCp+rBuMqGd$^j[LT#&faNk+m%;&-%j0G?#=RcH6-T:0lZOs-]VSGoOEpl#.A>4V;e$"XX'Fo&7#IdINd"(659jS-3aVegU,ImAj(Qq\W5;VZilJ(u6fF#J\_o;B>'A4OT]SGQ2uQX$R55^1L6453hWM5p;0=T9[!RJmBg><:^QIa^4o^]f%Jt~>endstream
 endobj
 76 0 obj
 <<
-/Count -3 /Dest [ 10 0 R /Fit ] /First 77 0 R /Last 79 0 R /Parent 14 0 R /Prev 74 0 R 
-  /Title (Interoperability)
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2676
 >>
+stream
+Gb"/(9p=<i'"uVpkc,UXfk;drU-pGWRQ0ik>BXTkWT"nFJOi=`9bK9J8lgE>^'6#Yj,Y(('P2J=WMu>L5QGWmC\2u0nnEV=hu/TlU@79pJ*N4>d!SE6k_1jC5sNXJhViB<LVGg\kWdTEqb8`V3!q%.,`X6D0H,l>d[ruaM'dj_4GfB?.%h[S`R"=+GMtK!$RX^a*/A$m$jL#l*=dA0_df=Ar-H;>#"(TldImWrq5pc]2]7ZiSrrJgGR>,;kf=^Je[9s?7@3VRZ;g6!8U<t&/4KK&@\$_79?T[l(9**i^*7DBdtq8rpe.^]>:"Q,.J&^%:0Y!@7[d?Z?`I@1j]WVr]1bc6Z*`qe.#M!CU/Z@<n+TF,W":In]l.T`L?AMD2qDmAN&.2AiXNd%S2$HBUQ:prjhickh?Z6YnOA%;s/n:-*rSat<@[5N*5MlnFtU%jm0cEjGcuOBYW`/Y5P9F(OgqB<UXP4@pf^R,h';pO*6Cf]i\ei*V/f.#pn&WDPppf<2c2Ka)ej&;o;,'0XV*'@`pCq.L,G\N6#4,0)?t1sFM:@(^;M4>YJoS9^Fo$`AS<6.\Psk,G&AJ<JDZ@-ckXEQO2*90mVrdH4oaA3EDdcM4aI=iRZ4U4@1rb#FZ+-qH]q2jn<b0lS2'dUI-4<"&P*1m\I05>X=u\6!6%+AV.<,,<UP+2Q+6%Sg:1fNP_`5!aHLr<7]99;<8,WO2fOmnM%/:"37Sa]GNlj>qN=aeO_JG2a3iBUSI`PDjAHna_r/fEN@%tN%r.`Vl3O+5)q/![fa!kIr?u\U_4j_[6B-KhE*2(B)-kW@>*if/^[(VqWa&V5*M)kA?<tlpqg'c/EL#3teR,+udEdItV<S#Qj!mDaoEXgiTtHge>N0O,?16gl?26"(`758FS3Ob&3>+6RnZq5JSUDH3hXhkns$qM7PV7NX(p/r7SNC#`c@)BrOac6J0Cn5OpS.]&3+ZHsS(WXI*'`XWmjkte["fTHN*AM0_&qGO_l)cR:pJF+*2HfZZ&-EX1JkKUm98M6B$]e'Fq`!^(j'N7W7AJdrPGLm9'&[r>,t\0!Xd6<b/CU+X-C",bI/t>V=#tJ7Z^p3cMf,q-MZ4&5Nu(s4F?.c956qNm0MJN:,DHHV2WSe:/;4e/h:[^a]`c+NaSbf)-;R=SN%q-Ut]Ok4aPP+o'NnLqDY>_?bYgUUX/'U?ds_7fVkP2d;5kL-)7e%,0P4d<91*;Ke&rr.s2Vm9&9K7#&VL@Eu_/ca0&VXPI'OV<b745FAd`1A@(<!T"gBK<m&);>Td,0XbKmP0b\&7o4f.Y]>NaP]FTGD$1.tbn?b^k`$CMa0VLHH#VC*#,\:Ei.3T>DDH!B*D,,d5G[%m8;Jk>3#g$9:=L&Z0Xluq57`3UUZ$_`(n3*6=r.:O'De/3rXjpoolVLE<c`S:L1a=bN+\O%Pc48-5$O@<J8lq<sN8-p+*Dp[5G:;d;iu#Bn#3P;(Xq6RfpSA.nC9uftF8?3@JN#\5A:[7cc":;g<#GEA<2+k2TYcO%SI_Zm8&%Tt'C#<E?.V*4ZYBF6JVruVQ+;pk5E<d*3#tE+#AB8C\btVc`<8Ied_.PW4`VK!.i0rV>["2')%NRWaqcN6Q:F#/[qB8&Ob*X5Q)RY.4hP(>l^"[.IL*0j[0,cp<k3=/=6GRk^h5!jUIQN[/4OqrFY-Qhf-=Ykq[RuE]AeEhm7kpYd0Vu4?C*A2905/OZ&_\16G-RPU,J+:40E"\2T,Vi&+t:t#X2JiS6IQQ(-i`?'0pGQDq\#thR3K3Ucdm%AFLM;-+-7h?1L6;mFskJ,mZV$*P&+"bKe[=QUc=rf=\H3.M.kjlIng!</@d\0tRXlpGb$I"YrWCCh_CnWYaDVA0g^-'ME!TG7Tnre/Oo2Z])]R\QUU-dIJ4d`a8Gt8h:g9Ke\IK7o^U@OYiR.pb[2@Y&3ODU*s.V]9Z7/$d)XI)Sn#!4.3&1PbiE5JGl_[)1^;Jnd:L,o@WC:QXI&f5n%gR6Gtmi6HBlGj\5FJ?8)[-OJ!u;4ne*)JS-#)G;/SL$FCK*r]gP;=Q[IKh7MG+9<&oe-Mu)+Y&>c,`C+^o<X1&Q%aAC:E-eHPX@+5Q3P6r/N+4827OTUW]5d@V113^@m=JRcSJ<a/XYm39*SfFtUFch#\*%%bdQIkfkrE<^FDA/>T8k!i4+B3ds+k:%+,/S8X?ZQ/h!FKG>Ne9o?iH]8pdp(-WDnS+&jR"aG85)X%mY`=5k.2o?mOR8NIPgh_:t\6laD9eYVslEH(Y+Xs8Vb21tkL=(Cu%m;tW5D)(rA&&lDQj>]BdNYH8IkH9DZ]bpf@u#)*-P3sa$@)5/L_[ncJ?d]Y=9GFO!TA:2rMGA_$bV!`dS$MCRQ9d1rQr::<6A*+Q0I0FL`,kjOsN=jt<-?%p89j=g#%UF[)E^dn%28%/j3Gemd$;RaH^<2A6XNQO!HuqU9[!Q]bb$j1r3R7YpMjahds&.q3B!sFh<i!d+ebpkid/AoHO/Ge>e-o.m<(g%&h&m:^;n_QNq>r$?c6!1KJU27-WtLf12+Vl1'rBl9g,(0_Ob]=V)T=l1>2F8D##3G@o\;p5b%o_0#JW`RM9MIqZZD"SVsjmq*@>\mm$_r+rFX)m6W8:NEkYDOQ#(be#ct'o@(DY>7&MO=jIqHqmq%HZFH7Q;MuNdCYma#~>endstream
 endobj
 77 0 obj
 <<
-/Dest [ 11 0 R /Fit ] /Next 78 0 R /Parent 76 0 R /Title (This requirement is applied in the entire system.)
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2214
 >>
+stream
+Gb!#]hf%7-&:Vr4EPNWa%ZW)4edqL,CDSP;g1?+lm3+_\98q+r,$g='lM^CfUL_>el;VKa[La!PUdQ6l^AI=[L4PC%F+:M/i3s"$cPWkd-9&_0h?YHX_XE\`:O)\SIq@`hn4ZpF^O#0VaXE/>/5,RWMKsTe`ehd#e.:Oq\I"u1hWU`LnbR@Gg91[Z(QRKP%*<b\L#Xk_p$S^qS?QVD9;6En6u[@'L9]$)Hp&ICM'X)*Z&!39Scq*taR$p`C'M_;H#P'gO]oRCncR3%8i:r%P7KACQ$1\[[EH!(p&*3I[eV'S*nZd'BcK.^Ql!-,0cZ029fl@jX[S.9"gVBhb%Sbr0Yj@n1MLEWG>K6K[e!,CZT/jQG_$e6?,<6J\]cV\EOa!H*)*ulo/C"E/Okkh*74Z#^&-.:B5[60Dpq#UhfnViS=;2,&@fmA7TUI^`6JPAP.+)gRUUjndQGY!jJ]sVqGQ+)8gq'SY<h^2pX4])GAcfb]G_7la7C2U6C5U)r].['(quRLDQi1hfIKfj@><5t:PU5dBNN*1-4N\<iM>JUn;IqMrj9+T?-3*dIbq[_hRbYX1@Mp63:P?!J*bnX3!n%Vh;0gV4Vi^"kdDIV;9FJC$9/j!ak"bpBm"GF(3M7%K_@AFHU4%'_h;NOpba7r.qt?k*#dK7J(Qcj+I&iU#B@C"S6L"rU'^H$PaDo-L9jE1)%qs+<q=,C<7j8U'Eh7tW@SsV1-j;(K*mtb[DJgfTAjDM,`,[hNRGL"+aE4(GM7pUcBL1.*CDn$Fs@Ymm7Mc+AL0t('((E,(53HJ[rJC/)+k_(`aK<Sc/>WuJA-/b0&TtXk*<aTQ+MNOkW3phdgkHongQN7gGZX(0-e^0Lo%`THV\lNbq`QT1fP4rY.g$Yin-n&5<U"A+$mHQ#V;[+#@q(JbU>js`>:$+;*5)9Q*gcRTg'@7s.VH8UJ^B_E%h)M&<\%B3s_u6o\8:>6jSf?"V`m(4O5N-c7!r(p:a/57+&qo$JfQ)-rDjH,VB_%(PT"?[`c,?)_cCm#B!l@%]:Ct-(N;F8KPNiG6On(Fa]5f-(*Z)0XempD!Wn-_u"!!b&b5*j%CZ&%#`5bV_[<]\=95nEOVLA.euU,5H,q[-!b46)GY+(Ea<]j7e'C'EgVe+-8-icFf#PV5!H`kI^oNqJ=b4i:+V9ZR\Am.>^#JXdHX30V93fAl<>m-Ruc'V\!dALJNN.ffV;=/"cq[@=\(fkr:YO/p;p/#;(FjC$9LKb,0BRNa`H".Tj99UI%.&FaLN;kn:rD.eki$8Z;mIUUH"=UO9HtC2Wng%S@Ho_/lh5kX>EFK8F;scjTRf&gnesUqB4X&_*"CuRBL^gA%-8AGo^662fG8F,"R%300T(6/k$r<RKZGK4!X-F_D/)OK%:831>6Cel;Zb?*'o!?H=5$:V06=)Fq-;ojAUS3ifiJs8J-'.bE3P6ig6sRfJf+?er!-[n+MKHR"eq[+6rgm[AK^\/U,!r)kL/k6>C:=YZjZd8c2gmns3q%<DOH>cP8RjKC"N$cWdS^<f,.g^q&jj!TMnfN\Oa.5J9r<kH7`qVc\"SE#hhS1f"-"HM&u!TQ.\t460sH:/rk6hkogfCK31Re_3%-0b35Im1Dmo+e?a7eVE?3[s#lU8/Ck4;]XqfTtDfG*TBfIrlO3tT)Vnspqr<Y^9Fd;"WoFaABd'p8!%*nntY$*Z*4(m0+H?L!EX.0ff(J7$@BU!h93MfAX!#'*k;utBc(l!j@hG$NLF=eW>l\SrA??`*btMOknf;r0?&'"@3)j^HjFMH'q+Bs9=UsCM>/]K;[R**9O2fu8Mrl'7,%ACT6.'s^5!#n?=;0D[pj2\g)"?A4M?q'@'MYJqaBCu--)dkd5B?fc.`mfKoN'pm)9,m@:-p8n1+NgDI:jI5bi">)`GQ*faE)Obl>dP%GN]u<C=G/J?Uj^"R6ajPtONO.h)mBLsIs0DIe^,?+:;]:@*fAkkL@uUBNUG])gcK#2437LD7%?bCn_TbqNhqG^T"EcnetPkb.$8ODO&/'7DI.s1>MNrsh*3FHR`@Z1CN9kpU:.8@Yal!d<at)-7/DGq/#"#.$38.@huj&_o5We^A$=?=S:dXB^MdOhWbJZZ@e"[d&CkW.BU`[_an962/KdN=K,]cllkBYiqNkf:XrMD.Rnjdk!&iENaWbW&h.KoRi.+@^*<deM-]kI^&b7CB5FR&!N[\"9~>endstream
 endobj
 78 0 obj
 <<
-/Dest [ 11 0 R /Fit ] /Next 79 0 R /Parent 76 0 R /Prev 77 0 R /Title (Impersonation Attack:)
->>
-endobj
-79 0 obj
-<<
-/Count -1 /Dest [ 11 0 R /Fit ] /First 80 0 R /Last 80 0 R /Parent 76 0 R /Prev 78 0 R 
-  /Title (Data Origin Authentication)
->>
-endobj
-80 0 obj
-<<
-/Dest [ 11 0 R /Fit ] /Parent 79 0 R /Title (This requirement is applied between the communications.)
->>
-endobj
-81 0 obj
-<<
-/Count 6 /Kids [ 5 0 R 6 0 R 7 0 R 8 0 R 10 0 R 11 0 R ] /Type /Pages
->>
-endobj
-82 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2400
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1524
 >>
 stream
-Gb!;fCN%rs(B*Z.EIe9#B+`U?PM5ur3,rECDO"CZ]0O)haH8;2a^Je9enT\_mj0:';JKq$H31/NbC#,`1ZtA,)Cb_/ha.9Fe,\qaE./Ne&Ahr^60uQE\Ub9TPHXcT@J_\BPOg<(l<iZ&/$_-1b+cu#0M,D.$Uu!eZeQ)?4I_$r#k-lsB7,1l$.a;.F"`F"3/)15Gb[)(BY<`s!7'.c]MTI+@1LHo";X+/%=Bf7,<pcO%7/u"Gn;;*o_^27F&AMTKR\NPk&>Vm)HOZp001E'$@_,E4/$oD)l%DNQ--aja_rm/-d?eLq@)@/ot;Wg%E,^ns('$9hm4(^EjeCV#*F\6G,Dh4&SIO-&^=^%QALs+8O(20gWV=$bhJWAKdmkTE767bC_H!R$V*MD'$[?)</D5?g9qUt1I<ui5Tr(8kW,ALMZQLR1XU_U[IuF;"'2%BiiFnnUYH!IIN0`rFCp(6?tZ<+:)j?37<@"`RKI=t(c/:\;O,9?b'c38AfBO@Z_k\RMZ7XDS:NM@jinJ2(6C=#R:2bJ<,?I>4UtoVID._e8s22ThYW!T(,+'i1F0F[.jj9*Q-4WO%t;`2\#d),2<IM(9).#_$u;(Nrr3oiAMXuGKfhKjSe0p:X9UE\%f=;7N8-icX@),:)tgLMlj/\QfEn)`&K=mO,t]/o>&`]P<#V'sW^-7@cuPLDCX&mb)q"dh-,j!.\RK\5RQ90-B&6sp5)*]CRPS'<-FYo?3njAXpc(:JZeFEMBfcFHZ.O-W%ZQHpjWe\30/ip0XX#FU8lYL&E=0dAOUUQ4fG+DWD7r8[Y$lmH?R=md`&P_I6VNqoYqsSi&VEBQX-eLA`LLj"*iBQd3(gF/pg2r7$_b_LQ79/Gji8f4)h)6dQ28;=AL4r$4u<d:aeiEgYpIC%Y&QD&6o!U\b"^r7[=kN"aV9NBQ5=$(_Hu"</fVc_c:Wh<phOXYc4I[!)TAui$GN$./U6,-XhVNR./[<b'1g`g:`M:%L']MnXXQE4q-5)#5JfG99Klk;(Oa5_G?)\CP\,L$pYtO3i;\ku48f$HlLH?EB>3QX.r^*JmfP5jXB<N((IIl@i'gKcS$k_r"o,_\5.<j!KjO$l\a)-GVsUiNT'80&i_eiL5or/smua_bGRHuI&6L:@<lpY;)TJ#c%.H`1MX+\@4BWU7)B*=_'Y:6=js<P%2(L\k#::oYXZ..(XB@j@0T6'2M>uPDB^TKo_0#i.DA3X6=R*@W6PlhtTr0kN0.OVN]#(.!FIhiYfN/R0<t:fZTc)QGb+=*;Jhg!YCnF02D_T>c6q1K(pBD]*NT[&*)`e.&Iub+8LbqTelNhjZ0ngbQqkO]P6M<3l@kUOe8E5u"H]?lG="ht&5Ou,8J)7#.9=*6]Vt!WmEX%uWYiNebJJrkr=\,B6@2b$tZr15O\uiL$r;jP2o+<o"9`]'9GPqNNEf.!U\jkKl/-tg$#>#:?5S$Eprb_((5$8[`/S(VjaeLS/_5L*J]\Y2?4UdR!Vm%ItZ;Yj"%U+],5:]c'`N:EtjX>]-./hG#ekagi:Pj&Q"*ZT021$DP\L,[L2JIu_%_1YnX!P*q$pS3+@:b9-9b5h/F3pAXT]4VdA*eO*WeN$Yo+4BaRJD?eML;`@7`M[lGP'Ih=J1!>ANdXRo7H0kU3Rb`h0m"'_>]1PVl4VjJ@,XH7pbOPmaKF'1K_Gof.I;/htBqd[aEu#K-d990>m3FaA/N)@[^F,XGqu08^9crU_3HVZ#R^Q4@*:6AXW^UgEC$JWl<1NQc\L3IuC34hGS4HGdHVi0AFg;XSX_%50)\@q(PgWeg_1dg^4QS`.&dJgadJCRat+X&7Sg7ncLW.'d^Y'\UcaX*H]+:VM*`'6J2g/VYLenms_hb6]L5?F1qrGL$[;s;VEpa27a](.g76DRiumKGLLiEfE7/W0TJ;38ZIU]8'UNd1__E1HYQ$<r)&Kd1:7o$&si:to(_MViq@\=qdM8_H/`DgJY;*c*jB6L4)XQ!`HZnk7/Bo=Z%1%k=h)<c>qB*1H9`QB=#Qf;a:oSY9Y";HNd"XKohu1n*bI)uB66Mr_$kKVEMA,4aC4Gihdr=,3?>7`)^P(;NO>I4eAlAG]?\uo;Z8:.N2=ma!h6m.UE"2p+>Wntr&a`*]WeQ#H35SP<ihrj5ja4U`G@D"jaK*udCtQW@*)H_"Qo=YQ(9m!Uk$2TfG^nOoKAgUT.oH^K7C\Ud&)VcoO3<C>&s3n*T:Wp,B9m(e734)m%:$@Zt+!JdZQhNU=]?i<L'Sj+WF<47cCQ"I9Y:1o[=jfdig2Pp6md'r9RFqI:2C0ZV?6O*9@LScu@iC:Xm'X]p3a[_SJ:FpMIHW?Vp7S!S1*8A*%puhNHYej4pN[qYr*i]d1i4[",>iVt]cME(YbH560D^$"j~>endstream
-endobj
-83 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3051
->>
-stream
-Gb!;f?$"c1'n+E3^uT'tNm*<T-rTGr1MLG`e(qSSD;0iY5U7Tu-4'hUV5V/Ck5q;-q.o5sh200.)2]]TMgNc5pF@s;j"GTUQ47=Gk3W&ER)KB$03LDo->`Z?p=K,0Dtk9XS%l7SoDXs%c+hdQ.e?5o<Fo<48N,\ZAN\.)Po&Ik>3*jP9@uc-jraBqp*L8V98Y-g9IEc)(UId;8Q4@3k&JVj@t,lKa(_&SCj0t)&`\MnnLTRXN6N:W`t9@[>*;+21-0rP<Nk'.A]sFD)J8^__:4WfCO(2B7^stc&#&5S1`MA)'\d<+'s2U3Cp_ng,?=&q1*cElQIn\`/WAsOY3hZ^`jK2DY$+]-`LcVFY*G=Q_64>A%,It0f9U4*Y1T%UWB)\p_7oBjr%"9:M4H56V5jM2<:<i]O92=o1n,i^K*j0,=Z4B?X)/UunZ3"R9;>roj?[tr4\LuClML?RI:a:%B7CsRgE_e+q/#p)`]]G9-^b3Ae2#[?[nJ\j*[nS[`n?Yg%JF?GFr._5"Z*&Y;E^GtEkN+:R1b838\70sk%rkUJ;cs?^]5-g#U.beK+AL#B(<BUnF3bH/X#*'T#X]uUuTsq5Dufk:(E#pZdd[m=:H&H).4peDLp--dS6WbPibd5]*HQF6E3?F1>^WAkqm=*O-/fB/E12Q(AA7kh).m<e>dL]Jqlq@b*pMnH07N(k7O3DKh==Kj>X)h7nIJa%D0I"1p,-!'QQk/Vr.-G7TrI"H+Q:#hiU#5"2p_>_K]K\Qt(^GQ9ZJlZ2_=<7Q7QW_)&R+<)(iL_+9;<Hqu,O/[/B8N=C9_ZE?>7%GK+Um>=p!EaY@"`ZAY"]9mL+<KrfpGd<j+V(dX(ST^Bu'5s,DDElh[grHV_&]@N<[Y$W3Z/laV-IgMJZ;t8m<]+V8CV`E<bhdk!#<Tg[c(5?Q5=G*aicl\?S/IdEi`de<BSa[M,+D:YSRSsX@X)12NqYrciM;6]6'2nLTS0Em/tCH]9L^3ESXOS@9<Z>bbu[Y_a$;@p7"u&a44m;U0A!jBOl;#M$.6'5L6l@/fh=[@am@!A^uo%/rtJWhK*p872d/+,"jZ[QP[tA\L'NZeAFgZFH4]J[#A7E'4Ej[hUu-`kLXtCB_IEeCo'&FDQLJ<H3$('p+P8(mqM\hc/o/7-!/AZB::M5R]+U7HDq"8H]\e6-G"Ph[h?99+68'@q"Cgq/\cGo;D%o,007uu^-.2L1Rm\mfJ0=l'=$u#f-#=$/iK-2+5dT#)86t;`:/1B!i+?2mVV\YEBZ]Y8h0pHu(]%K21,)l).+Wnl-1+KM"(!i;K2<R7(N#d_*:-##rQ2:,5"-F[g'fo;>"$>STSX.me?`<ANa7BOC;DI/pPNb6ShDKl3sG;VGsX-,n1<uDqImHpO"?)C6a#5_(WJW.A)DS9,.6`K\71Y<3$%rWMOiY_\9E.`mE4!k5VAj\Qc:=34cX`%Va]Q8L=L$mkgqtK-/p1B?QTD(fRZXRWg;c'/&o)l%H%O"etoDIO4iL6,W_@<L6Lh^URq@5KX.WO5olQI#YJ0oBmaKN(Qi\-'pl&m$:>H[8CNpH@(2`_.'#eB6g38KZg=+aZqU:]CrC;TRhXOkAA6CHl&9BdaEGaB=h1JO5KjsO>/DET*\+FZ`,,eO;H5oSUtTM:QNSJTpqn#@`krhm`sh\a,a'UWAU-3t>#J5\d\KoHjr-8C$e.*Mqf5/?Hlk+IG&_ZhK8Lhf;pBjH#8VZ%FXQ$DXn[&G(lPk1hP%4Wg]^3(OtN5s-jJ-sfiG0EqKAgP(41:cCu=9)$3N$<30W>Zd`;S\?j.i0JQ/K7VRQl^I/s7`jmFLg/rj^+6b7HK(pr1((b*gS2-cj>jE:"u%W.%^O*W%Jf+#*(cb%FR*=pa.ooi]@"3a+5(2@]-PLpH=W4l=`M:1,L-7Wcfgr!>opDo<NrT:.=arD5*?s>('i8>MeUMYC"alfPF2bI<r9:to>N')%o>7_/rZOnK``s3Xk3t/:SNt$1!$Y_>B1gU(;)QUW'0mQc5MHu7iUcI\8:tqrR$dsm@>tp%$6IoJViqoTR3jc4[$T:tlKA4E1F:q==io+Lso/&6e.,,(JRbEC*9?0mnaWBm85$&upJh=W_e@,MTe[=n+;9H$UFhEiS6-h\TI?tQ9Csg]]BG-hL2(e4MMuB<dpTbcnnJPFC`2]eV8ZbQDbbii.KaLPc>*i])bn_!KJVj8-V5$C<m@7[>QrrB[[a_rW[+kXJ2"MPmpNf>i<l)>R>]c\.Z/H-*pi;@j_Nog;,opXGPV-8X.T\q8-\<Ydj(O`BdZo1!i>.=.;RA8Yo$,B?UTT`_r-[A]>IpLWAOa_eE$1kthBBf*%<q;Q^o0O>Yj#n?qanq*/3oNg[;W?PTF%]af(Zpamc5E2E'n0HQ=$oS%:/_ak9]f`C#Ba,W0SKQrO;L#e'qD);3BSlK>E^EVGWI=16HjZ;;!UpT8F:u)on!NhK.Y/7-cErNjqUH?^B';oIU)&5Qa]e3$!o8r7VCk^/==(Odc#t7(4Z-R"O+YZlMDR8^e-CYUe4]$5A6Mqss$q]0<``kWMo+6JmIH"%\qAWa3bD8,<N_pm-Pks2`=#"","eo=.&?S`VT]1&q&irppfN&8)YEs$o'9AOkaXA8jXB7u"1Y8l34=.886m+(A'37'T4i*DNn<L)Lt^oTK`r;kZ!Bn$uc(nUkr(6g)1B$H"/KUcBH-Sp`WjX3Q,p&=(mUAL=WRo#TbRH-H2eE7s43't`tf%Q5E!o?=LR1)h#_+"HDs/abX7\G.2TY5a$)"=Ib5q<LA<b8L5'Vt;jk?)?de/k!g<*TYTeIZSef:>G1aN:6C^aNou>b!oQLqX2q?>TYNbp2dpB?4Lj>ZPQ/3D;YCY#X3^U;=C\;_(dDJQn9VbgX$Gt`?.4]+%MOb/:6Uaj'N_/^I^*`O3uBi1sPX^s+Ms_g\"GKh"2K)XoCdfFl%b'b!5q)ip&c8I@rkC^H\0s+f]3+'/GB==TG?n\/$TJre@:&KRe[uW>*h`l%9i/Na6urB4"P=lcVLb6tPW^s%TIBEBbMsS,WOg.grN~>endstream
-endobj
-84 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2571
->>
-stream
-Gb"/(9lo&Y'#!U4FHnN)L&q[3+Gf)(46s;`lpqF_E=T\kJK[$.J:V>51<QfXf)lS[*/T4uBkpYT`@;UQq<I4r+0Sm4:%7c1hm=MPED>Ip55>4bYK3>^;n@ENs1CPmK\qFm^U,s>^XB"S<A2$BT$F)^:$5Xjc,=G[-aCnTq';?Pj&HWooRf@)$,98KIWnsLpVQ023hnZk]ifpllus<?l.g3lGk5&P9k2nJ5qp'?2=U`4RJRS%(Z^A.Hod<5(3KI(i3=tl=Su2tZ_ln=[Jm*M?"mkmWQI)(e?qh3IRD`%dIfa!I]\"l8Jt#X0_"Or17j._cMUAYR&,!NqHhOjkMtl@_Hh)EV>@'PUfSh3@$Ks).U--VA7Us`Pblrc$D"0H%DS_+SM7C9APK2#S[cL*RaqNn9duNWUQ,+;AgGf(=uRe..T`UJ'b91#hTI3F@P+]@=;fN)o>A]JM';b_f'?ShCM;`.QlR`R5P)a&*r\$+pL*/3T'q.TGcKQaHn4`8,H7qcL`a5Z=Xd%U+^(sJ.;8qsGd(pVV;&PKZDl\Qe"U*M<!Il<aK[I3(CiR/&N'mKi':unadpi@3n&=F7HoiOjLr:!is940.8.3L2(`b%69]qGL3_te2T/\TQ.]PTQmKH_qXONUnMnPX)@AB,33V!S_KUVYSB\`mGTt!eaEQMq&:_+gVc<Br3.rcOl_V1kN%Pg+ET;"6`\gch%55+%/mkZ]1DrQJW!/#5CZfShb/I9?rEO"</kmj4k[pX$DW']cHhlbDj`2mCi@n#>?8OmCUaQQ05:Ho^_eJ&9'R5(fi8!pBC[#KBP"(`KGd'F6,45cem`+MtU4e6b-+J0Wq$0-ESPYF3:/bir+)VR(\<qiNT$sR>/,S.I]N4^&6'g$>q""C&ibGQ=_H,iRXk2TEY*\08fNOa6%m"P7=N#ITqd_2&YGJA[T][,<4)o_!%[/kZ+IMcl4&I2Do,=gR^)sF\g`\ZYpA_(/?a93hRF*L2TQ6f-YM?TJ(&;JlrXrL+akVgSIWilF<0rLJl>cNaHM!fV7E7aMVlrt`h%SfCU^]PQOWbecNLYW?lOn%]EVT\3g<sj`ED*W6mOn6GP/B"pW[4FkS(`lQUUDY=CY?"rQ@B3[3NF*_aq:gTei$4[M?6O9S:F$J)^j#5!d<2E/U`:.0Ce'V(n-5R(h>9E5;gTn\DoQE^cdRTV3K1WDtqJV*\5^Zn-q1o?<;7AqJ&DOa"P4+G!u@";T$\a;>^%Zot.^#a$j`B<KCgu;ldJW0Yh186rEGK\L?&=P?);/b=:T2s$@qrb!&970jU,9G=Y"pWacfE0Nt,<*C?FA/u)m)J+-@e4"8?2b6"`Am.mt;O)lu"kX:N3[Pr/l@Q:6K^l*ha!+5[CHi?lp.V>+-[,EDT(s<MI</;J)#*CWXgEu(dk.$.tL?7l(Xpl'IcIc#59==kN'uN&a'](m?SuA8&LF"R%H:r2!hdl#FrN[&S)F\$faV3.A,C51(;T[XKRKJ*Sg&_L]XO<)>Q]ZXdC/(Z\ljgGYYp!Tn0YXib`FYajq7cLZW,203%G"*1nL!d_,3j/UqfT1=6En=Pj@tdN&b(hGmN)@J`UN>O+T3k%9VXOJFOBr-+0P#]89KeLlnVY!,7q))@2BKr`<*Lf#>-HXm^2fROkZg=\Wj)OMGbJ>E)MrqZ/cV/3ndHB4WE.3*2t&^KrS]B_W`Q+oO>E1T['j0"'J$o9Bh%i0"]nrB+E3W6_`)#IRdpkS!m4",'N@smCi:I9kaeNpRf)!og78llq=r-Tas3qL\.,Yc-@tUfo!q\%NEX`/t<"&6NN[!N5r@<E5Q,+]V*WZ"Ql9>k$?Odqc\54b*/D!$HGud.6W";49rm6Dh9D#*>h0f[;7DcY(MEM3R+KaZZ@S"W\Scm'dFWa>Qket+QJI606[KcP:9]T[;=R9[Lra8S=F)gXAb1O4ekHF<[_&D=OEZ[*r*2u7^:E!ocZ1b_hO3cHXUjcgNmG-U8jV!\K\fJKltQcN8Q%u/Pd?HAt`HD^c>L#&"jA*?:!,?Wm+9"*3;X2M;3e1kdE5hY/B!S_*%7NkfJ0umg[e;'j\KqRc1(B6<EW^BQ$gP$D[7WG%2n8>&:gtZadZXU&np4B%g0NYl-okd(u1n.&iKir>`V!^2.&!B%KE;!!3?\D^-FG@h;aE^3!6m$u@R+P;n=XpKD6cHHto'4!P3DK[BJknAuVr&*rf_8aK/!6`Rs%GBk:Yjn7ZL$VsbM:Y"PI/7:I3U?"_tH7VGY;'IGdXX];=#YP`$:r-pr!$"*&DMC!)0DW'Fpi>g'.Mkh8p3STH[@+H/s883&^E:<@g.E2"ImA2"eK5Va>^p0.9Vp16igQrSgP-(.+e6Q@K1.'pfHKrMn>iuEePrt]k8:SubIc_M"s8pqP7n\Yj+)ThTU0L#jA<Gtr\%(,`Gn"cHN1`>cJl^K1m"Uka`[-f@#!!O@2rA6RQ=_[i8T/$27bp,@a)BqUoe$0Of)F/X3.HA>H6MaIFl^3pY>.=`4fbH:'Vc(\u#`4T>7j4CaV\Fa,X*NnG^AUS"\bdl?)NiERa:e@<%Ruh;/'+BE&!*>$eK~>endstream
-endobj
-85 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2161
->>
-stream
-Gau`T9lo&I&A@sBi"i5U.=RK'bt4@\B:@>02:EU%PCZ7q6:):l!*WEQIG]X@,!3%rf@G&.E@:ki(;"MZ]g]_aHij&OW#9qBA`G]M$UQbBZQSsN2Z93F2EgknO3bOgMY^l]7d9bf2=l\VcBGO^nhNm:T$Ds[-H[n6__f^%@1oltlJt`g^7GK+DIMs%E>k`+b9rl'7hMltD)bp962/CBr$Vga[bc@_M8@L&@,_>U_PT0u!Y<2QQL)r1KFZA^WYb$oANQLlc.'/Jo1H+oPD8T3s&@7D%9kK>(6#Sb<X[1<&RNONYdKct2@EQ+bF)@t0QZQ=gd8Sh%'rUS^O0YG9XRU:o`j`JD@.s<YZ(@c(S\19(:DR0O'Pjg@/H@:cDI5eoG;[c[9P7j7*0$[eu7`tRTC.!ie;2LXehSuAK5<J_T5/u!E^Ub7+#2S$<7FO],9PXq>3@ZVi`o0_r+k)k@p*tfj.r\]J,`6]sf4>O7TGsGXu=AGfSuK_AK6jp/^2F?f8u@p;MS!B9VuNW46DG7X"eO$Kh],[BKp]OS)4ZUDiQp`%&#W^h\=-Xhh5IC=Or&bZKF0!!l1!,,1<UK*>m?8Bg]2]m)\&"@;<APPfmf5A^\_a;]$e0\!aW!e^\JIf'I&\bUdu>lr99/ju%7fAuIj!0=YJ%C5^/c;)jDbOKgfB>7MK]GPH`$ihOXEpupIT#,+T2jP"+7.4u)2_4Z%2(3]s[DH;(3:@V&:@1XrI=3u%`I@d9L#DOhjgHMeK_UE`Mj?#LX$[.]3FZ0ZPsBGo7C=!SOV$Yfrr)V<RYZ>&W6:n9MM<%89QDf0&*2iI_QpOlAR:>9W%uO3`2W%l++Khg?&i8D"h.Q++mbK@;OI!U;R:A&#RW^IB[G,!),E,.$nj#q5Fo9,WO2TDAbIL\`$`$K=-nQcS,$A3*%84Y/BYm.450A@+H66>*BEYQ4:$.^^f][WE]Z4KZO^NqQL[=a#T3&_r0UVr^n2b6%Da#hJ-X-$U+rbc4m>jB=E;'<&9G(c0h;@5FARJt_!I4cTRUD%68U6([@35,+;-DfL+S!LRKNCO1m60=3&k%R5K>4-d.KP9'1SRck".HfD5L9>[J8HJ/S^G#,aM7\,cR",N3Y`pY$E_ChfPMJUS#hN_T;QFU&hnG@J`*mdmC5feX!B;oEC-Ef*k)_Yfl%]pVQiYY'_EqT,.YV+,lBu0JqFn,k]U\=R8YY4of0qn"]lo=S*f%_Ga9I*D)@:2(8/]IL5)3!!,:aZ#LJ&8U>Kq4bQ`=Z5paSnMg@[5+7\1'd'@XoED'<bl_RcGL'1Y%J2&m.f[)^)PK6W;'?N1X%N&u6HAJJRC63QD?^K1.$$OK5<8t_IXf>^3thj'Q6:J%+WUF$VN>WK\rTp.^-QTc5R7&IU7Gnuq%j0bPUOU\7h/O#lM=R.)G;X1n641ZaKlm(0=A*c:_ikPH?&cNq%a,YR\t7!`=Y+45dcttm3.mmR^qe,VJAd#]j."LS$WXn<<:Ht'+G.-!XGUINnkA_]9p<Z-m$53g;2i820gZ6>Vo_)P"m@]Fo`\qMh5g4nK@*3[GqTH\%4.G(#o:JXH8gg&e\>,AY9U6VH'bO$AKQYg9p4R!R4!FC9SgtLbGF81ZGud.jA4e.rNJ+duUE_YKj?X$JibcKB!rGpQ+nJh"*qXpd%mMJ[?7`'*?OC[(#?)>hJCe"Gr]S)/KJ^)Gr:'ZCBJLD]mY&o.9^F<)3<&(>(rM3Neb&?tMRel32^u$HAB_YZ%e?14:]BTt9+iO&lm>=aK_Qr,5QG/!Q)ZB99#tG3D9RM/[a>jY\[q@kpRVD\=$taX=2RY/X[c@gQjnSN6gcSaD6^5*Y:Z)Jl]T#!7ZI8qV7Wrm<\/R>AaJ317XnAns(qIj_Jt2;QC0=k,(6hRgTc`G;R*?_19p>(=Ke:$@)9DTu$'=7$DrN6+4-Gu^h$h/D$+-j`g*%hH%Ja3TKYH=4M(_$"8=,TD,s8IfP7r;Ooh.`<u!#5h?'X1m+)Hq>!6$./bOqag)20$V"g]GA0G>P9__Tmnu0<R,?+^.pH2UqR1YD2WBo7)<,*/4]+Y-@l6"-sUt'Zaj*o:g<OO]4ITU41ocOZ@J_qZ2TA-?*\TidTSNS^a\hXm#=[8bj6Qd\1e"Y-DCIS6N/[u[nXFqrK#:D:AtE00(qg~>endstream
-endobj
-86 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2062
->>
-stream
-Gb!;e9lo&I&A@sBlnRnG#ersmQ8ZjDB0)S?eY-'#">)GU^]:$-rVQ#7Ur:oO9?1(sN+Omn.=f&-G2M&.6O</pqX:]npgjo<hM2Y3Yc]-C=9@gGi8+7h1O]BbI`hBDeU)/e^\!8GGuCG<=Vb#%Aj!-3<A(;a#bnEAlR7bNXhOQ45G'UGnSM.>iZq/P."Zt<X#R!TNfQQ;%#6nq&)o98@<[9WKa1h'<b*Y\>6mTN:XMQc3bKmE4W%k8iPk9>!O!stXHi&hgf@T4ic?c4BSCKRni\g]=5YpjoSjK<De()`'GeVO?)*CX@'^++*%sNZY^O%cDI<DHlb?m,1W<qpl\'J-T!Bc'_NWiM(MT&ip25SB<^eu-(pbD8o$PL6T#K)/2a;-Q<gLCL2r;j!eg2J4nl>D@Ys3e+\7/mV!/<AMh<d9)\fP>f\h&1qiSA@)6=^4@_K<X4m^.O\/sV-.nr&h\6:`NP%i\ep-af\F7eg22Dk1PB?__T[I#;TYKt&%Q'%bNc+B=C=405j8K.Ho4Vhi#'pZ[+;OO^g6@#JNQ\><V1S;chbO,KsH'@D>a;&mM<VC>/r0KL>;cXNLPo?^qQ?44)pO2=NT\15Hq$a[KR=gY!qSr!B2*T/fd6T!R>YIF\.Ci9Ru\tJ5_<XrmXMepRbfa5,$Ql:3f.*.Q%L%W(j:m9?q@8]gh$9E'<A$bo@Y+ai,^W(@OJ=Et<'Z!ud?d`.e/;#GV)BYD8!pm:n/1:s2$$mi`8K7M-:,_suZ3%e:)`%a6DhmscI`$fkM_c\Q1D]-aiK:;&r!j(D4AI)]6H$`.Z4nk&VZu>>LR5[>)L3_4W5OZH`QRMOCij$toY+'bi/V`c(!D#_;\gq,Yof+aZXCaQak>?qc!06coPgd8Bp#_I?,Go7'D6^ng^\.<#;4&k)/`q!F@Hi'c?Q_HQ)s(4i4*Yq/1f4aLK-QOFBptX$f<;cY47U2C2rO8=bPm9S5-c\!U$4C-E5qg"2#L,nW=`[ia5iOT%8a2@pq5/a=+f(,@)aX>XpMdH%fU-&+nNDd`EFpJWK/2WCks1L9QkZlS10+pI[NreX'bU(aErg0(rsNokCHGs2kB"(1W%4D5g,<m#0Y*ThKPF;<2HJ36[+I5`WNgQKP13nX24X-qJS5S1)MBV=l3\c@YgrFnonh<8KGVP7Q;@Q.PA"ZEQq)Ek5mEYIn,bO[\n2gNdY7]Q]EmIY.D2(!klFI"HK9aOb=hN-TpIKr,;Sbegg0+V_-PCiFf<nObLCOa#*qO,k&0/2sZZ-%u%N;8;t11b(tS.TX[U%!s$(hI>4DmkN;"$F=TSE=jZnp-<in>fu]:j0#lc9Eip`;J<aKB^;ld8dt49P58PLVE,%j!C6fS97tS=ToecV2KK6`3DYgdoqp2=i$0JXL@9m9RSBB[R/m.9E6tID'oE+<NNC'+hf[6S8+=K;T^h/GdZ3e,lNf%:P\?>dr';m2g#0f5&7Mg[:E:*</Ka-WUodPA!+bnS"RH,BV3TL0=6d63Bo5AAlkg6pGSFAAUaA?kH5t7EjOtU:nWJ*V,g63)Wt_V:+ot'X[el(mZ=KUhNf1e'fs\S_$@$i\o9^g7S_!_cKHGmO>:oF6iP3+r4UG87VoGKYjEm&@f6<J3j*Y=7kfmP73$VdWPK8]NkpIGI3tAoRDq\A:O00O?Z/KE!Fgqcte9t_dJ#:fn=065:4>)OdbAn@'k@tjjblp\o@/M;tk]ks;R$ZNo^2q4a5/T'7Gt$qU<%$rLgZSb2N@@396>O9@?D12\XP>YUO&j+C@Sq7@hI47*&Y4$3l$R?YrB\8_ec4!&S<J-ZKE5.R`)`pIr]%_0"5VdBN+6H.o]Ch,r2DOh/Y,7halC\uVi+D*l"IA@C5G;"m^M/.$6;u-9)+9oV,85)I;lnedu6MapEABH+"^V2j7_BJ;)KgtNRWfQF&8'1]-2o8"<0kTPat'94J<-hDD+0/@s?$+l^8A7fEu0Lm:FDafK>2;Br18ArCqZr3&[P>dHu&NI6!CO'&o!0*1;KZ`/O3jTgQ^^:i6`af9-s[Iu%q]kn)t;AD7"8!uLt=rbST2~>endstream
-endobj
-87 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 856
->>
-stream
-Gau1+9lJf0&;KZN/*<3g%5IVckE[TS'WGeHabLp`@56W8[:'.sg\pjem+nb3FsA(A+^6j4o?=l9%#"fh*Ug9=pf,/m*<jTYDLlCFKDICZer*$<#on`e(RK?sp##/"a>2e$,:.81?AP>P<N2FM-`l6;bAmeGG4?$^j+?\pA"9>tOVL\n,q1<k_#GFA.9t56L@?D5ZP'\S"Ja;E'k+K/1l&XIRM)4^168)pG:]nn/<BQ>WE[2A^"+6pH5s:j]eTWX<GXRa<Xi^E@BBNBE=r,o#M#"K;#c4F4@VMsTAhMF6t,^5J!m)HBjU:q0s2+['"00c3;Wd3"qXMhPkWn5ORbgO^">WK6j(9Be'Juo`):e?B]VPYhK7=WGfq+`&;9uC_%1Pq_I(Ot/l)aI'E6;:h"McL]JUmHCZ'MlS^5C(5T*AT7t>qBAUV_Zk`b7.3S6;+P\GNhr_e;)GdZRt_.,T_QcW'D;`f*'m^hVqV22hnd<!n6q//hBac#_sgYPD])\E4#FaAb<EBR\@Labi:k(4?P-TlgRXIiKQTb"72V)&7c21E@;^eBY?VRq]O9,6d3.B2sg<!&g-[LHGl2(ia,T<uo;qt\'""Zh2#K^SSd&jYt=Xuk9>LGIo$RWDZ>b9:STI%:Sm9Etn1DEp]KYRrMSAkS1$an]]ic)\5L-]e%JR^"T.N6l4f3MH$`jAL]6;H&q#eFeII]4&En$aa44.fC=^iQF<j9K7f_qta_cIg'>r_JV0\r*cpsEkoQLU@o_RYu@`W2Z@@n.?Q4a#kS+75[nhj;\sn!-g7o,%m'VrN+&nd7^ZE7dD^%T])RS5rQp68+BBo9N$h<hWl\UtGG"p$"H,JQ1Et3~>endstream
+Gb!kt_/e9g&A@rkp?6Z>QiK^?b0:sI1S/=7VU_Aq?6E]gTdC'M!3PPT])X;5Z"'8;/Z5!HB/oN]"Q&S$h7#(nKJ">7<<Ma.!_tC.Dukk3n;Lq_p^u@7N]tmV_!P,Z8#I0C2SY_-X,="&<E5;Vj>/f#nTf\c-ke<cMj;?eS=?8aFF?:2j)1T%Bf=.H:sA)RSYp1(n+JVo2ghj6,+kc%%\"[E`qNU"o/%\J%0:$&%iA(q"IXOc4Wq+5E6K1NACI7&mF?Ebp_+G##A45pO$P6fQ=NcW8l@8_5Uokrb9J4V`/'552?+B<@]^[GD22M"+MF,l[0'?-]lgP^@gfR_c"NfW\=sg%kgit9.p55LP[;b$f;>D5>4?<\[BsZn/VXGm*_ak\Ho05g]'3sGYk=sIj<3MD.h9UX@.5]?%M`7J!bY,.F:QTjgQN5,Pjp+5mV$p"0Ks->:LNNE"I[+dYX4Ih&6bjM5iHRUU77i(H>R6Toh?QZ82N^:EOsqWhdmpHZsQ=LXQb-ekVhoLffU/:[oVC>=5F?RlLoO@lF>q@D*tRk=6O>dm4MM]9*Ag#f24qq"^-1EK^!=!juF*,*Zg7$]LY[m5)<U`\4Df?`\;%Nai0ilHC'r:rT'$%J91?b"eR1&.laY;nACLO]@QY>J/#C0']/$\#B"`S=)Ynu'e$'qE.&H<Pb.140!iJ[2OtB?VP89A')aq$AbmV-M20sdA3@Sc;!p;m%&5-)>@M*Jpp&F/2N-LNm(-A!8o8`gj\EP<F#4=<A+t27jER,tjC#?Xiuj-.''nerIoJU.UK!r8DYgq5/!miu?5*;4='&<tX&-OB-69(Pmd4OgPN!H`?X;CVElPD;"oRq4$AS7).9N1./Ec-TqX?g7m9FrD(R/LsQ83;43`7V's75+5op_;^G=0QjZ-gNT<59MdOWZ*mH)cj],()`LWSnYj<juNOQtWIn)XY2M`g3'&e8OSZ'q>f?e+L.*%dB7tY*Rh9IOG@\,]31n3X1qG1;_%5[1CmZKBhg)\^:`hHrn"gP1[eU=DU&"^=$oSkFj,a'.'.>"&O!1:-;8T<GhT*7_5_#5Wh$:*GO=Ck/*HXoGaThXA%*2Q7OYISbj-Gf8ZK4LObY0>=U.I'brFI':%p3&A@S.4\o&$<0Sk'+]5l.G(E='!7FKOh;\:.C&3!SkPn'oZ@[2'S3kH/-kBH]5*L/n/e=?uQoJ3`T0N/L(CiW3P-a4g[(O2j-S5JE?:-dQ#7$kXb?-Y9Nt4W33@+N=ob@q\B0A9(qD"<a,>I;O0:k.t]bKf$mLBPMV-RQ'-7CD7*;eS?`CAZ)_]W?UdGEVDR&X>).V%I[M>+tR]Z2J5KcJkOD,5NjS@G6qDgN*L"eE#L4.1FmQE5K!d/2@S>q`:W@TKdF;@7i1H7H5u)*7f"T"_sE]H?*,7jY+M*%^5ZoZtH+WC]*]<<^Jf&gZ!8^$p#`ZhT7Z`h=a>QeMH_KV15`/X#O:P$n,uXd^"#Xm>;XM[)m[H/KZt>20RT_a+%nMM.b>!CR7cbl~>endstream
 endobj
 xref
-0 88
+0 79
 0000000000 65535 f 
 0000000073 00000 n 
 0000000124 00000 n 
 0000000231 00000 n 
 0000000630 00000 n 
 0000000742 00000 n 
-0000001010 00000 n 
-0000001278 00000 n 
-0000001546 00000 n 
-0000001814 00000 n 
+0000000857 00000 n 
+0000001125 00000 n 
+0000001393 00000 n 
+0000001661 00000 n 
 0000001929 00000 n 
 0000002198 00000 n 
-0000002467 00000 n 
-0000002554 00000 n 
-0000002807 00000 n 
-0000002882 00000 n 
-0000002997 00000 n 
-0000003146 00000 n 
-0000003273 00000 n 
-0000003416 00000 n 
-0000003560 00000 n 
-0000003676 00000 n 
-0000003787 00000 n 
-0000003894 00000 n 
-0000004005 00000 n 
-0000004158 00000 n 
-0000004264 00000 n 
-0000004358 00000 n 
-0000004507 00000 n 
-0000004622 00000 n 
-0000004729 00000 n 
-0000004838 00000 n 
-0000004942 00000 n 
-0000005047 00000 n 
-0000005166 00000 n 
-0000005276 00000 n 
-0000005393 00000 n 
-0000005509 00000 n 
-0000005662 00000 n 
-0000005740 00000 n 
-0000006123 00000 n 
-0000006237 00000 n 
-0000006341 00000 n 
-0000006449 00000 n 
-0000006559 00000 n 
-0000006675 00000 n 
-0000006787 00000 n 
-0000006901 00000 n 
-0000007011 00000 n 
-0000007122 00000 n 
-0000007232 00000 n 
-0000007331 00000 n 
-0000007422 00000 n 
-0000007571 00000 n 
-0000007785 00000 n 
-0000007933 00000 n 
-0000008069 00000 n 
-0000008174 00000 n 
-0000008267 00000 n 
-0000008412 00000 n 
-0000008569 00000 n 
-0000008710 00000 n 
-0000008839 00000 n 
-0000008990 00000 n 
-0000009144 00000 n 
-0000009241 00000 n 
-0000009394 00000 n 
-0000009593 00000 n 
-0000009739 00000 n 
-0000009843 00000 n 
-0000009949 00000 n 
-0000010100 00000 n 
-0000010191 00000 n 
-0000010327 00000 n 
-0000010600 00000 n 
-0000010746 00000 n 
-0000010864 00000 n 
-0000011002 00000 n 
-0000011133 00000 n 
-0000011249 00000 n 
-0000011397 00000 n 
-0000011521 00000 n 
-0000011613 00000 n 
-0000014105 00000 n 
-0000017248 00000 n 
-0000019911 00000 n 
-0000022164 00000 n 
-0000024318 00000 n 
+0000002285 00000 n 
+0000002538 00000 n 
+0000002613 00000 n 
+0000002728 00000 n 
+0000002837 00000 n 
+0000002980 00000 n 
+0000003110 00000 n 
+0000003216 00000 n 
+0000003330 00000 n 
+0000003440 00000 n 
+0000003554 00000 n 
+0000003662 00000 n 
+0000003758 00000 n 
+0000003904 00000 n 
+0000004044 00000 n 
+0000004159 00000 n 
+0000004269 00000 n 
+0000004381 00000 n 
+0000004488 00000 n 
+0000004596 00000 n 
+0000004718 00000 n 
+0000004831 00000 n 
+0000004951 00000 n 
+0000005070 00000 n 
+0000005186 00000 n 
+0000005290 00000 n 
+0000005407 00000 n 
+0000005514 00000 n 
+0000005628 00000 n 
+0000005739 00000 n 
+0000005852 00000 n 
+0000005965 00000 n 
+0000006084 00000 n 
+0000006199 00000 n 
+0000006316 00000 n 
+0000006430 00000 n 
+0000006545 00000 n 
+0000006659 00000 n 
+0000006750 00000 n 
+0000006859 00000 n 
+0000007007 00000 n 
+0000007126 00000 n 
+0000007221 00000 n 
+0000007317 00000 n 
+0000007418 00000 n 
+0000007569 00000 n 
+0000007692 00000 n 
+0000007778 00000 n 
+0000007930 00000 n 
+0000008048 00000 n 
+0000008142 00000 n 
+0000008251 00000 n 
+0000008402 00000 n 
+0000008520 00000 n 
+0000008601 00000 n 
+0000008750 00000 n 
+0000008868 00000 n 
+0000008962 00000 n 
+0000009071 00000 n 
+0000009219 00000 n 
+0000009340 00000 n 
+0000009424 00000 n 
+0000009509 00000 n 
+0000012086 00000 n 
+0000015260 00000 n 
+0000018028 00000 n 
+0000020334 00000 n 
 trailer
 <<
 /ID 
-[<5f8d9c93109b1273f7a6fbd1e52a68d0><5f8d9c93109b1273f7a6fbd1e52a68d0>]
+[<03c3126cc5c9c603a9ae949f0c0597c8><03c3126cc5c9c603a9ae949f0c0597c8>]
 % ReportLab generated PDF document -- digest (http://www.reportlab.com)
 
-/Info 13 0 R
-/Root 12 0 R
-/Size 88
+/Info 12 0 R
+/Root 11 0 R
+/Size 79
 >>
 startxref
-25265
+21950
 %%EOF

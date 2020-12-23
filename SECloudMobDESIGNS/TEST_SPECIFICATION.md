@@ -2,25 +2,25 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Architeture              |  Hybrid Application                                          |  
-|  Application domain type  |  m-Health                                                    |  
+|  Architeture              |  IoT System                                                  |  
+|  Application domain type  |  Smart Home                                                  |  
 |  Authentication           |  Username and Password                                       |  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
 |  Which DB                 |  MySQL                                                       |  
-|  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
+|  Type of data stored      |  Personal Information ; Critical Data                        |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  HTML5 ; PHP                                                 |  
+|  Type of Registration     |  Will be a administrator that will register the users        |  
+|  Programming Languages    |  C/C++                                                       |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
+|  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
-|  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  Yes                                                         |  
+|  The system has regular updates|  No                                                          |  
+|  The system has third-party|  No                                                          |  
 |  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
-|  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  4G / LTE ; 3G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC            |  
+|  HW Authentication        |  TPM (Trusted Platform Module)                               |  
+|  HW Wireless Tech         |  Wi-Fi  ; Bluetooth                                          |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -319,6 +319,43 @@ In order to avoid or prevent *Botnet, Spoofing and Sniffing attacks*, the follow
     <td class="tg-0lax">Cydia Substrate </td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax">Cycript </td>
+  </tr>
+</tbody>
+</table>
+
+
+In order to avoid or prevent *Buffer overflows*, the following security tests should be performed.
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax" rowspan="2"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Test Parameter</span></th>
+    <th class="tg-0lax" rowspan="2"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Testing Types</span></th>
+    <th class="tg-0lax" rowspan="2"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Testing Methods</span></th>
+    <th class="tg-0lax" colspan="3"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Tools</span></th>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0lax"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Android</span></td>
+    <td class="tg-0lax"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">iOS</span></td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">Input validation </td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Grey Box</span></td>
+    <td class="tg-0lax">Dinamic Analysis via Fuzzers </td>
+    <td class="tg-0lax">Sharefuzz </td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
   </tr>
 </tbody>
 </table>

@@ -2,7 +2,7 @@
 
 It is an attacking technique used against XML-based applications to modify or compromise their normal operation.
 
-## Definition **
+## Definition
 
 XML Injection (XMLi) attacks are carried out by injecting pieces of XML code along with malicious content into user inputs in order to produce harmful XML messages. The aim of this type of attacks is to compromise the system or system component that receives user inputs, making it malfunction (e.g. crash), or to attack other systems or subsequent components that process those injected XML messages. This type of attack can be classified into 4 categories:
   

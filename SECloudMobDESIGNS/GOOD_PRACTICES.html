@@ -9,11 +9,11 @@
 <tbody>
 <tr>
 <td align="left">Architeture</td>
-<td align="left">Hybrid Application</td>
+<td align="left">IoT System</td>
 </tr>
 <tr>
 <td align="left">Application domain type</td>
-<td align="left">m-Health</td>
+<td align="left">Smart Home</td>
 </tr>
 <tr>
 <td align="left">Authentication</td>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
-<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
+<td align="left">Personal Information ; Critical Data</td>
 </tr>
 <tr>
 <td align="left">User Registration</td>
@@ -41,11 +41,11 @@
 </tr>
 <tr>
 <td align="left">Type of Registration</td>
-<td align="left">The users will register themselves</td>
+<td align="left">Will be a administrator that will register the users</td>
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<td align="left">HTML5 ; PHP</td>
+<td align="left">C/C++</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td align="left">Upload Files</td>
-<td align="left">Yes</td>
+<td align="left">No</td>
 </tr>
 <tr>
 <td align="left">The system has logs</td>
@@ -61,11 +61,11 @@
 </tr>
 <tr>
 <td align="left">The system has regular updates</td>
-<td align="left">Yes</td>
+<td align="left">No</td>
 </tr>
 <tr>
 <td align="left">The system has third-party</td>
-<td align="left">Yes</td>
+<td align="left">No</td>
 </tr>
 <tr>
 <td align="left">System Cloud Environments</td>
@@ -77,11 +77,11 @@
 </tr>
 <tr>
 <td align="left">HW Authentication</td>
-<td align="left">Basic Authentication (user/pass)</td>
+<td align="left">TPM (Trusted Platform Module)</td>
 </tr>
 <tr>
 <td align="left">HW Wireless Tech</td>
-<td align="left">4G / LTE ; 3G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC</td>
+<td align="left">Wi-Fi  ; Bluetooth</td>
 </tr>
 <tr>
 <td align="left">Data Center Phisical Access</td>
@@ -89,6 +89,109 @@
 </tr>
 </tbody>
 </table>
+<h2>IoT Security</h2>
+<p><strong>Internet of Things (IoT) devices</strong> fall into three main categories:</p>
+<ul>
+<li>Sensors, which gather data</li>
+<li>Actuators, which effect actions</li>
+<li>Gateways, which act as communication hubs and may also implement some 
+automation logic.</li>
+</ul>
+<p>All these device types may stand alone or be embedded in a larger product. They may also be complemented by a web application or mobile device app and cloud based service.
+IoT devices, services and software, and the communication  channels that connect them, are at risk of attack by a variety of malicious parties,</p>
+<p>Malicious intent commonly takes advantage of poor design, but even unintentional leakage of data due to ineffective security controls can also bring dire consequences to consumers and vendors. Thus it is vital that IoT devices and services have security designed in from the outset.</p>
+<p><strong>Classification of Data</strong></p>
+<ul>
+<li>Define a data classification scheme and document it. </li>
+<li>Assess every item of data stored, processed, transmitted or received by a device and apply a data classification rating to it.</li>
+<li>Ensure the security design protects every data item and collections of items against unauthorised viewing, changing or deletion,to at least its classification rating or higher.</li>
+</ul>
+<p><strong>Physical Security</strong></p>
+<ul>
+<li>Any interface used for administrationor test purposes during development should be removed from a production device, disabled or made physically inaccessible.</li>
+<li>All test access points on production units must be disabled or locked, for example by blowing on-chip fuses to disable JTAG.</li>
+<li>If a production device must have an administration port, ensure it has effective access controls, e.g. strong credential management, restricted ports, secureprotocols etc.</li>
+<li>Make the device circuitry physically inaccessible to tampering, e.g. epoxy chips to circuit board, resin encapsulation, hiding data and address lines under thesecomponents etc.</li>
+<li>Provide secure protective casing and mounting options for deployment of devices in exposed locations.</li>
+<li>For high-security deployments, consider design measures such as active masking or shielding to protect against side-channel attacks</li>
+</ul>
+<p><strong>Device Secure Boot</strong></p>
+<ul>
+<li>Make sure the ROM-based secure boot function is always used. Use a multi-stage bootloader initiated by a minimal amount of read-only code </li>
+<li>Use a hardware-based tamper-resistant capability (e.g. a microcontroller security subsystem, Secure Access Module (SAM) or Trusted Platform Module (TPM)) to store crucial data items and run the trusted authentication/cryptographic functions required for the boot process. Its limited secure storage capacity must hold the read-only first stage of the bootloader and all other data required to verify the authenticity of firmware.</li>
+<li>Check each stage of boot code is valid and trusted immediately before running that code. Validating code immediately before its use can reduce the risk of attacks </li>
+<li>At each stage of the boot sequence, wherever possible, check that only the expected hardware is present and matches the stage's configuration parameters.</li>
+<li>Do not boot the next stage of device functionality until the previous stage has been successfully booted.</li>
+<li>Ensure failures at any stage of the boot sequence fail gracefully into a secure state, to ensure no unauthorised access is gained to underlying systems, code or data. Any code run must have been previously authenticated.</li>
+</ul>
+<p><strong>Secure Operating System</strong></p>
+<ul>
+<li>Include in the operating system (OS) only those components (libraries, modules, packages etc.) that are required to support the functions of the device.</li>
+<li>Shipment should include the latest stable OS component versions available.</li>
+<li>Devices should be designed and shipped with the most secure configuration in place. </li>
+<li>Continue to update OS components to the latest stable versions throughout the lifetime of a deployed device.</li>
+<li>Disable all ports, protocols and services that are not used.</li>
+<li>Set permissions so users/applications cannot write to the root file system.</li>
+<li>If required, accounts for ordinary users/applications must have minimum access rights to perform the necessary functions. Separate administrator accounts (if required)will have greater rights of access. Do not run anything as root unless genuinely unavoidable.</li>
+<li>Ensure all files and directories are given the minimum access rights to perform the required functions.</li>
+<li>Consider implementing an encrypted file system.</li>
+</ul>
+<p><strong>Application Security</strong></p>
+<ul>
+<li>Applications must be operated at the lowest privilege level possible, not as root. Applications must only have access to those resources they need. </li>
+<li>Applications should be isolated from each other. For example, use sandboxing techniques such as virtual machines, containerisation, Secure Computing Mode (seccomp), etc</li>
+<li>Ensure compliance with in-country data processing regulations.</li>
+<li>Ensure all errors are handled gracefully and any messages produced do not reveal any sensitive information.</li>
+<li>Never hard-code credentials into an application. Credentials must be stored separately in secure trusted storage and must be updateable in a way that ensures security is maintained.</li>
+<li>Remove all default user accounts and passwords.</li>
+<li>Use the most recent stable version of the operating system and libraries.</li>
+<li>Never deploy debug versions of code. The distribution should not include compilers, files containing developer comments, sample code, etc.</li>
+<li>Consider the impact on the application/system if network connectivity is lost. Aim to maintain  normal functionality and security wherever possible.</li>
+</ul>
+<p><strong>Credential Management</strong></p>
+<ul>
+<li>A device should be uniquely identifiable by means of a factory-set tamper resistant hardware identifier if possible.</li>
+<li>Use good password management techniques, for example no blank or simple passwords allowed,  never send passwords across a network (wired or wireless) in clear text, and employ a secure password reset process.</li>
+<li>Each password stored for authenticating credentials must use an industry standard hash function, along with a unique salt value that is not obvious (for example, not a username). </li>
+<li>Store credentials or encryption keys in a Secure Access Module (SAM), Trusted Platform Module  (TPM), Hardware Security Module (HSM) or trusted key store if possible.</li>
+<li>Aim to use 2-factor authentication for accessing sensitive data if possible.</li>
+<li>Ensure a trusted &amp; reliable time source is available where authentication methods require this, e.g. for digital certificates.</li>
+<li>A certificate used to identify a device must be unique and only used to identify that onedevice. Do not reuse the certificate across multiple devices.</li>
+<li>A "factory reset" function must fully remove all user data/credentials stored on a device.</li>
+</ul>
+<p><strong>Encryption</strong></p>
+<ul>
+<li>When configuring a secure connection, if an encryption protocol offers a negotiable selection of algorithms, remove weaker options so they cannot be selected for use in a downgrade attack.</li>
+<li>Store encryption keys in a Secure Access Module (SAM), Trusted Platform Module (TPM), Hardware Security Module (HSM) or trusted key store if possible.</li>
+<li>Do not use insecure protocols, e.g. FTP, Telnet.</li>
+<li>It should be possible to securely replace encryption keys remotely</li>
+<li>If implementing public/private key cryptography, use unique keys per device and avoid using global keys. A device's private key should be generated by that device or supplied by an associated secure credential solution, e.g. smart card. It should remain on that  device and never be shared/visible to elsewhere. </li>
+</ul>
+<p><strong>Network Connections</strong></p>
+<ul>
+<li>Activate only those network interfaces that are required (wired, wireless - including Bluetooth etc.).</li>
+<li>Run only those services on the network that are required.</li>
+<li>Open up only those network ports that are required.</li>
+<li>Run a correctly configured software firewall on the device if possible.</li>
+<li>Always use secure protocols, e.g. HTTPS, SFTP.</li>
+<li>Never exchange credentials in clear text or over weak solutions such as HTTP Basic Authentication.</li>
+<li>Authenticate every incoming connection to ensure it comes from a legitimate source.</li>
+<li>Authenticate the destination before sending sensitive data.</li>
+</ul>
+<p><strong>Logging</strong></p>
+<ul>
+<li>Ensure all logged data comply with prevailing data protection regulations.</li>
+<li>Run the logging function in its own operating system process, separate from other functions.</li>
+<li>Store log files in their own partition, separate from other system files.</li>
+<li>Set log file maximum size and rotate logs.</li>
+<li>Where logging capacity is limited, just log start-up and shutdown parameters, login/access attempts and anything unexpected.</li>
+<li>Restrict access rights to log files to the minimum required to function.</li>
+<li>If logging to a central repository, send log data over a secure channel if the logs carry sensitive data and/or protection against tampering of logs must be assured.</li>
+<li>Implement log "levels" so that lightweight logging can be the standard approach, but with the option to run more detailed logging when required.</li>
+<li>Monitor and analyse logs regularly to extract valuable information and insight.</li>
+<li>Passwords and other secret information should not ever be displayed in logs.</li>
+</ul>
+<p>(https://www.iotsecurityfoundation.org/wp-content/uploads/2019/03/Best-Practice-Guides-Release-1.2.1.pdf)[https://www.iotsecurityfoundation.org/wp-content/uploads/2019/03/Best-Practice-Guides-Release-1.2.1.pdf]</p>
 <h2>Input Validation</h2>
 <p><strong>Input validation</strong> is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components. </p>
 <p><strong>Implementing input validation</strong>   </p>
@@ -223,79 +326,6 @@ Cookies must be marked as Secure.</p>
 <li>Agreement/ability to support a minimum configuration of protocol versions and protocol options for each version.</li>
 </ul>
 <p>[https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.md]</p>
-<h2>Access Control</h2>
-<p>Authorization is the process where requests to access a particular resource should be granted or denied. It should be noted that authorization is not equivalent to authentication - as these terms and their definitions are frequently confused. 
-Authentication is providing and validating identity. 
-Authorization includes the execution rules that determines what functionality and data the user (or Principal) may access, ensuring the proper allocation of access rights after authentication is successful. </p>
-<p>Web applications need access controls to allow users (with varying privileges) to use the application. They also need administrators to manage the applications access control rules and the granting of permissions or entitlements to users and other entities. </p>
-<p><strong>Role Based Access Control (RBAC)</strong>  <br />
-Access decisions are based on an individual's roles and responsibilities within the organization or user base. An RBAC access control framework should provide web application security administrators with the ability to determine who can perform what actions, when, from where, in what order, and in some cases under what relational circumstances. </p>
-<p>Advantages: </p>
-<ul>
-<li>Roles are assigned based on organizational structure with emphasis on the organizational security policy </li>
-<li>Easy to use </li>
-<li>Easy to administer </li>
-<li>Built into most frameworks </li>
-<li>Aligns with security principles like segregation of duties and least privileges </li>
-</ul>
-<p>Problems: </p>
-<ul>
-<li>Documentation of the roles and accesses has to be maintained stringently. </li>
-<li>Multi-tenancy can not be implemented effectively unless there is a way to associate the roles with multi-tenancy capability requirements e.g. OU in Active   Directory   </li>
-<li>There is a tendency for scope creep to happen e.g. more accesses and privileges can be given than intended for. Or a user might be included in two roles if proper access reviews and subsequent revocation is not performed.</li>
-<li>Does not support data based access control </li>
-</ul>
-<p>Areas of caution: </p>
-<ul>
-<li>Roles must be only be transferred or delegated using strict sign-offs and procedures. </li>
-<li>When a user changes his role to another one, the administrator must make sure that the earlier access is revoked such that at any given point of time, a user is assigned to only those roles on a need to know basis.  </li>
-<li>Assurance for RBAC must be carried out using strict access control reviews. </li>
-</ul>
-<p><strong>Discretionary Access Control (DAC)</strong> 
- is a means of restricting access to information based on the identity of users and/or membership in certain groups. Access decisions are typically based on the authorizations granted to a user based on the credentials he presented at the time of authentication. The owner of information or any resource is able to change its permissions at his discretion. </p>
-<p>Advantages: </p>
-<ul>
-<li>Easy to use </li>
-<li>Easy to administer </li>
-<li>Aligns to the principle of least privileges. </li>
-<li>Object owner has total control over access granted </li>
-</ul>
-<p>Problems:  </p>
-<ul>
-<li>Documentation of the roles and accesses has to be maintained stringently. </li>
-<li>Multi-tenancy can not be implemented effectively unless there is a way to associate the roles with multi-tenancy capability requirements   </li>
-<li>There is a tendency for scope creep to happen e.g. more accesses and privileges can be given than intended for. </li>
-</ul>
-<p>Areas of caution: </p>
-<ul>
-<li>While granting trusts </li>
-<li>Assurance for DAC must be carried out using strict access control reviews.</li>
-</ul>
-<p><strong>Mandatory Access Control (MAC)</strong> 
-Ensures that the enforcement of organizational security policy does not rely on voluntary web application user compliance. MAC secures information by assigning sensitivity labels on information and comparing this to the level of sensitivity a user is operating at.MAC is usually appropriate for extremely secure systems including multilevel secure military applications or mission critical data applications. </p>
-<p>Advantages : </p>
-<ul>
-<li>Access to an object is based on the sensitivity of the object </li>
-<li>Access based on need to know is strictly adhered to and scope creep has minimal possibility </li>
-<li>Only an administrator can grant access </li>
-</ul>
-<p>Problems : </p>
-<ul>
-<li>Difficult and expensive to implement </li>
-<li>Not agile </li>
-</ul>
-<p>Areas of caution : </p>
-<ul>
-<li>Classification and sensitivity assignment at an appropriate and pragmatic level </li>
-<li>Assurance for MAC must be carried out to ensure that the classification of the objects is at the appropriate level. </li>
-</ul>
-<p><strong>Permission Based Access Control</strong> 
-Is the abstraction of application actions into a set of permissions. A permission may be represented simply as a string based name, for example "READ". Access decisions are made by checking if the current user has the permission associated with the requested application action. </p>
-<p>The has relationship between the user and permission may be satisfied by creating a direct relationship between the user and permission (called a grant), or an indirect one. In the indirect model the permission grant is to an intermediate entity such as user group. </p>
-<p>A user is considered a member of a user group if and only if the user inherits permissions from the user group.  Systems that provide fine-grained domain object level access control, permissions may be grouped into classes. The system can be associated with a class which determines the permissions applicable to the respective domain object. </p>
-<blockquote>
-<p>In such a system a "DOCUMENT" class may be defined with the permissions "READ", "WRITE" and "DELETE"; a "SERVER" class may be defined with the permissions "START", "STOP", and "REBOOT".</p>
-</blockquote>
 <h2>File Uploading</h2>
 <p>Into web applications, when we expect upload of working documents from users, we can expose the application to submission of documents that we can categorize as malicious. 
 We use the term "malicious" here to refer to documents that embed malicious code that will be executed when another user (admin, back office operator...) will open the document with the associated application reader.  <br />
@@ -338,72 +368,6 @@ Sanitize incoming image using re-writing approach and then disable/remove any "c
 <p>".htaccess" and ".htpasswd" provides server configuration options on a per-directory basis, and should not be permitted. </p>
 </li>
 </ul>
-<h2>Logging and Error Handling</h2>
-<p><strong>Purpose of logging</strong>
-Application logging should be always be included for security events. Application logs are invaluable data for:</p>
-<p>Identifying security incidents<br />
-Monitoring policy violations  <br />
-Establishing baselines<br />
-Assisting non-repudiation controls<br />
-Providing information about problems and unusual conditions 
-Contributing additional application-specific data for incident investigation which is lacking in other log sources<br />
-Helping defend against vulnerability identification and exploitation through attack detection   </p>
-<blockquote>
-<p>Each log entry needs to include sufficient information for the intended subsequent monitoring and analysis. It could be full content data, but is more likely to be an extract or just summary properties.</p>
-<p>The application logs must record "when, where, who and what" for each event.</p>
-</blockquote>
-<p><strong>Where to record event data</strong></p>
-<ul>
-<li>When using the file system, it is preferable to use a separate partition than those used by the operating system, other application files and user generated content<blockquote>
-<p>For file-based logs, apply strict permissions concerning which users can access the directories, and the permissions of files within the directories
-In web applications, the logs should not be exposed in web-accessible locations, and if done so, should have restricted access and be configured with a plain text MIME type (not HTML)</p>
-</blockquote>
-</li>
-<li>When using a database, it is preferable to utilize a separate database account that is only used for writing log data and which has very restrictive database , table, function and command permissions</li>
-<li>Use standard formats over secure protocols to record and send event data, or log files, to other systems e.g. Common Log File System (CLFS) or Common Event Format (CEF) over syslog; standard formats facilitate integration with centralised logging services.</li>
-</ul>
-<p><strong>Which events to log</strong></p>
-<ul>
-<li>Input validation failures e.g. protocol violations, unacceptable encodings, invalid parameter names and values</li>
-<li>Output validation failures e.g. database record set mismatch, invalid data encoding</li>
-<li>Authentication successes and failures</li>
-<li>Authorization (access control) failures</li>
-<li>Session management failures e.g. cookie session identification value modification</li>
-<li>Application errors and system events e.g. syntax and runtime errors, connectivity problems, performance issues, third party service error messages, file system errors, file upload virus detection, configuration changes</li>
-<li>Application and related systems start-ups and shut-downs, and logging initialization (starting, stopping or pausing)</li>
-<li>Use of higher-risk functionality e.g. network connections, addition or deletion of users, changes to privileges, assigning users to tokens, adding or deleting tokens, use of systems administrative privileges, access by application administrators,all actions by users with administrative privileges, access to payment cardholder data, use of data encrypting keys, key changes, creation and deletion of system-level objects, data import and export including screen-based reports, submission of user-generated content - especially file uploads.</li>
-</ul>
-<p><strong>Data to exclude</strong></p>
-<ul>
-<li>Application source code</li>
-<li>Session identification values (consider replacing with a hashed value if needed to track session specific events)</li>
-<li>Access tokens</li>
-<li>Sensitive personal data and some forms of personally identifiable information (PII) e.g. health, government identifiers, vulnerable people</li>
-<li>Authentication passwords</li>
-<li>Database connection strings</li>
-<li>Encryption keys and other master secrets</li>
-<li>Bank account or payment card holder data</li>
-<li>Data of a higher security classification than the logging system is allowed to store</li>
-<li>Commercially-sensitive information</li>
-<li>Information it is illegal to collect in the relevant jurisdictions</li>
-<li>Information a user has opted out of collection, or not consented to e.g. use of do not track, or where consent to collect has expired</li>
-</ul>
-<h2>Error Handling</h2>
-<p><strong>User Facing Error Messages</strong><br />
-Error messages displayed to the user should not contain system, diagnostic or debug information.</p>
-<p><strong>Formatting Error Messages</strong></p>
-<p>Error messages are often logged to text files or files viewed within a web browser.</p>
-<ul>
-<li>text based log files: Ensure any newline characters (%0A%0C) are appropriately handled to prevent log forging</li>
-<li>web based log files: Ensure any logged html characters are appropriately encoded to prevent XSS when viewing logs</li>
-</ul>
-<p><strong>Recommended Error Handling Design</strong></p>
-<ul>
-<li>Log necessary error data to a system log file</li>
-<li>Display a generic error message to the user</li>
-<li>If necessary provide an error code to the user which maps to the error data in the logfile. A user reporting an error can provide this code to help diagnose issue</li>
-</ul>
-<p><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md">https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md</a></p>
 <h2>Application Regular Updates</h2>
 <p>Mobile devices and platforms, such as, for example, smartphones, typically provide the capability for operating system (OS), firmware (FW) and applications updates or re-installations with reduced user involvement. The user involvement may often be limited to clicking an icon or accepting an agreement. While this reduced level of involvement may provide convenience and an improved user experience, it fails to address the issue of secure user authentication.</p>
 <p>Mobile devices and platforms, such as smartphones, typically provide features for operating system (OS), firmware (FW) upgrades, and applications or reinstallations with reduced user engagement. User engagement may be limited to clicking an icon or accepting a contract. While this reduced level of engagement can provide convenience and enhance the user experience, it does not address the issue of secure user authentication. Thus, it is necessary to create a secure channel that provides confidentiality, integrity, authentication and data updating.</p>
@@ -421,26 +385,4 @@ Error messages displayed to the user should not contain system, diagnostic or de
 <li>
 <p>Data Freshness: to protect against replay attacks, e.g., during the key establishment phase, the proto- col must ensure that the messages are fresh. Data freshness ensures the security property that the data is recent and that an attacker is not replaying old data.</p>
 </li>
-</ul>
-<h2>Third-Party Applications</h2>
-<p>Many social networks also offer the possibility to create additional applications that extend the functionality of the network. The two major platforms for such applications are the Facebook Platform and Open Social. While applications designed for the Facebook Platform can only be executed in Facebook, Open Social is a combined effort to allow developers to run their applications on any social network that supports the Open Social platform (e.g., MySpace and Orkut).</p>
-<p><strong> Requirements for a secure third-party applications: </strong></p>
-<ul>
-<li>
-<p>Data Privacy;</p>
-</li>
-<li>
-<p>Data Authentication;</p>
-</li>
-<li>
-<p>Data Authorization.</p>
-</li>
-</ul>
-<p>Apps that process or query sensitive information should run in a trusted and secure environment. To create this environment, the app can check the device for the following:</p>
-<ul>
-<li>PIN - or password-protected device locking;</li>
-<li>Recent Mobile Plataform or OS version;</li>
-<li>USB Debugging activation;</li>
-<li>Device encryption;</li>
-<li>Device rooting (see also "Testing Root Detection").</li>
 </ul>

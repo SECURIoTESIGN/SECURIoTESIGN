@@ -2,25 +2,25 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Architeture              |  Hybrid Application                                          |  
-|  Application domain type  |  m-Health                                                    |  
+|  Architeture              |  IoT System                                                  |  
+|  Application domain type  |  Smart Home                                                  |  
 |  Authentication           |  Username and Password                                       |  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
 |  Which DB                 |  MySQL                                                       |  
-|  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
+|  Type of data stored      |  Personal Information ; Critical Data                        |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  HTML5 ; PHP                                                 |  
+|  Type of Registration     |  Will be a administrator that will register the users        |  
+|  Programming Languages    |  C/C++                                                       |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
+|  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
-|  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  Yes                                                         |  
+|  The system has regular updates|  No                                                          |  
+|  The system has third-party|  No                                                          |  
 |  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
-|  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  4G / LTE ; 3G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC            |  
+|  HW Authentication        |  TPM (Trusted Platform Module)                               |  
+|  HW Wireless Tech         |  Wi-Fi  ; Bluetooth                                          |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -29,7 +29,7 @@
 
 # Man-in-the-Middle Attack
 
-In this type of attack an active Man listening and changing communications between Mobile Device and Cloud. In other hand, in this attack an intruder enters in the ongoing conversation between sender and the receiver and makes them believe that conversation is taking place between them only.
+In this type of attack an active man listen and change communications between Mobile Device and Cloud. In other hand, in this attack an intruder enters in the ongoing conversation between sender and the receiver and makes them believe that conversation is taking place between them only.
 
 
 ## Definition
@@ -44,6 +44,10 @@ The attacker generally and depending on whether the communication situation is e
  * Discover cryptographic key using cryptanalysis;
  * Exploit vulnerabilities in cryptographic algorithm;
  * Exploit vulnerabilities in cryptographic protocol.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious MitM attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
 ## Man-in-the-Middle Attack Diagram
 
@@ -69,6 +73,10 @@ Being an attack that exploits vulnerabilities in web applications, the attacker 
  * Circumvent the policy of same origin;
  * Impersonate you to websites and/or web applications you regularly use by obtaining/altering/destroying various types of content.
 
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to XSS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+
 ## Cross Site Scripting Attacks Diagram
 
 
@@ -89,6 +97,11 @@ In this kind of attack, the contents of the cookie are changed to get access to 
  * Access confidential information from legitimate/authorized users;
  * Perpetrate other types of attacks like Main-in-the-Middle.
 
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the DNS Poisoning attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
  
 ## DNS Poisoning Attacks Diagram
 
@@ -99,7 +112,7 @@ In this kind of attack, the contents of the cookie are changed to get access to 
 
 # Malicious QR Code Attacks
 
-In this type of attacks, attackers encode malicious links that lead e.g. to phishing sites or to execute fraudulent code. These malicious QR codes can be printed on small stickers and pasted over already existing QR codes. Furthermore, attackers can modify selected modules from white to black and vice-versa in order to override the originally encoded content.
+In this type of attack, one of the strategies used by the attackers, after coding the malicious links, is to take them to phishing sites or execute fraudulent codes. In addition, in order to end this type of attack, the attackers often print the malicious QR codes on small stickers that are pasted on pre-existing QR codes. On the other hand, attackers often change selected modules from white to black and vice versa in order to replace the original encoded content.
 
 ## Definition
 
@@ -113,6 +126,10 @@ QR code-based attack is defined as an attack that attempts to lure victims into 
  * Extraction of personal and confidential data from smartphones and tablets via command injection or traditional buffer overflows by reader software;
  * Steal users' Money via fraud;
  * Social Engineering attacks via spear phishing e.g. leaving a poster of a QR Code on the parking lot of a company (instead of the traditional attack with an USB drive) offering discount in a nearby restaurant is a new attack vector which is likely to be successful.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious QR Code attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
 
 ## Malicious QR Code Attacks Diagram
 
@@ -135,23 +152,30 @@ In this type of attacks, the attacker can break the CAPTCHAs by using an audio s
  * Conducting DoS and DDoS attacks;
  * Excessive exploitation of network resources by bots.
 
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the CAPTCHA Breaking attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
+
 ## CAPTCHA Breaking Attacks Diagram
 
 # Denial of Services
 
 In a DoS attack scenario, the attacker attempts to disrupt the network or disable services provisioned by a server by sending uninterrupted data packets to the target server and without changing nodes, data packets, or decrypting encrypted data. Typically, these data packets take up bandwidth and consume server resources.
 
-
-** Definition **
+## Definition
 
 In such attacks, the attacker attempts to prevent a service or feature that is signed by authorized users from being released by launching various types of floods - SYN flooding, User Datagram Protocol (UDP) flooding, Internet Control Message Protocol (ICMP) attacks ) flooding, etc - on the server.
 
-** Attacker Powers **
+## Attacker Powers
 
  * Prevent the availability of a service or resource to authorized users;
  * Perpetrating other types of attacks while services or features are unavailable, such as Spoofing.
 
- 
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the DoS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
 ## Denial of Services Attacks Diagram
 
 
@@ -161,14 +185,18 @@ In such attacks, the attacker attempts to prevent a service or feature that is s
 
 Distributed Denial of Services (DDoS) is an enhanced DoS attack type, originating from multiple network attack surfaces that were previously compromised to disrupt the services or resources provided by the target server. It differs from DoS in that it generates more traffic, so that the targeted server cannot handle requests.
 
-** Definition **
+## Definition
 
 The DDoS attack attempts to make a service unavailable to intended users by draining the system or network resource. Attackers can now launch various DDoS attacks, including resource-focused attacks (eg, network bandwidth, memory, and CPU) and app-focused attacks (eg, mobile applications, database service) from almost every attack. places.
   
-** Attacker Powers **
+## Attacker Powers
 
  * Make features and services unavailable to authorized users;
  * Perpetrate other types of attacks and even extract sensitive and critical data.
+
+## Recommendations
+
+n order to ensure that the mobile application is resilient or immune to the DDoS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
 
  
 ## Distributed Denial of Services Attacks Diagram
@@ -206,7 +234,10 @@ In DNS reflection attacks, attackers send DNS requests toward multiple open DNS 
  * Access confidential information from legitimate/authorized users;
  * Perpetrate other types of attacks like DDoS and Main-in-the-Middle.
 
- 
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the DNS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
 ## DNS Attacks Diagram
 
 
@@ -222,7 +253,12 @@ Each node of a network has an IP address which is allocated to a particular user
   
 ## Attacker Powers
 
- * Access confidential information from legitimate/authorized users;
+ * Access confidential information from legitimate/authorized users.
+
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Reused IP Address attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
 
  
 ## Reused IP Address Attacks Diagram
@@ -245,6 +281,10 @@ Phishing is the attempt to acquire sensitive information or to make somebody act
  * Access confidential information from legitimate users by collecting data through malware;
  * Perpetrate other types of attacks like Botnet.
 
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Phishing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+
  
 ## Phishing Attack Diagram
 
@@ -253,12 +293,11 @@ Phishing is the attempt to acquire sensitive information or to make somebody act
 
 # Botnet Attacks
 
-In short, Cross Site Scripting (XSS) allows an attacker to execute a browser script bypassing access control mechanisms such as the same origin policy.
-
+In a nutshell, in a botnet attack scenario the attacker hijacks a set of mobile devices, creating a network of remote controlled zombie devices. This network is called Botnet, from which various types of attacks can be carried out, such as denial of service attacks, malware distribution, phishing, etc.
 
 ** Definition **
 
-A botnet is a set of zombie devices that are infected by malware so that hackers can remotely control them. When a number of smartphones are compromised and remotely controlled, a mobile botnet is formed. Botnets impose serious security threats to the Internet, and most of them are used in organized crime, launching attacks to gain money.
+A botnet is a set of compromised mobile devices. A necessary condition for these devices to be compromised is their infection by malware. This allows attackers/hackers to remotely control this botnet and launch other types of attacks, such as DoS, Phishing, malware injection, etc.
 
 ** Attacker Powers **
 
@@ -291,6 +330,10 @@ XML Injection (XMLi) attacks are carried out by injecting pieces of XML code alo
 
  * Obtain confidential information;
  * Change the underlying business logic of the destination.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
  
 ## XML Injection Attacks Diagram
@@ -300,47 +343,28 @@ XML Injection (XMLi) attacks are carried out by injecting pieces of XML code alo
 
 
 
-# Session Hijacking Attack
+# Buffer Overflows Attack
 
-An attacker impersonates a legitimate user through stealing or predicting a valid session ID.
-
-
-## Definition
-
-The Session Hijacking can be facilitated by the architectural
-weakness of “not securing the storage of session identifiers”. As reported in the CVE-2002-0121, the PHP project vesions 4.0 through 4.1.1 suffered from this architectural flaw because its original design stored each data session in plain textual files in a temporary directory without using a security tactic to store these session files in a secure way (such as encryption).
- 
-## Attacker Powers
-
- * Steal Session ID;
- * Impersonation of a legitimate user and confidential information from a legitimate user.
- 
- 
-## Session Hijacking Attack Diagram
-
-
-![alt text](sidHijacking.png)
-
-
-
-# Session Fixation Attack
-
-An attacker has a valid session ID and forces the victim to use this ID.
+As its name implies, buffer overflows occur when data exceeding its capacity is placed in a buffer. This occurs in programs implemented in C or C++, as these programming languages do not check if buffer limits are violated.
 
 
 ## Definition
 
-Session Fixation is an attack in which the victim is tricked into using a SID value that is controlled, and thus known, by the attacker. This can be achieved either by supplying a crafted URL including this SID as a parameter to the victim (in case that the vulnerable Web application accepts parameter-based SIDs) or by finding a way to set a copy of this SID cookie to the victim’s browser.
-
+Buffer overflows is an anomaly where a program, while writing data to a buffer, overruns the buffer's boundary and overwrites adjacent memory. It can be triggered by non-validated inputs that are designed to execute code. Buffer overflow may result in erratic program behavior, including memory access errors, incorrect results, a crash, or a breach of system security.
+ 
 ## Attacker Powers
 
- * Steal SID and access otherwise restricted resources utilizing the victim’s authorization context.
+ * Overwrite the return address of a procedure call;
+ * Obtain control of a system;
+ * Launch more virulent attacks, such DoS or DDoS.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the buffer overflows attack, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
  
  
-## Session Fixation Attack Diagram
+## Buffer Overflows Attack Diagram
 
-
-![alt text](sidFixation.png)
 
 
 
@@ -358,6 +382,10 @@ In this type of attack, the attacker can spoof the "Caller ID" and impersonate h
  * Faker caller ID;
  * Monitoring of calls and access to the confidential information of legitimate users from voice or text messages.
 
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
 ## Spoofing Attacks Diagram
 
@@ -380,6 +408,10 @@ VMs roll back to their previous state if an error occurs. Unfortunately, this fa
  * Launch attacks such as man-in-the-middle, DoS and replay;
  * Detect or tamper with data during migration as it is not encrypted.
 
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to VM Migration attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy, confinement, and authenticity of the data.
+
  
 ## VM Migration Attacks Diagram
 
@@ -390,7 +422,7 @@ VMs roll back to their previous state if an error occurs. Unfortunately, this fa
 
 # Malicious Insiders Attacks
 
-When there is a malicious entity (client, employee, Hypervisor, Cloud Provider/Broker, etc.) that takes advantage of its privileges to covertly carry out any malicious activity such as information theft and data destruction or physical infrastructures.
+This type of attacks ocurre when there is a malicious entity (client, employee, Hypervisor, Cloud Provider/Broker, etc.) takes advantage of its privileges to covertly carry out any malicious activity such as information theft and data destruction or physical infrastructures.
 
 
 ## Definition
@@ -401,6 +433,11 @@ Malicious Hypervisor, Malicious Clients, Malicious Cloud Provider/Broker, etc. a
 
  * Implants malicious codes to destroy everything in the cloud system;
  * Steals confidential data.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to Malicious Insiders attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
 
  
 ## Malicious Insiders Attacks Diagram
@@ -423,7 +460,12 @@ VM escape is where an application running on a VM can directly have access to th
  * Shutdown and eliminate target or victim VMs, resulting in the loss and destruction of data or information;
  * Compromise the hypervisor and other resources.
 
- VM Escape Attacks Diagram
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to VM Escape attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy, authenticity and confinement of the data.
+
+
+## VM Escape Attacks Diagram
 
 
 ![alt text](vmEscapeAttack.png)
@@ -437,9 +479,7 @@ Side-channel attacks are used to extract cryptographic keys from a victim device
 
 ## Definition
 
-Side-channel attack, which leverages low-bandwidth message channels (e.g., timing, power, cache misses) in a system to derive or leak security - sensitive information, has been proven to be realistic threats to modern computer systems. Among them, cache-based side-channel attacks have been shown practical to steal cryptographic information within a
-single operating system. The main idea is that cryptographic algorithms usually have data-dependent memory access patterns, which can be revealed by observing and
-analyzing the associated cache hit/miss statistics. Cache-based attacks then can rely on certain statistics during the encryption or decryption operations to extract the cryptographic key. Recent research has shown attackers can build up cross-VM side channels to obtain sensitive information. However, currently these channels are mostly based on shared CPU cache, networks, CPU loads and so on. These attacks are generally categorized into one of three classes:
+The side-channel attack takes advantage of low-bandwidth message channels in a system to leak sensitive security information. There is no doubt that this type of attack exists and is real for today's computer systems, including modern smartphones and tablets. Here we highlight the cache-based side-channel attacks that have been used to steal cryptographic information from a single OS. Furthermore, the weak link is in the fact that cryptographic algorithms usually have data-dependent memory access patterns, giving the possibility of being revealed by the observation and statistical analysis of hits / errors from the associated cache. Recent research has shown attackers can build up cross-VM side channels to obtain sensitive information. However, currently these channels are mostly based on shared CPU cache, networks, CPU loads and so on. These attacks are generally categorized into one of three classes:
 
  * Time-driven side-channel attack;
  * Trace-driven side-channel attacks;
@@ -450,6 +490,10 @@ analyzing the associated cache hit/miss statistics. Cache-based attacks then can
  * Steal cryptographic information;
  * Extract cryptographic key;
  * Obtains confidential data or sensitive information.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the side-channel attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
 
  Cross VM Attacks Diagram
 
@@ -472,6 +516,9 @@ Attacks on the cloud and mobile application-level ecosystem can affect the integ
  * Obtain root permissions on mobile devices and control the mobile device;
  * Directly affect the computational integrity of mobile platforms along with the application.
 
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Malware Injection attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
  
 ## Malware Injection Attacks Diagram
 
@@ -494,6 +541,10 @@ This type of attack occurs whenever an unauthorized user has physical access to 
  * Huge messages to targeting mobile devices to make unused or reducing the capability;
  * Access and steal users confidential data.
 
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Tampering attack, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
 ## Tampering Attacks Diagram
 
