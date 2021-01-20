@@ -1,14 +1,6 @@
 
 In order to avoid or prevent *Malicious Insider and VM-Migration attacks*, the following security tests should be performed.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -29,7 +21,7 @@ In order to avoid or prevent *Malicious Insider and VM-Migration attacks*, the f
     <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Grey Box</span> </td>
     <td class="tg-0lax">Static Analysis via Forensic Mobile</td>
     <td class="tg-0lax">Slueth Kit+Autopsy Browser</td>
-    <td class="tg-0lax">AndroGuard, Drozer, apktool </td>
+    <td class="tg-0lax">AndroGuard, Drozer, apktool, Amandroid </td>
     <td class="tg-0lax"></td>
   </tr>
 </tbody>
