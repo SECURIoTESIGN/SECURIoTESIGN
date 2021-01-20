@@ -32,7 +32,7 @@ In order to avoid or prevent *SQLi, XMLi, XSS, CSRF and Buffer Overflows attacks
   </tr>
   <tr>
     <td class="tg-0lax">Proper SSL usage, Use of encryption</td>
-    <td class="tg-0lax">Black |Box</td>
+    <td class="tg-0lax">Black Box</td>
     <td class="tg-0lax">Dinamic Analysis via Proxies</td>
     <td class="tg-0lax">WebScarab, OWASP ZAP</td>
   </tr>
