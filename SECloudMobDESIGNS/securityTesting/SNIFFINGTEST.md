@@ -1,5 +1,5 @@
 
-In order to avoid or prevent *Sniffing Attacks*, the following security tests should be performed.
+In order to avoid or prevent *Sniffing* Attacks, the following security tests should be performed.
 
 <table class="tg">
 <thead>
