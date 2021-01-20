@@ -18,7 +18,7 @@ In order to avoid or prevent *Buffer overflows*, the following security tests sh
 <tbody>
   <tr>
     <td class="tg-0lax">Input validation </td>
-    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Grey Box</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Gray Box</span></td>
     <td class="tg-0lax">Dinamic Analysis via Fuzzers </td>
     <td class="tg-0lax">Sharefuzz </td>
     <td class="tg-0lax"></td>
