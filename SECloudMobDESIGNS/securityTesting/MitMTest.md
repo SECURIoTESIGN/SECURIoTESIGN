@@ -1,5 +1,5 @@
 
-In order to avoid or prevent *man-in-the-middle attacks*, the following security tests should be performed.
+In order to avoid or prevent *Man-in-the-Middle* attacks, the following security tests should be performed.
 
 <table class="tg">
   <tr>
@@ -18,7 +18,7 @@ In order to avoid or prevent *man-in-the-middle attacks*, the following security
     <td class="tg-0lax">White Box</td>
     <td class="tg-cly1">Static Analysis via Forensic Mobile</td>
     <td class="tg-cly1">XTY, Cellebrite, OpenSSL</td>
-    <td class="tg-cly1">AndroGuard, MalloDroid, apktool</td>
+    <td class="tg-cly1">AndroGuard, MalloDroid, apktool, Amandroid</td>
     <td class="tg-cly1"></td>
   </tr>
   <tr>
@@ -34,7 +34,7 @@ In order to avoid or prevent *man-in-the-middle attacks*, the following security
     <td class="tg-0lax">Gray Box</td>
     <td class="tg-cly1">Dinamic analysis via Proxies</td>
     <td class="tg-cly1">Wireshark, , ettercap, sslsniff, mitmproxy</td>
-    <td class="tg-cly1">tPacketCapturepro, DroidWall,</td>
+    <td class="tg-cly1">tPacketCapturepro, AFWall+,</td>
     <td class="tg-cly1"></td>
   </tr>
   <tr>
