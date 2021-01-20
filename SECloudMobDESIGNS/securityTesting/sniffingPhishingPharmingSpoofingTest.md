@@ -49,7 +49,7 @@ In order to avoid or prevent *Sniffing, Phishing, Pharming, Botnet, Spoofing att
     <td class="tg-0lax">Web Server connection</td>
     <td class="tg-0lax">Black Box</td>
     <td class="tg-0lax">Manual Dinamic Analysis via Proxies</td>
-    <td class="tg-0lax">ITR, WebScarab, Paros</td>
+    <td class="tg-0lax">ITR, OWASP WebScarab, OWASP ZAP, Paros</td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
