@@ -12,7 +12,7 @@ In order to avoid or prevent *SQLi, XMLi, XSS, CSRF and Buffer Overflows attacks
     <td class="tg-cly1">Authentication and Authorization</td>
     <td class="tg-0lax">Gray Box</td>
     <td class="tg-cly1">Dinamic Analysis via Vulnerability Scanner</td>
-    <td class="tg-cly1">OWASP WebScarab, OWASPBerretta, Nikto, Wikto, Paros Proxy, Spike Proxy, EOR, Pantera</td>
+    <td class="tg-cly1">OWASP WebScarab, OWASPBerretta, OWASP ZAP, Nikto, Wikto, Paros Proxy, Spike Proxy, EOR, Pantera</td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="3">Access Control</td>
@@ -34,7 +34,7 @@ In order to avoid or prevent *SQLi, XMLi, XSS, CSRF and Buffer Overflows attacks
     <td class="tg-0lax">Proper SSL usage, Use of encryption</td>
     <td class="tg-0lax">Black |Box</td>
     <td class="tg-0lax">Dinamic Analysis via Proxies</td>
-    <td class="tg-0lax">WebScarab</td>
+    <td class="tg-0lax">WebScarab, OWASP ZAP</td>
   </tr>
   <tr>
     <td class="tg-0lax">Database frangibility scanner</td>
