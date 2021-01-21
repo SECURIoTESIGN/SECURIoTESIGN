@@ -19,7 +19,7 @@ The side-channel attack takes advantage of low-bandwidth message channels in a s
 
 ## Recommendations
 
-In order to ensure that the mobile application is resilient or immune to the side-channel attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+In order to ensure that the mobile application is resilient or immune to the side-channel attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
 
  Cross VM Attacks Diagram
 
