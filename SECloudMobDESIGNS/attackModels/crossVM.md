@@ -15,7 +15,7 @@ The side-channel attack takes advantage of low-bandwidth message channels in a s
 
  * Steal cryptographic information;
  * Extract cryptographic key;
- * Obtains confidential data or sensitive information.
+ * Obtains confidential data or sensitive information.
 
 ## Recommendations
 
