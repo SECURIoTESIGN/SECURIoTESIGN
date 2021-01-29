@@ -18,3 +18,8 @@ To install the markdown, xhtml2pdf and svglib packages follow the procedures bel
 5. pip install svglib or if you are using Anaconda or Miniconda, follow the options below:
  * $ pip install git+https://github.com/deeplook/svglib;
  * $ conda install svglib.
+# Running the Application
+To compile and run the application, follow the instructions below:
+1. Clone or download the project from the project's main page;
+2. Open the project using any of the previous IDEs;
+3. Compile and run the application. The source code can be found in the SECloudMobDESIGNS.py file, which must be compiled from the application. 
