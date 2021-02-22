@@ -1395,7 +1395,7 @@ def switch1():
             exit(0)
 
         if case.default:
-            print("Error! Insert a valid value between 1 and 6!")
+            print("Error! Insert a valid value between 1 and 7!")
             goto.begin
 
 
