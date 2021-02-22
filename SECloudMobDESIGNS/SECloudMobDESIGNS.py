@@ -232,15 +232,16 @@ question18 = {
 }
 
 question19 = {
-    "1": "4G / LTE",
-    "2": "3G",
-    "3": "GSM (2G)",
-    "4": "Bluetooth ",
-    "5": "Wi-Fi ",
-    "6": "GPS ",
-    "7": "RFID ",
-    "8": "NFC",
-    "9": ""
+    "1": "3G",
+    "2": "4G/LTE",
+    "3": "5G",
+    "4": "GSM (2G)",
+    "5": "Bluetooth ",
+    "6": "Wi-Fi ",
+    "7": "GPS ",
+    "8": "RFID ",
+    "9": "NFC",
+    "10": ""
 }
 
 question20 = {
@@ -805,21 +806,22 @@ def hardwareComunication(version):
     else:
         print("  **What are the wireless tecnologies presents in hardware. Enter several options and end with 0.**  ")
     print("")
-    print("  1 - 4G / LTE ")
-    print("  2 - 3G  ")
-    print("  3 - GSM (2G)  ")
-    print("  4 - Bluetooth  ")
-    print("  5 - Wi-Fi  ")
-    print("  6 - GPS  ")
-    print("  7  - RFID  ")
-    print("  8 - NFC  ")
-    print("  9 - Others")
+    print("  1 - 3G ")
+    print("  2 - 4G / LTE ")
+    print("  3 - 5G  ")
+    print("  4 - GSM (2G)  ")
+    print("  5 - Bluetooth  ")
+    print("  6 - Wi-Fi  ")
+    print("  7 - GPS  ")
+    print("  8 - RFID  ")
+    print("  9 - NFC  ")
+    print("  10 - Others")
     print("")
     while(1):
-        value = validateInput(1, 10)
+        value = validateInput(1, 11)
         if value == 0:
             break
-        if value == 9:
+        if value == 10:
             print("Please specify the architeture: (name between single quotes)")
             value2 = validateInput(2)
             qans["Q19"] = qans["Q19"] + str(value2) + ";"
@@ -1518,17 +1520,17 @@ def switch1():
 #############################################################################################################
 # Information Capture main function
 def informationCapture():
-    print("---")
+    print("************************************************************************************************")
     print("\nWelcome to SECloudMobDESIGNS Framework!\n")
     print("\nWhat would you like to do?\n")
-    print("\n01. First, Answer the Questions Necessary for Possible Processing")
-    print("\n02. Process Security Requirement Elicitation Request")
-    print("\n03. Process Secure Development Best Practice Guide Request ")
-    print("\n04. Mapping Security Attack Models Request")
-    print("\n05. Process Secure Development Test Specification Guide Request")
-    print("\n06. Process Full Report")
-    print("\n07. Exit")
-    print("")
+    print("\n1. First, Answer the Questions Necessary for Possible Processing")
+    print("\n2. Process Security Requirement Elicitation Request")
+    print("\n3. Process Secure Development Best Practice Guide Request ")
+    print("\n4. Mapping Security Attack Models Request")
+    print("\n5. Process Secure Development Test Specification Guide Request")
+    print("\n6. Process Full Report")
+    print("\n7. Exit")
+    print("\n\nSelect your option (1-7):")
     switch1()
 
 
