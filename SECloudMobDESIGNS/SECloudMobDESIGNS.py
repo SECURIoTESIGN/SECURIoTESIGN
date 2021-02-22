@@ -2049,7 +2049,7 @@ def processingInformation3():
 
     ###########################################################################################################
     ###########################################################################################################
-    # If the system was development for iOS, Tizen and embedded platforms (Buffer Overflows)
+    # If the system was development for iOS, Tizen and embedded platforms (Buffer Overflow)
     if qans["Q1"].find("2") != -1 or qans["Q1"].find("11") != -1 or qans["Q1"].find("14") != -1:
         if qans["Q10"].find("2") != -1:
             report.write("\n")
@@ -2059,9 +2059,9 @@ def processingInformation3():
         # Buffer Overflows attack diagram
 
         # Write the scheme in the report
-        # report.write("![alt text](design_schemes19.png)")
-        # report.write("\n")
-        # report.write("\n")
+        report.write("![alt text](bufferOverflowAttackTree.png)")
+        report.write("\n")
+        report.write("\n")
 
     ###########################################################################################################
     ###########################################################################################################
