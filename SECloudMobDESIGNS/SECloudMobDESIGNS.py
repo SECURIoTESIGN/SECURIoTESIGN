@@ -54,7 +54,7 @@ qans = {
 }
 
 # Questions
-# Q1   -> Architeture
+# Q1   -> Architecture
 # Q2   -> Application Domain Type
 # Q3   -> Authentication
 # Q4   -> Has a DB
@@ -82,19 +82,14 @@ qans = {
 question1 = {
     "1": "Android App",
     "2": "iOS App",
-    "3": "Hongmeng OS App",
+    "3": "Web Application",
     "4": "Hybrid Application",
     "5": "Harmony OS App",
-    "6": "LineageOS Application",
-    "7": "Plasma Mobile Application",
-    "8": "postmarketOS Application",
-    "9": "PureOS Application",
-    "10": "Sailfish OS Application",
-    "11": "Tizen Application",
-    "12": "Ubuntu Touch Application",
-    "13": "Web Application",
-    "14": "IoT System",
-    "15": ""
+    "6": "Tizen Application",
+    "7": "IoT System",
+    "8": "Chrome OS Application",
+    "9": "Ubuntu Touch Application",
+    "10": ""
 }
 
 question2 = {
@@ -349,19 +344,14 @@ def arqui(version):
     print("")
     print("  1 - Android Application  ")
     print("  2 - iOS Application  ")
-    print("  3 - Hongmeng OS  ")
+    print("  3 - Web Application  ")
     print("  4 - Hybrid Application  ")
     print("  5 - Harmony OS App  ")
-    print("  6 - LineageOS Application  ")
-    print("  7 - Plasma Mobile Application  ")
-    print("  8 - postmarketOS Application  ")
-    print("  9 - PureOS Application  ")
-    print("  10 - Sailfish OS Application  ")
-    print("  11 - Tizen Application  ")
-    print("  12 - Ubuntu Touch Application  ")
-    print("  13 - Web Application  ")
-    print("  14 - IoT Systems  ")
-    print("  15 - Others  ")
+    print("  6 - Tizen Application  ")
+    print("  7 - IoT System  ")
+    print("  8 - Chrome OS Application  ")
+    print("  9 - Ubuntu Touch Application  ")
+    print("  10 - Others  ")
     print("")
 
     # function input() interprets the input
@@ -375,7 +365,7 @@ def arqui(version):
         if value == 0:
             return
         if value == 15:
-            print("  Please specify the architeture: (name between single quotes)  ")
+            print("  Please specify the architecture: (name between single quotes)  ")
             value2 = validateInput(2)
             # question_1["9"] = str(value2)
             qans["Q1"] = qans["Q1"] + str(value2) + ";"
@@ -555,7 +545,7 @@ def sensitiveData(version):
         if value == 0:
             return
         if value == 4:
-            print("  Please specify the architeture: (name between single quotes)  ")
+            print("  Please specify the architecture: (name between single quotes)  ")
             # TO-DO change this funtion input
             value2 = validateInput(2)
             # question_5["4"] = str(value2)
@@ -807,7 +797,7 @@ def hardwareComunication(version):
         print("  **What are the wireless tecnologies presents in hardware. Enter several options and end with 0.**  ")
     print("")
     print("  1 - 3G ")
-    print("  2 - 4G / LTE ")
+    print("  2 - 4G/LTE ")
     print("  3 - 5G  ")
     print("  4 - GSM (2G)  ")
     print("  5 - Bluetooth  ")
@@ -822,7 +812,7 @@ def hardwareComunication(version):
         if value == 0:
             break
         if value == 10:
-            print("Please specify the architeture: (name between single quotes)")
+            print("Please specify the architecture: (name between single quotes)")
             value2 = validateInput(2)
             qans["Q19"] = qans["Q19"] + str(value2) + ";"
         else:
@@ -848,30 +838,6 @@ def dataCenterAcess(version):
 
     value = validateInput(1, 3)
     qans["Q20"] = str(value)
-
-
-# ----------------------------------------------------------------------------
-# function to convert the markdown report to html and pdf format
-def convertReport():
-    # input_filename = ("guides/example_report.md")
-    # input_filename = "some_markdown.md")
-    input_filename = ("SECURITY_REQUIREMENTS.md")
-
-    output_filename = ("SECURITY_REQUIREMENTS.html")
-
-    with open(input_filename, "r") as f:
-        html_text = markdown(f.read(), extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
-
-    out = open(output_filename, "w")
-    out.write(html_text)
-
-    # writing in pdf file, the html content
-
-    resultFile = open("SECURITY_REQUIREMENTS.pdf", "w+b")
-    pisa.CreatePDF(html_text, dest=resultFile)
-
-
-# print( pisastatus)
 
 
 # ----------------------------------------------------------------------------
@@ -909,8 +875,8 @@ def printData():
                 list_aux.append(item)
 
     # print(list_aux)
-    print("{:22} {:3} {:40} ".format("Architeture", ":", ' ; '.join(list_aux)))
-    table_for_report.append(["Architeture", ' ; '.join(list_aux)])
+    print("{:22} {:3} {:40} ".format("Architecture", ":", ' ; '.join(list_aux)))
+    table_for_report.append(["Architecture", ' ; '.join(list_aux)])
 
     answers_list.append(qans["Q1"])
     comments_list.append(' ; '.join(list_aux))
@@ -1226,10 +1192,30 @@ def printData():
 
     generate_file.close()
 
+# ----------------------------------------------------------------------------
+# function to convert the markdown report to html and pdf format for Security Requirements
+def securRequirconvertReport():
+    # input_filename = ("guides/example_report.md")
+    # input_filename = "some_markdown.md")
+    input_filename = ("SECURITY_REQUIREMENTS.md")
+
+    output_filename = ("SECURITY_REQUIREMENTS.html")
+
+    with open(input_filename, "r") as f:
+        html_text = markdown(f.read(), extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
+
+    out = open(output_filename, "w")
+    out.write(html_text)
+
+    # writing in pdf file, the html content
+
+    resultFile = open("SECURITY_REQUIREMENTS.pdf", "w+b")
+    pisa.CreatePDF(html_text, dest=resultFile)
+
 
 # ----------------------------------------------------------------------------
 # function to convert the markdown report to html and pdf format
-def convertReport2():
+def goodPracticeConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
     input_filename = ("GOOD_PRACTICES.md")
@@ -1250,7 +1236,7 @@ def convertReport2():
 
 # ----------------------------------------------------------------------------
 # function to convert the markdown report to html and pdf format
-def convertReport3():
+def attackModelConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
     input_filename = ("ATTACKS_MAPPING.md")
@@ -1270,7 +1256,7 @@ def convertReport3():
 
 # ----------------------------------------------------------------------------
 # function to convert the markdown report to html and pdf format
-def convertReport4():
+def testSpecConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
     input_filename = ("TEST_SPECIFICATION.md")
@@ -1363,25 +1349,25 @@ def switch1():
         if case(2):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST REQUIREMENTS ELICITATION PROCESSING\n\n")
-            processingInformation()
+            securityRequirements()
             informationCapture()
 
         if case(3):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST BEST PRACTICES ELICITATION PROCESSING\n\n")
-            processingInformation2()
+            goodPractices()
             informationCapture()
 
         if case(4):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST ATTACK MODELS ELICITATION PROCESSING\n\n")
-            processingInformation3()
+            attackModels()
             informationCapture()
 
         if case(5):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST TEST SPECIFICATION ELICITATION PROCESSING\n\n")
-            processingInformation4()
+            testSpecification()
             informationCapture()
 
         if case(6):
@@ -1418,7 +1404,7 @@ def informationCapture():
 
 #############################################################################################################
 # Processing Information main function about Security Requirements
-def processingInformation():
+def securityRequirements():
     print("")
     print("  Processing information.....")
     print("")
@@ -1444,16 +1430,14 @@ def processingInformation():
     ###################################################################################################
 
     # check if authentication, database and personal information, confidential or critical data are choosen
-    if qans["Q4"].find("1") != -1 and (
-            qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/confidentiality.md", "r").read())
 
     ###################################################################################################
     # integrity requirements
-    if qans["Q4"].find("1") != -1 and (
-            qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/integrity.md", "r").read())
@@ -1466,8 +1450,7 @@ def processingInformation():
 
     ###################################################################################################
     # authentication requirements
-    if qans["Q4"].find("1") != -1 and (
-            qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         report.write(open("requirements/authentication.md", "r").read())
 
     ###################################################################################################
@@ -1499,16 +1482,14 @@ def processingInformation():
 
     ###################################################################################################
     # physical security requirements
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) and qans["Q20"].find(
-            "1") != -1:
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) and qans["Q20"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/physicalSecurity.md", "r").read())
 
     ###################################################################################################
     # forgery resistance requirement
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) and qans["Q20"].find(
-            "1") != -1:
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) and qans["Q20"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/forgeryResistance.md", "r").read())
@@ -1550,13 +1531,13 @@ def processingInformation():
         report.write(open("requirements/dataOriginAuthentication.md", "r").read())
 
     report.close()
-    convertReport()
+    securRequirconvertReport()
     print("# Processing done! Check your requirements in the SECURITY_REQUIREMENTS.pdf file")
 
 
 #############################################################################################################
 # Processing Information main function about Good Practices
-def processingInformation2():
+def goodPractices():
     print("")
     print("  Processing information.....")
     print("")
@@ -1579,13 +1560,13 @@ def processingInformation2():
 
     # check if embebbed systems are chosen
     if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1 or qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
-        if qans["Q1"].find("14") != -1:
+        if qans["Q1"].find("7") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("goodPractices/IOT_Security_guide.md", "r").read())
     
     # check if SQL database is choosed
-    if qans["Q1"].find("4") != -1 and qans["Q1"].find("13"):
+    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4"):
         if qans["Q3"].find("1") != -1 and qans["Q5"].find("1"):
             report.write("\n")
             report.write("\n")
@@ -1607,7 +1588,7 @@ def processingInformation2():
         # write input validation guide
         report.write(open("goodPractices/Input_Validation_guide.md", "r").read())
 
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
+    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
         if qans["Q3"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
             report.write("\n")
             report.write("\n")
@@ -1628,7 +1609,7 @@ def processingInformation2():
         report.write(open("goodPractices/Cryptography_guide.md", "r").read())
 
     # write SSL/TLS guide
-    if ((qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and (
+    if ((qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (
             qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1)):
         report.write("\n")
         report.write("\n")
@@ -1667,13 +1648,13 @@ def processingInformation2():
         report.write(open("goodPractices/App_Third_Party_guide.md", "r").read())
 
     report.close()
-    convertReport2()
+    goodPracticeConvertReport()
     print("# Processing done! Check your requirements in the GOOD_PRACTICES.pdf file")
 
 
 #############################################################################################################
 # Processing Information main function
-def processingInformation3():
+def attackModels():
     print("")
     print("  Processing information.....")
     print("")
@@ -1713,8 +1694,8 @@ def processingInformation3():
 
     ###########################################################################################################
     ###########################################################################################################
-    # Se a aplicação for web ou híbrida, teremos o XSS
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
+    # If the application is web or hybrid, we have XSS
+    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
         if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
@@ -1729,8 +1710,7 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # If the aplication is web or hybrid, we have Cookie Poisoning
-    if (qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and (
-            qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
+    if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/dnsPoisoningAttack.md", "r").read())
@@ -1760,8 +1740,7 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # f the application is web or hybrid, we have CAPTCHA Breaking Attacks
-    if (qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and (
-            qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
+    if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/captchaBreaking.md", "r").read())
@@ -1776,9 +1755,8 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # Database use and public cloud environment SQLi attacks
-    if qans["Q1"].find("4") != -1 and qans["Q1"].find("13") != -1:
-        if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
-                qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
+        if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/SQLi.md", "r").read())
@@ -1833,7 +1811,7 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # DNS Attacks
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
+    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
         report.write(open("attackModels/DNS.md", "r").read())
 
         # DNS Poisoning attack tree diagram
@@ -1847,7 +1825,7 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # If the application is web or hybrid, we have Reused IP Address Attacks
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
+    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/reusedIPAddress.md", "r").read())
@@ -1888,7 +1866,7 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # If the application is web or hybrid, we have XML
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
+    if qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/XMLi.md", "r").read())
@@ -1903,7 +1881,7 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # If the application is web or hybrid, we have Session Hijacking and Session Fixation
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
+    if qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
         if qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
             if qans["Q4"].find("1") != -1 and qans["Q10"].find("6") != -1:
                 report.write("\n")
@@ -1934,7 +1912,7 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # If the system was development for iOS, Tizen and embedded platforms (Buffer Overflow)
-    if qans["Q1"].find("2") != -1 or qans["Q1"].find("11") != -1 or qans["Q1"].find("14") != -1:
+    if qans["Q1"].find("2") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("7") != -1:
         if qans["Q10"].find("2") != -1:
             report.write("\n")
             report.write("\n")
@@ -2031,7 +2009,7 @@ def processingInformation3():
     ###########################################################################################################
     ###########################################################################################################
     # If the system was development for Android, iOS, Tizen and embedded platforms (Malware Injection Attacks)
-        if (qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1) and qans["Q4"].find("1") != -1:    
+        if (qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1) and qans["Q4"].find("1") != -1:    
             if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2064,12 +2042,12 @@ def processingInformation3():
     ###########################################################################################################
 
     report.close()
-    convertReport3()
+    attackModelConvertReport()
     print("# Processing done! Check your requirements in the ATTACKS_MAPPING.pdf file")
 
 #############################################################################################################
 # Processing Information main function
-def processingInformation4():
+def testSpecification():
     print("")
     print("  Processing information.....")
     print("")
@@ -2115,17 +2093,17 @@ def processingInformation4():
     ###################################################################################################
     ###################################################################################################
     # Security Testing against SQLi, XMLi, CRSF, XSS, googleHacking, etc. and phishing attacks 
-    if qans["Q1"].find("4") != -1 or  qans["Q1"].find("13") != -1:
+    if qans["Q1"].find("4") != -1 or  qans["Q1"].find("3") != -1:
         if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-            if qans["Q16"].find("1") != -1 and (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
+            if qans["Q16"].find("1") != -1 or (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
                 report.write("\n")
                 report.write("\n")
                 report.write(open("securityTesting/SQLiXSSCSRFSPOOFINGTEST.md", "r").read())
 
     ###################################################################################################
     ###################################################################################################
-    # Securit Testing against Sniffing, Pharming, Phishing, Spoofing Attacks
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1  or qans["Q1"].find("4") != -1 or qans["Q1"].find("13") != -1:
+    # Security Testing against Sniffing, Pharming, Phishing, Spoofing Attacks
+    if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1  or qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
         if qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1:
             report.write(open("securityTesting/BOTNETSNIFFINGSPOOFINGPHISHINGTEST.md", "r").read())
             report.write("\n")
@@ -2134,7 +2112,7 @@ def processingInformation4():
     ###################################################################################################
     ###################################################################################################
     # Malware Spoofing, Watering Hole Attack, Sniffing, etc.
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("2") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("11") != -1 or qans["Q1"].find("13") != -1:
+    if qans["Q1"].find("4") != -1 or qans["Q1"].find("2") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("3") != -1:
         if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) :
             if qans["Q19"].find("1") != -1 or  qans["Q19"].find("2") != -1 or qans["Q19"].find("4") != -1 or qans["Q19"].find("5") != -1 or qans["Q19"].find("6") != -1 or qans["Q19"].find("8") != -1 :
                 report.write("\n")
@@ -2144,7 +2122,7 @@ def processingInformation4():
     ###################################################################################################
     ###################################################################################################
     # If the system was development for iOS, Tizen and embedded platforms (Buffer Overflows)
-    if qans["Q1"].find("2") != -1 or qans["Q1"].find("11") != -1 or qans["Q1"].find("14") != -1:
+    if qans["Q1"].find("2") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("7") != -1:
         if qans["Q10"].find("2") != -1:
             report.write("\n")
             report.write("\n")
@@ -2164,10 +2142,8 @@ def processingInformation4():
     ###################################################################################################
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Insiders Malicious Attacks)
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
+    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find("6") != -1:
+        if qans["Q4"].find("1") != -1 and (qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
             if qans["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2178,10 +2154,8 @@ def processingInformation4():
     ###################################################################################################
     ###################################################################################################
     # Security Testing against physical Attacks
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find(
-            "11") != -1 or qans["Q1"].find("11") != -1:
-        if qans["Q4"].find("1") != -1 and (
-                qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
+    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find("6") != -1:
+        if qans["Q4"].find("1") != -1 and (qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
             if qans["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2190,15 +2164,15 @@ def processingInformation4():
                 report.write("\n")
 
     report.close()
-    convertReport4()
+    testSpecConvertReport()
     print("# Processing done! Check your requirements in the TEST_SPECIFICATION.pdf file")
 
 def fullReport():
     
-    processingInformation()
-    processingInformation2()
-    processingInformation3()
-    processingInformation4()
+    securityRequirements()
+    goodPractices()
+    attackModels()
+    testSpecification()
 
     pdfs = ['SECURITY_REQUIREMENTS.pdf', 'GOOD_PRACTICES.pdf', 'ATTACKS_MAPPING.pdf', 'TEST_SPECIFICATION.pdf']
 

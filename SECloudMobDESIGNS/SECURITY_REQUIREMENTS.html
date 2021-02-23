@@ -8,12 +8,12 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">Architeture</td>
-<td align="left">IoT System</td>
+<td align="left">Architecture</td>
+<td align="left">Android App</td>
 </tr>
 <tr>
 <td align="left">Application domain type</td>
-<td align="left">Smart Home</td>
+<td align="left">m-Health</td>
 </tr>
 <tr>
 <td align="left">Authentication</td>
@@ -29,11 +29,11 @@
 </tr>
 <tr>
 <td align="left">Which DB</td>
-<td align="left">MySQL</td>
+<td align="left">SQLite</td>
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
-<td align="left">Personal Information ; Critical Data</td>
+<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
 </tr>
 <tr>
 <td align="left">User Registration</td>
@@ -41,11 +41,11 @@
 </tr>
 <tr>
 <td align="left">Type of Registration</td>
-<td align="left">Will be a administrator that will register the users</td>
+<td align="left">The users will register themselves</td>
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<td align="left">C/C++</td>
+<td align="left">Java</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td align="left">Upload Files</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 </tr>
 <tr>
 <td align="left">The system has logs</td>
@@ -61,11 +61,11 @@
 </tr>
 <tr>
 <td align="left">The system has regular updates</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 </tr>
 <tr>
 <td align="left">The system has third-party</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 </tr>
 <tr>
 <td align="left">System Cloud Environments</td>
@@ -77,11 +77,11 @@
 </tr>
 <tr>
 <td align="left">HW Authentication</td>
-<td align="left">TPM (Trusted Platform Module)</td>
+<td align="left">Basic Authentication (user/pass)</td>
 </tr>
 <tr>
 <td align="left">HW Wireless Tech</td>
-<td align="left">Wi-Fi  ; Bluetooth</td>
+<td align="left">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC</td>
 </tr>
 <tr>
 <td align="left">Data Center Phisical Access</td>
@@ -227,6 +227,12 @@ Refers to the property that guarantees consistent intended behavior of an a gene
 <p>This type of attacks occurs when a attacker preforms physical modifications on the hardware where the software is implemented.</p>
 <h3>2. Reused IP Address Attack</h3>
 <p>In this attack some nods are made more attractive than others by tampering with the routing information, when arriving to the sinkhole node the  messages may be dropped or altered. </p>
+<h1>Confinement</h1>
+<p>Ensures that even if a party is corrupted, the spreading of the effects of the attack is as confined as possible. </p>
+<p><strong>Note:</strong> <em>This requirement is applied in the entire system.</em> </p>
+<h1>Interoperability</h1>
+<p>Is the propriety that ensures that different software communicates and works well with each-other, sharing resources such as network, processing and memory without constraints.</p>
+<p><strong>Note:</strong> <em>This requirement is applied in the entire system.</em>  </p>
 <h1>Data Origin Authentication</h1>
 <p>Ensures that the data being received by the software comes from the source it claims to be. In other words it ensures that the data being received is authentic and from a trusted party. </p>
 <p><strong>Note:</strong> <em>This requirement is applied between the communications.</em>  </p>

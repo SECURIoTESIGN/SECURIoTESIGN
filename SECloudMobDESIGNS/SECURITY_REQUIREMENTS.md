@@ -2,25 +2,25 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Architeture              |  IoT System                                                  |  
-|  Application domain type  |  Smart Home                                                  |  
+|  Architecture             |  Android App                                                 |  
+|  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Username and Password                                       |  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  MySQL                                                       |  
-|  Type of data stored      |  Personal Information ; Critical Data                        |  
+|  Which DB                 |  SQLite                                                      |  
+|  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be a administrator that will register the users        |  
-|  Programming Languages    |  C/C++                                                       |  
+|  Type of Registration     |  The users will register themselves                          |  
+|  Programming Languages    |  Java                                                        |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  No                                                          |  
+|  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
-|  The system has regular updates|  No                                                          |  
-|  The system has third-party|  No                                                          |  
+|  The system has regular updates|  Yes                                                         |  
+|  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
-|  HW Authentication        |  TPM (Trusted Platform Module)                               |  
-|  HW Wireless Tech         |  Wi-Fi  ; Bluetooth                                          |  
+|  HW Authentication        |  Basic Authentication (user/pass)                            |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -280,6 +280,18 @@ This type of attacks occurs when a attacker preforms physical modifications on t
 ### 2. Reused IP Address Attack
  
 In this attack some nods are made more attractive than others by tampering with the routing information, when arriving to the sinkhole node the  messages may be dropped or altered. 
+
+
+# Confinement    
+Ensures that even if a party is corrupted, the spreading of the effects of the attack is as confined as possible. 
+
+**Note:** *This requirement is applied in the entire system.* 
+
+# Interoperability 
+    
+Is the propriety that ensures that different software communicates and works well with each-other, sharing resources such as network, processing and memory without constraints.
+
+**Note:** *This requirement is applied in the entire system.*  
 
 
 # Data Origin Authentication 
