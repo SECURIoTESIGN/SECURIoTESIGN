@@ -2,16 +2,16 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Architecture             |  Android App                                                 |  
+|  Architecture             |  Hybrid Application                                          |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Username and Password                                       |  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  SQLite                                                      |  
+|  Which DB                 |  MySQL                                                       |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Programming Languages    |  HTML5 ; Javascript ; PHP                                    |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  

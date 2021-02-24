@@ -1,13 +1,13 @@
-1;                   # Android App         
+4;                   # Hybrid Application  
 4                    # m-Health            
 2                    # Username and Password
 1                    # Yes                 
 1                    # SQL                 
-4                    # SQLite              
+2                    # MySQL               
 1;2;3;               # Personal Information ; Confidential Data ; Critical Data
 1                    # Yes                 
 1                    # The users will register themselves
-4;                   # Java                
+3;5;6;               # HTML5 ; Javascript ; PHP
 1                    # Yes                 
 1                    # Yes                 
 1                    # Yes                 

@@ -361,10 +361,10 @@ def arqui(version):
 
     while (1):
         # validate a integer (arg[0]==1 and specify the number available options(arg[1]==10))
-        value = validateInput(1, 16)
+        value = validateInput(1, 11)
         if value == 0:
             return
-        if value == 15:
+        if value == 10:
             print("  Please specify the architecture: (name between single quotes)  ")
             value2 = validateInput(2)
             # question_1["9"] = str(value2)
@@ -2073,7 +2073,7 @@ def testSpecification():
     ###################################################################################################
     ###################################################################################################
     # Security Testing against DoS, DDoS and Botnet Attacks
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
         if qans["Q16"].find("1") != -1 or qans["Q16"].find("2") != -1 or qans["Q16"].find("3") != -1 or qans["Q16"].find("4") != -1 :
             report.write(open("securityTesting/BOTNETDOSDDOSTEST.md", "r").read())
             report.write("\n")
@@ -2094,7 +2094,7 @@ def testSpecification():
     ###################################################################################################
     # Security Testing against SQLi, XMLi, CRSF, XSS, googleHacking, etc. and phishing attacks 
     if qans["Q1"].find("4") != -1 or  qans["Q1"].find("3") != -1:
-        if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+        if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
             if qans["Q16"].find("1") != -1 or (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
                 report.write("\n")
                 report.write("\n")

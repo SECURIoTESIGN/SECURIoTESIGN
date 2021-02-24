@@ -20,7 +20,7 @@ In order to avoid or prevent *SQLi, XSS, Spoofing and CSRF attacks*, the followi
     <td class="tg-0lax">Authentication and Authorization </td>
     <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Grey Box</span> </td>
     <td class="tg-0lax">Dinamic analysis via Vulnerability Scanner </td>
-    <td class="tg-0lax">OWASP WebScarab, OWASPBerretta, Nikto, Wikto, Paros Proxy, Spike Proxy, EOR, Pantera</td>
+    <td class="tg-0lax">OWASP WebScarab, OWASP Berretta, Nikto, Wikto, Paros Proxy, Spike Proxy, EOR, Pantera</td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>

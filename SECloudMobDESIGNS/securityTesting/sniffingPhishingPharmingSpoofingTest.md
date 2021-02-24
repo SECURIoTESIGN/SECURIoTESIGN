@@ -33,7 +33,7 @@ In order to avoid or prevent *Sniffing, Phishing, Pharming, Botnet, Spoofing att
     <td class="tg-cly1"></td>
     <td class="tg-0lax">Black Box</td>
     <td class="tg-cly1">Dinamic Analysis via Penetration Test or Attack Injection</td>
-    <td class="tg-cly1">TCPDump, Wireshak</td>
+    <td class="tg-cly1">TCPDump, Wireshark</td>
     <td class="tg-cly1"></td>
     <td class="tg-cly1"></td>
   </tr>
