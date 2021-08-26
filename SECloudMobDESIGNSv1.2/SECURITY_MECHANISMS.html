@@ -1,0 +1,840 @@
+<h1>Final Security Mechanisms Report</h1>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Mobile Plataform</td>
+<td align="left">Web Application ; Hybrid Application</td>
+</tr>
+<tr>
+<td align="left">Application domain type</td>
+<td align="left">m-Health</td>
+</tr>
+<tr>
+<td align="left">Authentication</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Authentication schemes</td>
+<td align="left">Biometric-based authentication ; Channel-based authentication ; Factors-based authentication</td>
+</tr>
+<tr>
+<td align="left">Has DB</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Type of data storage</td>
+<td align="left">SQL</td>
+</tr>
+<tr>
+<td align="left">Which DB</td>
+<td align="left">MySQL</td>
+</tr>
+<tr>
+<td align="left">Type of data stored</td>
+<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
+</tr>
+<tr>
+<td align="left">User Registration</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Type of Registration</td>
+<td align="left">The users will register themselves</td>
+</tr>
+<tr>
+<td align="left">Programming Languages</td>
+<td align="left">HTML5 ; PHP</td>
+</tr>
+<tr>
+<td align="left">Input Forms</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Upload Files</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">The system has logs</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">The system has regular updates</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">The system has third-party</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">System Cloud Environments</td>
+<td align="left">Public Cloud</td>
+</tr>
+<tr>
+<td align="left">Hardware Specification</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">HW Authentication</td>
+<td align="left">Basic Authentication (user/pass)</td>
+</tr>
+<tr>
+<td align="left">HW Wireless Tech</td>
+<td align="left">5G ; 3G ; 4G/LTE ; Wi-Fi  ; Bluetooth</td>
+</tr>
+<tr>
+<td align="left">Data Center Phisical Access</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Mobile Plataform</td>
+<td align="left">Web Application ; Hybrid Application</td>
+</tr>
+<tr>
+<td align="left">Application domain type</td>
+<td align="left">m-Health</td>
+</tr>
+<tr>
+<td align="left">Authentication</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Authentication schemes</td>
+<td align="left">Biometric-based authentication ; Channel-based authentication ; Factors-based authentication</td>
+</tr>
+<tr>
+<td align="left">Has DB</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Type of data storage</td>
+<td align="left">SQL</td>
+</tr>
+<tr>
+<td align="left">Which DB</td>
+<td align="left">MySQL</td>
+</tr>
+<tr>
+<td align="left">Type of data stored</td>
+<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
+</tr>
+<tr>
+<td align="left">User Registration</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Type of Registration</td>
+<td align="left">The users will register themselves</td>
+</tr>
+<tr>
+<td align="left">Programming Languages</td>
+<td align="left">HTML5 ; PHP</td>
+</tr>
+<tr>
+<td align="left">Input Forms</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Upload Files</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">The system has logs</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">The system has regular updates</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">The system has third-party</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">System Cloud Environments</td>
+<td align="left">Public Cloud</td>
+</tr>
+<tr>
+<td align="left">Hardware Specification</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">HW Authentication</td>
+<td align="left">Basic Authentication (user/pass)</td>
+</tr>
+<tr>
+<td align="left">HW Wireless Tech</td>
+<td align="left">5G ; 3G ; 4G/LTE ; Wi-Fi  ; Bluetooth</td>
+</tr>
+<tr>
+<td align="left">Data Center Phisical Access</td>
+<td align="left">Yes</td>
+</tr>
+</tbody>
+</table>
+<p>In order to guarantee the confidentiality, availability and privacy of shared data and  data freshness, at rest, in use or in transit by legitimate users and communications, as well as the integrity and authenticity of data and communications, developers are recommended of apps for the cloud &amp; mobile platform incorporate <em>secure backup mechanisms</em> in the implementation and codification phase of the software development process, as described below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Integrity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authenticity and </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">privacy, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authorization, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">availability, data </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">freshness</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Backup</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Local and remote </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">encrypted storage </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">using modern and </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">secure encryption </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">schemes</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">To incorporate remote </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication mechanisms, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">that is, access to stored </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">data should only be possible </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">through remote authentication</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Data Link</span></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Using NIDS, NIPS, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">HIDS, HIPS</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Allow to guarantee the </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">defense in depth</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Network</span></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">To incorporate </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">hybrid authentication </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">mechanisms for </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">accessing applications </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">from the mobile device </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">(e.g., fingerprint and PIN, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">face recognition and PIN </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">or voice and PIN recognition, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">iris recognition and PIN or PIN)</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">To incorporate access </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">control mechanisms </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">that ensure application </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">data isolation and </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">user session management</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Installing IPS and IDS </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">on mobile devices, in order</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black"> to guarantee the perimeter </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">security of user data stored </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">locally</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Network</span></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to guarantee the integrity and availability of user data stored in the cloud and consequently their leakage or loss, it is recommended that developers of mobile applications incorporate <em>audit mechanisms</em>, based on the illustration below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Confiability, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Integrity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authenticity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">audit, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">accountability</span></td>
+    <td class="tg-7zrl">Both</td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Audit</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Record inspection </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">and analysis </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">mechanisms</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Identity-based public cloud </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">auditing scheme</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Data Link</span></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">An identity-based distributed </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">probable data ownership scheme</span></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Audit scheme for public </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">cloud </span><span style="color:black">storage based on </span><br><span style="color:black">authorized identity with </span><br><span style="color:black">hierarchical structure for </span><br><span style="color:black">large-scale user groups</span></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to guarantee the confidentiality and privacy of data shared, at rest or in transit by legitimate users and communications, as well as the integrity, authenticity of data and communications, it is recommended to developers of apps for the cloud &amp; mobile platform to incorporate the algorithms cryptographic and related mechanisms in the implementation and codification phase of the software development process, as described below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+<tr>
+<td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Privacy and confidentiality, authenticity, authorization</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Cryptographic algorithms and related mechanisms</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">TCP/TLS, HTTPS, XMPP, AES256-RSA, SSL/TLS, HTTPSCurve25519, AES-256, AES256-RSA2048</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Encrypted communications</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Presentation and Application</span></td>
+
+  </tr>
+
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">MAC, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signatures</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentic communications</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Presentation </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">and Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">AES-GCM-256 or ChaCha20-</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Poly1305</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Confidentiality Algorithms</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Presentation </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">and Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">RSA (3072 bits and higher), </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">ECDSA with NIST P-384</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature Algorithms</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Presentation </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">and Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Integrity</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">SHA-256, SHA-384, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">SHA-512, Blake2</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Presentation </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">and Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black"> </span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black"> </span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black"> </span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">RSA (3072 bits and higher), </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">DH (3072 bits or higher), </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">ECDH with NIST P-384</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Key establishment algorithms</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Presentation </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">and Application</span></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure that personal data, applications and servers are authentic and that they are only accessed by legitimate or authorized entities, it is recommended to incorporate the authentication and backup mechanisms in the implementation and codification phase of the software development process, as described in the table below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authenticity</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Biometric-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Gaze Gesture, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Electrocardiogram, Voice </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">recognition, Signature </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">recognition, Gait recognition, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Behavior profiling, Fingerprint, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Smart card, Multi-touch </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">interfaces, Graphical </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">password, Face recognition, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Iris recognition, Rhythm, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Capacitive touch-screen, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Ear Shape, Arm Gesture, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Keystroke Dinamics, Touch </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">dinamics</span> </td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure that personal data, applications and servers are authentic and that they are only accessed by legitimate or authorized entities, it is recommended to incorporate the authentication and backup mechanisms in the implementation and codification phase of the software development process, as described in the table below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authenticity</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Channel-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Physical proximity, Electronic</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">voting, Seamless roaming, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Transitive authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Atribute-based authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">User-habit-oriented authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Handover authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Secure Boot</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums</span></td>
+    <td class="tg-0pky">Boot verification of hardware, software and firmware integrity</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure that personal data, applications and servers are authentic and that they are only accessed by legitimate or authorized entities, it is recommended to incorporate the authentication and backup mechanisms in the implementation and codification phase of the software development process, as described in the table below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authenticity</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Factors-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Two-factor, Three-factor, Multi-factor</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Secure Boot</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums  </span></td>
+    <td class="tg-0pky">Boot verification of hardware, software and firmware integrity</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure that the data shared and exchanged between two or more authorized entities are reliable, complete, authentic and only accessible to these entities, it is recommended that software developers for the mobile ecosystem incorporate <em>cryptographic protocols</em> in the implementation and codification phase of the software development process, as described below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Cryptographic </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Protocols over </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">SCTP/UDP</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">SSL/TLS, DTLS</span> </td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Protocols that can be used </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">or implemented over a network </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">to ensure secure data transmission over</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black"> UDP and SCTP</span> </td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Presentation, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Session</span> </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Wireless </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Cryptographic </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Protocols</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">WEP, WPA, 802.11i (WPA2), </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">EAP, PSK, TKIP, PEAP, EAP-TTLS, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">EAP-PSK, EAP-SIM, EAP-</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">AKA, AES-CCMP</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Security Protocols than can </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">be used or im- plemented specifically </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">for wireless networks</span> </td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Transport</span> </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Cryptographic </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Protocols over </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">IP Protocol</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">IPSec, PEAP, EAP-TLS</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Protocols that ensure data packet </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">encryption and authentication over </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">the IP Protocol</span> <br></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Network and </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Data Link</span> </td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure that applications and users access only and only the resources allowed, safeguarding the principle of minimum privileges, it is recommended that developers of apps for the cloud &amp; mobile ecosystem incorporate <em>access control mechanisms</em> in the coding implementation phase in the software development process, according to the suggestions described below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-8gdb{background-color:#A6A6A6;border-color:inherit;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-8gdb"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-8gdb"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-8gdb"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-8gdb"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-8gdb"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-8gdb"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authorization, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">audit, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authenticity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">interoperability</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Access Control</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">RBAC, ABAC, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">ABE</span></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Android</span></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">DR BACA, CA-</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">ARBAC, RBACA</span></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+</tbody>
+</table>
+
+<p>To ensure a permanent or almost permanent observation of the system, in order to detect any unexpected activity or detect abuses by privileged users, app developers for the cloud &amp; mobile ecosystem are recommended to incorporate inspection mechanisms in the implementation and coding phase in the software development process, as described below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Privacy, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authorization, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">immunity, </span><br>Tampering Detection</td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Inspection</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">IDS, IPS, NIDS, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">NIPS, HIDS, HIPS</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Network</span></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure non-repudiation, audit and accountability by all legitimate or illegitimate entities in the cloud &amp; mobile ecosystem, it is recommended that mobile app developers incorporate <em>logging mechanisms</em> during the implementation and coding in the software development process, as described below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7zrl"><br><span style="font-weight:400;font-style:normal;text-decoration:none">Non repudiation, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none">audit, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none">accountability</span><br></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Logging</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">System log files or </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">event log</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">It is recommended that </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">developers, during the </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">coding phase, use the </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">native APIs of each of </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">the mobile device </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">platforms that allow </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">incorporating Logging </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">into applications during </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">the software development </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">process.</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Data Link</span></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:normal;font-style:normal;text-decoration:none">All mechanisms </span><br><span style="font-weight:normal;font-style:normal;text-decoration:none">related to storage </span><br><span style="font-weight:normal;font-style:normal;text-decoration:none">or secure backup apply</span><br></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure that the application and confidential data of legitimate users are not accessed by third parties from the device or remotely from the data center, it is recommended that users incorporate <em>tampering detention mechanisms</em> on the device, as illustrated below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authorization, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authenticity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">privacy, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">immunity</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Device Adulterion </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Detection</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Incorporation of hybrid </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication schemes </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">into the application</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Incorporation of access </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">control and session </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">management mechanisms</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black"> that guarantee the sending </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">of notifications whenever </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">there is new access from </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">a new device or browser</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Session</span></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure that user data stored in remote databases is safe and reliable, app developers for the cloud &amp; mobile ecosystem are recommended to incorporate data <em>location physical mechanisms</em> for data centers.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Physical security</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black"> Both</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Physical security </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">location</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Smartcards, mobile </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">surveillance cameras </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">with 360 degree night </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">vision, motion sensors </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">and detectors, facial </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">recognition identification </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">cameras, etc.</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black"> </span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Physical</span></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure that applications are resilient to an eventual attack and that they do not violate the principle of minimum requirements when sharing resources locally or remotely, app developers for the cloud &amp; mobile ecosystem are recommended to incorporate <em>confinement mechanisms</em>, as well as those of access control or secure permissions.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Privacy, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">integrity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authenticity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">immunity</span></td>
+    <td class="tg-7zrl"><span style="font-weight:normal;font-style:normal;text-decoration:none">Both</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Confinement</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Sandboxing</span></td>
+    <td class="tg-7zrl">Its purpose is to guarantee the privacy, integrity and authenticity of the data of the end users and the integrity of the system </td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:normal;font-style:normal;text-decoration:none">Both</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Firewall</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:normal;font-style:normal;text-decoration:none">Both</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">DMZ</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">iOS</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Unix Permissions</span> </td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">iOS</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">iOS Capabilities</span> </td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+  <tr>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">iOS</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Hard-Coded Checks</span> </td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"></td>
+  </tr>
+</tbody>
+</table>
+
+<p>In order to ensure that legitimate or illegitimate users or machines do not access users' confidential data or potentially unsafe resources or harmful content to sensitive users or children, app developers for the cloud &amp; mobile ecosystem are recommended to incorporate filtering mechanisms , such as those listed below.</p>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Integrity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authenticity,</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">access Control, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Privacy</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Filtering</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Firewall and </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Cryptographic Techniques</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Network</span></td>
+  </tr>
+</tbody>
+</table>
