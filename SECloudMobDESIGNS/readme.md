@@ -3,8 +3,6 @@ The present application in its version 1.0 is a framework of tools whose main pu
 
 SECloudMobDESIGNS is developed by Francisco T. Chimuco and Pedro R. M. Inácio from the Instituto de Telecomunicaçoes, and Department of Computer Science, Universidade da Beira Interior, Covilha, Portugal.
 
-This Work was developed under Doctoral Grant, supported by project CENTRO-01-0145-FEDER-000019 - C4 - Competence Center in Cloud Computing, Research Line 1: Cloud Systems, Work package WP 1.2 - Systems design and development processes and software for Cloud and Internet of Things ecosystems, cofinanced by the European Regional Development Fund (ERDF) through the Programa Operacional Regional do Centro (Centro 2020), in the scope of the Sistema de Apoio à Investigação Científica e Tecnológica - Programas Integrados de IC&DT.
-
 Copyright (c) 2020 Francisco T. Chimuco and Pedro R. M. Inácio francisco.chimuco@ubi.pt. All rights reserved.
 
 SPDX-License-Identifier: Apache-2.0. The copy of the License may be obtained at http://www.apache.org/licenses/LICENSE-2.0
@@ -24,3 +22,6 @@ To compile and run the application, follow the instructions below:
 1. Clone or download the project from the project's main page;
 2. Open the project using any of the previous IDEs;
 3. Compile and run the application. The source code can be found in the SECloudMobDESIGNS.py file, which must be compiled from the application. 
+
+# Acknowledgment
+This Work was developed under Doctoral Grant, supported by project CENTRO-01-0145-FEDER-000019 - C4 - Competence Center in Cloud Computing, Research Line 1: Cloud Systems, Work package WP 1.2 - Systems design and development processes and software for Cloud and Internet of Things ecosystems, cofinanced by the European Regional Development Fund (ERDF) through the Programa Operacional Regional do Centro (Centro 2020), in the scope of the Sistema de Apoio à Investigação Científica e Tecnológica - Programas Integrados de IC&DT.
