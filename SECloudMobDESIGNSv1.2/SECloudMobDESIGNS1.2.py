@@ -300,7 +300,7 @@ def validateInput(*arg):
         # validate a int
         if arg[0] == 1:
             try:
-                user_input = input("  > ")
+                user_input = input(" > ")
                 user_input = int(user_input)
 
             # syntax error, name error
@@ -1372,7 +1372,9 @@ def testSpecConvertReport():
 def switch1():
     label.begin
     val = int(input("\nWhats is your option?\n"))
-    # val = validateInput(1,18)
+    #val = validateInput(1, 9)
+    print("")
+
     with Switch(val) as case:
         if case(1):
             print("---")
