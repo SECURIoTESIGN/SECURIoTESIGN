@@ -1372,7 +1372,7 @@ def testSpecConvertReport():
 def switch1():
     label.begin
     val = int(input("\nWhats is your option?\n"))
-    # val = validateInput(1,18)
+    
     with Switch(val) as case:
         if case(1):
             print("---")
