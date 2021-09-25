@@ -51,11 +51,6 @@ The following libraries are considered weak random numbers generators and should
 
 * C library: random(), rand(), use getrandom(2) instead;		
 * Java library: java.util.Random() instead use java.security.SecureRandom instead.		
-<<<<<<< HEAD
-
-For secure random number generation, refer to NIST SP 800-90A. CTR-DRBG, HASH-DRBG, HMAC-DRBG are recommended.
-=======
->>>>>>> 76281e3d2e20ad9dbc715e09db11b9c6f4452af6
 
 For secure random number generation, refer to NIST SP 800-90A. CTR-DRBG, HASH-DRBG, HMAC-DRBG are recommended.
 
