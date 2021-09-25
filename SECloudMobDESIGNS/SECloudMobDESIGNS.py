@@ -1280,10 +1280,6 @@ def testSpecConvertReport():
 @with_goto
 def switch1():
     label.begin
-<<<<<<< HEAD
-
-=======
->>>>>>> fea3540ab8e80a4aa600de16828b7cab31767462
     val = 0
     
     while True:
@@ -1294,10 +1290,6 @@ def switch1():
             goto.begin
         else:
             break
-<<<<<<< HEAD
-
-=======
->>>>>>> fea3540ab8e80a4aa600de16828b7cab31767462
     with Switch(val) as case:
         if case(1):
             print("---")
