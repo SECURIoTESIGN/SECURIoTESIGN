@@ -1,4 +1,4 @@
-## Access Control	
+# Access Control	
 
 Authorization is the process where requests to access a particular resource should be granted or denied. It should be noted that authorization is not equivalent to authentication - as these terms and their definitions are frequently confused. 
 Authentication is providing and validating identity. 
@@ -7,7 +7,8 @@ Authorization includes the execution rules that determines what functionality an
 Web applications need access controls to allow users (with varying privileges) to use the application. They also need administrators to manage the applications access control rules and the granting of permissions or entitlements to users and other entities. 
 
 
-**Role Based Access Control (RBAC)**	
+## Role Based Access Control
+	
 Access decisions are based on an individual's roles and responsibilities within the organization or user base. An RBAC access control framework should provide web application security administrators with the ability to determine who can perform what actions, when, from where, in what order, and in some cases under what relational circumstances. 
 
 Advantages: 
@@ -31,47 +32,49 @@ Areas of caution:
 * When a user changes his role to another one, the administrator must make sure that the earlier access is revoked such that at any given point of time, a user is assigned to only those roles on a need to know basis.  
 * Assurance for RBAC must be carried out using strict access control reviews. 
 
-**Discretionary Access Control (DAC)** 
- is a means of restricting access to information based on the identity of users and/or membership in certain groups. Access decisions are typically based on the authorizations granted to a user based on the credentials he presented at the time of authentication. The owner of information or any resource is able to change its permissions at his discretion. 
+## Discretionary Access Control 
 
- Advantages: 
+Discretionary Access Control is a means of restricting access to information based on the identity of users and/or membership in certain groups. Access decisions are typically based on the authorizations granted to a user based on the credentials he presented at the time of authentication. The owner of information or any resource is able to change its permissions at his discretion. 
 
-  * Easy to use 
-  * Easy to administer 
-  * Aligns to the principle of least privileges. 
-  * Object owner has total control over access granted 
+Advantages: 
 
- Problems:  
+ * Easy to use; 
+ * Easy to administer; 
+ * Aligns to the principle of least privileges; 
+ * Object owner has total control over access granted. 
 
-  * Documentation of the roles and accesses has to be maintained stringently. 
-  * Multi-tenancy can not be implemented effectively unless there is a way to associate the roles with multi-tenancy capability requirements   
-  * There is a tendency for scope creep to happen e.g. more accesses and privileges can be given than intended for. 
+Problems: 
+ 
+ * Documentation of the roles and accesses has to be maintained stringently; 
+ * Multi-tenancy can not be implemented effectively unless there is a way to associate the roles with multi-tenancy capability requirements;   
+ * There is a tendency for scope creep to happen e.g. more accesses and privileges can be given than intended for. 
 
- Areas of caution: 
+Areas of caution: 
+ * While granting trusts; 
+ * Assurance for DAC must be carried out using strict access control reviews.
 
-  * While granting trusts 
-  * Assurance for DAC must be carried out using strict access control reviews.
-
-**Mandatory Access Control (MAC)** 
+## Mandatory Access Control
+ 
 Ensures that the enforcement of organizational security policy does not rely on voluntary web application user compliance. MAC secures information by assigning sensitivity labels on information and comparing this to the level of sensitivity a user is operating at.MAC is usually appropriate for extremely secure systems including multilevel secure military applications or mission critical data applications. 
 
-Advantages : 
+Advantages: 
 
- * Access to an object is based on the sensitivity of the object 
- * Access based on need to know is strictly adhered to and scope creep has minimal possibility 
- * Only an administrator can grant access 
+ * Access to an object is based on the sensitivity of the object; 
+ * Access based on need to know is strictly adhered to and scope creep has minimal possibility; 
+ * Only an administrator can grant access. 
 
-Problems : 
+Problems: 
 
- * Difficult and expensive to implement 
- * Not agile 
+ * Difficult and expensive to implement; 
+ * Not agile. 
 
-Areas of caution : 
+Areas of caution: 
 
- * Classification and sensitivity assignment at an appropriate and pragmatic level 
+ * Classification and sensitivity assignment at an appropriate and pragmatic level; 
  * Assurance for MAC must be carried out to ensure that the classification of the objects is at the appropriate level. 
 
-**Permission Based Access Control**	
+## Permission Based Access Control
+	
 Is the abstraction of application actions into a set of permissions. A permission may be represented simply as a string based name, for example "READ". Access decisions are made by checking if the current user has the permission associated with the requested application action. 
 
 The has relationship between the user and permission may be satisfied by creating a direct relationship between the user and permission (called a grant), or an indirect one. In the indirect model the permission grant is to an intermediate entity such as user group. 

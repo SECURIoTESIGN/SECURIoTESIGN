@@ -8,6 +8,7 @@ Buffer overflows is anomaly where a program, while writing data to a buffer, ove
 Buffer overflow may result in erratic program behavior, including memory access errors, incorrect results, a crash, or a breach of system security.
 
 ## Recommendations:
+
  * Use programming languages immune to buffer overflow vulnerabilities, such as, Java or C#;
  * In the event that it is not feasible to use languages ​​that are immune to buffer overflow vulnerabilities, defensive programming should consist of:
    * Always check the limits of buffers;
