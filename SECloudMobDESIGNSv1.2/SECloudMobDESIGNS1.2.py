@@ -1,4 +1,4 @@
-1#!/usr/bin/python coding=utf-8
+#!/usr/bin/python coding=utf-8
 # !/bin/bash
 
 # Author : Francisco Chimuco
@@ -12,7 +12,7 @@ from xhtml2pdf import pisa
 from switch import Switch
 from goto import with_goto
 from PyPDF2 import PdfFileMerger
-
+1
 version = 1
 
 # list that contains to answers in the written file
@@ -300,7 +300,7 @@ def validateInput(*arg):
         # validate a int
         if arg[0] == 1:
             try:
-                user_input = input(" > ")
+                user_input = input("  > ")
                 user_input = int(user_input)
 
             # syntax error, name error
@@ -1371,10 +1371,18 @@ def testSpecConvertReport():
 @with_goto
 def switch1():
     label.begin
-    val = int(input("\nWhats is your option?\n"))
-    #val = validateInput(1, 9)
-    print("")
+    
+    val = 0
+    while True:
+        try:
+            val = int(input("\nWhats is your option?\n"))       
+        except ValueError:
+            print("Erro! Introduza um número inteiro entre 1 e 8, de acordo o menu acima!")
+            goto.begin
+        else:
+            break
 
+    
     with Switch(val) as case:
         if case(1):
             print("---")
@@ -1478,10 +1486,11 @@ def switch1():
 
 
         if case(8):
+            print("\n\n*** Application finished successfully! ***\n\n")
             exit(0)
 
         if case.default:
-            print("Error! Insert a valid value between 1 and 8!")
+            print("\nError! Insert a valid value between 1 and 8!\n")
             goto.begin
 
 

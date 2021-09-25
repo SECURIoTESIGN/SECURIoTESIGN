@@ -2,47 +2,47 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Web Application ; Hybrid Application                        |  
-|  Application domain type  |  m-Health                                                    |  
+|  Mobile Plataform         |  Hybrid Application ; Web Application                        |  
+|  Application domain type  |  m-Payment                                                   |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Channel-based authentication ; Factors-based authentication|  
+|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQL Server                                                  |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  HTML5 ; PHP                                                 |  
+|  Type of Registration     |  Will be a administrator that will register the users        |  
+|  Programming Languages    |  HTML5 ; Javascript                                          |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Public Cloud                                                |  
+|  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Wi-Fi  ; Bluetooth                       |  
+|  HW Wireless Tech         |  5G ; GSM (2G) ; 3G ; 4G/LTE ; Wi-Fi  ; GPS                  |  
 |  Data Center Phisical Access|  Yes                                                         |  
-|  Mobile Plataform         |  Web Application ; Hybrid Application                        |  
-|  Application domain type  |  m-Health                                                    |  
+|  Mobile Plataform         |  Hybrid Application ; Web Application                        |  
+|  Application domain type  |  m-Payment                                                   |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Channel-based authentication ; Factors-based authentication|  
+|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQL Server                                                  |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  HTML5 ; PHP                                                 |  
+|  Type of Registration     |  Will be a administrator that will register the users        |  
+|  Programming Languages    |  HTML5 ; Javascript                                          |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Public Cloud                                                |  
+|  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Wi-Fi  ; Bluetooth                       |  
+|  HW Wireless Tech         |  5G ; GSM (2G) ; 3G ; 4G/LTE ; Wi-Fi  ; GPS                  |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -294,20 +294,20 @@ In order to ensure that personal data, applications and servers are authentic an
   </tr>
 </thead>
 <tbody>
-  
   <tr>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authenticity</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Channel-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Physical proximity, Electronic</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">voting, Seamless roaming, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Transitive authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Atribute-based authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">User-habit-oriented authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Handover authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Factors-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Two-factor, Three-factor, Multi-factor</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
   </tr>
+
   <tr>
     <td class="tg-0pky"></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Secure Boot</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums  </span></td>
     <td class="tg-0pky">Boot verification of hardware, software and firmware integrity</td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
   </tr>
@@ -339,18 +339,17 @@ In order to ensure that personal data, applications and servers are authentic an
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authenticity</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Factors-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Two-factor, Three-factor, Multi-factor</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">ID-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Remote user authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Multi-server remote user authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">One-to-many authentication</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
   </tr>
-
   <tr>
     <td class="tg-0pky"></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Secure Boot</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums  </span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums<span></td>
     <td class="tg-0pky">Boot verification of hardware, software and firmware integrity</td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+    <td class="tg-0pky">Application</span></td>
   </tr>
 </tbody>
 </table>
