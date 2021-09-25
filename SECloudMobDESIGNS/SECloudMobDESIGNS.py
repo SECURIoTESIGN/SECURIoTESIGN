@@ -1319,7 +1319,7 @@ def switch1():
                 cloudPlataform(version)
                 hardwareSpecs(version)
                 dataCenterAcess(version)
-                print("**The questionnaire is over!**")
+                print("\n\n**The questionnaire is over!**\n\n")
 
             # answers already written in the input file
             else:
@@ -1386,6 +1386,7 @@ def switch1():
 
 
         if case(7):
+            print("\n\n*** Application finished successfully! ***\n\n")
             exit(0)
 
         if case.default:
