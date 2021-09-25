@@ -1280,8 +1280,16 @@ def testSpecConvertReport():
 @with_goto
 def switch1():
     label.begin
-    val = int(input("\nWhats is your option?\n"))
-    # val = validateInput(1,18)
+    val = 0
+    
+    while True:
+        try:
+            val = int(input("\nWhats is your option?\n"))       
+        except ValueError:
+            print("Erro! Introduza um número inteiro entre 1 e 8, de acordo o menu acima!")
+            goto.begin
+        else:
+            break
     with Switch(val) as case:
         if case(1):
             print("---")
