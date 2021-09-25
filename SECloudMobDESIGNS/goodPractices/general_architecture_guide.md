@@ -1,4 +1,4 @@
-## General Architecture Requirements 
+# General Architecture Requirements 
 
 Regardless of the metric device architecture chosen, the lower requirements are valid:
 

@@ -1,9 +1,9 @@
-## Third-Party Applications 
+# Third-Party Applications 
 
 Many social networks also offer the possibility to create additional applications that extend the functionality of the network. The two major platforms for such applications are the Facebook Platform and Open Social. While applications designed for the Facebook Platform can only be executed in Facebook, Open Social is a combined effort to allow developers to run their applications on any social network that supports the Open Social platform (e.g., MySpace and Orkut).
 
 
-** Requirements for a secure third-party applications: **
+## Requirements for a secure third-party applications
 
  * Data Privacy;
  
