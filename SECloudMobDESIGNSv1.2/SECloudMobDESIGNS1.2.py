@@ -1377,7 +1377,7 @@ def switch1():
         try:
             val = int(input("\nWhats is your option?\n"))       
         except ValueError:
-            print("Erro! Introduza um número inteiro entre 1 e 8, de acordo o menu acima!")
+            print("Error! Enter a whole number between 1 and 8, according to the menu above!")
             goto.begin
         else:
             break
