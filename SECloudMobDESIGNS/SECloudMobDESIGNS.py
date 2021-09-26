@@ -1284,9 +1284,9 @@ def switch1():
     
     while True:
         try:
-            val = int(input("\nWhats is your option?\n"))       
+            val = int(input("\n\nWhats is your option?\n\n"))       
         except ValueError:
-            print("Error! Enter a whole number between 1 and 7, according to the menu above!")
+            print("\n\nError! Enter a whole number between 1 and 7, according to the menu above!\n\n")
             goto.begin
         else:
             break
@@ -1294,7 +1294,7 @@ def switch1():
         if case(1):
             print("---")
             print("")
-            print("  **Which way do you want to run this tool?**  ")
+            print("  **\n\nWhich way do you want to run this tool?**\n\n  ")
             print("")
             print("  1 - Answer the questions one by one.  ")
             print("  2 - Use a text file with the answers already written.  ")
@@ -1325,7 +1325,7 @@ def switch1():
             else:
                 print("---")
                 print("")
-                print("  **What is the name of the input file (ans.txt)?**  ")
+                print("  \n\n**What is the name of the input file (ans.txt)?**\n\n  ")
                 print("")
                 readInputFromFile()
 
@@ -1352,7 +1352,7 @@ def switch1():
 
             informationCapture()
 
-            print("# Processing Done! Choose another option to process the requests!")
+            print("\n\n# Processing Done! Choose another option to process the requests!\n\n")
 
         if case(2):
             print("\n********************************************************************************************\n")
@@ -1390,7 +1390,7 @@ def switch1():
             exit(0)
 
         if case.default:
-            print("Error! Insert a valid value between 1 and 7!")
+            print("\n\n*** Error! Insert a valid value between 1 and 7! ***\n\n")
             goto.begin
 
 
