@@ -10,7 +10,7 @@ SPDX-License-Identifier: Apache-2.0. The copy of the License may be obtained at 
 # Installation Instructions
 To install the markdown, xhtml2pdf, switch and goto packages follow the procedures below:
 1. Install Python version 3.7.x from the link https://www.python.org;
-2. Instal Anaconda from  https://www.anaconda.com/distribution/ and use Anaconda Spyder or VS Code to build and compile the application;
+2. Install Anaconda from  https://www.anaconda.com/distribution/ and use Anaconda Spyder or VS Code to build and compile the application;
 3. Use the documentation here to install markdown and use this syntax http://packages.python.org/Markdown/reference.html or:
  * pip install markdown;
  * easy_install markdown.
