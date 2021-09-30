@@ -7,6 +7,7 @@
 # TO-DO -> Constrution of the final report : adding security guides
 
 import os
+import webbrowser
 from markdown import markdown
 from xhtml2pdf import pisa
 from switch import Switch
@@ -1356,30 +1357,35 @@ def switch1():
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST REQUIREMENTS ELICITATION PROCESSING\n\n")
             securityRequirements()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/SECURITY_REQUIREMENTS.pdf')
             informationCapture()
 
         if case(3):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST BEST PRACTICES ELICITATION PROCESSING\n\n")
             goodPractices()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/GOOD_PRACTICES.pdf')
             informationCapture()
 
         if case(4):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST ATTACK MODELS ELICITATION PROCESSING\n\n")
             attackModels()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/ATTACKS_MAPPING.pdf')
             informationCapture()
 
         if case(5):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST TEST SPECIFICATION ELICITATION PROCESSING\n\n")
             testSpecification()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/TEST_SPECIFICATION.pdf')
             informationCapture()
 
         if case(6):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST FULL REPORT PROCESSING\n\n")
             fullReport()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/FULL_REPORT.pdf')
             informationCapture()
 
 
@@ -1680,8 +1686,6 @@ def attackModels():
     for i in range(0, len(table_for_report)):
         report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
 
-    report.write("\n")
-    report.write("\n")
     report.write("\n")
 
     ###########################################################################################################
@@ -2074,9 +2078,7 @@ def testSpecification():
         report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
 
     report.write("\n")
-    report.write("\n")
-    report.write("\n")
-
+    
     ###################################################################################################
     ###################################################################################################
     # Security Testing against DoS, DDoS and Botnet Attacks

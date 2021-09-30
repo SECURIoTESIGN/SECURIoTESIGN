@@ -2402,7 +2402,7 @@ def fullReport():
 
     merger.write("FULL_REPORT.pdf")
     merger.close()
-    print("\n\n *** Processing  done! See the full report requested in the FULL_REPORT.pdf file. \n\n ***")
+    print("\n\n *** Processing  done! See the full report requested in the FULL_REPORT.pdf file! ***\n\n")
 
 if __name__ == "__main__":
     print("---")
