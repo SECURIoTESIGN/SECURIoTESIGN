@@ -2,47 +2,26 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Hybrid Application ; Web Application                        |  
-|  Application domain type  |  m-Payment                                                   |  
+|  Mobile Plataform         |  Android App                                                 |  
+|  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  SQL Server                                                  |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be a administrator that will register the users        |  
-|  Programming Languages    |  HTML5 ; Javascript                                          |  
+|  Type of Registration     |  The users will register themselves                          |  
+|  Programming Languages    |  Java                                                        |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  5G ; GSM (2G) ; 3G ; 4G/LTE ; Wi-Fi  ; GPS                  |  
-|  Data Center Phisical Access|  Yes                                                         |  
-|  Mobile Plataform         |  Hybrid Application ; Web Application                        |  
-|  Application domain type  |  m-Payment                                                   |  
-|  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
-|  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  SQL Server                                                  |  
-|  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
-|  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be a administrator that will register the users        |  
-|  Programming Languages    |  HTML5 ; Javascript                                          |  
-|  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
-|  The system has logs      |  Yes                                                         |  
-|  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
-|  Hardware Specification   |  Yes                                                         |  
-|  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  5G ; GSM (2G) ; 3G ; 4G/LTE ; Wi-Fi  ; GPS                  |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                            |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 

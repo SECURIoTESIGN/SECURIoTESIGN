@@ -1,4 +1,4 @@
-1#!/usr/bin/python coding=utf-8
+#!/usr/bin/python coding=utf-8
 # !/bin/bash
 
 # Author : Francisco Chimuco
@@ -9,8 +9,6 @@
 import os
 from markdown import markdown
 from xhtml2pdf import pisa
-from svglib.svglib import svg2rlg
-from reportlab.graphics import renderPM
 from switch import Switch
 from goto import with_goto
 from PyPDF2 import PdfFileMerger

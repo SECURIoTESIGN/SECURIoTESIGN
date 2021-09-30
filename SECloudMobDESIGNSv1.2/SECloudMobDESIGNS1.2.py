@@ -7,12 +7,13 @@
 # TO-DO -> Constrution of the final report : adding security guides
 
 import os
+import webbrowser
 from markdown import markdown
 from xhtml2pdf import pisa
 from switch import Switch
 from goto import with_goto
 from PyPDF2 import PdfFileMerger
-1
+
 version = 1
 
 # list that contains to answers in the written file
@@ -1281,9 +1282,6 @@ def securRequirconvertReport():
     pisa.CreatePDF(html_text, dest=resultFile)
 
 
-# print( pisastatus)
-
-
 # ----------------------------------------------------------------------------
 # function to convert the markdown report to html and pdf format
 def goodPracticeConvertReport():
@@ -1303,6 +1301,7 @@ def goodPracticeConvertReport():
 
     resultFile = open("GOOD_PRACTICES.pdf", "w+b")
     pisa.CreatePDF(html_text, dest=resultFile)
+    
 
 # ----------------------------------------------------------------------------
 # function to convert the markdown report to html and pdf format
@@ -1452,36 +1451,42 @@ def switch1():
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST REQUIREMENTS ELICITATION PROCESSING\n\n")
             securityRequirements()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/SECURITY_REQUIREMENTS.pdf')
             informationCapture()
 
         if case(3):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST BEST PRACTICES ELICITATION PROCESSING\n\n")
             goodPractices()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/GOOD_PRACTICES.pdf')
             informationCapture()
         
         if case(4):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST SECURITY MECHANISMS ELICITATION PROCESSING\n\n")
             securityMechanisms()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/SECURITY_MECHANISMS.pdf')
             informationCapture()
 
         if case(5):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST ATTACK MODELS ELICITATION PROCESSING\n\n")
             attackModels()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/ATTACKS_MAPPING.pdf')
             informationCapture()
 
         if case(6):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST TEST SPECIFICATION ELICITATION PROCESSING\n\n")
             testSpecification()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/TEST_SPECIFICATION.pdf')
             informationCapture()
 
         if case(7):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST FULL REPORT PROCESSING\n\n")
             fullReport()
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/FULL_REPORT.pdf')
             informationCapture()
 
 
@@ -1790,8 +1795,6 @@ def attackModels():
     for i in range(0, len(table_for_report)):
         report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
 
-    report.write("\n")
-    report.write("\n")
     report.write("\n")
 
     ###########################################################################################################
@@ -2181,8 +2184,6 @@ def testSpecification():
         report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
 
     report.write("\n")
-    report.write("\n")
-    report.write("\n")
 
     ###################################################################################################
     ###################################################################################################
@@ -2285,8 +2286,6 @@ def securityMechanisms():
     print("")
     print("  Processing information.....")
     print("")
-
-    printData()
 
     report = open("SECURITY_MECHANISMS.md", "w")
     report.write("# Final Security Mechanisms Report " + '\n')
@@ -2403,7 +2402,7 @@ def fullReport():
 
     merger.write("FULL_REPORT.pdf")
     merger.close()
-    print("\n\n *** Processing  done! See the full report requested in the FINAL_REPORT.pdf file. \n\n ***")
+    print("\n\n *** Processing  done! See the full report requested in the FULL_REPORT.pdf file. \n\n ***")
 
 if __name__ == "__main__":
     print("---")

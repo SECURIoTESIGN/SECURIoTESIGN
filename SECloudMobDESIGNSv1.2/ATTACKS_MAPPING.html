@@ -9,11 +9,11 @@
 <tbody>
 <tr>
 <td align="left">Mobile Plataform</td>
-<td align="left">Hybrid Application ; Web Application</td>
+<td align="left">Android App</td>
 </tr>
 <tr>
 <td align="left">Application domain type</td>
-<td align="left">m-Payment</td>
+<td align="left">m-Health</td>
 </tr>
 <tr>
 <td align="left">Authentication</td>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td align="left">Which DB</td>
-<td align="left">SQL Server</td>
+<td align="left">SQLite</td>
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
@@ -45,11 +45,11 @@
 </tr>
 <tr>
 <td align="left">Type of Registration</td>
-<td align="left">Will be a administrator that will register the users</td>
+<td align="left">The users will register themselves</td>
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<td align="left">HTML5 ; Javascript</td>
+<td align="left">Java</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
@@ -73,7 +73,7 @@
 </tr>
 <tr>
 <td align="left">System Cloud Environments</td>
-<td align="left">Hybrid Cloud</td>
+<td align="left">Private Cloud</td>
 </tr>
 <tr>
 <td align="left">Hardware Specification</td>
@@ -85,91 +85,7 @@
 </tr>
 <tr>
 <td align="left">HW Wireless Tech</td>
-<td align="left">5G ; GSM (2G) ; 3G ; 4G/LTE ; Wi-Fi  ; GPS</td>
-</tr>
-<tr>
-<td align="left">Data Center Phisical Access</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">Mobile Plataform</td>
-<td align="left">Hybrid Application ; Web Application</td>
-</tr>
-<tr>
-<td align="left">Application domain type</td>
-<td align="left">m-Payment</td>
-</tr>
-<tr>
-<td align="left">Authentication</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">Authentication schemes</td>
-<td align="left">Biometric-based authentication ; Factors-based authentication ; ID-based authentication</td>
-</tr>
-<tr>
-<td align="left">Has DB</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">Type of data storage</td>
-<td align="left">SQL</td>
-</tr>
-<tr>
-<td align="left">Which DB</td>
-<td align="left">SQL Server</td>
-</tr>
-<tr>
-<td align="left">Type of data stored</td>
-<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
-</tr>
-<tr>
-<td align="left">User Registration</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">Type of Registration</td>
-<td align="left">Will be a administrator that will register the users</td>
-</tr>
-<tr>
-<td align="left">Programming Languages</td>
-<td align="left">HTML5 ; Javascript</td>
-</tr>
-<tr>
-<td align="left">Input Forms</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">Upload Files</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">The system has logs</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">The system has regular updates</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">The system has third-party</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">System Cloud Environments</td>
-<td align="left">Hybrid Cloud</td>
-</tr>
-<tr>
-<td align="left">Hardware Specification</td>
-<td align="left">Yes</td>
-</tr>
-<tr>
-<td align="left">HW Authentication</td>
-<td align="left">Basic Authentication (user/pass)</td>
-</tr>
-<tr>
-<td align="left">HW Wireless Tech</td>
-<td align="left">5G ; GSM (2G) ; 3G ; 4G/LTE ; Wi-Fi  ; GPS</td>
+<td align="left">3G ; 4G/LTE ; Bluetooth  ; Wi-Fi</td>
 </tr>
 <tr>
 <td align="left">Data Center Phisical Access</td>
@@ -177,104 +93,6 @@
 </tr>
 </tbody>
 </table>
-<h1>Man-in-the-Middle Attack</h1>
-<p>In this type of attack an active man listen and change communications between Mobile Device and Cloud. In other hand, in this attack an intruder enters in the ongoing conversation between sender and the receiver and makes them believe that conversation is taking place between them only.</p>
-<h2>Definition</h2>
-<p>This type of attack occurs whenever an attacker intends to intercept communications in order to interpret or alter the original data in transit between the sender and the receiver establishing a conversation.</p>
-<h2>Attacker Powers</h2>
-<p>The attacker generally and depending on whether the communication situation is encrypted or not, is able to modify the cryptographically unprotected communication or modify the cryptographically protected communication. More specifically, it will have the following powers:</p>
-<ul>
-<li>Steal encryption key;</li>
-<li>Discover cryptographic key using cryptanalysis;</li>
-<li>Exploit vulnerabilities in cryptographic algorithm;</li>
-<li>Exploit vulnerabilities in cryptographic protocol.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to malicious MitM attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.</p>
-<h2>Man-in-the-Middle Attack Diagram</h2>
-<p><img alt="alt text" src="mitmAttack.png" /></p>
-<h1>Cross Site Scripting Attacks</h1>
-<p>In short, Cross Site Scripting (XSS) allows an attacker to execute a browser script bypassing access control mechanisms such as the same origin policy. During this attack a malicious script is injected into web content and user considering it to be authentic executes it over its own machine, thus giving either control of the machine or exposure of confidential information to the attacker.</p>
-<h2>Definition</h2>
-<p>Being an attack that exploits vulnerabilities in web applications, the attacker in this type of attack executes malicious database claims, exploiting improper validation of data flowing from the user to the database. The attacker's goal is to access the intended party's confidential data by inserting malicious code into the user's web page in order to redirect them to their site. There are two ways to forge this type of attack:</p>
-<ul>
-<li>Stored XSS (uninterruptedly stores malicious code in a resource managed by the web application);</li>
-<li>Reflective XSS (promptly reflects malicious code against the user and therefore does not store it permanently;</li>
-<li>XSS based on DOM (Document Object Model).</li>
-</ul>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Circumvent the policy of same origin;</li>
-<li>Impersonate you to websites and/or web applications you regularly use by obtaining/altering/destroying various types of content.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to XSS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.</p>
-<h2>Cross Site Scripting Attacks Diagram</h2>
-<p><img alt="alt text" src="xssAttack.png" /></p>
-<h1>DNS Poisoning Attacks</h1>
-<p>DNS poisoning attack is tricking the domain name server (DNS) to send traffic in the wrong direction by modifying DNS cache content maliciously. The cloud customers must ensure that cloud service providers are taking proper steps to secure their DNS infrastructure.</p>
-<h2>Definition</h2>
-<p>In this kind of attack, the contents of the cookie are changed to get access to an unauthorized application or web page. The cookie contains sensitive credentials about user's data and when the hacker gains access to these contents then he also gains access to the content within these and can perform illegal activities.</p>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Access confidential information from legitimate/authorized users;
- * Perpetrate other types of attacks like Main-in-the-Middle.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>In order to ensure that the mobile application is resilient or immune to the DNS Poisoning attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.</p>
-<h2>DNS Poisoning Attacks Diagram</h2>
-<p><img alt="alt text" src="dnsPoisoningAttack.png" /></p>
-<h1>Malicious QR Code Attacks</h1>
-<p>In this type of attack, one of the strategies used by the attackers, after coding the malicious links, is to take them to phishing sites or execute fraudulent codes. In addition, in order to end this type of attack, the attackers often print the malicious QR codes on small stickers that are pasted on pre-existing QR codes. On the other hand, attackers often change selected modules from white to black and vice versa in order to replace the original encoded content.</p>
-<h2>Definition</h2>
-<p>QR code-based attack is defined as an attack that attempts to lure victims into scanning a QR code that directs them to malicious websites. The key idea behind QR code attacks is that victims might trust the web page or the printed material on which the QR code is displayed, and assume that the associated code is harmless. In addition, attackers use malicious QR codes to direct users to fraudulent web sites, which masquerade as legitimate web sites aiming to steal sensitive personal information such as usernames, passwords or credit card information. </p>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Direct the user to an exploit or phishing site;</li>
-<li>Perform other attacks such as phishing, farming and botnet;
- * Distribute malware;
- * Extraction of personal and confidential data from smartphones and tablets via command injection or traditional buffer overflows by reader software;</li>
-<li>Steal users' Money via fraud;</li>
-<li>Social Engineering attacks via spear phishing e.g. leaving a poster of a QR Code on the parking lot of a company (instead of the traditional attack with an USB drive) offering discount in a nearby restaurant is a new attack vector which is likely to be successful.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to malicious QR Code attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.</p>
-<h2>Malicious QR Code Attacks Diagram</h2>
-<p><img alt="alt text" src="malicIousQRCodeAttack.png" /></p>
-<h1>CAPTCHA Breaking Attacks</h1>
-<p>CAPTCHAs were developed in order to prevent the usage of internet resources by bots or computers. They are used to prevent spam and overexploitation of network resources by bots. But recently, it has been found that the spammers (attackers) are able to break the CAPTCHA. In this case, we will be in the presence of an attack of this nature, Captcha Breaking.</p>
-<h2>Definition</h2>
-<p>In this type of attacks, the attacker can break the CAPTCHAs by using an audio system, can read the CAPTCHAs by using speech to text conversion software and can also break image-based scheme and video-based scheme. </p>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Spamming;</li>
-<li>Conducting DoS and DDoS attacks;</li>
-<li>Excessive exploitation of network resources by bots.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>In order to ensure that the mobile application is resilient or immune to the CAPTCHA Breaking attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.</p>
-<h2>CAPTCHA Breaking Attacks Diagram</h2>
-<h1>SQL Injection Attacks</h1>
-<p>In this type of attack, an attacker could provide malicious input with a clever mix of characters and meta characters from a form (e.g., login form) to alter the logic of the SQL command.</p>
-<p><strong> Definition </strong></p>
-<p>Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose. to change the logic of the desired query.</p>
-<p><strong> Attacker Powers </strong></p>
-<ul>
-<li>Identify parameters vulnerable to injection;
- * Discover DBMS and version;
- * Discover relational scheme;
- * Extract data;
- * Add / modify data;
- * Cause denial of service;
- * Evade detection;
- * Bypass authentication;
- * Execute commands;
- * Elevate privileges.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.</p>
-<h2>SQL Injection Attacks Diagram</h2>
-<p><img alt="alt text" src="SQLi.png" /></p>
 <h1>Denial of Services</h1>
 <p>In a DoS attack scenario, the attacker attempts to disrupt the network or disable services provisioned by a server by sending uninterrupted data packets to the target server and without changing nodes, data packets, or decrypting encrypted data. Typically, these data packets take up bandwidth and consume server resources.</p>
 <h2>Definition</h2>
@@ -301,85 +119,6 @@
 <p>n order to ensure that the mobile application is resilient or immune to the DDoS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.</p>
 <h2>Distributed Denial of Services Attacks Diagram</h2>
 <p><img alt="alt text" src="DDoS.png" /></p>
-<h1>Eavesdropping or Sniffing</h1>
-<p>This type of attack is carried out by attackers who use applications that can capture data packets in transit over a network, and if they are not heavily encrypted, can be read or interpreted. The goal of the attacker is to spy on all kinds of conversations and recordings and to listen to communication channels.</p>
-<h2>Definition</h2>
-<p>This type of attack consists of implant eavesdropping tools in specific network for spying on communication channels, capturing the network traffic behavior and getting the network map. Eavesdropping is dangerous threat that leads to break down the integrity and confidentiality which causes financial and personal failures. There are several ways to get a sniffing attack on a smartphone, as there is a vulnerability in GSM's encryption function for call and SMS privacy, A5 / 1 (it can be stopped second). This vulnerability puts all GSM subscribers at risk of sniffing attacks. </p>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Tracking, capture and theft of confidential information;</li>
-</ul>
-<h2>Sniffing Attacks Diagram</h2>
-<p><img alt="alt text" src="eavesdropingAttack.png" /></p>
-<h1>Domain Name Server Attacks</h1>
-<p>In this type of attack the attacker uses DNS to convert the domain name to an IP address for the purpose of accessing the user's confidential data. On the other hand, sender and a receiver get rerouted through some evil connection.</p>
-<h2>Definition</h2>
-<p>In DNS reflection attacks, attackers send DNS requests toward multiple open DNS servers with spoofed source address of the target, which results in a large number of DNS responses to the target from DNS servers. Since the cloud has its own DNS servers to answer DNS queries from hosted tenants, there should not be any DNS responses from the Internet to the cloud. Therefore, any activity of inbound DNS responses may signify a potential DNS reflection attack. Inbound DNS reflection attacks often come from up to 6K distinct sources (with 1500 byte full-size packets). We only observed outbound DNS responses from a single VIP hosting a DNS server at 5666 packets per second for a couple of days repeatedly.</p>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Access confidential information from legitimate/authorized users;
- * Perpetrate other types of attacks like DDoS and Main-in-the-Middle.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>In order to ensure that the mobile application is resilient or immune to the DNS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.</p>
-<h2>DNS Attacks Diagram</h2>
-<h1>Reused IP Address Attacks</h1>
-<p>IP address is reassigned and reused by other customer. The address still exists in the DNS cache, it violating the privacy of the original user.</p>
-<h2>Definition</h2>
-<p>Each node of a network has an IP address which is allocated to a particular user when that user leaves the network, the IP address associated with him is assigned to a new user. The chances of accessing previous user data by the new user exist as the address still exist in DNS cache and hence the data belonging to one person can be accessed by another.</p>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Access confidential information from legitimate/authorized users.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to malicious Reused IP Address attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.</p>
-<h2>Reused IP Address Attacks Diagram</h2>
-<p><img alt="alt text" src="ipSpoofingAttack.png" /></p>
-<h1>Phishing Attack</h1>
-<p>In phishing attack, an adversary sets up a fake URL identical to real Web application fooling the users to enter a valid credentials and certificates.</p>
-<h2>Definition</h2>
-<p>Phishing is the attempt to acquire sensitive information or to make somebody act in a desired way by masquerading as a trustworthy entity in an electronic communication medium. They are usually targeted at large groups of people. Phishing attacks can be performed over almost any channel, from physical presence of the attacker to websites, social networks or even cloud services. On the other hand, phishing attacks are typically fraudulent email messages which directs to spoofed website. In PaaS cloud environment, these attacks affect both enterprise and users. This is a type of social engineering attack. These attackers convince the customers to reveal their most important data like password or other sensitive information by using bogus web pages, emails, or bloggers.</p>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Access confidential information from legitimate users by collecting data through malware;
- * Perpetrate other types of attacks like Botnet.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to malicious Phishing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.</p>
-<h2>Phishing Attack Diagram</h2>
-<p><img alt="alt text" src="phishingAttack.png" /></p>
-<h1>Botnet Attacks</h1>
-<p>In a nutshell, in a botnet attack scenario the attacker hijacks a set of mobile devices, creating a network of remote controlled zombie devices. This network is called Botnet, from which various types of attacks can be carried out, such as denial of service attacks, malware distribution, phishing, etc.</p>
-<p><strong> Definition </strong></p>
-<p>A botnet is a set of compromised mobile devices. A necessary condition for these devices to be compromised is their infection by malware. This allows attackers/hackers to remotely control this botnet and launch other types of attacks, such as DoS, Phishing, malware injection, etc.</p>
-<p><strong> Attacker Powers </strong></p>
-<ul>
-<li>Sending spam;</li>
-<li>Perform attacks like DoS;</li>
-<li>Collecting information that can be used for illegal purposes;</li>
-</ul>
-<h2>Botnet Attacks Diagram</h2>
-<p><img alt="alt text" src="botnetAttack.png" /></p>
-<h1>XML Injection Attacks</h1>
-<p>It is an attacking technique used against XML-based applications to modify or compromise their normal operation.</p>
-<h2>Definition</h2>
-<p>XML Injection (XMLi) attacks are carried out by injecting pieces of XML code along with malicious content into user inputs in order to produce harmful XML messages. The aim of this type of attacks is to compromise the system or system component that receives user inputs, making it malfunction (e.g. crash), or to attack other systems or subsequent components that process those injected XML messages. This type of attack can be classified into 4 categories:</p>
-<ul>
-<li>Deforming: Attack input values of Type 1 are XML meta-characters, such as &lt;, &gt;, ]] &gt;, that are intro- duced to compromise the structure of generated XML messages;</li>
-<li>Random closing tags: Attack input values of Type 2 are random XML closing tags (e.g., &lt; /test&gt;), aiming at deforming the generated XML messages to reveal their structure;</li>
-<li>Replicating: Attack input values of Type 3 are strings of characters consisting of XML tag names and malicious content;</li>
-<li>Replacing: Attack input values of Type 4 are similar to those of Type 3 but they involve multiple input fields in order to comment out some existing XML elements and inject new ones with malicious content.</li>
-</ul>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Obtain confidential information;</li>
-<li>Change the underlying business logic of the destination.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
- </p>
-<h2>XML Injection Attacks Diagram</h2>
-<p><img alt="alt text" src="xmliAttack.png" /></p>
 <h1>Spoofing Attacks</h1>
 <p>In a nutshell, spoofing attacks consist of spoofing the caller ID in order to impersonate a trusted entity and thus obtain confidential information in a disguised manner.</p>
 <h2>Definition</h2>
@@ -451,6 +190,20 @@
 <p>In order to ensure that the mobile application is resilient or immune to the side-channel attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.</p>
 <p>Cross VM Attacks Diagram</p>
 <p><img alt="alt text" src="sideChannelAttack.png" /></p>
+<h1>Malware Injection Attacks</h1>
+<p>This type of attack occurs whenever a user can install malware on a mobile device. In addition, this type of attack can be carried out remotely or locally.</p>
+<h2>Definition</h2>
+<p>Attacks on the cloud and mobile application-level ecosystem can affect the integrity and confidentiality of data and applications through different strategies. E.g., by injecting malware. Malware can be  virus, worm, trojan, rootkit and botnet.</p>
+<h2>Attacker Powers</h2>
+<ul>
+<li>Access and steal users confidential data;</li>
+<li>Obtain root permissions on mobile devices and control the mobile device;</li>
+<li>Directly affect the computational integrity of mobile platforms along with the application.</li>
+</ul>
+<h2>Recommendations</h2>
+<p>To ensure that the mobile application is resilient or immune to malicious Malware Injection attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.</p>
+<h2>Malware Injection Attacks Diagram</h2>
+<p><img alt="alt text" src="malwareInjectionAttack.png" /></p>
 <h1>Tampering Attacks</h1>
 <p>In this type of attack an attacker preforms physical modifications on the hardware where the software is implemented.  </p>
 <h2>Definition</h2>
