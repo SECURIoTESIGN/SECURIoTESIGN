@@ -6,10 +6,8 @@ Many social networks also offer the possibility to create additional application
 ## Requirements for a secure third-party applications
 
  * Data Privacy;
- 
  * Data Authentication;
-
- * Data Authorization.
+ * * Data Authorization.
 
 
 Apps that process or query sensitive information should run in a trusted and secure environment. To create this environment, the app can check the device for the following:
