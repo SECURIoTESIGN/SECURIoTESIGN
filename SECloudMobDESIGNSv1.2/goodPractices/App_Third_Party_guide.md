@@ -6,9 +6,7 @@ Many social networks also offer the possibility to create additional application
 ## Requirements for a secure third-party applications
 
  * Data Privacy;
- 
  * Data Authentication;
-
  * Data Authorization.
 
 
