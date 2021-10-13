@@ -1449,42 +1449,42 @@ def switch1():
 
         if case(2):
             print("\n********************************************************************************************\n")
-            print("\t\tREQUEST REQUIREMENTS ELICITATION PROCESSING\n\n")
+            print("\t\t The request for security requirements is in progress ... \n\n")
             securityRequirements()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/SECURITY_REQUIREMENTS.pdf')
             informationCapture()
 
         if case(3):
             print("\n********************************************************************************************\n")
-            print("\t\tREQUEST BEST PRACTICES ELICITATION PROCESSING\n\n")
+            print("\t\t The request for best practice guidelines is in progress ... \n\n")
             goodPractices()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/GOOD_PRACTICES.pdf')
             informationCapture()
         
         if case(4):
             print("\n********************************************************************************************\n")
-            print("\t\tREQUEST SECURITY MECHANISMS ELICITATION PROCESSING\n\n")
+            print("\t\t The request for security mechanisms is in progress ... \n\n")
             securityMechanisms()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/SECURITY_MECHANISMS.pdf')
             informationCapture()
 
         if case(5):
             print("\n********************************************************************************************\n")
-            print("\t\tREQUEST ATTACK MODELS ELICITATION PROCESSING\n\n")
+            print("\t\t The request for attack models is in profess ... \n\n")
             attackModels()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/ATTACKS_MAPPING.pdf')
             informationCapture()
 
         if case(6):
             print("\n********************************************************************************************\n")
-            print("\t\tREQUEST TEST SPECIFICATION ELICITATION PROCESSING\n\n")
+            print("\t\t The request for the security testing specification and tools is in progress ... \n\n")
             testSpecification()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/TEST_SPECIFICATION.pdf')
             informationCapture()
 
         if case(7):
             print("\n********************************************************************************************\n")
-            print("\t\tREQUEST FULL REPORT PROCESSING\n\n")
+            print("\t\t The full report request is in progress ... \n\n")
             fullReport()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/FULL_REPORT.pdf')
             informationCapture()
@@ -1506,12 +1506,12 @@ def informationCapture():
     print("\nWelcome to SECloudMobDESIGNS Framework!\n")
     print("\nWhat would you like to do?\n")
     print("\n1. First, Answer the Questions Necessary for Possible Processing")
-    print("\n2. Process Security Requirement Elicitation Request")
-    print("\n3. Process Secure Development Best Practice Guide Request ")
-    print("\n4. Process Secure Development Security Mechanisms Guide Request")
-    print("\n5. Mapping Attack Models Request")
-    print("\n6. Process Secure Development Test Specification Guide Request")
-    print("\n7. Process Full Report")
+    print("\n2. Security Requirement Elicitation Request Processssing ")
+    print("\n3. Secure Development Best Practice Guidelines Request Processing  ")
+    print("\n4. Secure Development Security Mechanisms Request Processing")
+    print("\n5. Attack Model Mapping Request Processing")
+    print("\n6. Security Test Specification and Tool Request Processing ")
+    print("\n7. Full Report Request Processing")
     print("\n8. Exit")
     print("\n\nSelect your option (1-8):")
     switch1()
