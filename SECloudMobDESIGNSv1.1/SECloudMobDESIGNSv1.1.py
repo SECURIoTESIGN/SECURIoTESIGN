@@ -2423,7 +2423,7 @@ if __name__ == "__main__":
     print("  Department of Computer Science")
     print("  Universidade da Beira Interior")
     print("")
-    print("  Copyright 2019 Francisco T. Chimuco and Pedro R. M. Inácio")
+    print("  Copyright 2021 Francisco T. Chimuco and Pedro R. M. Inácio")
     print("")
     print("  SPDX-License-Identifier: Apache-2.0")
     print("")
