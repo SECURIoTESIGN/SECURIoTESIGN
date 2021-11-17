@@ -1,10 +1,33 @@
-#!/usr/bin/python coding=utf-8
-# !/bin/bash
-
-# Author : Francisco Chimuco
-
-# Work in Progress ...
-# TO-DO -> Constrution of the final report : adding security guides
+"""
+// ---------------------------------------------------------------------------
+//
+//	Security by Design for Cloud and Mobile (SD4CLOUDMOBILE) Ecosystem 
+//
+//  Copyright (C) 2020 Instituto de Telecomunicações (www.it.pt)
+//  Copyright (C) 2020 Universidade da Beira Interior (www.ubi.pt)
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// This Work was developed under Doctoral Grant, supported by project 
+// CENTRO-01-0145-FEDER-000019 - C4 - Competence Center in Cloud Computing, 
+// Research Line 1: Cloud Systems, Work package WP 1.2 - Systems design and development 
+// processes and software for Cloud and Internet of Things ecosystems, cofinanced by the 
+// European Regional Development Fund (ERDF) through the Programa Operacional Regional do 
+// Centro (Centro 2020), in the scope of the Sistema de Apoio à Investigação Científica e 
+// Tecnológica - Programas Integrados de IC&DT.
+// ---------------------------------------------------------------------------
+"""
 
 import os
 import webbrowser
@@ -52,6 +75,7 @@ qans = {
     "Q20": "",
 }
 
+"""
 # Questions
 # Q1   -> Architecture
 # Q2   -> Application Domain Type
@@ -73,6 +97,7 @@ qans = {
 # Q18  -> Hardware Auth
 # Q19  -> Hardware Communications
 # Q20  -> Data Center Phisical Access
+"""
 
 
 # TO -DO -> in case of answer "others" (user input),
