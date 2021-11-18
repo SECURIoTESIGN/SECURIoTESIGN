@@ -37,18 +37,18 @@ from switch import Switch
 from goto import with_goto
 from PyPDF2 import PdfFileMerger
 
+################################# GLOBAL VARIABLES #################################
+
 version = 1
 
 # list that contains to answers in the written file
 input_list = []
 
-# add the answers (output) to a list to write as the respective answers and comments in the generated file with answers
+# add the answers (output) to a list to write as the respective answers and comments 
+# in the generated file with answers
 answers_list = []
 comments_list = []
 table_for_report = []
-
-# TO-DO -> a dict is unordered so the questions will appear in different order
-# maybe better use OrderedDict ( from collection import OrderedDict )
 
 # create a dictionairy to store the answers to the questions
 # question_and_answers as qans
@@ -76,32 +76,28 @@ qans = {
 }
 
 """
-# Questions
-# Q1   -> Architecture
-# Q2   -> Application Domain Type
-# Q3   -> Authentication
-# Q4   -> Has a DB
-# Q5   -> Type of data storage
-# Q6   -> Which db
-# Q7   -> Type of data
-# Q8   -> User Registration
-# Q9  -> Way of user registration
-# Q10  -> Programming Languages
-# Q11  -> Input Forms
-# Q12  -> Upload Files
-# Q13  -> Logs
-# Q14  -> System Regular Updates
-# Q15  -> Third-part Software
-# Q16  -> System Cloud Environment
-# Q17  -> Hardware Specifications
-# Q18  -> Hardware Auth
-# Q19  -> Hardware Communications
-# Q20  -> Data Center Phisical Access
+// [Questions]
+// Q1   -> Architecture
+// Q2   -> Application Domain Type
+// Q3   -> Authentication
+// Q4   -> Has a DB
+// Q5   -> Type of data storage
+// Q6   -> Which db
+// Q7   -> Type of data
+// Q8   -> User Registration
+// Q9   -> Way of user registration
+// Q10  -> Programming Languages
+// Q11  -> Input Forms
+// Q12  -> Upload Files
+// Q13  -> Logs
+// Q14  -> System Regular Updates
+// Q15  -> Third-part Software
+// Q16  -> System Cloud Environment
+// Q17  -> Hardware Specifications
+// Q18  -> Hardware Auth
+// Q19  -> Hardware Communications
+// Q20  -> Data Center Phisical Access
 """
-
-
-# TO -DO -> in case of answer "others" (user input),
-# at the time of execution add to respective dict
 
 question1 = {
     "1": "Android App",
@@ -269,7 +265,7 @@ question20 = {
 }
 
 '''
->template para as perguntas
+>Question templates
 def NAME():
     print("  : ")
     print("")
@@ -280,10 +276,13 @@ def NAME():
     print("")
 '''
 
+################################# FUNCTIONS #################################
 
-# ----------------------------------------------------------------------------
+"""
+ [Summary]: Common method that validates the filename entered by the user and checks if the file exists or not
+ [Returns]: No return
+"""
 def readInputFromFile():
-    # user inputs the file name and checks if the file exists
     while True:
         filepath = validateInput(2)
         if not os.path.isfile(filepath):
@@ -294,36 +293,26 @@ def readInputFromFile():
     with open(filepath, 'r') as file:
         line = file.readline()
         while line:
-            # print (line.strip())
-            # print (line.split('#')[0].strip() )
 
             # read line until character '#' which means after that is a comment
             input_list.append(line.split('#')[0].strip())
             line = file.readline()
 
 
-# ----------------------------------------------------------------------------
-# funtion to validate input and implemts dynamic arguments:
-# if one argument is pass, it means what to validate
-# if two arguments are pass it means that is to valide a int and
-# there is a number of options to put in range
-# means of arguments respectively
-# arg(1) what to validate -> if it is to validate a int or a string (1 or 2)
-# arg(2) n_options -> number of options in the question (==range)
-
+"""
+[Summary]: Common method to validate input and implemts dynamic arguments
+[Arguments]: 
+    - arg(1) what to validate -> if it is to validate a int or a string (1 or 2)
+    - arg(2) n_options -> number of options in the question (==range)
+[Returns]: Returns inputs user
+"""
 def validateInput(*arg):
-    # print("i was called with", len(arg),"arguments:",arg)
-    # print (arg[0])
-    # print (arg[1])
-
     while True:
-
         # validate a int
         if arg[0] == 1:
             try:
                 user_input = input("  > ")
                 user_input = int(user_input)
-
             # syntax error, name error
             except (SyntaxError, NameError, TypeError):
                 print("  Not a valid answer!  ")
@@ -335,12 +324,10 @@ def validateInput(*arg):
                 else:
                     print("  Not a valid answer!  ")
                     print("")
-
         # validate a string
         if arg[0] == 2:
             try:
                 user_input = input("  > ")
-
             # syntax error, name error
             except (SyntaxError, NameError, TypeError):
                 print("  Not a valid answer!  ")
@@ -352,18 +339,21 @@ def validateInput(*arg):
                 else:
                     print("  Not a valid answer!  ")
                     print("")
-
     return user_input
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method that gets the platform of the mobile application developed or to be developed
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def arqui(version):
     print("---")
     print("")
     if version == 1:
-        print("  **Which will be the architecture of the system ?**  ")
+        print("  **Which will be the architecture of the system?**  ")
     else:
-        print("  **What is the architecture of the system ?**  ")
+        print("  **What is the architecture of the system?**  ")
     print("  (This is a multiple choice question. Enter several options and end with 0.)  ")
     print("")
     print("  1 - Android Application  ")
@@ -380,9 +370,6 @@ def arqui(version):
 
     # function input() interprets the input
     # get user input differs from python 2.x and 3.x --> input() = version 3 | raw_input() = version 2.x
-    # TO-DO change this funtion input (to enter a string it needs quotes)
-    # maybe getting the python version and adapt the funtions or just using input() and enter string with quotes (current version)
-
     while (1):
         # validate a integer (arg[0]==1 and specify the number available options(arg[1]==10))
         value = validateInput(1, 11)
@@ -393,20 +380,22 @@ def arqui(version):
             value2 = validateInput(2)
             # question_1["9"] = str(value2)
             qans["Q1"] = qans["Q1"] + str(value2) + ";"
-
         else:
             qans["Q1"] = qans["Q1"] + str(value) + ";"
 
-
-# ----------------------------------------------------------------------------
-
+"""
+[Summary]: Method that gets the domain of the mobile application developed or to be developed
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def domain(version):
     print("---")
     print("")
     if version == 1:
-        print("  **Which will be the domain of the system ?**  ")
+        print("  **Which will be the domain of the system?**  ")
     else:
-        print("  **What is the domain of the system ?**  ")
+        print("  **What is the domain of the system ?**")
 
     print("  (This is a multiple choice question. Enter several options and end with 0.)  ")
     print("")
@@ -432,9 +421,12 @@ def domain(version):
     value = validateInput(1, 18)
     qans["Q2"] = str(value)
 
-
-# ----------------------------------------------------------------------------
-
+"""
+[Summary]: Method that allows identifying if the application to be developed or developed uses authentication or not
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def authentication(version):
     print("")
     print("---")
@@ -446,7 +438,7 @@ def authentication(version):
     print("")
     print("  1 - No Authentication  ")
     print("  2 - Username and Password  ")
-    print("  3 - Social Networks / Google  ")
+    print("  3 - Social Networks/Google  ")
     print("  4 - SmartCard  ")
     print("  5 - Biometrics  ")
     print("  6 - Two Factor Authentication  ")
@@ -457,7 +449,12 @@ def authentication(version):
     qans["Q3"] = str(value)
 
 
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method that allows identifying if the application to be developed or developed uses a database or not
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def hasDB(version):
     print("")
     print("---")
@@ -486,8 +483,12 @@ def hasDB(version):
         qans["Q7"] = "N/A"
         return
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify the type of storage of the end-users of the application
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def typeOfDatabase(version):
     print("")
     print("---")
@@ -506,8 +507,12 @@ def typeOfDatabase(version):
     value = validateInput(1, 5)
     qans["Q5"] = str(value)
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method allowing the identification of the DBMS to be used by the system
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def whichDatabase(version):
     print("")
     print("---")
@@ -545,8 +550,12 @@ def whichDatabase(version):
     else:
         qans["Q6"] = str(value)
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method allowing the identification of the type of data stored by the system (personal, confidential or critical)
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def sensitiveData(version):
     print("")
     print("---")
@@ -578,7 +587,12 @@ def sensitiveData(version):
         else:
             qans["Q7"] = qans["Q7"] + str(value) + ";"
 
-
+"""
+[Summary]: Method allowing the identification of whether or not the application allows users to register
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def userRegist(version):
     print("")
     print("---")
@@ -600,16 +614,20 @@ def userRegist(version):
     else:
         qans["Q9"] = "N/A"
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify the type of registration of users to the system
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def typeOfUserRegist(version):
     print("")
     print("---")
     print("")
     if version == 1:
-        print(" **Which way of user registration will be used ?**  ")
+        print(" **Which way of user registration will be used?**  ")
     else:
-        print(" **Which way of user registration it's used ?**  ")
+        print(" **Which way of user registration it's used?**  ")
     print("")
     print("  1 - The users will register themselves  ")
     print("  2 - Will be a administrator that will register the users  ")
@@ -618,8 +636,12 @@ def typeOfUserRegist(version):
     value = validateInput(1, 3)
     qans["Q9"] = str(value)
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify the programming language to be used or used for coding the application
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def languages(version):
     print("")
     print("---")
@@ -656,8 +678,12 @@ def languages(version):
         else:
             qans["Q10"] = qans["Q10"] + str(value) + ";"
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify if the application uses or not user input forms
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def inputForms(version):
     print("")
     print("---")
@@ -674,8 +700,12 @@ def inputForms(version):
     value = validateInput(1, 3)
     qans["Q11"] = str(value)
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify the application allows or not upload files
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def allowUploadFiles(version):
     print("")
     print("---")
@@ -692,8 +722,12 @@ def allowUploadFiles(version):
     value = validateInput(1, 3)
     qans["Q12"] = str(value)
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify the application records or not logs
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def systemLogs(version):
     print("")
     print("---")
@@ -710,8 +744,12 @@ def systemLogs(version):
     value = validateInput(1, 3)
     qans["Q13"] = str(value)
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify the application allows or not regular updates
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def allowUpdateSystem(version):
     print("")
     print("---")
@@ -728,8 +766,12 @@ def allowUpdateSystem(version):
     value = validateInput(1, 3)
     qans["Q14"] = str(value)
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify the application uses or not third-party apps
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def allowThirdParty(version):
     print("")
     print("---")
@@ -747,7 +789,12 @@ def allowThirdParty(version):
     qans["Q15"] = str(value)
 
 
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify the Cloud development model (environment) used by the application
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def cloudPlataform(version):
     print("")
     print("---")
@@ -766,8 +813,12 @@ def cloudPlataform(version):
     value = validateInput(1, 6)
     qans["Q16"] = str(value)
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method that allows identifying if the user wants to specify some hardware details (network and authentication scheme) or not
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def hardwareSpecs(version):
     print("")
     print("---")
@@ -788,8 +839,12 @@ def hardwareSpecs(version):
         qans["Q18"] = "N/A"
         qans["Q19"] = "N/A"
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method allowing the identification of the authentication paradigm implemented in relation to the hardware
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""       
 def hardwareAuth(version):
     print("")
     print("---")
@@ -809,8 +864,12 @@ def hardwareAuth(version):
     value = validateInput(1, 6)
     qans["Q18"] = str(value)
 
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method allowing the identification of wireless network technologies implemented in relation to hardware
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""   
 def hardwareComunication(version):
     print("")
     print("---")
@@ -843,10 +902,12 @@ def hardwareComunication(version):
             qans["Q19"] = qans["Q19"] + str(value) + ";"
 
 
-# value = validateInput(1,10)
-# qans["Q19"]= qans["Q19"] + str(value) + ";"
-
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Method to identify the existence or not of the possibility of physical access to the system (data centre and mobile device)
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""   
 def dataCenterAcess(version):
     print("")
     print("---")
@@ -864,20 +925,23 @@ def dataCenterAcess(version):
     qans["Q20"] = str(value)
 
 
-# ----------------------------------------------------------------------------
+"""
+[Summary]: Método que permite abrir/criar e armazenar no ficheiro 'ans.txt' as respostas ao questionário do utilizador
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""   
 def printData():
     generate_file = open("ans.txt", "w")
 
     list_aux = []
     # it is a multiple question
-
     # find if the answer correspond to option "others" (means that is user input text) OR fix this buy make it simple, verify if it the answer has only letters xD
     # find if the first caracter is a letter and if the answer has no more options
     if qans["Q1"][0].isdigit() == False and qans["Q1"].find(";") == -1:
         list_aux.append(qans["Q1"])
 
     else:
-
         # variable aux is a list that contains the answers chosen by the user to the question in cause
         # cut the string in the delimitator ";"
         aux = qans["Q1"].split(";")
@@ -885,7 +949,6 @@ def printData():
         # delete last item (= None)
         aux = aux[:-1]
         # print(aux)
-
         # iterate the answers chosen by the user
         for item in aux:
 
@@ -893,7 +956,6 @@ def printData():
             for option in question1:
                 if item == option:
                     list_aux.append(question1[option])
-
             # case of user input text
             if item.isdigit() == False:
                 list_aux.append(item)
@@ -905,7 +967,6 @@ def printData():
     answers_list.append(qans["Q1"])
     comments_list.append(' ; '.join(list_aux))
 
-    # --------------------------------------------
     for n in question2:
         item = qans["Q2"]
         if item == n:
@@ -916,7 +977,6 @@ def printData():
             answers_list.append(qans["Q2"])
             comments_list.append(question2[n])
 
-    # --------------------------------------------
     for n in question3:
         item = qans["Q3"]
         if item == n:
@@ -927,7 +987,6 @@ def printData():
             answers_list.append(qans["Q3"])
             comments_list.append(question3[n])
 
-    # --------------------------------------------
     for n in question4:
         item = qans["Q4"]
         if item == n:
@@ -939,7 +998,6 @@ def printData():
             answers_list.append(qans["Q4"])
             comments_list.append(question4[n])
 
-    # --------------------------------------------
     item = qans["Q5"]
     # case this question is not answered, and the answer it will be "N/A"
     if qans["Q5"].isdigit() == False:
@@ -961,8 +1019,6 @@ def printData():
                 answers_list.append(qans["Q5"])
                 comments_list.append(question5[n])
 
-    # --------------------------------------------
-
     item = qans["Q6"]
     for n in question6:
         if item == n:
@@ -982,16 +1038,13 @@ def printData():
         answers_list.append(qans["Q6"])
         comments_list.append(item)
 
-    # --------------------------------------------
     list_aux = []
+    
     # it is a multiple question
-
     # find if the answer correspond to option "others" (means that is user input text) or not answered
     if qans["Q7"][0].isdigit() == False and qans["Q7"].find(";") == -1:
         list_aux.append(qans["Q7"])
-
     else:
-
         # variable aux is a list that contains the answers chosen by the user to the question in cause
         # cut the string in the delimitator ";"
         aux = qans["Q7"].split(";")
@@ -1003,19 +1056,15 @@ def printData():
             for option in question7:
                 if item == option:
                     list_aux.append(question7[option])
-
             # case of user input text
             if item.isdigit() == False:
                 list_aux.append(item)
 
     print("{:22} {:3} {:40} ".format("Type of data stored", ":", ' ; '.join(list_aux)))
-
     table_for_report.append(["Type of data stored", ' ; '.join(list_aux)])
-
     answers_list.append(qans["Q7"])
     comments_list.append(' ; '.join(list_aux))
 
-    # --------------------------------------------
     for n in question8:
         item = qans["Q8"]
         if item == n:
@@ -1026,7 +1075,6 @@ def printData():
             answers_list.append(qans["Q8"])
             comments_list.append(question8[n])
 
-    # --------------------------------------------
     item = qans["Q9"]
     if qans["Q9"].isdigit() == False:
         print("{:22} {:3} {:40} ".format("Type of Registration", ": ", item))
@@ -1035,38 +1083,28 @@ def printData():
 
         answers_list.append(qans["Q9"])
         comments_list.append(item)
-
     else:
         for n in question9:
             if item == n:
                 print("{:22} {:3} {:40} ".format("Type of Registration", ": ", question9[n]))
-
                 table_for_report.append(["Type of Registration", question9[n]])
-
                 answers_list.append(qans["Q9"])
                 comments_list.append(question9[n])
 
-    # --------------------------------------------
     list_aux = []
     # it is a multiple question
-
     # find if the answer correspond to option "others" (means that is only user input text)
     if qans["Q10"][0].isdigit() == False and qans["Q10"].find(";") == -1:
         list_aux.append(qans["Q10"])
-
     else:
-
         # cut the string in the delimitator ";"
         aux = qans["Q10"].split(";")
-
         # delete last item (= None)
         aux = aux[:-1]
-
         for item in aux:
             for option in question10:
                 if item == option:
                     list_aux.append(question10[option])
-
             # case of user input text
             if item.isdigit() == False:
                 list_aux.append(item)
@@ -1074,119 +1112,87 @@ def printData():
     print("{:22} {:3} {:40} ".format("Programming Languages", ":", ' ; '.join(list_aux)))
 
     table_for_report.append(["Programming Languages", ' ; '.join(list_aux)])
-
     answers_list.append(qans["Q10"])
     comments_list.append(' ; '.join(list_aux))
 
-    # --------------------------------------------
     for n in question11:
         item = qans["Q11"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Input Forms", ":", question11[n]))
-
             table_for_report.append(["Input Forms", question11[n]])
-
             answers_list.append(qans["Q11"])
             comments_list.append(question11[n])
 
-    # --------------------------------------------
     for n in question12:
         item = qans["Q12"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Upload Files", ":", question12[n]))
-
             table_for_report.append(["Upload Files", question12[n]])
-
             answers_list.append(qans["Q12"])
             comments_list.append(question12[n])
 
-    # --------------------------------------------
     for n in question13:
         item = qans["Q13"]
         if item == n:
             print("{:22} {:3} {:40} ".format("The system has logs", ":", question13[n]))
-
             table_for_report.append(["The system has logs", question13[n]])
-
             answers_list.append(qans["Q13"])
             comments_list.append(question13[n])
 
-    # --------------------------------------------
     for n in question14:
         item = qans["Q14"]
         if item == n:
             print("{:22} {:3} {:40} ".format("The system has regular updates", ":", question14[n]))
-
             table_for_report.append(["The system has regular updates", question14[n]])
-
             answers_list.append(qans["Q14"])
             comments_list.append(question14[n])
 
-    # --------------------------------------------
     for n in question15:
         item = qans["Q15"]
         if item == n:
             print("{:22} {:3} {:40} ".format("The system has third-party", ":", question15[n]))
-
             table_for_report.append(["The system has third-party", question15[n]])
-
             answers_list.append(qans["Q15"])
             comments_list.append(question15[n])
 
-    # --------------------------------------------
     for n in question16:
         item = qans["Q16"]
         if item == n:
             print("{:22} {:3} {:40}".format("System Cloud Environments", ":", question16[n]))
-
             table_for_report.append(["System Cloud Environments", question16[n]])
-
             answers_list.append(qans["Q16"])
             comments_list.append(question16[n])
 
-    # --------------------------------------------
     for n in question17:
         item = qans["Q17"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Hardware Specification", ":", question17[n]))
-
             table_for_report.append(["Hardware Specification", question17[n]])
-
             answers_list.append(qans["Q17"])
             comments_list.append(question17[n])
 
-    # --------------------------------------------
     for n in question18:
         item = qans["Q18"]
         if item == n:
             print("{:22} {:3} {:40} ".format("HW Authentication", ":", question18[n]))
-
             table_for_report.append(["HW Authentication", question18[n]])
-
             answers_list.append(qans["Q18"])
             comments_list.append(question18[n])
 
-    # --------------------------------------------
     list_aux = []
     # it is a multiple question
-
     # find if the answer correspond to option "others" (means that is only user input text)
     if qans["Q19"][0].isdigit() == False and qans["Q19"].find(";") == -1:
         list_aux.append(qans["Q19"])
-
     else:
-
         # cut the string in the delimitator ";"
         aux = qans["Q19"].split(";")
-
         # delete last item (= None)
         aux = aux[:-1]
-
         for item in aux:
             for option in question19:
                 if item == option:
                     list_aux.append(question19[option])
-
             # case of user input text
             if item.isdigit() == False:
                 list_aux.append(item)
@@ -1198,26 +1204,25 @@ def printData():
     answers_list.append(qans["Q19"])
     comments_list.append(' ; '.join(list_aux))
 
-    # --------------------------------------------
     for n in question20:
         item = qans["Q20"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Data Center Phisical Access", ":", question20[n]))
-
             table_for_report.append(["Data Center Phisical Access", question20[n]])
-
             answers_list.append(qans["Q20"])
             comments_list.append(question20[n])
 
-    # -------------------------------------------
     # write / generate a file with all answers
     for i in range(0, len(answers_list)):
         generate_file.write("{:20}{:3}{:20}\n".format(answers_list[i], " # ", comments_list[i]))
-
     generate_file.close()
 
-# ----------------------------------------------------------------------------
-# function to convert the markdown report to html and pdf format for Security Requirements
+"""
+[Summary]: Method to convert the markdown Security Requirements Elicitation (SRE) report to html and pdf format for Security Requirements
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""   
 def securRequirconvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
@@ -1237,8 +1242,12 @@ def securRequirconvertReport():
     pisa.CreatePDF(html_text, dest=resultFile)
 
 
-# ----------------------------------------------------------------------------
-# function to convert the markdown report to html and pdf format
+"""
+[Summary]: Method to convert the markdown Security Best Practices Guidelines (SBPG) report to html and pdf format for Security Requirements
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""   
 def goodPracticeConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
@@ -1257,9 +1266,12 @@ def goodPracticeConvertReport():
     resultFile = open("GOOD_PRACTICES.pdf", "w+b")
     pisa.CreatePDF(html_text, dest=resultFile)
 
-
-# ----------------------------------------------------------------------------
-# function to convert the markdown report to html and pdf format
+"""
+[Summary]: Method to convert the markdown Attack Models Elicitation (AME) report to html and pdf format for Security Requirements
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""   
 def attackModelConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
@@ -1278,8 +1290,12 @@ def attackModelConvertReport():
     resultFile = open("ATTACKS_MAPPING.pdf", "w+b")
     pisa.CreatePDF(html_text, dest=resultFile)
 
-# ----------------------------------------------------------------------------
-# function to convert the markdown report to html and pdf format
+"""
+[Summary]: Method to convert the markdown Security Test Specification and Automation Tools (STSAT) report to html and pdf format for Security Requirements
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""   
 def testSpecConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
