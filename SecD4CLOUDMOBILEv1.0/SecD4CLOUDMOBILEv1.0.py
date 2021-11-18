@@ -1,7 +1,7 @@
 """
 // ---------------------------------------------------------------------------
 //
-//	Security by Design for Cloud and Mobile Ecosystem (SD4CLOUDMOBILE)  
+//	Security by Design for Cloud and Mobile Ecosystem (SecD4CLOUDMOBILE)  
 //
 //  Copyright (C) 2020 Instituto de Telecomunicações (www.it.pt)
 //  Copyright (C) 2020 Universidade da Beira Interior (www.ubi.pt)
@@ -2117,9 +2117,9 @@ if __name__ == "__main__":
     print("")
     print("#  Welcome to ")
     print("")
-    print("# Security by Design for Cloud and Mobile Ecosystem (SD4CLOUDMOBILE) ")
+    print("# Security by Design for Cloud and Mobile Ecosystem (SecD4CLOUDMOBILE) ")
     print("")
-    print("  The **SD4CLOUDMOBILE** is a custom made program.")
+    print("  The **SecD4CLOUDMOBILE** is a custom made program.")
     print("  This program implements a questionnaire about the development")
     print("  of mobile cloud-based application and generate a report with secure development guides.")
     print("  It is part of the outputs of project PHD Thesis entitled Systematization of the ")
