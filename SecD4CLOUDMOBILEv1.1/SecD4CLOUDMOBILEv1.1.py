@@ -1,10 +1,36 @@
 #!/usr/bin/python coding=utf-8
 # !/bin/bash
 
-# Author : Francisco Chimuco
-
-# Work in Progress ...
-# TO-DO -> Constrution of the final report : adding security guides
+"""
+// ---------------------------------------------------------------------------
+//
+//	Security by Design for Cloud and Mobile Ecosystem (SecD4CLOUDMOBILE)  
+//
+//  Copyright (C) 2020 Instituto de Telecomunicações (www.it.pt)
+//  Copyright (C) 2020 Universidade da Beira Interior (www.ubi.pt)
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// This Work was developed under Doctoral Grant, supported by project 
+// CENTRO-01-0145-FEDER-000019 - C4 - Competence Center in Cloud Computing, 
+// Research Line 1: Cloud Systems, Work package WP 1.2 - Systems design and development 
+// processes and software for Cloud and Internet of Things ecosystems, cofinanced by the 
+// European Regional Development Fund (ERDF) through the Programa Operacional Regional do 
+// Centro (Centro 2020), in the scope of the Sistema de Apoio à Investigação Científica e 
+// Tecnológica - Programas Integrados de IC&DT.
+// ---------------------------------------------------------------------------
+"""
 
 import os
 import webbrowser
@@ -1451,42 +1477,42 @@ def switch1():
             print("\n********************************************************************************************\n")
             print("\t\t The request for security requirements is in progress ... \n\n")
             securityRequirements()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/SECURITY_REQUIREMENTS.pdf')
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/SECURITY_REQUIREMENTS.pdf')
             informationCapture()
 
         if case(3):
             print("\n********************************************************************************************\n")
             print("\t\t The request for best practice guidelines is in progress ... \n\n")
             goodPractices()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/GOOD_PRACTICES.pdf')
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/GOOD_PRACTICES.pdf')
             informationCapture()
         
         if case(4):
             print("\n********************************************************************************************\n")
             print("\t\t The request for security mechanisms is in progress ... \n\n")
             securityMechanisms()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/SECURITY_MECHANISMS.pdf')
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/SECURITY_MECHANISMS.pdf')
             informationCapture()
 
         if case(5):
             print("\n********************************************************************************************\n")
             print("\t\t The request for attack models is in profess ... \n\n")
             attackModels()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/ATTACKS_MAPPING.pdf')
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/ATTACKS_MAPPING.pdf')
             informationCapture()
 
         if case(6):
             print("\n********************************************************************************************\n")
             print("\t\t The request for the security testing specification and tools is in progress ... \n\n")
             testSpecification()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/TEST_SPECIFICATION.pdf')
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/TEST_SPECIFICATION.pdf')
             informationCapture()
 
         if case(7):
             print("\n********************************************************************************************\n")
             print("\t\t The full report request is in progress ... \n\n")
             fullReport()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNSv1.2/FULL_REPORT.pdf')
+            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/FULL_REPORT.pdf')
             informationCapture()
 
 
@@ -1503,7 +1529,7 @@ def switch1():
 # Information Capture main function
 def informationCapture():
     print("************************************************************************************************")
-    print("\nWelcome to SECloudMobDESIGNS Framework!\n")
+    print("\nWelcome to SecD4CLOUDMOBILE Framework!\n")
     print("\nWhat would you like to do?\n")
     print("\n1. First, Answer the Questions Necessary for Possible Processing")
     print("\n2. Security Requirement Elicitation Request Processssing ")
@@ -2409,9 +2435,9 @@ if __name__ == "__main__":
     print("")
     print("#  Welcome to ")
     print("")
-    print("#  SECloudMobDESIGNS ")
+    print("#  SecD4CLOUDMOBILE ")
     print("")
-    print("  The **SECloudMobDESIGNS** is a custom made program.")
+    print("  The **SecD4CLOUDMOBILE** is a custom made program.")
     print("  This program implements a questionnaire about the development")
     print("  of mobile cloud-based application and generate a report with secure development guides.")
     print("  It is part of the outputs of project PHD Thesis entitled Systematization of the ")
