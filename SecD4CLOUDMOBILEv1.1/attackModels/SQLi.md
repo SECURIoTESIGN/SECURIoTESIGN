@@ -33,7 +33,10 @@ Critical Risk.
 
 ## Recommendations
 
-To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, confidentiality, access control, integrity, privacy and authenticity of the data.
+
+## Reference
+ 1. [https://cwe.mitre.org/data/definitions/89.html]
  
 ## SQL Injection Attacks Diagram
 
