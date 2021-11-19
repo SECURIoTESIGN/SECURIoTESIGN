@@ -19,7 +19,7 @@ High.
 
 Critical Risk.
 
-## Attacker Powers
+## Attacker's Powers
  * Identify parameters vulnerable to injection;
  * Discover DBMS and version;
  * Discover relational scheme;
