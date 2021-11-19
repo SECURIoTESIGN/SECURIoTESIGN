@@ -12,7 +12,7 @@ Structured Query Language (SQL) Injection Attack is a code injection technique c
  * Bypass Protection Mechanism;
  * Modify Application Data.
 
-## Likelihood Of Exploit
+## Likelihood of Exploit
 
 High.
 
