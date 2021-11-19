@@ -8,8 +8,9 @@ In this type of attack, an attacker could provide malicious input with a clever 
 Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose to change the logic of the desired query.
 
 ## Technical Impact
-
-Read Application Data.
+ * Read Application Data;
+ * Bypass Protection Mechanism;
+ * Modify Application Data.
 
 ## Likelihood Of Exploit
 
