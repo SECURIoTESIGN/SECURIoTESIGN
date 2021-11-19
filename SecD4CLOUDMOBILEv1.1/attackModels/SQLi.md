@@ -14,11 +14,11 @@ Structured Query Language (SQL) Injection Attack is a code injection technique c
 
 ## Likelihood of Exploit
 
-High.
+ * High.
 
 ## Risk
 
-Critical Risk.
+ * Critical Risk.
 
 ## Attacker's Powers
  * Identify parameters vulnerable to injection;
