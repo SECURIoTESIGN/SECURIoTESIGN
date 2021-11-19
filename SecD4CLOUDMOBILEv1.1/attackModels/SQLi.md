@@ -22,14 +22,14 @@ Critical Risk.
 ## Attacker Powers
  * Identify parameters vulnerable to injection;
  * Discover DBMS and version;
- * Discover relational scheme;
- * Extract data;
- * Add/modify data;
- * Cause denial of service;
- * Evade detection;
- * Bypass authentication;
- * Execute commands;
- * Elevate privileges.
+ * Discover relational scheme;
+ * Extract data;
+ * Add/modify data;
+ * Cause denial of service;
+ * Evade detection;
+ * Bypass authentication;
+ * Execute commands;
+ * Elevate privileges.
 
 ## Recommendations
 
