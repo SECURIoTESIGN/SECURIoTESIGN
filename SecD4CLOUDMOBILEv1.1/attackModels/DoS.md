@@ -6,7 +6,18 @@ In a DoS attack scenario, the attacker attempts to disrupt the network or disabl
 
 In such attacks, the attacker attempts to prevent a service or feature that is signed by authorized users from being released by launching various types of floods - SYN flooding, User Datagram Protocol (UDP) flooding, Internet Control Message Protocol (ICMP) attacks ) flooding, etc - on the server.
 
-## Attacker Powers
+## Technical Impact
+  * Crash, Exit, or Restart;
+  * Bypass protection mechanism;
+  * Other.
+
+## Risk
+  * High.
+
+## Likelihood of Exploit
+  * High.
+
+## Attacker's Powers
 
  * Prevent the availability of a service or resource to authorized users;
  * Perpetrating other types of attacks while services or features are unavailable, such as Spoofing.
@@ -14,6 +25,9 @@ In such attacks, the attacker attempts to prevent a service or feature that is s
 ## Recommendations
 
 In order to ensure that the mobile application is resilient or immune to the DoS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
+## References
+1. [https://cwe.mitre.org/data/definitions/400.html]
 
 ## Denial of Services Attacks Diagram
 
