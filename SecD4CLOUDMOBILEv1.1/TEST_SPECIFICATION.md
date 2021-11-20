@@ -2,17 +2,17 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Android App                                                 |  
+|  Mobile Plataform         |  Web Application                                             |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
+|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  SQLite                                                      |  
+|  Which DB                 |  MySQL                                                       |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Programming Languages    |  HTML5 ; PHP ; Javascript                                    |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
@@ -21,9 +21,47 @@
 |  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                            |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS                             |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
+
+
+
+In order to avoid or prevent *SQLi, XSS, Spoofing and CSRF attacks*, the following security tests should be performed.
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax" rowspan="2"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Test Parameter</span></th>
+    <th class="tg-0lax" rowspan="2"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Testing Types</span></th>
+    <th class="tg-0lax" rowspan="2"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Testing Methods</span></th>
+    <th class="tg-0lax" colspan="3"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Tools</span></th>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0lax"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Android</span></td>
+    <td class="tg-0lax"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">iOS</span></td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">Authentication and Authorization </td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Grey Box</span> </td>
+    <td class="tg-0lax">Dinamic analysis via Vulnerability Scanner </td>
+    <td class="tg-0lax">OWASP WebScarab, OWASP Berretta, Nikto, Wikto, Paros Proxy, Spike Proxy, EOR, Pantera</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Access Control </td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Grey Box</span> </td>
+    <td class="tg-0lax">Dinamic Analysis via Penetration Test</td>
+    <td class="tg-0lax">NMAP and Kali Linux </td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -148,8 +186,6 @@ In order to avoid or prevent *Malicious Insider and VM-Migration attacks*, the f
 
 
 
-
-
 In order to avoid or prevent *Malware injection and Side-channel Attacks*, the following security tests should be performed.
 <table class="tg">
 <thead>
@@ -211,8 +247,6 @@ In order to avoid or prevent *Malware injection and Side-channel Attacks*, the f
 
 
 
-
-
 In order to avoid or prevent *physical attacks*, the following security tests should be performed.
 
 <table class="tg">
@@ -244,4 +278,3 @@ In order to avoid or prevent *physical attacks*, the following security tests sh
     <td class="tg-cly1"></td>
   </tr>
 </table>
-

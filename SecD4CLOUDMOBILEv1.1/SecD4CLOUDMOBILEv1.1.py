@@ -194,7 +194,7 @@ question9 = {
 
 question10 = {
     "1": "The users will register themselves",
-    "2": "Will be a administrator that will register the users"
+    "2": "Will be an administrator that will register the users"
 }
 
 question11 = {
@@ -685,7 +685,7 @@ def typeOfUserRegist(version):
         print(" **Which way of user registration it's used ?**  ")
     print("")
     print("  1 - The users will register themselves  ")
-    print("  2 - Will be a administrator that will register the users  ")
+    print("  2 - Will be an administrator that will register the users  ")
     print("")
 
     value = validateInput(1, 3)
@@ -1887,7 +1887,7 @@ def attackModels():
 
             # MitM attack tree diagram
             # Write de scheme in the report
-            report.write("![alt text](mitmAttack.png)")
+            report.write("![alt text](attackModels/mitmAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -1900,7 +1900,7 @@ def attackModels():
 
             # XSS attack tree diagram
             # Write de scheme in the report
-            report.write("![alt text](xssAttack.png)")
+            report.write("![alt text](attackModels/xssAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -1912,7 +1912,7 @@ def attackModels():
 
         # CookiePoisoning attack tree diagram
         # Write de scheme in the report
-        report.write("![alt text](dnsPoisoningAttack.png)")
+        report.write("![alt text](attackModels/dnsPoisoningAttackTree.png)")
         report.write("\n")
         report.write("\n")
 
@@ -1925,7 +1925,7 @@ def attackModels():
             
             # Malicious QR Code attack diagram
             # Write de scheme in the report
-            report.write("![alt text](malicIousQRCodeAttack.png)")
+            report.write("![alt text](attackModels/QRCodeAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -1950,7 +1950,7 @@ def attackModels():
 
             # SQLi attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](SQLi.png)")
+            report.write("![alt text](attackModels/sqliAttackTree.png)")
             report.write("\n")
             report.write("\n")
     
@@ -1960,7 +1960,7 @@ def attackModels():
             report.write(open("attackModels/DoS.md", "r").read())
             # DoS attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](DoS.png)")
+            report.write("![alt text](attackModels/DoSAttackTree.png)")
             report.write("\n")
             report.write("\n")
             
@@ -1969,7 +1969,7 @@ def attackModels():
             
             # DDoS attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](DDoS.png)")
+            report.write("![alt text](attackModels/DDoSAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -1980,7 +1980,7 @@ def attackModels():
 
             # Sniffer attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](eavesdropingAttack.png)")
+            report.write("![alt text](attackModels/sniffingAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -2003,7 +2003,7 @@ def attackModels():
 
         # Reused IP Address attack tree diagram
         # Write the scheme in the report
-        report.write("![alt text](ipSpoofingAttack.png)")
+        report.write("![alt text](attackModels/reusedIPAddressAttackTree.png)")
         report.write("\n")
         report.write("\n")
 
@@ -2016,7 +2016,7 @@ def attackModels():
             
             # Phishing Attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](phishingAttack.png)")
+            report.write("![alt text](attackModels/phishingAttackTree.png)")
             report.write("\n")
             report.write("\n")
         
@@ -2025,7 +2025,7 @@ def attackModels():
 
             # Botnet attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](botnetAttack.png)")
+            report.write("![alt text](attackModels/botnetAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -2037,7 +2037,7 @@ def attackModels():
 
         # XML Attack tree diagram
         # Write the scheme in the report
-        report.write("![alt text](xmliAttack.png)")
+        report.write("![alt text](attackModels/xmliAttackTree.png)")
         report.write("\n")
         report.write("\n")
         
@@ -2075,7 +2075,7 @@ def attackModels():
 
         # Buffer Overflows attack diagram
         # Write the scheme in the report
-        report.write("![alt text](bufferOverflowAttackTree.png)")
+        report.write("![alt text](attackModels/bufferOverflowAttackTree.png)")
         report.write("\n")
         report.write("\n")
 
@@ -2088,7 +2088,7 @@ def attackModels():
 
             # Spoofing attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](spoofingAttack.png)")
+            report.write("![alt text](attackModels/spoofingAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -2101,7 +2101,7 @@ def attackModels():
 
             # Attack on VM at migration tree diagram
             # Write the scheme in the report
-            report.write("![alt text](vmMigrationAttack.png)")
+            report.write("![alt text](attackModels/VMMigrationAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -2115,7 +2115,7 @@ def attackModels():
 
                 # Malicious Insiders attack tree diagram
                 # Write the scheme in the report
-                report.write("![alt text](maliciousInsidersAttack.png)")
+                report.write("![alt text](attackModels/maliciousInsiderAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
 
@@ -2128,7 +2128,7 @@ def attackModels():
             
             # VM Escape attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](vmEscapeAttack.png)")
+            report.write("![alt text](attackModels/vmEscapeAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -2141,7 +2141,7 @@ def attackModels():
 
             # Side-Channel attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](sideChannelAttack.png)")
+            report.write("![alt text](attackModels/sideChannelAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
@@ -2154,7 +2154,7 @@ def attackModels():
 
                 # Cross VM attack tree diagram
                 # Write the scheme in the report
-                report.write("![alt text](malwareInjectionAttack.png)")
+                report.write("![alt text](attackModels/malwareInjectionAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
 
@@ -2168,7 +2168,7 @@ def attackModels():
 
                 # Tampering Detection attack tree diagram
                 # Write the scheme in the report
-                report.write("![alt text](tamperingAttack.png)")
+                report.write("![alt text](attackModels/tamperingAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
 
@@ -2219,7 +2219,6 @@ def testSpecification():
     # Security Testing against SQLi, XMLi, CRSF, XSS, googleHacking and phishing attacks 
     if qans["Q1"].find("4") != -1 or  qans["Q1"].find("3") != -1:
         if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and qans["Q6"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
-            if qans["Q17"].find("1") != -1 or (qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1):
                 report.write("\n")
                 report.write("\n")
                 report.write(open("securityTesting/SQLiXSSCSRFSPOOFINGTEST.md", "r").read())
@@ -2401,10 +2400,10 @@ if __name__ == "__main__":
     print("")
     print("#  SecD4CLOUDMOBILE ")
     print("")
-    print("  The **SecD4CLOUDMOBILE** is a custom made program.")
+    print("  The **SecD4CLOUDMOBILE** is a custom made program")
     print("  This program implements a questionnaire about the development")
     print("  of mobile cloud-based application and generate a report with secure development guides.")
-    print("  It is part of the outputs of project PHD Thesis entitled Systematization of the ")
+    print("  It is part of the outputs of the doctoral thesis project entitled Systematization of the ")
     print("  Security Engineering Process in the Cloud and Mobile Ecosystem ")
     print("")
     print("## License")

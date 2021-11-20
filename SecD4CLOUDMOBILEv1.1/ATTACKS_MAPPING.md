@@ -2,17 +2,17 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Android App                                                 |  
+|  Mobile Plataform         |  Web Application                                             |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
+|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  SQLite                                                      |  
+|  Which DB                 |  MySQL                                                       |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Programming Languages    |  HTML5 ; PHP ; Javascript                                    |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
@@ -21,8 +21,96 @@
 |  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                            |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS                             |  
 |  Data Center Phisical Access|  Yes                                                         |  
+
+
+
+# Cross Site Scripting Attacks
+
+In short, Cross Site Scripting (XSS) allows an attacker to execute a browser script bypassing access control mechanisms such as the same origin policy. During this attack a malicious script is injected into web content and user considering it to be authentic executes it over its own machine, thus giving either control of the machine or exposure of confidential information to the attacker.
+
+## Definition
+
+Being an attack that exploits vulnerabilities in web applications, the attacker in this type of attack executes malicious database claims, exploiting improper validation of data flowing from the user to the database. The attacker's goal is to access the intended party's confidential data by inserting malicious code into the user's web page in order to redirect them to their site. There are two ways to forge this type of attack:
+
+ * Stored XSS (uninterruptedly stores malicious code in a resource managed by the web application);
+ * Reflective XSS (promptly reflects malicious code against the user and therefore does not store it permanently;
+ * XSS based on DOM (Document Object Model).
+
+## Attacker Powers
+
+ * Circumvent the policy of same origin;
+ * Impersonate you to websites and/or web applications you regularly use by obtaining/altering/destroying various types of content.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to XSS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+
+## Cross Site Scripting Attacks Diagram
+
+
+![alt text](attackModels/xssAttackTree.png)
+
+
+
+# Malicious QR Code Attacks
+
+In this type of attack, one of the strategies used by the attackers, after coding the malicious links, is to take them to phishing sites or execute fraudulent codes. In addition, in order to end this type of attack, the attackers often print the malicious QR codes on small stickers that are pasted on pre-existing QR codes. On the other hand, attackers often change selected modules from white to black and vice versa in order to replace the original encoded content.
+
+## Definition
+
+QR code-based attack is defined as an attack that attempts to lure victims into scanning a QR code that directs them to malicious websites. The key idea behind QR code attacks is that victims might trust the web page or the printed material on which the QR code is displayed, and assume that the associated code is harmless. In addition, attackers use malicious QR codes to direct users to fraudulent web sites, which masquerade as legitimate web sites aiming to steal sensitive personal information such as usernames, passwords or credit card information. 
+
+## Attacker Powers
+
+ * Direct the user to an exploit or phishing site;
+ * Perform other attacks such as phishing, farming and botnet;
+ * Distribute malware;
+ * Extraction of personal and confidential data from smartphones and tablets via command injection or traditional buffer overflows by reader software;
+ * Steal users' Money via fraud;
+ * Social Engineering attacks via spear phishing e.g. leaving a poster of a QR Code on the parking lot of a company (instead of the traditional attack with an USB drive) offering discount in a nearby restaurant is a new attack vector which is likely to be successful.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious QR Code attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
+
+## Malicious QR Code Attacks Diagram
+
+![alt text](attackModels/QRCodeAttackTree.png)
+
+
+
+# SQL Injection Attacks
+
+In this type of attack, an attacker could provide malicious input with a clever mix of characters and meta characters from a form (e.g., login form) to alter the logic of the SQL command.
+
+
+** Definition **
+
+Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose. to change the logic of the desired query.
+
+** Attacker Powers **
+
+ * Identify parameters vulnerable to injection;
+ * Discover DBMS and version;
+ * Discover relational scheme;
+ * Extract data;
+ * Add / modify data;
+ * Cause denial of service;
+ * Evade detection;
+ * Bypass authentication;
+ * Execute commands;
+ * Elevate privileges.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+ 
+## SQL Injection Attacks Diagram
+
+
+![alt text](attackModels/sqliAttackTree.png)
 
 # Denial of Services
 
@@ -44,7 +132,7 @@ In order to ensure that the mobile application is resilient or immune to the DoS
 ## Denial of Services Attacks Diagram
 
 
-![alt text](DoS.png)
+![alt text](attackModels/DoSAttackTree.png)
 
 # Distributed Denial of Services Attacks
 
@@ -67,7 +155,82 @@ n order to ensure that the mobile application is resilient or immune to the DDoS
 ## Distributed Denial of Services Attacks Diagram
 
 
-![alt text](DDoS.png)
+![alt text](attackModels/DDoSAttackTree.png)
+
+# Domain Name Server Attacks
+
+In this type of attack the attacker uses DNS to convert the domain name to an IP address for the purpose of accessing the user's confidential data. On the other hand, sender and a receiver get rerouted through some evil connection.
+
+## Definition
+
+In DNS reflection attacks, attackers send DNS requests toward multiple open DNS servers with spoofed source address of the target, which results in a large number of DNS responses to the target from DNS servers. Since the cloud has its own DNS servers to answer DNS queries from hosted tenants, there should not be any DNS responses from the Internet to the cloud. Therefore, any activity of inbound DNS responses may signify a potential DNS reflection attack. Inbound DNS reflection attacks often come from up to 6K distinct sources (with 1500 byte full-size packets). We only observed outbound DNS responses from a single VIP hosting a DNS server at 5666 packets per second for a couple of days repeatedly.
+  
+## Attacker Powers
+
+ * Access confidential information from legitimate/authorized users;
+ * Perpetrate other types of attacks like DDoS and Main-in-the-Middle.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the DNS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
+## DNS Attacks Diagram
+
+
+
+
+# Reused IP Address Attacks
+
+IP address is reassigned and reused by other customer. The address still exists in the DNS cache, it violating the privacy of the original user.
+
+## Definition
+
+Each node of a network has an IP address which is allocated to a particular user when that user leaves the network, the IP address associated with him is assigned to a new user. The chances of accessing previous user data by the new user exist as the address still exist in DNS cache and hence the data belonging to one person can be accessed by another.
+  
+## Attacker Powers
+
+ * Access confidential information from legitimate/authorized users.
+
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Reused IP Address attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+
+ 
+## Reused IP Address Attacks Diagram
+
+
+![alt text](attackModels/reusedIPAddressAttackTree.png)
+
+
+
+# XML Injection Attacks
+
+It is an attacking technique used against XML-based applications to modify or compromise their normal operation.
+
+## Definition
+
+XML Injection (XMLi) attacks are carried out by injecting pieces of XML code along with malicious content into user inputs in order to produce harmful XML messages. The aim of this type of attacks is to compromise the system or system component that receives user inputs, making it malfunction (e.g. crash), or to attack other systems or subsequent components that process those injected XML messages. This type of attack can be classified into 4 categories:
+  
+ * Deforming: Attack input values of Type 1 are XML meta-characters, such as <, >, ]] >, that are intro- duced to compromise the structure of generated XML messages;
+ * Random closing tags: Attack input values of Type 2 are random XML closing tags (e.g., < /test>), aiming at deforming the generated XML messages to reveal their structure;
+ * Replicating: Attack input values of Type 3 are strings of characters consisting of XML tag names and malicious content;
+ * Replacing: Attack input values of Type 4 are similar to those of Type 3 but they involve multiple input fields in order to comment out some existing XML elements and inject new ones with malicious content.
+
+## Attacker Powers
+
+ * Obtain confidential information;
+ * Change the underlying business logic of the destination.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+ 
+ 
+## XML Injection Attacks Diagram
+
+
+![alt text](attackModels/xmliAttackTree.png)
 
 
 
@@ -93,7 +256,7 @@ To ensure that the mobile application is resilient or immune to Spoofing attacks
 ## Spoofing Attacks Diagram
 
 
-![alt text](spoofingAttack.png)
+![alt text](attackModels/spoofingAttackTree.png)
 
 
 
@@ -119,7 +282,7 @@ To ensure that the mobile application is resilient or immune to VM Migration att
 ## VM Migration Attacks Diagram
 
 
-![alt text](vmMigrationAttack.png)
+![alt text](attackModels/VMMigrationAttackTree.png)
 
 
 
@@ -146,7 +309,7 @@ In order to ensure that the mobile application is resilient or immune to Malicio
 ## Malicious Insiders Attacks Diagram
 
 
-![alt text](maliciousInsidersAttack.png)
+![alt text](attackModels/maliciousInsiderAttackTree.png)
 
 
 
@@ -171,7 +334,7 @@ To ensure that the mobile application is resilient or immune to VM Escape attack
 ## VM Escape Attacks Diagram
 
 
-![alt text](vmEscapeAttack.png)
+![alt text](attackModels/vmEscapeAttackTree.png)
 
 
 
@@ -201,32 +364,7 @@ In order to ensure that the mobile application is resilient or immune to the sid
  Cross VM Attacks Diagram
 
 
-![alt text](sideChannelAttack.png)
-
-
-
-# Malware Injection Attacks
-
-This type of attack occurs whenever a user can install malware on a mobile device. In addition, this type of attack can be carried out remotely or locally.
-
-## Definition
-
-Attacks on the cloud and mobile application-level ecosystem can affect the integrity and confidentiality of data and applications through different strategies. E.g., by injecting malware. Malware can be  virus, worm, trojan, rootkit and botnet.
-  
-## Attacker Powers
-
- * Access and steal users confidential data;
- * Obtain root permissions on mobile devices and control the mobile device;
- * Directly affect the computational integrity of mobile platforms along with the application.
-
-## Recommendations
-
-To ensure that the mobile application is resilient or immune to malicious Malware Injection attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
- 
-## Malware Injection Attacks Diagram
-
-
-![alt text](malwareInjectionAttack.png)
+![alt text](attackModels/sideChannelAttackTree.png)
 
 
 
@@ -252,5 +390,5 @@ To ensure that the mobile application is resilient or immune to malicious Tamper
 ## Tampering Attacks Diagram
 
 
-![alt text](tamperingAttack.png)
+![alt text](attackModels/tamperingAttackTree.png)
 
