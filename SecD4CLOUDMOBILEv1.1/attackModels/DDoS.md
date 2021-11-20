@@ -26,6 +26,9 @@ The DDoS attack attempts to make a service unavailable to intended users by drai
 
 n order to ensure that the mobile application is resilient or immune to the DDoS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
 
+## References
+1. [[https://cwe.mitre.org/data/definitions/400.html]
+
  
 ## Distributed Denial of Services Attacks Diagram
 
