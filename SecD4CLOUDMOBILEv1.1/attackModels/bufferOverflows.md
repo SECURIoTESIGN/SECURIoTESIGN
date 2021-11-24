@@ -30,7 +30,7 @@ In order to ensure that the mobile application is resilient or immune to the buf
 ## References
  1. [https://cwe.mitre.org/data/definitions/120.html];
  2. [https://www.first.org/cvss/calculator/3.1#CVSS:3.1/];
- 3. [VM Escapehttps://www.first.org/cvss/v3.1/examples].
+ 3. [https://www.first.org/cvss/v3.1/examples].
  
  
 ## Buffer Overflows Attack Diagram
