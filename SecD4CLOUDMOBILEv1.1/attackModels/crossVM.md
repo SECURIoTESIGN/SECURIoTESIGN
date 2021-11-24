@@ -1,4 +1,4 @@
-# Cross VM Attacks (Side channel attacks)
+# Cross VM Attacks (Sid-Channel attacks)
 
 Side-channel attacks are used to extract cryptographic keys from a victim device or process in a virtualized layer of the cloud ecosystem where a Cross-VM attack exploits the nature of multi-tenancy, which enables that VMs belonging to different customers may co-reside on the same physical machine.
 
@@ -10,7 +10,25 @@ The side-channel attack takes advantage of low-bandwidth message channels in a s
  * Time-driven side-channel attack;
  * Trace-driven side-channel attacks;
  * Access-driven side-channel attacks.
-  
+
+## Technical Impact
+* Modify and Read Memory; 
+* Read Files or Directories; 
+* Modify Files or Directories; 
+* Execute Unauthorized Code or Commands; 
+* Gain Privileges or Assume Identity; 
+* Bypass Protection Mechanism; 
+* Read Application Data; 
+* Modify Application Data; 
+* Hide Activities.
+
+## Risk Analysis
+  * High Risk.
+
+## Likelihood of Exploit
+  * Low.
+
+
 ## Attacker Powers
 
  * Steal cryptographic information;
@@ -21,6 +39,6 @@ The side-channel attack takes advantage of low-bandwidth message channels in a s
 
 In order to ensure that the mobile application is resilient or immune to the side-channel attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
 
- Cross VM Attacks Diagram
+## Cross VM Attacks Diagram
 
 
