@@ -9,8 +9,9 @@ A botnet is a set of compromised mobile devices. A necessary condition for these
 ## Technical Impact
  * Gain priviliegies or assume identity.
 
-## Risk
+## Risk Analysis
  * Critical.
+
 ## Attacker's Powers
  * Sending spam;
  * Perform attacks like DoS;
