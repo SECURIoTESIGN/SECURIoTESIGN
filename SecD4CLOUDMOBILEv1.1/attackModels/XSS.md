@@ -9,15 +9,31 @@ Being an attack that exploits vulnerabilities in web applications, the attacker 
  * Stored XSS (uninterruptedly stores malicious code in a resource managed by the web application);
  * Reflective XSS (promptly reflects malicious code against the user and therefore does not store it permanently;
  * XSS based on DOM (Document Object Model).
-
+ 
+## Technical Impact
+ * Gain Privileges or Assume Identity;
+ * Bypass Protection Mechanism; 
+ * Read Application Data; 
+ * Modify Application Data; 
+ * DoS: Crash, Exit, or Restart.
+ 
+## Risk Analysis
+ * Critical Risk.
+ 
+## Likelihood of Exploit
+ * Medium.
+ 
 ## Attacker Powers
-
  * Circumvent the policy of same origin;
  * Impersonate you to websites and/or web applications you regularly use by obtaining/altering/destroying various types of content.
 
 ## Recommendations
 
 To ensure that the mobile application is resilient or immune to XSS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+
+## References
+1. [https://cwe.mitre.org/data/definitions/352.html];
+2. [https://www.first.org/cvss/v3.1/examples]
 
 ## Cross Site Scripting Attacks Diagram
 
