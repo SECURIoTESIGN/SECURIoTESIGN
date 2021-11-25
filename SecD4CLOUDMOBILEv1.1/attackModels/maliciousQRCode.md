@@ -6,6 +6,15 @@ In this type of attack, one of the strategies used by the attackers, after codin
 
 QR code-based attack is defined as an attack that attempts to lure victims into scanning a QR code that directs them to malicious websites. The key idea behind QR code attacks is that victims might trust the web page or the printed material on which the QR code is displayed, and assume that the associated code is harmless. In addition, attackers use malicious QR codes to direct users to fraudulent web sites, which masquerade as legitimate web sites aiming to steal sensitive personal information such as usernames, passwords or credit card information. 
 
+## Technical Impact
+  * Execute Unauthorized Code or Commands.
+
+## Risk Analysis
+  * High Risk.
+
+## Likelihood Exploits
+  * Low.
+
 ## Attacker Powers
 
  * Direct the user to an exploit or phishing site;

@@ -7,6 +7,16 @@ CAPTCHAs were developed in order to prevent the usage of internet resources by b
 
 In this type of attacks, the attacker can break the CAPTCHAs by using an audio system, can read the CAPTCHAs by using speech to text conversion software and can also break image-based scheme and video-based scheme. 
 
+## Technical Impact
+* Bypass Protection Mechanism; 
+* Alter Execution Logic.
+
+## Risk Analysis
+* High Risk.
+
+## Likelihood of Exploit
+* Low.
+
 ## Attacker Powers
 
  * Spamming;
@@ -16,6 +26,10 @@ In this type of attacks, the attacker can break the CAPTCHAs by using an audio s
 ## Recommendations
 
 In order to ensure that the mobile application is resilient or immune to the CAPTCHA Breaking attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
+## References
+1. [https://cwe.mitre.org/data/definitions/804.html];
+2. [https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].
 
 
 ## CAPTCHA Breaking Attacks Diagram
