@@ -1903,6 +1903,19 @@ def attackModels():
             report.write("![alt text](attackModels/xssAttackTree.png)")
             report.write("\n")
             report.write("\n")
+    
+    # If the application is web or hybrid, we have CSRF
+    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
+            report.write(open("attackModels/csrfAttack.md", "r").read())
+
+            # CSRF attack tree diagram
+            # Write de scheme in the report
+            report.write("![alt text](attackModels/csrfAttackTree.png)")
+            report.write("\n")
+            report.write("\n")
 
     # If the aplication is web or hybrid, we have Cookie Poisoning
     if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1):
@@ -1973,12 +1986,12 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # Sniffer Attacks
+    # Sniffing Attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
-            report.write(open("attackModels/Sniffer.md", "r").read())
+            report.write(open("attackModels/Sniffing.md", "r").read())
 
-            # Sniffer attack tree diagram
+            # Sniffing attack tree diagram
             # Write the scheme in the report
             report.write("![alt text](attackModels/sniffingAttackTree.png)")
             report.write("\n")
