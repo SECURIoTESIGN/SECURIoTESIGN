@@ -5,6 +5,16 @@ DNS poisoning attack is tricking the domain name server (DNS) to send traffic in
 ## Definition
 
 In this kind of attack, the contents of the cookie are changed to get access to an unauthorized application or web page. The cookie contains sensitive credentials about user's data and when the hacker gains access to these contents then he also gains access to the content within these and can perform illegal activities.
+
+## Technical Impact
+  * Gain Privileges or Assume Identity; 
+  * Bypass Protection Mechanism.
+
+## Risk
+  * Medium.
+
+## Likelihood of Exploit
+  * Low.
   
 ## Attacker Powers
 
