@@ -14,7 +14,7 @@ audio source of a conversation between two or more parties. This type of attack 
 2. Probe Audio and Video Peripheralsn (Software Eavesdropping).
 
 ## Technical Impact
-* Read Data;
+* Read Data
 
 ## Likelihood Of Attack
 * High
@@ -38,3 +38,5 @@ the non-functional requirements of the application to be developed or deployed a
 1. [https://capec.mitre.org/data/definitions/651.html];
 2. [https://cwe.mitre.org/data/definitions/200.html];
 3. [https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].
+
+## Eavesdropping Attack Tree Diagram
