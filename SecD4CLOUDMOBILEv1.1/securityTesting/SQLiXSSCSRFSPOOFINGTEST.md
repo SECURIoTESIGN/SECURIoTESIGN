@@ -1,5 +1,5 @@
 
-In order to avoid or prevent *SQLi, XSS, Spoofing and CSRF attacks*, the following security tests should be performed.
+In order to avoid or prevent *SQLi, XSS, Spoofing, Brute Force and CSRF attacks*, the following security tests should be performed.
 
 <table class="tg">
 <thead>
