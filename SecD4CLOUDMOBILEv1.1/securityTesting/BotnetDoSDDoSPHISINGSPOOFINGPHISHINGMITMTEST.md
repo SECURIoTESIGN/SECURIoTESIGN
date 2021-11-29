@@ -1,5 +1,5 @@
 
-In order to avoid or prevent *Botnet, DoS, DDoS, Phishing, MITM, Spoofing and Sniffing Attacks*, the following security tests should be performed.
+In order to avoid or prevent *Botnet, DoS, DDoS, Eavesdropping, Phishing, MITM, Spoofing and Sniffing Attacks*, the following security tests should be performed.
 
 <table class="tg">
 <thead>
