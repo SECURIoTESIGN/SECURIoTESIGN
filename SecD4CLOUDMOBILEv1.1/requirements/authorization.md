@@ -46,14 +46,17 @@ Applications are considered vulnerable to the OS command injection attack if the
                                                           
 Buffer overflows is an anomaly where a program, while writing data to a buffer, overruns the buffer's boundary and overwrites adjacent memory. It can be triggered by non-validated inputs that are designed to execute code.
 
-### 11. Session Hijacking 
+## 11. Session Hijacking 
                                                          
 An attacker impersonates a legitimate user through stealing or predicting a valid session ID. 
                                                            
 ### 12. Session Fixation 
                                       
 An attacker has a valid session ID and forces the victim to use this ID.
-	                                          
 
-### References
+### 13. Brute Force
+
+The attacker attempts to gain access to systems' asset (information, functionality, identity, etc.) protected by a finite secret value by using trial-and-error to exhaustively explore all the possible secret values in the hope of finding the secret (or a value that is functionally equivalent) that will unlock the asset.
+	                                          
+## References
 https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Transaction_Authorization_Cheat_Sheet.md
