@@ -1,5 +1,5 @@
 
-In order to avoid or prevent *Spoofing and Phishing Attacks*, the following security tests should be performed.
+In order to avoid or prevent *Spoofing, Brute Force and Phishing Attacks*, the following security tests should be performed.
 
 <table class="tg">
 <thead>
