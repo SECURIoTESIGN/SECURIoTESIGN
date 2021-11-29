@@ -1,5 +1,5 @@
 
-In order to avoid or prevent *Sniffing, Botnet, Phishing and Spoofing Attacks*, the following security tests should be performed.
+In order to avoid or prevent *Sniffing, Eavesdropping, Botnet, Phishing and Spoofing Attacks*, the following security tests should be performed.
 
 <table class="tg">
 <thead>
