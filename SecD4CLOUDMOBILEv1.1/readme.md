@@ -1,7 +1,7 @@
 # SecD4CLOUDMOBILE
 The present application in its version 1.1 is a framework of tools whose main purpose is to ensure security by building software for the cloud and mobile ecosystem. It allows generating reports (security requirements, good practices, security mechanisms, mapping attack models and specifying security tests and automation tools) according to the user's request based on responses to a questionnaire by the user.
 
-SecD4CLOUDMOBILEv1.1 is developed by Francisco T. Chimuco and Pedro R. M. Inácio from the Instituto de Telecomunicaçoes, and Department of Computer Science, Universidade da Beira Interior, Covilha, Portugal.
+SecD4CLOUDMOBILEv1.1 was developed by Francisco T. Chimuco and Pedro R. M. Inácio from the Instituto de Telecomunicaçoes, and Department of Computer Science, Universidade da Beira Interior, Covilha, Portugal.
 
 Copyright (c) 2021 Francisco T. Chimuco and Pedro R. M. Inácio francisco.chimuco@ubi.pt. All rights reserved.
 
