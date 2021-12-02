@@ -9,11 +9,11 @@
 <tbody>
 <tr>
 <td align="left">Mobile Plataform</td>
-<td align="left">Web Application</td>
+<td align="left">Android App ; IoT System</td>
 </tr>
 <tr>
 <td align="left">Application domain type</td>
-<td align="left">m-Health</td>
+<td align="left">Smart Home</td>
 </tr>
 <tr>
 <td align="left">Authentication</td>
@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <td align="left">Authentication schemes</td>
-<td align="left">Biometric-based authentication ; Factors-based authentication</td>
+<td align="left">ID-based authentication</td>
 </tr>
 <tr>
 <td align="left">Has DB</td>
@@ -29,15 +29,15 @@
 </tr>
 <tr>
 <td align="left">Type of data storage</td>
-<td align="left">SQL</td>
+<td align="left">Distributed Storage</td>
 </tr>
 <tr>
 <td align="left">Which DB</td>
-<td align="left">MySQL</td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
-<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
+<td align="left">Personal Information ; Confidential Data</td>
 </tr>
 <tr>
 <td align="left">User Registration</td>
@@ -49,7 +49,7 @@
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<td align="left">HTML5 ; PHP ; Javascript</td>
+<td align="left">C/C++ ; Java</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
@@ -57,7 +57,7 @@
 </tr>
 <tr>
 <td align="left">Upload Files</td>
-<td align="left">Yes</td>
+<td align="left">No</td>
 </tr>
 <tr>
 <td align="left">The system has logs</td>
@@ -73,7 +73,7 @@
 </tr>
 <tr>
 <td align="left">System Cloud Environments</td>
-<td align="left">Private Cloud</td>
+<td align="left">Hybrid Cloud</td>
 </tr>
 <tr>
 <td align="left">Hardware Specification</td>
@@ -85,7 +85,7 @@
 </tr>
 <tr>
 <td align="left">HW Wireless Tech</td>
-<td align="left">3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS</td>
+<td align="left">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi</td>
 </tr>
 <tr>
 <td align="left">Data Center Phisical Access</td>
@@ -96,7 +96,16 @@
 <h1>Confidentiality</h1>
 <p>The property that ensures that information is not disclosed or made available to any unauthorized entity. In other words, information cannot be accessed by an unauthorized third party.</p>
 <p><strong>Note:</strong> <em>This requirement is applied were the information is stored.</em></p>
-<p>Failure to guarantee this security requirement can lead to the leakage or loss of confidential data shared among authorized users of the application.</p>
+<p>Failure to guarantee this security requirement can lead to the leakage or loss of confidential data shared among authorized users of the application e a aplicação poderá estar sujeita aos seguintes ataques:</p>
+<h3>1. Brute Force</h3>
+<p>The attacker attempts to gain access to systems' asset (information, functionality, identity, etc.) protected by a finite secret value by using trial-and-error to exhaustively explore all the possible secret values in the hope of finding the secret (or a value that is functionally equivalent) that will unlock the asset.</p>
+<h3>2. Eavesdropping</h3>
+<p>Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information of legitimate users from the messages (text, voice and video) exchanged between two or more users of Instant Messaging (IM) applications. The same applies to recorded calls, call logs and multimedia stored in clear text on memory cards.</p>
+<h2>References</h2>
+<ol>
+<li>[https://capec.mitre.org/data/definitions/651.html];</li>
+<li>[https://capec.mitre.org/data/definitions/112.html].</li>
+</ol>
 <h1>Integrity</h1>
 <p>Is the property of safeguarding the correctness and completeness of assets in a Cloud &amp; Mobile system. In other words it involves maintaining the data consistent, trustworthy and accurate during it life-cycle.</p>
 <p><strong>Note:</strong> <em>This requirements is applied in the Cloud and Mobile Ecosystem.</em></p>
@@ -181,11 +190,13 @@
 <p>Applications are considered vulnerable to the OS command injection attack if they utilize non validated user input in a system level command what can lead to the invocation of scripts injected by the attacker.</p>
 <h3>10. Buffer Overflows</h3>
 <p>Buffer overflows is an anomaly where a program, while writing data to a buffer, overruns the buffer's boundary and overwrites adjacent memory. It can be triggered by non-validated inputs that are designed to execute code.</p>
-<h3>11. Session Hijacking</h3>
+<h2>11. Session Hijacking</h2>
 <p>An attacker impersonates a legitimate user through stealing or predicting a valid session ID. </p>
 <h3>12. Session Fixation</h3>
 <p>An attacker has a valid session ID and forces the victim to use this ID.</p>
-<h3>References</h3>
+<h3>13. Brute Force</h3>
+<p>The attacker attempts to gain access to systems' asset (information, functionality, identity, etc.) protected by a finite secret value by using trial-and-error to exhaustively explore all the possible secret values in the hope of finding the secret (or a value that is functionally equivalent) that will unlock the asset.</p>
+<h2>References</h2>
 <p>https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Transaction_Authorization_Cheat_Sheet.md</p>
 <h1>Non-Repudiation</h1>
 <p>The security property that ensures that the transfer of messages or credentials between 2 mobile users entities is undeniable .  </p>
@@ -234,9 +245,6 @@ Refers to the property that guarantees consistent intended behavior of an a gene
 <h1>Confinement</h1>
 <p>Ensures that even if a party is corrupted, the spreading of the effects of the attack is as confined as possible. </p>
 <p><strong>Note:</strong> <em>This requirement is applied in the entire system.</em> </p>
-<h1>Interoperability</h1>
-<p>Is the propriety that ensures that different software communicates and works well with each-other, sharing resources such as network, processing and memory without constraints.</p>
-<p><strong>Note:</strong> <em>This requirement is applied in the entire system.</em>  </p>
 <h1>Data Origin Authentication</h1>
 <p>Ensures that the data being received by the software comes from the source it claims to be. In other words it ensures that the data being received is authentic and from a trusted party. </p>
 <p><strong>Note:</strong> <em>This requirement is applied between the communications.</em>  </p>

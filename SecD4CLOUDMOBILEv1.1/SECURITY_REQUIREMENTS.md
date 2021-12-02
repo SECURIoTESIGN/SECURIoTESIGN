@@ -2,26 +2,26 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Web Application                                             |  
-|  Application domain type  |  m-Health                                                    |  
+|  Mobile Plataform         |  Android App ; IoT System                                    |  
+|  Application domain type  |  Smart Home                                                  |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
+|  Authentication schemes   |  ID-based authentication                                     |  
 |  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  MySQL                                                       |  
-|  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
+|  Type of data storage     |  Distributed Storage                                         |  
+|  Which DB                 |                                                              |  
+|  Type of data stored      |  Personal Information ; Confidential Data                    |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  HTML5 ; PHP ; Javascript                                    |  
+|  Programming Languages    |  C/C++ ; Java                                                |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
+|  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Private Cloud                                               |  
+|  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS                             |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi                       |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -32,7 +32,17 @@ The property that ensures that information is not disclosed or made available to
 
 **Note:** *This requirement is applied were the information is stored.*
 
-Failure to guarantee this security requirement can lead to the leakage or loss of confidential data shared among authorized users of the application.
+Failure to guarantee this security requirement can lead to the leakage or loss of confidential data shared among authorized users of the application e a aplicação poderá estar sujeita aos seguintes ataques:
+
+### 1. Brute Force 
+The attacker attempts to gain access to systems' asset (information, functionality, identity, etc.) protected by a finite secret value by using trial-and-error to exhaustively explore all the possible secret values in the hope of finding the secret (or a value that is functionally equivalent) that will unlock the asset.
+### 2. Eavesdropping
+Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information of legitimate users from the messages (text, voice and video) exchanged between two or more users of Instant Messaging (IM) applications. The same applies to recorded calls, call logs and multimedia stored in clear text on memory cards.
+
+## References
+1. [https://capec.mitre.org/data/definitions/651.html];
+2. [https://capec.mitre.org/data/definitions/112.html].
+
 
 # Integrity 
 
@@ -178,17 +188,21 @@ Applications are considered vulnerable to the OS command injection attack if the
                                                           
 Buffer overflows is an anomaly where a program, while writing data to a buffer, overruns the buffer's boundary and overwrites adjacent memory. It can be triggered by non-validated inputs that are designed to execute code.
 
-### 11. Session Hijacking 
+## 11. Session Hijacking 
                                                          
 An attacker impersonates a legitimate user through stealing or predicting a valid session ID. 
                                                            
 ### 12. Session Fixation 
                                       
 An attacker has a valid session ID and forces the victim to use this ID.
-	                                          
 
-### References
+### 13. Brute Force
+
+The attacker attempts to gain access to systems' asset (information, functionality, identity, etc.) protected by a finite secret value by using trial-and-error to exhaustively explore all the possible secret values in the hope of finding the secret (or a value that is functionally equivalent) that will unlock the asset.
+	                                          
+## References
 https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Transaction_Authorization_Cheat_Sheet.md
+
 
 # Non-Repudiation
 
@@ -287,13 +301,6 @@ In this attack some nods are made more attractive than others by tampering with 
 Ensures that even if a party is corrupted, the spreading of the effects of the attack is as confined as possible. 
 
 **Note:** *This requirement is applied in the entire system.* 
-
-# Interoperability 
-    
-Is the propriety that ensures that different software communicates and works well with each-other, sharing resources such as network, processing and memory without constraints.
-
-**Note:** *This requirement is applied in the entire system.*  
-
 
 # Data Origin Authentication 
      

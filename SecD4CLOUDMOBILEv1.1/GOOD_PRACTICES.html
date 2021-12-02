@@ -9,11 +9,11 @@
 <tbody>
 <tr>
 <td align="left">Mobile Plataform</td>
-<td align="left">Web Application</td>
+<td align="left">Android App ; IoT System</td>
 </tr>
 <tr>
 <td align="left">Application domain type</td>
-<td align="left">m-Health</td>
+<td align="left">Smart Home</td>
 </tr>
 <tr>
 <td align="left">Authentication</td>
@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <td align="left">Authentication schemes</td>
-<td align="left">Biometric-based authentication ; Factors-based authentication</td>
+<td align="left">ID-based authentication</td>
 </tr>
 <tr>
 <td align="left">Has DB</td>
@@ -29,15 +29,15 @@
 </tr>
 <tr>
 <td align="left">Type of data storage</td>
-<td align="left">SQL</td>
+<td align="left">Distributed Storage</td>
 </tr>
 <tr>
 <td align="left">Which DB</td>
-<td align="left">MySQL</td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
-<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
+<td align="left">Personal Information ; Confidential Data</td>
 </tr>
 <tr>
 <td align="left">User Registration</td>
@@ -49,7 +49,7 @@
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<td align="left">HTML5 ; PHP ; Javascript</td>
+<td align="left">C/C++ ; Java</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
@@ -57,7 +57,7 @@
 </tr>
 <tr>
 <td align="left">Upload Files</td>
-<td align="left">Yes</td>
+<td align="left">No</td>
 </tr>
 <tr>
 <td align="left">The system has logs</td>
@@ -73,7 +73,7 @@
 </tr>
 <tr>
 <td align="left">System Cloud Environments</td>
-<td align="left">Private Cloud</td>
+<td align="left">Hybrid Cloud</td>
 </tr>
 <tr>
 <td align="left">Hardware Specification</td>
@@ -85,7 +85,7 @@
 </tr>
 <tr>
 <td align="left">HW Wireless Tech</td>
-<td align="left">3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS</td>
+<td align="left">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi</td>
 </tr>
 <tr>
 <td align="left">Data Center Phisical Access</td>
@@ -93,6 +93,121 @@
 </tr>
 </tbody>
 </table>
+<h1>IoT Security</h1>
+<p>Internet of Things (IoT) devices fall into three main categories:</p>
+<ul>
+<li>Sensors, which gather data;</li>
+<li>Actuators, which effect actions;</li>
+<li>Gateways, which act as communication hubs and may also implement some 
+automation logic.</li>
+</ul>
+<p>All these device types may stand alone or be embedded in a larger product. They may also be complemented by a web application or mobile device app and cloud based service.
+IoT devices, services and software, and the communication  channels that connect them, are at risk of attack by a variety of malicious parties.</p>
+<p>Malicious intent commonly takes advantage of poor design, but even unintentional leakage of data due to ineffective security controls can also bring dire consequences to consumers and vendors. Thus it is vital that IoT devices and services have security designed in from the outset.</p>
+<h2>Classification of Data</h2>
+<ul>
+<li>Define a data classification scheme and document it; </li>
+<li>Assess every item of data stored, processed, transmitted or received by a device and apply a data classification rating to it;</li>
+<li>Ensure the security design protects every data item and collections of items against unauthorised viewing, changing or deletion,to at least its classification rating or higher.</li>
+</ul>
+<h2>Physical Security</h2>
+<ul>
+<li>Any interface used for administrationor test purposes during development should be removed from a production device, disabled or made physically inaccessible;</li>
+<li>All test access points on production units must be disabled or locked, for example by blowing on-chip fuses to disable JTAG;</li>
+<li>If a production device must have an administration port, ensure it has effective access controls, e.g. strong credential management, restricted ports, secureprotocols etc.;</li>
+<li>Make the device circuitry physically inaccessible to tampering, e.g. epoxy chips to circuit board, resin encapsulation, hiding data and address lines under thesecomponents etc;</li>
+<li>Provide secure protective casing and mounting options for deployment of devices in exposed locations;</li>
+<li>For high-security deployments, consider design measures such as active masking or shielding to protect against side-channel attacks.</li>
+</ul>
+<h2>Device Secure Boot</h2>
+<ul>
+<li>Make sure the ROM-based secure boot function is always used. Use a multi-stage bootloader initiated by a minimal amount of read-only code; </li>
+<li>Use a hardware-based tamper-resistant capability (e.g. a microcontroller security subsystem, Secure Access Module (SAM) or Trusted Platform Module (TPM)) to store crucial data items and run the trusted authentication/cryptographic functions required for the boot process. Its limited secure storage capacity must hold the read-only first stage of the bootloader and all other data required to verify the authenticity of firmware;</li>
+<li>Check each stage of boot code is valid and trusted immediately before running that code. Validating code immediately before its use can reduce the risk of attacks; </li>
+<li>At each stage of the boot sequence, wherever possible, check that only the expected hardware is present and matches the stage's configuration parameters;</li>
+<li>Do not boot the next stage of device functionality until the previous stage has been successfully booted;</li>
+<li>Ensure failures at any stage of the boot sequence fail gracefully into a secure state, to ensure no unauthorised access is gained to underlying systems, code or data. Any code run must have been previously authenticated.</li>
+</ul>
+<h2>Secure Operating System</h2>
+<ul>
+<li>Include in the operating system (OS) only those components (libraries, modules, packages etc.) that are required to support the functions of the device;</li>
+<li>Shipment should include the latest stable OS component versions available;</li>
+<li>Devices should be designed and shipped with the most secure configuration in place; </li>
+<li>Continue to update OS components to the latest stable versions throughout the lifetime of a deployed device;</li>
+<li>Disable all ports, protocols and services that are not used;</li>
+<li>Set permissions so users/applications cannot write to the root file system;</li>
+<li>If required, accounts for ordinary users/applications must have minimum access rights to perform the necessary functions. Separate administrator accounts (if required)will have greater rights of access. Do not run anything as root unless genuinely unavoidable;</li>
+<li>Ensure all files and directories are given the minimum access rights to perform the required functions;</li>
+<li>Consider implementing an encrypted file system.</li>
+</ul>
+<h2>Application Security</h2>
+<ul>
+<li>Applications must be operated at the lowest privilege level possible, not as root. Applications must only have access to those resources they need; </li>
+<li>Applications should be isolated from each other. For example, use sandboxing techniques such as virtual machines, containerisation, Secure Computing Mode (seccomp), etc</li>
+<li>Ensure compliance with in-country data processing regulations;</li>
+<li>Ensure all errors are handled gracefully and any messages produced do not reveal any sensitive information;</li>
+<li>Never hard-code credentials into an application. Credentials must be stored separately in secure trusted storage and must be updateable in a way that ensures security is maintained;</li>
+<li>Remove all default user accounts and passwords;</li>
+<li>Use the most recent stable version of the operating system and libraries;</li>
+<li>Never deploy debug versions of code. The distribution should not include compilers, files containing developer comments, sample code, etc.;</li>
+<li>Consider the impact on the application/system if network connectivity is lost. Aim to maintain  normal functionality and security wherever possible.</li>
+</ul>
+<h2>Credential Management</h2>
+<ul>
+<li>A device should be uniquely identifiable by means of a factory-set tamper resistant hardware identifier if possible;</li>
+<li>Use good password management techniques, for example no blank or simple passwords allowed,  never send passwords across a network (wired or wireless) in clear text, and employ a secure password reset process;</li>
+<li>Each password stored for authenticating credentials must use an industry standard hash function, along with a unique salt value that is not obvious (for example, not a username);</li>
+<li>Store credentials or encryption keys in a Secure Access Module (SAM), Trusted Platform Module  (TPM), Hardware Security Module (HSM) or trusted key store if possible;</li>
+<li>Aim to use 2-factor authentication for accessing sensitive data if possible;</li>
+<li>Ensure a trusted &amp; reliable time source is available where authentication methods require this, e.g. for digital certificates;</li>
+<li>A certificate used to identify a device must be unique and only used to identify that onedevice. Do not reuse the certificate across multiple devices;</li>
+<li>A "factory reset" function must fully remove all user data/credentials stored on a device.</li>
+</ul>
+<h2>Encryption</h2>
+<ul>
+<li>When configuring a secure connection, if an encryption protocol offers a negotiable selection of algorithms, remove weaker options so they cannot be selected for use in a downgrade attack;</li>
+<li>Store encryption keys in a Secure Access Module (SAM), Trusted Platform Module (TPM), Hardware Security Module (HSM) or trusted key store if possible;</li>
+<li>Do not use insecure protocols, e.g. FTP, Telnet;</li>
+<li>It should be possible to securely replace encryption keys remotely;</li>
+<li>If implementing public/private key cryptography, use unique keys per device and avoid using global keys. A device's private key should be generated by that device or supplied by an associated secure credential solution, e.g. smart card. It should remain on that  device and never be shared/visible to elsewhere. </li>
+</ul>
+<h2>Network Connections</h2>
+<ul>
+<li>Activate only those network interfaces that are required (wired, wireless - including Bluetooth etc.);</li>
+<li>Run only those services on the network that are required;</li>
+<li>Open up only those network ports that are required;</li>
+<li>Run a correctly configured software firewall on the device if possible;</li>
+<li>Always use secure protocols, e.g. HTTPS, SFTP;</li>
+<li>Never exchange credentials in clear text or over weak solutions such as HTTP Basic Authentication;</li>
+<li>Authenticate every incoming connection to ensure it comes from a legitimate source.</li>
+<li>Authenticate the destination before sending sensitive data.</li>
+</ul>
+<h2>Logging</h2>
+<ul>
+<li>Ensure all logged data comply with prevailing data protection regulations;</li>
+<li>Run the logging function in its own operating system process, separate from other functions;</li>
+<li>Store log files in their own partition, separate from other system files.</li>
+<li>Set log file maximum size and rotate logs;</li>
+<li>Where logging capacity is limited, just log start-up and shutdown parameters, login/access attempts and anything unexpected;</li>
+<li>Restrict access rights to log files to the minimum required to function;</li>
+<li>If logging to a central repository, send log data over a secure channel if the logs carry sensitive data and/or protection against tampering of logs must be assured;</li>
+<li>Implement log "levels" so that lightweight logging can be the standard approach, but with the option to run more detailed logging when required;</li>
+<li>Monitor and analyse logs regularly to extract valuable information and insight;</li>
+<li>Passwords and other secret information should not ever be displayed in logs.</li>
+</ul>
+<p>(https://www.iotsecurityfoundation.org/wp-content/uploads/2019/03/Best-Practice-Guides-Release-1.2.1.pdf)[https://www.iotsecurityfoundation.org/wp-content/uploads/2019/03/Best-Practice-Guides-Release-1.2.1.pdf]</p>
+<h1>Java and C# Security Flavour Implementation</h1>
+<p>Since mobile-application security for the permissions-based Android platform and currently use Java and C# programming languages, in order to ensure security in the software, the SDLC should take into account the following procedures:</p>
+<ul>
+<li>Use mechanisms that enforce access control of applications to system resources, by defining permissions and protection domains and by using access control algorithms;</li>
+<li>Pay attention to setting the access level (private, package, protected and public) for each reference to an element of a primitive data or to an object;
+ * Use mechanisms that enforce language conventions, that is, lower-level mechanisms that require, among other things, that programs interfere with the normal operation of the sandbox, during compilation, loading in the virtual machine (VM) of the bytecodes, and execution. For compilation and loading in the VM of the bytecodes, static code analysis is used, and dynamic code analysis is performed.</li>
+</ul>
+<p>In the event of runtime authorization failures, when an access control policy does not grant sufficient permissions to a user or an access control policy grants users unneeded permissions, the system may be exposed to security attacks. In this case, it is recommended to use the two major approaches in the Java and .Net Common Language Runtime platforms:</p>
+<p>* Stack-based Access Control (SBAC): Ensure that only programs that satisfy a set of permission requirements gain access to restricted resources. SBAC systems should always stick to the Principle of Least Privilege;
+ * Role-based Access Control (RBAC): is a mechanism to restrict access to authorized users. RBAC systems provide access control based on permissions and roles.</p>
+<p>Not addressing this requirement may lead to vulnerabilities explored by attacks such as: 
+ * Missing authentication: Missing authentication is a security vulnerability that occurs in software that does not perform any authentication for functionalities that require a provable user identity or consume a significant amount of resources.</p>
 <h1>Input Validation</h1>
 <p><strong>Input validation</strong> is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components. </p>
 <h2>Implementing input validation</h2>
@@ -174,29 +289,6 @@ Ensure secure flag is set to prevent accidental transmission over "the wire" in 
 <li>Define all cookies being used by the application, their name and why they are needed</li>
 </ul>
 <p><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Session_Management_Cheat_Sheet.md">https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Session_Management_Cheat_Sheet.md</a></p>
-<h1>Cross Site Scripting (XSS)</h1>
-<p>Given the way browsers parse HTML, each of the different types of slots has slightly different security rules. 
-When you put untrusted data into these slots, you need to take certain steps to make sure that the data does not break out of that slot into a context that allows code execution. </p>
-<p>HTML entity encoding is okay for untrusted data that you put in the body of the HTML document, such as inside a "div" tag. It even sort of works for untrusted data that goes into attributes, particularly if you're religious about using quotes around your attributes. But HTML entity encoding  doesn't work if you're putting untrusted data inside a "script" tag anywhere, or an event handler attribute  like onmouseover, or inside CSS, or in a URL. </p>
-<h2>XSS Prevention Rules</h2>
-<ul>
-<li>Never Insert Untrusted Data Except in Allowed Locations - The first rule is to deny all; </li>
-<li>HTML Escape Before Inserting Untrusted Data into HTML Element Content; </li>
-<li>Attribute Escape Before Inserting Untrusted Data into HTML Common Attributes; </li>
-<li>JavaScript Escape Before Inserting Untrusted Data into JavaScript Data Values; </li>
-<li>HTML escape JSON values in an HTML context and read the data with JSON.parse; </li>
-<li>Ensure returned Content-Type header is application/json and not text/html;  </li>
-<li>CSS Escape And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values;</li>
-<li>URL Escape Before Inserting Untrusted Data into HTML URL Parameter Values; </li>
-<li>Sanitize HTML Markup with a Library Designed for the Job; </li>
-<li>Prevent DOM-based XSS; </li>
-<li>Use HTTPOnly cookie flag; </li>
-<li>Implement Content Security Policy; </li>
-<li>Use an Auto-Escaping Template System; </li>
-<li>Use the X-XSS-Protection Response Header; </li>
-<li>Properly use modern JS frameworks like Angular (2+) or ReactJS.</li>
-</ul>
-<p><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md">https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md</a></p>
 <h1>Cryptography</h1>
 <p>An architectural decision must be made to determine the appropriate method to protect data at rest. There are such wide varieties of products, methods and mechanisms for cryptographic storage.The general practices and required minimum key length depending on the scenario listed below: </p>
 <h2>Good practices</h2>
@@ -401,70 +493,6 @@ For Images document:</li>
 <p>".htaccess" and ".htpasswd" provides server configuration options on a per-directory basis, and should not be permitted. </p>
 </li>
 </ul>
-<h1>Logging and Error Handling</h1>
-<h2>Purpose of logging</h2>
-<p>Application logging should be always be included for security events. Application logs are invaluable data for:</p>
-<ul>
-<li>Identifying security incidents;   </li>
-<li>Monitoring policy violations; </li>
-<li>Establishing baselines;   </li>
-<li>Assisting non-repudiation controls;   </li>
-<li>Providing information about problems and unusual conditions;  </li>
-<li>Contributing additional application-specific data for incident investigation which is lacking in other log sources;   </li>
-<li>Helping defend against vulnerability identification and exploitation through attack detection.    </li>
-</ul>
-<p>Each log entry needs to include sufficient information for the intended subsequent monitoring and analysis. It could be full content data, but is more likely to be an extract or just summary properties.</p>
-<p>The application logs must record "when, where, who and what" for each event.</p>
-<h2>Where to record event data</h2>
-<ul>
-<li>When using the file system, it is preferable to use a separate partition than those used by the operating system, other application files and user generated content:</li>
-<li>For file-based logs, apply strict permissions concerning which users can access the directories, and the permissions of files within the directories;</li>
-<li>In web applications, the logs should not be exposed in web-accessible locations, and if done so, should have restricted access and be configured with a plain text MIME type (not HTML).</li>
-<li>When using a database, it is preferable to utilize a separate database account that is only used for writing log data and which has very restrictive database , table, function and command permissions;</li>
-<li>Use standard formats over secure protocols to record and send event data, or log files, to other systems e.g. Common Log File System (CLFS) or Common Event Format (CEF) over syslog; standard formats facilitate integration with centralised logging services.</li>
-</ul>
-<h2>Which events to log</h2>
-<ul>
-<li>Input validation failures e.g. protocol violations, unacceptable encodings, invalid parameter names and values;</li>
-<li>Output validation failures e.g. database record set mismatch, invalid data encoding</li>
-<li>Authentication successes and failures;</li>
-<li>Authorization (access control) failures;</li>
-<li>Session management failures e.g. cookie session identification value modification</li>
-<li>Application errors and system events e.g. syntax and runtime errors, connectivity problems, performance issues, third party service error messages, file system errors, file upload virus detection, configuration changes;</li>
-<li>Application and related systems start-ups and shut-downs, and logging initialization (starting, stopping or pausing);</li>
-<li>Use of higher-risk functionality e.g. network connections, addition or deletion of users, changes to privileges, assigning users to tokens, adding or deleting tokens, use of systems administrative privileges, access by application administrators, all actions by users with administrative privileges, access to payment cardholder data, use of data encrypting keys, key changes, creation and deletion of system-level objects, data import and export including screen-based reports, submission of user-generated content - especially file uploads.</li>
-</ul>
-<h2>Data to exclude</h2>
-<ul>
-<li>Application source code;</li>
-<li>Session identification values (consider replacing with a hashed value if needed to track session specific events);</li>
-<li>Access tokens;</li>
-<li>Sensitive personal data and some forms of personally identifiable information (PII) e.g. health, government identifiers, vulnerable people;</li>
-<li>Authentication passwords;</li>
-<li>Database connection strings;</li>
-<li>Encryption keys and other master secrets;</li>
-<li>Bank account or payment card holder data;</li>
-<li>Data of a higher security classification than the logging system is allowed to store;</li>
-<li>Commercially-sensitive information;</li>
-<li>Information it is illegal to collect in the relevant jurisdictions;</li>
-<li>Information a user has opted out of collection, or not consented to e.g. use of do not track, or where consent to collect has expired.</li>
-</ul>
-<h2>Error Handling</h2>
-<h3>User Facing Error Messages</h3>
-<p>Error messages displayed to the user should not contain system, diagnostic or debug information.</p>
-<h3>Formatting Error Messages</h3>
-<p>Error messages are often logged to text files or files viewed within a web browser.</p>
-<ul>
-<li>Text based log files: Ensure any newline characters (%0A%0C) are appropriately handled to prevent log forging;</li>
-<li>Web based log files: Ensure any logged html characters are appropriately encoded to prevent XSS when viewing logs.</li>
-</ul>
-<h2>Recommended Error Handling Design</h2>
-<ul>
-<li>Log necessary error data to a system log file;</li>
-<li>Display a generic error message to the user;</li>
-<li>If necessary provide an error code to the user which maps to the error data in the log file. A user reporting an error can provide this code to help diagnose issue.</li>
-</ul>
-<p><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md">https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md</a></p>
 <h1>Application Regular Updates</h1>
 <p>Mobile devices and platforms, such as, for example, smartphones, typically provide the capability for operating system (OS), firmware (FW) and applications updates or re-installations with reduced user involvement. The user involvement may often be limited to clicking an icon or accepting an agreement. While this reduced level of involvement may provide convenience and an improved user experience, it fails to address the issue of secure user authentication.</p>
 <p>Mobile devices and platforms, such as smartphones, typically provide features for operating system (OS), firmware (FW) upgrades, and applications or reinstallations with reduced user engagement. User engagement may be limited to clicking an icon or accepting a contract. While this reduced level of engagement can provide convenience and enhance the user experience, it does not address the issue of secure user authentication. Thus, it is necessary to create a secure channel that provides confidentiality, integrity, authentication and data updating.</p>
