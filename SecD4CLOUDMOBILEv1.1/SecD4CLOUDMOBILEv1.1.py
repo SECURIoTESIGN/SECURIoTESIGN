@@ -1464,7 +1464,8 @@ def switch1():
     val = 0
     while True:
         try:
-            val = int(input("\nWhat is your option?\n"))       
+            val = int(input("\nWhat is your option?\n"))
+            print("\n->\n")
         except ValueError:
             print("Error! Enter a whole number between 1 and 8, according to the menu above!")
             goto.begin
@@ -1849,7 +1850,7 @@ def goodPractices():
 
     report.close()
     goodPracticeConvertReport()
-    print("# Processing done! Check your requirements in the GOOD_PRACTICES.pdf file")
+    print("# Processing done! Check your security best practices guidelines in the GOOD_PRACTICES.pdf file")
 
 
 """
@@ -2206,7 +2207,7 @@ def attackModels():
 
     report.close()
     attackModelConvertReport()
-    print("# Processing done! Check your requirements in the ATTACKS_MAPPING.pdf file")
+    print("# Processing done! Check attack models in the ATTACKS_MAPPING.pdf file")
 
 """
 [Summary]: Method responsible for processing information about STSAT module
@@ -2300,7 +2301,7 @@ def testSpecification():
 
     report.close()
     testSpecConvertReport()
-    print("# Processing done! Check your requirements in the TEST_SPECIFICATION.pdf file")
+    print("# Processing done! Check security test specification and automation tools in the TEST_SPECIFICATION.pdf file")
 
 """
 [Summary]: Method responsible for processing information about SME module
@@ -2399,7 +2400,7 @@ def securityMechanisms():
 
     report.close()
     securityMechanismsConvertReport()
-    print("# Processing done! Check your requirements in the SECURITY_MECHANISMS.pdf file")
+    print("# Processing done! Check security mechanisms in the SECURITY_MECHANISMS.pdf file")
 
 """
 [Summary]: Method responsible for creating, printing and outputting the complete processing report
