@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <td align="left">Authentication schemes</td>
-<td align="left">ID-based authentication</td>
+<td align="left">Factors-based authentication ; ID-based authentication</td>
 </tr>
 <tr>
 <td align="left">Has DB</td>
@@ -29,15 +29,15 @@
 </tr>
 <tr>
 <td align="left">Type of data storage</td>
-<td align="left">Distributed Storage</td>
+<td align="left">SQL</td>
 </tr>
 <tr>
 <td align="left">Which DB</td>
-<td align="left"></td>
+<td align="left">SQLite</td>
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
-<td align="left">Personal Information ; Confidential Data</td>
+<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
 </tr>
 <tr>
 <td align="left">User Registration</td>
@@ -49,7 +49,7 @@
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<td align="left">C/C++ ; Java</td>
+<td align="left">Java ; Python</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
@@ -57,7 +57,7 @@
 </tr>
 <tr>
 <td align="left">Upload Files</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 </tr>
 <tr>
 <td align="left">The system has logs</td>
@@ -85,7 +85,7 @@
 </tr>
 <tr>
 <td align="left">HW Wireless Tech</td>
-<td align="left">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi</td>
+<td align="left">3G ; 4G/LTE ; 5G ; Wi-Fi</td>
 </tr>
 <tr>
 <td align="left">Data Center Phisical Access</td>
@@ -349,39 +349,6 @@ the non-functional requirements of the application to be developed or deployed a
 </ul>
 <h2>Botnet Attacks Diagram</h2>
 <p><img alt="alt text" src="attackModels/botnetAttackTree.png" /></p>
-<h1>Buffer Overflows Attack</h1>
-<p>As its name implies, buffer overflows occur when data exceeding its capacity is placed in a buffer. This occurs in programs implemented in C or C++, as these programming languages do not check if buffer limits are violated.</p>
-<h2>Definition</h2>
-<p>Buffer overflows is an anomaly where a program, while writing data to a buffer, overruns the buffer's boundary and overwrites adjacent memory. It can be triggered by non-validated inputs that are designed to execute code. Buffer overflow may result in erratic program behavior, including memory access errors, incorrect results, a crash, or a breach of system security.</p>
-<h2>Technical Impact</h2>
-<ul>
-<li>Modify Memory; </li>
-<li>Execute Unauthorized Code or Commands.</li>
-</ul>
-<h2>Risk Analysis</h2>
-<ul>
-<li>High Risk</li>
-</ul>
-<h2>Likelihood of Exploit</h2>
-<ul>
-<li>High.</li>
-</ul>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Overwrite the return address of a procedure call;</li>
-<li>Obtain control of a system;</li>
-<li>Launch more virulent attacks, such DoS or DDoS.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>In order to ensure that the mobile application is resilient or immune to the buffer overflows attack, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.</p>
-<h2>References</h2>
-<ol>
-<li>[https://cwe.mitre.org/data/definitions/120.html];</li>
-<li>[https://www.first.org/cvss/calculator/3.1#CVSS:3.1/];</li>
-<li>[https://www.first.org/cvss/v3.1/examples].
- </li>
-</ol>
-<h2>Buffer Overflows Attack Diagram</h2>
 <p><img alt="alt text" src="attackModels/bufferOverflowAttackTree.png" /></p>
 <h1>Spoofing Attacks</h1>
 <p>In a nutshell, spoofing attacks consist of spoofing the caller ID in order to impersonate a trusted entity and thus obtain confidential information in a disguised manner.</p>

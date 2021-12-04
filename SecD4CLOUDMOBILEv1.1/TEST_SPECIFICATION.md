@@ -5,23 +5,23 @@
 |  Mobile Plataform         |  Android App ; IoT System                                    |  
 |  Application domain type  |  Smart Home                                                  |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  ID-based authentication                                     |  
+|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
 |  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  Distributed Storage                                         |  
-|  Which DB                 |                                                              |  
-|  Type of data stored      |  Personal Information ; Confidential Data                    |  
+|  Type of data storage     |  SQL                                                         |  
+|  Which DB                 |  SQLite                                                      |  
+|  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++ ; Java                                                |  
+|  Programming Languages    |  Java ; Python                                               |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  No                                                          |  
+|  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi                       |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi                                    |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
