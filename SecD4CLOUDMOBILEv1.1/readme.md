@@ -16,7 +16,8 @@ To install the markdown, xhtml2pdf, switch and goto packages follow the procedur
  * easy_install markdown.
 4. pip install xhtml2pdf --pre;
 5. pip install switch;
-6. pip install goto-statement.
+6. pip install goto-statement;
+7. You must change the configuration of the project path in the *switch1()* method present in the *webbrowser.open_new()* method.
 
 # Running the Application
 To compile and run the application, follow the instructions below:
