@@ -2,7 +2,7 @@
 Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information 
 of legitimate users from the messages (text, voice and video) exchanged between two or more users 
 of Instant Messaging (IM) applications. The same applies to recorded calls, call logs and multimedia 
-stored in clear text on memory cards.
+stored in clear text in memory cards.
 
 ## Description
 An adversary intercepts a form of communication (e.g. text, audio, video) by way of software (e.g., microphone 

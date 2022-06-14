@@ -1,0 +1,49 @@
+In order to avoid or prevent *DoS Jamming, Wi-Fi Jamming, Orbital Jamming, GPS Jamming, Flooding* attacks, the following security tests should be performed.
+
+
+
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-amwm" rowspan="2">Test Parameter</th>
+    <th class="tg-amwm" rowspan="2">Testing <br>Types</th>
+    <th class="tg-amwm" rowspan="2">Testing Analysis</th>
+    <th class="tg-amwm" rowspan="2">Method</th>
+    <th class="tg-amwm" colspan="3">Tools</th>
+  </tr>
+  <tr>
+    <th class="tg-amwm">Both</th>
+    <th class="tg-amwm">Android</th>
+    <th class="tg-amwm">iOS</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0lax">DoS and DDoS <br>Attacks</td>
+    <td class="tg-0lax">Black Box</td>
+    <td class="tg-0lax">Dynamic Analysis</td>
+    <td class="tg-0lax">Penetration Testing</td>
+    <td class="tg-0lax">NMAP, SlowBot Net, MetaSploit,  <br> LOIC and Kali Linux</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Web Server&nbsp;&nbsp;&nbsp;Authentication</td>
+    <td class="tg-0lax">Black Box</td>
+    <td class="tg-0lax">Dynamic Analysis</td>
+    <td class="tg-0lax">Proxies</td>
+    <td class="tg-0lax">Wireshark</td>
+    <td class="tg-0lax">tPacketCapturepro</td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">DoS and DDoS Attacks</td>
+    <td class="tg-0lax">Grey Box</td>
+    <td class="tg-0lax">Static Analysis </td>
+    <td class="tg-0lax">Penetration Testing</td>
+    <td class="tg-0lax">Cydia Substrate</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">Cycript</td>
+  </tr>
+</tbody>
+</table>

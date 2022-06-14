@@ -13,3 +13,7 @@ DNS attacks always occur in the case where the attacker makes use of the transla
 ### 2. MITM Attacks
                                                  
 In this type of attack, an attacker attempts to intrude on a mail exchange or continuous message between two users or clients of a cloud-based mobile application (client-server).   
+
+### 3. VM Escape
+
+This type of attack occurs whenever an application escapes the VM and obtains control over the VMM, as it escalates its VM privileges to root level. The malicious application accesses the host machine, bypassing the hypervisor.

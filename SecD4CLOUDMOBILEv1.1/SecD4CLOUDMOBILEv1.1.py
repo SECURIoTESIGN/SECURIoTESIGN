@@ -482,7 +482,7 @@ def typeOfAuthentication(version):
         print("  **What will be the authentication scheme to be implemented in the system?**  ")
     else:
         print("  **What is the authentication scheme implemented in the system ?**  ")
-    
+
     print("  (This is a multiple choice question. Enter several options and end with 0.)  ")
     print("")
 
@@ -492,7 +492,7 @@ def typeOfAuthentication(version):
     print("  4 - ID-based authentication ")
     print("  5 - Other")
     print("")
-    
+
     while (1):
         value = validateInput(1, 6)
         if value == 0:
@@ -898,7 +898,7 @@ def hardwareSpecs(version):
 [Arguments]: 
     - $version$: An integer constant equal to unity
 [Returns]: No return
-"""   
+"""
 def hardwareAuth(version):
     print("")
     print("---")
@@ -923,7 +923,7 @@ def hardwareAuth(version):
 [Arguments]: 
     - $version$: An integer constant equal to unity
 [Returns]: No return
-"""  
+"""
 def hardwareComunication(version):
     print("")
     print("---")
@@ -960,7 +960,7 @@ def hardwareComunication(version):
 [Arguments]: 
     - $version$: An integer constant equal to unity
 [Returns]: No return
-"""  
+"""
 def dataCenterAcess(version):
     print("")
     print("---")
@@ -976,13 +976,13 @@ def dataCenterAcess(version):
 
     value = validateInput(1, 3)
     qans["Q21"] = str(value)
-    
+
 """
 [Summary]: Method to open/create and store in the file 'ans.txt' the answers to the user questionnaire
 [Arguments]: 
     - $version$: An integer constant equal to unity
 [Returns]: No return
-"""   
+"""
 def printData():
     generate_file = open("ans.txt", "w")
 
@@ -1071,7 +1071,7 @@ def printData():
 
     answers_list.append(qans["Q4"])
     comments_list.append(' ; '.join(list_aux))
-    
+
     for n in question5:
         item = qans["Q5"]
         if item == n:
@@ -1337,7 +1337,7 @@ def printData():
 [Summary]: Method to convert the markdown Security Requirements report to html and pdf format
 [Arguments]: No arguments
 [Returns]: No return
-"""   
+"""
 def securRequirconvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
@@ -1361,7 +1361,7 @@ def securRequirconvertReport():
 [Arguments]: 
     - $version$: An integer constant equal to unity
 [Returns]: No return
-"""   
+"""
 def goodPracticeConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
@@ -1379,14 +1379,14 @@ def goodPracticeConvertReport():
 
     resultFile = open("GOOD_PRACTICES.pdf", "w+b")
     pisa.CreatePDF(html_text, dest=resultFile)
-    
+
 
 """
 [Summary]: Method to convert the markdown Security Mechanism Elicitation (SME) report to html and pdf format
 [Arguments]: 
     - $version$: An integer constant equal to unity
 [Returns]: No return
-""" 
+"""
 def securityMechanismsConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
@@ -1410,7 +1410,7 @@ def securityMechanismsConvertReport():
 [Arguments]: 
     - $version$: An integer constant equal to unity
 [Returns]: No return
-"""  
+"""
 def attackModelConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
@@ -1433,7 +1433,7 @@ def attackModelConvertReport():
 [Summary]: Method to convert the markdown Security Test Specification and Automation Tools (STSAT) report to html and pdf format
 [Arguments]: No arguments
 [Returns]: No return
-"""   
+"""
 def testSpecConvertReport():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
@@ -1456,22 +1456,23 @@ def testSpecConvertReport():
 [Summary]: Method auxiliary to the input method responsible for processing user requests
 [Arguments]: No arguments
 [Returns]: No return
-""" 
+"""
 @with_goto
 def switch1():
+
     label.begin
-    
+
     val = 0
     while True:
         try:
-            val = int(input("\n\nWhat is your option?\n\n->"))
+            val = int(input("\nWhat is your option?\n"))
+            print("-->")
         except ValueError:
             print("Error! Enter a whole number between 1 and 8, according to the menu above!")
             goto.begin
         else:
             break
 
-    
     with Switch(val) as case:
         if case(1):
             print("---")
@@ -1550,7 +1551,7 @@ def switch1():
             goodPractices()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/GOOD_PRACTICES.pdf')
             informationCapture()
-        
+
         if case(4):
             print("\n********************************************************************************************\n")
             print("\t\t The request for security mechanisms is in progress ... \n\n")
@@ -1597,15 +1598,16 @@ def informationCapture():
     print("\nWelcome to SecD4CLOUDMOBILE Framework!\n")
     print("\nWhat would you like to do?\n")
     print("\n1. First, Answer the Questions Necessary for Possible Processing")
-    print("\n2. Security Requirement Elicitation Request Processssing ")
-    print("\n3. Secure Development Best Practice Guidelines Request Processing  ")
-    print("\n4. Secure Development Security Mechanisms Request Processing")
-    print("\n5. Attack Model Mapping Request Processing")
-    print("\n6. Security Test Specification and Tool Request Processing ")
-    print("\n7. Full Report Request Processing")
+    print("\n2. Security Requirement Elicitation Request")
+    print("\n3. Secure Development Best Practice Guidelines Request")
+    print("\n4. Secure Development Security Mechanisms Request")
+    print("\n5. Attack Model Mapping Request")
+    print("\n6. Security Test Specification and Tool Request")
+    print("\n7. Full Report Request")
     print("\n8. Exit")
     print("\n\nSelect your option (1-8):")
     switch1()
+
 
 """
 [Summary]: Method responsible for processing information about SRE
@@ -1641,25 +1643,31 @@ def securityRequirements():
         report.write("\n")
         report.write(open("requirements/confidentiality.md", "r").read())
 
-    # integrity requirements
+    # integrity requirement
     if qans["Q5"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/integrity.md", "r").read())
 
-    # avaliability requirements
+    # avaliability requirement
+    report.write("\n")
+    report.write("\n")
     report.write(open("requirements/avaliability.md", "r").read())
 
-    # authentication requirements
+    # authentication requirement
     if qans["Q3"].find("1") != -1:
+        report.write("\n")
+        report.write("\n")
         report.write(open("requirements/authentication.md", "r").read())
 
-    # authorization requirements
+    # authorization requirement
     if qans["Q5"].find("1") != -1:
         if qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
             report.write(open("requirements/authorization.md", "r").read())
 
-    # nonRepudiaton requirements
+    # nonRepudiaton and accountability requirements
     if qans["Q5"].find("1") != -1:
         if qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
@@ -1667,16 +1675,18 @@ def securityRequirements():
             report.write(open("requirements/nonRepudiation.md", "r").read())
             report.write(open("requirements/accountability.md", "r").read())
 
-    # reliability requirements
+    # reliability requirement
+    report.write("\n")
+    report.write("\n")
     report.write(open("requirements/reliability.md", "r").read())
 
     # privacy requirements
-    if qans["Q5"].find("1") != -1 and (qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
-        report.write("\n")
-        report.write("\n")
-        report.write(open("requirements/privacy.md", "r").read())
+    # if qans["Q5"].find("1") != -1 and (qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+    #     report.write("\n")
+    #     report.write("\n")
+    #     report.write(open("requirements/privacy.md", "r").read())
 
-    # physical security requirements
+    # physical security requirement
     if qans["Q5"].find("1") != -1 and (qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1) and qans["Q21"].find("1") != -1:
         report.write("\n")
         report.write("\n")
@@ -1719,7 +1729,7 @@ def securityRequirements():
             report.write("\n")
             report.write("\n")
             report.write(open("requirements/dataOriginAuthentication.md", "r").read())
-            
+
     report.close()
     securRequirconvertReport()
     print("# Processing done! Check your requirements in the SECURITY_REQUIREMENTS.pdf file")
@@ -1756,13 +1766,13 @@ def goodPractices():
             report.write("\n")
             report.write("\n")
             report.write(open("goodPractices/IOT_Security_guide.md", "r").read())
-    
+
     # check if SQL database is choosed
     if qans["Q1"].find("3") != -1 and qans["Q1"].find("4"):
         if qans["Q5"].find("1") != -1 and qans["Q6"].find("1"):
             report.write("\n")
             report.write("\n")
-            
+
             # write SQL injection guide
             report.write(open("goodPractices/SQL_Injection_guide.md", "r").read())
 
@@ -1790,12 +1800,12 @@ def goodPractices():
 
     # checks whether the mobile web or hybrid app uses authentication and stores personal, confidential or critical data
     if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
-        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1): 
+        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
             report.write("\n")
             report.write("\n")
             # write XSS guide
             report.write(open("goodPractices/Cross_Site_Scripting_guide.md", "r").read())
-            
+
     # checks whether the mobile app use database and stores confidential or critical data
     if qans["Q5"].find("1") != -1 and (qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
         report.write("\n")
@@ -1887,11 +1897,11 @@ def attackModels():
 
             # MitM attack tree diagram
             # Write de scheme in the report
-            report.write("![alt text](attackModels/mitmAttackTree.png)")
+            report.write("![alt text](attackModels/mitmAttackTree.png")
             report.write("\n")
             report.write("\n")
-    
-    ## Brute Force and Eavesdropping Attacks 
+
+    # Brute Force and Eavesdropping Attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write(open("attackModels/bruteForceAttack.md", "r").read())
@@ -1901,7 +1911,7 @@ def attackModels():
             report.write("![alt text](attackModels/bruteForceAttackTree.png)")
             report.write("\n")
             report.write("\n")
-            
+
             report.write(open("attackModels/eavesdroppingAttack.md", "r").read())
 
             # Eavesdropping attack tree diagram
@@ -1909,7 +1919,7 @@ def attackModels():
             report.write("![alt text](attackModels/eavesdroppingAttackTree.png)")
             report.write("\n")
             report.write("\n")
-    
+
     # If the application is web or hybrid, we have XSS
     if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
@@ -1922,7 +1932,7 @@ def attackModels():
             report.write("![alt text](attackModels/xssAttackTree.png)")
             report.write("\n")
             report.write("\n")
-    
+
     # If the application is web or hybrid, we have CSRF
     if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
@@ -1931,7 +1941,7 @@ def attackModels():
             report.write(open("attackModels/csrfAttack.md", "r").read())
 
             # CSRF attack tree diagram
-            # Write de scheme in the report
+            # Write the scheme in the report
             report.write("![alt text](attackModels/csrfAttackTree.png)")
             report.write("\n")
             report.write("\n")
@@ -1940,11 +1950,11 @@ def attackModels():
     if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("attackModels/dnsPoisoningAttack.md", "r").read())
+        report.write(open("attackModels/cachePoisoning.md", "r").read())
 
         # CookiePoisoning attack tree diagram
         # Write de scheme in the report
-        report.write("![alt text](attackModels/dnsPoisoningAttackTree.png)")
+        report.write("![alt text](attackModels/cachePoisoningAttackTree.png)")
         report.write("\n")
         report.write("\n")
 
@@ -1954,7 +1964,7 @@ def attackModels():
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/maliciousQRCode.md", "r").read())
-            
+
             # Malicious QR Code attack diagram
             # Write de scheme in the report
             report.write("![alt text](attackModels/QRCodeAttackTree.png)")
@@ -1972,7 +1982,7 @@ def attackModels():
     # report.write("![alt text](design_schemes6.png)")
     # report.write("\n")
     # report.write("\n")
-    
+
     # Database use and public cloud environment SQLi attacks
     if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and qans["Q3"].find("1") != -1 :
         if qans["Q5"].find("1") != -1 and qans["Q6"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q7"].find("3") != -1):
@@ -1985,30 +1995,21 @@ def attackModels():
             report.write("![alt text](attackModels/sqliAttackTree.png)")
             report.write("\n")
             report.write("\n")
-    
+
     # DoS Attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
-            report.write(open("attackModels/DoS.md", "r").read())
+            report.write(open("attackModels/flooding.md", "r").read())
             # DoS attack tree diagram
             # Write the scheme in the report
-            report.write("![alt text](attackModels/DoSAttackTree.png)")
-            report.write("\n")
-            report.write("\n")
-            
-            # DDoS attack tree
-            report.write(open("attackModels/DDoS.md", "r").read())
-            
-            # DDoS attack tree diagram
-            # Write the scheme in the report
-            report.write("![alt text](attackModels/DDoSAttackTree.png)")
+            report.write("![alt text](attackModels/floodingAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
     # Sniffing Attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
-            report.write(open("attackModels/Sniffing.md", "r").read())
+            report.write(open("attackModels/sniffing.md", "r").read())
 
             # Sniffing attack tree diagram
             # Write the scheme in the report
@@ -2016,42 +2017,20 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the application is web or hybrid, we have DNS Poisoning Attack
-    # DNS Attacks
-    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
-        report.write(open("attackModels/DNS.md", "r").read())
-
-        # DNS Poisoning attack tree diagram
-        # Write the scheme in the report
-        # report.write("![alt text](dnsPoisoningAttack.png)")
-        # report.write("\n")
-        # report.write("\n")
-        
-    # If the application is web or hybrid, we have Reused IP Address Attacks
-    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
-        report.write("\n")
-        report.write("\n")
-        report.write(open("attackModels/reusedIPAddress.md", "r").read())
-
-        # Reused IP Address attack tree diagram
-        # Write the scheme in the report
-        report.write("![alt text](attackModels/reusedIPAddressAttackTree.png)")
-        report.write("\n")
-        report.write("\n")
-
+    
     # If the application is web or hybrid, we have Phishing Attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1):
-        if (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/phishingAttack.md", "r").read())
-            
+
             # Phishing Attack tree diagram
             # Write the scheme in the report
             report.write("![alt text](attackModels/phishingAttackTree.png)")
             report.write("\n")
             report.write("\n")
-        
+
             # Botnet Attacks
             report.write(open("attackModels/Botnet.md", "r").read())
 
@@ -2072,31 +2051,21 @@ def attackModels():
         report.write("![alt text](attackModels/xmliAttackTree.png)")
         report.write("\n")
         report.write("\n")
-        
-    # If the application is web or hybrid, we have Session Hijacking and Session Fixation
+
+    # If the application is web or hybrid, we have Session Hijacking
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
-        if qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
-            if qans["Q4"].find("1") != -1 and qans["Q10"].find("6") != -1:
+        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+            if qans["Q8"].find("2") != -1 and qans["Q8"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attackModels/sessionHijacking.md", "r").read())
 
                 # Session Hijacking attack tree diagram
                 # Write the scheme in the report
-                report.write("![alt text](sidHijacking.png)")
+                report.write("![alt text](attackModels/sessionHijackingAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
 
-                # Session Fixation
-                report.write("\n")
-                report.write("\n")
-                report.write(open("attackModels/sessionFixation.md", "r").read())
-
-                # Session Fixation Attack tree diagram
-                # Write the scheme in the report
-                report.write("![alt text](sidFixation.png)")
-                report.write("\n")
-                report.write("\n")
 
     # If the system was development for iOS, Tizen and embedded platforms (Buffer Overflow)
     if qans["Q1"].find("2") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("7") != -1:
@@ -2116,7 +2085,7 @@ def attackModels():
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("attackModels/Spoofing.md", "r").read())
+            report.write(open("attackModels/spoofing.md", "r").read())
 
             # Spoofing attack tree diagram
             # Write the scheme in the report
@@ -2125,11 +2094,11 @@ def attackModels():
             report.write("\n")
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Attack on VM at migration )
-    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 :
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("attackModels/VMMigration.md", "r").read())
+            report.write(open("attackModels/vmMigration.md", "r").read())
 
             # Attack on VM at migration tree diagram
             # Write the scheme in the report
@@ -2157,7 +2126,7 @@ def attackModels():
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/VMEscape.md", "r").read())
-            
+
             # VM Escape attack tree diagram
             # Write the scheme in the report
             report.write("![alt text](attackModels/vmEscapeAttackTree.png)")
@@ -2169,7 +2138,7 @@ def attackModels():
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("attackModels/crossVM.md", "r").read())
+            report.write(open("attackModels/Side-Channel.md", "r").read())
 
             # Side-Channel attack tree diagram
             # Write the scheme in the report
@@ -2177,14 +2146,14 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the system was development for Android and iOS (Malware Injection Attacks)
-        if (qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1) and qans["Q5"].find("1") != -1:    
+    # If the system was development for Android and iOS (Malware-as-a-Service Attacks)
+        if (qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1) or qans["Q1"].find("3") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("7") != -1:
             if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attackModels/malwareInjection.md", "r").read())
 
-                # Cross VM attack tree diagram
+                # Malware-as-a-Service Attacks tree diagram
                 # Write the scheme in the report
                 report.write("![alt text](attackModels/malwareInjectionAttackTree.png)")
                 report.write("\n")
@@ -2203,10 +2172,167 @@ def attackModels():
                 report.write("![alt text](attackModels/tamperingAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
+    
+    # If the application or system uses authentication, database and stores sensitive data, it is subject to Bluejacking, Bluesnarfing and Bluesmack/DOS attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            if qans["Q20"].find("5") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/bluejacking_bluesnarfing.md", "r").read())
+
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("![alt text](attackModels/bluetoothAttackTree.png)")
+                report.write("\n")
+                report.write("\n")
+
+    # If the application or system uses authentication, database, stores sensitive data and use GPS, it is subject to GPS Jamming attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            if qans["Q20"].find("7") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/gps_jamming.md", "r").read())
+
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("![alt text](attackModels/gps_jammingAttackTree.png)")
+                report.write("\n")
+                report.write("\n")
+    # If the web or hybrid application or system uses authentication, database and stores sensitive data, it is subject to Code Injection attacks
+    if qans["Q1"].find("3") != -1 and qans["Q1"].find("4") != -1:
+        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+            if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/code_injection.md", "r").read())
+
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("![alt text](attackModels/codeInjectionAttackTree.png)")
+                report.write("\n")
+                report.write("\n")
+
+    # If the web or hybrid application or system uses authentication, database and stores sensitive data, it is subject to SSRF attacks
+    if qans["Q1"].find("3") != -1 and qans["Q1"].find("4") != -1:
+        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+            if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/SSRF.md", "r").read())
+
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("![alt text](attackModels/SSRFAttackTree.png)")
+                report.write("\n")
+                report.write("\n")
+
+    # If the web or hybrid application or system uses authentication, database and stores sensitive data, it is subject to Command Injection attacks
+    if qans["Q1"].find("3") != -1 and qans["Q1"].find("4") != -1:
+        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+            if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/command_injection.md", "r").read())
+
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("![alt text](attackModels/commandInjectionAttackTree.png)")
+                report.write("\n")
+                report.write("\n")
+    
+    # If the application or system uses authentication, database, stores sensitive data and use GPS, it is subject to GPS Jamming attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            if qans["Q20"].find("1") != -1 or qans["Q20"].find("2") != -1 or qans["Q20"].find("3") != -1 or qans["Q20"].find("4") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/cellular_jamming.md", "r").read())
+
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("![alt text](attackModels/cellularJammingAttackTree.png)")
+                report.write("\n")
+                report.write("\n")
+
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
+            report.write(open("attackModels/cryptanalysis.md", "r").read())
+
+            # Tampering Detection attack tree diagram
+            # Write the scheme in the report
+            report.write("![alt text](attackModels/cryptanalysisAttackTree.png)")
+            report.write("\n")
+            report.write("\n")
+
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
+            report.write(open("attackModels/reverse_enginnering.md", "r").read())
+
+            # Tampering Detection attack tree diagram
+            # Write the scheme in the report
+            report.write("![alt text](attackModels/reverseEngineeringAttackTree.png)")
+            report.write("\n")
+            report.write("\n")
+
+
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            if qans["Q14"].find("1") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/audit_log_manipulation.md", "r").read())
+
+            # Tampering Detection attack tree diagram
+            # Write the scheme in the report
+            report.write("![alt text](attackModels/auditLogManipulationAttackTree.png)")
+            report.write("\n")
+            report.write("\n")
+
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            if qans["Q20"].find("6") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/Wi-Fi_jamming.md", "r").read())
+
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("![alt text](attackModels/Wi-Fi_JammingAttackTree.png)")
+                report.write("\n")
+                report.write("\n")
+
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/Wi-Fi_SSID_Tracking.md", "r").read())
+
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("![alt text](attackModels/Wi-Fi_TrackingAttackTree.png)")
+                report.write("\n")
+                report.write("\n")
+
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attackModels/byzantine.md", "r").read())
+
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("![alt text](attackModels/byzantineAttackTree.png)")
+                report.write("\n")
+                report.write("\n")
+
+
+                
 
     report.close()
     attackModelConvertReport()
-    print("# Processing done! Check attack models in the ATTACKS_MAPPING.pdf file")
+    print("# Processing done! Check your attack models in the ATTACKS_MAPPING.pdf file")
 
 """
 [Summary]: Method responsible for processing information about STSAT module
@@ -2234,73 +2360,124 @@ def testSpecification():
 
     report.write("\n")
 
-    # Security Testing against DoS, DDoS and Botnet Attacks
-    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
-        if qans["Q17"].find("1") != -1 or qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1 :
-            report.write(open("securityTesting/BOTNETDOSDDOSTEST.md", "r").read())
+
+    # Security Testing against DoS Jamming, Wi-Fi Jamming, Orbital Jamming, GPS Jamming, Flooding Attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+            qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+        if qans["Q17"].find("1") != -1 or qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1:
+            report.write(open("securityTesting/AttackGroupDoSToFlooding.md", "r").read())
+
             report.write("\n")
             report.write("\n")
 
-    # Security Testing against MitM, DoS, DDoS, Botnet, Phishing and Spoofing attacks
-    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
-        if (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
+    # Security Testing against Malicious Insider, Sniffing, MiTM, Eavesdropping attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+            qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+        if qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("securityTesting/BotnetDoSDDoSPHISINGSPOOFINGPHISHINGMITMTEST.md", "r").read())
+            report.write(open("securityTesting/AttackGroupMIToEavesdropping.md", "r").read())
+    # Security Testing against Malicious Insider, Sniffing, MiTM, Eavesdropping attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+            qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+        if qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1:
+            report.write("\n")
+            report.write("\n")
+            report.write(open("securityTesting/AttackGroupMiTMToBruteForce.md", "r").read())
 
-    # Security Testing against SQLi, XMLi, CRSF, XSS, googleHacking and phishing attacks 
-    if qans["Q1"].find("4") != -1 or  qans["Q1"].find("3") != -1:
-        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and qans["Q6"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
-                report.write("\n")
-                report.write("\n")
-                report.write(open("securityTesting/SQLiXSSCSRFSPOOFINGTEST.md", "r").read())
 
-    # Security Testing against Sniffing, Botnet, Phishing and Spoofing Attacks
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1  or qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
+    # Security Testing against SQLi, XSS, CSRF, SSRF, Command Injection and Code Injection attacks
+    if qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
+        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and qans["Q6"].find("1") != -1 and (
+                qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+            report.write("\n")
+            report.write("\n")
+            report.write(open("securityTesting/AttackGroupSQLiToCodeInjection.md", "r").read())
+
+    # Security Testing against XSS, SQLi, CSRF, Session Fixation, Session Hijacking, Access Point Hijacking, Command Injection,
+    # Code Injection, Botnet, Malware as a Service, Spoofing, Pharming, Phishing, GPS Spoofing, Rogue Access Point,
+    # Cellular Rogue Base Station and SSRF Attacks Attacks
+    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
         if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
-            if qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1:
-                report.write("\n")
-                report.write("\n")
-                report.write(open("securityTesting/BOTNETSNIFFINGSPOOFINGPHISHINGTEST.md", "r").read())
+            if qans["Q8"].find("1") != -1 and qans["Q8"].find("2") != -1 and qans["Q8"].find("3") != -1:
+                if qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1:
+                    report.write("\n")
+                    report.write("\n")
+                    report.write(open("securityTesting/AttackGroupXSSToSSRF.md", "r").read())
 
     # Security Testing against Botnet, Spoofing and Sniffing attacks
-    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1) :
-        if qans["Q20"].find("1") != -1 or  qans["Q20"].find("2") != -1 or qans["Q20"].find("4") != -1 or qans["Q20"].find("5") != -1 or qans["Q20"].find("6") != -1 or qans["Q20"].find("8") != -1 :
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+            qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+        if qans["Q20"].find("1") != -1 or qans["Q20"].find("2") != -1 or qans["Q20"].find("4") != -1 or qans[
+            "Q20"].find("5") != -1 or qans["Q20"].find("6") != -1 or qans["Q20"].find("8") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("securityTesting/BOTSPOOFINGSNIFFINGTEST.md", "r").read())
+            report.write(open("securityTesting/AttackGroupMaaSToNFC.md", "r").read())
 
     # Security Testing against Buffer Overflow attacks
     if qans["Q1"].find("2") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("7") != -1:
         if qans["Q10"].find("2") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("securityTesting/BUFFEROVERFLOWTEST.md", "r").read())
+            report.write(open("securityTesting/AttackGroupBufferOverflow.md", "r").read())
 
-    # Security Testing against Malicious Insider and VM-Migration attacks
+    # Security Testing against Bypassing Physical Security, Physical Theft and VM Migration attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("securityTesting/MINSIDERVMMIGRATIONTEST.md", "r").read())
+            report.write(open("securityTesting/AttackGroupBPSToVM.md", "r").read())
 
     # Security Testing against Malware Injection and Side-channel attacks
-    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+            qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
         if qans["Q21"].find("1") != -1:
             report.write("\n")
             report.write("\n")
-            report.write(open("securityTesting/MALWAREINJECTIONSIDECHANNELTEST.md", "r").read())
-            
-    # Security Testing against physical Attacks
-    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
-        if qans["Q21"].find("1") != -1:
-            report.write("\n")
-            report.write("\n")
-            report.write(open("securityTesting/physicalAttacksTest.md", "r").read())
+            report.write(open("securityTesting/AttackGroupMaaSToBluejacking.md", "r").read())
 
+    # Security Testing against Spoofing, Eavesdropping, Sniffing, Botnets, MiTM, Flooding and Reverse Enginnering attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
+        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
+            report.write(open("securityTesting/AttackGroupSpoofingToREA.md", "r").read())
+
+    # Security Testing against Malware.as-a-Service, Eavesdropping and Botnets attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+            qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+        report.write("\n")
+        report.write("\n")
+        report.write(open("securityTesting/AttackGroupMaaSToBotnets.md", "r").read())
+    
+    # Security Testing against Phishing, Botnet and Malware-as-a-Service attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+            qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+        report.write("\n")
+        report.write("\n")
+        report.write(open("securityTesting/AttackGroupPhishingToMaaS.md", "r").read())
+    
+    # Security Testing against Spoofing, Eavesdropping, Botnet and Flooding attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+            qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+        report.write("\n")
+        report.write("\n")
+        report.write(open("securityTesting/AttackGroupSpoofingToFlooding.md", "r").read())
+            
+    # Security Testing against SQLi, Command Injection, Session Hijacking, Botnet, 
+    # Access Point Hijacking, Brute Force, Phishing, Spoofing, 
+    # MiTM, Buffer Overflow, Sniffing, CSRF, VM Migration attacks
+    if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
+            qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
+        report.write("\n")
+        report.write("\n")
+        report.write(open("securityTesting/AttackGrupSQLiToVM.md", "r").read())
+    
+    
+    
     report.close()
     testSpecConvertReport()
-    print("# Processing done! Check security test specification and automation tools in the TEST_SPECIFICATION.pdf file")
+    print("# Processing done! Check your security test specification and automation tools in the TEST_SPECIFICATION.pdf file")
 
 """
 [Summary]: Method responsible for processing information about SME module
@@ -2399,15 +2576,15 @@ def securityMechanisms():
 
     report.close()
     securityMechanismsConvertReport()
-    print("# Processing done! Check security mechanisms in the SECURITY_MECHANISMS.pdf file")
+    print("# Processing done! Check your security mechanisms in the SECURITY_MECHANISMS.pdf file")
 
 """
 [Summary]: Method responsible for creating, printing and outputting the complete processing report
 [Arguments]: No arguments
 [Return]: No return
-"""    
+"""
 def fullReport():
-     
+
     securityRequirements()
     goodPractices()
     securityMechanisms()
@@ -2424,6 +2601,7 @@ def fullReport():
     merger.write("FULL_REPORT.pdf")
     merger.close()
     print("\n\n *** Processing  done! See the full report requested in the FULL_REPORT.pdf file! ***\n\n")
+
 
 if __name__ == "__main__":
     print("---")
@@ -2448,7 +2626,6 @@ if __name__ == "__main__":
     print("")
     print("  SPDX-License-Identifier: Apache-2.0")
     print("")
-
     informationCapture()
 
     print("")
