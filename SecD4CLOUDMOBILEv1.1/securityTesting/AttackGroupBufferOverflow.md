@@ -49,8 +49,8 @@ In order to avoid or prevent *Buffer Overflow* attacks, the following security t
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Binary code Scanner</td>
-    <td class="tg-0lax">BugScan of LogicLab Co., <br>FxCop,   BugScam</td>
-    <td class="tg-0lax"></td>
+    <td class="tg-0lax">FxCop,   BugScam</td>
+    <td class="tg-0lax"><a href = "https://github.com/JesusFreke/smali">baksmali</a></td>
     <td class="tg-0lax">class-dump-z, frida-ios-dump, <br>Damn   Vunerable iOS App</td>
   </tr>
 </tbody>
