@@ -23,7 +23,7 @@ In order to avoid or prevent *DoS Jamming, Wi-Fi Jamming, Orbital Jamming, GPS J
     <td class="tg-0lax">Black Box</td>
     <td class="tg-0lax">Dynamic Analysis</td>
     <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax"><a href="https://nmap.org/book/man.html">NMAP</a>, SlowBot Net, MetaSploit,  <br> LOIC and Kali Linux</td>
+    <td class="tg-0lax"><a href="https://nmap.org/book/man.html">NMAP</a>, <a href="https://www.sciencedirect.com/science/article/pii/S0167404816300086">SlowBot Net</a>, <a href="https://docs.rapid7.com/metasploit/">MetaSploit</a>, <a href="https://github.com/NewEraCracker/LOIC">LOIC</a>, <a href="https://www.kali.org/docs/introduction/">Kali Linux</a></td> 
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
