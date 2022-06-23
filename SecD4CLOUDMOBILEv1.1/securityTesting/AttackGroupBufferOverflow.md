@@ -51,7 +51,7 @@ In order to avoid or prevent *Buffer Overflow* attacks, the following security t
     <td class="tg-0lax">Binary code Scanner</td>
     <td class="tg-0lax"><a href = "https://www.c-sharpcorner.com/article/fxcop-integration-into-vs-net/">FxCop</a>, <a href = "https://sourceforge.net/projects/bugscam/">BugScam</a></td>
     <td class="tg-0lax"><a href = "https://github.com/JesusFreke/smali">baksmali</a></td>
-    <td class="tg-0lax"><a href = "https://iosgods.com/topic/6706-how-to-install-class-dump-z-on-any-64bit-idevices-how-to-use-it/">class-dump-z</a>, <a href = "https://github.com/AloneMonkey/frida-ios-dump">frida-ios-dump</a><br><a href = "https://damnvulnerableiosapp.com/">Damn Vunerable iOS App</a></td>
+    <td class="tg-0lax"><a href = "https://iosgods.com/topic/6706-how-to-install-class-dump-z-on-any-64bit-idevices-how-to-use-it/">class-dump-z</a>, <a href = "https://github.com/AloneMonkey/frida-ios-dump">frida-ios-dump</a>, <a href = "https://damnvulnerableiosapp.com/">Damn Vunerable iOS App</a></td>
   </tr>
 </tbody>
 </table>
