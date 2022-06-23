@@ -40,7 +40,7 @@ In order to avoid or prevent *Buffer Overflow* attacks, the following security t
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Source code analyser</td>
-    <td class="tg-0lax"><a href="https://www.parasoft.com/products/parasoft-c-ctest/">PARASOFT C/C++ TEST</a>, <a href=" https://security.web.cern.ch/recommendations/en/codetools/rats.shtml/">RATS</a>, <br><a href="https://clang-analyzer.llvm.org/scan-build.html">Clang Code Analyze</a></td> 
+    <td class="tg-0lax"><a href="https://www.parasoft.com/products/parasoft-c-ctest/">PARASOFT C/C++ TEST</a>, <a href="https://security.web.cern.ch/recommendations/en/codetools/rats.shtml/">RATS</a>, <br><a href="https://clang-analyzer.llvm.org/scan-build.html">Clang Code Analyze</a></td> 
     <td class="tg-0lax">Angr</td>
     <td class="tg-0lax"></td>
   </tr>
