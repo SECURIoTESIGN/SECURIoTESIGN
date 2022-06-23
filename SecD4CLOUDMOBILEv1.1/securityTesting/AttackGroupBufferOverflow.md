@@ -31,7 +31,7 @@ In order to avoid or prevent *Buffer Overflow* attacks, the following security t
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Bytecode Scanner</td>
-    <td class="tg-0lax">FindBugs</td>
+    <td class="tg-0lax"><a href="https://github.com/spotbugs/spotbugs">SpotBugs</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
