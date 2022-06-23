@@ -21,7 +21,7 @@ In order to avoid or prevent *Bypassing Physical Security, Physical Theft and VM
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Forensic Mobile</td>
-    <td class="tg-0lax"><a href="https://androguard.readthedocs.io/en/latest/intro/gettingstarted.html">BlackBag Blacklight</a>, Encase&nbsp;&nbsp;&nbsp;Forensics</td>
+    <td class="tg-0lax"><a href="https://androguard.readthedocs.io/en/latest/intro/gettingstarted.html">BlackBag Blacklight</a>, <a href="https://androguard.readthedocs.io/en/latest/intro/gettingstarted.html">Encase Forensics</a></td>
     <td class="tg-0lax"><a href="https://androguard.readthedocs.io/en/latest/intro/gettingstarted.html">Androguard</a>
 , <a href="https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf">Drozer</a>, <a href="https://github.com/spotbugs/spotbugs">SpotBugs</a>,&nbsp;&nbsp;&nbsp;<a href="https://github.com/den4uk/andriller">Andriller</a></td> 
     <td class="tg-0lax"></td>
