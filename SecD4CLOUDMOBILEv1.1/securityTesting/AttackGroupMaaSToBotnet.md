@@ -1,4 +1,4 @@
-In order to avoid or prevent *Malware as a Service, Side-Channel, Botnets* attacks, the following security tests should be performed.
+In order to avoid or prevent *Malware as a Service, Side-Channel and Botnets* attacks, the following security tests should be performed.
 
 
 </style>
@@ -23,8 +23,8 @@ In order to avoid or prevent *Malware as a Service, Side-Channel, Botnets* attac
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Forensic Mobile</td>
-    <td class="tg-0lax">Slueth Kit and <br>Autopsy Browser</td>
-    <td class="tg-0lax">AndroGuard, Drozer, <br>apktool,   Amandroid</td>
+    <td class="tg-0lax"><a href="https://www.sleuthkit.org/index.php">Slueth Kit + <br>Autopsy Browser</a></td>
+    <td class="tg-0lax"><a href="https://github.com/androguard/androguard">AndroGuard</a>, <a href="https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf">Drozer</a>, <br><a href="https://github.com/iBotPeaches/Apktool">apktool</a>, <a href="https://dl.acm.org/doi/10.1145/3183575">Amandroid</a></td>
     <td class="tg-0lax"></td>
   </tr>
 </tbody>
