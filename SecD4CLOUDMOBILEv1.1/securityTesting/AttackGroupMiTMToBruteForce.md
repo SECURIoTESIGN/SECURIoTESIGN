@@ -38,7 +38,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Black Box</td>
         <td class="tg-0lax">Dynamic Analysis</td>
         <td class="tg-0lax">Proxy</td>
-        <td class="tg-0lax"><a href="https://github.com/jrmdev/mitm_relay">mitm-relay</a>, <a href="https://www.kali.org/docs/introduction/">Kali Linux</a>, <br>Burp Suite</td>
+        <td class="tg-0lax"><a href="https://github.com/jrmdev/mitm_relay">mitm-relay</a>, <a href="https://www.kali.org/docs/introduction/">Kali Linux</a>, <a href="https://portswigger.net/burp">Burp Suite</a></td>
         <td class="tg-0lax"></td>
         <td class="tg-0lax"></td>
       </tr>
