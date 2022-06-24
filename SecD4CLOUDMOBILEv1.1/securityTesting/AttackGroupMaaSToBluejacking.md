@@ -23,7 +23,7 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnets, 
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Forensic Mobile</td>
     <td class="tg-0lax"><a href="https://www.bitdefender.com/solutions/total-security.html">Bitdefender</a>, <a href="https://pt.norton.com/ps/3up_norton360_ns_nd_np_Reading_tw_nb.html?nortoncountry=pt&om_sem_cid=hho_sem_sy:pt:ggl:pt:e:br:kw0000004480:465830486375:c:google:195269073:16491667593:kwd-15050890&nortoncountry=PT&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEDbwnLOm9cCLQw62JluesRsIz13dGLcGR3g22Rl1TpjQLRqybwbYHRoCbTMQAvD_BwE&gclsrc=aw.ds">Norton</a>, <a href="https://www.mcafee.com/consumer/pt-pt/landing-page/direct/sem/mtp-family/desktop/brand-ad.html?csrc=google&csrcl2=brand&cctype=[PT-PT][Search][Brand]McAfee&ccstype=&ccoe=direct&ccoel2=sem&affid=1485&culture=PT-PT&utm_source=google&utm_medium=paidsearch&utm_campaign=[PT-PT][Search][Brand]McAfee&utm_content=[brand][exact]mcafee&utm_term=mcafee&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEB9Z6QxypEvqzc3LCPYisQUsFVCnowFSUXK73SOjadoDZa8H8jkVLBoC_hsQAvD_BwE">McAfee</a>, <a href="https://www.kaspersky.co.uk/home-security?ignoreredirects=true">Kaspersky</a></td>
-    <td class="tg-0lax">Recap vulnerability <br>scanner </td>
+    <td class="tg-0lax"><a href="http://sanddroid.xjtu.edu.cn/">SandDroid</a></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
@@ -31,8 +31,8 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnets, 
     <td class="tg-0lax">Black Box</td>
     <td class="tg-0lax">Dinamic Analysis</td>
     <td class="tg-0lax">Proxies</td>
-    <td class="tg-0lax">Wireshark</td>
-    <td class="tg-0lax">tPacketCapturepro</td>
+    <td class="tg-0lax"><a href="https://www.wireshark.org/">Wireshark</a></td>
+    <td class="tg-0lax"><a href="https://www.taosoftware.co.jp/en/android/packetcapture/">tPacketCapturepro</a>, <a href="https://github.com/ukanth/afwall">AFWall+</a></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
@@ -41,7 +41,7 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnets, 
     <td class="tg-0lax">Dinamic Analysis</td>
     <td class="tg-0lax">Proxies</td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax">NFCSpy</td>
+    <td class="tg-0lax"><a href="https://github.com/sinpolib/nfcspy">NFCSpy</a></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
@@ -49,7 +49,7 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnets, 
     <td class="tg-0lax">Black Box</td>
     <td class="tg-0lax">Dinamic Analysis</td>
     <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax">Kali Linux, hcitool</td>
+    <td class="tg-0lax"><a href="https://www.kali.org/docs/introduction/">Kali Linux</a>, <a href="https://github.com/MillerTechnologyPeru/hcitool">hcitool</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
@@ -58,8 +58,8 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnets, 
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Forensic Mobile</td>
-    <td class="tg-0lax">Slueth Kit and <br>Autopsy Browser</td>
-    <td class="tg-0lax">AndroGuard, Drozer, <br>apktool,   Amandroid</td>
+    <td class="tg-0lax"><a href="https://www.sleuthkit.org/index.php">Slueth Kit + <br>Autopsy Browser</a></td>
+    <td class="tg-0lax"><a href="https://github.com/androguard/androguard">AndroGuard</a>, <a href="https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf">Drozer</a>, <br><a href="https://github.com/iBotPeaches/Apktool">apktool</a>, <a href="https://dl.acm.org/doi/10.1145/3183575">Amandroid</a></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
