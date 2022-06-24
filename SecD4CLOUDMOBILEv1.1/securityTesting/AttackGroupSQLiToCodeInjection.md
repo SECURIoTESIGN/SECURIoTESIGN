@@ -21,7 +21,7 @@ In order to avoid or prevent *SQLi, XSS, CSRF, SSRF, Command Injection, Code Inj
     <td class="tg-0lax">Black Box</td>
     <td class="tg-0lax">Manual Dynamic <br>Analysis</td>
     <td class="tg-0lax">Proxies</td>
-    <td class="tg-0lax">OWASP WebScarab, <br>OWASP ZAP, Paros</td>
+    <td class="tg-0lax"><a href="https://github.com/OWASP/OWASP-WebScarab">OWASP WebScarab</a>, <br><a href="https://www.zaproxy.org/">OWASP ZAP</a>,   <a href="https://www.kali.org/tools/paros/">Paros</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
