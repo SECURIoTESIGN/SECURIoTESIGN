@@ -31,7 +31,7 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Dynamic Analysis </td>
     <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax">VASTO</td>
+    <td class="tg-0lax"><a href="https://www.securenetwork.it/docs/talks/2010-10_BlackHat-USA-2010_Virtually-Pwned.pdf">VASTO</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
