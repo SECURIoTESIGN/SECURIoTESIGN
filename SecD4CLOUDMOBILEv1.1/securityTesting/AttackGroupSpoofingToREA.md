@@ -22,18 +22,18 @@ In order to avoid or prevent *Spoofing, Eavesdropping, Sniffing, Botnets, MiTM, 
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax">Ghidra</td>
-    <td class="tg-0lax">Dex2jar, JD-GUI, <br>Dextra</td>
-    <td class="tg-0lax">Clutch</td>
+    <td class="tg-0lax"><a href="https://github.com/NationalSecurityAgency/ghidra">Ghidra</a></td>
+    <td class="tg-0lax"><a href="https://github.com/pxb1988/dex2jar">Dex2jar</a>, <a href="https://github.com/java-decompiler/jd-gui/releases">JD-GUI</a>, <br><a href="http://newandroidbook.com/tools/dextra.html">Dextra</a></td>
+    <td class="tg-0lax"><a href="https://github.com/KJCracks/Clutch">Clutch</a></td>
   </tr>
   <tr>
     <td class="tg-0lax">Mobile   decryption, <br>unpacking &amp; conversion</td>
     <td class="tg-0lax">Black Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax">MobSF</td>
-    <td class="tg-0lax">APKEnum</td>
-    <td class="tg-0lax">Damn Vulnerable <br>iOS App</td>
+    <td class="tg-0lax"><a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF">MobSF</a></td>
+    <td class="tg-0lax"><a href="https://github.com/shivsahni/APKEnum">APKEnum</a></td>
+    <td class="tg-0lax"><a href="https://damnvulnerableiosapp.com/">Damn Vulnerable <br>iOS App</a></td>
   </tr>
   <tr>
     <td class="tg-0lax">Secure backup,   <br>logging and Insecure <br>Data Storage</td>
@@ -41,7 +41,7 @@ In order to avoid or prevent *Spoofing, Eavesdropping, Sniffing, Botnets, MiTM, 
     <td class="tg-0lax">Dynamic Analysis</td>
     <td class="tg-0lax">Proxies</td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax">adb</td>
+    <td class="tg-0lax"><a href="https://developer.android.com/studio/command-line/adb">adb</a></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
@@ -49,9 +49,9 @@ In order to avoid or prevent *Spoofing, Eavesdropping, Sniffing, Botnets, MiTM, 
     <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Manual (Reversed) <br>Code Review</td>
-    <td class="tg-0lax">r2ghidra-dec,r2frida, <br>Radare2</td>
+    <td class="tg-0lax"><a href="https://github.com/bambooeric/r2ghidra-dec">r2ghidra-dec</a>,<a href="https://github.com/radareorg/r2ghidra">r2frida</a>, <br><a href="https://github.com/radareorg/radare2">Radare2</a></td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax">Hooper</td>
+    <td class="tg-0lax"><a href="https://www.hopperapp.com/">Hooper</a></td>
   </tr>
 </tbody>
 </table>
