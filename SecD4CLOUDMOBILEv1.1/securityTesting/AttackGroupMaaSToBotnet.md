@@ -1,7 +1,6 @@
 In order to avoid or prevent *Malware as a Service, Side-Channel and Botnets* attacks, the following security tests should be performed.
 
 
-</style>
 <table class="tg">
 <thead>
   <tr>
