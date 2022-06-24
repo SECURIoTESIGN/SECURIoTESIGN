@@ -40,7 +40,7 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Dynamic Analysis</td>
     <td class="tg-0lax">Stressing Testing (fuzzing)</td>
-    <td class="tg-0lax"><a href="https://github.com/ovanr/webFuzz">Webfuzz</a>, <a ref="https://github.com/xmendez/wfuzz">Wfuzz</a></td>
+    <td class="tg-0lax"><a href="https://github.com/ovanr/webFuzz">Webfuzz</a>, <a href="https://github.com/xmendez/wfuzz">Wfuzz</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
@@ -67,7 +67,7 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">Dynamic Analysis</td>
     <td class="tg-0lax">Proxies</td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax"><a href="https://developer.android.com/studio/command-line/adb"></a>adb</td>
+    <td class="tg-0lax"><a href="https://developer.android.com/studio/command-line/adb">adb</a></td>
     <td class="tg-0lax"></td>
   </tr>
 </tbody>
