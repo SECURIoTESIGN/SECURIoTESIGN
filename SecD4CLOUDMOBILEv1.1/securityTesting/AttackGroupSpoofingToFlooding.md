@@ -33,7 +33,7 @@ In order to avoid or prevent *Spoofing, Eavesdrooping, Botnets, Flooding* attack
     <td class="tg-0lax">Penetration Testing</td>
     <td class="tg-0lax"><a href="http://www.cydiasubstrate.com/">Cydia Substrate</a></td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax">Cycript</td>
+    <td class="tg-0lax"><a href="http://www.cycript.org/">Cycript</a></td>
   </tr>
 </tbody>
 </table>
