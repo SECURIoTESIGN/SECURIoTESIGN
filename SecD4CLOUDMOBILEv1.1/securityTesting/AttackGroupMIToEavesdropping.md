@@ -49,7 +49,7 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Dynamic analysis</td>
     <td class="tg-0lax">Vulnerability Scanner</td>
-    <td class="tg-0lax"><a href="https://www.acunetix.com/support/">Acunetix</a>, <a href="http://docs.w3af.org/en/latest/basic-ui.html">W3af</a, <a href="https://github.com/sullo/nikto">Nikto</a>, HP&nbsp;&nbsp;&nbsp;<a href="https://www.microfocus.com/media/data-sheet/webinspect_automated_dynamic_application_security_testing_ds.pdf">WebInspect</a></td>
+    <td class="tg-0lax"><a href="https://www.acunetix.com/support/">Acunetix</a>, <a href="http://docs.w3af.org/en/latest/basic-ui.html">W3af</a, <a href="https://github.com/sullo/nikto">Nikto</a>,&nbsp;&nbsp;&nbsp;<a href="https://www.microfocus.com/media/data-sheet/webinspect_automated_dynamic_application_security_testing_ds.pdf">Fortify WebInspect</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
