@@ -31,8 +31,8 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnet, S
     <td class="tg-0lax">Black Box</td>
     <td class="tg-0lax">Dinamic Analysis</td>
     <td class="tg-0lax">Proxies</td>
-    <td class="tg-0lax">Wireshark</td>
-    <td class="tg-0lax">tPacketCapturepro</td>
+    <td class="tg-0lax"><a href="https://www.wireshark.org/">Wireshark</a></td>
+    <td class="tg-0lax"><a href="https://www.taosoftware.co.jp/en/android/packetcapture/">tPacketCapturepro</a></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
@@ -41,7 +41,7 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnet, S
     <td class="tg-0lax">Dinamic Analysis</td>
     <td class="tg-0lax">Proxies</td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax">NFCSpy</td>
+    <td class="tg-0lax"><a href="https://github.com/sinpolib/nfcspy">NFCSpy</a></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
@@ -49,7 +49,7 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnet, S
     <td class="tg-0lax">Black Box</td>
     <td class="tg-0lax">Dinamic Analysis</td>
     <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax">Kali Linux, hcitool</td>
+    <td class="tg-0lax"><a href="https://www.kali.org/docs/introduction/">Kali Linux</a>, <a href="https://github.com/MillerTechnologyPeru/hcitool">hcitool</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
