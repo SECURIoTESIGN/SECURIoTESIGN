@@ -83,7 +83,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Black Box</td>
         <td class="tg-0lax">Manual Dynamic Analysis</td>
         <td class="tg-0lax">Proxies</td>
-        <td class="tg-0lax">ITR, <a href="https://github.com/OWASP/OWASP-WebScarab">OWASP WebScarab</a>, <br><a href="https://www.zaproxy.org/">OWASP ZAP</a>,   <a href="https://www.kali.org/tools/paros/">Paros</a></td>
+        <td class="tg-0lax"><a href="https://github.com/OWASP/OWASP-WebScarab">OWASP WebScarab</a>, <br><a href="https://www.zaproxy.org/">OWASP ZAP</a>,   <a href="https://www.kali.org/tools/paros/">Paros</a></td>
         <td class="tg-0lax"></td>
         <td class="tg-0lax"></td>
       </tr>
