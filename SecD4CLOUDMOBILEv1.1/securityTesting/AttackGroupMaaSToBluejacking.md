@@ -67,8 +67,8 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnets, 
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Hybrid Analysis</td>
     <td class="tg-0lax">Vulnerability Scanner</td>
-    <td class="tg-0lax">RMS</td>
-    <td class="tg-0lax">Drozer, Sieve</td>
+    <td class="tg-0lax"><a href="https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security">RMS</a></td>
+    <td class="tg-0lax"><a href="https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf">Drozer</a>, <a href="https://github.com/FSecureLABS/drozer/releases/download/2.3.4/sieve.apk">Sieve</a></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
@@ -78,7 +78,7 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnets, 
     <td class="tg-0lax">Mobile Forensic</td>
     <td class="tg-0lax"> </td>
     <td class="tg-0lax"> </td>
-    <td class="tg-0lax">iOSbackup</td>
+    <td class="tg-0lax"><a href="https://pypi.org/project/iOSbackup/">iOSbackup</a></td>
   </tr>
 </tbody>
 </table>
