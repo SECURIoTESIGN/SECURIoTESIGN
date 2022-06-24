@@ -20,8 +20,8 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">White Box</td>
         <td class="tg-0lax">Static analysis</td>
         <td class="tg-0lax">Forensic Mobile</td>
-        <td class="tg-0lax">XTY, Cellebrite, OpenSSL</td>
-        <td class="tg-0lax">AndroGuard and <br>MalloDroid, apktool, <br>Amandroid</td>
+			<td class="tg-0lax"><a href="https://www.msab.com/product/xry-extract/">XRY</a>, <a ></a><a href="https://cellebrite.com/en/ufed/">UFED Touch</a>, <a href="https://www.openssl.org/">OpenSSL</a></td>
+        <td class="tg-0lax"><a href="https://github.com/androguard/androguard">AndroGuard</a>, <a href="https://github.com/sfahl/mallodroid">MalloDroid</a>, <a href="https://github.com/iBotPeaches/Apktool">apktool</a>, <a href="https://dl.acm.org/doi/10.1145/3183575">Amandroid</a></td>
         <td class="tg-0lax"></td>
       </tr>
       <tr>
@@ -29,7 +29,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Grey Box</td>
         <td class="tg-0lax">Hybrid</td>
         <td class="tg-0lax">Penetration Testing</td>
-        <td class="tg-0lax">Burp Suite, Wireshark, <br>bettercap</td>
+        <td class="tg-0lax"><a href="https://portswigger.net/burp">Burp Suite</a>, <a href="https://www.wireshark.org/">Wireshark</a>, <br>bettercap</td>
         <td class="tg-0lax"></td>
         <td class="tg-0lax"></td>
       </tr>
@@ -38,7 +38,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Black Box</td>
         <td class="tg-0lax">Dynamic Analysis</td>
         <td class="tg-0lax">Proxy</td>
-        <td class="tg-0lax">mitm-relay, Kali Linux, <br>Burp   Suite</td>
+        <td class="tg-0lax"><a href="https://github.com/jrmdev/mitm_relay">mitm-relay</a>, <a href="https://www.kali.org/docs/introduction/">Kali Linux</a>, <br>Burp Suite</td>
         <td class="tg-0lax"></td>
         <td class="tg-0lax"></td>
       </tr>
@@ -47,7 +47,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Black Box</td>
         <td class="tg-0lax">Dynamic analysis</td>
         <td class="tg-0lax">Proxies</td>
-        <td class="tg-0lax">NMAP, Nessus, SuperScan,  <br> Metasploit Framework</td>
+        <td class="tg-0lax"><a href="https://nmap.org/">NMAP</a>, <a hrer="https://www.tenable.com/products/nessus">Nessus</a>,  <br> <a href="https://www.metasploit.com/">Metasploit Framework</a></td>
         <td class="tg-0lax"></td>
         <td class="tg-0lax"></td>
       </tr>
@@ -56,8 +56,8 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Grey Box</td>
         <td class="tg-0lax">Dynamic analysis</td>
         <td class="tg-0lax">Proxies</td>
-        <td class="tg-0lax">Wireshark</td>
-        <td class="tg-0lax">tPacketCapturepro, <br>AFWall+</td>
+        <td class="tg-0lax"><a href="https://www.wireshark.org/">Wireshark</a></td>
+        <td class="tg-0lax"><a href="https://www.taosoftware.co.jp/en/android/packetcapture/">tPacketCapturepro</a>, <a href="https://github.com/ukanth/afwall">AFWall+</a></td>
         <td class="tg-0lax"></td>
       </tr>
       <tr>
@@ -65,9 +65,9 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Grey Box</td>
         <td class="tg-0lax">Dynamic Analysis</td>
         <td class="tg-0lax">Proxies, Penetration <br>Testing</td>
-        <td class="tg-0lax">Frida</td>
-        <td class="tg-0lax">adb</td>
-        <td class="tg-0lax">iPhone Backup, <br>Unlocker</td>
+        <td class="tg-0lax"><a href="https://frida.re/">Frida</a></td>
+        <td class="tg-0lax"><a href="https://developer.android.com/studio/command-line/adb">adb</a></td>
+        <td class="tg-0lax"><a href="https://www.passfab.net/products/iphone-backup-unlocker.html?gclid=CjwKCAjwwdWVBhA4EiwAjcYJEIEe_MT87RuDw5L6Pl-frG5MrdUTW2mbj61faoJpXIEWjB7MCSQfXxoCXV8QAvD_BwE">PassFab iPhone <br> Backup Unlocker</a></td>
       </tr>
       <tr>
         <td class="tg-0lax">Secure backup,   <br>logging and <br>Insecure Data <br>Storage</td>
@@ -75,7 +75,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Dynamic Analysis</td>
         <td class="tg-0lax">Mobile Forensic</td>
         <td class="tg-0lax"></td>
-        <td class="tg-0lax">Logcat</td>
+        <td class="tg-0lax"><a href="https://developer.android.com/studio/command-line/logcat">Logcat</a></td>
         <td class="tg-0lax"></td>
       </tr>
       <tr>
@@ -83,7 +83,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Black Box</td>
         <td class="tg-0lax">Manual Dynamic Analysis</td>
         <td class="tg-0lax">Proxies</td>
-        <td class="tg-0lax">ITR, OWASP WebScarab, <br>OWASP ZAP,   Paros</td>
+        <td class="tg-0lax">ITR, <a href="https://github.com/OWASP/OWASP-WebScarab">OWASP WebScarab</a>, <br><a href="https://www.zaproxy.org/">OWASP ZAP</a>,   <a href="https://www.kali.org/tools/paros/">Paros</a></td>
         <td class="tg-0lax"></td>
         <td class="tg-0lax"></td>
       </tr>
@@ -92,8 +92,8 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax">Black Box</td>
         <td class="tg-0lax">Dynamic Analysis</td>
         <td class="tg-0lax">Proxies</td>
-        <td class="tg-0lax">Wireshark,Tapioca</td>
-        <td class="tg-0lax">tPacketCapturepro</td>
+        <td class="tg-0lax"><a href="https://www.wireshark.org/">Wireshark</a>, <a href="https://github.com/CERTCC/tapioca">CERT Tapioca</a></td>
+        <td class="tg-0lax"><a href="https://www.taosoftware.co.jp/en/android/packetcapture/">tPacketCapturepro</a></td>
         <td class="tg-0lax"></td>
       </tr>
       <tr>
@@ -102,8 +102,8 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
       <td class="tg-0lax">Dinamic Analysis</td>
       <td class="tg-0lax">Penetration Testing</td>
       <td class="tg-0lax"></td>
-      <td class="tg-0lax">Introspy-Android</td>
-      <td class="tg-0lax">Introspy-iOS</td>
+      <td class="tg-0lax"><a href="https://github.com/iSECPartners/Introspy-Android">Introspy-Android</a></td>
+      <td class="tg-0lax"><a href="https://github.com/iSECPartners/Introspy-iOS">Introspy-iOS</a></td>
       </tr>
 	</tbody>
 </table>
