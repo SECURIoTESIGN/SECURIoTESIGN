@@ -21,7 +21,7 @@ In order to avoid *XSS, SQLi, CSRF, Session Fixation, Session Hijacking, Access 
     <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Dynamic analysis</td>
     <td class="tg-0lax">Vulnerability Scanner</td>
-    <td class="tg-0lax"><a href="https://github.com/OWASP/OWASP-WebScarab">OWASP WebScarab</a>, <a href="https://github.com/sullo/nikto">Nikto</a>, <br><a href="https://github.com/sensepost/wikto">Wikto</a>, <a href="https://www.kali.org/tools/paros/">Paros Proxy</a>, <a href="https://www.spikeproxy.com/">Spike Proxy</a>, <br><a href="https://www.zaproxy.org/">OWASP ZAP</a></td>
+    <td class="tg-0lax"><a href="https://github.com/OWASP/OWASP-WebScarab">OWASP WebScarab</a>, <a href="https://github.com/sullo/nikto">Nikto</a>, <a href="https://github.com/sensepost/wikto">Wikto</a>, <a href="https://www.kali.org/tools/paros/">Paros Proxy</a>, <a href="https://www.spikeproxy.com/">Spike Proxy</a>, <br><a href="https://www.zaproxy.org/">OWASP ZAP</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
