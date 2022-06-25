@@ -75,7 +75,7 @@ In order to avoid *XSS, SQLi, CSRF, Session Fixation, Session Hijacking, Access 
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Bytecode Scanner</td>
-    <td class="tg-0lax"><a href="https://github.com/AnthonyCalandra/bytecode-scanner"></a>bytecode-scanner, <br><a href="https://github.com/linkedin/qark/">QARK</a></td>
+    <td class="tg-0lax"><a href="https://github.com/AnthonyCalandra/bytecode-scanner">bytecode-scanner</a>, <br><a href="https://github.com/linkedin/qark/">QARK</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
