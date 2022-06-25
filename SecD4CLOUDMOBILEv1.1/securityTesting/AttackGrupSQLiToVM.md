@@ -22,8 +22,8 @@ In order to avoid *SQLi, Command Injection, Session Hijacking, Botnets, AP Hijac
     <td class="tg-0lax">Dinamic Analysis</td>
     <td class="tg-0lax">Penetration Testing</td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax">Introspy-Android</td>
-    <td class="tg-0lax">Introspy-iOS</td>
+    <td class="tg-0lax"><a href="https://github.com/iSECPartners/Introspy-Android">Introspy-Android</a></td>
+    <td class="tg-0lax"><a href="https://github.com/iSECPartners/Introspy-iOS">Introspy-iOS</a></td>
   </tr>
 </tbody>
 </table>
