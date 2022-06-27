@@ -2,22 +2,22 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Hybrid Application                                          |  
-|  Application domain type  |  m-Payment                                                   |  
+|  Mobile Plataform         |  Android App                                                 |  
+|  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  HTML5 ; Javascript ; PHP                                    |  
+|  Type of Registration     |  The users will register themselves                          |  
+|  Programming Languages    |  Java                                                        |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  No                                                          |  
+|  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  

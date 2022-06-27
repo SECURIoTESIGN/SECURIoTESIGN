@@ -2,77 +2,28 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Hybrid Application                                          |  
-|  Application domain type  |  m-Payment                                                   |  
+|  Mobile Plataform         |  Android App                                                 |  
+|  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  HTML5 ; Javascript ; PHP                                    |  
+|  Type of Registration     |  The users will register themselves                          |  
+|  Programming Languages    |  Java                                                        |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  No                                                          |  
+|  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
 |  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
-
-
-In order to avoid or prevent *SQLi, XSS, CSRF, SSRF, Command Injection, Code Injection* attacks, the following security tests should be performed.
-
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-amwm" rowspan="2">Test Parameter</th>
-    <th class="tg-amwm" rowspan="2">Testing Types</th>
-    <th class="tg-amwm" rowspan="2">Testing Analysis</th>
-    <th class="tg-amwm" rowspan="2">Method</th>
-    <th class="tg-amwm" colspan="3">Tools</th>
-  </tr>
-  <tr>
-    <th class="tg-amwm">Both</th>
-    <th class="tg-amwm">Android</th>
-    <th class="tg-amwm">iOS</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0lax">Web Server <br>connection</td>
-    <td class="tg-0lax">Black Box</td>
-    <td class="tg-0lax">Manual Dynamic <br>Analysis</td>
-    <td class="tg-0lax">Proxies</td>
-    <td class="tg-0lax">ITR and OWASP WebScarab, <br>OWASP ZAP, Paros</td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Input Validation</td>
-    <td class="tg-0lax">Grey Box</td>
-    <td class="tg-0lax">Static Analysis</td>
-    <td class="tg-0lax">Forensic Mobile</td>
-    <td class="tg-0lax">Snoopwall Privacy App, Clueful,&nbsp;&nbsp;&nbsp;AVG Antivirus Security</td>
-    <td class="tg-0lax">Recap vulnerability scanner</td>
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Dynamic binary&nbsp;&nbsp;&nbsp;analysis</td>
-    <td class="tg-0lax">Black Box</td>
-    <td class="tg-0lax">Dinamic Analysis</td>
-    <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax">Introspy-Android</td>
-    <td class="tg-0lax">Introspy-iOS</td>
-  </tr>
-</tbody>
-</table>
 
 
 In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnet, Spoofing and Eavesdroping, NFC Payment Replay, Bynzantine, Bluesnarfing, Bluejacking* attacks, the following security tests should be performed.

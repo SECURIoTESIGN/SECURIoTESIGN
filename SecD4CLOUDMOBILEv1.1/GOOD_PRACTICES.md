@@ -2,22 +2,22 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Hybrid Application                                          |  
-|  Application domain type  |  m-Payment                                                   |  
+|  Mobile Plataform         |  Android App                                                 |  
+|  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  HTML5 ; Javascript ; PHP                                    |  
+|  Type of Registration     |  The users will register themselves                          |  
+|  Programming Languages    |  Java                                                        |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  No                                                          |  
+|  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
@@ -25,6 +25,22 @@
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
+
+# Java and C# Security Flavour Implementation
+
+Since mobile-application security for the permissions-based Android platform and currently use Java and C# programming languages, in order to ensure security in the software, the SDLC should take into account the following procedures:
+
+ * Use mechanisms that enforce access control of applications to system resources, by defining permissions and protection domains and by using access control algorithms;
+ * Pay attention to setting the access level (private, package, protected and public) for each reference to an element of a primitive data or to an object;
+ * Use mechanisms that enforce language conventions, that is, lower-level mechanisms that require, among other things, that programs interfere with the normal operation of the sandbox, during compilation, loading in the virtual machine (VM) of the bytecodes, and execution. For compilation and loading in the VM of the bytecodes, static code analysis is used, and dynamic code analysis is performed.
+
+In the event of runtime authorization failures, when an access control policy does not grant sufficient permissions to a user or an access control policy grants users unneeded permissions, the system may be exposed to security attacks. In this case, it is recommended to use the two major approaches in the Java and .Net Common Language Runtime platforms:
+
+ * Stack-based Access Control (SBAC): Ensure that only programs that satisfy a set of permission requirements gain access to restricted resources. SBAC systems should always stick to the Principle of Least Privilege;
+ * Role-based Access Control (RBAC): is a mechanism to restrict access to authorized users. RBAC systems provide access control based on permissions and roles.
+
+Not addressing this requirement may lead to vulnerabilities explored by attacks such as: 
+ * Missing authentication: Missing authentication is a security vulnerability that occurs in software that does not perform any authentication for functionalities that require a provable user identity or consume a significant amount of resources.
 
 #  Input Validation 
 
@@ -140,33 +156,6 @@ Ensure secure flag is set to prevent accidental transmission over "the wire" in 
 
 
 [https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Session_Management_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Session_Management_Cheat_Sheet.md)
-
-# Cross Site Scripting (XSS)
-
-Given the way browsers parse HTML, each of the different types of slots has slightly different security rules. 
-When you put untrusted data into these slots, you need to take certain steps to make sure that the data does not break out of that slot into a context that allows code execution. 
-
-HTML entity encoding is okay for untrusted data that you put in the body of the HTML document, such as inside a "div" tag. It even sort of works for untrusted data that goes into attributes, particularly if you're religious about using quotes around your attributes. But HTML entity encoding  doesn't work if you're putting untrusted data inside a "script" tag anywhere, or an event handler attribute  like onmouseover, or inside CSS, or in a URL. 
-
-## XSS Prevention Rules	
-
- * Never Insert Untrusted Data Except in Allowed Locations - The first rule is to deny all; 
- * HTML Escape Before Inserting Untrusted Data into HTML Element Content; 
- * Attribute Escape Before Inserting Untrusted Data into HTML Common Attributes; 
- * JavaScript Escape Before Inserting Untrusted Data into JavaScript Data Values; 
- * HTML escape JSON values in an HTML context and read the data with JSON.parse; 
- * Ensure returned Content-Type header is application/json and not text/html;  
- * CSS Escape And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values;
- * URL Escape Before Inserting Untrusted Data into HTML URL Parameter Values; 
- * Sanitize HTML Markup with a Library Designed for the Job; 
- * Prevent DOM-based XSS; 
- * Use HTTPOnly cookie flag; 
- * Implement Content Security Policy; 
- * Use an Auto-Escaping Template System; 
- * Use the X-XSS-Protection Response Header; 
- * Properly use modern JS frameworks like Angular (2+) or ReactJS.
-
-[https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md)
 
 # Cryptography	
 

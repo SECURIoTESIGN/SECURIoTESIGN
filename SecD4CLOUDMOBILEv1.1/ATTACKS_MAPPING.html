@@ -9,11 +9,11 @@
 <tbody>
 <tr>
 <td align="left">Mobile Plataform</td>
-<td align="left">Hybrid Application</td>
+<td align="left">Android App</td>
 </tr>
 <tr>
 <td align="left">Application domain type</td>
-<td align="left">m-Payment</td>
+<td align="left">m-Health</td>
 </tr>
 <tr>
 <td align="left">Authentication</td>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td align="left">Which DB</td>
-<td align="left">MySQL</td>
+<td align="left">SQLite</td>
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
@@ -45,11 +45,11 @@
 </tr>
 <tr>
 <td align="left">Type of Registration</td>
-<td align="left">Will be an administrator that will register the users</td>
+<td align="left">The users will register themselves</td>
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<td align="left">HTML5 ; Javascript ; PHP</td>
+<td align="left">Java</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
@@ -69,7 +69,7 @@
 </tr>
 <tr>
 <td align="left">The system has third-party</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 </tr>
 <tr>
 <td align="left">System Cloud Environments</td>
@@ -93,74 +93,6 @@
 </tr>
 </tbody>
 </table>
-<h1>Malicious QR Code Attacks</h1>
-<p>In this type of attack, one of the strategies used by the attackers, after coding the malicious links, is to take them to phishing sites or execute fraudulent codes. In addition, in order to end this type of attack, the attackers often print the malicious QR codes on small stickers that are pasted on pre-existing QR codes. On the other hand, attackers often change selected modules from white to black and vice versa in order to replace the original encoded content.</p>
-<h2>Definition</h2>
-<p>QR code-based attack is defined as an attack that attempts to lure victims into scanning a QR code that directs them to malicious websites. The key idea behind QR code attacks is that victims might trust the web page or the printed material on which the QR code is displayed, and assume that the associated code is harmless. In addition, attackers use malicious QR codes to direct users to fraudulent web sites, which masquerade as legitimate web sites aiming to steal sensitive personal information such as usernames, passwords or credit card information. </p>
-<h2>Technical Impact</h2>
-<ul>
-<li>Execute Unauthorized Code or Commands.</li>
-</ul>
-<h2>Risk Analysis</h2>
-<ul>
-<li>High Risk.</li>
-</ul>
-<h2>Likelihood Exploits</h2>
-<ul>
-<li>Low.</li>
-</ul>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Direct the user to an exploit or phishing site;</li>
-<li>Perform other attacks such as phishing, farming and botnet;
- * Distribute malware;
- * Extraction of personal and confidential data from smartphones and tablets via command injection or traditional buffer overflows by reader software;</li>
-<li>Steal users' Money via fraud;</li>
-<li>Social Engineering attacks via spear phishing e.g. leaving a poster of a QR Code on the parking lot of a company (instead of the traditional attack with an USB drive) offering discount in a nearby restaurant is a new attack vector which is likely to be successful.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to malicious QR Code attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.</p>
-<h2>Malicious QR Code Attacks Diagram</h2>
-<p><img alt="alt text" src="attackModels/QRCodeAttackTree.png" /></p>
-<h1>SQL Injection Attacks</h1>
-<p>In this type of attack, an attacker could provide malicious input with a clever mix of characters and meta characters from a form (e.g., login form) to alter the logic of the SQL command.</p>
-<h2>Definition</h2>
-<p>Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose to change the logic of the desired query.</p>
-<h2>Technical Impact</h2>
-<ul>
-<li>Read Application Data;</li>
-<li>Bypass Protection Mechanism;</li>
-<li>Modify Application Data.</li>
-</ul>
-<h2>Likelihood of Exploit</h2>
-<ul>
-<li>High.</li>
-</ul>
-<h2>Risk</h2>
-<ul>
-<li>Critical Risk.</li>
-</ul>
-<h2>Attacker's Powers</h2>
-<ul>
-<li>Identify parameters vulnerable to injection;</li>
-<li>Discover DBMS and version;</li>
-<li>Discover relational scheme;</li>
-<li>Extract data;</li>
-<li>Add/modify data;</li>
-<li>Cause denial of service;</li>
-<li>Evade detection;</li>
-<li>Bypass authentication;</li>
-<li>Execute commands;</li>
-<li>Elevate privileges.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, confidentiality, access control, integrity, privacy and authenticity of the data.</p>
-<h2>Reference</h2>
-<ol>
-<li>[https://cwe.mitre.org/data/definitions/89.html]</li>
-</ol>
-<h2>SQL Injection Attacks Diagram</h2>
-<p><img alt="alt text" src="attackModels/sqliAttackTree.png" /></p>
 <h1>Flooding or Distributed Denial of Services (DDoS)  Attacks</h1>
 <p>Flooding is an enhanced Denial of Service (DoS) attack type, originating from multiple network attack surfaces that were previously compromised to disrupt the services or resources provided by the target server. It differs from DoS in that it generates more traffic, so that the targeted server cannot handle requests. This type of attack generally exposes a weakness in rate limiting or flow.</p>
 <h2>Definition</h2>
@@ -206,58 +138,6 @@
 </ol>
 <h2>Flooding Attacks Diagram</h2>
 <p><img alt="alt text" src="attackModels/floodingAttackTree.png" /></p>
-<h1>XML Injection Attacks</h1>
-<p>It is an attacking technique used against XML-based applications to modify or compromise their normal operation.</p>
-<h2>Definition</h2>
-<p>XML Injection (XMLi) attacks are carried out by injecting pieces of XML code along with malicious content into user inputs in order to produce harmful XML messages. The aim of this type of attacks is to compromise the system or system component that receives user inputs, making it malfunction (e.g. crash), or to attack other systems or subsequent components that process those injected XML messages. This type of attack can be classified into 4 categories:</p>
-<ul>
-<li>Deforming: Attack input values of Type 1 are XML meta-characters, such as &lt;, &gt;, ]] &gt;, that are intro- duced to compromise the structure of generated XML messages;</li>
-<li>Random closing tags: Attack input values of Type 2 are random XML closing tags (e.g., &lt; /test&gt;), aiming at deforming the generated XML messages to reveal their structure;</li>
-<li>Replicating: Attack input values of Type 3 are strings of characters consisting of XML tag names and malicious content;</li>
-<li>Replacing: Attack input values of Type 4 are similar to those of Type 3 but they involve multiple input fields in order to comment out some existing XML elements and inject new ones with malicious content.</li>
-</ul>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Obtain confidential information;</li>
-<li>Change the underlying business logic of the destination.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
- </p>
-<h2>XML Injection Attacks Diagram</h2>
-<p><img alt="alt text" src="attackModels/xmliAttackTree.png" /></p>
-<h1>Session Hijacking Attack</h1>
-<p>An attacker impersonates a legitimate user through stealing or predicting a valid session ID.</p>
-<h2>Definition</h2>
-<p>The necessary condition for the session hijacking attack to occur is the existence of architectural vulnerabilities in the absence of protection for the storage of session identifiers. This vulnerability generally occurs in web applications written in PHP in previous versions (e.g., PHP 4.0 to PHP 4.1.2), As described in CVE-2002-0121.</p>
-<h2>Technical Impact</h2>
-<ul>
-<li>Read Application Data; </li>
-<li>Gain Privileges or Assume Identity; </li>
-<li>Execute Unauthorized Code or Commands.</li>
-</ul>
-<h2>Risk Analysis</h2>
-<ul>
-<li>Critical.</li>
-</ul>
-<h2>Likelihood of Exploit</h2>
-<ul>
-<li>High.</li>
-</ul>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Steal Session ID;</li>
-<li>Impersonation of a legitimate user and confidential information from a legitimate user.</li>
-</ul>
-<h2>References</h2>
-<ol>
-<li>[https://www.cvedetails.com/cve/CVE-2002-0121/];</li>
-<li>[https://cwe.mitre.org/data/definitions/287.html];</li>
-<li>[https://capec.mitre.org/data/definitions/593.html].
- </li>
-</ol>
-<h2>Session Hijacking Attack Diagram</h2>
-<p><img alt="alt text" src="attackModels/sessionHijackingAttackTree.png" /></p>
 <h1>Spoofing Attacks</h1>
 <p>In a nutshell, spoofing attacks consist of spoofing the caller ID in order to impersonate a trusted entity and thus obtain confidential information in a disguised manner.</p>
 <h2>Definition</h2>
@@ -435,6 +315,33 @@
 </ol>
 <h2>Cross VM Attacks Diagram</h2>
 <p><img alt="alt text" src="attackModels/sideChannelAttackTree.png" /></p>
+<h1>Malware-as-a-Service</h1>
+<p>This type of attack occurs whenever a user can install malware on a mobile device. In addition, this type of attack can be carried out remotely or locally.</p>
+<h2>Definition</h2>
+<p>Attacks on the cloud and mobile application-level ecosystem can affect the integrity and confidentiality of data and applications through different strategies. E.g., by injecting malware. Malware can be  virus, worm, trojan, rootkit and botnet.</p>
+<h2>Technical Impact</h2>
+<ul>
+<li>Execute Unauthorized Code or Commands;</li>
+<li>Read Application Data.</li>
+</ul>
+<h2>Risk Analysis</h2>
+<ul>
+<li>Critical Risk.</li>
+</ul>
+<h2>Likelihood of Exploit</h2>
+<ul>
+<li>Medium.</li>
+</ul>
+<h2>Attacker Powers</h2>
+<ul>
+<li>Access and steal users confidential data;</li>
+<li>Obtain root permissions on mobile devices and control the mobile device;</li>
+<li>Directly affect the computational integrity of mobile platforms along with the application.</li>
+</ul>
+<h2>Recommendations</h2>
+<p>To ensure that the mobile application is resilient or immune to malicious Malware Injection attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.</p>
+<h2>Malware-as-a-Service Diagram</h2>
+<p><img alt="alt text" src="attackModels/malwareInjectionAttackTree.png" /></p>
 <h1>Tampering Attacks</h1>
 <p>In this type of attack an attacker preforms physical modifications on the hardware where the software is implemented.  </p>
 <h2>Definition</h2>

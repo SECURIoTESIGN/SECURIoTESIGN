@@ -2,111 +2,27 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Hybrid Application                                          |  
-|  Application domain type  |  m-Payment                                                   |  
+|  Mobile Plataform         |  Android App                                                 |  
+|  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of data storage     |  SQL                                                         |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  HTML5 ; Javascript ; PHP                                    |  
+|  Type of Registration     |  The users will register themselves                          |  
+|  Programming Languages    |  Java                                                        |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  No                                                          |  
+|  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
 |  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
 |  Data Center Phisical Access|  Yes                                                         |  
-
-
-
-# Malicious QR Code Attacks
-
-In this type of attack, one of the strategies used by the attackers, after coding the malicious links, is to take them to phishing sites or execute fraudulent codes. In addition, in order to end this type of attack, the attackers often print the malicious QR codes on small stickers that are pasted on pre-existing QR codes. On the other hand, attackers often change selected modules from white to black and vice versa in order to replace the original encoded content.
-
-## Definition
-
-QR code-based attack is defined as an attack that attempts to lure victims into scanning a QR code that directs them to malicious websites. The key idea behind QR code attacks is that victims might trust the web page or the printed material on which the QR code is displayed, and assume that the associated code is harmless. In addition, attackers use malicious QR codes to direct users to fraudulent web sites, which masquerade as legitimate web sites aiming to steal sensitive personal information such as usernames, passwords or credit card information. 
-
-## Technical Impact
-  * Execute Unauthorized Code or Commands.
-
-## Risk Analysis
-  * High Risk.
-
-## Likelihood Exploits
-  * Low.
-
-## Attacker Powers
-
- * Direct the user to an exploit or phishing site;
- * Perform other attacks such as phishing, farming and botnet;
- * Distribute malware;
- * Extraction of personal and confidential data from smartphones and tablets via command injection or traditional buffer overflows by reader software;
- * Steal users' Money via fraud;
- * Social Engineering attacks via spear phishing e.g. leaving a poster of a QR Code on the parking lot of a company (instead of the traditional attack with an USB drive) offering discount in a nearby restaurant is a new attack vector which is likely to be successful.
-
-## Recommendations
-
-To ensure that the mobile application is resilient or immune to malicious QR Code attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
-
-## Malicious QR Code Attacks Diagram
-
-![alt text](attackModels/QRCodeAttackTree.png)
-
-
-
-# SQL Injection Attacks
-
-In this type of attack, an attacker could provide malicious input with a clever mix of characters and meta characters from a form (e.g., login form) to alter the logic of the SQL command.
-
-
-## Definition
-
-Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose to change the logic of the desired query.
-
-## Technical Impact
- * Read Application Data;
- * Bypass Protection Mechanism;
- * Modify Application Data.
-
-## Likelihood of Exploit
-
- * High.
-
-## Risk
-
- * Critical Risk.
-
-## Attacker's Powers
- * Identify parameters vulnerable to injection;
- * Discover DBMS and version;
- * Discover relational scheme;
- * Extract data;
- * Add/modify data;
- * Cause denial of service;
- * Evade detection;
- * Bypass authentication;
- * Execute commands;
- * Elevate privileges.
-
-## Recommendations
-
-To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, confidentiality, access control, integrity, privacy and authenticity of the data.
-
-## Reference
- 1. [https://cwe.mitre.org/data/definitions/89.html]
- 
-## SQL Injection Attacks Diagram
-
-
-![alt text](attackModels/sqliAttackTree.png)
 
 # Flooding or Distributed Denial of Services (DDoS)  Attacks
 
@@ -159,73 +75,6 @@ In order to ensure that the mobile application is resilient or immune to the Flo
 
 
 ![alt text](attackModels/floodingAttackTree.png)
-
-
-
-# XML Injection Attacks
-
-It is an attacking technique used against XML-based applications to modify or compromise their normal operation.
-
-## Definition
-
-XML Injection (XMLi) attacks are carried out by injecting pieces of XML code along with malicious content into user inputs in order to produce harmful XML messages. The aim of this type of attacks is to compromise the system or system component that receives user inputs, making it malfunction (e.g. crash), or to attack other systems or subsequent components that process those injected XML messages. This type of attack can be classified into 4 categories:
-  
- * Deforming: Attack input values of Type 1 are XML meta-characters, such as <, >, ]] >, that are intro- duced to compromise the structure of generated XML messages;
- * Random closing tags: Attack input values of Type 2 are random XML closing tags (e.g., < /test>), aiming at deforming the generated XML messages to reveal their structure;
- * Replicating: Attack input values of Type 3 are strings of characters consisting of XML tag names and malicious content;
- * Replacing: Attack input values of Type 4 are similar to those of Type 3 but they involve multiple input fields in order to comment out some existing XML elements and inject new ones with malicious content.
-
-## Attacker Powers
-
- * Obtain confidential information;
- * Change the underlying business logic of the destination.
-
-## Recommendations
-
-To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
- 
- 
-## XML Injection Attacks Diagram
-
-
-![alt text](attackModels/xmliAttackTree.png)
-
-
-
-# Session Hijacking Attack
-
-An attacker impersonates a legitimate user through stealing or predicting a valid session ID.
-
-## Definition
-
-The necessary condition for the session hijacking attack to occur is the existence of architectural vulnerabilities in the absence of protection for the storage of session identifiers. This vulnerability generally occurs in web applications written in PHP in previous versions (e.g., PHP 4.0 to PHP 4.1.2), As described in CVE-2002-0121.
-
-## Technical Impact
-* Read Application Data; 
-* Gain Privileges or Assume Identity; 
-* Execute Unauthorized Code or Commands.
-
-## Risk Analysis
-* Critical.
-
-## Likelihood of Exploit
-* High.
-
-## Attacker Powers
-
- * Steal Session ID;
- * Impersonation of a legitimate user and confidential information from a legitimate user.
-
-## References
-1. [https://www.cvedetails.com/cve/CVE-2002-0121/];
-2. [https://cwe.mitre.org/data/definitions/287.html];
-3. [https://capec.mitre.org/data/definitions/593.html].
- 
- 
-## Session Hijacking Attack Diagram
-
-
-![alt text](attackModels/sessionHijackingAttackTree.png)
 
 
 
@@ -449,6 +298,41 @@ In order to ensure that the mobile application is resilient or immune to the sid
 
 
 ![alt text](attackModels/sideChannelAttackTree.png)
+
+
+
+# Malware-as-a-Service
+
+This type of attack occurs whenever a user can install malware on a mobile device. In addition, this type of attack can be carried out remotely or locally.
+
+## Definition
+
+Attacks on the cloud and mobile application-level ecosystem can affect the integrity and confidentiality of data and applications through different strategies. E.g., by injecting malware. Malware can be  virus, worm, trojan, rootkit and botnet.
+
+## Technical Impact
+* Execute Unauthorized Code or Commands;
+* Read Application Data.
+
+## Risk Analysis
+* Critical Risk.
+
+## Likelihood of Exploit
+* Medium.
+  
+## Attacker Powers
+
+ * Access and steal users confidential data;
+ * Obtain root permissions on mobile devices and control the mobile device;
+ * Directly affect the computational integrity of mobile platforms along with the application.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Malware Injection attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
+ 
+## Malware-as-a-Service Diagram
+
+
+![alt text](attackModels/malwareInjectionAttackTree.png)
 
 
 
