@@ -93,7 +93,7 @@ In order to avoid *XSS, SQLi, CSRF, Session Fixation, Session Hijacking, Access 
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Binary code Scanner</td>
-    <td class="tg-0lax"><a href="https://blackberry.qnx.com/en/software-solutions/blackberry-jarvis">BlackBerry Jarvis</a>, <br><a href="https://www.grammatech.com/codesonar-sast-binary">CodeSonar for Binaries</a>, <a href="https://sourceforge.net/projects/bugscam/">BugScam</a></td>
+    <td class="tg-0lax"><a href="https://blackberry.qnx.com/en/software-solutions/blackberry-jarvis">BlackBerry Jarvis</a>, <br><a href="https://www.grammatech.com/codesonar-sast-binary">CodeSonar for Binaries</a>, <a href="https://sourceforge.net/projects/bugscam/">BugScam</a><a href="https://www.veracode.com/products/binary-static-analysis-sast">SAST</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
