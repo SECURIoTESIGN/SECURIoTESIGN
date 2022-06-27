@@ -23,7 +23,7 @@ In order to avoid or prevent *Phishing, Botnet, Malware as a Service* attacks, t
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Forensic Mobile</td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax">Addons Detector</td>
+    <td class="tg-0lax"><a href="https://play.google.com/store/apps/details?id=com.denper.addonsdetector&hl=pt_PT&gl=US">Addons Detector</a></td>
     <td class="tg-0lax"></td>
   </tr>
 </tbody>

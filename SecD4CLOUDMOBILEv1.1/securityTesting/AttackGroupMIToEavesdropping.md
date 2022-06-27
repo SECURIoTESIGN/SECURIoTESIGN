@@ -22,8 +22,8 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Dynamic analysis</td>
     <td class="tg-0lax">Proxies</td>
-    <td class="tg-0lax">Wireshark</td>
-    <td class="tg-0lax">tPacketCapturepro, AFWall+</td>
+    <td class="tg-0lax"><a href="https://www.wireshark.org/">Wireshark</a></td>
+    <td class="tg-0lax"><a href="https://www.taosoftware.co.jp/en/android/packetcapture/">tPacketCapturepro</a>, <a href="https://github.com/ukanth/afwall">AFWall+</a></td>
     <td class="tg-0lax"></td>
   </tr>
   <tr>
@@ -31,7 +31,7 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Dynamic Analysis </td>
     <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax">VASTO</td>
+    <td class="tg-0lax"><a href="https://www.securenetwork.it/docs/talks/2010-10_BlackHat-USA-2010_Virtually-Pwned.pdf">VASTO</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
@@ -40,7 +40,7 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Dynamic Analysis</td>
     <td class="tg-0lax">Stressing Testing (fuzzing)</td>
-    <td class="tg-0lax">Webfuzz, Wfuzz</td>
+    <td class="tg-0lax"><a href="https://github.com/ovanr/webFuzz">Webfuzz</a>, <a href="https://github.com/xmendez/wfuzz">Wfuzz</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
@@ -49,7 +49,7 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Dynamic analysis</td>
     <td class="tg-0lax">Vulnerability Scanner</td>
-    <td class="tg-0lax">Acunetix, Web3af, Nikto, HP&nbsp;&nbsp;&nbsp;WebInspect</td>
+    <td class="tg-0lax"><a href="https://www.acunetix.com/support/">Acunetix</a>, <a href="http://docs.w3af.org/en/latest/basic-ui.html">W3af</a>, <a href="https://github.com/sullo/nikto">Nikto</a>,&nbsp;&nbsp;&nbsp;<a href="https://www.microfocus.com/media/data-sheet/webinspect_automated_dynamic_application_security_testing_ds.pdf">Fortify WebInspect</a></td>
     <td class="tg-0lax"></td>
     <td class="tg-0lax"></td>
   </tr>
@@ -58,7 +58,7 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Dynamic Analysis</td>
     <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax" colspan="2">TCPDump, Wireshark</td>
+    <td class="tg-0lax" colspan="2"><a href="https://www.tcpdump.org/">TCPDump</a>, <a href="https://www.wireshark.org/">Wireshark</a</td>
     <td class="tg-0lax">idb tool</td>
   </tr>
   <tr>
@@ -67,7 +67,7 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">Dynamic Analysis</td>
     <td class="tg-0lax">Proxies</td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax">adb</td>
+    <td class="tg-0lax"><a href="https://developer.android.com/studio/command-line/adb">adb</a></td>
     <td class="tg-0lax"></td>
   </tr>
 </tbody>
