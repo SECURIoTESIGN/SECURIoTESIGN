@@ -58,8 +58,8 @@ In order to avoid or prevent *Malicious Insider, Sniffing, MiTM, Eavesdropping* 
     <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Dynamic Analysis</td>
     <td class="tg-0lax">Penetration Testing</td>
-    <td class="tg-0lax" colspan="2"><a href="https://www.tcpdump.org/">TCPDump</a>, <a href="https://www.wireshark.org/">Wireshark</a</td>
-    <td class="tg-0lax">idb tool</td>
+    <td class="tg-0lax"><a href="https://www.tcpdump.org/">TCPDump</a>, <a href="https://www.wireshark.org/">Wireshark</a</td>
+    <td class="tg-0lax"></td>
   </tr>
   <tr>
     <td class="tg-0lax">Secure backup,&nbsp;&nbsp;&nbsp;logging and Insecure Data Storage</td>
