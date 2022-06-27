@@ -52,7 +52,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax"></td>
       </tr>
       <tr>
-        <td class="tg-0lax">Data leakag</td>
+        <td class="tg-0lax">Data leakage</td>
         <td class="tg-0lax">Grey Box</td>
         <td class="tg-0lax">Dynamic analysis</td>
         <td class="tg-0lax">Proxies</td>
