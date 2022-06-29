@@ -2,7 +2,7 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Android App                                                 |  
+|  Mobile Plataform         |  Hybrid Application                                          |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
@@ -11,17 +11,17 @@
 |  Which DB                 |  SQLite                                                      |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Type of Registration     |  Will be an administrator that will register the users       |  
+|  Programming Languages    |  Javascript ; HTML5                                          |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  No                                                          |  
+|  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Private Cloud                                               |  
+|  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
+|  HW Wireless Tech         |  5G ; GSM (2G) ; Bluetooth  ; 3G ; 4G/LTE ; Wi-Fi  ; GPS     |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -649,6 +649,40 @@ In order to ensure that applications are resilient to an eventual attack and tha
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Hard-Coded Checks</span> </td>
     <td class="tg-7zrl"></td>
     <td class="tg-7zrl"></td>
+  </tr>
+</tbody>
+</table>
+
+In order to ensure that legitimate or illegitimate users or machines do not access users' confidential data or potentially unsafe resources or harmful content to sensitive users or children, app developers for the cloud & mobile ecosystem are recommended to incorporate filtering mechanisms , such as those listed below.
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
+.tg .tg-7zrl{text-align:left;vertical-align:bottom}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-iuxe"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Integrity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authenticity,</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">access Control, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Privacy</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Filtering</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Firewall and </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Cryptographic Techniques</span></td>
+    <td class="tg-7zrl"></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Network</span></td>
   </tr>
 </tbody>
 </table>

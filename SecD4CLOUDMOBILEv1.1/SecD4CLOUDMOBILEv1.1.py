@@ -2448,7 +2448,7 @@ def testSpecification():
             qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
         report.write("\n")
         report.write("\n")
-        report.write(open("securityTesting/AttackGroupMaaSToBotnets.md", "r").read())
+        report.write(open("securityTesting/AttackGroupMaaSToBotnet.md", "r").read())
     
     # Security Testing against Phishing, Botnet and Malware-as-a-Service attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (

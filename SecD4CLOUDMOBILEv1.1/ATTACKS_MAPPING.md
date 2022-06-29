@@ -2,7 +2,7 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Android App                                                 |  
+|  Mobile Plataform         |  Hybrid Application                                          |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
@@ -11,18 +11,395 @@
 |  Which DB                 |  SQLite                                                      |  
 |  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Type of Registration     |  Will be an administrator that will register the users       |  
+|  Programming Languages    |  Javascript ; HTML5                                          |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  No                                                          |  
+|  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Private Cloud                                               |  
+|  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
+|  HW Wireless Tech         |  5G ; GSM (2G) ; Bluetooth  ; 3G ; 4G/LTE ; Wi-Fi  ; GPS     |  
 |  Data Center Phisical Access|  Yes                                                         |  
+
+
+
+# Man-in-the-Middle Attack
+
+In this type of attack an active man listen and change communications between Mobile Device and Cloud. In other hand, in this attack an intruder enters in the ongoing conversation between sender and the receiver and makes them believe that conversation is taking place between them only.
+
+
+## Definition
+
+This type of attack occurs whenever an attacker intends to intercept communications in order to interpret or alter the original data in transit between the sender and the receiver establishing a conversation.
+
+## Technical Impact
+
+ * An attacker is able to decrypt and read all SSL/TLS traffic between the client and server;
+ * Gain Privileges or Assume Identity.
+
+## Risk Analysis
+ * Critical Risk.
+
+## Likelihood of Exploit
+ * Medium.
+
+## Attacker Powers
+
+The attacker generally and depending on whether the communication situation is encrypted or not, is able to modify the cryptographically unprotected communication or modify the cryptographically protected communication. More specifically, it will have the following powers:
+
+ * Steal encryption key;
+ * Discover cryptographic key using cryptanalysis;
+ * Exploit vulnerabilities in cryptographic algorithm;
+ * Exploit vulnerabilities in cryptographic protocol.
+
+## Recommendations
+To ensure that the mobile application is resilient or immune to malicious MitM attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+
+## Reference
+ 1. [https://cwe.mitre.org/data/definitions/300.html];
+ 2. [https://www.first.org/cvss/v3.1/examples].
+ 
+## Man-in-the-Middle Attack Diagram
+
+
+![alt text](attackModels/mitmAttackTree.png
+
+# Brute Force Attacks
+This type of attack consists in trying to access a system using some mechanism or simply 
+using trial-and-error, aiming to guess the password of a legitimate user of 
+that system. The success of this attack depends largely on the cryptographic scheme used for authentication 
+and access control to the system, as well as the nature of the password set by the legitimate user.
+## Description
+In this attack, some asset, namely, information, functionality, identity, etc., is protected 
+by a finite secret value. The attacker attempts to gain access to this asset by using 
+trial-and-error to exhaustively explore all the possible secret values in the hope of 
+finding the secret (or a value that is functionally equivalent) that will unlock the asset. 
+Examples of secrets can include, but are not limited to, passwords, encryption keys, database 
+lookup keys, and initial values to one-way functions. The key factor in this attack is the attackers' 
+ability to explore the possible secret space rapidly. This, in turn, is a function of the size of the 
+secret space and the computational power the attacker is able to bring to bear on the problem. 
+If the attacker has modest resources and the secret space is large, the challenge facing the 
+attacker is intractable. Assuming a finite secret space, a brute force attack will eventually 
+succeed. The defender must rely on making sure that the time and resources necessary to do so will 
+exceed the value of the information.
+
+This type of attack can be carried out in two different ways:
+1. Encryption Brute Forcing;
+2. Password Brute Forcing.
+
+## Technical Impact
+* Read Data:
+* Gain Privileges.
+
+## Likelihood Of Attack
+* Medium
+
+## Typical Severity
+* High
+
+## Risk Analysis
+* Critical
+
+## Likelihood of Exploit
+* High 
+
+## Recommendations
+In order to mitigate the Brute Force type attacks it is convenient to follow the good practice guidelines, aiming at incorporating
+the security mechanisms during the coding and implementation phase and carrying out the security tests suggested and present in 
+the report during the verification phase, with the purpose of ensuring that the functional requirements linked to security and 
+the non-functional requirements of the application to be developed or deployed are met.
+
+## References
+1. [https://capec.mitre.org/data/definitions/112.html];
+2. [https://cwe.mitre.org/data/definitions/521.html]
+
+## Brute Force Attack Tree Diagram
+![alt text](attackModels/bruteForceAttackTree.png)
+
+# Eavesdropping Attacks
+Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information 
+of legitimate users from the messages (text, voice and video) exchanged between two or more users 
+of Instant Messaging (IM) applications. The same applies to recorded calls, call logs and multimedia 
+stored in clear text in memory cards.
+
+## Description
+An adversary intercepts a form of communication (e.g. text, audio, video) by way of software (e.g., microphone 
+and audio recording application), hardware (e.g., recording equipment), or physical means (e.g., physical proximity). 
+The goal of eavesdropping is typically to gain unauthorized access to sensitive information about the target for 
+financial, personal, political, or other gains. It entails listening in on the raw 
+audio source of a conversation between two or more parties. This type of attack can be carried out in two different ways:
+1. Shoulder Surfing (Physical Eavesdropping);
+2. Probe Audio and Video Peripheralsn (Software Eavesdropping).
+
+## Technical Impact
+* Read Data
+
+## Likelihood Of Attack
+* High
+
+## Typical Severity
+* High
+
+## Risk Analysis
+* High
+
+## Likelihood of Exploit
+* Medium
+
+## Recommendations
+In order to mitigate the espionage type attacks it is convenient to follow the good practice guidelines, aiming at incorporating
+the security mechanisms during the coding and implementation phase and carrying out the security tests suggested and present in 
+the report during the verification phase, with the purpose of ensuring that the functional requirements linked to security and 
+the non-functional requirements of the application to be developed or deployed are met.
+
+## References
+1. [https://capec.mitre.org/data/definitions/651.html];
+2. [https://cwe.mitre.org/data/definitions/200.html];
+3. [https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].
+
+## Eavesdropping Attack Tree Diagram
+![alt text](attackModels/eavesdroppingAttackTree.png)
+
+
+
+# Cross Site Scripting Attacks
+
+In short, Cross Site Scripting (XSS) allows an attacker to execute a browser script bypassing access control mechanisms such as the same origin policy. During this attack a malicious script is injected into web content and user considering it to be authentic executes it over its own machine, thus giving either control of the machine or exposure of confidential information to the attacker.
+
+## Definition
+
+Being an attack that exploits vulnerabilities in web applications, the attacker in this type of attack executes malicious database claims, exploiting improper validation of data flowing from the user to the database. The attacker's goal is to access the intended party's confidential data by inserting malicious code into the user's web page in order to redirect them to their site. There are two ways to forge this type of attack:
+
+ * Stored XSS (uninterruptedly stores malicious code in a resource managed by the web application);
+ * Reflective XSS (promptly reflects malicious code against the user and therefore does not store it permanently;
+ * XSS based on DOM (Document Object Model).
+ 
+## Technical Impact
+ * Gain Privileges or Assume Identity;
+ * Bypass Protection Mechanism; 
+ * Read Application Data; 
+ * Modify Application Data; 
+ * DoS: Crash, Exit, or Restart.
+ 
+## Risk Analysis
+ * Critical Risk.
+ 
+## Likelihood of Exploit
+ * Medium.
+ 
+## Attacker Powers
+ * Circumvent the policy of same origin;
+ * Impersonate you to websites and/or web applications you regularly use by obtaining/altering/destroying various types of content.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to XSS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+
+## References
+1. [https://cwe.mitre.org/data/definitions/352.html];
+2. [https://www.first.org/cvss/v3.1/examples]
+
+## Cross Site Scripting Attacks Diagram
+
+
+![alt text](attackModels/xssAttackTree.png)
+
+
+
+# Cross Site Request Forgery Attacks
+O Cross Site Request Forgery (CSRF) é um ataque que força um utilizador final a executar acções indesejadas numa aplicação na qual está autenticado  naquele momento.
+
+## Definition
+Este tipo de ataque tem como finalidade a mudança de estado e não o roubo de dados, dado que o  invasor fica impedido de ver a resposta à solicitação falsificada. A condição
+necessária para que este tipo de ataque tenha sucesso é a existência da permissão de alterações através de solicitações GET.
+
+## Technical Impact
+* Bypass Protection Mechanism;
+* Gain Privileges;
+* DoS: Crash, Exit, or Restart;
+* Read and Modify Data.
+
+## Risk Analysis
+* High.
+
+## Likelihood of Exploit
+* High.
+
+## Attacker's Powers
+* Furtar valores monetários de forma simulada;
+* Realização de outros tipos de ataques;
+* Acesso a dados confidenciais (histórico da vítima) ou criticos (número de cartão de crédito) do utilizador.
+
+## Recommendations
+In order to ensure that the mobile application is resilient or immune to the CSRF attacks, it is recommended 
+that the measures described in the good practice report and the security tests present in the full report are followed.
+
+## References
+1. [https://capec.mitre.org/data/definitions/62.html];
+2. [https://cwe.mitre.org/data/definitions/352.html]
+![alt text](attackModels/csrfAttackTree.png)
+
+
+
+# Cache Poisoning Attacks
+
+In this type of attack the attacker uses DNS to convert the domain name to an IP address for the purpose of accessing the user's confidential data. On the other hand, sender and a receiver get rerouted through some evil connection.
+
+## Definition
+
+Cache poisoning is the act of introducing false information into a Domain Name System (DNS) cache in order to cause DNS queries to return an incorrect response and, e.g., redirect users to malicious websites. This type of attack can target the cache of an application (e.g., a web browser cache) or a public cache (e.g. a DNS or Address Resolution Protocol (ARP) cache), exposing the application to a variety of attacks, such as redirection to malicious websites and malware injection.
+
+## Technical Impact
+  * Gain Privileges or Assume Identity; 
+  * Bypass Protection Mechanism.
+
+## Risk
+  * Medium.
+
+## Likelihood of Exploit
+  * Low.
+  
+## Attacker Powers
+  * Access confidential information from legitimate/authorized users;
+  * Perpetrate other types of attacks like DDoS and Main-in-the-Middle.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the DNS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
+## Reference
+  1. [https://cwe.mitre.org/data/definitions/350.html];
+  2. [https://capec.mitre.org/data/definitions/141.html].
+
+## Cache Poisoning Attacks Diagram
+
+
+![alt text](attackModels/cachePoisoningAttackTree.png)
+
+
+
+# Malicious QR Code Attacks
+
+In this type of attack, one of the strategies used by the attackers, after coding the malicious links, is to take them to phishing sites or execute fraudulent codes. In addition, in order to end this type of attack, the attackers often print the malicious QR codes on small stickers that are pasted on pre-existing QR codes. On the other hand, attackers often change selected modules from white to black and vice versa in order to replace the original encoded content.
+
+## Definition
+
+QR code-based attack is defined as an attack that attempts to lure victims into scanning a QR code that directs them to malicious websites. The key idea behind QR code attacks is that victims might trust the web page or the printed material on which the QR code is displayed, and assume that the associated code is harmless. In addition, attackers use malicious QR codes to direct users to fraudulent web sites, which masquerade as legitimate web sites aiming to steal sensitive personal information such as usernames, passwords or credit card information. 
+
+## Technical Impact
+  * Execute Unauthorized Code or Commands.
+
+## Risk Analysis
+  * High Risk.
+
+## Likelihood Exploits
+  * Low.
+
+## Attacker Powers
+
+ * Direct the user to an exploit or phishing site;
+ * Perform other attacks such as phishing, farming and botnet;
+ * Distribute malware;
+ * Extraction of personal and confidential data from smartphones and tablets via command injection or traditional buffer overflows by reader software;
+ * Steal users' Money via fraud;
+ * Social Engineering attacks via spear phishing e.g. leaving a poster of a QR Code on the parking lot of a company (instead of the traditional attack with an USB drive) offering discount in a nearby restaurant is a new attack vector which is likely to be successful.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious QR Code attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
+
+## Malicious QR Code Attacks Diagram
+
+![alt text](attackModels/QRCodeAttackTree.png)
+
+
+
+# CAPTCHA Breaking Attacks
+
+
+CAPTCHAs were developed in order to prevent the usage of internet resources by bots or computers. They are used to prevent spam and overexploitation of network resources by bots. But recently, it has been found that the spammers (attackers) are able to break the CAPTCHA. In this case, we will be in the presence of an attack of this nature, Captcha Breaking.
+
+## Definition
+
+In this type of attacks, the attacker can break the CAPTCHAs by using an audio system, can read the CAPTCHAs by using speech to text conversion software and can also break image-based scheme and video-based scheme. 
+
+## Technical Impact
+* Bypass Protection Mechanism; 
+* Alter Execution Logic.
+
+## Risk Analysis
+* High Risk.
+
+## Likelihood of Exploit
+* Low.
+
+## Attacker Powers
+
+ * Spamming;
+ * Conducting DoS and DDoS attacks;
+ * Excessive exploitation of network resources by bots.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the CAPTCHA Breaking attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
+## References
+1. [https://cwe.mitre.org/data/definitions/804.html];
+2. [https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].
+
+
+## CAPTCHA Breaking Attacks Diagram
+
+
+
+# SQL Injection Attacks
+
+In this type of attack, an attacker could provide malicious input with a clever mix of characters and meta characters from a form (e.g., login form) to alter the logic of the SQL command.
+
+
+## Definition
+
+Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose to change the logic of the desired query.
+
+## Technical Impact
+ * Read Application Data;
+ * Bypass Protection Mechanism;
+ * Modify Application Data.
+
+## Likelihood of Exploit
+
+ * High.
+
+## Risk
+
+ * Critical Risk.
+
+## Attacker's Powers
+ * Identify parameters vulnerable to injection;
+ * Discover DBMS and version;
+ * Discover relational scheme;
+ * Extract data;
+ * Add/modify data;
+ * Cause denial of service;
+ * Evade detection;
+ * Bypass authentication;
+ * Execute commands;
+ * Elevate privileges.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, confidentiality, access control, integrity, privacy and authenticity of the data.
+
+## Reference
+ 1. [https://cwe.mitre.org/data/definitions/89.html]
+ 
+## SQL Injection Attacks Diagram
+
+
+![alt text](attackModels/sqliAttackTree.png)
 
 # Flooding or Distributed Denial of Services (DDoS)  Attacks
 
@@ -75,6 +452,155 @@ In order to ensure that the mobile application is resilient or immune to the Flo
 
 
 ![alt text](attackModels/floodingAttackTree.png)
+
+# Eavesdropping or Sniffing
+
+This type of attack is carried out by attackers who use applications that can capture data packets in transit over a network, and if they are not heavily encrypted, can be read or interpreted. The goal of the attacker is to spy on all kinds of conversations and recordings and to listen to communication channels.
+
+## Definition
+
+This type of attack consists of implant eavesdropping tools in specific network for spying on communication channels, capturing the network traffic behavior and getting the network map. Eavesdropping is dangerous threat that leads to break down the integrity and confidentiality which causes financial and personal failures. There are several ways to get a sniffing attack on a smartphone, as there is a vulnerability in GSM's encryption function for call and SMS privacy, A5 / 1 (it can be stopped second). This vulnerability puts all GSM subscribers at risk of sniffing attacks. 
+
+## Technical Impact
+  * Read Application Data; 
+  * Modify Files or Directories.
+
+## Risk Analysis
+  * Critical Risk.
+
+## Likelihood of Exploit
+  * High.
+  
+## Attacker Powers
+
+ * Tracking, capture and theft of confidential information.
+
+## References
+ 1. [https://cwe.mitre.org/data/definitions/319.html].
+
+
+ 
+## Sniffing Attacks Diagram
+
+
+![alt text](attackModels/sniffingAttackTree.png)
+
+
+
+# Phishing Attack
+
+In phishing attack, an adversary sets up a fake URL identical to real Web application fooling the users to enter a valid credentials and certificates.
+
+## Definition
+
+Phishing is the attempt to acquire sensitive information or to make somebody act in a desired way by masquerading as a trustworthy entity in an electronic communication medium. They are usually targeted at large groups of people. Phishing attacks can be performed over almost any channel, from physical presence of the attacker to websites, social networks or even cloud services. On the other hand, phishing attacks are typically fraudulent email messages which directs to spoofed website. In PaaS cloud environment, these attacks affect both enterprise and users. This is a type of social engineering attack. These attackers convince the customers to reveal their most important data like password or other sensitive information by using bogus web pages, emails, or bloggers.
+  
+## Attacker Powers
+
+ * Access confidential information from legitimate users by collecting data through malware;
+ * Perpetrate other types of attacks like Botnet.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Phishing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+
+ 
+## Phishing Attack Diagram
+
+
+![alt text](attackModels/phishingAttackTree.png)
+
+# Botnet Attacks
+
+In a nutshell, in a botnet attack scenario the attacker hijacks a set of mobile devices, creating a network of remote controlled zombie devices. This network is called Botnet, from which various types of attacks can be carried out, such as denial of service attacks, malware distribution, phishing, etc.
+
+## Definition
+
+A botnet is a set of compromised mobile devices. A necessary condition for these devices to be compromised is their infection by malware. This allows attackers/hackers to remotely control this botnet and launch other types of attacks, such as DoS, Phishing, malware injection, etc.
+
+## Technical Impact
+ * Gain priviliegies or assume identity.
+
+## Risk Analysis
+ * Critical.
+
+## Attacker's Powers
+ * Sending spam;
+ * Perform attacks like DoS;
+ * Collecting information that can be used for illegal purposes;
+
+ 
+## Botnet Attacks Diagram
+
+
+![alt text](attackModels/botnetAttackTree.png)
+
+
+
+# XML Injection Attacks
+
+It is an attacking technique used against XML-based applications to modify or compromise their normal operation.
+
+## Definition
+
+XML Injection (XMLi) attacks are carried out by injecting pieces of XML code along with malicious content into user inputs in order to produce harmful XML messages. The aim of this type of attacks is to compromise the system or system component that receives user inputs, making it malfunction (e.g. crash), or to attack other systems or subsequent components that process those injected XML messages. This type of attack can be classified into 4 categories:
+  
+ * Deforming: Attack input values of Type 1 are XML meta-characters, such as <, >, ]] >, that are intro- duced to compromise the structure of generated XML messages;
+ * Random closing tags: Attack input values of Type 2 are random XML closing tags (e.g., < /test>), aiming at deforming the generated XML messages to reveal their structure;
+ * Replicating: Attack input values of Type 3 are strings of characters consisting of XML tag names and malicious content;
+ * Replacing: Attack input values of Type 4 are similar to those of Type 3 but they involve multiple input fields in order to comment out some existing XML elements and inject new ones with malicious content.
+
+## Attacker Powers
+
+ * Obtain confidential information;
+ * Change the underlying business logic of the destination.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
+ 
+ 
+## XML Injection Attacks Diagram
+
+
+![alt text](attackModels/xmliAttackTree.png)
+
+
+
+# Session Hijacking Attack
+
+An attacker impersonates a legitimate user through stealing or predicting a valid session ID.
+
+## Definition
+
+The necessary condition for the session hijacking attack to occur is the existence of architectural vulnerabilities in the absence of protection for the storage of session identifiers. This vulnerability generally occurs in web applications written in PHP in previous versions (e.g., PHP 4.0 to PHP 4.1.2), As described in CVE-2002-0121.
+
+## Technical Impact
+* Read Application Data; 
+* Gain Privileges or Assume Identity; 
+* Execute Unauthorized Code or Commands.
+
+## Risk Analysis
+* Critical.
+
+## Likelihood of Exploit
+* High.
+
+## Attacker Powers
+
+ * Steal Session ID;
+ * Impersonation of a legitimate user and confidential information from a legitimate user.
+
+## References
+1. [https://www.cvedetails.com/cve/CVE-2002-0121/];
+2. [https://cwe.mitre.org/data/definitions/287.html];
+3. [https://capec.mitre.org/data/definitions/593.html].
+ 
+ 
+## Session Hijacking Attack Diagram
+
+
+![alt text](attackModels/sessionHijackingAttackTree.png)
 
 
 
@@ -298,41 +824,6 @@ In order to ensure that the mobile application is resilient or immune to the sid
 
 
 ![alt text](attackModels/sideChannelAttackTree.png)
-
-
-
-# Malware-as-a-Service
-
-This type of attack occurs whenever a user can install malware on a mobile device. In addition, this type of attack can be carried out remotely or locally.
-
-## Definition
-
-Attacks on the cloud and mobile application-level ecosystem can affect the integrity and confidentiality of data and applications through different strategies. E.g., by injecting malware. Malware can be  virus, worm, trojan, rootkit and botnet.
-
-## Technical Impact
-* Execute Unauthorized Code or Commands;
-* Read Application Data.
-
-## Risk Analysis
-* Critical Risk.
-
-## Likelihood of Exploit
-* Medium.
-  
-## Attacker Powers
-
- * Access and steal users confidential data;
- * Obtain root permissions on mobile devices and control the mobile device;
- * Directly affect the computational integrity of mobile platforms along with the application.
-
-## Recommendations
-
-To ensure that the mobile application is resilient or immune to malicious Malware Injection attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
- 
-## Malware-as-a-Service Diagram
-
-
-![alt text](attackModels/malwareInjectionAttackTree.png)
 
 
 
