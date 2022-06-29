@@ -663,7 +663,7 @@ In order to avoid or prevent *Spoofing, Eavesdropping, Sniffing, Botnets, MiTM, 
 </table>
 
 
-In order to avoid *Malware as a Service, Eavesdropping, Botnets* attacks, the following security tests should be perform.
+In order to avoid or prevent *Malware as a Service, Side-Channel and Botnets* attacks, the following security tests should be performed.
 
 
 <table class="tg">
@@ -683,25 +683,17 @@ In order to avoid *Malware as a Service, Eavesdropping, Botnets* attacks, the fo
 </thead>
 <tbody>
   <tr>
-    <td class="tg-0lax">Dynamic&nbsp;&nbsp;&nbsp;binary analysis: debugging, tracing</td>
+    <td class="tg-0lax">Use of   encryption, Secure backup, <br>logging and Insecure Data Storage</td>
     <td class="tg-0lax">White Box</td>
-    <td class="tg-0lax">Hybrid Analysis</td>
-    <td class="tg-0lax">Vulnerability Scanner</td>
-    <td class="tg-0lax">RMS</td>
-    <td class="tg-0lax">Drozer, Sieve</td>
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Secure backup,&nbsp;&nbsp;&nbsp;logging and Insecure Data Storage</td>
-    <td class="tg-0lax">Grey Box</td>
     <td class="tg-0lax">Static Analysis</td>
-    <td class="tg-0lax">Mobile Forensic</td>
-    <td class="tg-0lax"> </td>
-    <td class="tg-0lax"> </td>
-    <td class="tg-0lax">iOSbackup</td>
+    <td class="tg-0lax">Forensic Mobile</td>
+    <td class="tg-0lax"><a href="https://www.sleuthkit.org/index.php">Slueth Kit + Autopsy Browser</a></td>
+    <td class="tg-0lax"><a href="https://github.com/androguard/androguard">AndroGuard</a>, <a href="https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf">Drozer</a>, <a href="https://github.com/iBotPeaches/Apktool">apktool</a>, <a href="https://dl.acm.org/doi/10.1145/3183575">Amandroid</a></td>
+    <td class="tg-0lax"></td>
   </tr>
 </tbody>
 </table>
+
 
 In order to avoid or prevent *Phishing, Botnet, Malware as a Service* attacks, the following security tests should be performed.
 
