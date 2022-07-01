@@ -25,7 +25,7 @@ In order to ensure that personal data, applications and servers are authentic an
     <td class="tg-0pky"></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Secure Boot</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature, checksums, Trusted Plataform Module</span></td>
     <td class="tg-0pky">Boot verification of hardware, software and firmware integrity</td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
   </tr>
