@@ -84,7 +84,7 @@ In order to avoid *XSS, SQLi, CSRF, Session Fixation, Session Hijacking, Access 
     <td class="tg-0lax">White Box</td>
     <td class="tg-0lax">Static Analysis</td>
     <td class="tg-0lax">Source code analyser</td>
-    <td class="tg-0lax"><a href="https://www.parasoft.com/products/parasoft-c-ctest/">PARASOFT C/C++ TEST</a>, <a href="https://security.web.cern.ch/recommendations/en/codetools/rats.shtml/">RATS</a>, <a href="https://clang-analyzer.llvm.org/scan-build.html">Clang Code Analyze</a><a href="https://github.com/AndroBugs/AndroBugs_Framework">AndroBugs</a></td> 
+    <td class="tg-0lax"><a href="https://www.parasoft.com/products/parasoft-c-ctest/">PARASOFT C/C++ TEST</a>, <a href="https://security.web.cern.ch/recommendations/en/codetools/rats.shtml/">RATS</a>, <a href="https://clang-analyzer.llvm.org/scan-build.html">Clang Code Analyze</a>, <a href="https://github.com/AndroBugs/AndroBugs_Framework">AndroBugs</a></td> 
     <td class="tg-0lax"><a href="https://docs.angr.io/introductory-errata/install">Angr</a></td>
     <td class="tg-0lax"></td>
   </tr>
