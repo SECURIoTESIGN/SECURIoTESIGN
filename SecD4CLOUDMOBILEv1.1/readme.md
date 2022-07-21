@@ -25,9 +25,6 @@ To compile and run the application, follow the instructions below:
 2. Open the project using any of the previous IDEs;
 3. Compile and run the application. The source code can be found in the SecD4CLOUDMOBILEv1.1.py file, which must be compiled from the application. 
 
-# Acknowledgment
-This Work was developed under Doctoral Grant, supported by project CENTRO-01-0145-FEDER-000019 - C4 - Competence Center in Cloud Computing, Research Line 1: Cloud Systems, Work package WP 1.2 - Systems design and development processes and software for Cloud and Internet of Things ecosystems, cofinanced by the European Regional Development Fund (ERDF) through the Programa Operacional Regional do Centro (Centro 2020), in the scope of the Sistema de Apoio à Investigação Científica e Tecnológica - Programas Integrados de IC&DT.
-=======
 # SecD4CLOUDMOBILE
 The present application in its version 1.1 is a framework of tools whose main purpose is to ensure security by building software for the cloud and mobile ecosystem. It allows generating reports (security requirements, good practices, security mechanisms, mapping attack models and specifying security tests and automation tools) according to the user's request based on responses to a questionnaire by the user.
 
@@ -57,4 +54,3 @@ To compile and run the application, follow the instructions below:
 
 # Acknowledgment
 This Work was developed under Doctoral Grant, supported by project CENTRO-01-0145-FEDER-000019 - C4 - Competence Center in Cloud Computing, Research Line 1: Cloud Systems, Work package WP 1.2 - Security by Construction in Cloud and Internet of Things Ecosystems, funded by the 2020 Center, cofinanced by the European Regional Development Fund (ERDF) through the Programa Operacional Regional do Centro (Centro 2020), in the scope of the Sistema de Apoio à Investigação Científica e Tecnológica - Programas Integrados de IC&DT.
->>>>>>> 2c4f77ec89cafe166c0d20760c09462800232a75
