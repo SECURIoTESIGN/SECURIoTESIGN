@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SecD4CLOUDMOBILE
 The present application in its version 1.1 is a framework of tools whose main purpose is to ensure security by building software for the cloud and mobile ecosystem. It allows generating reports (security requirements, good practices, security mechanisms, mapping attack models and specifying security tests and automation tools) according to the user's request based on responses to a questionnaire by the user.
 
