@@ -1676,9 +1676,11 @@ def securityRequirements():
             report.write(open("requirements/accountability.md", "r").read())
 
     # reliability requirement
-    report.write("\n")
-    report.write("\n")
-    report.write(open("requirements/reliability.md", "r").read())
+    if qans["Q5"].find("1") != -1:
+         if qans["Q8"].find("1") != -1 and qans["Q8"].find("2") != -1 and qans["Q8"].find("3") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("requirements/reliability.md", "r").read())
 
     # privacy requirements
     # if qans["Q5"].find("1") != -1 and (qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
