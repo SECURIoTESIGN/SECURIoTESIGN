@@ -1747,7 +1747,7 @@ def goodPractices():
     print("")
 
     report = open("GOOD_PRACTICES.md", "w")
-    report.write("# Final Security Good Practices " + '\n')
+    report.write("# Final Security Best Practices Guidelines " + '\n')
     report.write("\n")
 
     report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", "", "|", "", "|"))
@@ -1890,7 +1890,8 @@ def attackModels():
 
     report.write("\n")
 
-    # Database use and public cloud environment MitM attacks
+    # If the application uses database, stores sensitive user data and uses a public or community cloud, it will be 
+    # subject to a man-in-the-middle attack
     if qans["Q5"].find("1") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
@@ -1903,7 +1904,8 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # Brute Force and Eavesdropping Attacks
+    # if the application uses authentication, database, stores sensitive user data and uses a public or community cloud, it may 
+    # be subject to eavesdropping and brute force attacks,
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write(open("attackModels/bruteForceAttack.md", "r").read())
@@ -1922,7 +1924,8 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the application is web or hybrid, we have XSS
+    # if the application is hybrid or web, uses database, stores sensitive user data and public or community cloud, the system 
+    # will be subject to XSS attacks
     if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
@@ -1935,7 +1938,8 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the application is web or hybrid, we have CSRF
+    # if the application is hybrid or web, uses database, stores sensitive user data and public or community cloud, the system 
+    # will be subject to CSRF attacks
     if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
@@ -1948,7 +1952,7 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the aplication is web or hybrid, we have Cookie Poisoning
+    # if the aplication is web or hybrid, the will be subject to Cookie Poisoning attacks
     if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1):
         report.write("\n")
         report.write("\n")
@@ -1960,32 +1964,20 @@ def attackModels():
         report.write("\n")
         report.write("\n")
 
-    # If the application is web or hybrid, and storage personal, confidential or critical data, we have a Malicious QR Code Attacks
-    if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and qans["Q5"].find("1") != -1:
-        if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
-            report.write("\n")
-            report.write("\n")
-            report.write(open("attackModels/maliciousQRCode.md", "r").read())
-
-            # Malicious QR Code attack diagram
-            # Write de scheme in the report
-            report.write("![alt text](attackModels/QRCodeAttackTree.png)")
-            report.write("\n")
-            report.write("\n")
-
-    # f the application is web or hybrid, we have CAPTCHA Breaking Attacks
-    if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1):
+    # if the application storage personal, confidential or critical data, the system will be subject to Malicious QR Code Attacks
+    if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
         report.write("\n")
         report.write("\n")
-        report.write(open("attackModels/captchaBreaking.md", "r").read())
+        report.write(open("attackModels/maliciousQRCode.md", "r").read())
 
-    # CAPTCHA Breaking attack tree diagram
-    # Write de scheme in the report
-    # report.write("![alt text](design_schemes6.png)")
-    # report.write("\n")
-    # report.write("\n")
+        # Malicious QR Code attack diagram
+        # Write de scheme in the report
+        report.write("![alt text](attackModels/QRCodeAttackTree.png)")
+        report.write("\n")
+        report.write("\n")
 
-    # Database use and public cloud environment SQLi attacks
+    # if the application is web, uses authentication, database, stores sensitive data, SQL data storage and uses a public or private cloud development 
+    # environment, the system may be subject to SQLi attacks
     if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and qans["Q3"].find("1") != -1 :
         if qans["Q5"].find("1") != -1 and qans["Q6"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q7"].find("3") != -1):
             report.write("\n")
@@ -1998,7 +1990,7 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # DoS Attacks
+    # if the application uses authentication, database, storages sensitive data, the system will be subject to Flooding Attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write(open("attackModels/flooding.md", "r").read())
@@ -2008,7 +2000,8 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # Sniffing Attacks
+    # if the app uses authentication, database, storages sensitive user data, uses public our communitary Cloud environment,
+    # the system will be subject to Sniffing attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write(open("attackModels/sniffing.md", "r").read())
