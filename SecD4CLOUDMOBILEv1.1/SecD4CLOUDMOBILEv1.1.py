@@ -2013,7 +2013,8 @@ def attackModels():
             report.write("\n")
 
     
-    # If the application is web or hybrid, we have Phishing Attacks
+    # if the app uses authentication, database, storages sensitive user data, the system will be subject to Phishing, Pharming 
+    # and Botnet attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
@@ -2035,19 +2036,8 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the application is web or hybrid, we have XML
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
-        report.write("\n")
-        report.write("\n")
-        report.write(open("attackModels/XMLi.md", "r").read())
-
-        # XML Attack tree diagram
-        # Write the scheme in the report
-        report.write("![alt text](attackModels/xmliAttackTree.png)")
-        report.write("\n")
-        report.write("\n")
-
-    # If the application is web or hybrid, we have Session Hijacking
+    # if the application is web or hybrid, use authentication, database, storages sensitive user data, 
+    # the system will be subject to Session Hijacking attacks
     if qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
         if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
             if qans["Q8"].find("2") != -1 and qans["Q8"].find("3") != -1:
@@ -2062,7 +2052,8 @@ def attackModels():
                 report.write("\n")
 
 
-    # If the system was development for iOS, Tizen and embedded platforms (Buffer Overflow)
+    # if the system was development for iOS, Tizen and embedded platforms, the system will be subject 
+    # to Buffer Overflow attacks
     if qans["Q1"].find("2") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("7") != -1:
         if qans["Q11"].find("2") != -1:
             report.write("\n")
@@ -2075,7 +2066,8 @@ def attackModels():
         report.write("\n")
         report.write("\n")
 
-    # If the system was development for Android, iOS, Tizen and embedded platforms (Mobile Apllication Spoofing )
+    # if the system was development for Android, iOS, Tizen and embedded platforms, the system will be 
+    # subject to spoofing attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 :
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
@@ -2088,7 +2080,8 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the system was development for Android, iOS, Tizen and embedded platforms (Attack on VM at migration )
+    # if the system was development for Android, iOS, Tizen and embedded platforms, the system will 
+    # be subject to VM Migration attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
@@ -2101,7 +2094,8 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the system was development for Android, iOS, Tizen and embedded platforms (Insiders Malicious Attacks)
+    # if the system was development for Android, iOS, Tizen and embedded platforms, the system will be
+    # subject to Malicious Insider Attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 :
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             if qans["Q21"].find("1") != -1:
@@ -2115,7 +2109,8 @@ def attackModels():
                 report.write("\n")
                 report.write("\n")
 
-    # If the system was development for Android, iOS, Tizen and embedded platforms (VM Escape Attack)
+    # if the system was development for Android, iOS, Tizen and embedded platforms, the system will 
+    # be subject to VM Escape attack
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
@@ -2128,7 +2123,8 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the system was development for Android, iOS, Tizen and embedded platforms (Side-Channel Attack)
+    # if the system was development for Android, iOS, Tizen and embedded platforms, the system will 
+    # be subject to Side-Channel attacks,
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
@@ -2141,8 +2137,9 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # If the system was development for Android and iOS (Malware-as-a-Service Attacks)
-        if (qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1) or qans["Q1"].find("3") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("7") != -1:
+    # if the app was development for Android and iOS, uses database and storages sensitive user data, 
+    # the system will be subject to Malware-as-a-Service attacks
+        if qans["Q3"].find("1") != -1 or qans["Q5"].find("1") != -1:
             if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2154,7 +2151,8 @@ def attackModels():
                 report.write("\n")
                 report.write("\n")
 
-    # If the system was development for Android, iOS, Tizen and embedded platforms (Tampering Attacks)
+    # if the app was development for Android, iOS, Tizen and embedded platforms, the system will 
+    # be subject to Tampering attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             if qans["Q21"].find("1") != -1:
@@ -2168,7 +2166,8 @@ def attackModels():
                 report.write("\n")
                 report.write("\n")
     
-    # If the application or system uses authentication, database and stores sensitive data, it is subject to Bluejacking, Bluesnarfing and Bluesmack/DOS attacks
+    # if the application or system uses authentication, database and stores sensitive data, it is subject to
+    # Bluejacking, Bluesnarfing and Bluesmack/DOS attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             if qans["Q20"].find("5") != -1:
@@ -2176,13 +2175,14 @@ def attackModels():
                 report.write("\n")
                 report.write(open("attackModels/bluejacking_bluesnarfing.md", "r").read())
 
-                # Tampering Detection attack tree diagram
+                # Bluejacking, Bluesnarfing and Bluesmack attack tree diagram
                 # Write the scheme in the report
                 report.write("![alt text](attackModels/bluetoothAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
 
-    # If the application or system uses authentication, database, stores sensitive data and use GPS, it is subject to GPS Jamming attacks
+    # if the application or system uses authentication, database, stores sensitive data and use GPS, it is subject to
+    # GPS Jamming attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             if qans["Q20"].find("7") != -1:
@@ -2190,12 +2190,12 @@ def attackModels():
                 report.write("\n")
                 report.write(open("attackModels/gps_jamming.md", "r").read())
 
-                # Tampering Detection attack tree diagram
+                # GPS Jamming attack tree diagram
                 # Write the scheme in the report
                 report.write("![alt text](attackModels/gps_jammingAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
-    # If the web or hybrid application or system uses authentication, database and stores sensitive data, it is subject to Code Injection attacks
+    # if the web or hybrid application or system uses authentication, database and stores sensitive data, it is subject to Code Injection attacks
     if qans["Q1"].find("3") != -1 and qans["Q1"].find("4") != -1:
         if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
             if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
@@ -2203,13 +2203,13 @@ def attackModels():
                 report.write("\n")
                 report.write(open("attackModels/code_injection.md", "r").read())
 
-                # Tampering Detection attack tree diagram
+                # Code Injection attack tree diagram
                 # Write the scheme in the report
                 report.write("![alt text](attackModels/codeInjectionAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
 
-    # If the web or hybrid application or system uses authentication, database and stores sensitive data, it is subject to SSRF attacks
+    # if the web or hybrid application or system uses authentication, database and stores sensitive data, it is subject to SSRF attacks
     if qans["Q1"].find("3") != -1 and qans["Q1"].find("4") != -1:
         if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
             if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
@@ -2217,13 +2217,13 @@ def attackModels():
                 report.write("\n")
                 report.write(open("attackModels/SSRF.md", "r").read())
 
-                # Tampering Detection attack tree diagram
+                # SSRF attack tree diagram
                 # Write the scheme in the report
                 report.write("![alt text](attackModels/SSRFAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
 
-    # If the web or hybrid application or system uses authentication, database and stores sensitive data, it is subject to Command Injection attacks
+    # if the web or hybrid application or system uses authentication, database and stores sensitive data, it is subject to Command Injection attacks
     if qans["Q1"].find("3") != -1 and qans["Q1"].find("4") != -1:
         if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
             if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
@@ -2237,7 +2237,8 @@ def attackModels():
                 report.write("\n")
                 report.write("\n")
     
-    # If the application or system uses authentication, database, stores sensitive data and use GPS, it is subject to GPS Jamming attacks
+    # if the application or system uses authentication, database, stores sensitive data and use GPS, it is subject 
+    # to Cellular Jamming attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             if qans["Q20"].find("1") != -1 or qans["Q20"].find("2") != -1 or qans["Q20"].find("3") != -1 or qans["Q20"].find("4") != -1:
@@ -2245,37 +2246,43 @@ def attackModels():
                 report.write("\n")
                 report.write(open("attackModels/cellular_jamming.md", "r").read())
 
-                # Tampering Detection attack tree diagram
+                # Cellular Jamming attack tree diagram
                 # Write the scheme in the report
                 report.write("![alt text](attackModels/cellularJammingAttackTree.png)")
                 report.write("\n")
                 report.write("\n")
 
+    # if the app or system uses authentication, database, stores sensitive data, it will be subject 
+    # to Cryptanalysis attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/cryptanalysis.md", "r").read())
 
-            # Tampering Detection attack tree diagram
+            # Cryptanalysis attack tree diagram
             # Write the scheme in the report
             report.write("![alt text](attackModels/cryptanalysisAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
+    # if app or system uses authentication, database, storages sensitive user information,
+    # it will be subject to Reverse Engineering attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/reverse_enginnering.md", "r").read())
 
-            # Tampering Detection attack tree diagram
+            # Reverse Engineering attack tree diagram
             # Write the scheme in the report
             report.write("![alt text](attackModels/reverseEngineeringAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
 
+    # if the app or system uses authentication, database, storages sensitive user information and uses logs, 
+    # it will be subject to Audit Log Manipulation attack
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             if qans["Q14"].find("1") != -1:
@@ -2283,12 +2290,14 @@ def attackModels():
                 report.write("\n")
                 report.write(open("attackModels/audit_log_manipulation.md", "r").read())
 
-            # Tampering Detection attack tree diagram
+            # Audit Log Manipulation attack tree diagram
             # Write the scheme in the report
             report.write("![alt text](attackModels/auditLogManipulationAttackTree.png)")
             report.write("\n")
             report.write("\n")
 
+    # if app or system uses authentication, database, storages sensitive user data and uses Wi-Fi, it will be subject 
+    # to Wi-Fi Jamming, Wi-Fi, Wi-Fi SSID Tracking and Byzantine attacks 
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1:
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
             if qans["Q20"].find("6") != -1:
@@ -2296,7 +2305,7 @@ def attackModels():
                 report.write("\n")
                 report.write(open("attackModels/Wi-Fi_jamming.md", "r").read())
 
-                # Tampering Detection attack tree diagram
+                # Wi-Fi Jamming attack tree diagram
                 # Write the scheme in the report
                 report.write("![alt text](attackModels/Wi-Fi_JammingAttackTree.png)")
                 report.write("\n")
@@ -2306,7 +2315,7 @@ def attackModels():
                 report.write("\n")
                 report.write(open("attackModels/Wi-Fi_SSID_Tracking.md", "r").read())
 
-                # Tampering Detection attack tree diagram
+                # TWi-Fi SSID Tracking  attack tree diagram
                 # Write the scheme in the report
                 report.write("![alt text](attackModels/Wi-Fi_TrackingAttackTree.png)")
                 report.write("\n")
@@ -2316,14 +2325,11 @@ def attackModels():
                 report.write("\n")
                 report.write(open("attackModels/byzantine.md", "r").read())
 
-                # Tampering Detection attack tree diagram
+                # Byzantine attack tree diagram
                 # Write the scheme in the report
                 report.write("![alt text](attackModels/byzantineAttackTree.png)")
                 report.write("\n")
-                report.write("\n")
-
-
-                
+                report.write("\n")         
 
     report.close()
     attackModelConvertReport()
