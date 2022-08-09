@@ -1890,7 +1890,7 @@ def attackModels():
 
     report.write("\n")
 
-    # If the application uses database, stores sensitive user data and uses a public or community cloud, it will be 
+    # If the application uses database, stores sensitive user data and uses a public or hybrid cloud, it will be 
     # subject to a man-in-the-middle attack
     if qans["Q5"].find("1") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
@@ -1904,7 +1904,7 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # if the application uses authentication, database, stores sensitive user data and uses a public or community cloud, it may 
+    # if the application uses authentication, database, stores sensitive user data and uses a public or hybrid cloud, it may 
     # be subject to eavesdropping and brute force attacks,
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
@@ -1924,7 +1924,7 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # if the application is hybrid or web, uses database, stores sensitive user data and public or community cloud, the system 
+    # if the application is hybrid or web, uses database, stores sensitive user data and public or hybrid cloud, the system 
     # will be subject to XSS attacks
     if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
@@ -1938,7 +1938,7 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # if the application is hybrid or web, uses database, stores sensitive user data and public or community cloud, the system 
+    # if the application is hybrid or web, uses database, stores sensitive user data and public or hybrid cloud, the system 
     # will be subject to CSRF attacks
     if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
@@ -1976,7 +1976,7 @@ def attackModels():
         report.write("\n")
         report.write("\n")
 
-    # if the application is web, uses authentication, database, stores sensitive data, SQL data storage and uses a public or private cloud development 
+    # if the application is web, uses authentication, database, stores sensitive data, SQL data storage and uses a public or hybrid cloud development 
     # environment, the system may be subject to SQLi attacks
     if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and qans["Q3"].find("1") != -1 :
         if qans["Q5"].find("1") != -1 and qans["Q6"].find("1") != -1 and (qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q7"].find("3") != -1):
@@ -2000,7 +2000,7 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # if the app uses authentication, database, storages sensitive user data, uses public our communitary Cloud environment,
+    # if the app uses authentication, database, storages sensitive user data, uses public our hybrid Cloud environment,
     # the system will be subject to Sniffing attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q17"].find("4") != -1 or qans["Q17"].find("2") != -1):
         if qans["Q8"].find("1") != -1 or qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1:
