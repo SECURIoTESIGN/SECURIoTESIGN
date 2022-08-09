@@ -1952,13 +1952,13 @@ def attackModels():
             report.write("\n")
             report.write("\n")
 
-    # if the aplication is web or hybrid, the will be subject to Cookie Poisoning attacks
+    # if the aplication is web or hybrid, the will be subject to Cache Poisoning attacks
     if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (qans["Q17"].find("2") != -1 or qans["Q17"].find("4") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/cachePoisoning.md", "r").read())
 
-        # CookiePoisoning attack tree diagram
+        # Cache Poisoning attack tree diagram
         # Write de scheme in the report
         report.write("![alt text](attackModels/cachePoisoningAttackTree.png)")
         report.write("\n")
