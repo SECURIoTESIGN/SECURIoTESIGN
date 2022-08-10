@@ -97,7 +97,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  Wi-Fi SSID Tra
         <td class="tg-0lax"></td>
       </tr>
       <tr>
-      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;</td>
+      <td class="tg-0lax">Dynamic binary analysis</td>
       <td class="tg-0lax">Black Box</td>
       <td class="tg-0lax">Dinamic Analysis</td>
       <td class="tg-0lax">Penetration Testing</td>
