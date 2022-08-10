@@ -2406,11 +2406,12 @@ def testSpecification():
                     report.write("\n")
                     report.write(open("securityTesting/AttackGroupXSSToSSRF.md", "r").read())
 
-    # Security Testing against Botnet, Spoofing and Sniffing attacks
+    # Security Testing against Malware as a Service, Malicious QR Code, Botnet, Spoofing and Eavesdroping, NFC Payment Replay, 
+    # Bynzantine, Bluesnarfing, Bluejacking attacks
     if qans["Q3"].find("1") != -1 and qans["Q5"].find("1") != -1 and (
             qans["Q8"].find("2") != -1 or qans["Q8"].find("3") != -1):
-        if qans["Q20"].find("1") != -1 or qans["Q20"].find("2") != -1 or qans["Q20"].find("4") != -1 or qans[
-            "Q20"].find("5") != -1 or qans["Q20"].find("6") != -1 or qans["Q20"].find("8") != -1:
+        if qans["Q20"].find("1") != -1 or qans["Q20"].find("2") != -1 qans["Q20"].find("3") != -1 or qans["Q20"].find("4") != -1 or qans[
+            "Q20"].find("5") != -1 or qans["Q20"].find("6") != -1 or qans["Q20"].find("8") != -1 or qans["Q20"].find("9") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("securityTesting/AttackGroupMaaSToNFC.md", "r").read())
