@@ -1,4 +1,4 @@
-In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Tracking, Rogue Access Point, Cellular Rogue Base Station, Sniffing, Cryptanalysis, Audit Log Manipulation Attacks, Byzantine, On-Off, Brute Force*, the following security tests should be perform.
+In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  Wi-Fi SSID Tracking, Rogue Access Point, Cellular Rogue Base Station, Sniffing, Cryptanalysis, Audit Log Manipulation Attacks, Byzantine, On-Off, Brute Force*, the following security tests should be perform.
 <table class="tg">
 	<thead>
 		<tr>
