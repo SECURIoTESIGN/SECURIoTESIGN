@@ -16,7 +16,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
 	</thead>
 	<tbody>
 		<tr>
-        <td class="tg-0lax">Proper SSL usage and <br>Insecure TLS Protectio, <br>Use of encryption</td>
+        <td class="tg-0lax">Proper SSL usage and <br>Insecure TLS Protection, <br>Use of encryption</td>
         <td class="tg-0lax">White Box</td>
         <td class="tg-0lax">Static analysis</td>
         <td class="tg-0lax">Forensic Mobile</td>
@@ -97,7 +97,7 @@ In order to avoid *MiTM, Eavesdropping, Side-Channel, VM Escape,  WiFi SSID Trac
         <td class="tg-0lax"></td>
       </tr>
       <tr>
-      <td class="tg-0lax">Dynamic binary&nbsp;&nbsp;&nbsp;analysis</td>
+      <td class="tg-0lax">&nbsp;&nbsp;&nbsp;</td>
       <td class="tg-0lax">Black Box</td>
       <td class="tg-0lax">Dinamic Analysis</td>
       <td class="tg-0lax">Penetration Testing</td>
