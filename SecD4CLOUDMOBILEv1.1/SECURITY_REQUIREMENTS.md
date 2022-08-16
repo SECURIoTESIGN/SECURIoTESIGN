@@ -5,23 +5,23 @@
 |  Mobile Plataform         |  Hybrid Application                                          |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
+|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
 |  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  SQL                                                         |  
+|  Type of data storage     |  SQL (Relational Database)                                   |  
 |  Which DB                 |  SQLite                                                      |  
-|  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
+|  Type of data stored      |  Critical Data                                               |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  Javascript ; HTML5                                          |  
+|  Programming Languages    |  HTML5                                                       |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  5G ; GSM (2G) ; Bluetooth  ; 3G ; 4G/LTE ; Wi-Fi  ; GPS     |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC                      |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 

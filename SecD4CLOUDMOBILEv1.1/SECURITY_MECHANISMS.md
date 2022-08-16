@@ -5,23 +5,23 @@
 |  Mobile Plataform         |  Hybrid Application                                          |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
+|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
 |  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  SQL                                                         |  
+|  Type of data storage     |  SQL (Relational Database)                                   |  
 |  Which DB                 |  SQLite                                                      |  
-|  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
+|  Type of data stored      |  Critical Data                                               |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  Javascript ; HTML5                                          |  
+|  Programming Languages    |  HTML5                                                       |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  5G ; GSM (2G) ; Bluetooth  ; 3G ; 4G/LTE ; Wi-Fi  ; GPS     |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC                      |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -29,15 +29,6 @@
 In order to guarantee the confidentiality, availability and privacy of shared data and  data freshness, at rest, in use or in transit by legitimate users and communications, as well as the integrity and authenticity of data and communications, developers are recommended of apps for the cloud & mobile platform incorporate *secure backup mechanisms* in the implementation and codification phase of the software development process, as described below.
 
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -96,15 +87,6 @@ In order to guarantee the confidentiality, availability and privacy of shared da
 
 In order to guarantee the integrity and availability of user data stored in the cloud and consequently their leakage or loss, it is recommended that developers of mobile applications incorporate *audit mechanisms*, based on the illustration below.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -142,19 +124,10 @@ In order to guarantee the integrity and availability of user data stored in the 
     <td class="tg-7zrl"></td>
   </tr>
 </tbody>
-</table>In order to guarantee the confidentiality and privacy of data shared, at rest or in transit by legitimate users and communications, as well as the integrity, authenticity of data and communications, it is recommended to developers of apps for the cloud & mobile platform to incorporate the algorithms cryptographic and related mechanisms in the implementation and codification phase of the software development process, as described below.
+</table>
+In order to guarantee the confidentiality and privacy of data shared, at rest or in transit by legitimate users and communications, as well as the integrity, authenticity of data and communications, it is recommended to developers of apps for the cloud & mobile platform to incorporate the algorithms cryptographic and related mechanisms in the implementation and codification phase of the software development process, as described below.
 
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -221,46 +194,6 @@ In order to guarantee the integrity and availability of user data stored in the 
 </table>
 In order to ensure that personal data, applications and servers are authentic and that they are only accessed by legitimate or authorized entities, it is recommended to incorporate the authentication and backup mechanisms in the implementation and codification phase of the software development process, as described in the table below.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
-    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
-    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
-    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
-    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
-    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authenticity</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Biometric-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Gaze Gesture, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Electrocardiogram, Voice </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">recognition, Signature </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">recognition, Gait recognition, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Behavior profiling, Fingerprint, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Smart card, Multi-touch </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">interfaces, Graphical </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">password, Face recognition, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Iris recognition, Rhythm, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Capacitive touch-screen, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Ear Shape, Arm Gesture, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Keystroke Dinamics, Touch </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">dinamics</span> </td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
-  </tr>
-</tbody>
-</table>
-In order to ensure that personal data, applications and servers are authentic and that they are only accessed by legitimate or authorized entities, it is recommended to incorporate the authentication and backup mechanisms in the implementation and codification phase of the software development process, as described in the table below.
-
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -337,15 +270,6 @@ In order to ensure that personal data, applications and servers are authentic an
 In order to ensure that the data shared and exchanged between two or more authorized entities are reliable, complete, authentic and only accessible to these entities, it is recommended that software developers for the mobile ecosystem incorporate *cryptographic protocols* in the implementation and codification phase of the software development process, as described below.
 
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -371,7 +295,7 @@ In order to ensure that the data shared and exchanged between two or more author
     <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Wireless </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Cryptographic </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Protocols</span></td>
     <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">WEP, WPA, 802.11i (WPA2), </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">EAP, PSK, TKIP, PEAP, EAP-TTLS, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">EAP-PSK, EAP-SIM, EAP-</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">AKA, AES-CCMP</span></td>
-    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Security Protocols than can </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">be used or im- plemented specifically </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">for wireless networks</span> </td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Security Protocols that must </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">be used or implemented specifically according to the mobile platform or operating system </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">for wireless networks</span> </td>
     <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Transport</span> </td>
   </tr>
   <tr>
@@ -431,14 +355,6 @@ In order to ensure that applications and users access only and only the resource
 
 To ensure a permanent or almost permanent observation of the system, in order to detect any unexpected activity or detect abuses by privileged users, app developers for the cloud & mobile ecosystem are recommended to incorporate inspection mechanisms in the implementation and coding phase in the software development process, as described below.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
 </style>
 <table class="tg">
 <thead>
@@ -456,7 +372,7 @@ To ensure a permanent or almost permanent observation of the system, in order to
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Privacy, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authorization, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">immunity, </span><br>Tampering Detection</td>
     <td class="tg-7zrl"></td>
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Inspection</span></td>
-    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">IDS, IPS, NIDS, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">NIPS, HIDS, HIPS</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">IDS, IPS, NIDS, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">NIPS, HIDS, HIPS, IDPS, DIDS, VMM based IDS</span></td>
     <td class="tg-7zrl"></td>
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Network</span></td>
   </tr>
@@ -464,15 +380,6 @@ To ensure a permanent or almost permanent observation of the system, in order to
 </table>
 In order to ensure non-repudiation, audit and accountability by all legitimate or illegitimate entities in the cloud & mobile ecosystem, it is recommended that mobile app developers incorporate *logging mechanisms* during the implementation and coding in the software development process, as described below.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -504,17 +411,9 @@ In order to ensure non-repudiation, audit and accountability by all legitimate o
 </tbody>
 </table>
 
+
 In order to ensure that the application and confidential data of legitimate users are not accessed by third parties from the device or remotely from the data center, it is recommended that users incorporate *tampering detention mechanisms* on the device, as illustrated below.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -544,17 +443,9 @@ In order to ensure that the application and confidential data of legitimate user
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Session</span></td>
   </tr>
 </tbody>
-</table>In order to ensure that user data stored in remote databases is safe and reliable, app developers for the cloud & mobile ecosystem are recommended to incorporate data *location physical mechanisms* for data centers.
+</table>
+In order to ensure that user data stored in remote databases is safe and reliable, app developers for the cloud & mobile ecosystem are recommended to incorporate data *location physical mechanisms* for data centers.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -581,14 +472,6 @@ In order to ensure that the application and confidential data of legitimate user
 
 In order to ensure that applications are resilient to an eventual attack and that they do not violate the principle of minimum requirements when sharing resources locally or remotely, app developers for the cloud & mobile ecosystem are recommended to incorporate *confinement mechanisms*, as well as those of access control or secure permissions.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
 </style>
 <table class="tg">
 <thead>
@@ -606,7 +489,7 @@ In order to ensure that applications are resilient to an eventual attack and tha
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Privacy, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">integrity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authenticity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">immunity</span></td>
     <td class="tg-7zrl"><span style="font-weight:normal;font-style:normal;text-decoration:none">Both</span></td>
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Confinement</span></td>
-    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Sandboxing</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Sandboxing, TPM, MTM, TEE</span></td>
     <td class="tg-7zrl">Its purpose is to guarantee the privacy, integrity and authenticity of the data of the end users and the integrity of the system </td>
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
   </tr>
@@ -653,17 +536,9 @@ In order to ensure that applications are resilient to an eventual attack and tha
 </tbody>
 </table>
 
+
 In order to ensure that legitimate or illegitimate users or machines do not access users' confidential data or potentially unsafe resources or harmful content to sensitive users or children, app developers for the cloud & mobile ecosystem are recommended to incorporate filtering mechanisms , such as those listed below.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-iuxe{background-color:#A6A6A6;font-weight:bold;text-align:left;vertical-align:bottom}
-.tg .tg-7zrl{text-align:left;vertical-align:bottom}
-</style>
 <table class="tg">
 <thead>
   <tr>

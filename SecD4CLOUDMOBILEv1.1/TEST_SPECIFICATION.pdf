@@ -37,267 +37,288 @@ endobj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://nmap.org/book/man.html)
->> /Border [ 0 0 0 ] /Rect [ 336.108 480.2521 357.7755 491.5021 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 491.5021 357.7755 502.7521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 7 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.sciencedirect.com/science/article/pii/S0167404816300086)
->> /Border [ 0 0 0 ] /Rect [ 361.9455 480.2521 403.2105 491.5021 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 361.9455 491.5021 403.2105 502.7521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 8 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://docs.rapid7.com/metasploit/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 469.0021 371.538 480.2521 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 480.2521 371.538 491.5021 ] /Subtype /Link /Type /Annot
 >>
 endobj
 9 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/NewEraCracker/LOIC)
->> /Border [ 0 0 0 ] /Rect [ 375.708 469.0021 393.213 480.2521 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 375.708 480.2521 393.213 491.5021 ] /Subtype /Link /Type /Annot
 >>
 endobj
 10 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.kali.org/docs/introduction/)
->> /Border [ 0 0 0 ] /Rect [ 397.383 469.0021 409.8855 480.2521 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 397.383 480.2521 409.8855 491.5021 ] /Subtype /Link /Type /Annot
 >>
 endobj
 11 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.kali.org/docs/introduction/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 457.7521 354.033 469.0021 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 469.0021 354.033 480.2521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 12 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.wireshark.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 440.8771 369.858 452.1271 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 452.1271 369.858 463.3771 ] /Subtype /Link /Type /Annot
 >>
 endobj
 13 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 440.8771 475.5759 452.1271 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 452.1271 475.5759 463.3771 ] /Subtype /Link /Type /Annot
 >>
 endobj
 14 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (http://www.cydiasubstrate.com/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 418.3771 389.463 429.6271 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 429.6271 389.463 440.8771 ] /Subtype /Link /Type /Annot
 >>
 endobj
 15 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (http://www.cycript.org/)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 418.3771 513.3213 429.6271 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 429.6271 513.3213 440.8771 ] /Subtype /Link /Type /Annot
 >>
 endobj
 16 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.wireshark.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 344.3771 369.858 355.6271 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 355.6271 369.858 366.8771 ] /Subtype /Link /Type /Annot
 >>
 endobj
 17 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 350.0021 475.5759 361.2521 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 361.2521 475.5759 372.5021 ] /Subtype /Link /Type /Annot
 >>
 endobj
 18 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/ukanth/afwall)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 338.7521 441.5934 350.0021 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 350.0021 441.5934 361.2521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 19 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.securenetwork.it/docs/talks/2010-10_BlackHat-USA-2010_Virtually-Pwned.pdf)
->> /Border [ 0 0 0 ] /Rect [ 336.108 327.5021 361.533 338.7521 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 338.7521 361.533 350.0021 ] /Subtype /Link /Type /Annot
 >>
 endobj
 20 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/ovanr/webFuzz)
->> /Border [ 0 0 0 ] /Rect [ 336.108 310.6271 365.283 321.8771 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 321.8771 365.283 333.1271 ] /Subtype /Link /Type /Annot
 >>
 endobj
 21 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/xmendez/wfuzz)
->> /Border [ 0 0 0 ] /Rect [ 369.453 310.6271 390.288 321.8771 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 369.453 321.8771 390.288 333.1271 ] /Subtype /Link /Type /Annot
 >>
 endobj
 22 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.acunetix.com/support/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 293.7521 364.8705 305.0021 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 305.0021 364.8705 316.2521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 23 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (http://docs.w3af.org/en/latest/basic-ui.html)
->> /Border [ 0 0 0 ] /Rect [ 369.0405 293.7521 386.5455 305.0021 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 369.0405 305.0021 386.5455 316.2521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 24 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/sullo/nikto)
->> /Border [ 0 0 0 ] /Rect [ 336.108 282.5021 353.193 293.7521 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 293.7521 353.193 305.0021 ] /Subtype /Link /Type /Annot
 >>
 endobj
 25 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.microfocus.com/media/data-sheet/webinspect_automated_dynamic_application_security_testing_ds.pdf)
->> /Border [ 0 0 0 ] /Rect [ 361.533 282.5021 382.368 293.7521 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 361.533 293.7521 382.368 305.0021 ] /Subtype /Link /Type /Annot
 >>
 endobj
 26 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.microfocus.com/media/data-sheet/webinspect_automated_dynamic_application_security_testing_ds.pdf)
->> /Border [ 0 0 0 ] /Rect [ 336.108 271.2521 375.708 282.5021 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 282.5021 375.708 293.7521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 27 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.tcpdump.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 259.6271 371.1105 270.8771 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 270.8771 371.1105 282.1271 ] /Subtype /Link /Type /Annot
 >>
 endobj
 28 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.wireshark.org/)
->> /Border [ 0 0 0 ] /Rect [ 375.2805 259.6271 409.0305 270.8771 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 375.2805 270.8771 409.0305 282.1271 ] /Subtype /Link /Type /Annot
 >>
 endobj
 29 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://developer.android.com/studio/command-line/adb)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 236.7521 425.5584 248.0021 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 248.0021 425.5584 259.2521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 30 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.msab.com/product/xry-extract/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 118.5021 351.528 129.7521 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 129.7521 351.528 141.0021 ] /Subtype /Link /Type /Annot
 >>
 endobj
 31 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://cellebrite.com/en/ufed/)
->> /Border [ 0 0 0 ] /Rect [ 355.698 118.5021 399.0405 129.7521 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 355.698 129.7521 399.0405 141.0021 ] /Subtype /Link /Type /Annot
 >>
 endobj
 32 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.openssl.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 107.2521 368.628 118.5021 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 118.5021 368.628 129.7521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 33 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/androguard/androguard)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 124.1271 453.9009 135.3771 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 135.3771 453.9009 146.6271 ] /Subtype /Link /Type /Annot
 >>
 endobj
 34 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/sfahl/mallodroid)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 112.8771 448.8834 124.1271 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 124.1271 448.8834 135.3771 ] /Subtype /Link /Type /Annot
 >>
 endobj
 35 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/iBotPeaches/Apktool)
->> /Border [ 0 0 0 ] /Rect [ 453.0534 112.8771 477.2334 124.1271 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 453.0534 124.1271 477.2334 135.3771 ] /Subtype /Link /Type /Annot
 >>
 endobj
 36 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://dl.acm.org/doi/10.1145/3183575)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 101.6271 449.3109 112.8771 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 112.8771 449.3109 124.1271 ] /Subtype /Link /Type /Annot
 >>
 endobj
 37 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://portswigger.net/burp)
->> /Border [ 0 0 0 ] /Rect [ 336.108 84.75209 371.1255 96.00209 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 96.00209 371.1255 107.2521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 38 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.wireshark.org/)
->> /Border [ 0 0 0 ] /Rect [ 375.2955 84.75209 409.0455 96.00209 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 375.2955 96.00209 409.0455 107.2521 ] /Subtype /Link /Type /Annot
 >>
 endobj
 39 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/bettercap/bettercap)
->> /Border [ 0 0 0 ] /Rect [ 336.108 73.50209 367.3755 84.75209 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 84.75209 367.3755 96.00209 ] /Subtype /Link /Type /Annot
 >>
 endobj
 40 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/jrmdev/mitm_relay)
->> /Border [ 0 0 0 ] /Rect [ 336.108 62.25209 371.103 73.50209 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 73.50209 371.103 84.75209 ] /Subtype /Link /Type /Annot
 >>
 endobj
 41 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.kali.org/docs/introduction/)
->> /Border [ 0 0 0 ] /Rect [ 375.273 62.25209 407.7855 73.50209 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 375.273 73.50209 407.7855 84.75209 ] /Subtype /Link /Type /Annot
 >>
 endobj
 42 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://portswigger.net/burp)
->> /Border [ 0 0 0 ] /Rect [ 336.108 51.00209 371.1255 62.25209 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 62.25209 371.1255 73.50209 ] /Subtype /Link /Type /Annot
 >>
 endobj
 43 0 obj
 <<
+/A <<
+/S /URI /Type /Action /URI (https://nmap.org/)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 51.00209 357.7755 62.25209 ] /Subtype /Link /Type /Annot
+>>
+endobj
+44 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.tenable.com/products/nessus)
+>> /Border [ 0 0 0 ] /Rect [ 361.9455 51.00209 386.9505 62.25209 ] /Subtype /Link /Type /Annot
+>>
+endobj
+45 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.metasploit.com/)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 39.75209 409.8705 51.00209 ] /Subtype /Link /Type /Annot
+>>
+endobj
+46 0 obj
+<<
 /Annots [ 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 14 0 R 15 0 R 
   16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 24 0 R 25 0 R 
   26 0 R 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 34 0 R 35 0 R 
-  36 0 R 37 0 R 38 0 R 39 0 R 40 0 R 41 0 R 42 0 R ] /Contents 181 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 180 0 R /Resources <<
+  36 0 R 37 0 R 38 0 R 39 0 R 40 0 R 41 0 R 42 0 R 43 0 R 44 0 R 45 0 R ] /Contents 148 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 147 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
 /FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
 >>
@@ -305,451 +326,401 @@ endobj
   /Trans <<
 
 >> /Type /Page
->>
-endobj
-44 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://nmap.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 807.2208 357.7755 818.4708 ] /Subtype /Link /Type /Annot
->>
-endobj
-45 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.tenable.com/products/nessus)
->> /Border [ 0 0 0 ] /Rect [ 361.9455 807.2208 386.9505 818.4708 ] /Subtype /Link /Type /Annot
->>
-endobj
-46 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.metasploit.com/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 795.9708 409.8705 807.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 47 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.wireshark.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 779.0958 369.858 790.3458 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 801.5958 369.858 812.8458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 48 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 784.7208 475.5759 795.9708 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 807.2208 475.5759 818.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 49 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/ukanth/afwall)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 773.4708 441.5934 784.7208 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 795.9708 441.5934 807.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 50 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://frida.re/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 745.3458 353.193 756.5958 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 767.8458 353.193 779.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 51 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://developer.android.com/studio/command-line/adb)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 745.3458 425.5584 756.5958 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 767.8458 425.5584 779.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 52 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.passfab.net/products/iphone-backup-unlocker.html?gclid=CjwKCAjwwdWVBhA4EiwAjcYJEIEe_MT87RuDw5L6Pl-frG5MrdUTW2mbj61faoJpXIEWjB7MCSQfXxoCXV8QAvD_BwE)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 750.9708 545.0163 762.2208 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 773.4708 545.0163 784.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 53 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.passfab.net/products/iphone-backup-unlocker.html?gclid=CjwKCAjwwdWVBhA4EiwAjcYJEIEe_MT87RuDw5L6Pl-frG5MrdUTW2mbj61faoJpXIEWjB7MCSQfXxoCXV8QAvD_BwE)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 739.7208 546.6738 750.9708 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 762.2208 546.6738 773.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 54 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://developer.android.com/studio/command-line/logcat)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 700.3458 435.5634 711.5958 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 722.8458 435.5634 734.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 55 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/OWASP/OWASP-WebScarab)
->> /Border [ 0 0 0 ] /Rect [ 336.108 672.2208 405.2955 683.4708 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 694.7208 405.2955 705.9708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 56 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.zaproxy.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 660.9708 380.703 672.2208 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 683.4708 380.703 694.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 57 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.kali.org/tools/paros/)
->> /Border [ 0 0 0 ] /Rect [ 384.873 660.9708 404.463 672.2208 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 384.873 683.4708 404.463 694.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 58 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.wireshark.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 649.7208 369.858 660.9708 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 672.2208 369.858 683.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 59 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/CERTCC/tapioca)
->> /Border [ 0 0 0 ] /Rect [ 374.028 649.7208 394.443 660.9708 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 374.028 672.2208 394.443 683.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 60 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/CERTCC/tapioca)
->> /Border [ 0 0 0 ] /Rect [ 336.108 638.4708 362.7855 649.7208 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 660.9708 362.7855 672.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 61 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 644.0958 475.5759 655.3458 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 666.5958 475.5759 677.8458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 62 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/iSECPartners/Introspy-Android)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 621.5958 468.0684 632.8458 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 644.0958 468.0684 655.3458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 63 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/iSECPartners/Introspy-iOS)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 621.5958 531.6663 632.8458 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 644.0958 531.6663 655.3458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 64 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/OWASP/OWASP-WebScarab)
->> /Border [ 0 0 0 ] /Rect [ 336.108 553.2208 405.2955 564.4708 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 575.7208 405.2955 586.9708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 65 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.zaproxy.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 541.9708 380.703 553.2208 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 564.4708 380.703 575.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 66 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.kali.org/tools/paros/)
->> /Border [ 0 0 0 ] /Rect [ 384.873 541.9708 404.463 553.2208 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 384.873 564.4708 404.463 575.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 67 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.bitdefender.com/solutions/total-security.html)
->> /Border [ 0 0 0 ] /Rect [ 336.108 530.7208 374.463 541.9708 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 553.2208 374.463 564.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 68 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://pt.norton.com/ps/3up_norton360_ns_nd_np_Reading_tw_nb.html?nortoncountry=pt&om_sem_cid=hho_sem_sy:pt:ggl:pt:e:br:kw0000004480:465830486375:c:google:195269073:16491667593:kwd-15050890&nortoncountry=PT&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEDbwnLOm9cCLQw62JluesRsIz13dGLcGR3g22Rl1TpjQLRqybwbYHRoCbTMQAvD_BwE&gclsrc=aw.ds)
->> /Border [ 0 0 0 ] /Rect [ 378.633 530.7208 401.1405 541.9708 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 378.633 553.2208 401.1405 564.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 69 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.mcafee.com/consumer/pt-pt/landing-page/direct/sem/mtp-family/desktop/brand-ad.html?csrc=google&csrcl2=brand&cctype=[PT-PT][Search][Brand]McAfee&ccstype=&ccoe=direct&ccoel2=sem&affid=1485&culture=PT-PT&utm_source=google&utm_medium=paidsearch&utm_campaign=[PT-PT][Search][Brand]McAfee&utm_content=[brand][exact]mcafee&utm_term=mcafee&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEB9Z6QxypEvqzc3LCPYisQUsFVCnowFSUXK73SOjadoDZa8H8jkVLBoC_hsQAvD_BwE)
->> /Border [ 0 0 0 ] /Rect [ 336.108 519.4708 361.533 530.7208 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 336.108 541.9708 361.533 553.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 70 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://www.kaspersky.co.uk/home-security?ignoreredirects=true)
->> /Border [ 0 0 0 ] /Rect [ 365.703 519.4708 400.713 530.7208 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 365.703 541.9708 400.713 553.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 71 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (http://sanddroid.xjtu.edu.cn/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 525.0958 448.4784 536.3458 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 547.5958 448.4784 558.8458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 72 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/iSECPartners/Introspy-Android)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 502.5958 468.0684 513.8458 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 525.0958 468.0684 536.3458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 73 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/iSECPartners/Introspy-iOS)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 502.5958 531.6663 513.8458 ] /Subtype /Link /Type /Annot
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 525.0958 531.6663 536.3458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 74 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/OWASP/OWASP-WebScarab)
->> /Border [ 0 0 0 ] /Rect [ 336.108 411.7208 405.2955 422.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.bitdefender.com/solutions/total-security.html)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 445.4708 374.463 456.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 75 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/sullo/nikto)
->> /Border [ 0 0 0 ] /Rect [ 336.108 400.4708 353.193 411.7208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://pt.norton.com/ps/3up_norton360_ns_nd_np_Reading_tw_nb.html?nortoncountry=pt&om_sem_cid=hho_sem_sy:pt:ggl:pt:e:br:kw0000004480:465830486375:c:google:195269073:16491667593:kwd-15050890&nortoncountry=PT&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEDbwnLOm9cCLQw62JluesRsIz13dGLcGR3g22Rl1TpjQLRqybwbYHRoCbTMQAvD_BwE&gclsrc=aw.ds)
+>> /Border [ 0 0 0 ] /Rect [ 378.633 445.4708 401.1405 456.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 76 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/sensepost/wikto)
->> /Border [ 0 0 0 ] /Rect [ 357.363 400.4708 376.113 411.7208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.mcafee.com/consumer/pt-pt/landing-page/direct/sem/mtp-family/desktop/brand-ad.html?csrc=google&csrcl2=brand&cctype=[PT-PT][Search][Brand]McAfee&ccstype=&ccoe=direct&ccoel2=sem&affid=1485&culture=PT-PT&utm_source=google&utm_medium=paidsearch&utm_campaign=[PT-PT][Search][Brand]McAfee&utm_content=[brand][exact]mcafee&utm_term=mcafee&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEB9Z6QxypEvqzc3LCPYisQUsFVCnowFSUXK73SOjadoDZa8H8jkVLBoC_hsQAvD_BwE)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 434.2208 361.533 445.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 77 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.kali.org/tools/paros/)
->> /Border [ 0 0 0 ] /Rect [ 380.283 400.4708 399.873 411.7208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.kaspersky.co.uk/home-security?ignoreredirects=true)
+>> /Border [ 0 0 0 ] /Rect [ 365.703 434.2208 400.713 445.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 78 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.kali.org/tools/paros/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 389.2208 355.278 400.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (http://sanddroid.xjtu.edu.cn/)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 439.8458 448.4784 451.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 79 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.spikeproxy.com/)
->> /Border [ 0 0 0 ] /Rect [ 359.448 389.2208 399.4605 400.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.wireshark.org/)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 422.9708 369.858 434.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 80 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.zaproxy.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 377.9708 380.703 389.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 422.9708 475.5759 434.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 81 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://nmap.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 355.4708 357.7755 366.7208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/sinpolib/nfcspy)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 400.4708 441.3834 411.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 82 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.kali.org/)
->> /Border [ 0 0 0 ] /Rect [ 361.9455 355.4708 394.458 366.7208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.kali.org/docs/introduction/)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 349.8458 368.6205 361.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 83 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://sqlitebrowser.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 327.3458 387.7905 338.5958 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/MillerTechnologyPeru/hcitool)
+>> /Border [ 0 0 0 ] /Rect [ 372.7905 349.8458 394.4655 361.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 84 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://developer.apple.com/xcode/)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 332.9708 511.2513 344.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://androguard.readthedocs.io/en/latest/intro/gettingstarted.html)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 258.9708 401.9655 270.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 85 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://mac.install.guide/commandlinetools/index.html)
->> /Border [ 0 0 0 ] /Rect [ 515.4213 332.9708 536.6838 344.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://security.opentext.com/encase-forensic)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 247.7208 395.7105 258.9708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 86 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://mac.install.guide/commandlinetools/index.html)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 321.7208 561.2613 332.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.oxygen-forensic.com/es/)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 236.4708 411.9705 247.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 87 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/OWASP/OWASP-WebScarab)
->> /Border [ 0 0 0 ] /Rect [ 336.108 299.2208 405.2955 310.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://androguard.readthedocs.io/en/latest/intro/gettingstarted.html)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 253.3458 452.2359 264.5958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 88 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.zaproxy.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 287.9708 380.703 299.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf)
+>> /Border [ 0 0 0 ] /Rect [ 458.4909 253.3458 480.9909 264.5958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 89 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security#8-api-monitor---android-only)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 265.4708 452.2284 276.7208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/spotbugs/spotbugs)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 242.0958 445.5684 253.3458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 90 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.rapid7.com/products/nexpose/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 254.2208 391.548 265.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/den4uk/andriller)
+>> /Border [ 0 0 0 ] /Rect [ 453.9084 242.0958 481.4109 253.3458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 91 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.manageengine.com/br/vulnerability-management/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 242.9708 408.633 254.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.elcomsoft.com/eift.html)
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 253.3458 537.5013 264.5958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 92 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.manageengine.com/br/vulnerability-management/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 231.7208 350.6955 242.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.elcomsoft.com/eift.html)
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 242.0958 542.9163 253.3458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 93 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/AnthonyCalandra/bytecode-scanner)
->> /Border [ 0 0 0 ] /Rect [ 336.108 220.4708 395.718 231.7208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.bitdefender.com/solutions/total-security.html)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 162.4708 374.463 173.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 94 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/linkedin/qark/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 209.2208 357.363 220.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://pt.norton.com/ps/3up_norton360_ns_nd_np_Reading_tw_nb.html?nortoncountry=pt&om_sem_cid=hho_sem_sy:pt:ggl:pt:e:br:kw0000004480:465830486375:c:google:195269073:16491667593:kwd-15050890&nortoncountry=PT&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEDbwnLOm9cCLQw62JluesRsIz13dGLcGR3g22Rl1TpjQLRqybwbYHRoCbTMQAvD_BwE&gclsrc=aw.ds)
+>> /Border [ 0 0 0 ] /Rect [ 378.633 162.4708 401.1405 173.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 95 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.parasoft.com/products/parasoft-c-ctest/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 197.9708 400.293 209.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.mcafee.com/consumer/pt-pt/landing-page/direct/sem/mtp-family/desktop/brand-ad.html?csrc=google&csrcl2=brand&cctype=[PT-PT][Search][Brand]McAfee&ccstype=&ccoe=direct&ccoel2=sem&affid=1485&culture=PT-PT&utm_source=google&utm_medium=paidsearch&utm_campaign=[PT-PT][Search][Brand]McAfee&utm_content=[brand][exact]mcafee&utm_term=mcafee&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEB9Z6QxypEvqzc3LCPYisQUsFVCnowFSUXK73SOjadoDZa8H8jkVLBoC_hsQAvD_BwE)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 151.2208 361.533 162.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 96 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.parasoft.com/products/parasoft-c-ctest/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 186.7208 355.278 197.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.kaspersky.co.uk/home-security?ignoreredirects=true)
+>> /Border [ 0 0 0 ] /Rect [ 365.703 151.2208 400.713 162.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 97 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://security.web.cern.ch/recommendations/en/codetools/rats.shtml/)
->> /Border [ 0 0 0 ] /Rect [ 359.448 186.7208 379.4505 197.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (http://sanddroid.xjtu.edu.cn/)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 156.8458 448.4784 168.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 98 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://clang-analyzer.llvm.org/scan-build.html)
->> /Border [ 0 0 0 ] /Rect [ 383.6205 186.7208 403.2105 197.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.wireshark.org/)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 134.3458 369.858 145.5958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 99 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://clang-analyzer.llvm.org/scan-build.html)
->> /Border [ 0 0 0 ] /Rect [ 336.108 175.4708 382.7955 186.7208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 139.9708 475.5759 151.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 100 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://docs.angr.io/introductory-errata/install)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 186.7208 428.8884 197.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/ukanth/afwall)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 128.7208 441.5934 139.9708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 101 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://blackberry.qnx.com/en/software-solutions/blackberry-jarvis)
->> /Border [ 0 0 0 ] /Rect [ 336.108 164.2208 394.0305 175.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/sinpolib/nfcspy)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 106.2208 441.3834 117.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 102 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://www.grammatech.com/codesonar-sast-binary)
->> /Border [ 0 0 0 ] /Rect [ 336.108 152.9708 384.8805 164.2208 ] /Subtype /Link /Type /Annot
->>
-endobj
-103 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.grammatech.com/codesonar-sast-binary)
->> /Border [ 0 0 0 ] /Rect [ 336.108 141.7208 363.198 152.9708 ] /Subtype /Link /Type /Annot
->>
-endobj
-104 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://sourceforge.net/projects/bugscam/)
->> /Border [ 0 0 0 ] /Rect [ 367.368 141.7208 399.8805 152.9708 ] /Subtype /Link /Type /Annot
->>
-endobj
-105 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.veracode.com/products/binary-static-analysis-sast)
->> /Border [ 0 0 0 ] /Rect [ 336.108 130.4708 355.698 141.7208 ] /Subtype /Link /Type /Annot
->>
-endobj
-106 0 obj
-<<
-/Annots [ 44 0 R 45 0 R 46 0 R 47 0 R 48 0 R 49 0 R 50 0 R 51 0 R 52 0 R 53 0 R 
-  54 0 R 55 0 R 56 0 R 57 0 R 58 0 R 59 0 R 60 0 R 61 0 R 62 0 R 63 0 R 
-  64 0 R 65 0 R 66 0 R 67 0 R 68 0 R 69 0 R 70 0 R 71 0 R 72 0 R 73 0 R 
-  74 0 R 75 0 R 76 0 R 77 0 R 78 0 R 79 0 R 80 0 R 81 0 R 82 0 R 83 0 R 
-  84 0 R 85 0 R 86 0 R 87 0 R 88 0 R 89 0 R 90 0 R 91 0 R 92 0 R 93 0 R 
-  94 0 R 95 0 R 96 0 R 97 0 R 98 0 R 99 0 R 100 0 R 101 0 R 102 0 R 103 0 R 
-  104 0 R 105 0 R ] /Contents 182 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 180 0 R /Resources <<
+/Annots [ 47 0 R 48 0 R 49 0 R 50 0 R 51 0 R 52 0 R 53 0 R 54 0 R 55 0 R 56 0 R 
+  57 0 R 58 0 R 59 0 R 60 0 R 61 0 R 62 0 R 63 0 R 64 0 R 65 0 R 66 0 R 
+  67 0 R 68 0 R 69 0 R 70 0 R 71 0 R 72 0 R 73 0 R 74 0 R 75 0 R 76 0 R 
+  77 0 R 78 0 R 79 0 R 80 0 R 81 0 R 82 0 R 83 0 R 84 0 R 85 0 R 86 0 R 
+  87 0 R 88 0 R 89 0 R 90 0 R 91 0 R 92 0 R 93 0 R 94 0 R 95 0 R 96 0 R 
+  97 0 R 98 0 R 99 0 R 100 0 R 101 0 R ] /Contents 149 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 147 0 R /Resources <<
 /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
 /FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
 >>
@@ -759,561 +730,343 @@ endobj
 >> /Type /Page
 >>
 endobj
+103 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.kali.org/docs/introduction/)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 779.0958 368.6205 790.3458 ] /Subtype /Link /Type /Annot
+>>
+endobj
+104 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/MillerTechnologyPeru/hcitool)
+>> /Border [ 0 0 0 ] /Rect [ 372.7905 779.0958 394.4655 790.3458 ] /Subtype /Link /Type /Annot
+>>
+endobj
+105 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.sleuthkit.org/index.php)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 728.4708 374.673 739.7208 ] /Subtype /Link /Type /Annot
+>>
+endobj
+106 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.sleuthkit.org/index.php)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 717.2208 392.793 728.4708 ] /Subtype /Link /Type /Annot
+>>
+endobj
 107 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.bitdefender.com/solutions/total-security.html)
->> /Border [ 0 0 0 ] /Rect [ 336.108 807.2208 374.463 818.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/androguard/androguard)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 728.4708 453.9009 739.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 108 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://pt.norton.com/ps/3up_norton360_ns_nd_np_Reading_tw_nb.html?nortoncountry=pt&om_sem_cid=hho_sem_sy:pt:ggl:pt:e:br:kw0000004480:465830486375:c:google:195269073:16491667593:kwd-15050890&nortoncountry=PT&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEDbwnLOm9cCLQw62JluesRsIz13dGLcGR3g22Rl1TpjQLRqybwbYHRoCbTMQAvD_BwE&gclsrc=aw.ds)
->> /Border [ 0 0 0 ] /Rect [ 378.633 807.2208 401.1405 818.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf)
+>> /Border [ 0 0 0 ] /Rect [ 458.0709 728.4708 480.5709 739.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 109 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.mcafee.com/consumer/pt-pt/landing-page/direct/sem/mtp-family/desktop/brand-ad.html?csrc=google&csrcl2=brand&cctype=[PT-PT][Search][Brand]McAfee&ccstype=&ccoe=direct&ccoel2=sem&affid=1485&culture=PT-PT&utm_source=google&utm_medium=paidsearch&utm_campaign=[PT-PT][Search][Brand]McAfee&utm_content=[brand][exact]mcafee&utm_term=mcafee&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEB9Z6QxypEvqzc3LCPYisQUsFVCnowFSUXK73SOjadoDZa8H8jkVLBoC_hsQAvD_BwE)
->> /Border [ 0 0 0 ] /Rect [ 336.108 795.9708 361.533 807.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/iBotPeaches/Apktool)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 717.2208 437.2284 728.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 110 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.kaspersky.co.uk/home-security?ignoreredirects=true)
->> /Border [ 0 0 0 ] /Rect [ 365.703 795.9708 400.713 807.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://dl.acm.org/doi/10.1145/3183575)
+>> /Border [ 0 0 0 ] /Rect [ 441.3984 717.2208 477.6609 728.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 111 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (http://sanddroid.xjtu.edu.cn/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 801.5958 448.4784 812.8458 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 683.4708 352.773 694.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 112 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.wireshark.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 784.7208 369.858 795.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 683.4708 435.5484 694.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 113 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 784.7208 475.5759 795.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/FSecureLABS/drozer/releases/download/2.3.4/sieve.apk)
+>> /Border [ 0 0 0 ] /Rect [ 439.7184 683.4708 458.4759 694.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 114 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/sinpolib/nfcspy)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 762.2208 441.3834 773.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://pypi.org/project/iOSbackup/)
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 649.7208 526.6713 660.9708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 115 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.kali.org/docs/introduction/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 711.5958 368.6205 722.8458 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/NationalSecurityAgency/ghidra)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 553.2208 358.6155 564.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 116 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/MillerTechnologyPeru/hcitool)
->> /Border [ 0 0 0 ] /Rect [ 372.7905 711.5958 394.4655 722.8458 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/pxb1988/dex2jar)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 558.8458 438.8859 570.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 117 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://androguard.readthedocs.io/en/latest/intro/gettingstarted.html)
->> /Border [ 0 0 0 ] /Rect [ 336.108 620.7208 401.9655 631.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/java-decompiler/jd-gui/releases)
+>> /Border [ 0 0 0 ] /Rect [ 443.0559 558.8458 468.0534 570.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 118 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://security.opentext.com/encase-forensic)
->> /Border [ 0 0 0 ] /Rect [ 336.108 609.4708 395.7105 620.7208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (http://newandroidbook.com/tools/dextra.html)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 547.5958 435.1359 558.8458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 119 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.oxygen-forensic.com/es/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 598.2208 411.9705 609.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/KJCracks/Clutch)
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 553.2208 511.2438 564.4708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 120 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://androguard.readthedocs.io/en/latest/intro/gettingstarted.html)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 615.0958 452.2359 626.3458 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/MobSF/Mobile-Security-Framework-MobSF)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 519.4708 360.2805 530.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 121 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf)
->> /Border [ 0 0 0 ] /Rect [ 458.4909 615.0958 480.9909 626.3458 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/shivsahni/APKEnum)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 519.4708 447.6459 530.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 122 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/spotbugs/spotbugs)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 603.8458 445.5684 615.0958 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://damnvulnerableiosapp.com/)
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 525.0958 547.9263 536.3458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 123 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/den4uk/andriller)
->> /Border [ 0 0 0 ] /Rect [ 453.9084 603.8458 481.4109 615.0958 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://damnvulnerableiosapp.com/)
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 513.8458 517.9188 525.0958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 124 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.elcomsoft.com/eift.html)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 615.0958 537.5013 626.3458 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://developer.android.com/studio/command-line/adb)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 485.7208 425.5584 496.9708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 125 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.elcomsoft.com/eift.html)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 603.8458 542.9163 615.0958 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/bambooeric/r2ghidra-dec)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 457.5958 378.2055 468.8458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 126 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.bitdefender.com/solutions/total-security.html)
->> /Border [ 0 0 0 ] /Rect [ 336.108 524.2208 374.463 535.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/radareorg/r2ghidra)
+>> /Border [ 0 0 0 ] /Rect [ 380.2905 457.5958 401.5455 468.8458 ] /Subtype /Link /Type /Annot
 >>
 endobj
 127 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://pt.norton.com/ps/3up_norton360_ns_nd_np_Reading_tw_nb.html?nortoncountry=pt&om_sem_cid=hho_sem_sy:pt:ggl:pt:e:br:kw0000004480:465830486375:c:google:195269073:16491667593:kwd-15050890&nortoncountry=PT&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEDbwnLOm9cCLQw62JluesRsIz13dGLcGR3g22Rl1TpjQLRqybwbYHRoCbTMQAvD_BwE&gclsrc=aw.ds)
->> /Border [ 0 0 0 ] /Rect [ 378.633 524.2208 401.1405 535.4708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://github.com/radareorg/radare2)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 446.3458 364.8705 457.5958 ] /Subtype /Link /Type /Annot
 >>
 endobj
 128 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.mcafee.com/consumer/pt-pt/landing-page/direct/sem/mtp-family/desktop/brand-ad.html?csrc=google&csrcl2=brand&cctype=[PT-PT][Search][Brand]McAfee&ccstype=&ccoe=direct&ccoel2=sem&affid=1485&culture=PT-PT&utm_source=google&utm_medium=paidsearch&utm_campaign=[PT-PT][Search][Brand]McAfee&utm_content=[brand][exact]mcafee&utm_term=mcafee&gclid=CjwKCAjwwdWVBhA4EiwAjcYJEB9Z6QxypEvqzc3LCPYisQUsFVCnowFSUXK73SOjadoDZa8H8jkVLBoC_hsQAvD_BwE)
->> /Border [ 0 0 0 ] /Rect [ 336.108 512.9708 361.533 524.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.hopperapp.com/)
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 451.9708 514.5813 463.2208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 129 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://www.kaspersky.co.uk/home-security?ignoreredirects=true)
->> /Border [ 0 0 0 ] /Rect [ 365.703 512.9708 400.713 524.2208 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.sleuthkit.org/index.php)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 366.7208 403.8555 377.9708 ] /Subtype /Link /Type /Annot
 >>
 endobj
 130 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (http://sanddroid.xjtu.edu.cn/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 518.5958 448.4784 529.8458 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://www.sleuthkit.org/index.php)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 355.4708 363.6105 366.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
 131 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.wireshark.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 496.0958 369.858 507.3458 ] /Subtype /Link /Type /Annot
->>
-endobj
-132 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 501.7208 475.5759 512.9708 ] /Subtype /Link /Type /Annot
->>
-endobj
-133 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/ukanth/afwall)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 490.4708 441.5934 501.7208 ] /Subtype /Link /Type /Annot
->>
-endobj
-134 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/sinpolib/nfcspy)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 467.9708 441.3834 479.2208 ] /Subtype /Link /Type /Annot
->>
-endobj
-135 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.kali.org/docs/introduction/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 417.3458 368.6205 428.5958 ] /Subtype /Link /Type /Annot
->>
-endobj
-136 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/MillerTechnologyPeru/hcitool)
->> /Border [ 0 0 0 ] /Rect [ 372.7905 417.3458 394.4655 428.5958 ] /Subtype /Link /Type /Annot
->>
-endobj
-137 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.sleuthkit.org/index.php)
->> /Border [ 0 0 0 ] /Rect [ 336.108 366.7208 374.673 377.9708 ] /Subtype /Link /Type /Annot
->>
-endobj
-138 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.sleuthkit.org/index.php)
->> /Border [ 0 0 0 ] /Rect [ 336.108 355.4708 392.793 366.7208 ] /Subtype /Link /Type /Annot
->>
-endobj
-139 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/androguard/androguard)
 >> /Border [ 0 0 0 ] /Rect [ 413.0484 366.7208 453.9009 377.9708 ] /Subtype /Link /Type /Annot
 >>
 endobj
-140 0 obj
+132 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf)
 >> /Border [ 0 0 0 ] /Rect [ 458.0709 366.7208 480.5709 377.9708 ] /Subtype /Link /Type /Annot
 >>
 endobj
-141 0 obj
+133 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://github.com/iBotPeaches/Apktool)
 >> /Border [ 0 0 0 ] /Rect [ 413.0484 355.4708 437.2284 366.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
-142 0 obj
+134 0 obj
 <<
 /A <<
 /S /URI /Type /Action /URI (https://dl.acm.org/doi/10.1145/3183575)
 >> /Border [ 0 0 0 ] /Rect [ 441.3984 355.4708 477.6609 366.7208 ] /Subtype /Link /Type /Annot
 >>
 endobj
-143 0 obj
+135 0 obj
 <<
 /A <<
-/S /URI /Type /Action /URI (https://github.com/m0bilesecurity/RMS-Runtime-Mobile-Security)
->> /Border [ 0 0 0 ] /Rect [ 336.108 321.7208 352.773 332.9708 ] /Subtype /Link /Type /Annot
+/S /URI /Type /Action /URI (https://play.google.com/store/apps/details?id=com.denper.addonsdetector&hl=pt_PT&gl=US)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 281.4708 468.9084 292.7208 ] /Subtype /Link /Type /Annot
+>>
+endobj
+136 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.wireshark.org/)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 213.0958 369.858 224.3458 ] /Subtype /Link /Type /Annot
+>>
+endobj
+137 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 213.0958 475.5759 224.3458 ] /Subtype /Link /Type /Annot
+>>
+endobj
+138 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (http://www.cydiasubstrate.com/)
+>> /Border [ 0 0 0 ] /Rect [ 336.108 190.5958 389.463 201.8458 ] /Subtype /Link /Type /Annot
+>>
+endobj
+139 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (http://www.cycript.org/)
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 190.5958 513.3213 201.8458 ] /Subtype /Link /Type /Annot
+>>
+endobj
+140 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/iSECPartners/Introspy-Android)
+>> /Border [ 0 0 0 ] /Rect [ 413.0484 105.3458 468.0684 116.5958 ] /Subtype /Link /Type /Annot
+>>
+endobj
+141 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://github.com/iSECPartners/Introspy-iOS)
+>> /Border [ 0 0 0 ] /Rect [ 489.9888 105.3458 531.6663 116.5958 ] /Subtype /Link /Type /Annot
+>>
+endobj
+142 0 obj
+<<
+/Annots [ 103 0 R 104 0 R 105 0 R 106 0 R 107 0 R 108 0 R 109 0 R 110 0 R 111 0 R 112 0 R 
+  113 0 R 114 0 R 115 0 R 116 0 R 117 0 R 118 0 R 119 0 R 120 0 R 121 0 R 122 0 R 
+  123 0 R 124 0 R 125 0 R 126 0 R 127 0 R 128 0 R 129 0 R 130 0 R 131 0 R 132 0 R 
+  133 0 R 134 0 R 135 0 R 136 0 R 137 0 R 138 0 R 139 0 R 140 0 R 141 0 R ] /Contents 150 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 147 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
+/FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
+>>
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+143 0 obj
+<<
+/Outlines 145 0 R /PageMode /UseNone /Pages 147 0 R /Type /Catalog
 >>
 endobj
 144 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 321.7208 435.5484 332.9708 ] /Subtype /Link /Type /Annot
+/Author () /CreationDate (D:20220816163406+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20220816163406+00'00') /Producer (xhtml2pdf <https://github.com/xhtml2pdf/xhtml2pdf/>) 
+  /Subject () /Title () /Trapped /False
 >>
 endobj
 145 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/FSecureLABS/drozer/releases/download/2.3.4/sieve.apk)
->> /Border [ 0 0 0 ] /Rect [ 439.7184 321.7208 458.4759 332.9708 ] /Subtype /Link /Type /Annot
+/Count 1 /First 146 0 R /Last 146 0 R /Type /Outlines
 >>
 endobj
 146 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://pypi.org/project/iOSbackup/)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 287.9708 526.6713 299.2208 ] /Subtype /Link /Type /Annot
+/Dest [ 46 0 R /Fit ] /Parent 145 0 R /Title (Final Security Test Specification and Tools Report)
 >>
 endobj
 147 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/NationalSecurityAgency/ghidra)
->> /Border [ 0 0 0 ] /Rect [ 336.108 191.4708 358.6155 202.7208 ] /Subtype /Link /Type /Annot
+/Count 3 /Kids [ 46 0 R 102 0 R 142 0 R ] /Type /Pages
 >>
 endobj
 148 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/pxb1988/dex2jar)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 197.0958 438.8859 208.3458 ] /Subtype /Link /Type /Annot
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3814
 >>
+stream
+Gb"/+>BcRH(4OT5d%fcoQltguH-4BGcQnLJG+4o-qBCQ.F,GP-danBiB+&N0N\SC=RESj4?;2CJpsYQ&f!iCGJWU?oSH!\3#[L0P`<[]iT]mG):"%D\*o0T;rdpJqWgC%Q],67llAom23MpEQY2`WeU)V%<A)!f^Buu6@R<(eucqScY41tPR_jbRC/4nA#bs8/.9=CO%G/*<PN/!fHP&74b@\N7'!">2rYq0<PPuTYH+fn>JKb^-Z]bi3b1Y"7'L;/6W0@4+f"iNnEl=@/dY0iI\.@NZSn`HE1;D/Fi$!]:r6U*jYBb\SO0512h2#S5+H\&l("hJ;=WWI)=n+QY([T8W6.k7A)Wtm)`\CTf%;5)+/XKq!T2-H7s6dOMFV/9]s18V[=5(k`<VeGF\Pg#hNg6uI&P%%p$(nPs;=mW]_15c!hV-=L^Bs9(T@aOJW5]4(U?@^IH7(J:&%bYUlNY4Q^[Tc7&,XKGldNo?#^2Bre+q2ei1hj?%[e!^Z2[;sF-!do&.a9.KfSDM$(am3=8Z7P<*TjQhrQW/Sg.c;'@NkeDd*3<7h#sG0)GGl3b.X\aAPb?V/qdf#5kgBEGLR31C\%?cqD.h:rHsF:%!_sMf]`/%9=qTR;ip$(/Nmb"A]tEI!qu04[Z5t>RN]i,T+)e*EgoK;WbZ!>&6FbZdV^++%#RgeNIe2`]HiIubupb@E<R4K(l-b(Q'4lc%b?j,qe/HM@3ad7]V*%U`[G,U'RaVd`]7MN%T/HV[rU+5MrGc;3*aC4"\9HnScjr[@Q"1u0+?FDl,13kDAH@lms#pB=c->0a);E,BR"pLZ6c"=',,d<59qj"6+Y$P&#"Mu/7J[GcpRo%K(C=)nDb6e!pT<o"h.onio2\O@7lumT%Pn.7(^Yj1!1]-ebKH2:l%4ldXb3,f&0,d?L/.H&uTMOqZqnr@inDV#q`6!m>%*fDM)k6*!Roam'm:\+C*rCk'KjSX49,.0RE8L`9qg^e%2-kCE%9'GXdW9N%@)b'BL32Los8MK4RhXq(c>gmiirI_NSsH,84If-SM>NP:($9SMh4#L[BpbUu%ePO`kqg5J;b03rA6b)id&UI5db5cOZf:<eCim8S8",&;Vn36eB\S^tZn&0?FmE9?.&Xo%Hkj^h+*nddl@fDAHFT_.pns3$p;.7UbYh,UZ"@>NiWe-]2C0%8;RuTGJhqHeI=(S=olr=igE9lcVL7j-c6cZ-*5c8<eU_r%N6Oh<("LOoZb@8t<*,H(JWm6f/EhZQppOQ:6=_U^9YZ@HP0Q@uG$EC'`=SGcMu+[O'Vn>RdsF?;Xf^%8DIb;g5\YPQN1`eU>F?Z9&DgG2&s(r>#iZ1_%RXACX#D/R]-mDnq?,$0*#8U.\V=Z-<Z(gSG=a!`[OrAR&K0BE%!p+"F-uW8M/URtGi`Z7O\oAU@'*%*R4@LF/\;JGAHKX5MQIdPSg?=gAa#HbmrY%U[0WpOT3bd&h+f]<hU7.[uT85k!D^%&f?p[&cohCo^f1AJNC'*7q?0")/g>Q2=$]"Ys<to6K@r=Ok$<oa>QfCZnq$bMY3dctee\F2jBd^l9Ln<t2*6gXlMN^lkB?WgF!h$=(n;_S*u]$,1jo,C&u1=Ya;-ppEp+R/C&PrW_5D0lM#69OBAm;&Q9S@Ij/X%lhp9pnJ!b).UWO\QK/J`JF1n<,E#<iXh)`5W@[Yg7>[@6'W%=,>g$Vpipuu^`*Hg>%_V6^iR>m%!Yhpo$ITcJZs!j]8'H]7_uC9G@n`/?l_EZ/lNq#Wmu[[p8T\^]-lk0hYR4Si:2](n"+/YenLS"-T5AZ,]//R]Z5cQ[g1PC[16Xsm!''"]SA[5>`SD.WB0DdPm<1f-GU'65,/WFh*6&:S(5V7=-?/9LYf@YpMYEYq#7klSDT.kD80S"mfcj`RrRT<4_)nRSX$-#2#arBNrsLf=/Y,kN*+GX4O!@r6C'kfVoC9=ON);8_eU!'b!<q&Uqr*"c)K*M>9W$$=Y6MmP/L_^5]7N=5L9VER.:<_dkM8!RU21+c!hU1i<uY&0?lOQ+WWh/KSe'"0jT!t*?r<n;M]0;&.anjH>jC4>RgZ52HTSNmW#p`4b>$6/2*0q/NkPHM8&0g5d)6h(>SDMfSc16cSgSKWbn"oB`Du'm/b:`j+UWfh?SlBQ^smCi6CGqZM*3N+3r7cq*l%=rM&Lo'%ms6K.h?_fs$525q6)'Zmt#"-EWuQL/u&V>G1?ep2:MiHJs90'b+s@5<q]UO;XX-9*'(d!UA8IUDQkp^b"%EV?#k]?@5^t'U-6FPh"929"pGl>;0+sEc;aldTW!=Jg[uP92Jp+.gZrIAXc8SN[.RLVN.W$09ir296,>G%J5\[[7r![l!LMQWuYnj]9=7.6)u%hTQ"1sSquk8S(msRj_ada+<7:/325p7aSU3)22t,!#qqArID24F+*gABV$kbfSsE\T]8S@n=ABlEVCc*[StloKP<<ET&%06?_*%Vj'99FPAh&QXV[]+bTIo-9n/nk`6/;j2/#6qn[ee;^FN.M9VVXP&-h4-Hk*lX?Jmb+k:'AE/SG<2Fais@E$o)`m&6.>.HYJLqRFd2XDKX6V]Bn/)!_1j[<N0!]FBR%,"ZsH`*;H[Q4Y+0^!qac`CeL#?O`oeS^>;;f9.,?Pb59TO5:W)1o8sR?fCUb63EV?B/f]RblHRL0e]b)O#>%=S[LM]%c`3G<W8H-D"[Y4l!YPd<#Kbpme`6]kAB;p"Bnjkqb3hB%JibJ95_u;hj-sj"[<g!CUh/_I97<Lq(Z>0LBD8M`2=tO.8D"I[-4-"Os'Q%68JW?:idi1((6!J($3T5"q/,])QtX@E[<P1hGV`!'`'HCD=V6CE;^/0'mEW99cCtnA[;g,O,jq`7D*s9agNH_p3*t'J@cK?g)h22NH!\sF?FDja'@3MmlQmcAr]0iQJ8Q$U7!-&lH89bqK;L@3ir&/(i?G%d`U.=YH9lk;Y,UmQqm_LoY=LuW?5*j$SYB!GW7UQ#9".dh**m0ZQ_O@rJK@A?79Ql!+'icb7p##K,_-^BL`V3-j*V>liX?GVR)'g>XR+HEgr*K7JuJkK;7F.QRkW`7K+>^3-6+%mbF4J!]W>PrE1W\-LsZ2oAMeM8B_k0?<*]<K41(?Z:&Hd6`>Z,%ghj3e-00!LZWS!g1Po<$HPaua?q^*/Y$0PcjL31FhK[;)/VQ;-k%duQHD5f#\m%ClJh(aDcdQ/pMQj36%44_U!r"*9G3a-jhEAQU(5p!T.AYCN!E<]\9(Jm#d(j&uTYkeH9C#OUIUT?[*1"i9ZE>[F5X[lBBY_'W(/NE>c*@lJkhrV#@4#%B.p0T=JU5isB=VR(;8Qf8[f1ue5<f)"QBZk;h#_L)ZV@QJkKN*5emh)Mn1NQSaAfd0(d#kab\WTZY<d32qmY'fb+co*JsruY0Tj%i^G%\=Qt!q70!b8%Q]]q^=KP@A8[p4IM^+caU9?#idN%Ar'ratoc-ML0gHTf6o4``p4#@JQ/Dp^hr>rD5[&[A`3+STG&`TGtcf=)h7#1s9MVEgLhCR^cKa3<tC$fcb;$oqFd@m8Y`j#[b]V5$KM^((#[SNMWihU]7FPfgYIQF5Qo+;VCn#-i-f:o18rdU-U;3r$18Z(lh4Ok2b*aPSh9f:&$%sk3PG>^t>]'lEK#(bW+](4;"0W%$:[lGnldtXm9Ce#l%4kG/s>@YZ](paJ=0n4<o.j;4#D6uoUU90IL2Km5bhk;P5c,g=oK^P,i[SDs7W&6U.G)Pe[,/'i(k?a]nGFap;[]/sKRHAX-T)Go9BTcm4a-=d@`[:N<=>XJ>Eb)1[5LJ0a!/eklec~>endstream
 endobj
 149 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/java-decompiler/jd-gui/releases)
->> /Border [ 0 0 0 ] /Rect [ 443.0559 197.0958 468.0534 208.3458 ] /Subtype /Link /Type /Annot
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3125
 >>
+stream
+Gb"/+?$E$a(4FN4W5m\?Q)=?=0d^m@YN^/`d@&4iD\X[c%T3dE]'Wih#?26Z;F$,lZdQ!7MGe8jc8g%@Y#AdT_ZQg_c2s]U"FV+rKG?>3,-4?SRX@H2PDd37+f"to/1s*p=h+6b4\Ca6=h<oYQE03R0rES]WG>\C@T_bld1pc@0##3_mgHeARUSjgAnVB(<)q@(<DD3%1`XdnFr99SK9@Cn)-1RP&m"YcXSp'-k(%!bC@^W`Uo!uf?*XkZ9bn"E#sO&DPH1(6Sm5lOEHHIn@Y/u"T#cli#>Mq+aa]MtDf24m)l=e3R]K[Znba0N2&`\@'j.]C8sUc]`H&9paMN!0$&H?V]VkmqU<8Xq?n<#@-tGP)=p7?[:!#5rc4+@V_>S9g!PACscn/0d$O$/1Is:@01p2ZQVjJR=O@F:(5#n;b1dH_2(u;!I>*uQ)+)F1]MPMcl.Q`mQY.RbR;I)A(YLo'nk.')h7%>VC?^#'6$L'<VktU=Cf\:O8I`g41Jb]6E.XD@!@tg[^:;8:6PA3b1l$M,l*`E=3"[0_nXd7WL>l&7po7C-A5!;.4(OZ^dc*rnXP'qHmZ`m2X;/Af]cQp@5`3P:T=*5aHOuar).F^396EKFF&IiCnP1X8151gMe`OjO\M+!li=Q5p&=gm%>U1*8rKKBUMKFH^p>9bK_@g-2`^lkB?.^)j:`D'X)jSEjp2^IG5_!o@g&W*5*GspM&c2sH(fcU_bk`<Ml&6Hcl+DL==*SnZTr?)D<KUX'2)'k\>8[),jJa$V2`O&C)'SrT"O;%ubN]h\P76h/m&:"b(5iG+1QD#SoUjWOH`+BL9/,`!P5.s)*7l7+%o@Bm>%rbV^:a_`G31N7#,stM34n-:UlSsIj5.`&UMYLlN&m9N\f/3\S>"sUcd:K/"^+Ecop3`]NP&;)L-pX4)B_8uV)*lmJ=.%OP4C!k9#V:DjOH;RGjT7k+YW:bD=/3\%U?o[5_@0RI2p5p^kh)"rK3ZB:)T847lM*,R0N#Kn[P&$,dW@eh#cX]QE`lD1heki9K%C2t2'lHUA>A(6C2FRoaf'JWZ/G<0U1A8\$a4L;-^iL\aO4Q.2o"8jc]WY2aW,0hJ`D@$WL2,#,rtdV70f-LUHEi'$.i<=F6[ajM?&j2B&!$)";[\EDS0ST74>)tq#GE7#!3X[``;"D.Aq%M+s2FSk1\q.IhfI:o3>TghA3eZ/&GFpr8*c[$21Y>$`lmr]ihVmZXqY,-OmuS1Q7@q@\HF^'Ji.KTk!%5>))Ye;MRu>r@h2pVd5=tIe%gKYOT,XY/g:S*ZCs&f5._E#`mk$bTT"-des'PU$VWBLr;#-D:Cq7UnB1.IJ,gtkU@nRi\cV080\hnfueNd,=P6D:0G*"Y#OLY]7/56emtVt<&s*k;@?;q6dsuG`80m+j^l1S:5C$B,RYOR8R&s^6rd3'K2i(s3k.*remr_HlXcZ[oSY;#L"mG?/]f[t>JkTV*X:MNZ&u%gg]FUP93?lunY!RjnXO0aXC")t.KMBn2Q<XV9:B[t>^ab^^GkM51TNc]8V&0.BhPmlq7LFWid'C?KbLMa[l+LL8[^YXrF"@E(XK4P`EIdk(!%(Lm;[&^l5.dITi#ruRPk_\IR3e0ZgKrMCK1aH^RV[MhjoISn6PXcf";Jl06'V+a'cH8d@\AOgiLlOlE4e.KJJR];pJ"gg9&bqc'h?c$J3:]%O<YY&T%)k2Zl-AQ.dDuj?Uk]2acH,n)D^&-5lA)Gk8_/>rng5]:J1]Gir]T``n3Xo_3sLh`4b:8ul.mSOC9*U8N.aOM-[EVF%JdXdSl"R-5!77*rW'QDnMD@bN+hp?,^fH^E@@jg?H1CWgL^V.;@/BmHg3#hXMjTUsST8,Vg$UkhEpUb'Q-BFhpVcgfX;6=91[M6.#3)2%>Ld!3[bFBdjYDTO\o?m(eTTSG]AYL/0-(WhC!l-^qp3,K]6,QS`sdY,B0&O`GUoXqOb3Vj1IIqQqFbBGEo1>-a#M*-LG>'2Yd'D8L3e;hM[k"+Ap]5%nb1[,Bb7N7*;O`lN11RIN5!:3CiCQ;8rE*'N3]qM=1S]+u3)MR$(EUkF:YsX*CfEHIb3^+Y^/eUfEr[ng]6NYSH@YN%qS\`&qKBG+eP&BZU_IGTC8-mVueV,*CkauU-fFnLs2Er#2Barb+5Y-%,lgZ,IZi;u<Xk*pPgQf$$hC2?QQZ,D89.3iZB%oUp`Nh&eI\rb(D&rEsU52OkD;^*5AY$45e)K$ce;:eqK@89(`?F5_p7:+1!@^Yb2W_2\^#nqUHG$>JT::\fNHSMl1uQODF._Y2gusQL*HA>pEAFEn#HRX=ApW[`EG1RGlK'lre3<m@QMo+/UqNHXMC`JF08jJ$J*k\2A=qG2oNk8c8LjW5I8]%,^V\4h47PK+aU;-6WY4m5j2J+LG"]2=`AT!09;<80!]jF:8JEI3h.R:1jq-a_Xm4Za%o)2.)Q0tBcT?73c*g*GQ&T/7aT?Tq7E&!D5ZPGH'\0=Kg^7l<>&kR`DkJGdJ_QTaXQaT1fleVgX'@aHhc*Ei"gKjT\ID0IU,)I`E8,u%_k0UP/#10'hB8W4RIfR"=I:(*HX"6E.#jL(;1KSMbRJ>K'c:aMdu^[W&'PNSd#du\8D94Mf9W#QUc4MO8S>H&JTLN>+>]7rn@dL;Y1AS`[ZN!<h1Va'N%[EH1E'e:T^`@?\9OIP6C7WSJRaDC5r/7Mg;/r&$#X!p>S>JX**29Tbo6lk\gPOYG=<XF!bNqq\d&=f?;QBGOSsR;DX_\:`_.'X<jUg2H8Il&iHW(Dq;X(Z$\.li82E1=Xl`F8.$B!VWoWRI>MikIL]L*#S*'8APU&:c?J/+rPY_g*g])k'U+!2klFh?a&N&mc[!t57Q@AcR)Z#E'C!fiQ`6afK:0j2'-K4<X+bm,7G"`>!@!r,dfEQ5+`"6b_r/'B0&Y;4bl]*^j0-R\l08<.AS]QT@J,l0d^bcKA&opJ'9@2L\TLH&qeOot;1o-?;&N/X6I.gQ4<ShMXno&YO]>SDPAb<1ddNqoODq_p?l&n<)[F\2CG$;fV;h:$FQ7d/$.C9&`.:(q3Zc`F;^\3H&gQd,UI<h&:%CppFjS9NX^3)#<?4>V`Wj%EPW8nh%qu[j%%Ee~>endstream
 endobj
 150 0 obj
 <<
-/A <<
-/S /URI /Type /Action /URI (http://newandroidbook.com/tools/dextra.html)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 185.8458 435.1359 197.0958 ] /Subtype /Link /Type /Annot
->>
-endobj
-151 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/KJCracks/Clutch)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 191.4708 511.2438 202.7208 ] /Subtype /Link /Type /Annot
->>
-endobj
-152 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/MobSF/Mobile-Security-Framework-MobSF)
->> /Border [ 0 0 0 ] /Rect [ 336.108 157.7208 360.2805 168.9708 ] /Subtype /Link /Type /Annot
->>
-endobj
-153 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/shivsahni/APKEnum)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 157.7208 447.6459 168.9708 ] /Subtype /Link /Type /Annot
->>
-endobj
-154 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://damnvulnerableiosapp.com/)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 163.3458 547.9263 174.5958 ] /Subtype /Link /Type /Annot
->>
-endobj
-155 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://damnvulnerableiosapp.com/)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 152.0958 517.9188 163.3458 ] /Subtype /Link /Type /Annot
->>
-endobj
-156 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://developer.android.com/studio/command-line/adb)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 123.9708 425.5584 135.2208 ] /Subtype /Link /Type /Annot
->>
-endobj
-157 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/bambooeric/r2ghidra-dec)
->> /Border [ 0 0 0 ] /Rect [ 336.108 95.84583 378.2055 107.0958 ] /Subtype /Link /Type /Annot
->>
-endobj
-158 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/radareorg/r2ghidra)
->> /Border [ 0 0 0 ] /Rect [ 380.2905 95.84583 401.5455 107.0958 ] /Subtype /Link /Type /Annot
->>
-endobj
-159 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/radareorg/radare2)
->> /Border [ 0 0 0 ] /Rect [ 336.108 84.59583 364.8705 95.84583 ] /Subtype /Link /Type /Annot
->>
-endobj
-160 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.hopperapp.com/)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 90.22083 514.5813 101.4708 ] /Subtype /Link /Type /Annot
->>
-endobj
-161 0 obj
-<<
-/Annots [ 107 0 R 108 0 R 109 0 R 110 0 R 111 0 R 112 0 R 113 0 R 114 0 R 115 0 R 116 0 R 
-  117 0 R 118 0 R 119 0 R 120 0 R 121 0 R 122 0 R 123 0 R 124 0 R 125 0 R 126 0 R 
-  127 0 R 128 0 R 129 0 R 130 0 R 131 0 R 132 0 R 133 0 R 134 0 R 135 0 R 136 0 R 
-  137 0 R 138 0 R 139 0 R 140 0 R 141 0 R 142 0 R 143 0 R 144 0 R 145 0 R 146 0 R 
-  147 0 R 148 0 R 149 0 R 150 0 R 151 0 R 152 0 R 153 0 R 154 0 R 155 0 R 156 0 R 
-  157 0 R 158 0 R 159 0 R 160 0 R ] /Contents 183 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 180 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
-/FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
->>
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
->>
-endobj
-162 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.sleuthkit.org/index.php)
->> /Border [ 0 0 0 ] /Rect [ 336.108 772.7208 403.8555 783.9708 ] /Subtype /Link /Type /Annot
->>
-endobj
-163 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.sleuthkit.org/index.php)
->> /Border [ 0 0 0 ] /Rect [ 336.108 761.4708 363.6105 772.7208 ] /Subtype /Link /Type /Annot
->>
-endobj
-164 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/androguard/androguard)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 772.7208 453.9009 783.9708 ] /Subtype /Link /Type /Annot
->>
-endobj
-165 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://labs.f-secure.com/assets/BlogFiles/mwri-drozer-user-guide-2015-03-23.pdf)
->> /Border [ 0 0 0 ] /Rect [ 458.0709 772.7208 480.5709 783.9708 ] /Subtype /Link /Type /Annot
->>
-endobj
-166 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/iBotPeaches/Apktool)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 761.4708 437.2284 772.7208 ] /Subtype /Link /Type /Annot
->>
-endobj
-167 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://dl.acm.org/doi/10.1145/3183575)
->> /Border [ 0 0 0 ] /Rect [ 441.3984 761.4708 477.6609 772.7208 ] /Subtype /Link /Type /Annot
->>
-endobj
-168 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://play.google.com/store/apps/details?id=com.denper.addonsdetector&hl=pt_PT&gl=US)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 687.4708 468.9084 698.7208 ] /Subtype /Link /Type /Annot
->>
-endobj
-169 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.wireshark.org/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 619.0958 369.858 630.3458 ] /Subtype /Link /Type /Annot
->>
-endobj
-170 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://www.taosoftware.co.jp/en/android/packetcapture/)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 619.0958 475.5759 630.3458 ] /Subtype /Link /Type /Annot
->>
-endobj
-171 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (http://www.cydiasubstrate.com/)
->> /Border [ 0 0 0 ] /Rect [ 336.108 596.5958 389.463 607.8458 ] /Subtype /Link /Type /Annot
->>
-endobj
-172 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (http://www.cycript.org/)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 596.5958 513.3213 607.8458 ] /Subtype /Link /Type /Annot
->>
-endobj
-173 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/iSECPartners/Introspy-Android)
->> /Border [ 0 0 0 ] /Rect [ 413.0484 511.3458 468.0684 522.5958 ] /Subtype /Link /Type /Annot
->>
-endobj
-174 0 obj
-<<
-/A <<
-/S /URI /Type /Action /URI (https://github.com/iSECPartners/Introspy-iOS)
->> /Border [ 0 0 0 ] /Rect [ 489.9888 511.3458 531.6663 522.5958 ] /Subtype /Link /Type /Annot
->>
-endobj
-175 0 obj
-<<
-/Annots [ 162 0 R 163 0 R 164 0 R 165 0 R 166 0 R 167 0 R 168 0 R 169 0 R 170 0 R 171 0 R 
-  172 0 R 173 0 R 174 0 R ] /Contents 184 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 180 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] /XObject <<
-/FormXob.c7485dcc8d256a6f197ed7802687f252 3 0 R
->>
->> /Rotate 0 
-  /Trans <<
-
->> /Type /Page
->>
-endobj
-176 0 obj
-<<
-/Outlines 178 0 R /PageMode /UseNone /Pages 180 0 R /Type /Catalog
->>
-endobj
-177 0 obj
-<<
-/Author () /CreationDate (D:20220629194513+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20220629194513+00'00') /Producer (xhtml2pdf <https://github.com/xhtml2pdf/xhtml2pdf/>) 
-  /Subject () /Title () /Trapped /False
->>
-endobj
-178 0 obj
-<<
-/Count 1 /First 179 0 R /Last 179 0 R /Type /Outlines
->>
-endobj
-179 0 obj
-<<
-/Dest [ 43 0 R /Fit ] /Parent 178 0 R /Title (Final Security Test Specification and Tools Report)
->>
-endobj
-180 0 obj
-<<
-/Count 4 /Kids [ 43 0 R 106 0 R 161 0 R 175 0 R ] /Type /Pages
->>
-endobj
-181 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3756
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3032
 >>
 stream
-Gb!;h?$DdJ(4FN4csqB?9G$*_q\1DtR^l#MWSM/uXhMk!a4t-3pdj`MqKi?'(rmJ%U.cn?BcRb0lU^2PT7)AIP2V,dJ"7lP_^RVg@>#@PSKk4-)OfNVlflMun<-ZAEgA*9UG-$R&^DZBe1BEu*6V?(K,AZGS(';I=YVIKY365($;Z,+f3]nMrFq-8WLBLuaL$*32AFC'=.R?EYWa8aVJ7OqqJcSPE/>=Q&lqt77FNR"\tiP4d2C=&Oi#DCQDl\<"k<;RSW:@5ph3!b/G@L,RaNHMPDD9VgiH$OK`NBKMl'qH-g3@G_DqLEVZ0$4J$H^(fGf.0X-P$#n-8B"54<#l76.iO;VJA?JYF%q@'4X!D-,r/.BBO?42'2kbL#i5@qjD!N(dr`YP7#"o-kUT,UILKU:-X1[\VPX'aa-bC)2.K\qhP[D=86:?m%a3[P/g_>S8\TkpiF_7M5i>3VZ.%T.\jbJlTo,A=>&TclhEhTunS=!<#KQ<dS6/OK:Aq#YLTj?+*'L%>/NAj%g*qYpj,*JT9n-9:Ekl1RO;X\qnijrs+O>PD4)*FSb^234%l".HrSqi7F.2KFF$:X!+sS"ejkCJVGJn!N$Er:cLrtKQ<<m0TmgO80nhujS-90X6An*&YK'4n=2q6\KM@ffYL58"pBB4@12CZ#uWd(X'*B7)UgYP)<&.9(]i<CR`dCPHS14.E9`<(L1A$>+Oh*T[p)`F"8GMUA)Mc2?BW=!(-bZH\DiMmCuO2DX.r?4%b@E<qe/HMX!?UV]qE.V`[G,S'`DEPiuBdbLFC;Q=?5`('g_@u*/@<E=T[#!F@Uq\%)OqfI1QVK2tBWT-ha8K*:W"\r_@C@Oj(dUN^7_*6s5CL0$/#MEG0S:ca"jdrJ1bKOWP2PN?Er8[YI[E4;KZ&C1s=A9YlpV'fbk!/V"Q3i=i\/K]:uGN+#>IY`[Tn%"u@=-S`af?j$=j7jpbH)sP.*hJ2VW$SQZ.&W+sOYC2)@j0=XlLqFL(\b*e`7G#A^(Pfg>a;O`j&VOr%($2r/D5.Hu)BVQ;rZEqtbCmO:&Vl9W`[IRK_oG8hUdua<d?#WFZNCP_4(ZY)4<dAfm/mUn'./&iU.6l6Y`^AI8t@k[Di=IK6DWK=jh$r9K8Gh^D]dnuTqB^h%+>Bm=4paDk59+C%<!<$_8p-2a-0OC%V/.C5?J3V4BK1K!<ujp??f&50O?^KfTk'a@KAAKAQ.+ZS!'cc<J.u-O8X#k?:p3ofO[WNLraWCd1gVs.&P<u6BhR8+/taQ:9VM@qQ7h:cIRVSrqR,O]G-<1*e;@/rA!l\d"Q]0>F%fT&P5p\Hr&&Y1i+60Ie\OA6-5u("8jE=:pL?_hdm[26t<).:flYY]4`r:6g7j"Z*[hg=Z$X_K4@i(HO,j!]Rs4O`WWS3$F=p)WBpIu%=L&Bajt"Q6Dc?nf2.PD?,EV%D-l.i+_?`M@#(U3j5Sct)(=\E5VXQP"WohY*NZ<)A][t+gKThL=LNrGF9,YM`*Xfs"h/rEVAZ8R0X3>""ZNnMHk[+HH^ZQR\$B`8dKYd_b^S#kdC!PQ:e+;p=dLtu<k413C89<AY$K]bdbL`gpPm6$,eY\io>Y3@<RqBI$Z"C1kh5aSi&"oiCQ`LT`fc7qN?O*Z*N38ufE'74P+a>)Qk$&%>gGFJ]n_b:%-lG%Jqm-b,t!(UN%KL[oR@$_b*[C!;(Q'+CJbtIF^[o=cj(P()#e?&;T;gY:p*h"=Yd.n'33f(W&R1T)UPlONOG1UAl*&,ilGD`';'2<!dLKU;!Y4,%%[i5A\bqKOH1a8#/[gFDBE1?AHg9":<SA&^cIu6/lNq#Wmu[[p8T\^gPp;uDgf)0Ge@MNg[.[*6qqa#@06^.dalLUHYb[V3P_es%1m#XLIVX5,P:7"@[ms#2/$X$4A`DQ!&oT+N'>X2\*7K]X2_AEP"F_ihM\hS\%R-u]khKU?fHEDh>>J*Z8OZ%9W`Z]UdmHr;,(a%]]P9QB]"<1o'nJE_#X$[b;T`1!jN^aZNNT5a5Kgt<Pp6f'do.K5;$KF7Q54=N7VXMQmN1RIr>G&@8-Vb)rP2J/&4p#0G/#F8YS&"BbZ?+W+*CtlSsW@!'Lsl9Ad[0eVSI*">`Um[N.Xr6t5Gt4h,Jhp]oGVebcu!ji[6%RUib;Lu,RuV+`64U/q?.HAGdE_p9jch./Ip1<[qRJ%+cf&*1Xu_CS!^6/o^lB4qp&o6IL?h0[WJ1NZ?_B`bhP'`C`MS"duehL0H$f'kmpAa>+P"ao.%2,r2Sl??nL[(X9S%3et/]Pj[A@En]TaClDG_rGS_5VCeYrVBq:,Dtkk`Ho?7+FVf+Om3nP)p`;74sf+.'AH>bmJe6IPdH`+X5Jgd@GC7_P#.9C2OPiT84#aSlBk376?uqK,c<TN5]>moRq/gorWNEqf+)o2h8p/'T[a>9;7J5JO2Uemc0^"dnihFs&<:68*)Us,jF'.PRcYjAKNH6_^0XL1&%j^AdY2CCNsdV;?"TEg/B:L>dhXS>:JqIa8Y.]eVqUCEds:ZQ(E@/Fhc*?8:)c+95[2)eiBL^CK";[DQUo^RD"V-[k`#2;9tc$-)tBk<k.:n_Jm]SA:'AE/ReZuDais@E$o)`m&6.>.HYJLqRFe>#G'2)^]Bn,(!_1j[<N0!]FBR%,"ZsH`*;H[Q]dUOq"8#VUp2lSIO`oeS^>;;f$R^Qab59lW5:W)1o8ui*pN/W:fisN;/f]RblHRLhf$(15K-[0dgS=G<c`3G<W8H-D"[Y4m!>5[;#Kbpme`6]kAB;oOAVR<Mb4[l+JibKd5_u;(j/Zu6[<g!3Uh/kE97<Lq(Z=o:Xnu.e)TK*H,clh*PCuScs)\HJ8JW?9i_r'hH=FNs>8RA/c#6NC\iJ_q)L4t'GW/i;`'HCE=V6CE;^/0'mEW99ets$M[;g,O,jq`7D*s9a>?4n%3*apH@cK?g)h2#IH!/UA=gg=X'@3M-b69+VrYbQYO00.O7$R)H*dMES\\1>Y)!5eopiH4pdIl@>1_.2A4[YRcp[]cEMN^Dj:mBR"_dKNW<;Pij]Sb,H'0JVuRHp^5/pp"[,k*"f;'+=B2T;HMl5'aL_ulZf@.5kB_kB&Br!X?[LVB]JFfdRlDs0)]Bhl-!es^Egj#4a):^YC*Nlt/A#N]7BY>$^s>8L2E-"3'i>&TgXN?XYDrr!TQ3m3=+I\"bn%D#tcpJoT.nTQt>/:QbB7'6'/94mXsU\Q$6*UQpDA"*k`J$I8LMtHLE=5/%QI'[it5Fd>kD&dnRNs`"kbR@NC=T7bcQ>G12l<J[^=)AM$92\<Q^$r+<pa+%sW.P9a>P1)E!/7*Y<L;u%mg@"=hE0:g(__]2BGD!/6`\3#oPs=<j4Zt0UZU=2("9((74TLp5e$$tZ<S^AW*6G=>Q7m[+.rRLbJV)RY(8*Yft';ZeafPSoaoLNS;T>tiI'@TAqDTh;1j.hn&gYq>Q$/HKp\enJY4>:)GF6$4>'<Y4=$)/$]6M/hde!U3B$(78.;ZDV;f9uP3@6"lSD%"F@kbU:\3^rESIp?fu(i?bsO#i\,f<RKWS8@\(GWV<QZ!]V>0>1pTVd=GQF#o!KR?^/E>RB#).SAm6$`1'I:2`91,nB6b>$sKC(@N,;dM#hd1NB:$^NrY+sQ2F[f<l,p[6u<2"ZFHhsa=Cu$2s'8bl8BDR:!XcLAlD;WW;\gtO_hWV;7AD;H:eu3pHj>,P`Ut\:jhB'<$dcDUK5$>:=/:4B+<DTqA>[)F3^jaZGSbsRNmR'Y~>endstream
-endobj
-182 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3624
->>
-stream
-Gb"/+>?fiC(4G@Ik`M88Y4%^t5ar7)TM9EPkVmF;UO\84jk(&[qWhe;:4*?nP&6G\1PN"h#[(K"pY+>)g6.1ipt##._&T/,0mYY*OJ\fC$u)SJU@C*e2a7$V^/\-\#P4-<6^l66d"rApVJAnY^n'bVNU<.r3FqEbWc#Go9Xf-9QC`JUn%VZ*p"a^k0hg?/Of`>TC)R:lY@oo+5M9F@Et!AO5V'*SDN:ArZn>/pe^/CGIB.dJp1fpTMPaNi4@a@+pbObPDWW>_]A!Ml3ZV(dTOg_,SY:QZ=Z?ckS<8;onQ1C`s$WamSDZEL8<W+H:]qo!a)!r@@k4.M)D7\k'H:r36f,Uo.BY6&pEIJj,J'Q*3FF\e:g@(e$g-h+`q(lL36'>q%=&ti)lho_RO/cu.&#Nc_Ll<rNoJ]!+!MJ$r8IAJ8^'A#n-@RMclD;=@b^CO/;fN"F`]l`e;NM2Jd47-XdV=h!*lmgWuM3q6A8,?];VQcCO)P"\/C7r%]R&(%$_"^3[@Fdl#s1l#$&V]P2UKpd4dpT`f+gmH0"TUr3Hi$P@]G-_^H`(&`471MFthY4s?t-%$fL)>o>+(;d4t`6J4XK"%]eS6<q`gdGKWa8KTY<dLFe27%+@!QaP5kZe2iul._e`qku4&>37?FMeiN+%*:-l,$QC)OjFoX6Gk5\L3GV7ro!YS9c*#ZrLY"SA9`t`1<fV@J7h.]Gd?G*I"9\%hVX+YI5Ta=G`&Z`[&D5393KfkB[Xo<kaoX\JYV]g'!Z78bb2(nd;rd>Np[6]F,!.0-<Yr,ON,ho*g8G8]R:Af,hS)<kR!VV\%aF3-K,XH]:kgXJZW*o`-=?%i&,?WV+f\V[>J7=e$9[q^#-25`SU>u7/c6RVs+ag:cNcoEGYo"OZOTU3K>N_eV*66D3:OP0Kuf1,U%u2<e\kjA/?m*Ft1Zih*$E/C#^Kc@d3/',so2:P;"0dk4U&q_a)_F#U7t;TeLuEhZ[?8H^LRLH"9Mh?LGl;q':5hP<*>A5i\47jZk%U!gjuLNEdU@cYd^7`"?0OU("6Z;F=ok[@ElqFP4r!hbuA@olt&:MWH]u'I2'11fg`Em4*k`$DZ=q]7E15@-N,j'0Hk'#`:/3_q,kt32+!&<cb0Y?m=b<\]c*cS1un*"d`X-->VJnR`c>KF</^R6>FVG+fj>9gHnlldesSEnao:-$4Jap:Z<N7FnR7"U:b>8(40/.q<iE2>5]9k65g-U0*L1qNb@1h*.?juQN`:q536$L<;*01FtDCcga%huZH@Y[75+TeW74h`!t9gZkBY,,EhoFT)g69`;F/id"XL#oCrdi[CBo:Yfkta!>f@S>_Mct?+J'o:S;L(lqk?#,Nh^BJ5Q'a6^qO;Uddg@+pPMD]ROt:UD6IA-@YSk;,FV:tJhi5Q'6Gf'MA?MDJtSjrqO=1`\a7iGF<-sH0>;pj0)aP`)=mBkQZPDE,g!7/S:VJM8bMtlU%82\#\P$:2EaD=^7Z@',5R9nhXfEHR&s0h7[g(DJM*]HRLlhKac%Qf10&RHg@Um!l!5'G*CF5Qh.ZnEA"+g0NMlGuf:Ve!,9[tB(2Z"VFP^hck>hCe2#s0NoG5Bf?I!f'W$7T"Ad^_fgB4IVfXC+6=rXEpcM,!)#gX=]5c\+HB#'s*d,'lNJX3J*]QkqZ1j$Ao6)nZKVWo$cI7e3QHgQeCGp%f/_AsZ].A!5iZ0?jP%okPH0'!I[I1Vj)l3[$0CY1[d?HX;,H@Rif$`\gP=<!aTS(G&EY7;>TG*'+\6"0(eh>)Z^`L"5d3RLL43u\4ZD`*KWL2H0`nhcT3Gd5K>?T8Cja.dmf?0dd^`Qt2UN_8osXPTUZ2<Q[I=2C[an]PH@:*\rHL=rQ"\!FcO#1C!6$une.im>-5f]jukq'+%[A4GSCHDK<5c4;bReqD]<HS[f;(sE9E[IttC@G[85Xpu\`):5ERn!UTp1XWZ5'#AL3mC0b%>+g>fCVQs`B!NOQ87(=hYc*H,9lkY.[,hp)Tsh(W2Njr]\q]0f>UXEXP(/0mJY-=iB4qhZ:l%RtN3dgj=._PVH=pX&BBTOihf(mn:/NUB&8#'R5iA4A8nWF5UBd=5f:TqP+oh1`jO\/%deb>)5_?V2-sB)"=o\!nVZc,O$9SOqaQ,`G.&=[lR\>gD=S^TI1DEju2:^ob(`GGb!'(\.YQrY[l\4/WrWKd944o1bKa(bd4aOZcd#M?_liHT`@UXJ>P-mX4c!-DPCql&DZRa,"7LOAO9u7u(o`SK=O!K!W-C1ghF(AbVCDk):_36Q^&V(t]39K?S=3?-DE]]iN.f,J/<u108%)D%Pc*[>QA1\\'B=-ss9K"8H<mNT;c"Y\6NEeM\eDmSR)M!%'m0#6grb6$i:sb:q\gj4%o=MuLbD)>Q+ahM*D>r4S1@@O[271V5CL6N`nJC./5qc:#WiUQr#n=M;YM;Dk(>Of:WTc:08b<JT\=$omh/l6Agaa"\RV)<%XB0S5dZARr4-YJu-;_)):*bR.LJQRh4l-fDf3=;O+pLt]H]%kJ)i4O4;2DBmGf_`TTT42O]jL6B(V>pb#*fM=LJ(t(7l^L2=2cgehCcCjRoKsIKq26s?_X12Y3V_lQ4+I\[=a)IE7!/4Z\te[nFe49rK_IkX`?0@BE>^H()A%GgS%1+6-R?K%>5fW^\(d&>l`,2qt`d(M<7GrVqgBuWmZ4O/6"Y!7KbS\c$KpKE80pIeTTb7KX2d-o)3@29^t83p"@f+QX09#j(k7j79M5rStXL+aX(MH&dQNnO[g(ZDXIJl[$'!%Q2`d<.s\PhMP$%jZ'W'hB.\4N4U&Go`@>:o8V>N=n%U\)SbXN?;9(i%*R<rK/Zgg4oaV!,UFS1!EL9W&p2J89Y2g[-GZn=_,TNBB>S<W7!aV,p(2Dir"lZ0.<Z?+gEeB#L*Xr;pGMi6S?[jN'Fc.'pe3P1tpB=9`7?T;44O*kZ.1cVn[7&YEZkNcn<I"Z50SIgH@X0VU*h>\QXXC8,_/rAtP6pJ_"d(jh#\_C[<G4g6(Zd2+q.Q7D=%MJe6bUV<OjDM1,O_PcVnqbmU=SZ::"0Y^bOV<JZt,#DkV<GMb"]EKXV/*STfj1'7NC09pe&tTN6)EuCEQ<;eX@B^4G'H=?asML$baOs2B(?\r/\`M\pSSp7sW82l1gf6k"-f,K<`b'EuEq/1crqqQu^CI_9FCbK[=1_[qhoI)`7GId.'9F,-,ON,>rP.@d3)F,U0h@o5dcq&[?c4H>RNP@V7L\Xk/kA"s[&$>C%CI;,m#;nISB5h-(64)fHT1ZX!;)CVdP:G<ljd)?7^u;^c\W.ru+_KboPWeMO[YV&KkZO->-N(#J_U^Zt.rr%U.G5$3Pb4tGKRlge$#Qg6^!11cX:e_?ii1N,@;rg=_c\u[M)%.E9[an'sYQqJa3O@7Q4\NYu"qp/@2Eho8c=S,WSdS8qsW#<')NM)lDN63,O-k1fj/lVE,2G\CsP++DPaa(&Z48_LpBgNV][do44,oYamSDECp/0_`Yb?"-D*+r^(RY[7T"W*?b2HO2g9%R4scdJ'hEPt._1.9lMAP;RaY?rSk\M)eAV_7^sq\/OeHQkXU&i2@mr&N!\If?6W1A?NKY^GTI8>TiSZ_-IB^BQ87Zi~>endstream
-endobj
-183 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 3304
->>
-stream
-Gb"/+>C2jZ(4Gq\R&BPdV`'+bIblX5RO1X395XOPQSFFE@`53qCb*:"liDs$/Be)\G1o>k&t-qI4L8sAml`'iL6%Mqlc]qZN7#6f"Xt:J-V2W1%?3THbOO!;n<$TIETTd[Y#m[`PMJfjWEHgu30oJFK,>9@2Q:Iq1,^\)Jp!#)f[4X,q>3]c57Lh[WYq7V%+CA]9i_"6l+l9MBS/TG0]3@jP$q?)/F!)(i^#Rf+ITO8?l_BG^;5VZRnZIOF>TT,0G9n1iVDM-(_N@K6%P&O`.'$U73lj":$=_OBCuoVImrDtU>qA'Jq/U'joF=4J&CjGBc</:af5M?Z6TpV%WVlS/m3o/cKgRpd"":0?r;#GZ7NOn/>JTNSqG;iiiaQ0DL/N:9,:Qm?6OladNATf6[%YgZj)[CS!%K9G_h2YHK+Yp.,\HS3+849RNiOM>hAQl4rV6`)@VJqicTu.aXZ/YY[ViR7QnEml]MJ82[@dIYq>4K?F\/),XX1kePHd@A-*!Bm*Z1L>T+rQQVZuTapt56IUZa0K'fTs;k@>TFNu4terBBS6jqAHqc2I@=W0u%@LJ)k`O)X!X_RNVe]M*RH3Es$,%R9LK,Xa3aZt7[r<8$Lo)*")lbALFgllHC0'(Ta5G/+N3;8E6=-&R-"_?K0HM%O--=fmnX[A6j/MSMNnuk[J$hcn`rkE\$NFjHK(Y7;8TFGd;pAd:h!C<OO3Ea;DO=ik#X1j>A-jHX^"<Io,8Aa%8T$[P..l^WHn=V$77eeDJHJalAWO5H\ruP%U-Km4(_UX71'@h:4b02f=meoFcX6oj/&leRahM;33$6_\$eF$N3l0<Z'W:S=j3gD"Zs%uta9*9#4CEO>Gk;mT\;PP6N[R8$\(ODEH!?+/',GQ9sS=h[YTi&7sa6,"06fs<,,47*<DQJaZ@VMm%4[Q`R!KFur(</1g]jN>TL':FS\RFu@b-USD2'g)V`V<d&*+KMNmfW)Co[+&4:NZ^6bjf.C.D&Ro?\_dh;i4on.Wh]'\4WXN._Q?($\=_=Qm)##;)eE/(*S)+'hmT$]2CSs*=l0Y&k0$fk[k$.jq*n9l7>:U?Cg/4`\TZ4'AEK,&.Q>;=pRY=K>L%B5r1&G9q^uh_L.t=ntDiOLaWJ,M,6$=9A`0^'EOViY]*?CWD:)bF/RcmK^HeD&_6=1U/]Ug1cRC:Mj'3o:HhhfF@/AMVt&ID_Cp%8*hprsFTMs"U[-hG"i9ck)6XgdO$,(U:hKg@@'q8tY\[$JJp#ffSsBV\Z]8>L@U2l2Ga&Kh+U.>%`M9?m>O.6EVLu7_('#43]54N7P7"1fYjeJNlTh>sW9$_,P-$3C)Dtpm/>'u2NHO2f-]"3:gO`%I(:_?M`bG8*$C%!Q8;;lL:+3q5b-I[2HCm\F_X`,?6)lOT=L2kVn%:F%bojc_J_?Th.5JP%8;T,9N>\#<dLfhu?;-jMReq]b3n)k#TU'k8EGAG[(GRJLT&l%c*X?;4?H=9+;U;p+)04ceZcQh^^CYM<k;/?mI1412-!u%<3fE=q`^&9L7+#VHU\[&95HUe>aR2<g,tN"N2A*)DC`BBd)dKYb^MR$T^^4^Z,ln\/\FI.LdX\eTK*F)L'N8RjBjOt)d>C3K!iAU'\m#PmSl(6#OF;I^2gE&3UBQP\bN\F0h.\"TE'3%(,LAJ!e9No/1Snd0ek!iErF2d)FT*qALWq%J,c0G]EWa5^SU3#-7alIH*%XM,Wna3uk5Lf([]B`R+bFs=`H15LJtnptZ"8T;]1(o,KgQD3!FLm_&4dG'5k'/Q0$+3T5Z/E?:S4f8JZGm7r%Y[&i=hl3K2qE#";#>>!W47'!YQjSk+3BLIK]h=$o.<XH?qd8V-j6*?29Gi4A(),@Yd`),Lm6Z+Z?^rL`(A'HXLU@$1'0]_bPFe7Ll[PIg><OlQ'^A#GR"00HQ/pG(SC'6,]cH66=u[gC`!Nam,j/e[4_B:Fn*>@%WNadQp/:X/$UtqMt-I%b>hL.S!LomD+-?(ddm*:A'-s7suRu?N0;4g=k+BHc4F<pIGujPnL`)o+>#V'%0eRG11lhd#R[ok<2qgh*"Ca>/7JF0?!U7Y4#)ljF:c[P@D;#?H2uK[-hMl%oU==-:&p-.X&W,VPa5&Ie5NEWi4%&nRcmJ7kh'1Yt%J.g7(K=<I+H0[(iT5M/>>(/!`l:,st),f1qCp;"19?M5!(nqW4I0-[dnD-9:A,7IPjS"._m<BdJ'>Z`l_d%d(=*J?s6<\OS2&1C?8hC7.n3d3W&C-g4%[3YtlZ4bU9hInAZ<qV]?VkE6?bMeIeK+a]/_COTR#V2GLA=Pm!`,qIlqpf[Dna4j\HLF\gh=PJZIDZ@09.bf-QIJNS_8,9SbosROEaPoCiS1fhF2CIVQE2AC+lP%tk"1_M[*r:T7`?"aC0[I\#[:/hPEp;C8Z*Cho#/BHQqpWcbC2_%\p4VImeQqCLND4+_B`;-1!=]@&:gSua-e(SEW;re&"]rJd)VnnkgYk]Qi3gU_3LSR+70)3r>f-A=p9Epu[t33j)^CD-e2b1ERnR"RNDV^-.RmdWX[jTTbO4);AZ/<_emCXGo53UhRT@0[!m@%T7,*a?!*-;$/Ul2Mj1N^5<(rdh#@ZI^rq>&uFu9)lh*.ULS"qF;`h9"a*p-`i-g2>c%"V8]#,%.;"SU6cP::YGQ6&tgA5-q?.L`H9hS#&#SdnR-gs"4gkpplHZj1r^2BG:C\g4QkeAe8^DnLk'"2KOHn?g6gF8(^QCBjJJ)m4erQ^3hXM0E&+MmTArr?q1R%L]d2C/W1eW]D,5T1<6b=pKP*!U>h-DuNM*1+SR_5e4%1Sf8=$.\(<3Df$r!_n]&MlLTE7.d(PY.<26NE2[d5%!:C\7n`daIDT>_/JJ*Uiq3*ApAtXU(b`%_jT77%+rL4olRj":r\CY4@s7(FT(HqhrtXu`Bk]t^I+:f8,MMOm-^piuHXP5DQ_UT&9+M3_Y=Z==#IAo'oAMH,c:'=JWA]6[7F@Kl&D&i/MrJsJ_3U:1J2V]0FepXo%M1LlZUImV,Ce'kM[te_\#kRt4lt1_V@%[%YqG%KPtFE]I]![`"l<)'fg$,CY#[8`,K67cY-e+]ZEd];#Hel*.&-;pJ!F*n+CJUKL$+XhXar]WkuB3RW-9Hp8['I(qWiBsS9=l..:6f'd?A3[4o-QF/9Ke6$O"B(Z#?,`lga\7$E]$*K@jQbHa6"$9o.USM#L.u;S7)aH7fe;0t5(I+iO[8E*saNlle4_Ks='X7COK8Y,AI+H5#bGg:cOW\Fhff#hERHB9e?K$"I>3O3uAT!D0q9WW~>endstream
-endobj
-184 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1851
->>
-stream
-Gb"/i?#uJp'Sc)T/'_^Lf23)%4t`D9mWNb09l'3@D_]<fXc99@PBq`W*__Me'+BWRA7lNe&gC!.60K<%Y:p+h&%_T(0**[QE&"(PFdUC'R`'m$TC?aHqi6F9]>J"L/k//[rt/2hgSVjihff-m=e7LGY0@('d<*R:B0+LM.!hNTpthbV=481!R$MH;D).itL6;1rFY%HX>6\r^T]ZG7B4Wo:Y[=,9"iSt#W\_.\45$Z1*/hXD$'Z(?[S.@X-:.JMf#@&17QT1TV:XI"^tFAg$>quj/\0m3(RTT(affYiliP#/>:\R'D%YCL%&X9.JS^:VF\0L7(+/@7-Tf[A%jdm5)8pO%(8)/B/B9X40qa0?>HF$-a'.i*KN0rfiolUbB@Rln#%"2;lSVab&`eVaVBpnMAeWpn%%'I7m(;5Of,-5"f;LR$67hgOH(edaUtHGYGDU+^H;Sc5e9j32Kna/dNem`qDk$?d7!!-5q&g$?#ksp3Tkt+1Bi/?-]$VMFd#"XMS;H4FEK4+:=+[?d\VAZ(V`IWaT,$8nQ_`(W9;>]tqO%#\KS,WmO*nKu<@FU@(B83prKZFtp&&a/3%NjM0?!6pRM`[cJ.GM_WKfC\HHLlF'%4D:$`ihN[>8<O%`!_+pLPBq%[Z0F"\YFj4(K3Z:PJeCHs2e#4![-i^nV%#Y/N5&<'@EI(M0.<!G*@#Ic$(3'8@U)\$6&DHSP%A03Z0$X;PakQF5-Q?Gd-)P-e*FQDmUBi<`;dVm':^@KCt3$@[WD8r5N1kHjn\MYgq^+0(K1]7D[+!Aj\PJVZ!S&P_.9h@(:NJ$)p;A1"!F@DJUsQt(Jc//-LNEt%@]28<LD1<[tT3S&tu+KIMeinoM7hQ+%)nm+C3rhaYNXQj]-oST]d:CjR$bi7h?1D@*AB`OL]K7RUc$`jjN#T7Rf8q;,@E;2*)P2Ge#AN+Q_1:GHQDWY@_a,J`m7&;*1qJbgRmQJe-?36Kg\\&;urm342g)5--@;\j:T]R5+@^-L=BjTY,jA;sETn5o[R>]T>J168@b8K"6*g!DWZQ1@8dIU3r6Ls04BeH>ZXnl8<Slkcs@=81DhZigcnmC#'XKO"7s7KE](Nf_[&5Qm>g/,L%+4*FA%>*MC6rg6Cc\gPq*%f@G`G)9p]7i:DS8Z<L5#dATA1:lr+KVB:gZaI!%>MAHqre6F'5&(MX6mV2EAii2Qu0dp47A1WR!V66Vq"UlN>=h`=S*4-NB%d%NYcAIHa7R:ZEIGr^$Wp*K-GZsPARD?ckKHCPqZ6WR669J52Ft/Q$3a!ndM,d1K`TS&tqqfdS8H,.Lt&:g;\skTYFaidWUS&l]>\fNkAp*!S8LCN>+TD?:D.UU%LrK,b&3RqnO7Z:!*)TPWY@\nloD!fac`Q&C[6P>M\4*jQamGeOoC7M@08n03fDapeZo.Db5\.P)&lV'8:QrR,LAF\usf0/:B2IqNr,f'W.Q3l]gXgUW/XiS-okeX):J[jsot2"u06Wn@2X,Ta0W.1eI/2b!tM$F'Er2l&A%`(2Dn,15sb'rfJokG=@;c@p+>oo`G&rQ$hp?5Q)JniCYYfg&'4$k_IX=X>&d.P"r(8_loF<MO&:%;^dq^`F1$fchjqn=g2tEfAYd/X0#ti7/;X*@YRVk.n&>IX)Krq4PIL$rVIL;grc1NGRi2+hm.!#DXNRiXP!N%o1G\cl\TIo$e,tHXt=<_AmGkPNMnt%Fa_Ei[,'$o_UUiP41g%3`pu=([W]LEJKK=id@?W8I'oDtOXJ`cXKbi&0V1a2+)QotV&>$4N:C]4eD&&_Xf9e<f!O#(+!N""'!KUd#JYQTm$cYHIdC]dbW5]0,'ZFV6gm75*&!!~>endstream
+Gb"/+>BcQ-&q9SYkbgS8?&?q`ff.TiSS[:A*i#.i_n7+*=X8f8)IuA0laHkNM_(8#"EsJu3[_AHId6@$qS&s2N(!I!oRCM-d)?EA\AeeIBXU0.&JR)!K!&]uJ&+WC`Q),PICQ.joj9`r**k9uf5V4#;DhZ_?rJGUDMXHfkR0tId$1.##+rZUnFga_+ioP<BLn=u5uhGU\R'Gfp2IIX+Jp!O*!+?i@Oqh#E_^nTQu*CV;9"cVSm)$rG:p%r8HQm]R]YLk!pg+.#qR+b%(LIodJ6f#YY>s]1`61CB&Cu%TBL[.NgD#I4i^=+,<Kkn?26\,]YDp$,P78Fo@#8-*XSkg>$PZm-B:Hf-pRWm"u2nPmV`r<Cm_8UX_WNfLp@'1.12MC5Al``:^'5H(k`:SG.s^ZqP+6'<b9*$`.#Nr]tds"%[mO/^PTV%#*U<jJg"RX/#GB@OI0V&@7I!D$Qa%jaeCEO)QZ21=P8`3S$N*D!Rk$X>t$7hK<6C(m'c]1Jg4f#d#?E('iMjr<P<]`ZYt`MDu//\4nQ]$f%F4TL1#]*%G?k:a,=[!q?9OA4'R'nMo_cgnQ>MR&OCMia8lCPLpL[rc!f/+_bjjI5(.[+WD+obI0u_@W;NHj*S\Ym.C1*%YL+8G+RAtWafe>j-;A<b7k@[LVU=1.HUJ"aN<Bi$\tsJoYFD`N=ER!h!)t[QXMU""XVucui:8IV%FuH-R[EXRG)Q%)5aIh5jf_7g7%_.0rMpQ`BGbU5"f"l@2E8B(%PT-=Ls:t?!$9H_V7hEcOJ3)V<8P8[I=nnVAF5IMML^[LO-l#lZ9QhQn.O.U`cVp(N8CXQk12Q2.AMB2LU_G*4r;1hG5+5pS1e,cZEf[@HZ#sD"WkZ<?+$7])+1P4]h'Gj$L8ZPqD!aBc8N6!['u(ShoI,8Fm<HEB+/e1WK3sf93'i)47*?pa3C-"DIZc%':M/:IR'800%>e<aE$ViW-9FIB?GeiLk0(*M->*UF+7uq3kY/gV*rPoq'(?mQOX&:Var2nAqqDN^>#kSnlQ^t6o5Y_1&6T[EuS/F:R0Vb@4tNQA,07h>)(bXYmat]L2t2QVNHDo%7s2FefUQDJY=)/Wr]#0=O7aRjofd"2=9Y'[MJ')C1YT\#jPoV&J=2_Oj`<c0g9J[<H;R>AM64NLbb;N'N8O,!`ab8;96NR"EA$A+0O_]C$/MfkotttkfS?"&TEX^9`MI$DisFsTJ7kNBS:9:g$K&Nqin\VNdJ8_"%@>IJ4W'=8F80m@;qt.I<'SjP2[cR$gRW].60#gfHc!c+Is_k/a:u5dCaE%+^kc$<l>a<QKrFA'c@j`ff\r'eGHkQlU9;]7=f;3[lc1ho3"X?"R+-Cp56dW\/\R';4m;k%93UO.KhV(W6#au2BdnaUm3I[-\L+s2'C*^VLk9[h03\ql:(!E6uBb4WdnZj&J*MuOCC$W>3"nIobf!V9-R"3[NV(pf9h-s.F!2#bZ^6O>D/.gQnme[-1FFJ@MgUCeks!g!#7dV3Gj1BQ"]4C\[=`+2+C^Mrl2Je+c>CVWokD!LKNUE^F/&r>E[p-C9fIO%dP6j0U(/g5OsWhcle08E$.C>j/G'J+s$Q5d[L+,"fP)RS.!gSW_>O+jLSK?0!fh',Si8Rk`@cV3+4'MdCmJdS7jdnOuQB?f[Mm!#.AH_1ap!sYpoJlIC!^Sk^TJiS)6GM,fJVeEU>0@PX1XiOaOG%lf-?"a3LspEJN8g)g.m&H/V%]OSqIZksYCNeA7!M8E<kDm.q#f1os@9]#W5d8bX`eC7`6.:[UDR"mZo,8((rL2bd>;S[f6CG2M]=cVAN3$%0:s$ICEO]<.<oh>p_'RY8^:+2s3D/j;+ph6nrmp68KoRO[Y1`jU]p<[nQ&N;i<;*JtNklP&i>4$*`&S_"e"CS]Uhd$9mR:gS;qm(i9<4,V*omVdsi*"W=c$9^V50^lREc:gJ<1eBDrZba:5FPU08B*W5,7t7+KPI'\L^D&JP8R7KiD*@I.9,>$W*t)Td#Rp=8ISl8SrEeGi'pKIW&%I16MP<:u*`?E*L8BArT9Kjl0[I-e<6W&Cg5JRT'KDnAka[0lIAA\^>1#L!H\Y0+\Z-S`6opsb2(NCrgAV`o3jKt5nXZmScQONDGqKtA/sC%XT+Z`m=lWY]@TUG)X]V7YPmUYP"fZdD6N(U*(%%+n>c26EoG,L_Xg&@:V,2Yr,"6:Q3`(g14hea)'WiPP>bUB$Y5]#YM_SSAH'jIYIotEj2#9ShZF@=IhlCqCl:RNcOXcrS0UKD0dC-#6?bHo<Mn9G:HZS_k$L+=pp_]F<#%qFEs4%'dks`cne'\LB&d,='q'GOXD4Z[74681$DGTO!G3B.,%Tm)57B$CE_<AWZFc!:hodFt($kCgae-4iNI7bMV^)7s<L?hQ=G>*WMesUm(I_dk<jo*&1aisVceW?<ib`Epr&_a01pq#(J>o-N\RR1D*5RfUrB+P[HT'4cQB?sf,Bio4+hmJcb#!p.]QtNWB&@D2%m!DM$9p;mWSEpP!fm?K&2&DIF^"B/]dJM!(<t7G\=FC>\08kHB_:-[e8=O+M=P@ouoa$D\$RcgbHq98o[]FJN.qSVC0bQ'Tp77ObFp"jtM4NX/iqO!!,)Iu?0O?OJ1>5A_;_&6J;Cel49];>ne0h)*%67+L]9Qr`#,PYBo\H9!E5Q_.*i+r/P6LarrV[\eZ]VYe8'1M(PEC,umYY<Po^YY/"`F)Fo>8#*I`.,[g"1;h^fs%2r*2Jcp;IuE9=e;<p!RcOLXVTg=X6T\=?mtADqX^j,tU,-X))D63.:-Ukm/br"be_V*c\nr0,=QL=!/+`:n$L$TeEPFl_:W\a"<hO^^;E.$IR!J=\U3mp.Zh`SH%'&'Y7Zm=LNC'q?k*I"5:SeX/pCdPljV06i*Zq3jT>sH^K$N!PTYtHSDo%J\MFQr*#o,oM2R]m5i3*\.2/ARu]65_l+Ntia1$>I08_<j4$06n'%bphO;`[oMb=lgF1j9-SKY7S=EM.E#nl[ME/^aEWcW'2*1UV;IIB&~>endstream
 endobj
 xref
-0 185
+0 151
 0000000000 65535 f 
 0000000073 00000 n 
 0000000124 00000 n 
@@ -1358,157 +1111,123 @@ xref
 0000007615 00000 n 
 0000007806 00000 n 
 0000007986 00000 n 
-0000008533 00000 n 
-0000008702 00000 n 
-0000008894 00000 n 
-0000009073 00000 n 
-0000009250 00000 n 
-0000009458 00000 n 
-0000009643 00000 n 
-0000009811 00000 n 
-0000010017 00000 n 
-0000010328 00000 n 
-0000010639 00000 n 
-0000010848 00000 n 
-0000011040 00000 n 
-0000011215 00000 n 
-0000011399 00000 n 
-0000011576 00000 n 
-0000011760 00000 n 
-0000011945 00000 n 
-0000012153 00000 n 
-0000012354 00000 n 
-0000012551 00000 n 
-0000012743 00000 n 
-0000012918 00000 n 
-0000013102 00000 n 
-0000013310 00000 n 
-0000013780 00000 n 
-0000014372 00000 n 
-0000014585 00000 n 
-0000014767 00000 n 
-0000014968 00000 n 
-0000015165 00000 n 
-0000015357 00000 n 
-0000015538 00000 n 
-0000015723 00000 n 
-0000015907 00000 n 
-0000016091 00000 n 
-0000016270 00000 n 
-0000016445 00000 n 
-0000016614 00000 n 
-0000016787 00000 n 
-0000016965 00000 n 
-0000017152 00000 n 
-0000017358 00000 n 
-0000017564 00000 n 
-0000017756 00000 n 
-0000017931 00000 n 
-0000018174 00000 n 
-0000018365 00000 n 
-0000018573 00000 n 
-0000018782 00000 n 
-0000018984 00000 n 
-0000019168 00000 n 
-0000019370 00000 n 
-0000019572 00000 n 
-0000019793 00000 n 
-0000019993 00000 n 
-0000020192 00000 n 
-0000020394 00000 n 
-0000020613 00000 n 
-0000020814 00000 n 
-0000021014 00000 n 
-0000021208 00000 n 
-0000021421 00000 n 
-0000022163 00000 n 
-0000022372 00000 n 
-0000022843 00000 n 
-0000023436 00000 n 
-0000023650 00000 n 
-0000023833 00000 n 
-0000024011 00000 n 
-0000024220 00000 n 
-0000024408 00000 n 
-0000024600 00000 n 
-0000024801 00000 n 
-0000025023 00000 n 
-0000025221 00000 n 
-0000025409 00000 n 
-0000025632 00000 n 
-0000025866 00000 n 
-0000026056 00000 n 
-0000026245 00000 n 
-0000026434 00000 n 
-0000026623 00000 n 
-0000026832 00000 n 
-0000027303 00000 n 
-0000027896 00000 n 
-0000028110 00000 n 
-0000028293 00000 n 
-0000028471 00000 n 
-0000028680 00000 n 
-0000028866 00000 n 
-0000029054 00000 n 
-0000029246 00000 n 
-0000029447 00000 n 
-0000029634 00000 n 
-0000029821 00000 n 
-0000030015 00000 n 
-0000030249 00000 n 
-0000030441 00000 n 
-0000030633 00000 n 
-0000030846 00000 n 
-0000031080 00000 n 
-0000031305 00000 n 
-0000031494 00000 n 
-0000031695 00000 n 
-0000031883 00000 n 
-0000032087 00000 n 
-0000032284 00000 n 
-0000032472 00000 n 
-0000032681 00000 n 
-0000032871 00000 n 
-0000033058 00000 n 
-0000033245 00000 n 
-0000033452 00000 n 
-0000033647 00000 n 
-0000033838 00000 n 
-0000034027 00000 n 
-0000034207 00000 n 
-0000034938 00000 n 
-0000035126 00000 n 
-0000035314 00000 n 
-0000035508 00000 n 
-0000035742 00000 n 
-0000035934 00000 n 
-0000036126 00000 n 
-0000036366 00000 n 
-0000036544 00000 n 
-0000036753 00000 n 
-0000036935 00000 n 
-0000037112 00000 n 
-0000037314 00000 n 
-0000037512 00000 n 
-0000037903 00000 n 
-0000037993 00000 n 
-0000038247 00000 n 
-0000038324 00000 n 
-0000038445 00000 n 
-0000038531 00000 n 
-0000042380 00000 n 
-0000046097 00000 n 
-0000049494 00000 n 
+0000008155 00000 n 
+0000008347 00000 n 
+0000008526 00000 n 
+0000009094 00000 n 
+0000009271 00000 n 
+0000009479 00000 n 
+0000009664 00000 n 
+0000009832 00000 n 
+0000010038 00000 n 
+0000010349 00000 n 
+0000010660 00000 n 
+0000010869 00000 n 
+0000011061 00000 n 
+0000011236 00000 n 
+0000011420 00000 n 
+0000011597 00000 n 
+0000011781 00000 n 
+0000011966 00000 n 
+0000012174 00000 n 
+0000012375 00000 n 
+0000012572 00000 n 
+0000012764 00000 n 
+0000012939 00000 n 
+0000013123 00000 n 
+0000013331 00000 n 
+0000013801 00000 n 
+0000014393 00000 n 
+0000014606 00000 n 
+0000014788 00000 n 
+0000014989 00000 n 
+0000015186 00000 n 
+0000015394 00000 n 
+0000015864 00000 n 
+0000016456 00000 n 
+0000016669 00000 n 
+0000016851 00000 n 
+0000017028 00000 n 
+0000017236 00000 n 
+0000017423 00000 n 
+0000017614 00000 n 
+0000017814 00000 n 
+0000018035 00000 n 
+0000018232 00000 n 
+0000018419 00000 n 
+0000018641 00000 n 
+0000018874 00000 n 
+0000019063 00000 n 
+0000019251 00000 n 
+0000019439 00000 n 
+0000019627 00000 n 
+0000019835 00000 n 
+0000020305 00000 n 
+0000020897 00000 n 
+0000021110 00000 n 
+0000021292 00000 n 
+0000021469 00000 n 
+0000021677 00000 n 
+0000021863 00000 n 
+0000022051 00000 n 
+0000022737 00000 n 
+0000022929 00000 n 
+0000023130 00000 n 
+0000023317 00000 n 
+0000023504 00000 n 
+0000023698 00000 n 
+0000023932 00000 n 
+0000024124 00000 n 
+0000024316 00000 n 
+0000024529 00000 n 
+0000024763 00000 n 
+0000024988 00000 n 
+0000025177 00000 n 
+0000025378 00000 n 
+0000025566 00000 n 
+0000025770 00000 n 
+0000025967 00000 n 
+0000026155 00000 n 
+0000026364 00000 n 
+0000026554 00000 n 
+0000026741 00000 n 
+0000026928 00000 n 
+0000027135 00000 n 
+0000027330 00000 n 
+0000027521 00000 n 
+0000027710 00000 n 
+0000027890 00000 n 
+0000028078 00000 n 
+0000028266 00000 n 
+0000028460 00000 n 
+0000028694 00000 n 
+0000028886 00000 n 
+0000029078 00000 n 
+0000029318 00000 n 
+0000029496 00000 n 
+0000029705 00000 n 
+0000029887 00000 n 
+0000030064 00000 n 
+0000030266 00000 n 
+0000030464 00000 n 
+0000031069 00000 n 
+0000031159 00000 n 
+0000031413 00000 n 
+0000031490 00000 n 
+0000031611 00000 n 
+0000031689 00000 n 
+0000035596 00000 n 
+0000038814 00000 n 
 trailer
 <<
 /ID 
-[<20ab964127ebbbf9a50906f71cfbe391><20ab964127ebbbf9a50906f71cfbe391>]
+[<811330e486952b6a8159e1a5d57e9f27><811330e486952b6a8159e1a5d57e9f27>]
 % ReportLab generated PDF document -- digest (http://www.reportlab.com)
 
-/Info 177 0 R
-/Root 176 0 R
-/Size 185
+/Info 144 0 R
+/Root 143 0 R
+/Size 151
 >>
 startxref
-51438
+41939
 %%EOF

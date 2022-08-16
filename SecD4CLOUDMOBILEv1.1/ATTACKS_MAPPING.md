@@ -5,23 +5,23 @@
 |  Mobile Plataform         |  Hybrid Application                                          |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication ; ID-based authentication|  
+|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
 |  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  SQL                                                         |  
+|  Type of data storage     |  SQL (Relational Database)                                   |  
 |  Which DB                 |  SQLite                                                      |  
-|  Type of data stored      |  Personal Information ; Confidential Data ; Critical Data    |  
+|  Type of data stored      |  Critical Data                                               |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  Javascript ; HTML5                                          |  
+|  Programming Languages    |  HTML5                                                       |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  5G ; GSM (2G) ; Bluetooth  ; 3G ; 4G/LTE ; Wi-Fi  ; GPS     |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC                      |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -353,54 +353,6 @@ In order to ensure that the mobile application is resilient or immune to the CAP
 
 ## CAPTCHA Breaking Attacks Diagram
 
-
-
-# SQL Injection Attacks
-
-In this type of attack, an attacker could provide malicious input with a clever mix of characters and meta characters from a form (e.g., login form) to alter the logic of the SQL command.
-
-
-## Definition
-
-Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose to change the logic of the desired query.
-
-## Technical Impact
- * Read Application Data;
- * Bypass Protection Mechanism;
- * Modify Application Data.
-
-## Likelihood of Exploit
-
- * High.
-
-## Risk
-
- * Critical Risk.
-
-## Attacker's Powers
- * Identify parameters vulnerable to injection;
- * Discover DBMS and version;
- * Discover relational scheme;
- * Extract data;
- * Add/modify data;
- * Cause denial of service;
- * Evade detection;
- * Bypass authentication;
- * Execute commands;
- * Elevate privileges.
-
-## Recommendations
-
-To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, confidentiality, access control, integrity, privacy and authenticity of the data.
-
-## Reference
- 1. [https://cwe.mitre.org/data/definitions/89.html]
- 
-## SQL Injection Attacks Diagram
-
-
-![alt text](attackModels/sqliAttackTree.png)
-
 # Flooding or Distributed Denial of Services (DDoS)  Attacks
 
 Flooding is an enhanced Denial of Service (DoS) attack type, originating from multiple network attack surfaces that were previously compromised to disrupt the services or resources provided by the target server. It differs from DoS in that it generates more traffic, so that the targeted server cannot handle requests. This type of attack generally exposes a weakness in rate limiting or flow.
@@ -564,43 +516,6 @@ To ensure that the mobile application is resilient or immune to Spoofing attacks
 
 
 ![alt text](attackModels/xmliAttackTree.png)
-
-
-
-# Session Hijacking Attack
-
-An attacker impersonates a legitimate user through stealing or predicting a valid session ID.
-
-## Definition
-
-The necessary condition for the session hijacking attack to occur is the existence of architectural vulnerabilities in the absence of protection for the storage of session identifiers. This vulnerability generally occurs in web applications written in PHP in previous versions (e.g., PHP 4.0 to PHP 4.1.2), As described in CVE-2002-0121.
-
-## Technical Impact
-* Read Application Data; 
-* Gain Privileges or Assume Identity; 
-* Execute Unauthorized Code or Commands.
-
-## Risk Analysis
-* Critical.
-
-## Likelihood of Exploit
-* High.
-
-## Attacker Powers
-
- * Steal Session ID;
- * Impersonation of a legitimate user and confidential information from a legitimate user.
-
-## References
-1. [https://www.cvedetails.com/cve/CVE-2002-0121/];
-2. [https://cwe.mitre.org/data/definitions/287.html];
-3. [https://capec.mitre.org/data/definitions/593.html].
- 
- 
-## Session Hijacking Attack Diagram
-
-
-![alt text](attackModels/sessionHijackingAttackTree.png)
 
 
 
@@ -853,46 +768,6 @@ To ensure that the mobile application is resilient or immune to malicious Tamper
 
 
 ![alt text](attackModels/tamperingAttackTree.png)
-
-
-
-# Bluejacking, Bluesnarfing and BlueSmacking Attacks
-
-These are DDoS-type attacks that target a Bluetooth wireless network in order to shut down activity on it. It usually occurs through an attack coming from a connection of malicious entities in a target network.
-
-## Definition
-
- Bluejacking occurs by sending unsolicited messages between the mobile devices (host nodes) over the Bluetooth connection. The unauthorized information can be accessed from a mobile device through Bluesnarfing to Bluetooth enabled devices using  OBject EXchange (OBEX) protocol. Through the Bluejacking attack, attackers can send unwanted sounds, videos to other Bluetooth enabled devices. Bluesnarfing attack consists of using Bluetooth connection for the purpose of stealing sensitive information (contacts, emails, passwords, photos, and other useful data) from wireless devices such as smartphones, tablets and IoT. In a Bluesmacking cenario attack, an adversary uses Bluetooth flooding to transfer large packets to Bluetooth enabled devices over the L2CAP protocol with the goal of creating a DoS.
- 
-## Technical Impact
-
- * Resource Consumption;
- * Malware Injection;
- * Unreliable Execution;
- * Read Data.
-
-## Typical Severity
-
- * Medium.
-
-## Risk Analysis
-
- * High Risk.
-
-## Likelihood of Exploit
-
- * Medium.
-
-## Recommendations
-
-In order to ensure that the mobile application is resilient or immune to the Bluejacking, Bluesnarfing and BlueSmacking attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
-
-## References
-1. atel, N., Wimmer, H., Rebman, C.M., 2021. Investigating bluetooth vulnerabilities to defend from attacks, in: 2021 5th International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT), IEEE, Ankara, Turkey. pp. 549–554. doi:10.1109/ISMSIT52890.2021.9604655.
-
-
-## Bluejacking, Bluesnarfing and BlueSmacking Attacks Diagram
-![alt text](attackModels/bluetoothAttackTree.png)
 
 
 

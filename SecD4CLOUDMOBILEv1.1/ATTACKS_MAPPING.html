@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <td align="left">Authentication schemes</td>
-<td align="left">Biometric-based authentication ; Factors-based authentication ; ID-based authentication</td>
+<td align="left">Factors-based authentication ; ID-based authentication</td>
 </tr>
 <tr>
 <td align="left">Has DB</td>
@@ -29,7 +29,7 @@
 </tr>
 <tr>
 <td align="left">Type of data storage</td>
-<td align="left">SQL</td>
+<td align="left">SQL (Relational Database)</td>
 </tr>
 <tr>
 <td align="left">Which DB</td>
@@ -37,7 +37,7 @@
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
-<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
+<td align="left">Critical Data</td>
 </tr>
 <tr>
 <td align="left">User Registration</td>
@@ -49,7 +49,7 @@
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<td align="left">Javascript ; HTML5</td>
+<td align="left">HTML5</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
@@ -73,7 +73,7 @@
 </tr>
 <tr>
 <td align="left">System Cloud Environments</td>
-<td align="left">Hybrid Cloud</td>
+<td align="left">Public Cloud</td>
 </tr>
 <tr>
 <td align="left">Hardware Specification</td>
@@ -85,7 +85,7 @@
 </tr>
 <tr>
 <td align="left">HW Wireless Tech</td>
-<td align="left">5G ; GSM (2G) ; Bluetooth  ; 3G ; 4G/LTE ; Wi-Fi  ; GPS</td>
+<td align="left">3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC</td>
 </tr>
 <tr>
 <td align="left">Data Center Phisical Access</td>
@@ -392,45 +392,6 @@ that the measures described in the good practice report and the security tests p
 <li>[https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].</li>
 </ol>
 <h2>CAPTCHA Breaking Attacks Diagram</h2>
-<h1>SQL Injection Attacks</h1>
-<p>In this type of attack, an attacker could provide malicious input with a clever mix of characters and meta characters from a form (e.g., login form) to alter the logic of the SQL command.</p>
-<h2>Definition</h2>
-<p>Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose to change the logic of the desired query.</p>
-<h2>Technical Impact</h2>
-<ul>
-<li>Read Application Data;</li>
-<li>Bypass Protection Mechanism;</li>
-<li>Modify Application Data.</li>
-</ul>
-<h2>Likelihood of Exploit</h2>
-<ul>
-<li>High.</li>
-</ul>
-<h2>Risk</h2>
-<ul>
-<li>Critical Risk.</li>
-</ul>
-<h2>Attacker's Powers</h2>
-<ul>
-<li>Identify parameters vulnerable to injection;</li>
-<li>Discover DBMS and version;</li>
-<li>Discover relational scheme;</li>
-<li>Extract data;</li>
-<li>Add/modify data;</li>
-<li>Cause denial of service;</li>
-<li>Evade detection;</li>
-<li>Bypass authentication;</li>
-<li>Execute commands;</li>
-<li>Elevate privileges.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, confidentiality, access control, integrity, privacy and authenticity of the data.</p>
-<h2>Reference</h2>
-<ol>
-<li>[https://cwe.mitre.org/data/definitions/89.html]</li>
-</ol>
-<h2>SQL Injection Attacks Diagram</h2>
-<p><img alt="alt text" src="attackModels/sqliAttackTree.png" /></p>
 <h1>Flooding or Distributed Denial of Services (DDoS)  Attacks</h1>
 <p>Flooding is an enhanced Denial of Service (DoS) attack type, originating from multiple network attack surfaces that were previously compromised to disrupt the services or resources provided by the target server. It differs from DoS in that it generates more traffic, so that the targeted server cannot handle requests. This type of attack generally exposes a weakness in rate limiting or flow.</p>
 <h2>Definition</h2>
@@ -556,38 +517,6 @@ that the measures described in the good practice report and the security tests p
  </p>
 <h2>XML Injection Attacks Diagram</h2>
 <p><img alt="alt text" src="attackModels/xmliAttackTree.png" /></p>
-<h1>Session Hijacking Attack</h1>
-<p>An attacker impersonates a legitimate user through stealing or predicting a valid session ID.</p>
-<h2>Definition</h2>
-<p>The necessary condition for the session hijacking attack to occur is the existence of architectural vulnerabilities in the absence of protection for the storage of session identifiers. This vulnerability generally occurs in web applications written in PHP in previous versions (e.g., PHP 4.0 to PHP 4.1.2), As described in CVE-2002-0121.</p>
-<h2>Technical Impact</h2>
-<ul>
-<li>Read Application Data; </li>
-<li>Gain Privileges or Assume Identity; </li>
-<li>Execute Unauthorized Code or Commands.</li>
-</ul>
-<h2>Risk Analysis</h2>
-<ul>
-<li>Critical.</li>
-</ul>
-<h2>Likelihood of Exploit</h2>
-<ul>
-<li>High.</li>
-</ul>
-<h2>Attacker Powers</h2>
-<ul>
-<li>Steal Session ID;</li>
-<li>Impersonation of a legitimate user and confidential information from a legitimate user.</li>
-</ul>
-<h2>References</h2>
-<ol>
-<li>[https://www.cvedetails.com/cve/CVE-2002-0121/];</li>
-<li>[https://cwe.mitre.org/data/definitions/287.html];</li>
-<li>[https://capec.mitre.org/data/definitions/593.html].
- </li>
-</ol>
-<h2>Session Hijacking Attack Diagram</h2>
-<p><img alt="alt text" src="attackModels/sessionHijackingAttackTree.png" /></p>
 <h1>Spoofing Attacks</h1>
 <p>In a nutshell, spoofing attacks consist of spoofing the caller ID in order to impersonate a trusted entity and thus obtain confidential information in a disguised manner.</p>
 <h2>Definition</h2>
@@ -783,37 +712,6 @@ that the measures described in the good practice report and the security tests p
 <p>To ensure that the mobile application is resilient or immune to malicious Tampering attack, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.</p>
 <h2>Tampering Attacks Diagram</h2>
 <p><img alt="alt text" src="attackModels/tamperingAttackTree.png" /></p>
-<h1>Bluejacking, Bluesnarfing and BlueSmacking Attacks</h1>
-<p>These are DDoS-type attacks that target a Bluetooth wireless network in order to shut down activity on it. It usually occurs through an attack coming from a connection of malicious entities in a target network.</p>
-<h2>Definition</h2>
-<p>Bluejacking occurs by sending unsolicited messages between the mobile devices (host nodes) over the Bluetooth connection. The unauthorized information can be accessed from a mobile device through Bluesnarfing to Bluetooth enabled devices using  OBject EXchange (OBEX) protocol. Through the Bluejacking attack, attackers can send unwanted sounds, videos to other Bluetooth enabled devices. Bluesnarfing attack consists of using Bluetooth connection for the purpose of stealing sensitive information (contacts, emails, passwords, photos, and other useful data) from wireless devices such as smartphones, tablets and IoT. In a Bluesmacking cenario attack, an adversary uses Bluetooth flooding to transfer large packets to Bluetooth enabled devices over the L2CAP protocol with the goal of creating a DoS.</p>
-<h2>Technical Impact</h2>
-<ul>
-<li>Resource Consumption;</li>
-<li>Malware Injection;</li>
-<li>Unreliable Execution;</li>
-<li>Read Data.</li>
-</ul>
-<h2>Typical Severity</h2>
-<ul>
-<li>Medium.</li>
-</ul>
-<h2>Risk Analysis</h2>
-<ul>
-<li>High Risk.</li>
-</ul>
-<h2>Likelihood of Exploit</h2>
-<ul>
-<li>Medium.</li>
-</ul>
-<h2>Recommendations</h2>
-<p>In order to ensure that the mobile application is resilient or immune to the Bluejacking, Bluesnarfing and BlueSmacking attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.</p>
-<h2>References</h2>
-<ol>
-<li>atel, N., Wimmer, H., Rebman, C.M., 2021. Investigating bluetooth vulnerabilities to defend from attacks, in: 2021 5th International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT), IEEE, Ankara, Turkey. pp. 549–554. doi:10.1109/ISMSIT52890.2021.9604655.</li>
-</ol>
-<h2>Bluejacking, Bluesnarfing and BlueSmacking Attacks Diagram</h2>
-<p><img alt="alt text" src="attackModels/bluetoothAttackTree.png" /></p>
 <h1>GPS Jamming Attacks</h1>
 <p>This is a DoS attack that targets the GPS sensor, aiming to make this service (position, path, speed, direction, time, and distance) unavailable to users of the target mobile devices.</p>
 <h2>Definition</h2>
