@@ -157,10 +157,11 @@ question5 = {
 }
 
 question6 = {
-    "1": "SQL",
+    "1": "SQL (Relational Database)",
     "2": "NoSQL",
-    "3": "Local Storage",
-    "4": "Distributed Storage"
+    "3": "Local Storage (Centralized Database)",
+    "4": "Distributed Storage",
+    "5": "Cloud Database"
 }
 
 question7 = {
@@ -184,7 +185,8 @@ question8 = {
     "1": "Personal Information",
     "2": "Confidential Data",
     "3": "Critical Data",
-    "4": ""
+    "4": "All",
+    "5": ""
 }
 
 question9 = {
@@ -206,7 +208,8 @@ question11 = {
     "6": "PHP",
     "7": "Python",
     "8": "Ruby",
-    "9": ""
+    "9": "Kotlin"
+    "10": ""
 }
 
 question12 = {
@@ -554,10 +557,11 @@ def typeOfDatabase(version):
     else:
         print("  **What is type of data storage?**  ")
     print("")
-    print("  1 - SQL  ")
+    print("  1 - SQL (Relational Database) ")
     print("  2 - NoSQL  ")
-    print("  3 - Local Storage  ")
-    print("  4 - Distributed Storage  ")
+    print("  3 - Local Storage  (Centralized Database) ")
+    print("  4 - Distributed Storage ")
+    print("  5 - Cloud Database ")
     print("")
 
     value = validateInput(1, 5)
@@ -626,7 +630,8 @@ def sensitiveData(version):
     print("  1 - Personal Information (Names, Address,...)  ")
     print("  2 - Confidential Data  ")
     print("  3 - Critical Data  ")
-    print("  4 - Other  ")
+    print("  4 - All ")
+    print("  5 - Other  ")
     print("")
 
     while (1):
@@ -716,7 +721,8 @@ def languages(version):
     print("  6 - PHP  ")
     print("  7 - Python  ")
     print("  8 - Ruby  ")
-    print("  9 - Other/Property Language  ")
+    print("  9 - Kotlin ")
+    print("  10 - Other/Property Language  ")
     print("")
 
     while (1):
