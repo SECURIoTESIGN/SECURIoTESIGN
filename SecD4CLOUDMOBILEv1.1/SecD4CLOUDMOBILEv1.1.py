@@ -563,7 +563,7 @@ def typeOfDatabase(version):
     print("  5 - Cloud Database ")
     print("")
 
-    value = validateInput(1, 5)
+    value = validateInput(1, 6)
     questions_and_answers["Q6"] = str(value)
 
 """
@@ -724,7 +724,7 @@ def languages(version):
     print("")
 
     while (1):
-        value = validateInput(1, 10)
+        value = validateInput(1, 11)
         if value == 0:
             return
         if value == 9:
