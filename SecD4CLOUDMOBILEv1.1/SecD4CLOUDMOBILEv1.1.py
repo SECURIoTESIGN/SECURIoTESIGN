@@ -185,8 +185,7 @@ question8 = {
     "1": "Personal Information",
     "2": "Confidential Data",
     "3": "Critical Data",
-    "4": "All",
-    "5": ""
+    "4": ""
 }
 
 question9 = {
@@ -630,8 +629,7 @@ def sensitiveData(version):
     print("  1 - Personal Information (Names, Address,...)  ")
     print("  2 - Confidential Data  ")
     print("  3 - Critical Data  ")
-    print("  4 - All ")
-    print("  5 - Other  ")
+    print("  4 - Other ")
     print("")
 
     while (1):
