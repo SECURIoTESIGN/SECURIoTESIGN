@@ -51,8 +51,7 @@ comments_list = []
 table_for_report = []
 
 # create a dictionairy to store the answers to the questions
-# question_and_answers as qans
-qans = {
+questions_and_answers = {
     "Q1": "",
     "Q2": "",
     "Q3": "",
@@ -379,9 +378,9 @@ def arqui(version):
             print("  Please specify the architecture: (name between single quotes)  ")
             value2 = validateInput(2)
             # question_1["9"] = str(value2)
-            qans["Q1"] = qans["Q1"] + str(value2) + ";"
+            questions_and_answers["Q1"] = questions_and_answers["Q1"] + str(value2) + ";"
         else:
-            qans["Q1"] = qans["Q1"] + str(value) + ";"
+            questions_and_answers["Q1"] = questions_and_answers["Q1"] + str(value) + ";"
 
 """
 [Summary]: Method that gets the domain of the mobile application developed or to be developed
@@ -419,7 +418,7 @@ def domain(version):
     print("")
 
     value = validateInput(1, 18)
-    qans["Q2"] = str(value)
+    questions_and_answers["Q2"] = str(value)
 
 """
 [Summary]: Method that allows identifying if the application to be developed or developed uses authentication or not
@@ -446,7 +445,7 @@ def authentication(version):
     print("")
 
     value = validateInput(1, 8)
-    qans["Q3"] = str(value)
+    questions_and_answers["Q3"] = str(value)
 
 
 """
@@ -469,18 +468,18 @@ def hasDB(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q4"] = str(value)
+    questions_and_answers["Q4"] = str(value)
 
     if value == 1:
         typeOfDatabase(version)
-        if qans["Q5"] == '1' or qans["Q5"] == '2':
+        if questions_and_answers["Q5"] == '1' or questions_and_answers["Q5"] == '2':
             whichDatabase(version)
         sensitiveData(version)
 
     else:
-        qans["Q5"] = "N/A"
-        qans["Q6"] = "N/A"
-        qans["Q7"] = "N/A"
+        questions_and_answers["Q5"] = "N/A"
+        questions_and_answers["Q6"] = "N/A"
+        questions_and_answers["Q7"] = "N/A"
         return
 
 """
@@ -505,7 +504,7 @@ def typeOfDatabase(version):
     print("")
 
     value = validateInput(1, 5)
-    qans["Q5"] = str(value)
+    questions_and_answers["Q5"] = str(value)
 
 """
 [Summary]: Method allowing the identification of the DBMS to be used by the system
@@ -524,7 +523,7 @@ def whichDatabase(version):
 
     print("")
 
-    if qans["Q5"] == '1':
+    if questions_and_answers["Q5"] == '1':
         print("  1 - SQL Server  ")
         print("  2 - MySQL  ")
         print("  3 - PostgreSQL  ")
@@ -532,7 +531,7 @@ def whichDatabase(version):
         print("  5 - OracleDB  ")
         print("  6 - MariaDB  ")
 
-    if qans["Q5"] == '2':
+    if questions_and_answers["Q5"] == '2':
         print("  7 - Cassandra ")
         print("  8 - CosmosDB  ")
         print("  9 - MongoDB  ")
@@ -546,9 +545,9 @@ def whichDatabase(version):
     if value == 14:
         print("  Please specify the name of database: (name between single quotes)  ")
         value2 = validateInput(2)
-        qans["Q6"] = str(value2)
+        questions_and_answers["Q6"] = str(value2)
     else:
-        qans["Q6"] = str(value)
+        questions_and_answers["Q6"] = str(value)
 
 """
 [Summary]: Method allowing the identification of the type of data stored by the system (personal, confidential or critical)
@@ -582,10 +581,10 @@ def sensitiveData(version):
             # TO-DO change this funtion input
             value2 = validateInput(2)
             # question_5["4"] = str(value2)
-            qans["Q7"] = qans["Q7"] + str(value2) + ";"
+            questions_and_answers["Q7"] = questions_and_answers["Q7"] + str(value2) + ";"
 
         else:
-            qans["Q7"] = qans["Q7"] + str(value) + ";"
+            questions_and_answers["Q7"] = questions_and_answers["Q7"] + str(value) + ";"
 
 """
 [Summary]: Method allowing the identification of whether or not the application allows users to register
@@ -607,12 +606,12 @@ def userRegist(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q8"] = str(value)
+    questions_and_answers["Q8"] = str(value)
 
     if value == 1:
         typeOfUserRegist(version)
     else:
-        qans["Q9"] = "N/A"
+        questions_and_answers["Q9"] = "N/A"
 
 """
 [Summary]: Method to identify the type of registration of users to the system
@@ -634,7 +633,7 @@ def typeOfUserRegist(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q9"] = str(value)
+    questions_and_answers["Q9"] = str(value)
 
 """
 [Summary]: Method to identify the programming language to be used or used for coding the application
@@ -673,10 +672,10 @@ def languages(version):
             # TO-DO change this funtion input
             value2 = validateInput(2)
             # question_9["8"]  = str(value2)
-            qans["Q10"] = qans["Q10"] + str(value2) + ";"
+            questions_and_answers["Q10"] = questions_and_answers["Q10"] + str(value2) + ";"
 
         else:
-            qans["Q10"] = qans["Q10"] + str(value) + ";"
+            questions_and_answers["Q10"] = questions_and_answers["Q10"] + str(value) + ";"
 
 """
 [Summary]: Method to identify if the application uses or not user input forms
@@ -698,7 +697,7 @@ def inputForms(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q11"] = str(value)
+    questions_and_answers["Q11"] = str(value)
 
 """
 [Summary]: Method to identify the application allows or not upload files
@@ -720,7 +719,7 @@ def allowUploadFiles(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q12"] = str(value)
+    questions_and_answers["Q12"] = str(value)
 
 """
 [Summary]: Method to identify the application records or not logs
@@ -742,7 +741,7 @@ def systemLogs(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q13"] = str(value)
+    questions_and_answers["Q13"] = str(value)
 
 """
 [Summary]: Method to identify the application allows or not regular updates
@@ -764,7 +763,7 @@ def allowUpdateSystem(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q14"] = str(value)
+    questions_and_answers["Q14"] = str(value)
 
 """
 [Summary]: Method to identify the application uses or not third-party apps
@@ -786,7 +785,7 @@ def allowThirdParty(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q15"] = str(value)
+    questions_and_answers["Q15"] = str(value)
 
 
 """
@@ -811,7 +810,7 @@ def cloudPlataform(version):
     print("")
 
     value = validateInput(1, 6)
-    qans["Q16"] = str(value)
+    questions_and_answers["Q16"] = str(value)
 
 """
 [Summary]: Method that allows identifying if the user wants to specify some hardware details (network and authentication scheme) or not
@@ -830,14 +829,14 @@ def hardwareSpecs(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q17"] = str(value)
+    questions_and_answers["Q17"] = str(value)
 
     if value == 1:
         hardwareAuth(version)
         hardwareComunication(version)
     else:
-        qans["Q18"] = "N/A"
-        qans["Q19"] = "N/A"
+        questions_and_answers["Q18"] = "N/A"
+        questions_and_answers["Q19"] = "N/A"
 
 """
 [Summary]: Method allowing the identification of the authentication paradigm implemented in relation to the hardware
@@ -862,7 +861,7 @@ def hardwareAuth(version):
     print("")
 
     value = validateInput(1, 6)
-    qans["Q18"] = str(value)
+    questions_and_answers["Q18"] = str(value)
 
 """
 [Summary]: Method allowing the identification of wireless network technologies implemented in relation to hardware
@@ -897,9 +896,9 @@ def hardwareComunication(version):
         if value == 10:
             print("Please specify the architecture: (name between single quotes)")
             value2 = validateInput(2)
-            qans["Q19"] = qans["Q19"] + str(value2) + ";"
+            questions_and_answers["Q19"] = questions_and_answers["Q19"] + str(value2) + ";"
         else:
-            qans["Q19"] = qans["Q19"] + str(value) + ";"
+            questions_and_answers["Q19"] = questions_and_answers["Q19"] + str(value) + ";"
 
 
 """
@@ -922,7 +921,7 @@ def dataCenterAcess(version):
     print("")
 
     value = validateInput(1, 3)
-    qans["Q20"] = str(value)
+    questions_and_answers["Q20"] = str(value)
 
 
 """
@@ -937,12 +936,12 @@ def printData():
     # it is a multiple question
     # find if the answer correspond to option "others" (means that is user input text) OR fix this buy make it simple, verify if it the answer has only letters xD
     # find if the first caracter is a letter and if the answer has no more options
-    if qans["Q1"][0].isdigit() == False and qans["Q1"].find(";") == -1:
-        list_aux.append(qans["Q1"])
+    if questions_and_answers["Q1"][0].isdigit() == False and questions_and_answers["Q1"].find(";") == -1:
+        list_aux.append(questions_and_answers["Q1"])
     else:
         # variable aux is a list that contains the answers chosen by the user to the question in cause
         # cut the string in the delimitator ";"
-        aux = qans["Q1"].split(";")
+        aux = questions_and_answers["Q1"].split(";")
 
         # delete last item (= None)
         aux = aux[:-1]
@@ -961,78 +960,78 @@ def printData():
     print("{:22} {:3} {:40} ".format("Architecture", ":", ' ; '.join(list_aux)))
     table_for_report.append(["Architecture", ' ; '.join(list_aux)])
 
-    answers_list.append(qans["Q1"])
+    answers_list.append(questions_and_answers["Q1"])
     comments_list.append(' ; '.join(list_aux))
 
     for n in question2:
-        item = qans["Q2"]
+        item = questions_and_answers["Q2"]
         if item == n:
             print("{:22} {:3} {:40}".format("Application domain type", ":", question2[n]))
 
             table_for_report.append(["Application domain type", question2[n]])
 
-            answers_list.append(qans["Q2"])
+            answers_list.append(questions_and_answers["Q2"])
             comments_list.append(question2[n])
 
     for n in question3:
-        item = qans["Q3"]
+        item = questions_and_answers["Q3"]
         if item == n:
             print("{:22} {:3} {:40}".format("Authentication", ":", question3[n]))
 
             table_for_report.append(["Authentication", question3[n]])
 
-            answers_list.append(qans["Q3"])
+            answers_list.append(questions_and_answers["Q3"])
             comments_list.append(question3[n])
 
     for n in question4:
-        item = qans["Q4"]
+        item = questions_and_answers["Q4"]
         if item == n:
             # print( "Has DB {:>18} ".format(":     ") + question_2[n])
             print("{:22} {:3} {:40} ".format("Has DB", ":", question4[n]))
             table_for_report.append(["Has DB", question4[n]])
-            answers_list.append(qans["Q4"])
+            answers_list.append(questions_and_answers["Q4"])
             comments_list.append(question4[n])
 
-    item = qans["Q5"]
+    item = questions_and_answers["Q5"]
     # case this question is not answered, and the answer it will be "N/A"
-    if qans["Q5"].isdigit() == False:
+    if questions_and_answers["Q5"].isdigit() == False:
         print("{:22} {:3} {:40} ".format("Type of data storage", ":", item))
         table_for_report.append(["Type of data storage", item])
-        answers_list.append(qans["Q5"])
+        answers_list.append(questions_and_answers["Q5"])
         comments_list.append(item)
     else:
         for n in question5:
             if item == n:
                 print("{:22} {:3} {:40} ".format("Type of data storage", ":", question5[n]))
                 table_for_report.append(["Type of data storage", question5[n]])
-                answers_list.append(qans["Q5"])
+                answers_list.append(questions_and_answers["Q5"])
                 comments_list.append(question5[n])
 
-    item = qans["Q6"]
+    item = questions_and_answers["Q6"]
     for n in question6:
         if item == n:
             print("{:22} {:3} {:40} ".format("Which DB", ":", question6[n]))
             table_for_report.append(["Which DB", question6[n]])
-            answers_list.append(qans["Q6"])
+            answers_list.append(questions_and_answers["Q6"])
             comments_list.append(question6[n])
 
     # case of user input text
     if item.isdigit() == False:
         print("{:22} {:3} {:40} ".format("Which DB", ":", item))
         table_for_report.append(["Which DB", item])
-        answers_list.append(qans["Q6"])
+        answers_list.append(questions_and_answers["Q6"])
         comments_list.append(item)
 
     list_aux = []
     
     # it is a multiple question
     # find if the answer correspond to option "others" (means that is user input text) or not answered
-    if qans["Q7"][0].isdigit() == False and qans["Q7"].find(";") == -1:
-        list_aux.append(qans["Q7"])
+    if questions_and_answers["Q7"][0].isdigit() == False and questions_and_answers["Q7"].find(";") == -1:
+        list_aux.append(questions_and_answers["Q7"])
     else:
         # variable aux is a list that contains the answers chosen by the user to the question in cause
         # cut the string in the delimitator ";"
-        aux = qans["Q7"].split(";")
+        aux = questions_and_answers["Q7"].split(";")
         # delete last item (= None)
         aux = aux[:-1]
 
@@ -1046,39 +1045,39 @@ def printData():
 
     print("{:22} {:3} {:40} ".format("Type of data stored", ":", ' ; '.join(list_aux)))
     table_for_report.append(["Type of data stored", ' ; '.join(list_aux)])
-    answers_list.append(qans["Q7"])
+    answers_list.append(questions_and_answers["Q7"])
     comments_list.append(' ; '.join(list_aux))
 
     for n in question8:
-        item = qans["Q8"]
+        item = questions_and_answers["Q8"]
         if item == n:
             print("{:22} {:3} {:40}".format("User Registration", ":", question8[n]))
             table_for_report.append(["User Registration", question8[n]])
-            answers_list.append(qans["Q8"])
+            answers_list.append(questions_and_answers["Q8"])
             comments_list.append(question8[n])
 
-    item = qans["Q9"]
-    if qans["Q9"].isdigit() == False:
+    item = questions_and_answers["Q9"]
+    if questions_and_answers["Q9"].isdigit() == False:
         print("{:22} {:3} {:40} ".format("Type of Registration", ": ", item))
         table_for_report.append(["Type of Registration", item])
-        answers_list.append(qans["Q9"])
+        answers_list.append(questions_and_answers["Q9"])
         comments_list.append(item)
     else:
         for n in question9:
             if item == n:
                 print("{:22} {:3} {:40} ".format("Type of Registration", ": ", question9[n]))
                 table_for_report.append(["Type of Registration", question9[n]])
-                answers_list.append(qans["Q9"])
+                answers_list.append(questions_and_answers["Q9"])
                 comments_list.append(question9[n])
 
     list_aux = []
     # it is a multiple question
     # find if the answer correspond to option "others" (means that is only user input text)
-    if qans["Q10"][0].isdigit() == False and qans["Q10"].find(";") == -1:
-        list_aux.append(qans["Q10"])
+    if questions_and_answers["Q10"][0].isdigit() == False and questions_and_answers["Q10"].find(";") == -1:
+        list_aux.append(questions_and_answers["Q10"])
     else:
         # cut the string in the delimitator ";"
-        aux = qans["Q10"].split(";")
+        aux = questions_and_answers["Q10"].split(";")
         # delete last item (= None)
         aux = aux[:-1]
         for item in aux:
@@ -1092,81 +1091,81 @@ def printData():
     print("{:22} {:3} {:40} ".format("Programming Languages", ":", ' ; '.join(list_aux)))
 
     table_for_report.append(["Programming Languages", ' ; '.join(list_aux)])
-    answers_list.append(qans["Q10"])
+    answers_list.append(questions_and_answers["Q10"])
     comments_list.append(' ; '.join(list_aux))
 
     for n in question11:
-        item = qans["Q11"]
+        item = questions_and_answers["Q11"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Input Forms", ":", question11[n]))
             table_for_report.append(["Input Forms", question11[n]])
-            answers_list.append(qans["Q11"])
+            answers_list.append(questions_and_answers["Q11"])
             comments_list.append(question11[n])
 
     for n in question12:
-        item = qans["Q12"]
+        item = questions_and_answers["Q12"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Upload Files", ":", question12[n]))
             table_for_report.append(["Upload Files", question12[n]])
-            answers_list.append(qans["Q12"])
+            answers_list.append(questions_and_answers["Q12"])
             comments_list.append(question12[n])
 
     for n in question13:
-        item = qans["Q13"]
+        item = questions_and_answers["Q13"]
         if item == n:
             print("{:22} {:3} {:40} ".format("The system has logs", ":", question13[n]))
             table_for_report.append(["The system has logs", question13[n]])
-            answers_list.append(qans["Q13"])
+            answers_list.append(questions_and_answers["Q13"])
             comments_list.append(question13[n])
 
     for n in question14:
-        item = qans["Q14"]
+        item = questions_and_answers["Q14"]
         if item == n:
             print("{:22} {:3} {:40} ".format("The system has regular updates", ":", question14[n]))
             table_for_report.append(["The system has regular updates", question14[n]])
-            answers_list.append(qans["Q14"])
+            answers_list.append(questions_and_answers["Q14"])
             comments_list.append(question14[n])
 
     for n in question15:
-        item = qans["Q15"]
+        item = questions_and_answers["Q15"]
         if item == n:
             print("{:22} {:3} {:40} ".format("The system has third-party", ":", question15[n]))
             table_for_report.append(["The system has third-party", question15[n]])
-            answers_list.append(qans["Q15"])
+            answers_list.append(questions_and_answers["Q15"])
             comments_list.append(question15[n])
 
     for n in question16:
-        item = qans["Q16"]
+        item = questions_and_answers["Q16"]
         if item == n:
             print("{:22} {:3} {:40}".format("System Cloud Environments", ":", question16[n]))
             table_for_report.append(["System Cloud Environments", question16[n]])
-            answers_list.append(qans["Q16"])
+            answers_list.append(questions_and_answers["Q16"])
             comments_list.append(question16[n])
 
     for n in question17:
-        item = qans["Q17"]
+        item = questions_and_answers["Q17"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Hardware Specification", ":", question17[n]))
             table_for_report.append(["Hardware Specification", question17[n]])
-            answers_list.append(qans["Q17"])
+            answers_list.append(questions_and_answers["Q17"])
             comments_list.append(question17[n])
 
     for n in question18:
-        item = qans["Q18"]
+        item = questions_and_answers["Q18"]
         if item == n:
             print("{:22} {:3} {:40} ".format("HW Authentication", ":", question18[n]))
             table_for_report.append(["HW Authentication", question18[n]])
-            answers_list.append(qans["Q18"])
+            answers_list.append(questions_and_answers["Q18"])
             comments_list.append(question18[n])
 
     list_aux = []
     # it is a multiple question
     # find if the answer correspond to option "others" (means that is only user input text)
-    if qans["Q19"][0].isdigit() == False and qans["Q19"].find(";") == -1:
-        list_aux.append(qans["Q19"])
+    if questions_and_answers["Q19"][0].isdigit() == False and questions_and_answers["Q19"].find(";") == -1:
+        list_aux.append(questions_and_answers["Q19"])
     else:
         # cut the string in the delimitator ";"
-        aux = qans["Q19"].split(";")
+        aux = questions_and_answers["Q19"].split(";")
         # delete last item (= None)
         aux = aux[:-1]
         for item in aux:
@@ -1181,15 +1180,15 @@ def printData():
 
     table_for_report.append(["HW Wireless Tech", ' ; '.join(list_aux)])
 
-    answers_list.append(qans["Q19"])
+    answers_list.append(questions_and_answers["Q19"])
     comments_list.append(' ; '.join(list_aux))
 
     for n in question20:
-        item = qans["Q20"]
+        item = questions_and_answers["Q20"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Data Center Phisical Access", ":", question20[n]))
             table_for_report.append(["Data Center Phisical Access", question20[n]])
-            answers_list.append(qans["Q20"])
+            answers_list.append(questions_and_answers["Q20"])
             comments_list.append(question20[n])
 
     # write / generate a file with all answers
@@ -1203,7 +1202,7 @@ def printData():
     - $version$: An integer constant equal to unity
 [Returns]: No return
 """   
-def securRequirconvertReport():
+def requirements_convert_report():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
     input_filename = ("SECURITY_REQUIREMENTS.md")
@@ -1246,7 +1245,7 @@ def goodPracticeConvertReport():
     - $version$: An integer constant equal to unity
 [Returns]: No return
 """   
-def attackModelConvertReport():
+def attack_models_convert_report():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
     input_filename = ("ATTACKS_MAPPING.md")
@@ -1267,7 +1266,7 @@ def attackModelConvertReport():
     - $version$: An integer constant equal to unity
 [Returns]: No return
 """   
-def testSpecConvertReport():
+def security_test_recommendation_convert_report():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
     input_filename = ("TEST_SPECIFICATION.md")
@@ -1334,26 +1333,26 @@ def switch1():
                 print("")
                 readInputFromFile()
 
-                qans["Q1"] = input_list[0]
-                qans["Q2"] = input_list[1]
-                qans["Q3"] = input_list[2]
-                qans["Q4"] = input_list[3]
-                qans["Q5"] = input_list[4]
-                qans["Q6"] = input_list[5]
-                qans["Q7"] = input_list[6]
-                qans["Q8"] = input_list[7]
-                qans["Q9"] = input_list[8]
-                qans["Q10"] = input_list[9]
-                qans["Q11"] = input_list[10]
-                qans["Q12"] = input_list[11]
-                qans["Q13"] = input_list[12]
-                qans["Q14"] = input_list[13]
-                qans["Q15"] = input_list[14]
-                qans["Q16"] = input_list[15]
-                qans["Q17"] = input_list[16]
-                qans["Q18"] = input_list[17]
-                qans["Q19"] = input_list[18]
-                qans["Q20"] = input_list[19]
+                questions_and_answers["Q1"] = input_list[0]
+                questions_and_answers["Q2"] = input_list[1]
+                questions_and_answers["Q3"] = input_list[2]
+                questions_and_answers["Q4"] = input_list[3]
+                questions_and_answers["Q5"] = input_list[4]
+                questions_and_answers["Q6"] = input_list[5]
+                questions_and_answers["Q7"] = input_list[6]
+                questions_and_answers["Q8"] = input_list[7]
+                questions_and_answers["Q9"] = input_list[8]
+                questions_and_answers["Q10"] = input_list[9]
+                questions_and_answers["Q11"] = input_list[10]
+                questions_and_answers["Q12"] = input_list[11]
+                questions_and_answers["Q13"] = input_list[12]
+                questions_and_answers["Q14"] = input_list[13]
+                questions_and_answers["Q15"] = input_list[14]
+                questions_and_answers["Q16"] = input_list[15]
+                questions_and_answers["Q17"] = input_list[16]
+                questions_and_answers["Q18"] = input_list[17]
+                questions_and_answers["Q19"] = input_list[18]
+                questions_and_answers["Q20"] = input_list[19]
 
             informationCapture()
 
@@ -1362,7 +1361,7 @@ def switch1():
         if case(2):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST REQUIREMENTS ELICITATION PROCESSING\n\n")
-            securityRequirements()
+            get_requirements()
             # You must specify the current path of the source code
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNS/SECloudMobDESIGNS.py/SECURITY_REQUIREMENTS.pdf')
             informationCapture()
@@ -1370,7 +1369,7 @@ def switch1():
         if case(3):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST BEST PRACTICES ELICITATION PROCESSING\n\n")
-            goodPractices()
+            get_good_practices()
             # You must specify the current path of the source code
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNS/SECloudMobDESIGNS.py/GOOD_PRACTICES.pdf')
             informationCapture()
@@ -1378,7 +1377,7 @@ def switch1():
         if case(4):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST ATTACK MODELS ELICITATION PROCESSING\n\n")
-            attackModels()
+            get_attack_models()
             # You must specify the current path of the source code
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNS/SECloudMobDESIGNS.py/ATTACKS_MAPPING.pdf')
             informationCapture()
@@ -1386,7 +1385,7 @@ def switch1():
         if case(5):
             print("\n********************************************************************************************\n")
             print("\t\tREQUEST TEST SPECIFICATION ELICITATION PROCESSING\n\n")
-            testSpecification()
+            get_security_test_recommendation()
             # You must specify the current path of the source code
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SECloudMobDESIGNS/SECloudMobDESIGNS.py/TEST_SPECIFICATION.pdf')
             informationCapture()
@@ -1432,7 +1431,7 @@ def informationCapture():
 [Arguments]: No arguments
 [Return]: No return
 """
-def securityRequirements():
+def get_requirements():
     print("")
     print("  Processing information.....")
     print("")
@@ -1456,13 +1455,13 @@ def securityRequirements():
     report.write("\n")
 
     # check if authentication, database and personal information, confidential or critical data are choosen
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/confidentiality.md", "r").read())
 
     # integrity requirements
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/integrity.md", "r").read())
@@ -1470,18 +1469,18 @@ def securityRequirements():
     report.write(open("requirements/avaliability.md", "r").read())
 
     # authentication requirements
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write(open("requirements/authentication.md", "r").read())
 
     # authorization requirements
-    # if (qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-    if qans["Q4"].find("1") != -1:
-        if qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    # if (questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1:
+        if questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write(open("requirements/authorization.md", "r").read())
 
     # nonRepudiaton requirements
-    if qans["Q4"].find("1") != -1:
-        if qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    if questions_and_answers["Q4"].find("1") != -1:
+        if questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("requirements/nonRepudiation.md", "r").read())
@@ -1491,56 +1490,56 @@ def securityRequirements():
     report.write(open("requirements/reliability.md", "r").read())
     
     # privacy requirements
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/privacy.md", "r").read())
 
     # physical security requirements
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) and qans["Q20"].find("1") != -1:
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1) and questions_and_answers["Q20"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/physicalSecurity.md", "r").read())
 
     # forgery resistance requirement
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) and qans["Q20"].find("1") != -1:
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1) and questions_and_answers["Q20"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/forgeryResistance.md", "r").read())
 
     # tampering detection requirement
-    if qans["Q20"].find("1") != -1:
+    if questions_and_answers["Q20"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/tamperDetection.md", "r").read())
 
     # data freshness requirements
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/dataFreshness.md", "r").read())
 
     # confinement requirements
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-        if qans["Q12"].find("1") != -1 or qans["Q14"].find("1") != -1 or qans["Q15"].find("1") != -1:
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
+        if questions_and_answers["Q12"].find("1") != -1 or questions_and_answers["Q14"].find("1") != -1 or questions_and_answers["Q15"].find("1") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("requirements/confinement.md", "r").read())
 
     # Interoperability requirement
-    if qans["Q12"].find("1") != -1 and qans["Q14"].find("1") != -1 and qans["Q15"].find("1") != -1:
+    if questions_and_answers["Q12"].find("1") != -1 and questions_and_answers["Q14"].find("1") != -1 and questions_and_answers["Q15"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/interoperability.md", "r").read())
 
     # data origin authentication
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("requirements/dataOriginAuthentication.md", "r").read())
 
     report.close()
-    securRequirconvertReport()
+    requirements_convert_report()
     print("# Processing done! Check your requirements in the SECURITY_REQUIREMENTS.pdf file")
 
 """
@@ -1548,7 +1547,7 @@ def securityRequirements():
 [Arguments]: No arguments
 [Return]: No return
 """
-def goodPractices():
+def get_good_practices():
     print("")
     print("  Processing information.....")
     print("")
@@ -1570,15 +1569,15 @@ def goodPractices():
     report.write("\n")
 
     # check if embebbed systems are chosen
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1 or qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
-        if qans["Q1"].find("7") != -1:
+    if questions_and_answers["Q1"].find("1") != -1 or questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1:
+        if questions_and_answers["Q1"].find("7") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("goodPractices/IOT_Security_guide.md", "r").read())
     
     # check if SQL database is choosed
-    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4"):
-        if qans["Q3"].find("1") != -1 and qans["Q5"].find("1"):
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4"):
+        if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1"):
             report.write("\n")
             report.write("\n")
             
@@ -1586,21 +1585,21 @@ def goodPractices():
             report.write(open("goodPractices/SQL_Injection_guide.md", "r").read())
 
     # check if language program are chosen
-    if (qans["Q1"].find("1") != -1 and (qans["Q10"].find("1") != -1 or qans["Q10"].find("4") != -1)):
+    if (questions_and_answers["Q1"].find("1") != -1 and (questions_and_answers["Q10"].find("1") != -1 or questions_and_answers["Q10"].find("4") != -1)):
         report.write("\n")
         report.write("\n")
         report.write(open("goodPractices/Java_C#_guide.md", "r").read())
 
     # check if input forms is used
-    if qans["Q11"].find("1") != -1:
+    if questions_and_answers["Q11"].find("1") != -1:
         report.write("\n")
         report.write("\n")
 
         # write input validation guide
         report.write(open("goodPractices/Input_Validation_guide.md", "r").read())
 
-    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
-        if qans["Q3"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1:
+        if questions_and_answers["Q3"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
             report.write("\n")
             report.write("\n")
             
@@ -1615,25 +1614,25 @@ def goodPractices():
             report.write("\n")
 
     # write Cryptography guide
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write("\n\n")
         report.write(open("goodPractices/Cryptography_guide.md", "r").read())
 
     # write SSL/TLS guide
-    if ((qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (
-            qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1)):
+    if ((questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (
+            questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1)):
         report.write("\n")
         report.write("\n")
         report.write(open("goodPractices/TLS_guide.md", "r").read())
 
-    if qans["Q9"].find("1") != -1:
+    if questions_and_answers["Q9"].find("1") != -1:
         report.write("\n")
         report.write("\n")
 
         # write Access Control guide
         report.write(open("goodPractices/Access_Control_guide.md", "r").read())
 
-    if qans["Q11"].find("1") != -1:
+    if questions_and_answers["Q11"].find("1") != -1:
         # check if file upload are chosen
 
         report.write("\n")
@@ -1641,19 +1640,19 @@ def goodPractices():
         report.write(open("goodPractices/File_Upload_guide.md", "r").read())
 
     # logging info
-    if qans["Q12"].find("1") != -1:
+    if questions_and_answers["Q12"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("goodPractices/Logging_guide.md", "r").read())
 
     # Update info
-    if qans["Q13"].find("1") != -1:
+    if questions_and_answers["Q13"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("goodPractices/App_Update_guide.md", "r").read())
 
     # Third-party info
-    if qans["Q14"].find("1") != -1:
+    if questions_and_answers["Q14"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("goodPractices/App_Third_Party_guide.md", "r").read())
@@ -1669,7 +1668,7 @@ def goodPractices():
 [Arguments]: No arguments
 [Return]: No return
 """
-def attackModels():
+def get_attack_models():
     print("")
     print("  Processing information.....")
     print("")
@@ -1691,8 +1690,8 @@ def attackModels():
     report.write("\n")
 
     # Database use and public cloud environment MitM attacks
-    if qans["Q4"].find("1") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q16"].find("4") != -1 or questions_and_answers["Q16"].find("2") != -1):
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/mitmAttack.md", "r").read())
@@ -1704,8 +1703,8 @@ def attackModels():
             report.write("\n")
     
     # If the application is web or hybrid, we have XSS
-    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1 and (questions_and_answers["Q16"].find("4") != -1 or questions_and_answers["Q16"].find("2") != -1):
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/XSS.md", "r").read())
@@ -1717,7 +1716,7 @@ def attackModels():
             report.write("\n")
             
     # If the aplication is web or hybrid, we have Cookie Poisoning
-    if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
+    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (questions_and_answers["Q16"].find("2") != -1 or questions_and_answers["Q16"].find("4") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/dnsPoisoningAttack.md", "r").read())
@@ -1729,8 +1728,8 @@ def attackModels():
         report.write("\n")
 
     # If the application is web or hybrid, we have Malicious QR Code Injection Attacks
-    if qans["Q4"].find("1") != -1:
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    if questions_and_answers["Q4"].find("1") != -1:
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/maliciousQRCode.md", "r").read())
@@ -1742,7 +1741,7 @@ def attackModels():
             report.write("\n")
             
     # If the application is web or hybrid, we have CAPTCHA Breaking Attacks
-    if (qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1) and (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
+    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (questions_and_answers["Q16"].find("2") != -1 or questions_and_answers["Q16"].find("4") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/captchaBreaking.md", "r").read())
@@ -1754,8 +1753,8 @@ def attackModels():
     # report.write("\n")
 
     # Database use and public cloud environment SQLi attacks
-    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
-        if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1:
+        if questions_and_answers["Q4"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/SQLi.md", "r").read())
@@ -1767,8 +1766,8 @@ def attackModels():
             report.write("\n")
     
     # DoS Attacks
-    if qans["Q4"].find("1") != -1 and (
-            qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (
+            questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write(open("attackModels/DoS.md", "r").read())
 
         # DoS attack tree diagram
@@ -1785,8 +1784,8 @@ def attackModels():
         report.write("\n")
         report.write("\n")
 
-    if qans["Q4"].find("1") != -1 and (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q16"].find("4") != -1 or questions_and_answers["Q16"].find("2") != -1):
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write(open("attackModels/Sniffer.md", "r").read())
 
             # Sniffer attack tree diagram
@@ -1796,7 +1795,7 @@ def attackModels():
             report.write("\n")
 
     # If the application is web or hybrid, we have DNS Poisoning Attack
-    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1:
         report.write(open("attackModels/DNS.md", "r").read())
 
         # DNS Poisoning attack tree diagram
@@ -1806,7 +1805,7 @@ def attackModels():
         # report.write("\n")
 
     # If the application is web or hybrid, we have Reused IP Address Attacks
-    if qans["Q1"].find("3") != -1 or qans["Q1"].find("4") != -1:
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/reusedIPAddress.md", "r").read())
@@ -1818,7 +1817,7 @@ def attackModels():
         report.write("\n")
 
     # If the application is web or hybrid, we have Phishing Attacks
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/phishingAttack.md", "r").read())
@@ -1839,7 +1838,7 @@ def attackModels():
         report.write("\n")
 
     # If the application is web or hybrid, we have XML
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
+    if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/XMLi.md", "r").read())
@@ -1851,9 +1850,9 @@ def attackModels():
         report.write("\n")
         
     # If the application is web or hybrid, we have Session Hijacking and Session Fixation
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
-        if qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
-            if qans["Q4"].find("1") != -1 and qans["Q10"].find("6") != -1:
+    if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
+        if questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
+            if questions_and_answers["Q4"].find("1") != -1 and questions_and_answers["Q10"].find("6") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attackModels/sessionHijacking.md", "r").read())
@@ -1876,8 +1875,8 @@ def attackModels():
                 report.write("\n")
                 
     # If the system was development for iOS, Tizen and embedded platforms (Buffer Overflow)
-    if qans["Q1"].find("2") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("7") != -1:
-        if qans["Q10"].find("2") != -1:
+    if questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("6") != -1 or questions_and_answers["Q1"].find("7") != -1:
+        if questions_and_answers["Q10"].find("2") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/bufferOverflows.md", "r").read())
@@ -1889,8 +1888,8 @@ def attackModels():
         report.write("\n")
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Mobile Apllication Spoofing )
-    if qans["Q4"].find("1") != -1 :
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    if questions_and_answers["Q4"].find("1") != -1 :
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/Spoofing.md", "r").read())
@@ -1902,8 +1901,8 @@ def attackModels():
             report.write("\n")
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Attack on VM at migration )
-    if qans["Q4"].find("1") != -1 :
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    if questions_and_answers["Q4"].find("1") != -1 :
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/VMMigration.md", "r").read())
@@ -1915,9 +1914,9 @@ def attackModels():
             report.write("\n")
             
     # If the system was development for Android, iOS, Tizen and embedded platforms (Insiders Malicious Attacks)
-    if qans["Q4"].find("1") != -1 :
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
-            if qans["Q20"].find("1") != -1:
+    if questions_and_answers["Q4"].find("1") != -1 :
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
+            if questions_and_answers["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attackModels/maliciousInsider.md", "r").read())
@@ -1929,7 +1928,7 @@ def attackModels():
                 report.write("\n")
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (VM Escape Attack)
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("attackModels/VMEscape.md", "r").read())
@@ -1941,8 +1940,8 @@ def attackModels():
         report.write("\n")
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Side-Channel)
-    if qans["Q4"].find("1") != -1:
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    if questions_and_answers["Q4"].find("1") != -1:
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attackModels/crossVM.md", "r").read())
@@ -1954,8 +1953,8 @@ def attackModels():
             report.write("\n")
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Malware Injection Attacks)
-        if (qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1) and qans["Q4"].find("1") != -1:    
-            if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+        if (questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1) and questions_and_answers["Q4"].find("1") != -1:    
+            if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attackModels/malwareInjection.md", "r").read())
@@ -1967,9 +1966,9 @@ def attackModels():
                 report.write("\n")
                 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Tampering Attacks)
-    if qans["Q4"].find("1") != -1:
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
-            if qans["Q20"].find("1") != -1:
+    if questions_and_answers["Q4"].find("1") != -1:
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
+            if questions_and_answers["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attackModels/tamperingAttack.md", "r").read())
@@ -1981,7 +1980,7 @@ def attackModels():
                 report.write("\n")
 
     report.close()
-    attackModelConvertReport()
+    attack_models_convert_report()
     print("# Processing done! Check your requirements in the ATTACKS_MAPPING.pdf file")
 
 """
@@ -1989,7 +1988,7 @@ def attackModels():
 [Arguments]: No arguments
 [Return]: No return
 """
-def testSpecification():
+def get_security_test_recommendation():
     print("")
     print("  Processing information.....")
     print("")
@@ -2011,15 +2010,15 @@ def testSpecification():
     report.write("\n")
     
     # Security Testing against DoS, DDoS and Botnet Attacks
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-        if qans["Q16"].find("1") != -1 or qans["Q16"].find("2") != -1 or qans["Q16"].find("3") != -1 or qans["Q16"].find("4") != -1 :
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
+        if questions_and_answers["Q16"].find("1") != -1 or questions_and_answers["Q16"].find("2") != -1 or questions_and_answers["Q16"].find("3") != -1 or questions_and_answers["Q16"].find("4") != -1 :
             report.write(open("securityTesting/BOTNETDOSDDOSTEST.md", "r").read())
             report.write("\n")
             report.write("\n")
 
     # Security Testing against MitM attacks
-    if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-        if (qans["Q16"].find("4") != -1 or qans["Q16"].find("2") != -1):
+    if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
+        if (questions_and_answers["Q16"].find("4") != -1 or questions_and_answers["Q16"].find("2") != -1):
             report.write("\n")
             report.write("\n")
             report.write(open("securityTesting/BotnetDoSDDoSPHISINGSPOOFINGPHISHINGMITMTEST.md", "r").read())
@@ -2027,38 +2026,38 @@ def testSpecification():
             report.write("\n")
 
     # Security Testing against SQLi, XMLi, CRSF, XSS, googleHacking, etc. and phishing attacks 
-    if qans["Q1"].find("4") != -1 or  qans["Q1"].find("3") != -1:
-        if qans["Q4"].find("1") != -1 and qans["Q5"].find("1") != -1 and (qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1):
-            if qans["Q16"].find("1") != -1 or (qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1):
+    if questions_and_answers["Q1"].find("4") != -1 or  questions_and_answers["Q1"].find("3") != -1:
+        if questions_and_answers["Q4"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
+            if questions_and_answers["Q16"].find("1") != -1 or (questions_and_answers["Q16"].find("2") != -1 or questions_and_answers["Q16"].find("4") != -1):
                 report.write("\n")
                 report.write("\n")
                 report.write(open("securityTesting/SQLiXSSCSRFSPOOFINGTEST.md", "r").read())
                 
     # Security Testing against Sniffing, Pharming, Phishing, Spoofing Attacks
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("2") != -1  or qans["Q1"].find("4") != -1 or qans["Q1"].find("3") != -1:
-        if qans["Q16"].find("2") != -1 or qans["Q16"].find("4") != -1:
+    if questions_and_answers["Q1"].find("1") != -1 or questions_and_answers["Q1"].find("2") != -1  or questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
+        if questions_and_answers["Q16"].find("2") != -1 or questions_and_answers["Q16"].find("4") != -1:
             report.write(open("securityTesting/BOTNETSNIFFINGSPOOFINGPHISHINGTEST.md", "r").read())
             report.write("\n")
             report.write("\n")
 
     # Malware Spoofing, Watering Hole Attack, Sniffing, etc.
-    if qans["Q1"].find("4") != -1 or qans["Q1"].find("2") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("3") != -1:
-        if qans["Q4"].find("1") != -1 and (qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1) :
-            if qans["Q19"].find("1") != -1 or  qans["Q19"].find("2") != -1 or qans["Q19"].find("4") != -1 or qans["Q19"].find("5") != -1 or qans["Q19"].find("6") != -1 or qans["Q19"].find("8") != -1 :
+    if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("6") != -1 or questions_and_answers["Q1"].find("3") != -1:
+        if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1) :
+            if questions_and_answers["Q19"].find("1") != -1 or  questions_and_answers["Q19"].find("2") != -1 or questions_and_answers["Q19"].find("4") != -1 or questions_and_answers["Q19"].find("5") != -1 or questions_and_answers["Q19"].find("6") != -1 or questions_and_answers["Q19"].find("8") != -1 :
                 report.write("\n")
                 report.write("\n")
                 report.write(open("securityTesting/BOTSPOOFINGSNIFFINGTEST.md", "r").read())
 
     # If the system was development for iOS, Tizen and embedded platforms (Buffer Overflows)
-    if qans["Q1"].find("2") != -1 or qans["Q1"].find("6") != -1 or qans["Q1"].find("7") != -1:
-        if qans["Q10"].find("2") != -1:
+    if questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("6") != -1 or questions_and_answers["Q1"].find("7") != -1:
+        if questions_and_answers["Q10"].find("2") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("securityTesting/BUFFEROVERFLOWTEST.md", "r").read())
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Attack on VM at migration )
-    if qans["Q4"].find("1") != -1:
-        if qans["Q7"].find("1") != -1 or qans["Q7"].find("2") != -1 or qans["Q7"].find("3") != -1:
+    if questions_and_answers["Q4"].find("1") != -1:
+        if questions_and_answers["Q7"].find("1") != -1 or questions_and_answers["Q7"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("securityTesting/MINSIDERVMMIGRATIONTEST.md", "r").read())
@@ -2066,9 +2065,9 @@ def testSpecification():
             report.write("\n")
   
     # If the system was development for Android, iOS, Tizen and embedded platforms (Insiders Malicious Attacks)
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find("6") != -1:
-        if qans["Q4"].find("1") != -1 and (qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
-            if qans["Q20"].find("1") != -1:
+    if questions_and_answers["Q1"].find("1") != -1 or questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("5") != -1 or questions_and_answers["Q1"].find("6") != -1:
+        if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q6"].find("1") != -1 or questions_and_answers["Q6"].find("2") != -1 or questions_and_answers["Q6"].find("3") != -1):
+            if questions_and_answers["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("securityTesting/MALWAREINJECTIONSIDECHANNELTEST.md", "r").read())
@@ -2076,9 +2075,9 @@ def testSpecification():
                 report.write("\n")
 
     # Security Testing against physical Attacks
-    if qans["Q1"].find("1") != -1 or qans["Q1"].find("4") != -1 or qans["Q1"].find("5") != -1 or qans["Q1"].find("6") != -1:
-        if qans["Q4"].find("1") != -1 and (qans["Q6"].find("1") != -1 or qans["Q6"].find("2") != -1 or qans["Q6"].find("3") != -1):
-            if qans["Q20"].find("1") != -1:
+    if questions_and_answers["Q1"].find("1") != -1 or questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("5") != -1 or questions_and_answers["Q1"].find("6") != -1:
+        if questions_and_answers["Q4"].find("1") != -1 and (questions_and_answers["Q6"].find("1") != -1 or questions_and_answers["Q6"].find("2") != -1 or questions_and_answers["Q6"].find("3") != -1):
+            if questions_and_answers["Q20"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("securityTesting/physicalAttacksTest.md", "r").read())
@@ -2086,7 +2085,7 @@ def testSpecification():
                 report.write("\n")
 
     report.close()
-    testSpecConvertReport()
+    security_test_recommendation_convert_report()
     print("# Processing done! Check your requirements in the TEST_SPECIFICATION.pdf file")
 
 """
@@ -2096,10 +2095,10 @@ def testSpecification():
 """    
 def fullReport():
     
-    securityRequirements()
-    goodPractices()
-    attackModels()
-    testSpecification()
+    get_requirements()
+    get_good_practices()
+    get_attack_models()
+    get_security_test_recommendation()
 
     pdfs = ['SECURITY_REQUIREMENTS.pdf', 'GOOD_PRACTICES.pdf', 'ATTACKS_MAPPING.pdf', 'TEST_SPECIFICATION.pdf']
 
