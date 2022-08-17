@@ -2,46 +2,26 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-<<<<<<< HEAD
-|  Mobile Plataform         |  IoT System                                                  |  
-|  Application domain type  |  Smart Agriculture                                           |  
-=======
-|  Mobile Plataform         |  Hybrid Application                                          |  
+|  Mobile Plataform         |  Web Application                                             |  
 |  Application domain type  |  m-Health                                                    |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
+|  Authentication schemes   |  Biometric-based authentication ; Channel-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
-<<<<<<< HEAD
-|  Type of data storage     |  Local Storage                                               |  
+|  Type of data storage     |  Local Storage (Centralized Database)                        |  
 |  Which DB                 |                                                              |  
-|  Type of data stored      |  Personal Information ; Confidential Data                    |  
+|  Type of data stored      |  Confidential Data ; Critical Data                           |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++                                                       |  
-|  Input Forms              |  No                                                          |  
-|  Upload Files             |  No                                                          |  
-=======
-|  Type of data storage     |  SQL (Relational Database)                                   |  
-|  Which DB                 |  SQLite                                                      |  
-|  Type of data stored      |  Critical Data                                               |  
-|  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  HTML5                                                       |  
+|  Programming Languages    |  Java ; HTML5                                                |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-<<<<<<< HEAD
-|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
-=======
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC                      |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -85,11 +65,7 @@ To ensure that the mobile application is resilient or immune to malicious MitM a
 ## Man-in-the-Middle Attack Diagram
 
 
-<<<<<<< HEAD
-![alt alt](./attackModels/mitmAttackTree.png)
-=======
 ![alt text](attackModels/mitmAttackTree.png
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 
 # Brute Force Attacks
 This type of attack consists in trying to access a system using some mechanism or simply 
@@ -141,8 +117,9 @@ the non-functional requirements of the application to be developed or deployed a
 2. [https://cwe.mitre.org/data/definitions/521.html]
 
 ## Brute Force Attack Tree Diagram
-![alt text](./attackModels/bruteForceAttackTree.png)
+![alt text](attackModels/bruteForceAttackTree.png)
 
+<<<<<<< HEAD
 # Eavesdropping Attacks
 Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information 
 of legitimate users from the messages (text, voice and video) exchanged between two or more users 
@@ -185,6 +162,50 @@ the non-functional requirements of the application to be developed or deployed a
 3. [https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].
 
 ## Eavesdropping Attack Tree Diagram
+=======
+# Eavesdropping Attacks
+Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information 
+of legitimate users from the messages (text, voice and video) exchanged between two or more users 
+of Instant Messaging (IM) applications. The same applies to recorded calls, call logs and multimedia 
+stored in clear text in memory cards.
+
+## Description
+An adversary intercepts a form of communication (e.g. text, audio, video) by way of software (e.g., microphone 
+and audio recording application), hardware (e.g., recording equipment), or physical means (e.g., physical proximity). 
+The goal of eavesdropping is typically to gain unauthorized access to sensitive information about the target for 
+financial, personal, political, or other gains. It entails listening in on the raw 
+audio source of a conversation between two or more parties. This type of attack can be carried out in two different ways:
+1. Shoulder Surfing (Physical Eavesdropping);
+2. Probe Audio and Video Peripheralsn (Software Eavesdropping).
+
+## Technical Impact
+* Read Data
+
+## Likelihood Of Attack
+* High
+
+## Typical Severity
+* High
+
+## Risk Analysis
+* High
+
+## Likelihood of Exploit
+* Medium
+
+## Recommendations
+In order to mitigate the espionage type attacks it is convenient to follow the good practice guidelines, aiming at incorporating
+the security mechanisms during the coding and implementation phase and carrying out the security tests suggested and present in 
+the report during the verification phase, with the purpose of ensuring that the functional requirements linked to security and 
+the non-functional requirements of the application to be developed or deployed are met.
+
+## References
+1. [https://capec.mitre.org/data/definitions/651.html];
+2. [https://cwe.mitre.org/data/definitions/200.html];
+3. [https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].
+
+## Eavesdropping Attack Tree Diagram
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 ![alt text](attackModels/eavesdroppingAttackTree.png)
 
 
@@ -543,6 +564,43 @@ To ensure that the mobile application is resilient or immune to Spoofing attacks
 
 
 
+# Session Hijacking Attack
+
+An attacker impersonates a legitimate user through stealing or predicting a valid session ID.
+
+## Definition
+
+The necessary condition for the session hijacking attack to occur is the existence of architectural vulnerabilities in the absence of protection for the storage of session identifiers. This vulnerability generally occurs in web applications written in PHP in previous versions (e.g., PHP 4.0 to PHP 4.1.2), As described in CVE-2002-0121.
+
+## Technical Impact
+* Read Application Data; 
+* Gain Privileges or Assume Identity; 
+* Execute Unauthorized Code or Commands.
+
+## Risk Analysis
+* Critical.
+
+## Likelihood of Exploit
+* High.
+
+## Attacker Powers
+
+ * Steal Session ID;
+ * Impersonation of a legitimate user and confidential information from a legitimate user.
+
+## References
+1. [https://www.cvedetails.com/cve/CVE-2002-0121/];
+2. [https://cwe.mitre.org/data/definitions/287.html];
+3. [https://capec.mitre.org/data/definitions/593.html].
+ 
+ 
+## Session Hijacking Attack Diagram
+
+
+![alt text](attackModels/sessionHijackingAttackTree.png)
+
+
+
 # Spoofing Attacks
 
 In a nutshell, spoofing attacks consist of spoofing the caller ID in order to impersonate a trusted entity and thus obtain confidential information in a disguised manner.
@@ -578,7 +636,43 @@ To ensure that the mobile application is resilient or immune to Spoofing attacks
 ## Spoofing Attacks Diagram
 
 
-![alt text](SecD4CLOUDMOBILEv1.1/attackModels/spoofingAttackTree.png)
+![alt text](attackModels/spoofingAttackTree.png)
+
+
+
+# VM Migration Attacks
+
+A malicious user can start or redirect the migration process to a different network in which he has access or untrusted host, or it can just be copied and used elsewhere, which compromise the VM with the passwords, credentials on it and in case of coping it makes it difficult to trace the attacker.
+
+
+## Definition
+
+VMs roll back to their previous state if an error occurs. Unfortunately, this factor can re-expose them to security vulnerabilities, and attackers can gain benefit to attack on this compromised hypervisor. It is important to protect the data during migration. In fact, this is the defending of data privacy and integrity from various network attacks during migration. Live migration might be susceptible to many attacks like ”man-in-the-middle”, ”denial-of-service” and ”replay. The data during the migration can be sniffed or tampered easily as it is not encrypted.
+
+## Technical Impact
+  * Read Application Data (lack of confidentiality);
+  * Modify Application Data (lack of integrity and confidentiality).
+## Risk Analisys
+  * High Risk.
+
+## Likelihood of Exploit
+  * High.
+  
+## Attacker Powers
+
+ * Launch attacks such as man-in-the-middle, DoS and replay;
+ * Detect or tamper with data during migration as it is not encrypted.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to VM Migration attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy, confinement, and authenticity of the data.
+
+## References
+  1. [https://cwe.mitre.org/data/definitions/311.html]. 
+
+ 
+## VM Migration Attacks Diagram
+
 
 ![alt text](attackModels/VMMigrationAttackTree.png)
 
@@ -730,6 +824,41 @@ In order to ensure that the mobile application is resilient or immune to the sid
 
 
 
+# Malware-as-a-Service
+
+This type of attack occurs whenever a user can install malware on a mobile device. In addition, this type of attack can be carried out remotely or locally.
+
+## Definition
+
+Attacks on the cloud and mobile application-level ecosystem can affect the integrity and confidentiality of data and applications through different strategies. E.g., by injecting malware. Malware can be  virus, worm, trojan, rootkit and botnet.
+
+## Technical Impact
+* Execute Unauthorized Code or Commands;
+* Read Application Data.
+
+## Risk Analysis
+* Critical Risk.
+
+## Likelihood of Exploit
+* Medium.
+  
+## Attacker Powers
+
+ * Access and steal users confidential data;
+ * Obtain root permissions on mobile devices and control the mobile device;
+ * Directly affect the computational integrity of mobile platforms along with the application.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious Malware Injection attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
+ 
+## Malware-as-a-Service Diagram
+
+
+![alt text](attackModels/malwareInjectionAttackTree.png)
+
+
+
 # Tampering Attacks
 
 In this type of attack an attacker preforms physical modifications on the hardware where the software is implemented.  
@@ -756,6 +885,46 @@ To ensure that the mobile application is resilient or immune to malicious Tamper
 
 
 ![alt text](attackModels/tamperingAttackTree.png)
+
+
+
+# Bluejacking, Bluesnarfing and BlueSmacking Attacks
+
+These are DDoS-type attacks that target a Bluetooth wireless network in order to shut down activity on it. It usually occurs through an attack coming from a connection of malicious entities in a target network.
+
+## Definition
+
+ Bluejacking occurs by sending unsolicited messages between the mobile devices (host nodes) over the Bluetooth connection. The unauthorized information can be accessed from a mobile device through Bluesnarfing to Bluetooth enabled devices using  OBject EXchange (OBEX) protocol. Through the Bluejacking attack, attackers can send unwanted sounds, videos to other Bluetooth enabled devices. Bluesnarfing attack consists of using Bluetooth connection for the purpose of stealing sensitive information (contacts, emails, passwords, photos, and other useful data) from wireless devices such as smartphones, tablets and IoT. In a Bluesmacking cenario attack, an adversary uses Bluetooth flooding to transfer large packets to Bluetooth enabled devices over the L2CAP protocol with the goal of creating a DoS.
+ 
+## Technical Impact
+
+ * Resource Consumption;
+ * Malware Injection;
+ * Unreliable Execution;
+ * Read Data.
+
+## Typical Severity
+
+ * Medium.
+
+## Risk Analysis
+
+ * High Risk.
+
+## Likelihood of Exploit
+
+ * Medium.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the Bluejacking, Bluesnarfing and BlueSmacking attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+1. atel, N., Wimmer, H., Rebman, C.M., 2021. Investigating bluetooth vulnerabilities to defend from attacks, in: 2021 5th International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT), IEEE, Ankara, Turkey. pp. 549–554. doi:10.1109/ISMSIT52890.2021.9604655.
+
+
+## Bluejacking, Bluesnarfing and BlueSmacking Attacks Diagram
+![alt text](attackModels/bluetoothAttackTree.png)
 
 
 

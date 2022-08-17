@@ -9,19 +9,11 @@
 <tbody>
 <tr>
 <td align="left">Mobile Plataform</td>
-<<<<<<< HEAD
-<td align="left">IoT System</td>
-</tr>
-<tr>
-<td align="left">Application domain type</td>
-<td align="left">Smart Agriculture</td>
-=======
-<td align="left">Hybrid Application</td>
+<td align="left">Web Application</td>
 </tr>
 <tr>
 <td align="left">Application domain type</td>
 <td align="left">m-Health</td>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 </tr>
 <tr>
 <td align="left">Authentication</td>
@@ -29,7 +21,7 @@
 </tr>
 <tr>
 <td align="left">Authentication schemes</td>
-<td align="left">Factors-based authentication ; ID-based authentication</td>
+<td align="left">Biometric-based authentication ; Channel-based authentication ; Factors-based authentication</td>
 </tr>
 <tr>
 <td align="left">Has DB</td>
@@ -37,19 +29,15 @@
 </tr>
 <tr>
 <td align="left">Type of data storage</td>
-<<<<<<< HEAD
-<td align="left">Local Storage</td>
-=======
-<td align="left">SQL (Relational Database)</td>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+<td align="left">Local Storage (Centralized Database)</td>
 </tr>
 <tr>
 <td align="left">Which DB</td>
-<td align="left">SQLite</td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
-<td align="left">Critical Data</td>
+<td align="left">Confidential Data ; Critical Data</td>
 </tr>
 <tr>
 <td align="left">User Registration</td>
@@ -57,19 +45,15 @@
 </tr>
 <tr>
 <td align="left">Type of Registration</td>
-<td align="left">Will be an administrator that will register the users</td>
+<td align="left">The users will register themselves</td>
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<<<<<<< HEAD
-<td align="left">C/C++</td>
-=======
-<td align="left">HTML5</td>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+<td align="left">Java ; HTML5</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 </tr>
 <tr>
 <td align="left">Upload Files</td>
@@ -101,11 +85,7 @@
 </tr>
 <tr>
 <td align="left">HW Wireless Tech</td>
-<<<<<<< HEAD
-<td align="left">5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi</td>
-=======
-<td align="left">3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC</td>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+<td align="left">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC</td>
 </tr>
 <tr>
 <td align="left">Data Center Phisical Access</td>
@@ -146,11 +126,7 @@
 <li>[https://www.first.org/cvss/v3.1/examples].</li>
 </ol>
 <h2>Man-in-the-Middle Attack Diagram</h2>
-<<<<<<< HEAD
-<p><img alt="alt alt" src="./attackModels/mitmAttackTree.png" /></p>
-=======
 <p>![alt text](attackModels/mitmAttackTree.png</p>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 <h1>Brute Force Attacks</h1>
 <p>This type of attack consists in trying to access a system using some mechanism or simply 
 using trial-and-error, aiming to guess the password of a legitimate user of 
@@ -204,7 +180,8 @@ the non-functional requirements of the application to be developed or deployed a
 <li>[https://cwe.mitre.org/data/definitions/521.html]</li>
 </ol>
 <h2>Brute Force Attack Tree Diagram</h2>
-<p><img alt="alt text" src="./attackModels/bruteForceAttackTree.png" /></p>
+<p><img alt="alt text" src="attackModels/bruteForceAttackTree.png" /></p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 <h1>Eavesdropping Attacks</h1>
 <p>Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information 
 of legitimate users from the messages (text, voice and video) exchanged between two or more users 
@@ -250,7 +227,68 @@ the non-functional requirements of the application to be developed or deployed a
 <li>[https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].</li>
 </ol>
 <h2>Eavesdropping Attack Tree Diagram</h2>
-<p><img alt="alt text" src="attackModels/eavesdroppingAttackTree.png" /></p>
+<p>=======</p>
+<h1>Eavesdropping Attacks</h1>
+<p>Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information 
+of legitimate users from the messages (text, voice and video) exchanged between two or more users 
+of Instant Messaging (IM) applications. The same applies to recorded calls, call logs and multimedia 
+stored in clear text in memory cards.</p>
+<h2>Description</h2>
+<p>An adversary intercepts a form of communication (e.g. text, audio, video) by way of software (e.g., microphone 
+and audio recording application), hardware (e.g., recording equipment), or physical means (e.g., physical proximity). 
+The goal of eavesdropping is typically to gain unauthorized access to sensitive information about the target for 
+financial, personal, political, or other gains. It entails listening in on the raw 
+audio source of a conversation between two or more parties. This type of attack can be carried out in two different ways:
+1. Shoulder Surfing (Physical Eavesdropping);
+2. Probe Audio and Video Peripheralsn (Software Eavesdropping).</p>
+<h2>Technical Impact</h2>
+<ul>
+<li>Read Data</li>
+</ul>
+<h2>Likelihood Of Attack</h2>
+<ul>
+<li>High</li>
+</ul>
+<h2>Typical Severity</h2>
+<ul>
+<li>High</li>
+</ul>
+<h2>Risk Analysis</h2>
+<ul>
+<li>High</li>
+</ul>
+<h2>Likelihood of Exploit</h2>
+<ul>
+<li>Medium</li>
+</ul>
+<h2>Recommendations</h2>
+<p>In order to mitigate the espionage type attacks it is convenient to follow the good practice guidelines, aiming at incorporating
+the security mechanisms during the coding and implementation phase and carrying out the security tests suggested and present in 
+the report during the verification phase, with the purpose of ensuring that the functional requirements linked to security and 
+the non-functional requirements of the application to be developed or deployed are met.</p>
+<h2>References</h2>
+<ol>
+<li>[https://capec.mitre.org/data/definitions/651.html];</li>
+<li>[https://cwe.mitre.org/data/definitions/200.html];</li>
+<li>[https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].</li>
+</ol>
+<h2>Eavesdropping Attack Tree Diagram</h2>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>756a6f658e94ba3c11c4cd25afbb448e80592558
+<img alt="alt text" src="attackModels/eavesdroppingAttackTree.png" /></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <h1>Cross Site Scripting Attacks</h1>
 <p>In short, Cross Site Scripting (XSS) allows an attacker to execute a browser script bypassing access control mechanisms such as the same origin policy. During this attack a malicious script is injected into web content and user considering it to be authentic executes it over its own machine, thus giving either control of the machine or exposure of confidential information to the attacker.</p>
 <h2>Definition</h2>
@@ -541,6 +579,38 @@ that the measures described in the good practice report and the security tests p
  </p>
 <h2>XML Injection Attacks Diagram</h2>
 <p><img alt="alt text" src="attackModels/xmliAttackTree.png" /></p>
+<h1>Session Hijacking Attack</h1>
+<p>An attacker impersonates a legitimate user through stealing or predicting a valid session ID.</p>
+<h2>Definition</h2>
+<p>The necessary condition for the session hijacking attack to occur is the existence of architectural vulnerabilities in the absence of protection for the storage of session identifiers. This vulnerability generally occurs in web applications written in PHP in previous versions (e.g., PHP 4.0 to PHP 4.1.2), As described in CVE-2002-0121.</p>
+<h2>Technical Impact</h2>
+<ul>
+<li>Read Application Data; </li>
+<li>Gain Privileges or Assume Identity; </li>
+<li>Execute Unauthorized Code or Commands.</li>
+</ul>
+<h2>Risk Analysis</h2>
+<ul>
+<li>Critical.</li>
+</ul>
+<h2>Likelihood of Exploit</h2>
+<ul>
+<li>High.</li>
+</ul>
+<h2>Attacker Powers</h2>
+<ul>
+<li>Steal Session ID;</li>
+<li>Impersonation of a legitimate user and confidential information from a legitimate user.</li>
+</ul>
+<h2>References</h2>
+<ol>
+<li>[https://www.cvedetails.com/cve/CVE-2002-0121/];</li>
+<li>[https://cwe.mitre.org/data/definitions/287.html];</li>
+<li>[https://capec.mitre.org/data/definitions/593.html].
+ </li>
+</ol>
+<h2>Session Hijacking Attack Diagram</h2>
+<p><img alt="alt text" src="attackModels/sessionHijackingAttackTree.png" /></p>
 <h1>Spoofing Attacks</h1>
 <p>In a nutshell, spoofing attacks consist of spoofing the caller ID in order to impersonate a trusted entity and thus obtain confidential information in a disguised manner.</p>
 <h2>Definition</h2>
@@ -570,7 +640,36 @@ that the measures described in the good practice report and the security tests p
 <li>[https://cwe.mitre.org/data/definitions/290.html].</li>
 </ol>
 <h2>Spoofing Attacks Diagram</h2>
-<p><img alt="alt text" src="SecD4CLOUDMOBILEv1.1/attackModels/spoofingAttackTree.png" /></p>
+<p><img alt="alt text" src="attackModels/spoofingAttackTree.png" /></p>
+<h1>VM Migration Attacks</h1>
+<p>A malicious user can start or redirect the migration process to a different network in which he has access or untrusted host, or it can just be copied and used elsewhere, which compromise the VM with the passwords, credentials on it and in case of coping it makes it difficult to trace the attacker.</p>
+<h2>Definition</h2>
+<p>VMs roll back to their previous state if an error occurs. Unfortunately, this factor can re-expose them to security vulnerabilities, and attackers can gain benefit to attack on this compromised hypervisor. It is important to protect the data during migration. In fact, this is the defending of data privacy and integrity from various network attacks during migration. Live migration might be susceptible to many attacks like ”man-in-the-middle”, ”denial-of-service” and ”replay. The data during the migration can be sniffed or tampered easily as it is not encrypted.</p>
+<h2>Technical Impact</h2>
+<ul>
+<li>Read Application Data (lack of confidentiality);</li>
+<li>Modify Application Data (lack of integrity and confidentiality).</li>
+</ul>
+<h2>Risk Analisys</h2>
+<ul>
+<li>High Risk.</li>
+</ul>
+<h2>Likelihood of Exploit</h2>
+<ul>
+<li>High.</li>
+</ul>
+<h2>Attacker Powers</h2>
+<ul>
+<li>Launch attacks such as man-in-the-middle, DoS and replay;</li>
+<li>Detect or tamper with data during migration as it is not encrypted.</li>
+</ul>
+<h2>Recommendations</h2>
+<p>To ensure that the mobile application is resilient or immune to VM Migration attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy, confinement, and authenticity of the data.</p>
+<h2>References</h2>
+<ol>
+<li>[https://cwe.mitre.org/data/definitions/311.html]. </li>
+</ol>
+<h2>VM Migration Attacks Diagram</h2>
 <p><img alt="alt text" src="attackModels/VMMigrationAttackTree.png" /></p>
 <h1>Malicious Insiders Attacks</h1>
 <p>This type of attacks ocurre when there is a malicious entity (client, employee, Hypervisor, Cloud Provider/Broker, etc.) takes advantage of its privileges to covertly carry out any malicious activity such as information theft and data destruction or physical infrastructures.</p>
@@ -689,6 +788,33 @@ that the measures described in the good practice report and the security tests p
 </ol>
 <h2>Cross VM Attacks Diagram</h2>
 <p><img alt="alt text" src="attackModels/sideChannelAttackTree.png" /></p>
+<h1>Malware-as-a-Service</h1>
+<p>This type of attack occurs whenever a user can install malware on a mobile device. In addition, this type of attack can be carried out remotely or locally.</p>
+<h2>Definition</h2>
+<p>Attacks on the cloud and mobile application-level ecosystem can affect the integrity and confidentiality of data and applications through different strategies. E.g., by injecting malware. Malware can be  virus, worm, trojan, rootkit and botnet.</p>
+<h2>Technical Impact</h2>
+<ul>
+<li>Execute Unauthorized Code or Commands;</li>
+<li>Read Application Data.</li>
+</ul>
+<h2>Risk Analysis</h2>
+<ul>
+<li>Critical Risk.</li>
+</ul>
+<h2>Likelihood of Exploit</h2>
+<ul>
+<li>Medium.</li>
+</ul>
+<h2>Attacker Powers</h2>
+<ul>
+<li>Access and steal users confidential data;</li>
+<li>Obtain root permissions on mobile devices and control the mobile device;</li>
+<li>Directly affect the computational integrity of mobile platforms along with the application.</li>
+</ul>
+<h2>Recommendations</h2>
+<p>To ensure that the mobile application is resilient or immune to malicious Malware Injection attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.</p>
+<h2>Malware-as-a-Service Diagram</h2>
+<p><img alt="alt text" src="attackModels/malwareInjectionAttackTree.png" /></p>
 <h1>Tampering Attacks</h1>
 <p>In this type of attack an attacker preforms physical modifications on the hardware where the software is implemented.  </p>
 <h2>Definition</h2>
@@ -707,6 +833,37 @@ that the measures described in the good practice report and the security tests p
 <p>To ensure that the mobile application is resilient or immune to malicious Tampering attack, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.</p>
 <h2>Tampering Attacks Diagram</h2>
 <p><img alt="alt text" src="attackModels/tamperingAttackTree.png" /></p>
+<h1>Bluejacking, Bluesnarfing and BlueSmacking Attacks</h1>
+<p>These are DDoS-type attacks that target a Bluetooth wireless network in order to shut down activity on it. It usually occurs through an attack coming from a connection of malicious entities in a target network.</p>
+<h2>Definition</h2>
+<p>Bluejacking occurs by sending unsolicited messages between the mobile devices (host nodes) over the Bluetooth connection. The unauthorized information can be accessed from a mobile device through Bluesnarfing to Bluetooth enabled devices using  OBject EXchange (OBEX) protocol. Through the Bluejacking attack, attackers can send unwanted sounds, videos to other Bluetooth enabled devices. Bluesnarfing attack consists of using Bluetooth connection for the purpose of stealing sensitive information (contacts, emails, passwords, photos, and other useful data) from wireless devices such as smartphones, tablets and IoT. In a Bluesmacking cenario attack, an adversary uses Bluetooth flooding to transfer large packets to Bluetooth enabled devices over the L2CAP protocol with the goal of creating a DoS.</p>
+<h2>Technical Impact</h2>
+<ul>
+<li>Resource Consumption;</li>
+<li>Malware Injection;</li>
+<li>Unreliable Execution;</li>
+<li>Read Data.</li>
+</ul>
+<h2>Typical Severity</h2>
+<ul>
+<li>Medium.</li>
+</ul>
+<h2>Risk Analysis</h2>
+<ul>
+<li>High Risk.</li>
+</ul>
+<h2>Likelihood of Exploit</h2>
+<ul>
+<li>Medium.</li>
+</ul>
+<h2>Recommendations</h2>
+<p>In order to ensure that the mobile application is resilient or immune to the Bluejacking, Bluesnarfing and BlueSmacking attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.</p>
+<h2>References</h2>
+<ol>
+<li>atel, N., Wimmer, H., Rebman, C.M., 2021. Investigating bluetooth vulnerabilities to defend from attacks, in: 2021 5th International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT), IEEE, Ankara, Turkey. pp. 549–554. doi:10.1109/ISMSIT52890.2021.9604655.</li>
+</ol>
+<h2>Bluejacking, Bluesnarfing and BlueSmacking Attacks Diagram</h2>
+<p><img alt="alt text" src="attackModels/bluetoothAttackTree.png" /></p>
 <h1>GPS Jamming Attacks</h1>
 <p>This is a DoS attack that targets the GPS sensor, aiming to make this service (position, path, speed, direction, time, and distance) unavailable to users of the target mobile devices.</p>
 <h2>Definition</h2>

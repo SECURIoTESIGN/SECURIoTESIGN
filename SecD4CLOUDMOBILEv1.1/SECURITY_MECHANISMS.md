@@ -2,46 +2,26 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-<<<<<<< HEAD
-|  Mobile Plataform         |  IoT System                                                  |  
-|  Application domain type  |  Smart Agriculture                                           |  
-=======
-|  Mobile Plataform         |  Hybrid Application                                          |  
+|  Mobile Plataform         |  Web Application                                             |  
 |  Application domain type  |  m-Health                                                    |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
+|  Authentication schemes   |  Biometric-based authentication ; Channel-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
-<<<<<<< HEAD
-|  Type of data storage     |  Local Storage                                               |  
+|  Type of data storage     |  Local Storage (Centralized Database)                        |  
 |  Which DB                 |                                                              |  
-|  Type of data stored      |  Personal Information ; Confidential Data                    |  
+|  Type of data stored      |  Confidential Data ; Critical Data                           |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++                                                       |  
-|  Input Forms              |  No                                                          |  
-|  Upload Files             |  No                                                          |  
-=======
-|  Type of data storage     |  SQL (Relational Database)                                   |  
-|  Which DB                 |  SQLite                                                      |  
-|  Type of data stored      |  Critical Data                                               |  
-|  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  HTML5                                                       |  
+|  Programming Languages    |  Java ; HTML5                                                |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-<<<<<<< HEAD
-|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
-=======
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC                      |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -230,16 +210,40 @@ In order to ensure that personal data, applications and servers are authentic an
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authenticity</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Factors-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Two-factor, Three-factor, Multi-factor</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Biometric-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Gaze Gesture, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Electrocardiogram, Voice </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">recognition, Signature </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">recognition, Gait recognition, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Behavior profiling, Fingerprint, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Smart card, Multi-touch </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">interfaces, Graphical </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">password, Face recognition, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Iris recognition, Rhythm, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Capacitive touch-screen, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Ear Shape, Arm Gesture, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Keystroke Dinamics, Touch </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">dinamics</span> </td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
   </tr>
+</tbody>
+</table>
+In order to ensure that personal data, applications and servers are authentic and that they are only accessed by legitimate or authorized entities, it is recommended to incorporate the authentication and backup mechanisms in the implementation and codification phase of the software development process, as described in the table below.
 
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Requirement</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Plataform</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Mechanism Type</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Description</span></th>
+    <th class="tg-0pky"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black;background-color:#A6A6A6">Layer</span></th>
+  </tr>
+</thead>
+<tbody>
+  
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authenticity</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Channel-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Physical proximity, Electronic</span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">voting, Seamless roaming, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Transitive authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Atribute-based authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">User-habit-oriented authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Handover authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
+  </tr>
   <tr>
     <td class="tg-0pky"></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Secure Boot</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums  </span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature, checksums, Trusted Plataform Module</span></td>
     <td class="tg-0pky">Boot verification of hardware, software and firmware integrity</td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
   </tr>
@@ -247,14 +251,6 @@ In order to ensure that personal data, applications and servers are authentic an
 </table>
 In order to ensure that personal data, applications and servers are authentic and that they are only accessed by legitimate or authorized entities, it is recommended to incorporate the authentication and backup mechanisms in the implementation and codification phase of the software development process, as described in the table below.
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
 <table class="tg">
 <thead>
   <tr>
@@ -271,17 +267,18 @@ In order to ensure that personal data, applications and servers are authentic an
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authenticity</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">ID-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Remote user authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Multi-server remote user authentication, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">One-to-many authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Factors-based </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Two-factor, Three-factor, Multi-factor</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
   </tr>
+
   <tr>
     <td class="tg-0pky"></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Both</span></td>
     <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Secure Boot</span></td>
-    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums<span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Digital Signature or checksums  </span></td>
     <td class="tg-0pky">Boot verification of hardware, software and firmware integrity</td>
-    <td class="tg-0pky">Application</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
   </tr>
 </tbody>
 </table>

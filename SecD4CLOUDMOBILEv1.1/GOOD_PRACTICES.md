@@ -2,52 +2,50 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-<<<<<<< HEAD
-|  Mobile Plataform         |  IoT System                                                  |  
-|  Application domain type  |  Smart Agriculture                                           |  
-=======
-|  Mobile Plataform         |  Hybrid Application                                          |  
+|  Mobile Plataform         |  Web Application                                             |  
 |  Application domain type  |  m-Health                                                    |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
+|  Authentication schemes   |  Biometric-based authentication ; Channel-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
-<<<<<<< HEAD
-|  Type of data storage     |  Local Storage                                               |  
+|  Type of data storage     |  Local Storage (Centralized Database)                        |  
 |  Which DB                 |                                                              |  
-|  Type of data stored      |  Personal Information ; Confidential Data                    |  
+|  Type of data stored      |  Confidential Data ; Critical Data                           |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++                                                       |  
-|  Input Forms              |  No                                                          |  
-|  Upload Files             |  No                                                          |  
-=======
-|  Type of data storage     |  SQL (Relational Database)                                   |  
-|  Which DB                 |  SQLite                                                      |  
-|  Type of data stored      |  Critical Data                                               |  
-|  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  HTML5                                                       |  
+|  Programming Languages    |  Java ; HTML5                                                |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-<<<<<<< HEAD
-|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
-=======
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC                      |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
 
-<<<<<<< HEAD
-=======
+# SQL Injection  
+
+An SQL injection attack consists of insertion or "injection" of either a partial or complete SQL query via the data input or transmitted from the client (browser) to the web application. 
+SQL Injection flaws are introduced when software developers create dynamic database queries that include user supplied input. To avoid SQL injection flaws is simple. Developers need to either: 
+
+ * stop writing dynamic queries; 
+ * prevent user supplied input which contains malicious SQL from affecting the logic of the executed query. 
+
+## Primary Defenses: 
+
+ * Option 1: Use of Prepared Statements (with Parameterized Queries) 
+ * Option 2: Use of Stored Procedures 
+ * Option 3: White List Input Validation 
+ * Option 4: Escaping All User Supplied Input 
+
+## Additional Defenses: 
+
+ * Also: Enforcing Least Privilege 
+ * Also: Performing White List Input Validation as a Secondary Defense
+
 #  Input Validation 
 
 **Input validation** is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components. 
@@ -93,7 +91,6 @@ Many web applications do not treat email addresses correctly due to common misco
 
  [https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md)
 
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 ## Session Management
 
 A web session is a sequence of network HTTP request and response transactions associated to the same user. Modern and complex web applications require the retaining of information or status about each user for the duration of multiple requests. Therefore, sessions provide the ability to establish variables - such as access rights and localization settings - which will apply to each and every interaction a user has with the web application for the duration of the session.
@@ -334,8 +331,6 @@ The has relationship between the user and permission may be satisfied by creatin
 A user is considered a member of a user group if and only if the user inherits permissions from the user group.  Systems that provide fine-grained domain object level access control, permissions may be grouped into classes. The system can be associated with a class which determines the permissions applicable to the respective domain object. 
 >In such a system a "DOCUMENT" class may be defined with the permissions "READ", "WRITE" and "DELETE"; a "SERVER" class may be defined with the permissions "START", "STOP", and "REBOOT".
 
-<<<<<<< HEAD
-=======
 # File Uploading
 
 Into web applications, when we expect upload of working documents from users, we can expose the application to submission of documents that we can categorize as malicious.	
@@ -463,7 +458,6 @@ Error messages are often logged to text files or files viewed within a web brows
 
 [https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md)
 
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 # Application Regular Updates
 
 Mobile devices and platforms, such as, for example, smartphones, typically provide the capability for operating system (OS), firmware (FW) and applications updates or re-installations with reduced user involvement. The user involvement may often be limited to clicking an icon or accepting an agreement. While this reduced level of involvement may provide convenience and an improved user experience, it fails to address the issue of secure user authentication.

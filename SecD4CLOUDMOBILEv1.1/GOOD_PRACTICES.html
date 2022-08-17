@@ -9,19 +9,11 @@
 <tbody>
 <tr>
 <td align="left">Mobile Plataform</td>
-<<<<<<< HEAD
-<td align="left">IoT System</td>
-</tr>
-<tr>
-<td align="left">Application domain type</td>
-<td align="left">Smart Agriculture</td>
-=======
-<td align="left">Hybrid Application</td>
+<td align="left">Web Application</td>
 </tr>
 <tr>
 <td align="left">Application domain type</td>
 <td align="left">m-Health</td>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 </tr>
 <tr>
 <td align="left">Authentication</td>
@@ -29,7 +21,7 @@
 </tr>
 <tr>
 <td align="left">Authentication schemes</td>
-<td align="left">Factors-based authentication ; ID-based authentication</td>
+<td align="left">Biometric-based authentication ; Channel-based authentication ; Factors-based authentication</td>
 </tr>
 <tr>
 <td align="left">Has DB</td>
@@ -37,19 +29,15 @@
 </tr>
 <tr>
 <td align="left">Type of data storage</td>
-<<<<<<< HEAD
-<td align="left">Local Storage</td>
-=======
-<td align="left">SQL (Relational Database)</td>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+<td align="left">Local Storage (Centralized Database)</td>
 </tr>
 <tr>
 <td align="left">Which DB</td>
-<td align="left">SQLite</td>
+<td align="left"></td>
 </tr>
 <tr>
 <td align="left">Type of data stored</td>
-<td align="left">Critical Data</td>
+<td align="left">Confidential Data ; Critical Data</td>
 </tr>
 <tr>
 <td align="left">User Registration</td>
@@ -57,19 +45,15 @@
 </tr>
 <tr>
 <td align="left">Type of Registration</td>
-<td align="left">Will be an administrator that will register the users</td>
+<td align="left">The users will register themselves</td>
 </tr>
 <tr>
 <td align="left">Programming Languages</td>
-<<<<<<< HEAD
-<td align="left">C/C++</td>
-=======
-<td align="left">HTML5</td>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+<td align="left">Java ; HTML5</td>
 </tr>
 <tr>
 <td align="left">Input Forms</td>
-<td align="left">No</td>
+<td align="left">Yes</td>
 </tr>
 <tr>
 <td align="left">Upload Files</td>
@@ -101,11 +85,7 @@
 </tr>
 <tr>
 <td align="left">HW Wireless Tech</td>
-<<<<<<< HEAD
-<td align="left">5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi</td>
-=======
-<td align="left">3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC</td>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+<td align="left">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC</td>
 </tr>
 <tr>
 <td align="left">Data Center Phisical Access</td>
@@ -113,8 +93,25 @@
 </tr>
 </tbody>
 </table>
-<<<<<<< HEAD
-=======
+<h1>SQL Injection</h1>
+<p>An SQL injection attack consists of insertion or "injection" of either a partial or complete SQL query via the data input or transmitted from the client (browser) to the web application. 
+SQL Injection flaws are introduced when software developers create dynamic database queries that include user supplied input. To avoid SQL injection flaws is simple. Developers need to either: </p>
+<ul>
+<li>stop writing dynamic queries; </li>
+<li>prevent user supplied input which contains malicious SQL from affecting the logic of the executed query. </li>
+</ul>
+<h2>Primary Defenses:</h2>
+<ul>
+<li>Option 1: Use of Prepared Statements (with Parameterized Queries) </li>
+<li>Option 2: Use of Stored Procedures </li>
+<li>Option 3: White List Input Validation </li>
+<li>Option 4: Escaping All User Supplied Input </li>
+</ul>
+<h2>Additional Defenses:</h2>
+<ul>
+<li>Also: Enforcing Least Privilege </li>
+<li>Also: Performing White List Input Validation as a Secondary Defense</li>
+</ul>
 <h1>Input Validation</h1>
 <p><strong>Input validation</strong> is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components. </p>
 <h2>Implementing input validation</h2>
@@ -154,7 +151,6 @@ JavaScript or uses a Web Proxy. Ensure that any input validation performed on th
 <li>Ensure the address is deliverable.</li>
 </ul>
 <p><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md">https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md</a></p>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 <h2>Session Management</h2>
 <p>A web session is a sequence of network HTTP request and response transactions associated to the same user. Modern and complex web applications require the retaining of information or status about each user for the duration of multiple requests. Therefore, sessions provide the ability to establish variables - such as access rights and localization settings - which will apply to each and every interaction a user has with the web application for the duration of the session.</p>
 <p>Additionally, web applications will make use of sessions once the user has authenticated. This ensures the ability to identify the user on any subsequent requests as well as being able to apply security access controls, authorized access to the user private data, and to increase the usability of the application. Therefore, current web applications can provide session capabilities both pre and post authentication.</p>
@@ -342,8 +338,6 @@ Authorization includes the execution rules that determines what functionality an
 <blockquote>
 <p>In such a system a "DOCUMENT" class may be defined with the permissions "READ", "WRITE" and "DELETE"; a "SERVER" class may be defined with the permissions "START", "STOP", and "REBOOT".</p>
 </blockquote>
-<<<<<<< HEAD
-=======
 <h1>File Uploading</h1>
 <p>Into web applications, when we expect upload of working documents from users, we can expose the application to submission of documents that we can categorize as malicious. 
 We use the term "malicious" here to refer to documents that embed malicious code that will be executed when another user (admin, back office operator...) will open the document with the associated application reader.  <br />
@@ -450,7 +444,6 @@ For Images document:</li>
 <li>If necessary provide an error code to the user which maps to the error data in the log file. A user reporting an error can provide this code to help diagnose issue.</li>
 </ul>
 <p><a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md">https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md</a></p>
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 <h1>Application Regular Updates</h1>
 <p>Mobile devices and platforms, such as, for example, smartphones, typically provide the capability for operating system (OS), firmware (FW) and applications updates or re-installations with reduced user involvement. The user involvement may often be limited to clicking an icon or accepting an agreement. While this reduced level of involvement may provide convenience and an improved user experience, it fails to address the issue of secure user authentication.</p>
 <p>Mobile devices and platforms, such as smartphones, typically provide features for operating system (OS), firmware (FW) upgrades, and applications or reinstallations with reduced user engagement. User engagement may be limited to clicking an icon or accepting a contract. While this reduced level of engagement can provide convenience and enhance the user experience, it does not address the issue of secure user authentication. Thus, it is necessary to create a secure channel that provides confidentiality, integrity, authentication and data updating.</p>

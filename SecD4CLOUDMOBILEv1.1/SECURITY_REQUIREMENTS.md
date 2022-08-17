@@ -2,46 +2,26 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-<<<<<<< HEAD
-|  Mobile Plataform         |  IoT System                                                  |  
-|  Application domain type  |  Smart Agriculture                                           |  
-=======
-|  Mobile Plataform         |  Hybrid Application                                          |  
+|  Mobile Plataform         |  Web Application                                             |  
 |  Application domain type  |  m-Health                                                    |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
+|  Authentication schemes   |  Biometric-based authentication ; Channel-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
-<<<<<<< HEAD
-|  Type of data storage     |  Local Storage                                               |  
+|  Type of data storage     |  Local Storage (Centralized Database)                        |  
 |  Which DB                 |                                                              |  
-|  Type of data stored      |  Personal Information ; Confidential Data                    |  
+|  Type of data stored      |  Confidential Data ; Critical Data                           |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++                                                       |  
-|  Input Forms              |  No                                                          |  
-|  Upload Files             |  No                                                          |  
-=======
-|  Type of data storage     |  SQL (Relational Database)                                   |  
-|  Which DB                 |  SQLite                                                      |  
-|  Type of data stored      |  Critical Data                                               |  
-|  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  HTML5                                                       |  
+|  Programming Languages    |  Java ; HTML5                                                |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-<<<<<<< HEAD
-|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
-=======
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC                      |  
->>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
