@@ -2,18 +2,18 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Android App ; IoT System                                    |  
-|  Application domain type  |  Smart Home                                                  |  
+|  Mobile Plataform         |  IoT System                                                  |  
+|  Application domain type  |  Smart Agriculture                                           |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  ID-based authentication                                     |  
 |  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  Distributed Storage                                         |  
+|  Type of data storage     |  Local Storage                                               |  
 |  Which DB                 |                                                              |  
 |  Type of data stored      |  Personal Information ; Confidential Data                    |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++ ; Java                                                |  
-|  Input Forms              |  Yes                                                         |  
+|  Programming Languages    |  C/C++                                                       |  
+|  Input Forms              |  No                                                          |  
 |  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
@@ -21,7 +21,7 @@
 |  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi                       |  
+|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -120,60 +120,6 @@ In order to avoid or prevent *Botnet, DoS, DDoS, Eavesdropping, Phishing, MITM, 
     <td class="tg-0lax">Dnamic Analysis via Stressing Testing (fuzzing) </td>
     <td class="tg-0lax">Webfuzz, SPI Fuzzer, Wfuzz </td>
     <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-  </tr>
-</tbody>
-</table>
-
-
-
-In order to avoid or prevent *Sniffing, Eavesdropping, Botnet, Phishing and Spoofing Attacks*, the following security tests should be performed.
-
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0lax" rowspan="2"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Test Parameter</span></th>
-    <th class="tg-0lax" rowspan="2"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Testing Types</span></th>
-    <th class="tg-0lax" rowspan="2"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Testing Methods</span></th>
-    <th class="tg-0lax" colspan="3"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Tools</span></th>
-  </tr>
-  <tr>
-    <td class="tg-0lax"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Both</span></td>
-    <td class="tg-0lax"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">Android</span></td>
-    <td class="tg-0lax"><span style="font-weight:700;font-style:normal;text-decoration:none;color:black">iOS</span></td>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0lax">Use of encryption </td>
-    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">White Box</span></td>
-    <td class="tg-0lax">Static Analysis via Forensic Mobile </td>
-    <td class="tg-0lax">OpenSSL </td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Poor use of certificate parameters </td>
-    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Grey Box</span></td>
-    <td class="tg-0lax">Dinamic analysis via Vulnerability Scanner </td>
-    <td class="tg-0lax">Acunetix, Web3af, Nikto, IBM Security AppScan Standard and HP WebInspect </td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"></td>
-  </tr>
-  <tr>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Grey Box</span></td>
-    <td class="tg-0lax">Dinamic Analysis via Penetration Test</td>
-    <td class="tg-0lax">TCPDump, Wireshak </td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax">idb tool </td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Secure backup and logging </td>
-    <td class="tg-0lax"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Black Box</span></td>
-    <td class="tg-0lax">Dinamic Analysis via Proxies </td>
-    <td class="tg-0lax"></td>
-    <td class="tg-0lax">adb </td>
     <td class="tg-0lax"></td>
   </tr>
 </tbody>

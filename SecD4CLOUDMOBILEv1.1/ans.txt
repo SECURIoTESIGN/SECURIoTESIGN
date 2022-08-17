@@ -1,15 +1,15 @@
-1;7;                 # Android App ; IoT System
-13                   # Smart Home          
+7;                   # IoT System          
+10                   # Smart Agriculture   
 1                    # Yes                 
 4;                   # ID-based authentication
 1                    # Yes                 
-4                    # Distributed Storage 
+3                    # Local Storage       
                      #                     
 1;2;                 # Personal Information ; Confidential Data
 1                    # Yes                 
 1                    # The users will register themselves
-2;4;                 # C/C++ ; Java        
-1                    # Yes                 
+2;                   # C/C++               
+2                    # No                  
 2                    # No                  
 1                    # Yes                 
 1                    # Yes                 
@@ -17,5 +17,5 @@
 2                    # Hybrid Cloud        
 1                    # Yes                 
 3                    # Basic Authentication (user/pass)
-1;2;3;5;6;           # 3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi 
+3;1;2;5;6;           # 5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi 
 1                    # Yes                 

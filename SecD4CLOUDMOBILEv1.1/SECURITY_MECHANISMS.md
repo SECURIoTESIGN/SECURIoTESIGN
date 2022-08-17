@@ -2,18 +2,18 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Android App ; IoT System                                    |  
-|  Application domain type  |  Smart Home                                                  |  
+|  Mobile Plataform         |  IoT System                                                  |  
+|  Application domain type  |  Smart Agriculture                                           |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  ID-based authentication                                     |  
 |  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  Distributed Storage                                         |  
+|  Type of data storage     |  Local Storage                                               |  
 |  Which DB                 |                                                              |  
 |  Type of data stored      |  Personal Information ; Confidential Data                    |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++ ; Java                                                |  
-|  Input Forms              |  Yes                                                         |  
+|  Programming Languages    |  C/C++                                                       |  
+|  Input Forms              |  No                                                          |  
 |  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
@@ -21,7 +21,7 @@
 |  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi                       |  
+|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 

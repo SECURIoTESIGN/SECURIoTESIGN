@@ -2,18 +2,18 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Android App ; IoT System                                    |  
-|  Application domain type  |  Smart Home                                                  |  
+|  Mobile Plataform         |  IoT System                                                  |  
+|  Application domain type  |  Smart Agriculture                                           |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  ID-based authentication                                     |  
 |  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  Distributed Storage                                         |  
+|  Type of data storage     |  Local Storage                                               |  
 |  Which DB                 |                                                              |  
 |  Type of data stored      |  Personal Information ; Confidential Data                    |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++ ; Java                                                |  
-|  Input Forms              |  Yes                                                         |  
+|  Programming Languages    |  C/C++                                                       |  
+|  Input Forms              |  No                                                          |  
 |  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
@@ -21,189 +21,10 @@
 |  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi                       |  
+|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
-
-# IoT Security
-
-Internet of Things (IoT) devices fall into three main categories:
-
-* Sensors, which gather data;
-* Actuators, which effect actions;
-* Gateways, which act as communication hubs and may also implement some 
-automation logic.
-
-All these device types may stand alone or be embedded in a larger product. They may also be complemented by a web application or mobile device app and cloud based service.
-IoT devices, services and software, and the communication  channels that connect them, are at risk of attack by a variety of malicious parties.
-
-Malicious intent commonly takes advantage of poor design, but even unintentional leakage of data due to ineffective security controls can also bring dire consequences to consumers and vendors. Thus it is vital that IoT devices and services have security designed in from the outset.
-
-
-## Classification of Data
-
-* Define a data classification scheme and document it; 
-* Assess every item of data stored, processed, transmitted or received by a device and apply a data classification rating to it;
-* Ensure the security design protects every data item and collections of items against unauthorised viewing, changing or deletion,to at least its classification rating or higher.
-
-
-## Physical Security
-
-* Any interface used for administrationor test purposes during development should be removed from a production device, disabled or made physically inaccessible;
-* All test access points on production units must be disabled or locked, for example by blowing on-chip fuses to disable JTAG;
-* If a production device must have an administration port, ensure it has effective access controls, e.g. strong credential management, restricted ports, secureprotocols etc.;
-* Make the device circuitry physically inaccessible to tampering, e.g. epoxy chips to circuit board, resin encapsulation, hiding data and address lines under thesecomponents etc;
-* Provide secure protective casing and mounting options for deployment of devices in exposed locations;
-* For high-security deployments, consider design measures such as active masking or shielding to protect against side-channel attacks.
-
-
-## Device Secure Boot
-
-* Make sure the ROM-based secure boot function is always used. Use a multi-stage bootloader initiated by a minimal amount of read-only code; 
-* Use a hardware-based tamper-resistant capability (e.g. a microcontroller security subsystem, Secure Access Module (SAM) or Trusted Platform Module (TPM)) to store crucial data items and run the trusted authentication/cryptographic functions required for the boot process. Its limited secure storage capacity must hold the read-only first stage of the bootloader and all other data required to verify the authenticity of firmware;
-* Check each stage of boot code is valid and trusted immediately before running that code. Validating code immediately before its use can reduce the risk of attacks; 
-* At each stage of the boot sequence, wherever possible, check that only the expected hardware is present and matches the stage's configuration parameters;
-* Do not boot the next stage of device functionality until the previous stage has been successfully booted;
-* Ensure failures at any stage of the boot sequence fail gracefully into a secure state, to ensure no unauthorised access is gained to underlying systems, code or data. Any code run must have been previously authenticated.
-
-
-## Secure Operating System
-
-* Include in the operating system (OS) only those components (libraries, modules, packages etc.) that are required to support the functions of the device;
-* Shipment should include the latest stable OS component versions available;
-* Devices should be designed and shipped with the most secure configuration in place; 
-* Continue to update OS components to the latest stable versions throughout the lifetime of a deployed device;
-* Disable all ports, protocols and services that are not used;
-* Set permissions so users/applications cannot write to the root file system;
-* If required, accounts for ordinary users/applications must have minimum access rights to perform the necessary functions. Separate administrator accounts (if required)will have greater rights of access. Do not run anything as root unless genuinely unavoidable;
-* Ensure all files and directories are given the minimum access rights to perform the required functions;
-* Consider implementing an encrypted file system.
-
-
-## Application Security
-
-
-* Applications must be operated at the lowest privilege level possible, not as root. Applications must only have access to those resources they need; 
-* Applications should be isolated from each other. For example, use sandboxing techniques such as virtual machines, containerisation, Secure Computing Mode (seccomp), etc
-* Ensure compliance with in-country data processing regulations;
-* Ensure all errors are handled gracefully and any messages produced do not reveal any sensitive information;
-* Never hard-code credentials into an application. Credentials must be stored separately in secure trusted storage and must be updateable in a way that ensures security is maintained;
-* Remove all default user accounts and passwords;
-* Use the most recent stable version of the operating system and libraries;
-* Never deploy debug versions of code. The distribution should not include compilers, files containing developer comments, sample code, etc.;
-* Consider the impact on the application/system if network connectivity is lost. Aim to maintain  normal functionality and security wherever possible.
-
-
-## Credential Management
-
-* A device should be uniquely identifiable by means of a factory-set tamper resistant hardware identifier if possible;
-* Use good password management techniques, for example no blank or simple passwords allowed,  never send passwords across a network (wired or wireless) in clear text, and employ a secure password reset process;
-* Each password stored for authenticating credentials must use an industry standard hash function, along with a unique salt value that is not obvious (for example, not a username);
-* Store credentials or encryption keys in a Secure Access Module (SAM), Trusted Platform Module  (TPM), Hardware Security Module (HSM) or trusted key store if possible;
-* Aim to use 2-factor authentication for accessing sensitive data if possible;
-* Ensure a trusted & reliable time source is available where authentication methods require this, e.g. for digital certificates;
-* A certificate used to identify a device must be unique and only used to identify that onedevice. Do not reuse the certificate across multiple devices;
-* A "factory reset" function must fully remove all user data/credentials stored on a device.
-
-
-## Encryption
-
-* When configuring a secure connection, if an encryption protocol offers a negotiable selection of algorithms, remove weaker options so they cannot be selected for use in a downgrade attack;
-* Store encryption keys in a Secure Access Module (SAM), Trusted Platform Module (TPM), Hardware Security Module (HSM) or trusted key store if possible;
-* Do not use insecure protocols, e.g. FTP, Telnet;
-* It should be possible to securely replace encryption keys remotely;
-* If implementing public/private key cryptography, use unique keys per device and avoid using global keys. A device's private key should be generated by that device or supplied by an associated secure credential solution, e.g. smart card. It should remain on that  device and never be shared/visible to elsewhere. 
-
-
-## Network Connections
-
-* Activate only those network interfaces that are required (wired, wireless - including Bluetooth etc.);
-* Run only those services on the network that are required;
-* Open up only those network ports that are required;
-* Run a correctly configured software firewall on the device if possible;
-* Always use secure protocols, e.g. HTTPS, SFTP;
-* Never exchange credentials in clear text or over weak solutions such as HTTP Basic Authentication;
-* Authenticate every incoming connection to ensure it comes from a legitimate source.
-* Authenticate the destination before sending sensitive data.
-
-
-## Logging
-
-* Ensure all logged data comply with prevailing data protection regulations;
-* Run the logging function in its own operating system process, separate from other functions;
-* Store log files in their own partition, separate from other system files.
-* Set log file maximum size and rotate logs;
-* Where logging capacity is limited, just log start-up and shutdown parameters, login/access attempts and anything unexpected;
-* Restrict access rights to log files to the minimum required to function;
-* If logging to a central repository, send log data over a secure channel if the logs carry sensitive data and/or protection against tampering of logs must be assured;
-* Implement log "levels" so that lightweight logging can be the standard approach, but with the option to run more detailed logging when required;
-* Monitor and analyse logs regularly to extract valuable information and insight;
-* Passwords and other secret information should not ever be displayed in logs.
-
-
-(https://www.iotsecurityfoundation.org/wp-content/uploads/2019/03/Best-Practice-Guides-Release-1.2.1.pdf)[https://www.iotsecurityfoundation.org/wp-content/uploads/2019/03/Best-Practice-Guides-Release-1.2.1.pdf]
-
-# Java and C# Security Flavour Implementation
-
-Since mobile-application security for the permissions-based Android platform and currently use Java and C# programming languages, in order to ensure security in the software, the SDLC should take into account the following procedures:
-
- * Use mechanisms that enforce access control of applications to system resources, by defining permissions and protection domains and by using access control algorithms;
- * Pay attention to setting the access level (private, package, protected and public) for each reference to an element of a primitive data or to an object;
- * Use mechanisms that enforce language conventions, that is, lower-level mechanisms that require, among other things, that programs interfere with the normal operation of the sandbox, during compilation, loading in the virtual machine (VM) of the bytecodes, and execution. For compilation and loading in the VM of the bytecodes, static code analysis is used, and dynamic code analysis is performed.
-
-In the event of runtime authorization failures, when an access control policy does not grant sufficient permissions to a user or an access control policy grants users unneeded permissions, the system may be exposed to security attacks. In this case, it is recommended to use the two major approaches in the Java and .Net Common Language Runtime platforms:
-
- * Stack-based Access Control (SBAC): Ensure that only programs that satisfy a set of permission requirements gain access to restricted resources. SBAC systems should always stick to the Principle of Least Privilege;
- * Role-based Access Control (RBAC): is a mechanism to restrict access to authorized users. RBAC systems provide access control based on permissions and roles.
-
-Not addressing this requirement may lead to vulnerabilities explored by attacks such as: 
- * Missing authentication: Missing authentication is a security vulnerability that occurs in software that does not perform any authentication for functionalities that require a provable user identity or consume a significant amount of resources.
-
-#  Input Validation 
-
-**Input validation** is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components. 
-
-## Implementing input validation	
-
- * Data type validators available natively in web application frameworks; 
- * Validation against JSON Schema and XML Schema (XSD) for input in these formats; 
- * Type conversion (e.g. Integer.parseInt() in Java, int() in Python) with strict exception handling; 
- * Minimum and maximum value range check for numerical parameters and dates; 
- * Minimum and maximum length check for strings; 
- * Array of allowed values for small sets of string parameters (e.g. days of week); 
- * Regular expressions for any other structured data covering the whole input string (^...$) and not using "any character" wildcard (such as . or \S) 
-
-If it's well structured data, like dates, social security numbers, zip codes, e-mail addresses, etc. then the developer should be able to define a very strong validation pattern, usually based on regular expressions, for validating such input. 
-If the input field comes from a fixed set of options, like a drop down list or radio buttons, then the input needs to match exactly one of the values offered to the user in the first place. 
-Free-form text, especially with Unicode characters, is perceived as difficult to validate due to a relatively large space of characters that need to be whitelisted. 
-The primary means of input validation for free-form text input should be: 
-
- * Normalization: Ensure canonical encoding is used across all the text and no invalid characters are present; 
- * Character category whitelisting: Unicode allows whitelisting categories such as "decimal digits" or "letters" which  not only covers the Latin alphabet but also various other scripts used globally (e.g. Arabic, Cyryllic, CJK ideographs etc); 
- * Individual character whitelisting: If you allow letters and ideographs in names and also want to allow apostrophe ' for Irish names, but don't want to allow the whole punctuation category. 
-
-## Client Side vs Server Side Validation
-		
-Be aware that any JavaScript input validation performed on the client can be bypassed by an attacker that disables 
-JavaScript or uses a Web Proxy. Ensure that any input validation performed on the client is also performed on the server. 
-
-## Email Validation Basics		
-
-Many web applications do not treat email addresses correctly due to common misconceptions about what constitutes a valid address. Specifically, it is completely valid to have an mailbox address which: 
-
- * Is case sensitive in the local portion of the address (left of the rightmost @ character); 
- * Has non-alphanumeric characters in the local-part (including + and @); 
- * Has zero or more labels. 
-
- Following RFC 5321, best practice for validating an email address would be to: 
-
- * Check for presence of at least one @ symbol in the address;
- * Ensure the local-part is no longer than 64 octets; 
- * Ensure the domain is no longer than 255 octets; 
- * Ensure the address is deliverable.
-
- [https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md)
 
 ## Session Management
 
@@ -463,52 +284,6 @@ The has relationship between the user and permission may be satisfied by creatin
 
 A user is considered a member of a user group if and only if the user inherits permissions from the user group.  Systems that provide fine-grained domain object level access control, permissions may be grouped into classes. The system can be associated with a class which determines the permissions applicable to the respective domain object. 
 >In such a system a "DOCUMENT" class may be defined with the permissions "READ", "WRITE" and "DELETE"; a "SERVER" class may be defined with the permissions "START", "STOP", and "REBOOT".
-
-# File Uploading
-
-Into web applications, when we expect upload of working documents from users, we can expose the application to submission of documents that we can categorize as malicious.	
-We use the term "malicious" here to refer to documents that embed malicious code that will be executed when another user (admin, back office operator...) will open the document with the associated application reader.	
-Usually, when an application expect his user to upload a document, the application expect to receive a document for which the intended use will be for reading/printing/archiving. The document should not alter is content at opening time and should be in a final rendered state.
-
-The most common file types used to transmit malicious code into file upload feature are the following:
-
-* Microsoft Office document: Word/Excel/Powerpoint
-* Adobe PDF document: Insert malicious code as attachment.
-* Images: Malicious code embedded into the file or use of binary file with image file extension.
-
-
-
-For Word/Excel/Powerpoint/Pdf documents:
- 
-* Detect when a document contains "code"/OLE package, if it's the case then block the upload process.
-For Images document:
-* Sanitize incoming image using re-writing approach and then disable/remove any "code" present (this approach also handle case in which the file sent is not an image).
-
-
-
-
-
-## Upload Verification
-
-* Use input validation to ensure the uploaded filename uses an expected extension type;
-* Ensure the uploaded file is not larger than a defined maximum file size;
-
-## Upload Storage
-
-* Use a new filename to store the file on the OS. Do not use any user controlled text for this filename or for the temporary filename;
-* Store all user uploaded files on a separate domain. Archives should be analyzed for malicious content (anti-malware, static analysis, etc).
-
-## Public Serving of Uploaded Content
-
-* Ensure the image is served with the correct content-type (e.g. image/jpeg, application/x-xpinstall).
-
-## Beware of "special" files
-
-* The upload feature should be using a whitelist approach to only allow specific file types and extensions. However, it is important to be aware of the following file types that, if allowed, could result in security vulnerabilities;
-
-* "crossdomain.xml" allows cross-domain data loading in Flash, Java and Silverlight. If permitted on sites with authentication this can permit cross-domain data theft and CSRF attacks. Note this can get pretty complicated depending on the specific plugin version in question, so its best to just prohibit files named "crossdomain.xml" or "clientaccesspolicy.xml".
-
-* ".htaccess" and ".htpasswd" provides server configuration options on a per-directory basis, and should not be permitted. 
 
 # Application Regular Updates
 

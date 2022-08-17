@@ -2,18 +2,18 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Plataform         |  Android App ; IoT System                                    |  
-|  Application domain type  |  Smart Home                                                  |  
+|  Mobile Plataform         |  IoT System                                                  |  
+|  Application domain type  |  Smart Agriculture                                           |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  ID-based authentication                                     |  
 |  Has DB                   |  Yes                                                         |  
-|  Type of data storage     |  Distributed Storage                                         |  
+|  Type of data storage     |  Local Storage                                               |  
 |  Which DB                 |                                                              |  
 |  Type of data stored      |  Personal Information ; Confidential Data                    |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++ ; Java                                                |  
-|  Input Forms              |  Yes                                                         |  
+|  Programming Languages    |  C/C++                                                       |  
+|  Input Forms              |  No                                                          |  
 |  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
@@ -21,7 +21,7 @@
 |  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi                       |  
+|  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -63,7 +63,7 @@ To ensure that the mobile application is resilient or immune to malicious MitM a
 ## Man-in-the-Middle Attack Diagram
 
 
-![alt text](attackModels/mitmAttackTree.png)
+![alt alt](./attackModels/mitmAttackTree.png)
 
 # Brute Force Attacks
 This type of attack consists in trying to access a system using some mechanism or simply 
@@ -115,7 +115,7 @@ the non-functional requirements of the application to be developed or deployed a
 2. [https://cwe.mitre.org/data/definitions/521.html]
 
 ## Brute Force Attack Tree Diagram
-![alt text](attackModels/bruteForceAttackTree.png)
+![alt text](./attackModels/bruteForceAttackTree.png)
 
 # Eavesdropping Attacks
 Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information 
@@ -394,43 +394,7 @@ To ensure that the mobile application is resilient or immune to Spoofing attacks
 ## Spoofing Attacks Diagram
 
 
-![alt text](attackModels/spoofingAttackTree.png)
-
-
-
-# VM Migration Attacks
-
-A malicious user can start or redirect the migration process to a different network in which he has access or untrusted host, or it can just be copied and used elsewhere, which compromise the VM with the passwords, credentials on it and in case of coping it makes it difficult to trace the attacker.
-
-
-## Definition
-
-VMs roll back to their previous state if an error occurs. Unfortunately, this factor can re-expose them to security vulnerabilities, and attackers can gain benefit to attack on this compromised hypervisor. It is important to protect the data during migration. In fact, this is the defending of data privacy and integrity from various network attacks during migration. Live migration might be susceptible to many attacks like ”man-in-the-middle”, ”denial-of-service” and ”replay. The data during the migration can be sniffed or tampered easily as it is not encrypted.
-
-## Technical Impact
-  * Read Application Data (lack of confidentiality);
-  * Modify Application Data (lack of integrity and confidentiality).
-## Risk Analisys
-  * High Risk.
-
-## Likelihood of Exploit
-  * High.
-  
-## Attacker Powers
-
- * Launch attacks such as man-in-the-middle, DoS and replay;
- * Detect or tamper with data during migration as it is not encrypted.
-
-## Recommendations
-
-To ensure that the mobile application is resilient or immune to VM Migration attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy, confinement, and authenticity of the data.
-
-## References
-  1. [https://cwe.mitre.org/data/definitions/311.html]. 
-
- 
-## VM Migration Attacks Diagram
-
+![alt text](SecD4CLOUDMOBILEv1.1/attackModels/spoofingAttackTree.png)
 
 ![alt text](attackModels/VMMigrationAttackTree.png)
 
@@ -552,41 +516,6 @@ In order to ensure that the mobile application is resilient or immune to the sid
 
 
 ![alt text](attackModels/sideChannelAttackTree.png)
-
-
-
-# Malware Injection Attacks
-
-This type of attack occurs whenever a user can install malware on a mobile device. In addition, this type of attack can be carried out remotely or locally.
-
-## Definition
-
-Attacks on the cloud and mobile application-level ecosystem can affect the integrity and confidentiality of data and applications through different strategies. E.g., by injecting malware. Malware can be  virus, worm, trojan, rootkit and botnet.
-
-## Technical Impact
-* Execute Unauthorized Code or Commands;
-* Read Application Data.
-
-## Risk Analysis
-* Critical Risk.
-
-## Likelihood of Exploit
-* Medium.
-  
-## Attacker Powers
-
- * Access and steal users confidential data;
- * Obtain root permissions on mobile devices and control the mobile device;
- * Directly affect the computational integrity of mobile platforms along with the application.
-
-## Recommendations
-
-To ensure that the mobile application is resilient or immune to malicious Malware Injection attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
- 
-## Malware Injection Attacks Diagram
-
-
-![alt text](attackModels/malwareInjectionAttackTree.png)
 
 
 
