@@ -79,7 +79,7 @@ questions_and_answers = {
 }
 
 # Questions
-# Q1   -> Mobile Plataform
+# Q1   -> Mobile Platform
 # Q2   -> Application Domain Type
 # Q3   -> Authentication 
 # Q4   -> Authentication Schemes
@@ -372,9 +372,9 @@ def arqui(version):
     print("---")
     print("")
     if version == 1:
-        print("  **Which will be the mobile plataform of the system?**  ")
+        print("  **Which will be the mobile platform of the system?**  ")
     else:
-        print("  **What is the mobile plataform of the system?**  ")
+        print("  **What is the mobile platform of the system?**  ")
     print("  (This is a multiple choice question. Enter several options and end with 0.)  ")
     print("")
     print("  1 - Android Application  ")
@@ -398,7 +398,7 @@ def arqui(version):
         if value == 0:
             return
         if value == 10:
-            print("  Please specify the mobile plataform: (name between single quotes)  ")
+            print("  Please specify the mobile platform: (name between single quotes)  ")
             value2 = validateInput(2)
             questions_and_answers["Q1"] = questions_and_answers["Q1"] + str(value2) + ";"
 
@@ -853,7 +853,7 @@ def allowThirdParty(version):
     - $version$: An integer constant equal to unity
 [Returns]: No return
 """
-def cloudPlataform(version):
+def cloudPlatform(version):
     print("")
     print("---")
     print("")
@@ -1021,8 +1021,8 @@ def printData():
                 list_aux.append(item)
 
     # print(list_aux)
-    print("{:22} {:3} {:40} ".format("Mobile Plataform", ":", ' ; '.join(list_aux)))
-    table_for_report.append(["Mobile Plataform", ' ; '.join(list_aux)])
+    print("{:22} {:3} {:40} ".format("Mobile Platform", ":", ' ; '.join(list_aux)))
+    table_for_report.append(["Mobile Platform", ' ; '.join(list_aux)])
 
     answers_list.append(questions_and_answers["Q1"])
     comments_list.append(' ; '.join(list_aux))
@@ -1503,7 +1503,7 @@ def switch1():
                 systemLogs(version)
                 allowUpdateSystem(version)
                 allowThirdParty(version)
-                cloudPlataform(version)
+                cloudPlatform(version)
                 hardwareSpecs(version)
                 dataCenterAcess(version)
                 print("**The questionnaire is over!**")
