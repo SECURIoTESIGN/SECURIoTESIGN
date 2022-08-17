@@ -8,10 +8,12 @@ In this type of attack an active man listen and change communications between Mo
 This type of attack occurs whenever an attacker intends to intercept communications in order to interpret or alter the original data in transit between the sender and the receiver establishing a conversation.
 
 ## Technical Impact
+
  * An attacker is able to decrypt and read all SSL/TLS traffic between the client and server;
  * Gain Privileges or Assume Identity.
+
 ## Risk Analysis
-* Critical Risk.
+ * Critical Risk.
 
 ## Likelihood of Exploit
  * Medium.

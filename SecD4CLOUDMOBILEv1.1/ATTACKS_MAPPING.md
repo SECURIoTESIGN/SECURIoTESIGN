@@ -2,11 +2,17 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
+<<<<<<< HEAD
 |  Mobile Plataform         |  IoT System                                                  |  
 |  Application domain type  |  Smart Agriculture                                           |  
+=======
+|  Mobile Plataform         |  Hybrid Application                                          |  
+|  Application domain type  |  m-Health                                                    |  
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  ID-based authentication                                     |  
+|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
 |  Has DB                   |  Yes                                                         |  
+<<<<<<< HEAD
 |  Type of data storage     |  Local Storage                                               |  
 |  Which DB                 |                                                              |  
 |  Type of data stored      |  Personal Information ; Confidential Data                    |  
@@ -15,13 +21,27 @@
 |  Programming Languages    |  C/C++                                                       |  
 |  Input Forms              |  No                                                          |  
 |  Upload Files             |  No                                                          |  
+=======
+|  Type of data storage     |  SQL (Relational Database)                                   |  
+|  Which DB                 |  SQLite                                                      |  
+|  Type of data stored      |  Critical Data                                               |  
+|  User Registration        |  Yes                                                         |  
+|  Type of Registration     |  Will be an administrator that will register the users       |  
+|  Programming Languages    |  HTML5                                                       |  
+|  Input Forms              |  Yes                                                         |  
+|  Upload Files             |  Yes                                                         |  
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
+<<<<<<< HEAD
 |  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
+=======
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC                      |  
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
@@ -36,10 +56,12 @@ In this type of attack an active man listen and change communications between Mo
 This type of attack occurs whenever an attacker intends to intercept communications in order to interpret or alter the original data in transit between the sender and the receiver establishing a conversation.
 
 ## Technical Impact
+
  * An attacker is able to decrypt and read all SSL/TLS traffic between the client and server;
  * Gain Privileges or Assume Identity.
+
 ## Risk Analysis
-* Critical Risk.
+ * Critical Risk.
 
 ## Likelihood of Exploit
  * Medium.
@@ -63,7 +85,11 @@ To ensure that the mobile application is resilient or immune to malicious MitM a
 ## Man-in-the-Middle Attack Diagram
 
 
+<<<<<<< HEAD
 ![alt alt](./attackModels/mitmAttackTree.png)
+=======
+![alt text](attackModels/mitmAttackTree.png
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 
 # Brute Force Attacks
 This type of attack consists in trying to access a system using some mechanism or simply 
@@ -121,7 +147,7 @@ the non-functional requirements of the application to be developed or deployed a
 Eavesdropping is a type of attack where the attacker tries to gain access to sensitive information 
 of legitimate users from the messages (text, voice and video) exchanged between two or more users 
 of Instant Messaging (IM) applications. The same applies to recorded calls, call logs and multimedia 
-stored in clear text on memory cards.
+stored in clear text in memory cards.
 
 ## Description
 An adversary intercepts a form of communication (e.g. text, audio, video) by way of software (e.g., microphone 
@@ -161,77 +187,247 @@ the non-functional requirements of the application to be developed or deployed a
 ## Eavesdropping Attack Tree Diagram
 ![alt text](attackModels/eavesdroppingAttackTree.png)
 
-# Denial of Services
 
-In a DoS attack scenario, the attacker attempts to disrupt the network or disable services provisioned by a server by sending uninterrupted data packets to the target server and without changing nodes, data packets, or decrypting encrypted data. Typically, these data packets take up bandwidth and consume server resources.
+
+# Cross Site Scripting Attacks
+
+In short, Cross Site Scripting (XSS) allows an attacker to execute a browser script bypassing access control mechanisms such as the same origin policy. During this attack a malicious script is injected into web content and user considering it to be authentic executes it over its own machine, thus giving either control of the machine or exposure of confidential information to the attacker.
 
 ## Definition
 
-In such attacks, the attacker attempts to prevent a service or feature that is signed by authorized users from being released by launching various types of floods - SYN flooding, User Datagram Protocol (UDP) flooding, Internet Control Message Protocol (ICMP) attacks ) flooding, etc - on the server.
+Being an attack that exploits vulnerabilities in web applications, the attacker in this type of attack executes malicious database claims, exploiting improper validation of data flowing from the user to the database. The attacker's goal is to access the intended party's confidential data by inserting malicious code into the user's web page in order to redirect them to their site. There are two ways to forge this type of attack:
 
+ * Stored XSS (uninterruptedly stores malicious code in a resource managed by the web application);
+ * Reflective XSS (promptly reflects malicious code against the user and therefore does not store it permanently;
+ * XSS based on DOM (Document Object Model).
+ 
 ## Technical Impact
-  * Crash, Exit, or Restart;
-  * Bypass protection mechanism;
-  * Other.
-
-## Risk
-  * High.
-
+ * Gain Privileges or Assume Identity;
+ * Bypass Protection Mechanism; 
+ * Read Application Data; 
+ * Modify Application Data; 
+ * DoS: Crash, Exit, or Restart.
+ 
+## Risk Analysis
+ * Critical Risk.
+ 
 ## Likelihood of Exploit
-  * High.
-
-## Attacker's Powers
-
- * Prevent the availability of a service or resource to authorized users;
- * Perpetrating other types of attacks while services or features are unavailable, such as Spoofing.
+ * Medium.
+ 
+## Attacker Powers
+ * Circumvent the policy of same origin;
+ * Impersonate you to websites and/or web applications you regularly use by obtaining/altering/destroying various types of content.
 
 ## Recommendations
 
-In order to ensure that the mobile application is resilient or immune to the DoS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+To ensure that the mobile application is resilient or immune to XSS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
 
 ## References
-1. [https://cwe.mitre.org/data/definitions/400.html]
+1. [https://cwe.mitre.org/data/definitions/352.html];
+2. [https://www.first.org/cvss/v3.1/examples]
 
-## Denial of Services Attacks Diagram
+## Cross Site Scripting Attacks Diagram
 
 
-![alt text](attackModels/DoSAttackTree.png)
+![alt text](attackModels/xssAttackTree.png)
 
-# Distributed Denial of Services Attacks
 
-Distributed Denial of Services (DDoS) is an enhanced DoS attack type, originating from multiple network attack surfaces that were previously compromised to disrupt the services or resources provided by the target server. It differs from DoS in that it generates more traffic, so that the targeted server cannot handle requests.
+
+# Cross Site Request Forgery Attacks
+O Cross Site Request Forgery (CSRF) é um ataque que força um utilizador final a executar acções indesejadas numa aplicação na qual está autenticado  naquele momento.
+
+## Definition
+Este tipo de ataque tem como finalidade a mudança de estado e não o roubo de dados, dado que o  invasor fica impedido de ver a resposta à solicitação falsificada. A condição
+necessária para que este tipo de ataque tenha sucesso é a existência da permissão de alterações através de solicitações GET.
+
+## Technical Impact
+* Bypass Protection Mechanism;
+* Gain Privileges;
+* DoS: Crash, Exit, or Restart;
+* Read and Modify Data.
+
+## Risk Analysis
+* High.
+
+## Likelihood of Exploit
+* High.
+
+## Attacker's Powers
+* Furtar valores monetários de forma simulada;
+* Realização de outros tipos de ataques;
+* Acesso a dados confidenciais (histórico da vítima) ou criticos (número de cartão de crédito) do utilizador.
+
+## Recommendations
+In order to ensure that the mobile application is resilient or immune to the CSRF attacks, it is recommended 
+that the measures described in the good practice report and the security tests present in the full report are followed.
+
+## References
+1. [https://capec.mitre.org/data/definitions/62.html];
+2. [https://cwe.mitre.org/data/definitions/352.html]
+![alt text](attackModels/csrfAttackTree.png)
+
+
+
+# Cache Poisoning Attacks
+
+In this type of attack the attacker uses DNS to convert the domain name to an IP address for the purpose of accessing the user's confidential data. On the other hand, sender and a receiver get rerouted through some evil connection.
 
 ## Definition
 
-The DDoS attack attempts to make a service unavailable to intended users by draining the system or network resource. Attackers can now launch various DDoS attacks, including resource-focused attacks (eg, network bandwidth, memory, and CPU) and app-focused attacks (eg, mobile applications, database service) from almost every attack. places.
+Cache poisoning is the act of introducing false information into a Domain Name System (DNS) cache in order to cause DNS queries to return an incorrect response and, e.g., redirect users to malicious websites. This type of attack can target the cache of an application (e.g., a web browser cache) or a public cache (e.g. a DNS or Address Resolution Protocol (ARP) cache), exposing the application to a variety of attacks, such as redirection to malicious websites and malware injection.
 
 ## Technical Impact
+  * Gain Privileges or Assume Identity; 
+  * Bypass Protection Mechanism.
+
+## Risk
+  * Medium.
+
+## Likelihood of Exploit
+  * Low.
+  
+## Attacker Powers
+  * Access confidential information from legitimate/authorized users;
+  * Perpetrate other types of attacks like DDoS and Main-in-the-Middle.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the DNS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
+## Reference
+  1. [https://cwe.mitre.org/data/definitions/350.html];
+  2. [https://capec.mitre.org/data/definitions/141.html].
+
+## Cache Poisoning Attacks Diagram
+
+
+![alt text](attackModels/cachePoisoningAttackTree.png)
+
+
+
+# Malicious QR Code Attacks
+
+In this type of attack, one of the strategies used by the attackers, after coding the malicious links, is to take them to phishing sites or execute fraudulent codes. In addition, in order to end this type of attack, the attackers often print the malicious QR codes on small stickers that are pasted on pre-existing QR codes. On the other hand, attackers often change selected modules from white to black and vice versa in order to replace the original encoded content.
+
+## Definition
+
+QR code-based attack is defined as an attack that attempts to lure victims into scanning a QR code that directs them to malicious websites. The key idea behind QR code attacks is that victims might trust the web page or the printed material on which the QR code is displayed, and assume that the associated code is harmless. In addition, attackers use malicious QR codes to direct users to fraudulent web sites, which masquerade as legitimate web sites aiming to steal sensitive personal information such as usernames, passwords or credit card information. 
+
+## Technical Impact
+  * Execute Unauthorized Code or Commands.
+
+## Risk Analysis
+  * High Risk.
+
+## Likelihood Exploits
+  * Low.
+
+## Attacker Powers
+
+ * Direct the user to an exploit or phishing site;
+ * Perform other attacks such as phishing, farming and botnet;
+ * Distribute malware;
+ * Extraction of personal and confidential data from smartphones and tablets via command injection or traditional buffer overflows by reader software;
+ * Steal users' Money via fraud;
+ * Social Engineering attacks via spear phishing e.g. leaving a poster of a QR Code on the parking lot of a company (instead of the traditional attack with an USB drive) offering discount in a nearby restaurant is a new attack vector which is likely to be successful.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to malicious QR Code attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity and authenticity of the data.
+
+## Malicious QR Code Attacks Diagram
+
+![alt text](attackModels/QRCodeAttackTree.png)
+
+
+
+# CAPTCHA Breaking Attacks
+
+
+CAPTCHAs were developed in order to prevent the usage of internet resources by bots or computers. They are used to prevent spam and overexploitation of network resources by bots. But recently, it has been found that the spammers (attackers) are able to break the CAPTCHA. In this case, we will be in the presence of an attack of this nature, Captcha Breaking.
+
+## Definition
+
+In this type of attacks, the attacker can break the CAPTCHAs by using an audio system, can read the CAPTCHAs by using speech to text conversion software and can also break image-based scheme and video-based scheme. 
+
+## Technical Impact
+* Bypass Protection Mechanism; 
+* Alter Execution Logic.
+
+## Risk Analysis
+* High Risk.
+
+## Likelihood of Exploit
+* Low.
+
+## Attacker Powers
+
+ * Spamming;
+ * Conducting DoS and DDoS attacks;
+ * Excessive exploitation of network resources by bots.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the CAPTCHA Breaking attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+
+## References
+1. [https://cwe.mitre.org/data/definitions/804.html];
+2. [https://www.first.org/cvss/calculator/3.1#CVSS:3.1/].
+
+
+## CAPTCHA Breaking Attacks Diagram
+
+# Flooding or Distributed Denial of Services (DDoS)  Attacks
+
+Flooding is an enhanced Denial of Service (DoS) attack type, originating from multiple network attack surfaces that were previously compromised to disrupt the services or resources provided by the target server. It differs from DoS in that it generates more traffic, so that the targeted server cannot handle requests. This type of attack generally exposes a weakness in rate limiting or flow.
+
+## Definition
+
+The Flooding attack attempts to make a service unavailable to intended users by draining the system or network resource. Attackers can now launch various DDoS attacks, including resource-focused attacks (eg, network bandwidth, memory, and CPU) and app-focused attacks (e.g., mobile applications, database service) from almost every attack places. This type of attack can be executed as follows:
+
+ * TCP Flood;
+ * UDP Flood;
+ * ICMP Flood;
+ * HTTP Flood;
+ * SSL Flood;
+ * Amplification;
+ * ML Flood;
+ * BlueSmacking.
+
+## Technical Impact
+
   * Crash, Exit, or Restart;
   * Bypass protection mechanism;
   * Other.
 
+## Typical Severity
+
+  * Medium.
+
 ## Risk
+
   * High.
 
 ## Likelihood of Exploit
   * High.
   
 ## Attacker's Powers
+
  * Make features and services unavailable to authorized users;
  * Perpetrate other types of attacks and even extract sensitive and critical data.
 
 ## Recommendations
 
-In order to ensure that the mobile application is resilient or immune to the DDoS attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
+In order to ensure that the mobile application is resilient or immune to the Flooding attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
 
 ## References
 1. [[https://cwe.mitre.org/data/definitions/400.html]
 
  
-## Distributed Denial of Services Attacks Diagram
+## Flooding Attacks Diagram
 
 
-![alt text](attackModels/DDoSAttackTree.png)
+![alt text](attackModels/floodingAttackTree.png)
 
 # Eavesdropping or Sniffing
 
@@ -317,45 +513,33 @@ A botnet is a set of compromised mobile devices. A necessary condition for these
 
 
 
-# Buffer Overflows Attack
+# XML Injection Attacks
 
-As its name implies, buffer overflows occur when data exceeding its capacity is placed in a buffer. This occurs in programs implemented in C or C++, as these programming languages do not check if buffer limits are violated.
-
+It is an attacking technique used against XML-based applications to modify or compromise their normal operation.
 
 ## Definition
 
-Buffer overflows is an anomaly where a program, while writing data to a buffer, overruns the buffer's boundary and overwrites adjacent memory. It can be triggered by non-validated inputs that are designed to execute code. Buffer overflow may result in erratic program behavior, including memory access errors, incorrect results, a crash, or a breach of system security.
+XML Injection (XMLi) attacks are carried out by injecting pieces of XML code along with malicious content into user inputs in order to produce harmful XML messages. The aim of this type of attacks is to compromise the system or system component that receives user inputs, making it malfunction (e.g. crash), or to attack other systems or subsequent components that process those injected XML messages. This type of attack can be classified into 4 categories:
+  
+ * Deforming: Attack input values of Type 1 are XML meta-characters, such as <, >, ]] >, that are intro- duced to compromise the structure of generated XML messages;
+ * Random closing tags: Attack input values of Type 2 are random XML closing tags (e.g., < /test>), aiming at deforming the generated XML messages to reveal their structure;
+ * Replicating: Attack input values of Type 3 are strings of characters consisting of XML tag names and malicious content;
+ * Replacing: Attack input values of Type 4 are similar to those of Type 3 but they involve multiple input fields in order to comment out some existing XML elements and inject new ones with malicious content.
 
-## Technical Impact
- * Modify Memory; 
- * Execute Unauthorized Code or Commands.
-
-## Risk Analysis
- * High Risk
-
-## Likelihood of Exploit
- * High.
- 
 ## Attacker Powers
 
- * Overwrite the return address of a procedure call;
- * Obtain control of a system;
- * Launch more virulent attacks, such DoS or DDoS.
+ * Obtain confidential information;
+ * Change the underlying business logic of the destination.
 
 ## Recommendations
 
-In order to ensure that the mobile application is resilient or immune to the buffer overflows attack, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed.
-
-## References
- 1. [https://cwe.mitre.org/data/definitions/120.html];
- 2. [https://www.first.org/cvss/calculator/3.1#CVSS:3.1/];
- 3. [https://www.first.org/cvss/v3.1/examples].
+To ensure that the mobile application is resilient or immune to Spoofing attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, integrity, privacy and authenticity of the data.
  
  
-## Buffer Overflows Attack Diagram
+## XML Injection Attacks Diagram
 
 
-![alt text](attackModels/bufferOverflowAttackTree.png)
+![alt text](attackModels/xmliAttackTree.png)
 
 
 
@@ -471,18 +655,40 @@ To ensure that the mobile application is resilient or immune to VM Escape attack
 
 
 
-# Cross VM Attacks (Sid-Channel attacks)
+# Side-Channel Attacks
 
-Side-channel attacks are used to extract cryptographic keys from a victim device or process in a virtualized layer of the cloud ecosystem where a Cross-VM attack exploits the nature of multi-tenancy, which enables that VMs belonging to different customers may co-reside on the same physical machine.
+It is a type of attack enabled by leakage of information from a physical cryptosystem.
 
 
 ## Definition
 
-The side-channel attack takes advantage of low-bandwidth message channels in a system to leak sensitive security information. There is no doubt that this type of attack exists and is real for today's computer systems, including modern smartphones and tablets. Here we highlight the cache-based side-channel attacks that have been used to steal cryptographic information from a single OS. Furthermore, the weak link is in the fact that cryptographic algorithms usually have data-dependent memory access patterns, giving the possibility of being revealed by the observation and statistical analysis of hits / errors from the associated cache. Recent research has shown attackers can build up cross-VM side channels to obtain sensitive information. However, currently these channels are mostly based on shared CPU cache, networks, CPU loads and so on. These attacks are generally categorized into one of three classes:
+Side-channel attacks use statistical models such as differential analysis and correlation analysis on the information leaked from the cryptographic device during runtime. While early attacks required attackers to be in physical possession of the device, newer side-channel attacks such as cache-timing attacks or DRAM row buffer attacks are conducted remotely by executing malicious software in the targeted cloud environment. Regarding smartphones/tablets, they have developed more sophisticated side-channel attacks that target the built-in sensors of these devices, allowing them to infer keyboard input on touchscreens through sensor readings of native applications and websites, infer a user's location by the power consumption available in the proc file system (procfs), and infer a user's identity, location and diseases through procfs.
 
  * Time-driven side-channel attack;
  * Trace-driven side-channel attacks;
  * Access-driven side-channel attacks.
+ * Power Analysis;
+ * Electromagnetic Analysis;
+ * Laser/optical;
+ * Clock/power Glitch;
+ * Temperature Variation;
+ * EMFI;
+ * Differential Computation Analysis
+ * Reflection/hands;
+ * Smudges;
+ * Network Traffic Analysis;
+ * USB Power Analysis;
+ * Wi-Fi Signal Monitoring;
+ * Figerprinting Devices;
+ * Data-usage Statistics;
+ * Page Deduplication;
+ * Procfs Leaks;
+ * Microarchitectural Attacks;
+ * Location Inference;
+ * Speech Recognition;
+ * Soundcomber;
+ * Sensor-based Keyloggers;
+ * Rowhammer.
 
 ## Technical Impact
 * Modify and Read Memory; 
@@ -511,6 +717,11 @@ The side-channel attack takes advantage of low-bandwidth message channels in a s
 ## Recommendations
 
 In order to ensure that the mobile application is resilient or immune to the side-channel attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+1. Grassi, P.A., et al., 2017. Digital identity guidelines. URL: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.
+800-63-3.pdf, doi:https://doi.org/10.6028/NIST.SP.800-63-3.
+2. Spreitzer, R., et al., 2018. Systematic classification of side-channel attacks: A case study for mobile devices. IEEE Communications Surveys Tutorials 20, 465–488. doi:10.1109/COMST.2017.2779824.
 
 ## Cross VM Attacks Diagram
 
@@ -545,4 +756,309 @@ To ensure that the mobile application is resilient or immune to malicious Tamper
 
 
 ![alt text](attackModels/tamperingAttackTree.png)
+
+
+
+# GPS Jamming Attacks
+
+This is a DoS attack that targets the GPS sensor, aiming to make this service (position, path, speed, direction, time, and distance) unavailable to users of the target mobile devices.
+
+## Definition
+
+ This attack aims to interrupt or obstruct the communication between the emitting satellite and the device (smartphone/tablet) receiving the GPS signal. Normally, the attack consists of blocking the signal from the receiver, since the receiving signal is weaker compared to the broadcasting signal, and can be carried out in two different ways:
+ 
+  * Blanket Jamming;
+  * Deception Jamming.  
+ 
+## Technical Impact
+
+ * Service unavailability.
+
+## Typical Severity
+
+ * High
+
+## Risk Analysis
+
+ * High Risk.
+
+## Likelihood of Exploit
+
+ * Low.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the GPS Jamming attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+1. [CAPEC-627: Counterfeit GPS Signals](https://capec.mitre.org/data/definitions/627.html).
+
+## GPS Jamming Attacks Diagram
+![alt text](attackModels/gps_jammingAttackTree.png)
+
+
+
+# DoS (Cellular) Jamming Attacks
+
+This type of attack aims to dominate and disrupt communication between a user's mobile device and the cell tower by actively transmitting signals.
+
+## Definition
+
+ Interference attacks target radio communication technology (communication between smart devices and base stations). This attack can be caused by noise, interference, disruption or by sending corrupted data packets, with the purpose of causing DoS in the physical transmission of signals on certain routes. 
+ 
+## Technical Impact
+
+ * Resource Consumption.
+
+## Typical Severity
+
+ * Low.
+
+## Risk Analysis
+
+ * High Risk.
+
+## Likelihood of Exploit
+
+ * Low.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the DoS Jamming attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+1. [CAPEC-605: Cellular Jamming](https://capec.mitre.org/data/definitions/605.html).
+2.Moorthy, V., Venkataraman, R., Rama Rao, T., 2020. Security and privacy attacks during data communication in software defined mobile clouds. Computer Communications 153, 515–526. URL: https://www.sciencedirect.com/science/article/pii/S0140366419317268, doi:https://doi.org/10.1016/j.comcom.2020.02.030.
+
+## DoS Jamming Attacks Diagram
+![alt text](attackModels/cellularJammingAttackTree.png)
+
+
+
+# Cryptanalysis Attacks
+
+This attack consists in deciphering a ciphered message without knowing the decryption key by exploiting vulnerabilities in the cryptographic algorithm.
+
+
+## Definition
+
+ Cryptanalysis focuses on finding vulnerabilities in cryptographic algorithms and using these weaknesses to decrypt the ciphertext without knowing the secret key. In addition, this can have other purposes such as Total Breach, Global Deduction, Information Deduction, and Distinguishing Algorithm.
+ 
+## Technical Impact
+
+* Read Data.
+
+## Typical Severity
+
+* Very High.
+
+## Risk Analysis
+
+* Very High Risk.
+
+## Likelihood of Exploit
+  
+* Low.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the Cryptanalysis Attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+1. [CAPEC-97: Cryptanalysis](https://capec.mitre.org/data/definitions/97.html).
+
+## Cryptanalysis Attacks Diagram
+![alt text](attackModels/cryptanalysisAttackTree.png)
+
+
+
+# Reverse Engineering Attacks
+
+Typically, this attack consists of using specific tools to analyze the target application (feature or resources), within its own local environment, downloaded from a mobile application store, such as Apple's App Store and Google's Play Store, respectively.
+
+
+
+## Definition
+
+Reverse engineering attacks (REA) target the assets embedded in software. In such an attack scenario, the attacker by reverse engineering attempts to steal confidential information, such as embedded cryptographic keys or intellectual property in the form of algorithms. There are two ways of carrying out this type of attack:
+
+ * White Box Reverse Engineering;
+ * Black Box Reverse Engineering.
+ 
+## Technical Impact
+* Reveal information about back end servers;
+* Reveal cryptographic constants and ciphers;
+* Steal intellectual property;
+* Perform attacks against back end systems;
+* Gain intelligence needed to perform subsequent code modification.
+
+## Risk Analysis
+  * High Risk.
+
+## Likelihood of Exploit
+  * Low.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the Reverse Engineering attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+1. Basile, C., et al., 2019. A meta-model for software protections and reverse engineering attacks. Journal of Systems and Software 150, 3–21. URL: https://www.sciencedirect.com/science/article/pii/
+S0164121218302838, doi:https://doi.org/10.1016/j.jss.2018.12.025.
+2. [M9: Reverse Engineering](https://owasp.org/www-project-mobile-top-10/2016-risks/m9-reverse-engineering).
+
+## Reverse Engineering Attacks Diagram
+
+
+![alt text](attackModels/reverseEngineeringAttackTree.png)
+
+
+
+# Audit Log Manipulation Attacks
+
+This type of attack targets log files for the purpose of manipulating (deleting, reading, and altering) them.
+
+## Definition
+
+In a log file audit manipulation attack scenario, an attacker injects, manipulates, deletes, or forges malicious entries in the log file in an attempt to deceive a log file audit or to cover impressions of an attack. The success of this type of attack depends on the insufficiency of log file access controls mechanisms.
+ 
+## Technical Impact
+
+* Modify Data.
+
+## Typical Severity
+
+* High.
+
+## Risk Analysis
+
+* High Risk.
+
+## Likelihood of Exploit
+  
+* High.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the Audit Log Manipulation Attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+
+1. [CAPEC-268: Audit Log Manipulation](https://capec.mitre.org/data/definitions/268.html).
+
+## Audit Log Manipulation Attacks Diagram
+![alt text](attackModels/auditLogManipulationAttackTree.png)
+
+
+
+# Wi-Fi Jamming Attacks
+
+In a scenario of this type of attack, the attacker targets the wireless network made available from the access point, with the aim of making it unavailable.
+
+## Definition
+
+ This is a denial-of-service attack that blocks the radio frequency, making access to the Wi-Fi network and consequently to the Internet unavailable. Generally, two techniques are used to carry out this type of attack, namely: 1) The attacker may flood the Wi-Fi access point (e.g. the retransmission device) with deauthentication frames; 2) Another method is to transmit high levels of noise on the RF band used by the Wi-Fi network.
+ 
+## Technical Impact
+
+* Resource Consumption.
+
+## Typical Severity
+
+* High.
+
+## Risk Analysis
+
+* High Risk.
+
+## Likelihood of Exploit
+  
+* Medium.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the Code Inclusion attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+1. [CAPEC-175: Code Inclusion](https://capec.mitre.org/data/definitions/175.html).
+
+## Code Inclusion Attacks Diagram
+![alt text](attackModels/Wi-Fi_JammingAttackTree.png)
+
+
+
+# Wi-Fi SSID Tracking Attacks
+
+Unlike code injection, in this type of attack, an attacker exploits a weakness in the target in order to force arbitrary code to be retrieved locally or from a remote location and executed.
+
+## Definition
+
+This type of attack aims to obtain sensitive data (location, routine, trajectory, etc.) of users of mobile devices using Wi-Fi networks to access the Internet. Furthermore, it consists of using sophisticated sniffing devices to bypass authentication (for closed networks), extract and identify the MAC address of the mobile device and establish a match with its potential owner.
+ 
+## Technical Impact
+
+ * Read Data;
+ * Bypass Protection Mechanism.
+
+## Typical Severity
+
+ * Low.
+
+## Risk Analysis
+
+ * Very High Risk.
+
+## Likelihood of Exploit
+
+ * Medium.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the Wi-Fi SSID Tracking attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+
+1. Matte, C., 2017. Wi-Fi tracking: Fingerprinting attacks and countermeasures. Ph.D. thesis. Université de Lyon.
+
+## Wi-Fi SSID Tracking Attacks Diagram
+![alt text](attackModels/Wi-Fi_TrackingAttackTree.png)
+
+
+
+# Byzantine Attacks
+
+In a Byzantine attack scenario, the attacker targets the routing protocols of an ad hoc wireless network, aiming to access and modify sensitive data exchanged between two or more entities on this network.
+
+## Definition
+
+ In a mobile ad hoc wireless network, Byzantine attacks are defined as attacks that target routing protocols, in which two or more routers collude to drop, fabricate, modify, or divert packets in an attempt to disrupt routing services.
+ 
+## Technical Impact
+
+* Read Data;
+* Modify Data;
+* Denial of service.
+
+## Typical Severity
+
+* High.
+
+## Risk Analysis
+
+* High Risk.
+
+## Likelihood of Exploit
+  
+* Medium.
+
+## Recommendations
+
+In order to ensure that the mobile application is resilient or immune to the Byzantine Attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+
+## References
+
+1. Yu, M., et al., 2009. A secure routing protocol against byzantine attacks for manets in adversarial environments. IEEE Transactions on Vehicular Technology 58, 449–460. doi:10.1109/TVT.2008.923683.
+
+## Byzantine Attacks Diagram
+![alt text](attackModels/byzantineAttackTree.png)
 

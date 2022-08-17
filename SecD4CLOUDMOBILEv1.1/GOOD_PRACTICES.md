@@ -2,11 +2,17 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
+<<<<<<< HEAD
 |  Mobile Plataform         |  IoT System                                                  |  
 |  Application domain type  |  Smart Agriculture                                           |  
+=======
+|  Mobile Plataform         |  Hybrid Application                                          |  
+|  Application domain type  |  m-Health                                                    |  
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  ID-based authentication                                     |  
+|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
 |  Has DB                   |  Yes                                                         |  
+<<<<<<< HEAD
 |  Type of data storage     |  Local Storage                                               |  
 |  Which DB                 |                                                              |  
 |  Type of data stored      |  Personal Information ; Confidential Data                    |  
@@ -15,17 +21,79 @@
 |  Programming Languages    |  C/C++                                                       |  
 |  Input Forms              |  No                                                          |  
 |  Upload Files             |  No                                                          |  
+=======
+|  Type of data storage     |  SQL (Relational Database)                                   |  
+|  Which DB                 |  SQLite                                                      |  
+|  Type of data stored      |  Critical Data                                               |  
+|  User Registration        |  Yes                                                         |  
+|  Type of Registration     |  Will be an administrator that will register the users       |  
+|  Programming Languages    |  HTML5                                                       |  
+|  Input Forms              |  Yes                                                         |  
+|  Upload Files             |  Yes                                                         |  
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Public Cloud                                                |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
+<<<<<<< HEAD
 |  HW Wireless Tech         |  5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi                       |  
+=======
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC                      |  
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 |  Data Center Phisical Access|  Yes                                                         |  
 
 
 
+<<<<<<< HEAD
+=======
+#  Input Validation 
+
+**Input validation** is performed to ensure only properly formed data is entering the workflow in an information system, preventing malformed data from persisting in the database and triggering malfunction of various downstream components. 
+
+## Implementing input validation	
+
+ * Data type validators available natively in web application frameworks; 
+ * Validation against JSON Schema and XML Schema (XSD) for input in these formats; 
+ * Type conversion (e.g. Integer.parseInt() in Java, int() in Python) with strict exception handling; 
+ * Minimum and maximum value range check for numerical parameters and dates; 
+ * Minimum and maximum length check for strings; 
+ * Array of allowed values for small sets of string parameters (e.g. days of week); 
+ * Regular expressions for any other structured data covering the whole input string (^...$) and not using "any character" wildcard (such as . or \S) 
+
+If it's well structured data, like dates, social security numbers, zip codes, e-mail addresses, etc. then the developer should be able to define a very strong validation pattern, usually based on regular expressions, for validating such input. 
+If the input field comes from a fixed set of options, like a drop down list or radio buttons, then the input needs to match exactly one of the values offered to the user in the first place. 
+Free-form text, especially with Unicode characters, is perceived as difficult to validate due to a relatively large space of characters that need to be whitelisted. 
+The primary means of input validation for free-form text input should be: 
+
+ * Normalization: Ensure canonical encoding is used across all the text and no invalid characters are present; 
+ * Character category whitelisting: Unicode allows whitelisting categories such as "decimal digits" or "letters" which  not only covers the Latin alphabet but also various other scripts used globally (e.g. Arabic, Cyryllic, CJK ideographs etc); 
+ * Individual character whitelisting: If you allow letters and ideographs in names and also want to allow apostrophe ' for Irish names, but don't want to allow the whole punctuation category. 
+
+## Client Side vs Server Side Validation
+		
+Be aware that any JavaScript input validation performed on the client can be bypassed by an attacker that disables 
+JavaScript or uses a Web Proxy. Ensure that any input validation performed on the client is also performed on the server. 
+
+## Email Validation Basics		
+
+Many web applications do not treat email addresses correctly due to common misconceptions about what constitutes a valid address. Specifically, it is completely valid to have an mailbox address which: 
+
+ * Is case sensitive in the local portion of the address (left of the rightmost @ character); 
+ * Has non-alphanumeric characters in the local-part (including + and @); 
+ * Has zero or more labels. 
+
+ Following RFC 5321, best practice for validating an email address would be to: 
+
+ * Check for presence of at least one @ symbol in the address;
+ * Ensure the local-part is no longer than 64 octets; 
+ * Ensure the domain is no longer than 255 octets; 
+ * Ensure the address is deliverable.
+
+ [https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Input_Validation_Cheat_Sheet.md)
+
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 ## Session Management
 
 A web session is a sequence of network HTTP request and response transactions associated to the same user. Modern and complex web applications require the retaining of information or status about each user for the duration of multiple requests. Therefore, sessions provide the ability to establish variables - such as access rights and localization settings - which will apply to each and every interaction a user has with the web application for the duration of the session.
@@ -96,6 +164,33 @@ Ensure secure flag is set to prevent accidental transmission over "the wire" in 
 
 [https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Session_Management_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Session_Management_Cheat_Sheet.md)
 
+# Cross Site Scripting (XSS)
+
+Given the way browsers parse HTML, each of the different types of slots has slightly different security rules. 
+When you put untrusted data into these slots, you need to take certain steps to make sure that the data does not break out of that slot into a context that allows code execution. 
+
+HTML entity encoding is okay for untrusted data that you put in the body of the HTML document, such as inside a "div" tag. It even sort of works for untrusted data that goes into attributes, particularly if you're religious about using quotes around your attributes. But HTML entity encoding  doesn't work if you're putting untrusted data inside a "script" tag anywhere, or an event handler attribute  like onmouseover, or inside CSS, or in a URL. 
+
+## XSS Prevention Rules	
+
+ * Never Insert Untrusted Data Except in Allowed Locations - The first rule is to deny all; 
+ * HTML Escape Before Inserting Untrusted Data into HTML Element Content; 
+ * Attribute Escape Before Inserting Untrusted Data into HTML Common Attributes; 
+ * JavaScript Escape Before Inserting Untrusted Data into JavaScript Data Values; 
+ * HTML escape JSON values in an HTML context and read the data with JSON.parse; 
+ * Ensure returned Content-Type header is application/json and not text/html;  
+ * CSS Escape And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values;
+ * URL Escape Before Inserting Untrusted Data into HTML URL Parameter Values; 
+ * Sanitize HTML Markup with a Library Designed for the Job; 
+ * Prevent DOM-based XSS; 
+ * Use HTTPOnly cookie flag; 
+ * Implement Content Security Policy; 
+ * Use an Auto-Escaping Template System; 
+ * Use the X-XSS-Protection Response Header; 
+ * Properly use modern JS frameworks like Angular (2+) or ReactJS.
+
+[https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md)
+
 # Cryptography	
 
 An architectural decision must be made to determine the appropriate method to protect data at rest. There are such wide varieties of products, methods and mechanisms for cryptographic storage.The general practices and required minimum key length depending on the scenario listed below: 
@@ -154,52 +249,6 @@ For secure random number generation, refer to NIST SP 800-90A. CTR-DRBG, HASH-DR
 
 
 [https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cryptographic_Storage_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cryptographic_Storage_Cheat_Sheet.md)
-
-# Authentication and Integrity
-
-## Introduction
-
-This cheat sheet provides a simple model to follow when implementing transport layer protection for an application. Although the concept of SSL is known to many, the actual details and security specific decisions of implementation are often poorly understood and frequently result in insecure deployments. This article establishes clear rules which provide guidance on securely designing and configuring transport layer security for an application. This article is focused on the use of SSL/TLS between a web application and a web browser, but we also encourage the use of SSL/TLS or other network encryption technologies, such as VPN, on back end and other non-browser based connections.
-
-## Architectural Decision
-
-An architectural decision must be made to determine the appropriate method to protect data when it is being transmitted. The most common options available to corporations are Virtual Private Networks (VPN) or a SSL/TLS model commonly used by web applications. The selected model is determined by the business needs of the particular organization. For example, a VPN connection may be the best design for a partnership between two companies that includes mutual access to a shared server over a variety of protocols. Conversely, an Internet facing enterprise web application would likely be best served by a SSL/TLS model.
-
-TLS is mainly a defence against man-in-the-middle attacks. An TLS Threat Model is one that starts with the question "What is the business impact of an attacker's ability to observe, intercept and manipulate the traffic between the client and the server".
-
-This cheat sheet will focus on security considerations when the SSL/TLS model is selected. This is a frequently used model for publicly accessible web applications.
-
-## Providing Transport Layer Protection with SSL/TLS
-
-### Benefits
-
- * The primary benefit of transport layer security is the protection of web application data from unauthorized disclosure and modification when it is transmitted between clients (web browsers) and the web application server, and between the web application server and back end and other non-browser based enterprise components;
-
- * The server validation component of TLS provides authentication of the server to the client. If configured to require client side certificates, TLS can also play a role in client authentication to the server. However, in practice client side certificates are not often used in lieu of username and password based authentication models for clients;
-
- * TLS also provides two additional benefits that are commonly overlooked; integrity guarantees and replay prevention. A TLS stream of communication contains built-in controls to prevent tampering with any portion of the encrypted data. In addition, controls are also built-in to prevent a captured stream of TLS data from being replayed at a later time.
-
-It should be noted that TLS provides the above guarantees to data during transmission. TLS does not offer any of these security benefits to data that is at rest. Therefore appropriate security controls must be added to protect data while at rest within the application or within data stores.
-
-## Good Practices
-
- * Use TLS, as SSL is no longer considered usable for security;
- * All pages must be served over HTTPS. This includes css, scripts, images, AJAX requests, POST data and third party includes. Failure to do so creates a vector for man-in-the-middle attacks;
- * Just protecting authenticated pages with HTTPS, is not enough. Once there is one request in HTTP, man-in-the-middle attacks are possible, with the attackers being able to prevent users from reaching the secured pages.
- * The HTTP Strict Transport Security Header must be used and pre loaded into browsers. This will instruct compatible browsers to only use HTTPS, even if requested to use HTTP.
-Cookies must be marked as Secure.
-
-* Basic Requirements *
-
- * Access to a Public Key Infrastructure (PKI) in order to obtain certificates;
- * Access to a directory or an Online Certificate Status Protocol (OCSP) responder in order to check certificate revocation status; 
- * Agreement/ability to support a minimum configuration of protocol versions and protocol options for each version.
-
-
-[https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.md]
-
-
-
 
 # Access Control	
 
@@ -285,6 +334,136 @@ The has relationship between the user and permission may be satisfied by creatin
 A user is considered a member of a user group if and only if the user inherits permissions from the user group.  Systems that provide fine-grained domain object level access control, permissions may be grouped into classes. The system can be associated with a class which determines the permissions applicable to the respective domain object. 
 >In such a system a "DOCUMENT" class may be defined with the permissions "READ", "WRITE" and "DELETE"; a "SERVER" class may be defined with the permissions "START", "STOP", and "REBOOT".
 
+<<<<<<< HEAD
+=======
+# File Uploading
+
+Into web applications, when we expect upload of working documents from users, we can expose the application to submission of documents that we can categorize as malicious.	
+We use the term "malicious" here to refer to documents that embed malicious code that will be executed when another user (admin, back office operator...) will open the document with the associated application reader.	
+Usually, when an application expect his user to upload a document, the application expect to receive a document for which the intended use will be for reading/printing/archiving. The document should not alter is content at opening time and should be in a final rendered state.
+
+The most common file types used to transmit malicious code into file upload feature are the following:
+
+* Microsoft Office document: Word/Excel/Powerpoint
+* Adobe PDF document: Insert malicious code as attachment.
+* Images: Malicious code embedded into the file or use of binary file with image file extension.
+
+
+
+For Word/Excel/Powerpoint/Pdf documents:
+ 
+* Detect when a document contains "code"/OLE package, if it's the case then block the upload process.
+For Images document:
+* Sanitize incoming image using re-writing approach and then disable/remove any "code" present (this approach also handle case in which the file sent is not an image).
+
+
+
+
+
+## Upload Verification
+
+* Use input validation to ensure the uploaded filename uses an expected extension type;
+* Ensure the uploaded file is not larger than a defined maximum file size;
+
+## Upload Storage
+
+* Use a new filename to store the file on the OS. Do not use any user controlled text for this filename or for the temporary filename;
+* Store all user uploaded files on a separate domain. Archives should be analyzed for malicious content (anti-malware, static analysis, etc).
+
+## Public Serving of Uploaded Content
+
+* Ensure the image is served with the correct content-type (e.g. image/jpeg, application/x-xpinstall).
+
+## Beware of "special" files
+
+* The upload feature should be using a whitelist approach to only allow specific file types and extensions. However, it is important to be aware of the following file types that, if allowed, could result in security vulnerabilities;
+
+* "crossdomain.xml" allows cross-domain data loading in Flash, Java and Silverlight. If permitted on sites with authentication this can permit cross-domain data theft and CSRF attacks. Note this can get pretty complicated depending on the specific plugin version in question, so its best to just prohibit files named "crossdomain.xml" or "clientaccesspolicy.xml".
+
+* ".htaccess" and ".htpasswd" provides server configuration options on a per-directory basis, and should not be permitted. 
+
+# Logging and Error Handling 
+
+## Purpose of logging
+
+Application logging should be always be included for security events. Application logs are invaluable data for:
+
+* Identifying security incidents;	
+* Monitoring policy violations;	
+* Establishing baselines;	
+* Assisting non-repudiation controls;	
+* Providing information about problems and unusual conditions;	
+* Contributing additional application-specific data for incident investigation which is lacking in other log sources;	
+* Helping defend against vulnerability identification and exploitation through attack detection.	
+
+Each log entry needs to include sufficient information for the intended subsequent monitoring and analysis. It could be full content data, but is more likely to be an extract or just summary properties.
+
+The application logs must record "when, where, who and what" for each event.
+
+
+
+## Where to record event data
+
+* When using the file system, it is preferable to use a separate partition than those used by the operating system, other application files and user generated content:
+ * For file-based logs, apply strict permissions concerning which users can access the directories, and the permissions of files within the directories;
+ * In web applications, the logs should not be exposed in web-accessible locations, and if done so, should have restricted access and be configured with a plain text MIME type (not HTML).
+* When using a database, it is preferable to utilize a separate database account that is only used for writing log data and which has very restrictive database , table, function and command permissions;
+* Use standard formats over secure protocols to record and send event data, or log files, to other systems e.g. Common Log File System (CLFS) or Common Event Format (CEF) over syslog; standard formats facilitate integration with centralised logging services.
+
+
+## Which events to log
+
+* Input validation failures e.g. protocol violations, unacceptable encodings, invalid parameter names and values;
+* Output validation failures e.g. database record set mismatch, invalid data encoding
+* Authentication successes and failures;
+* Authorization (access control) failures;
+* Session management failures e.g. cookie session identification value modification
+* Application errors and system events e.g. syntax and runtime errors, connectivity problems, performance issues, third party service error messages, file system errors, file upload virus detection, configuration changes;
+* Application and related systems start-ups and shut-downs, and logging initialization (starting, stopping or pausing);
+* Use of higher-risk functionality e.g. network connections, addition or deletion of users, changes to privileges, assigning users to tokens, adding or deleting tokens, use of systems administrative privileges, access by application administrators, all actions by users with administrative privileges, access to payment cardholder data, use of data encrypting keys, key changes, creation and deletion of system-level objects, data import and export including screen-based reports, submission of user-generated content - especially file uploads.
+
+
+## Data to exclude
+
+* Application source code;
+* Session identification values (consider replacing with a hashed value if needed to track session specific events);
+* Access tokens;
+* Sensitive personal data and some forms of personally identifiable information (PII) e.g. health, government identifiers, vulnerable people;
+* Authentication passwords;
+* Database connection strings;
+* Encryption keys and other master secrets;
+* Bank account or payment card holder data;
+* Data of a higher security classification than the logging system is allowed to store;
+* Commercially-sensitive information;
+* Information it is illegal to collect in the relevant jurisdictions;
+* Information a user has opted out of collection, or not consented to e.g. use of do not track, or where consent to collect has expired.
+
+
+## Error Handling
+
+### User Facing Error Messages
+	
+Error messages displayed to the user should not contain system, diagnostic or debug information.
+
+
+### Formatting Error Messages
+
+Error messages are often logged to text files or files viewed within a web browser.
+
+* Text based log files: Ensure any newline characters (%0A%0C) are appropriately handled to prevent log forging;
+* Web based log files: Ensure any logged html characters are appropriately encoded to prevent XSS when viewing logs.
+
+## Recommended Error Handling Design
+
+* Log necessary error data to a system log file;
+* Display a generic error message to the user;
+* If necessary provide an error code to the user which maps to the error data in the log file. A user reporting an error can provide this code to help diagnose issue.
+
+
+
+[https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Logging_Cheat_Sheet.md)
+
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 # Application Regular Updates
 
 Mobile devices and platforms, such as, for example, smartphones, typically provide the capability for operating system (OS), firmware (FW) and applications updates or re-installations with reduced user involvement. The user involvement may often be limited to clicking an icon or accepting an agreement. While this reduced level of involvement may provide convenience and an improved user experience, it fails to address the issue of secure user authentication.

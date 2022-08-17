@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 7;                   # IoT System          
 10                   # Smart Agriculture   
+=======
+4;                   # Hybrid Application  
+4                    # m-Health            
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 1                    # Yes                 
-4;                   # ID-based authentication
+3;4;                 # Factors-based authentication ; ID-based authentication
 1                    # Yes                 
+<<<<<<< HEAD
 3                    # Local Storage       
                      #                     
 1;2;                 # Personal Information ; Confidential Data
@@ -11,11 +17,25 @@
 2;                   # C/C++               
 2                    # No                  
 2                    # No                  
+=======
+1                    # SQL (Relational Database)
+4                    # SQLite              
+3;                   # Critical Data       
+1                    # Yes                 
+2                    # Will be an administrator that will register the users
+3;                   # HTML5               
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 1                    # Yes                 
 1                    # Yes                 
 1                    # Yes                 
-2                    # Hybrid Cloud        
+1                    # Yes                 
+1                    # Yes                 
+4                    # Public Cloud        
 1                    # Yes                 
 3                    # Basic Authentication (user/pass)
+<<<<<<< HEAD
 3;1;2;5;6;           # 5G ; 3G ; 4G/LTE ; Bluetooth  ; Wi-Fi 
+=======
+1;2;3;6;7;9;         # 3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC
+>>>>>>> 756a6f658e94ba3c11c4cd25afbb448e80592558
 1                    # Yes                 
