@@ -29,17 +29,17 @@ print ( "#   SECURIoTEQUIREMENTS\n"
 
 while True :
 
-        print "#  Do you wish to run a older test? \n"
-        print "   1 - Yes \n"
-        print "   2 - No\n"
-        print "   Answer\n"
+        print ("#  Do you wish to run a older test? \n")
+        print ("   1 - Yes \n")
+        print ("   2 - No\n")
+        print ("   Answer\n")
         q0 = raw_input()
-        print "\n"
+        print ("\n")
         if (q0 == '1'or q0=='2') :
                 break
 
         else :
-            print "Insert a valid answer \n"
+            print ("Insert a valid answer \n")
 
 
 if (q0 =='1') :
