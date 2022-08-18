@@ -987,7 +987,7 @@ def dataCenterAcess(version):
     - $version$: An integer constant equal to unity
 [Returns]: No return
 """
-def printData():
+def print_data():
     generate_file = open("ans.txt", "w")
 
     list_aux = []
@@ -1366,7 +1366,7 @@ def requirements_convert_report():
     - $version$: An integer constant equal to unity
 [Returns]: No return
 """
-def good_practices_convert_report():
+def security_best_practices_convert_report():
     # input_filename = ("guides/example_report.md")
     # input_filename = "some_markdown.md")
     input_filename = ("GOOD_PRACTICES.md")
@@ -1538,7 +1538,7 @@ def switch1():
                 questions_and_answers["Q20"] = input_list[19]
                 questions_and_answers["Q21"] = input_list[20]
 
-            informationCapture()
+            information_capture()
 
             print("# Processing Done! Choose another option to process the requests!")
 
@@ -1547,42 +1547,42 @@ def switch1():
             print("\t\t The request for security requirements is in progress ... \n\n")
             get_requirements()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/SECURITY_REQUIREMENTS.pdf')
-            informationCapture()
+            information_capture()
 
         if case(3):
             print("\n********************************************************************************************\n")
             print("\t\t The request for best practice guidelines is in progress ... \n\n")
-            get_good_practices()
+            get_security_best_practices()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/GOOD_PRACTICES.pdf')
-            informationCapture()
+            information_capture()
 
         if case(4):
             print("\n********************************************************************************************\n")
             print("\t\t The request for security mechanisms is in progress ... \n\n")
             get_mechanisms()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/SECURITY_MECHANISMS.pdf')
-            informationCapture()
+            information_capture()
 
         if case(5):
             print("\n********************************************************************************************\n")
             print("\t\t The request for attack models is in profess ... \n\n")
             get_attack_models()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/ATTACKS_MAPPING.pdf')
-            informationCapture()
+            information_capture()
 
         if case(6):
             print("\n********************************************************************************************\n")
             print("\t\t The request for the security testing specification and tools is in progress ... \n\n")
             get_security_test_recommendation()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/TEST_SPECIFICATION.pdf')
-            informationCapture()
+            information_capture()
 
         if case(7):
             print("\n********************************************************************************************\n")
             print("\t\t The full report request is in progress ... \n\n")
             fullReport()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/FULL_REPORT.pdf')
-            informationCapture()
+            information_capture()
 
         if case(8):
             print("\n\n*** Application finished successfully! ***\n\n")
@@ -1597,7 +1597,7 @@ def switch1():
 [Arguments]: No argument
 [Return]: No return
 """
-def informationCapture():
+def information_capture():
     print("************************************************************************************************")
     print("\nWelcome to SecD4CLOUDMOBILE Framework!\n")
     print("\nWhat would you like to do?\n")
@@ -1623,7 +1623,7 @@ def get_requirements():
     print("  Processing information.....")
     print("")
 
-    printData()
+    print_data()
 
     report = open("SECURITY_REQUIREMENTS.md", "w")
     report.write("# Final Security Requirements Report " + '\n')
@@ -1743,7 +1743,7 @@ def get_requirements():
 [Arguments]: No arguments
 [Return]: No return
 """
-def get_good_practices():
+def get_security_best_practices():
     print("")
     print("  Processing information.....")
     print("")
@@ -1862,7 +1862,7 @@ def get_good_practices():
         report.write(open("goodPractices/App_Third_Party_guide.md", "r").read())
 
     report.close()
-    good_practices_convert_report()
+    security_best_practices_convert_report()
     print("# Processing done! Check your security best practices guidelines in the GOOD_PRACTICES.pdf file")
 
 
@@ -2590,7 +2590,7 @@ def get_mechanisms():
 def fullReport():
 
     get_requirements()
-    get_good_practices()
+    get_security_best_practices()
     get_mechanisms()
     get_attack_models()
     get_security_test_recommendation()
@@ -2630,7 +2630,7 @@ if __name__ == "__main__":
     print("")
     print("  SPDX-License-Identifier: Apache-2.0")
     print("")
-    informationCapture()
+    information_capture()
 
     print("")
     print("#############################################################")
