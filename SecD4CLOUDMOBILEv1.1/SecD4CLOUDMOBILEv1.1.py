@@ -1565,7 +1565,7 @@ def switch1():
 
         if case(5):
             print("\n********************************************************************************************\n")
-            print("\t\t The request for attack models is in profess ... \n\n")
+            print("\t\t The request for attack models is in progress ... \n\n")
             get_attack_models()
             webbrowser.open_new(r'file:///Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1/ATTACKS_MAPPING.pdf')
             information_capture()
