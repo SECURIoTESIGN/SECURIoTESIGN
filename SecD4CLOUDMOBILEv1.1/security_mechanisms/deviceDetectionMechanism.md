@@ -15,7 +15,7 @@ In order to ensure that the application and confidential data of legitimate user
   <tr>
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Authorization, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authenticity, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">privacy, </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">immunity</span></td>
     <td class="tg-7zrl"></td>
-    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Device Adulterion </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Detection</span></td>
+    <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Device Tampering </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Detection</span></td>
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Incorporation of hybrid </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">authentication schemes </span><br><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">into the application</span></td>
     <td class="tg-7zrl"></td>
     <td class="tg-7zrl"><span style="font-weight:400;font-style:normal;text-decoration:none;color:black">Application</span></td>
