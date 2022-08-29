@@ -60,7 +60,7 @@ This is a class of attacks to which web applications are susceptible, resulting 
 
 In  this  attack  the  perpetrator injects  malicious command in the system to gain access to information or even to gain control of the entire system. 
 
-### 16. Reverse Enginnering
+### 16. Reverse Engineering
 
 Reverse engineering attacks target the assets embedded in software. In such an attack scenario, the attacker by reverse engineering attempts to steal confidential information, such as embedded cryptographic keys or intellectual property in the form of algorithms.
 

@@ -56,7 +56,7 @@ This type of attack targets injecting malicious code into user inputs from the i
 
 This is a class of attacks to which web applications are susceptible, resulting from the semantic gap existing between database interpretation and web application interpretation, as well as from the inappropriate handling of user input
 
-### 15. Reverse Enginnering
+### 15. Reverse Engineering
 
 Reverse engineering attacks target the assets embedded in software. In such an attack scenario, the attacker by reverse engineering attempts to steal confidential information, such as embedded cryptographic keys or intellectual property in the form of algorithms.
 

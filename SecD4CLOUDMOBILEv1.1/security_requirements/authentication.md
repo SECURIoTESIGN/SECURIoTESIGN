@@ -75,7 +75,7 @@ Spoofing attacks are a fraudulent act in which an entity fakes its identity to a
 
 This type of attack has to do with any attack whereby an attacker caches incorrect or harmful material. The cache targeted can be an application's cache (e.g., a web browser cache) or a public cache (fe.g., a DNS or ARP cache).
 
-### 15. Reverse Enginnering
+### 15. Reverse Engineering
 
 Reverse engineering attacks target the assets embedded in software. In such an attack scenario, the attacker by reverse engineering attempts to steal confidential information, such as embedded cryptographic keys or intellectual property in the form of algorithms.
 

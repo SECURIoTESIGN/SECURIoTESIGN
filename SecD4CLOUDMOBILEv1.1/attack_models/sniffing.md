@@ -1,4 +1,4 @@
-# Eavesdropping or Sniffing
+# Sniffing
 
 This type of attack is carried out by attackers who use applications that can capture data packets in transit over a network, and if they are not heavily encrypted, can be read or interpreted. The goal of the attacker is to spy on all kinds of conversations and recordings and to listen to communication channels.
 
