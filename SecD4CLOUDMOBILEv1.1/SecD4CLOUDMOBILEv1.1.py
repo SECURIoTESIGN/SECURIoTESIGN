@@ -1991,7 +1991,7 @@ def get_attack_models():
 
             # MitM attack tree diagram
             # Write de scheme in the report
-            report.write("![alt text](attack_models/mitmAttackTree.png")
+            report.write("![alt text](attack_models/mitmAttackTree.png)")
             report.write("\n")
             report.write("\n")
 

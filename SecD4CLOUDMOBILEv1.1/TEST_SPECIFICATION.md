@@ -492,7 +492,7 @@ In order to avoid or prevent *Malware as a Service, Malicious QR Code, Botnets, 
 </table>
 
 
-In order to avoid or prevent *Spoofing, Eavesdropping, Sniffing, Botnets, MiTM, Flooding, Reverse Enginnering attacks*, the following security tests should be performed.
+In order to avoid or prevent *Spoofing, Eavesdropping, Sniffing, Botnets, MiTM, Flooding, Reverse Engineering attacks*, the following security tests should be performed.
 
 
 <table class="tg">

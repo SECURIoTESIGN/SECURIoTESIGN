@@ -65,7 +65,7 @@ To ensure that the mobile application is resilient or immune to malicious MitM a
 ## Man-in-the-Middle Attack Diagram
 
 
-![alt text](attack_models/mitmAttackTree.png
+![alt text](attack_models/mitmAttackTree.png)
 
 # Brute Force Attacks
 This type of attack consists in trying to access a system using some mechanism or simply 
@@ -450,7 +450,7 @@ In order to ensure that the mobile application is resilient or immune to the Flo
 
 ![alt text](attack_models/floodingAttackTree.png)
 
-# Eavesdropping or Sniffing
+# Sniffing
 
 This type of attack is carried out by attackers who use applications that can capture data packets in transit over a network, and if they are not heavily encrypted, can be read or interpreted. The goal of the attacker is to spy on all kinds of conversations and recordings and to listen to communication channels.
 
