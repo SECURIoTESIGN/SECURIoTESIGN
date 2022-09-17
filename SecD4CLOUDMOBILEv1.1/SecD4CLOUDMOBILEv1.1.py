@@ -75,7 +75,8 @@ questions_and_answers = {
     "Q18": "",
     "Q19": "",
     "Q20": "",
-    "Q21":""
+    "Q21": "",
+    "Q22": ""
 }
 
 # Questions
@@ -87,19 +88,20 @@ questions_and_answers = {
 # Q6   -> Type of data storage
 # Q7   -> Which db
 # Q8   -> Type of data
-# Q9   -> User Registration
-# Q10  -> Way of user registration
-# Q11  -> Programming Languages
-# Q12  -> Input Forms
-# Q13  -> Upload Files
-# Q14  -> Logs
-# Q15  -> System Regular Updates
-# Q16  -> Third-part Software
-# Q17  -> System Cloud Environment
-# Q18  -> Hardware Specifications
-# Q19  -> Hardware Auth
-# Q20  -> Hardware Communications
-# Q21  -> Data Center Phisical Access
+# Q9   -> Local of data storage
+# Q10  -> User Registration
+# Q11  -> Way of user registration
+# Q12  -> Programming Languages
+# Q13  -> Input Forms
+# Q14  -> Upload Files
+# Q15  -> Logs
+# Q16  -> System Regular Updates
+# Q17  -> Third-party Software
+# Q18  -> System Cloud Environment
+# Q19  -> Hardware Specifications
+# Q20  -> Hardware Auth
+# Q21  -> Hardware Communications
+# Q22  -> Data Center Physical Access
 
 
 # TO -DO -> in case of answer "others" (user input),
@@ -158,10 +160,7 @@ question5 = {
 
 question6 = {
     "1": "SQL (Relational Database)",
-    "2": "NoSQL",
-    "3": "Local Storage (Centralized Database)",
-    "4": "Distributed Storage",
-    "5": "Cloud Database"
+    "2": "NoSQL"
 }
 
 question7 = {
@@ -189,19 +188,25 @@ question8 = {
 }
 
 question9 = {
+    "1": "Local Storage (Centralized Database)",
+    "2": "Remote Storage (Cloud Database)",
+    "3": "Both"
+}
+
+question10 = {
     "1": "Yes",
     "2": "No"
 }
 
-question10 = {
+question11 = {
     "1": "The users will register themselves",
     "2": "Will be an administrator that will register the users"
 }
 
-question11 = {
+question12 = {
     "1": "C#",
-    "2": "C/C++",
-    "3": "HTML5",
+    "2": "C/C++/Objective-C",
+    "3": "HTML5 + CSS + JavaScript",
     "4": "Java",
     "5": "Javascript",
     "6": "PHP",
@@ -209,11 +214,6 @@ question11 = {
     "8": "Ruby",
     "9": "Kotlin",
     "10": ""
-}
-
-question12 = {
-    "1": "Yes",
-    "2": "No"
 }
 
 question13 = {
@@ -237,6 +237,11 @@ question16 = {
 }
 
 question17 = {
+    "1": "Yes",
+    "2": "No"
+}
+
+question18 = {
     "1": "Community Cloud",
     "2": "Hybrid Cloud",
     "3": "Private Cloud",
@@ -244,12 +249,12 @@ question17 = {
     "5": "Virtual Private Cloud"
 }
 
-question18 = {
+question19 = {
     "1": "Yes",
     "2": "No"
 }
 
-question19 = {
+question20 = {
     "1": "No Authentication",
     "2": "Symmetric Key",
     "3": "Basic Authentication (user/pass)",
@@ -257,7 +262,7 @@ question19 = {
     "5": "TPM (Trusted Platform Module)"
 }
 
-question20 = {
+question21 = {
     "1": "3G",
     "2": "4G/LTE",
     "3": "5G",
@@ -270,7 +275,7 @@ question20 = {
     "10": ""
 }
 
-question21 = {
+question22 = {
     "1": "Yes",
     "2": "No"
 }
@@ -535,6 +540,7 @@ def hasDB(version):
         if questions_and_answers["Q6"] == '1' or questions_and_answers["Q6"] == '2':
             whichDatabase(version)
         sensitiveData(version)
+        storageLocation(version)
     else:
         questions_and_answers["Q6"] = "N/A"
         questions_and_answers["Q7"] = "N/A"
@@ -556,14 +562,11 @@ def typeOfDatabase(version):
     else:
         print("  **What is type of data storage?**  ")
     print("")
-    print("  1 - SQL (Relational Database) ")
-    print("  2 - NoSQL  ")
-    print("  3 - Local Storage  (Centralized Database) ")
-    print("  4 - Distributed Storage ")
-    print("  5 - Cloud Database ")
+    print("  1 - SQL DBMS (Relational Database) ")
+    print("  2 - NoSQL DBMS ")
     print("")
 
-    value = validateInput(1, 6)
+    value = validateInput(1, 3)
     questions_and_answers["Q6"] = str(value)
 
 """
@@ -651,6 +654,30 @@ def sensitiveData(version):
     - $version$: An integer constant equal to unity
 [Returns]: No return
 """
+def storageLocation(version):
+    print("")
+    print("---")
+    print("")
+    
+    if version == 1:
+        print("  **Where will the system store the data?**  ")
+    else:
+        print("  **What is the storage location of the system?**  ")
+    print("")
+    print("  1 - Local Storage (Centralized databse) ")
+    print("  2 - Remote Storage (Cloud Database) ")
+    print("  3 - Both (Hybrid Database) ")
+    print("")
+
+    value = validateInput(1, 4)
+    questions_and_answers["Q9"] = str(value)
+
+"""
+[Summary]: Method allowing the identification of whether or not the application allows users to register
+[Arguments]: 
+    - $version$: An integer constant equal to unity
+[Returns]: No return
+"""
 def userRegist(version):
     print("")
     print("---")
@@ -665,12 +692,12 @@ def userRegist(version):
     print("")
 
     value = validateInput(1, 3)
-    questions_and_answers["Q9"] = str(value)
+    questions_and_answers["Q10"] = str(value)
 
     if value == 1:
         typeOfUserRegist(version)
     else:
-        questions_and_answers["Q10"] = "N/A"
+        questions_and_answers["Q11"] = "N/A"
 
 """
 [Summary]: Method to identify the type of registration of users to the system
@@ -692,7 +719,7 @@ def typeOfUserRegist(version):
     print("")
 
     value = validateInput(1, 3)
-    questions_and_answers["Q10"] = str(value)
+    questions_and_answers["Q11"] = str(value)
 
 """
 [Summary]: Method to identify the programming language to be used or used for coding the application
@@ -712,10 +739,10 @@ def languages(version):
     print("  (This is a multiple choice question. Enter several options and end with 0.)  ")
     print("")
     print("  1 - C#  ")
-    print("  2 - C/C++  ")
-    print("  3 - HTML5  ")
+    print("  2 - Obective-C/C/C++ ")
+    print("  3 - HTML5 + CSS + JavaScript ")
     print("  4 - Java  ")
-    print("  5 - Javascript  ")
+    print("  5 - Javascript ")
     print("  6 - PHP  ")
     print("  7 - Python  ")
     print("  8 - Ruby  ")
@@ -732,10 +759,10 @@ def languages(version):
             # TO-DO change this funtion input
             value2 = validateInput(2)
             # question_9["8"]  = str(value2)
-            questions_and_answers["Q11"] = questions_and_answers["Q11"] + str(value2) + ";"
+            questions_and_answers["Q12"] = questions_and_answers["Q12"] + str(value2) + ";"
 
         else:
-            questions_and_answers["Q11"] = questions_and_answers["Q11"] + str(value) + ";"
+            questions_and_answers["Q12"] = questions_and_answers["Q12"] + str(value) + ";"
 
 """
 [Summary]: Method to identify if the application uses or not user input forms
@@ -757,7 +784,7 @@ def inputForms(version):
     print("")
 
     value = validateInput(1, 3)
-    questions_and_answers["Q12"] = str(value)
+    questions_and_answers["Q13"] = str(value)
 
 """
 [Summary]: Method to identify the application allows or not upload files
@@ -779,7 +806,7 @@ def allowUploadFiles(version):
     print("")
 
     value = validateInput(1, 3)
-    questions_and_answers["Q13"] = str(value)
+    questions_and_answers["Q14"] = str(value)
 
 """
 [Summary]: Method to identify the application records or not logs
@@ -801,7 +828,7 @@ def systemLogs(version):
     print("")
 
     value = validateInput(1, 3)
-    questions_and_answers["Q14"] = str(value)
+    questions_and_answers["Q15"] = str(value)
 
 """
 [Summary]: Method to identify the application allows or not regular updates
@@ -823,7 +850,7 @@ def allowUpdateSystem(version):
     print("")
 
     value = validateInput(1, 3)
-    questions_and_answers["Q15"] = str(value)
+    questions_and_answers["Q16"] = str(value)
 
 """
 [Summary]: Method to identify the application uses or not third-party apps
@@ -845,7 +872,7 @@ def allowThirdParty(version):
     print("")
 
     value = validateInput(1, 3)
-    questions_and_answers["Q16"] = str(value)
+    questions_and_answers["Q17"] = str(value)
 
 """
 [Summary]: Method to identify the Cloud development model (environment) used by the application
@@ -869,7 +896,7 @@ def cloudPlatform(version):
     print("")
 
     value = validateInput(1, 6)
-    questions_and_answers["Q17"] = str(value)
+    questions_and_answers["Q18"] = str(value)
 
 """
 [Summary]: Method that allows identifying if the user wants to specify some hardware details (network and authentication scheme) or not
@@ -888,14 +915,14 @@ def hardwareSpecs(version):
     print("")
 
     value = validateInput(1, 3)
-    questions_and_answers["Q18"] = str(value)
+    questions_and_answers["Q19"] = str(value)
 
     if value == 1:
         hardwareAuth(version)
         hardwareComunication(version)
     else:
-        questions_and_answers["Q19"] = "N/A"
         questions_and_answers["Q20"] = "N/A"
+        questions_and_answers["Q21"] = "N/A"
 
 """
 [Summary]: Method allowing the identification of the authentication paradigm implemented in relation to the hardware
@@ -920,7 +947,7 @@ def hardwareAuth(version):
     print("")
 
     value = validateInput(1, 6)
-    questions_and_answers["Q19"] = str(value)
+    questions_and_answers["Q20"] = str(value)
 
 """
 [Summary]: Method allowing the identification of wireless network technologies implemented in relation to hardware
@@ -955,9 +982,9 @@ def hardwareComunication(version):
         if value == 10:
             print("Please specify the wireless technologies: (name between single quotes)")
             value2 = validateInput(2)
-            questions_and_answers["Q20"] = questions_and_answers["Q20"] + str(value2) + ";"
+            questions_and_answers["Q21"] = questions_and_answers["Q21"] + str(value2) + ";"
         else:
-            questions_and_answers["Q20"] = questions_and_answers["Q20"] + str(value) + ";"
+            questions_and_answers["Q21"] = questions_and_answers["Q21"] + str(value) + ";"
 
 """
 [Summary]: Method to identify the existence or not of the possibility of physical access to the system (data centre and mobile device)
@@ -979,7 +1006,7 @@ def dataCenterAcess(version):
     print("")
 
     value = validateInput(1, 3)
-    questions_and_answers["Q21"] = str(value)
+    questions_and_answers["Q22"] = str(value)
 
 """
 [Summary]: Method to open/create and store in the file 'ans.txt' the answers to the user questionnaire
@@ -1155,52 +1182,72 @@ def print_data():
     answers_list.append(questions_and_answers["Q8"])
     comments_list.append(' ; '.join(list_aux))
 
-    for n in question9:
-        item = questions_and_answers["Q9"]
+    item = questions_and_answers["Q9"]
+    # case this question is not answered, and the answer it will be "N/A"
+    if questions_and_answers["Q9"].isdigit() == False:
+        print("{:22} {:3} {:40} ".format("Storage Location", ":", item))
+
+        table_for_report.append(["Storage Location", item])
+
+        answers_list.append(questions_and_answers["Q9"])
+        comments_list.append(item)
+
+    else:
+        for n in question9:
+            if item == n:
+                print("{:22} {:3} {:40} ".format("Storage Location", ":", question9[n]))
+
+                table_for_report.append(["Storage Location", question9[n]])
+
+                answers_list.append(questions_and_answers["Q9"])
+                comments_list.append(question9[n])
+
+    for n in question10:
+        item = questions_and_answers["Q10"]
         if item == n:
-            print("{:22} {:3} {:40}".format("User Registration", ":", question9[n]))
+            print("{:22} {:3} {:40}".format("User Registration", ":", question10[n]))
 
-            table_for_report.append(["User Registration", question9[n]])
+            table_for_report.append(["User Registration", question10[n]])
 
-            answers_list.append(questions_and_answers["Q9"])
-            comments_list.append(question9[n])
+            answers_list.append(questions_and_answers["Q10"])
+            comments_list.append(question10[n])
 
-    item = questions_and_answers["Q10"]
-    if questions_and_answers["Q10"].isdigit() == False:
+    item = questions_and_answers["Q11"]
+    if questions_and_answers["Q11"].isdigit() == False:
         print("{:22} {:3} {:40} ".format("Type of Registration", ": ", item))
 
         table_for_report.append(["Type of Registration", item])
 
-        answers_list.append(questions_and_answers["Q10"])
+        answers_list.append(questions_and_answers["Q11"])
         comments_list.append(item)
     else:
-        for n in question10:
+        for n in question11:
             if item == n:
-                print("{:22} {:3} {:40} ".format("Type of Registration", ": ", question10[n]))
+                print("{:22} {:3} {:40} ".format("Type of Registration", ": ", question11[n]))
 
-                table_for_report.append(["Type of Registration", question10[n]])
+                table_for_report.append(["Type of Registration", question11[n]])
 
-                answers_list.append(questions_and_answers["Q10"])
-                comments_list.append(question10[n])
+                answers_list.append(questions_and_answers["Q11"])
+                comments_list.append(question11[n])
 
     list_aux = []
     # it is a multiple question
 
     # find if the answer correspond to option "others" (means that is only user input text)
-    if questions_and_answers["Q11"][0].isdigit() == False and questions_and_answers["Q11"].find(";") == -1:
-        list_aux.append(questions_and_answers["Q11"])
+    if questions_and_answers["Q12"][0].isdigit() == False and questions_and_answers["Q12"].find(";") == -1:
+        list_aux.append(questions_and_answers["Q12"])
     else:
 
         # cut the string in the delimitator ";"
-        aux = questions_and_answers["Q11"].split(";")
+        aux = questions_and_answers["Q12"].split(";")
 
         # delete last item (= None)
         aux = aux[:-1]
 
         for item in aux:
-            for option in question11:
+            for option in question12:
                 if item == option:
-                    list_aux.append(question11[option])
+                    list_aux.append(question12[option])
 
             # case of user input text
             if item.isdigit() == False:
@@ -1210,25 +1257,15 @@ def print_data():
 
     table_for_report.append(["Programming Languages", ' ; '.join(list_aux)])
 
-    answers_list.append(questions_and_answers["Q11"])
+    answers_list.append(questions_and_answers["Q12"])
     comments_list.append(' ; '.join(list_aux))
-
-    for n in question12:
-        item = questions_and_answers["Q12"]
-        if item == n:
-            print("{:22} {:3} {:40} ".format("Input Forms", ":", question12[n]))
-
-            table_for_report.append(["Input Forms", question12[n]])
-
-            answers_list.append(questions_and_answers["Q12"])
-            comments_list.append(question12[n])
 
     for n in question13:
         item = questions_and_answers["Q13"]
         if item == n:
-            print("{:22} {:3} {:40} ".format("Upload Files", ":", question13[n]))
+            print("{:22} {:3} {:40} ".format("Input Forms", ":", question13[n]))
 
-            table_for_report.append(["Upload Files", question13[n]])
+            table_for_report.append(["Input Forms", question13[n]])
 
             answers_list.append(questions_and_answers["Q13"])
             comments_list.append(question13[n])
@@ -1236,9 +1273,9 @@ def print_data():
     for n in question14:
         item = questions_and_answers["Q14"]
         if item == n:
-            print("{:22} {:3} {:40} ".format("The system has logs", ":", question14[n]))
+            print("{:22} {:3} {:40} ".format("Upload Files", ":", question14[n]))
 
-            table_for_report.append(["The system has logs", question14[n]])
+            table_for_report.append(["Upload Files", question14[n]])
 
             answers_list.append(questions_and_answers["Q14"])
             comments_list.append(question14[n])
@@ -1246,9 +1283,9 @@ def print_data():
     for n in question15:
         item = questions_and_answers["Q15"]
         if item == n:
-            print("{:22} {:3} {:40} ".format("The system has regular updates", ":", question15[n]))
+            print("{:22} {:3} {:40} ".format("The system has logs", ":", question15[n]))
 
-            table_for_report.append(["The system has regular updates", question15[n]])
+            table_for_report.append(["The system has logs", question15[n]])
 
             answers_list.append(questions_and_answers["Q15"])
             comments_list.append(question15[n])
@@ -1256,9 +1293,9 @@ def print_data():
     for n in question16:
         item = questions_and_answers["Q16"]
         if item == n:
-            print("{:22} {:3} {:40} ".format("The system has third-party", ":", question16[n]))
+            print("{:22} {:3} {:40} ".format("The system has regular updates", ":", question16[n]))
 
-            table_for_report.append(["The system has third-party", question16[n]])
+            table_for_report.append(["The system has regular updates", question16[n]])
 
             answers_list.append(questions_and_answers["Q16"])
             comments_list.append(question16[n])
@@ -1266,9 +1303,9 @@ def print_data():
     for n in question17:
         item = questions_and_answers["Q17"]
         if item == n:
-            print("{:22} {:3} {:40}".format("System Cloud Environments", ":", question17[n]))
+            print("{:22} {:3} {:40} ".format("The system has third-party", ":", question17[n]))
 
-            table_for_report.append(["System Cloud Environments", question17[n]])
+            table_for_report.append(["The system has third-party", question17[n]])
 
             answers_list.append(questions_and_answers["Q17"])
             comments_list.append(question17[n])
@@ -1276,40 +1313,50 @@ def print_data():
     for n in question18:
         item = questions_and_answers["Q18"]
         if item == n:
-            print("{:22} {:3} {:40} ".format("Hardware Specification", ":", question18[n]))
+            print("{:22} {:3} {:40}".format("System Cloud Environments", ":", question18[n]))
 
-            table_for_report.append(["Hardware Specification", question18[n]])
+            table_for_report.append(["System Cloud Environments", question18[n]])
 
             answers_list.append(questions_and_answers["Q18"])
             comments_list.append(question18[n])
 
     for n in question19:
-        item = questions_and_answers["Q19"]
+        item = questions_and_answers["Q18"]
         if item == n:
-            print("{:22} {:3} {:40} ".format("HW Authentication", ":", question19[n]))
+            print("{:22} {:3} {:40} ".format("Hardware Specification", ":", question19[n]))
 
-            table_for_report.append(["HW Authentication", question19[n]])
+            table_for_report.append(["Hardware Specification", question19[n]])
 
             answers_list.append(questions_and_answers["Q19"])
             comments_list.append(question19[n])
+
+    for n in question20:
+        item = questions_and_answers["Q20"]
+        if item == n:
+            print("{:22} {:3} {:40} ".format("HW Authentication", ":", question20[n]))
+
+            table_for_report.append(["HW Authentication", question20[n]])
+
+            answers_list.append(questions_and_answers["Q20"])
+            comments_list.append(question20[n])
 
     list_aux = []
     # it is a multiple question
 
     # find if the answer correspond to option "others" (means that is only user input text)
-    if questions_and_answers["Q20"][0].isdigit() == False and questions_and_answers["Q20"].find(";") == -1:
-        list_aux.append(questions_and_answers["Q20"])
+    if questions_and_answers["Q21"][0].isdigit() == False and questions_and_answers["Q21"].find(";") == -1:
+        list_aux.append(questions_and_answers["Q21"])
     else:
         # cut the string in the delimitator ";"
-        aux = questions_and_answers["Q20"].split(";")
+        aux = questions_and_answers["Q21"].split(";")
 
         # delete last item (= None)
         aux = aux[:-1]
 
         for item in aux:
-            for option in question20:
+            for option in question21:
                 if item == option:
-                    list_aux.append(question20[option])
+                    list_aux.append(question21[option])
             # case of user input text
             if item.isdigit() == False:
                 list_aux.append(item)
@@ -1318,18 +1365,18 @@ def print_data():
 
     table_for_report.append(["HW Wireless Tech", ' ; '.join(list_aux)])
 
-    answers_list.append(questions_and_answers["Q20"])
+    answers_list.append(questions_and_answers["Q21"])
     comments_list.append(' ; '.join(list_aux))
 
-    for n in question21:
-        item = questions_and_answers["Q21"]
+    for n in question22:
+        item = questions_and_answers["Q22"]
         if item == n:
-            print("{:22} {:3} {:40} ".format("Data Center Phisical Access", ":", question21[n]))
+            print("{:22} {:3} {:40} ".format("Device or Data Center Physical Access", ":", question22[n]))
 
-            table_for_report.append(["Data Center Phisical Access", question21[n]])
+            table_for_report.append(["Device or Data Center Physical Access", question22[n]])
 
-            answers_list.append(questions_and_answers["Q21"])
-            comments_list.append(question21[n])
+            answers_list.append(questions_and_answers["Q22"])
+            comments_list.append(question22[n])
 
     # write / generate a file with all answers
     for i in range(0, len(answers_list)):
@@ -1537,6 +1584,7 @@ def switch1():
                 questions_and_answers["Q19"] = input_list[18]
                 questions_and_answers["Q20"] = input_list[19]
                 questions_and_answers["Q21"] = input_list[20]
+                questions_and_answers["Q22"] = input_list[21]
 
             information_capture()
 
@@ -1613,7 +1661,7 @@ def information_capture():
     switch1()
 
 """
-[Summary]: Method responsible for processing information about SRE
+[Summary]: Method responsible for processing information about CSRE
 [Arguments]: No arguments
 [Return]: No return
 """
@@ -1690,19 +1738,19 @@ def get_requirements():
     #     report.write(open("security_requirements/privacy.md", "r").read())
 
     # physical security requirement
-    if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1) and questions_and_answers["Q21"].find("1") != -1:
+    if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1) and questions_and_answers["Q22"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("security_requirements/physicalSecurity.md", "r").read())
 
     # forgery resistance requirement
-    if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1) and questions_and_answers["Q21"].find("1") != -1:
+    if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1) and questions_and_answers["Q22"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("security_requirements/forgeryResistance.md", "r").read())
 
     # tampering detection requirement
-    if questions_and_answers["Q21"].find("1") != -1:
+    if questions_and_answers["Q22"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("security_requirements/tamperDetection.md", "r").read())
@@ -1715,13 +1763,13 @@ def get_requirements():
 
     # confinement requirement
     if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-        if questions_and_answers["Q13"].find("1") != -1 or questions_and_answers["Q15"].find("1") != -1 or questions_and_answers["Q16"].find("1") != -1:
+        if questions_and_answers["Q14"].find("1") != -1 or questions_and_answers["Q16"].find("1") != -1 or questions_and_answers["Q17"].find("1") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("security_requirements/confinement.md", "r").read())
 
     # Interoperability requirement
-    if questions_and_answers["Q13"].find("1") != -1 and questions_and_answers["Q15"].find("1") != -1 and questions_and_answers["Q16"].find("1") != -1:
+    if questions_and_answers["Q14"].find("1") != -1 and questions_and_answers["Q16"].find("1") != -1 and questions_and_answers["Q17"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("security_requirements/interoperability.md", "r").read())
@@ -1738,7 +1786,7 @@ def get_requirements():
     print("\n\n # Processing done! Check your requirements in the SECURITY_REQUIREMENTS.pdf file")
 
 """
-[Summary]: Method responsible for processing information about SBPG module
+[Summary]: Method responsible for processing information about CSBPG module
 [Arguments]: No arguments
 [Return]: No return
 """
@@ -1837,12 +1885,12 @@ def get_security_best_practices():
     if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1):
         if (questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1):
             if (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-                if (questions_and_answers["Q11"].find("3") != -1):
+                if (questions_and_answers["Q12"].find("3") != -1):
                     report.write("\n\n");
                     report.write(open("security_best_practices_guidelines/HTML5_Security_Cheat_Sheet.md", "r").read())
     
     # Securing CSS security best practices guidelines
-    if (questions_and_answers["Q11"].find("3") != -1):
+    if (questions_and_answers["Q12"].find("3") != -1):
                     report.write("\n\n");
                     report.write(open("security_best_practices_guidelines/Securing_Cascading_Style_Sheets_Cheat_Sheet.md", "r").read())
     
@@ -1856,37 +1904,37 @@ def get_security_best_practices():
     # Injection prevention in Java security best practices guidelines
     if (questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1):
         if (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-            if (questions_and_answers["Q11"].find("4") != -1):
+            if (questions_and_answers["Q12"].find("4") != -1):
                 report.write("\n\n");
                 report.write(open("security_best_practices_guidelines/Injection_Prevention_in_Java_Cheat_Sheet.md", "r").read())
     
     # Secure Logging security best practices guidelines
     if (questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1):
         if (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-            if (questions_and_answers["Q14"].find("4") != -1):
+            if (questions_and_answers["Q15"].find("4") != -1):
                 report.write("\n\n");
                 report.write(open("security_best_practices_guidelines/Logging_Cheat_Sheet.md", "r").read())
     
     # Logging Vocabulary security best practices guidelines
     if (questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1):
         if (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-            if (questions_and_answers["Q14"].find("4") != -1):
+            if (questions_and_answers["Q15"].find("4") != -1):
                 report.write("\n\n");
                 report.write(open("security_best_practices_guidelines/Logging_Vocabulary_Cheat_Sheet.md", "r").read())
     
     # Nodejs security best practices guidelines 
-    if (questions_and_answers["Q11"].find("5") != -1):
+    if (questions_and_answers["Q12"].find("5") != -1):
         report.write("\n\n")
         report.write(open("security_best_practices_guidelines/Nodejs_Security_Cheat_Sheet.md", "r").read())
     
     # NPM security best practices guidelines 
-    if (questions_and_answers["Q11"].find("5") != -1):
+    if (questions_and_answers["Q12"].find("5") != -1):
         report.write("\n\n")
         report.write(open("security_best_practices_guidelines/NPM_Security_Cheat_Sheet.md", "r").read())
     
     # Third Party Javascript security best practices guidelines 
-    if (questions_and_answers["Q11"].find("5") != -1):
-        if (questions_and_answers["Q16"].find("1") != -1):
+    if (questions_and_answers["Q12"].find("5") != -1):
+        if (questions_and_answers["Q17"].find("1") != -1):
             report.write("\n\n")
             report.write(open("security_best_practices_guidelines/Third_Party_Javascript_Management_Cheat_Sheet.md", "r").read())
             
@@ -1897,7 +1945,7 @@ def get_security_best_practices():
             report.write(open("security_best_practices_guidelines/Password_Storage_Cheat_Sheet.md", "r").read())
     
     # PHP Configuration security best practices guidelines 
-    if (questions_and_answers["Q11"].find("6") != -1):
+    if (questions_and_answers["Q12"].find("6") != -1):
         report.write("\n\n")
         report.write(open("security_best_practices_guidelines/PHP_Configuration_Cheat_Sheet.md", "r").read())  
     
@@ -1927,7 +1975,7 @@ def get_security_best_practices():
     # Input Validation security best practices guidelines
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
         if (questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-            if questions_and_answers["Q12"].find("1") != -1:
+            if questions_and_answers["Q13"].find("1") != -1:
                 report.write("\n\n")
                 report.write(open("security_best_practices_guidelines/Input_Validation_Cheat_Sheet.md", "r").read())
     
@@ -1943,12 +1991,12 @@ def get_security_best_practices():
         report.write(open("security_best_practices_guidelines/Cryptography_guide.md", "r").read())
 
     # Secure Sofware Update security best practices guidelines
-    if questions_and_answers["Q14"].find("1") != -1:
+    if questions_and_answers["Q16"].find("1") != -1:
         report.write("\n\n")
         report.write(open("security_best_practices_guidelines/App_Update_guide.md", "r").read())
 
     # Third-Party Application security best practices guidelines 
-    if questions_and_answers["Q15"].find("1") != -1:
+    if questions_and_answers["Q17"].find("1") != -1:
         report.write("\n\n")
         report.write(open("security_best_practices_guidelines/App_Third_Party_guide.md", "r").read())
 
@@ -1983,7 +2031,7 @@ def get_attack_models():
     report.write("\n")
 
     # Database use and public cloud environment MitM attacks
-    if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q17"].find("4") != -1 or questions_and_answers["Q17"].find("2") != -1):
+    if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
@@ -1996,7 +2044,7 @@ def get_attack_models():
             report.write("\n")
 
     # Brute Force and Eavesdropping Attacks
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q17"].find("4") != -1 or questions_and_answers["Q17"].find("2") != -1):
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
             report.write(open("attack_models/bruteForceAttack.md", "r").read())
 
@@ -2015,7 +2063,7 @@ def get_attack_models():
             report.write("\n")
 
     # If the application is web or hybrid, we have XSS
-    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1 and (questions_and_answers["Q17"].find("4") != -1 or questions_and_answers["Q17"].find("2") != -1):
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1 and (questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
@@ -2028,7 +2076,7 @@ def get_attack_models():
             report.write("\n")
 
     # If the application is web or hybrid, we have CSRF
-    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1 and (questions_and_answers["Q17"].find("4") != -1 or questions_and_answers["Q17"].find("2") != -1):
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1 and (questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
@@ -2041,7 +2089,7 @@ def get_attack_models():
             report.write("\n")
 
     # If the aplication is web or hybrid, we have Cookie Poisoning
-    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (questions_and_answers["Q17"].find("2") != -1 or questions_and_answers["Q17"].find("4") != -1):
+    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("attack_models/cachePoisoning.md", "r").read())
@@ -2066,7 +2114,7 @@ def get_attack_models():
             report.write("\n")
 
     # f the application is web or hybrid, we have CAPTCHA Breaking Attacks
-    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (questions_and_answers["Q17"].find("2") != -1 or questions_and_answers["Q17"].find("4") != -1):
+    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
         report.write("\n")
         report.write("\n")
         report.write(open("attack_models/captchaBreaking.md", "r").read())
@@ -2101,7 +2149,7 @@ def get_attack_models():
             report.write("\n")
 
     # Sniffing Attacks
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q17"].find("4") != -1 or questions_and_answers["Q17"].find("2") != -1):
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
             report.write(open("attack_models/sniffing.md", "r").read())
 
@@ -2113,7 +2161,7 @@ def get_attack_models():
 
     
     # If the application is web or hybrid, we have Phishing Attacks
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q17"].find("2") != -1 or questions_and_answers["Q17"].find("4") != -1):
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
@@ -2163,7 +2211,7 @@ def get_attack_models():
 
     # If the system was development for iOS, Tizen and embedded platforms (Buffer Overflow)
     if questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("6") != -1 or questions_and_answers["Q1"].find("7") != -1:
-        if questions_and_answers["Q11"].find("2") != -1:
+        if questions_and_answers["Q12"].find("2") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("attack_models/bufferOverflows.md", "r").read())
@@ -2203,7 +2251,7 @@ def get_attack_models():
     # If the system was development for Android, iOS, Tizen and embedded platforms (Insiders Malicious Attacks)
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 :
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-            if questions_and_answers["Q21"].find("1") != -1:
+            if questions_and_answers["Q22"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attack_models/maliciousInsider.md", "r").read())
@@ -2256,7 +2304,7 @@ def get_attack_models():
     # If the system was development for Android, iOS, Tizen and embedded platforms (Tampering Attacks)
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-            if questions_and_answers["Q21"].find("1") != -1:
+            if questions_and_answers["Q22"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attack_models/tamperingAttack.md", "r").read())
@@ -2270,7 +2318,7 @@ def get_attack_models():
     # If the application or system uses authentication, database and stores sensitive data, it is subject to Bluejacking, Bluesnarfing and Bluesmack/DOS attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-            if questions_and_answers["Q20"].find("5") != -1:
+            if questions_and_answers["Q21"].find("5") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attack_models/bluejacking_bluesnarfing.md", "r").read())
@@ -2284,7 +2332,7 @@ def get_attack_models():
     # If the application or system uses authentication, database, stores sensitive data and use GPS, it is subject to GPS Jamming attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-            if questions_and_answers["Q20"].find("7") != -1:
+            if questions_and_answers["Q21"].find("7") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attack_models/gps_jamming.md", "r").read())
@@ -2339,7 +2387,7 @@ def get_attack_models():
     # If the application or system uses authentication, database, stores sensitive data and use GPS, it is subject to GPS Jamming attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-            if questions_and_answers["Q20"].find("1") != -1 or questions_and_answers["Q20"].find("2") != -1 or questions_and_answers["Q20"].find("3") != -1 or questions_and_answers["Q20"].find("4") != -1:
+            if questions_and_answers["Q21"].find("1") != -1 or questions_and_answers["Q21"].find("2") != -1 or questions_and_answers["Q21"].find("3") != -1 or questions_and_answers["Q21"].find("4") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attack_models/cellular_jamming.md", "r").read())
@@ -2374,7 +2422,6 @@ def get_attack_models():
             report.write("\n")
             report.write("\n")
 
-
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
             if questions_and_answers["Q14"].find("1") != -1:
@@ -2390,7 +2437,7 @@ def get_attack_models():
 
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
         if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-            if questions_and_answers["Q20"].find("6") != -1:
+            if questions_and_answers["Q21"].find("6") != -1:
                 report.write("\n")
                 report.write("\n")
                 report.write(open("attack_models/Wi-Fi_jamming.md", "r").read())
@@ -2455,7 +2502,7 @@ def get_security_test_recommendation():
     # Security Testing against DoS Jamming, Wi-Fi Jamming, Orbital Jamming, GPS Jamming, Flooding Attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
             questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-        if questions_and_answers["Q17"].find("1") != -1 or questions_and_answers["Q17"].find("2") != -1 or questions_and_answers["Q17"].find("4") != -1:
+        if questions_and_answers["Q18"].find("1") != -1 or questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1:
             report.write(open("security_test_recommendation /AttackGroupDoSToFlooding.md", "r").read())
             report.write("\n")
             report.write("\n")
@@ -2463,7 +2510,7 @@ def get_security_test_recommendation():
     # Security Testing against Malicious Insider, Sniffing, MiTM, Eavesdropping attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
             questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-        if questions_and_answers["Q17"].find("4") != -1 or questions_and_answers["Q17"].find("2") != -1:
+        if questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("security_test_recommendation /AttackGroupMIToEavesdropping.md", "r").read())
@@ -2471,7 +2518,7 @@ def get_security_test_recommendation():
     # Security Testing against Malicious Insider, Sniffing, MiTM, Eavesdropping attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
             questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-        if questions_and_answers["Q17"].find("4") != -1 or questions_and_answers["Q17"].find("2") != -1:
+        if questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("security_test_recommendation /AttackGroupMiTMToBruteForce.md", "r").read())
@@ -2491,7 +2538,7 @@ def get_security_test_recommendation():
     if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1:
         if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
             if questions_and_answers["Q8"].find("1") != -1 and questions_and_answers["Q8"].find("2") != -1 and questions_and_answers["Q8"].find("3") != -1:
-                if questions_and_answers["Q17"].find("2") != -1 or questions_and_answers["Q17"].find("4") != -1:
+                if questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1:
                     report.write("\n")
                     report.write("\n")
                     report.write(open("security_test_recommendation /AttackGroupXSSToSSRF.md", "r").read())
@@ -2499,15 +2546,15 @@ def get_security_test_recommendation():
     # Security Testing against Botnet, Spoofing and Sniffing attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
             questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-        if questions_and_answers["Q20"].find("1") != -1 or questions_and_answers["Q20"].find("2") != -1 or questions_and_answers["Q20"].find("4") != -1 or questions_and_answers[
-            "Q20"].find("5") != -1 or questions_and_answers["Q20"].find("6") != -1 or questions_and_answers["Q20"].find("8") != -1:
+        if questions_and_answers["Q21"].find("1") != -1 or questions_and_answers["Q21"].find("2") != -1 or questions_and_answers["Q21"].find("4") != -1 or questions_and_answers[
+            "Q21"].find("5") != -1 or questions_and_answers["Q21"].find("6") != -1 or questions_and_answers["Q21"].find("8") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("security_test_recommendation /AttackGroupMaaSToNFC.md", "r").read())
 
     # Security Testing against Buffer Overflow attacks
     if questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("6") != -1 or questions_and_answers["Q1"].find("7") != -1:
-        if questions_and_answers["Q10"].find("2") != -1:
+        if questions_and_answers["Q12"].find("2") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("security_test_recommendation /AttackGroupBufferOverflow.md", "r").read())
@@ -2522,7 +2569,7 @@ def get_security_test_recommendation():
     # Security Testing against Malware Injection and Side-channel attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
             questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-        if questions_and_answers["Q21"].find("1") != -1:
+        if questions_and_answers["Q22"].find("1") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("security_test_recommendation /AttackGroupMaaSToBluejacking.md", "r").read())
@@ -2563,8 +2610,6 @@ def get_security_test_recommendation():
         report.write("\n")
         report.write("\n")
         report.write(open("security_test_recommendation /AttackGroupSQLiToVM.md", "r").read())
-    
-    
     
     report.close()
     security_test_recommendation_convert_report()
@@ -2615,10 +2660,13 @@ def get_mechanisms():
     # Authentication mechanisms
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q4"].find("1") != -1:
         report.write(open("security_mechanisms/biometricAuthenticationMechanism.md", "r").read())
+        
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q4"].find("2") != -1:
         report.write(open("security_mechanisms/channelBasedAuthenticationMechanism.md", "r").read())
+        
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q4"].find("3") != -1:
         report.write(open("security_mechanisms/factorsBasedAuthenticationMechanism.md", "r").read())
+        
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q4"].find("4") != -1:
         report.write(open("security_mechanisms/IDBasedAuthenticationMechanism.md", "r").read())
 
@@ -2645,7 +2693,7 @@ def get_mechanisms():
             report.write(open("security_mechanisms/registrationMechanism.md", "r").read())
 
     # Access control mechanisms
-    if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1) and questions_and_answers["Q21"].find(
+    if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1) and questions_and_answers["Q22"].find(
             "1") != -1:
         report.write("\n")
         report.write("\n")
@@ -2654,13 +2702,13 @@ def get_mechanisms():
 
     # Confinement mechanisms
     if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-        if questions_and_answers["Q13"].find("1") != -1 or questions_and_answers["Q15"].find("1") != -1 or questions_and_answers["Q16"].find("1") != -1:
+        if questions_and_answers["Q14"].find("1") != -1 or questions_and_answers["Q16"].find("1") != -1 or questions_and_answers["Q17"].find("1") != -1:
             report.write("\n")
             report.write("\n")
             report.write(open("security_mechanisms/confinementMechanism.md", "r").read())
 
     # Filtering mechanisms
-    if questions_and_answers["Q13"].find("1") != -1 and questions_and_answers["Q15"].find("1") != -1 and questions_and_answers["Q16"].find("1") != -1:
+    if questions_and_answers["Q14"].find("1") != -1 and questions_and_answers["Q16"].find("1") != -1 and questions_and_answers["Q17"].find("1") != -1:
         report.write("\n")
         report.write("\n")
         report.write(open("security_mechanisms/filteringMechanism.md", "r").read())
