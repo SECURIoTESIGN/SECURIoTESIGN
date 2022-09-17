@@ -1,0 +1,21 @@
+4;                   # Hybrid Application  
+4                    # m-Health            
+1                    # Yes                 
+1;4;                 # Biometric-based authentication ; ID-based authentication
+1                    # Yes                 
+1                    # SQL (Relational Database)
+2                    # MySQL               
+1;2;3;               # Personal Information ; Confidential Data ; Critical Data
+3                    # Both                
+1                    # Yes                 
+1                    # The users will register themselves
+3;                   # HTML5 + CSS + JavaScript
+1                    # Yes                 
+1                    # Yes                 
+1                    # Yes                 
+1                    # Yes                 
+1                    # Yes                 
+4                    # Public Cloud        
+3                    # Basic Authentication (user/pass)
+1;2;3;5;6;7;9;       # 3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC
+1                    # Yes                 

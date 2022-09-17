@@ -5,24 +5,24 @@
 |  Mobile Platform          |  Hybrid Application                                          |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Factors-based authentication ; ID-based authentication      |  
+|  Authentication schemes   |  Biometric-based authentication ; ID-based authentication    |  
 |  Has DB                   |  Yes                                                         |  
 |  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  SQLite                                                      |  
-|  Type of information handled|  Critical Data                                               |  
+|  Which DB                 |  MySQL                                                       |  
+|  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
+|  Storage Location         |  Both                                                        |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  Will be an administrator that will register the users       |  
-|  Programming Languages    |  HTML5                                                       |  
+|  Type of Registration     |  The users will register themselves                          |  
+|  Programming Languages    |  HTML5 + CSS + JavaScript                                    |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
 |  System Cloud Environments|  Public Cloud                                                |  
-|  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Wi-Fi  ; GPS  ; NFC ; Bluetooth          |  
-|  Data Center Phisical Access|  Yes                                                         |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; NFC         |  
+|  Device or Data Center Physical Access|  Yes                                                         |  
 
 
 
@@ -398,6 +398,54 @@ In order to ensure that the mobile application is resilient or immune to the CAP
 
 ## CAPTCHA Breaking Attacks Diagram
 
+
+
+# SQL Injection Attacks
+
+In this type of attack, an attacker could provide malicious input with a clever mix of characters and meta characters from a form (e.g., login form) to alter the logic of the SQL command.
+
+
+## Definition
+
+Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose to change the logic of the desired query.
+
+## Technical Impact
+ * Read Application Data;
+ * Bypass Protection Mechanism;
+ * Modify Application Data.
+
+## Likelihood of Exploit
+
+ * High.
+
+## Risk
+
+ * Critical Risk.
+
+## Attacker's Powers
+ * Identify parameters vulnerable to injection;
+ * Discover DBMS and version;
+ * Discover relational scheme;
+ * Extract data;
+ * Add/modify data;
+ * Cause denial of service;
+ * Evade detection;
+ * Bypass authentication;
+ * Execute commands;
+ * Elevate privileges.
+
+## Recommendations
+
+To ensure that the mobile application is resilient or immune to SQLi attacks, it is recommended that the measures described in the good practice report and the security tests present in the full report are followed to ensure authenticity, confidentiality, access control, integrity, privacy and authenticity of the data.
+
+## Reference
+ 1. [https://cwe.mitre.org/data/definitions/89.html]
+ 
+## SQL Injection Attacks Diagram
+
+
+![alt text](attack_models/sqliAttackTree.png)
+
 # Flooding or Distributed Denial of Services (DDoS)  Attacks
 
 Flooding is an enhanced Denial of Service (DoS) attack type, originating from multiple network attack surfaces that were previously compromised to disrupt the services or resources provided by the target server. It differs from DoS in that it generates more traffic, so that the targeted server cannot handle requests. This type of attack generally exposes a weakness in rate limiting or flow.
@@ -561,6 +609,43 @@ To ensure that the mobile application is resilient or immune to Spoofing attacks
 
 
 ![alt text](attack_models/xmliAttackTree.png)
+
+
+
+# Session Hijacking Attack
+
+An attacker impersonates a legitimate user through stealing or predicting a valid session ID.
+
+## Definition
+
+The necessary condition for the session hijacking attack to occur is the existence of architectural vulnerabilities in the absence of protection for the storage of session identifiers. This vulnerability generally occurs in web applications written in PHP in previous versions (e.g., PHP 4.0 to PHP 4.1.2), As described in CVE-2002-0121.
+
+## Technical Impact
+* Read Application Data; 
+* Gain Privileges or Assume Identity; 
+* Execute Unauthorized Code or Commands.
+
+## Risk Analysis
+* Critical.
+
+## Likelihood of Exploit
+* High.
+
+## Attacker Powers
+
+ * Steal Session ID;
+ * Impersonation of a legitimate user and confidential information from a legitimate user.
+
+## References
+1. [https://www.cvedetails.com/cve/CVE-2002-0121/];
+2. [https://cwe.mitre.org/data/definitions/287.html];
+3. [https://capec.mitre.org/data/definitions/593.html].
+ 
+ 
+## Session Hijacking Attack Diagram
+
+
+![alt text](attack_models/sessionHijackingAttackTree.png)
 
 
 
