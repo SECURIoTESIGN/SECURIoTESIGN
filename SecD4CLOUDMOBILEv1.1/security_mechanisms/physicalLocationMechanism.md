@@ -1,4 +1,4 @@
-In order to ensure that user data stored in remote databases is safe and reliable, app developers for the cloud & mobile ecosystem are recommended to incorporate data *location physical mechanisms* for data centers.
+In order to ensure that user data stored in remote databases is safe and reliable, app developers for the cloud & mobile ecosystem are recommended to incorporate data *physical location mechanisms* for data centers.
 
 <table class="tg">
 <thead>
