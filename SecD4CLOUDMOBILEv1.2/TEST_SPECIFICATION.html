@@ -1,0 +1,2462 @@
+<h1>Final Security Test Specification and Tools Report</h1>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Mobile Platform</td>
+<td align="left">Hybrid Application</td>
+</tr>
+<tr>
+<td align="left">Application domain type</td>
+<td align="left">Entertainment</td>
+</tr>
+<tr>
+<td align="left">Authentication</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Authentication schemes</td>
+<td align="left">Biometric-based authentication ; Factors-based authentication ; ID-based authentication</td>
+</tr>
+<tr>
+<td align="left">Has DB</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Type of database</td>
+<td align="left">SQL (Relational Database)</td>
+</tr>
+<tr>
+<td align="left">Which DB</td>
+<td align="left">MySQL</td>
+</tr>
+<tr>
+<td align="left">Type of information handled</td>
+<td align="left">Personal Information ; Confidential Data ; Critical Data</td>
+</tr>
+<tr>
+<td align="left">Storage Location</td>
+<td align="left">Remote Storage (Cloud Database)</td>
+</tr>
+<tr>
+<td align="left">User Registration</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Type of Registration</td>
+<td align="left">The users will register themselves</td>
+</tr>
+<tr>
+<td align="left">Programming Languages</td>
+<td align="left">HTML5 + CSS + JavaScript</td>
+</tr>
+<tr>
+<td align="left">Input Forms</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">Upload Files</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">The system has logs</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">The system has regular updates</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">The system has third-party</td>
+<td align="left">Yes</td>
+</tr>
+<tr>
+<td align="left">System Cloud Environments</td>
+<td align="left">Hybrid Cloud</td>
+</tr>
+<tr>
+<td align="left">Hardware Specification</td>
+<td align="left">No</td>
+</tr>
+<tr>
+<td align="left">HW Authentication</td>
+<td align="left">Basic Authentication (user/pass)</td>
+</tr>
+<tr>
+<td align="left">HW Wireless Tech</td>
+<td align="left">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ;</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the DoS or Cellular Jamming Attack</h1>
+<ol>
+<li><strong>Assessment:</strong> Set up a denial-of-service (DoS) or cellular jamming attack testing to check for potential vulnerabilities/risk.</li>
+<li><strong>Preparation:</strong> Before testing, make sure to have the necessary tools and materials, including a network-testing tool that can be used to simulate DoS/jamming attacks, a test environment for the attack, and a virtual machine environment.</li>
+<li><strong>Testing Procedure:</strong>
+   * Step 1: Configure the test environment with the attack type chosen.
+   * Step 2: Execute the attack on the test environment.
+   * Step 3: Monitor for any signs of the attack's success such as decreased network performance.
+   * Step 4: If the attack has been successful, record the data or screenshot the results.
+   * Step 5: Repeat steps 1-4 as needed with different attack types and configurations.</li>
+<li><strong>Analysis:</strong> Analyze the results of the tests to determine any potential DoS/jamming vulnerabilities or risk in the system.</li>
+<li><strong>Conclusion:</strong> Analyze the results and make conclusions on the potential impacts of DoS/jamming attacks on the system.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<h2>Target Testing | Testing Technique | Test Analysis | Test Method | Test Tool | Mobile Platform</h2>
+<p>DoS Attack | White-box | Dynamic | Penetration Testing | Nmap | iOS/Android
+ Cellular Jamming | Gray-box | Static | Vulnerability Scan | Nessus | iOS/Android 
+ | Black-box | Hybrid | Activity Monitoring | Wireshark | iOS/Android</p>
+<h1>Testing the Wi-Fi Jamming Attack</h1>
+<ol>
+<li>Test equipment</li>
+</ol>
+<p>In order to test a Wi-Fi Jamming attack, the following test equipment is typically needed:
+- Wi-Fi Jamming device(s) 
+- A laptop or desktop computer with a wireless adapter 
+- External antennas </p>
+<ol start="2">
+<li>Set up test environment</li>
+</ol>
+<p>The best way to test a Wi-Fi Jamming attack is to create a simulated Wi-Fi environment:
+- Create a dedicated wireless network or VLAN that has no other Wi-Fi traffic on it. 
+- Connect the test laptop or desktop to the dedicated Wi-Fi network. 
+- Connect the jamming device(s) to a power source. </p>
+<ol start="3">
+<li>Test the jamming attack</li>
+</ol>
+<p>Once the test environment is set up and all the equipment is connected, the jamming attack can be tested: </p>
+<ul>
+<li>Verify that the jamming device(s) are broadcasting the jamming signal and that the test laptop or desktop can detect it.</li>
+<li>Try to make a connection on the test laptop or desktop.</li>
+<li>Verify that the jamming device(s) is blocking or degrading any attempts to connect to the Wi-Fi network.</li>
+<li>Try to connect to other Wi-Fi networks in range to verify that the jamming attack is blocking or degrading any attempts to connect to other Wi-Fi networks outside of the test environment.</li>
+</ul>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wi-fi Jamming Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Parameter Testing</td>
+<td>InSSIDer</td>
+<td>iOS, Android</td>
+</tr>
+<tr>
+<td>Wi-fi Jamming Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Code Review</td>
+<td>Nmap</td>
+<td>iOS, Android</td>
+</tr>
+<tr>
+<td>Wi-fi Jamming Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Network Sniffing</td>
+<td>Wireshark</td>
+<td>iOS, Android</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Orbital Jamming Attack</h1>
+<h2>Testing of Orbital Jamming Attack</h2>
+<p>Orbital jamming attacks aim to hamper satellite communications and can be difficult to detect. Here are some test procedures that can be implemented to detect such attacks: </p>
+<ol>
+<li>
+<p><strong>Spectral Analysis using Software Defined Radios (SDRs)</strong>: SDRs can be used to analyze the frequency spectrum and detect any deviations in the spectrum that may indicate the presence of the jamming signals.</p>
+</li>
+<li>
+<p><strong>Direct Signal Detection:</strong> If a direct signal is detected, then it can be used to detect the presence of a jamming attack.</p>
+</li>
+<li>
+<p><strong>Power Analysis:</strong> Power analysis can be used to identify any abnormalities in the received signal strength. A rapidly fluctuating signal could be an indication of an Orbital Jamming attack.</p>
+</li>
+<li>
+<p><strong>Timing Analysis:</strong> Timing analysis can be used to determine the timing of the jamming signals. If the timing is irregular or inconsistent, then it could be an indication of an attack.</p>
+</li>
+<li>
+<p><strong>Signal-to-noise Ratio Analysis:</strong> Signal-to-noise ratio analysis can be used to determine the accuracy of the received signal. If the signal-to-noise ratio is low or fluctuating, then it could indicate an orbital jamming attack.</p>
+</li>
+</ol>
+<p>These tests can help detect any presence of a jamming attack, and ultimately lead to further investigation.</p>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orbital Jamming Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Penetration Testing</td>
+<td>Burp Suite</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>Orbital Jamming Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Fuzz Testing</td>
+<td>OWASP ZAP</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>Orbital Jamming Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Automated Security Testing</td>
+<td>AppScan</td>
+<td>iOS, Android</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the GPS Jamming Attack</h1>
+<p><strong>Testing GPS Jamming Attack</strong> </p>
+<ol>
+<li>
+<p>Check if possible to jam satellite signals. This can be done by examining the radio frequencies around the target area. </p>
+</li>
+<li>
+<p>Once a jamming source is spotted, use a GPS receiver to measure the impact of the interference.</p>
+</li>
+<li>
+<p>Use a spectrum analyzer to further analyze the spectrum of the jammer. This will allow one to see any changes in the jammer power. </p>
+</li>
+<li>
+<p>Test the GPS receiver to ensure that it is functioning properly, and that its connections are not being disrupted by the jammer.</p>
+</li>
+<li>
+<p>Install different types of antennae to measure the range of the jamming attack and to determine how effective it is. </p>
+</li>
+<li>
+<p>Take readings at different distances to measure the impact of the jammer. This will help determine the strength of the jammer and its likely range.</p>
+</li>
+<li>
+<p>Test the GPS in different environments such as buildings, forests, and open areas to get an idea of its capabilities. </p>
+</li>
+<li>
+<p>Finally, use a field-testing kit to measure the impact of the jammer in a more realistic environment. This will provide an accurate measure of the effectiveness of the jamming attack.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPS Functionality</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Regression testing</td>
+<td>Google Test</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>GPS Functionality</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Security Testing</td>
+<td>Nessus</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>GPS Jamming</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Penetration Testing</td>
+<td>Metasploit</td>
+<td>Cross-platform</td>
+</tr>
+<tr>
+<td>GPS Jamming</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Exploratory Testing</td>
+<td>Burp Suite</td>
+<td>Cross-platform</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Bluesnarfing Attack</h1>
+<ol>
+<li>First, set up a Bluetooth enabled device with a vulnerable version of Bluetooth and make sure the device is in Discoverable mode. </li>
+<li>Scan the device with a tool such as BlueSnarf, a suite of Bluetooth security tools, to determine the services offered by the Bluetooth enabled device. </li>
+<li>If the services offered contain authentication and/or authorization, identify and exploit vulnerabilities to complete a successful Bluesnarfing attack. </li>
+<li>Once the attack is complete, a log of information should be generated and the activity should be monitored to verify the success of the attack. </li>
+<li>Further testing of the security measures in place should be performed to reduce the likelihood of a successful Bluesnarfing attack.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VulnerableBT</td>
+<td>White-Box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>No</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Vulnerable BT</td>
+<td>White-Box</td>
+<td>Static</td>
+<td>Manual</td>
+<td>No</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Vulnerable BT</td>
+<td>Grey-Box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>No</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Vulnerable BT</td>
+<td>Grey-Box</td>
+<td>Static</td>
+<td>Manual</td>
+<td>No</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Vulnerable BT</td>
+<td>Black-Box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>No</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Vulnerable BT</td>
+<td>Black-Box</td>
+<td>Static</td>
+<td>Manual</td>
+<td>No</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Vulnerable BT</td>
+<td>White-Box</td>
+<td>Hybrid</td>
+<td>Manual</td>
+<td>No</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Vulnerable BT</td>
+<td>Grey-Box</td>
+<td>Hybrid</td>
+<td>Manual</td>
+<td>No</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Vulnerable BT</td>
+<td>Black-Box</td>
+<td>Hybrid</td>
+<td>Manual</td>
+<td>No</td>
+<td>Android, iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Bluejacking Attack</h1>
+<ol>
+<li>Set up the environment:<ul>
+<li>Install a Bluetooth-capable device, such as a laptop or a smartphone.</li>
+<li>Install a Bluetooth scanner or proximity detection software such as Bluediving.</li>
+</ul>
+</li>
+<li>Perform the attack: <ul>
+<li>Enable Bluetooth on both the target device and the attacker's device.</li>
+<li>On the attacker's device, scan for Bluetooth devices in the area.</li>
+<li>Once the target device is detected, the attacker can send a message or picture to the target device.</li>
+</ul>
+</li>
+<li>Test the results:<ul>
+<li>Observe whether the message or picture was successfully sent. </li>
+<li>Observe whether the target device has responded to the message or picture.</li>
+<li>Verify that the data was successfully transferred between devices.</li>
+</ul>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bluejacking Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Fuzz Testing</td>
+<td>Metasploit Framework</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>Bluejacking Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Security Code Review</td>
+<td>Code Radar</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>Bluejacking Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Exploratory Testing</td>
+<td>Burp Suite</td>
+<td>Windows Phone</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Wi-Fi Jamming Attack</h1>
+<p><strong>Testing a Wi-Fi SSID Tracking attack:</strong> </p>
+<ol>
+<li>Scan the local wireless network to record all available SSID (Service Set Identifier) information, including the SSID name, MAC address, and signal strength. </li>
+<li>Monitor the same wireless network to track changes in SSID information over time. </li>
+<li>Compare the current and previous records of SSID information to identify any changes. </li>
+<li>Collect data points using tracking software that can map a device’s route through an area based on the changes in SSID information. </li>
+<li>Visualize the data points on a map and assess the accuracy of the location data.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wi-Fi SSID Tracking</td>
+<td>White Box</td>
+<td>Dynamic</td>
+<td>Penetration Testing</td>
+<td><a href="https://nmap.org/">Nmap</a></td>
+<td>Android/iOS</td>
+</tr>
+<tr>
+<td>Wi-Fi SSID Tracking</td>
+<td>Grey Box</td>
+<td>Dynamic</td>
+<td>Exploratory Testing</td>
+<td><a href="https://www.selenium.dev/">Selenium</a></td>
+<td>Android/iOS</td>
+</tr>
+<tr>
+<td>Wi-Fi SSID Tracking</td>
+<td>Black Box</td>
+<td>Static</td>
+<td>Code Review</td>
+<td><a href="https://www.sonarqube.org/">SonarQube</a></td>
+<td>Android/iOS</td>
+</tr>
+<tr>
+<td>Wi-Fi SSID Tracking</td>
+<td>White Box</td>
+<td>Hybrid</td>
+<td>Security Testing</td>
+<td><a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">OWASP Zed Attack Proxy </a></td>
+<td>Android/iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Byzantin Attack</h1>
+<p>One way to test for a Byzantine attack is to use the "Byzantine Fault Tolerance Test" (BFTT). This is a test designed to detect any malicious behavior in a distributed system. The test can be broken up into the following steps:</p>
+<ol>
+<li>
+<p>Setup the test environment:
+   - Choose a testbed and deploy the system components according to the required configuration.
+   - Install monitoring tools to measure the performance of the system.</p>
+</li>
+<li>
+<p>Perform the test:
+   - Launch the Byzantine Fault Tolerance Test to detect any instances of malicious behavior on the distributed system.
+   - Generate test transactions that could be potentially malicious.
+   - Measure the system's response to the malicious transactions.</p>
+</li>
+<li>
+<p>Analyze the results:
+   - Analyze the system's behavior in terms of speed, accuracy, and time to detect malicious transactions.
+   - Compare the results of the test with the theoretical baseline or established standards.</p>
+</li>
+<li>
+<p>Make changes to secure the system:
+   - Make changes to the system configuration or software to ensure the system is secure.
+   - Monitor the system's performance after the changes are implemented to ensure the system is secure.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tools</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Byzantine Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Penetration Testing</td>
+<td>Nmap, Wireshark</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Byzantine Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Code Review</td>
+<td>SonarQube</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Byzantine Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Stress Testing</td>
+<td>LoadRunner</td>
+<td>Android, iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the On-Off Attack</h1>
+<p>Testing an On-Off attack is done by conducting a series of tests against a target system to attempt to determine its susceptibility to the attack. </p>
+<p>The testing process consists of the following steps:</p>
+<ol>
+<li>Identify the target system and configure it for the attack. </li>
+<li>Conduct active reconnaissance to discover the presence and types of services running on the target system. </li>
+<li>Launch a series of On-Off attacks against the identified services.</li>
+<li>Analyze the response from the target system to determine if the attack was successful.</li>
+<li>If successful, note the attack vector(s) used and document the vulnerability that was exploited.</li>
+<li>If unsuccessful, repeat the process until the target system has been fully tested.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Plataform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Endpoints</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Exploitation</td>
+<td>Burp</td>
+<td>Android &amp; iOS</td>
+</tr>
+<tr>
+<td>Services</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Pen. Test</td>
+<td>Zed Attack Proxy</td>
+<td>Android &amp; iOS</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Scan</td>
+<td>Nmap</td>
+<td>Android &amp; iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Malicious Insider Attack</h1>
+<ol>
+<li>
+<p>Educate Employees: Provide regular training to employees on data protection, cybersecurity, and mitigation of malicious insider activity.</p>
+</li>
+<li>
+<p>Monitor Network Activity : Monitor and audit employees' access to data and system. Look for suspicious activity such as unusually large data transfers or out-of-the-ordinary access attempts.</p>
+</li>
+<li>
+<p>Separate Duties : Thoroughly separate duties between different personnel to prevent one person from having too much access or control.</p>
+</li>
+<li>
+<p>Implement Least Privilege Measures: Limit user access by granting only the privileges that are needed, rather than granting full access to all users.</p>
+</li>
+<li>
+<p>Establish Access Protocols: Establish access protocols and rules regarding data access, such as when, what, and how users are allowed to access certain data.</p>
+</li>
+<li>
+<p>Conduct Security Audits: Regularly perform security audits on employee accounts to detect malicious activity.</p>
+</li>
+<li>
+<p>Utilize Network Logging : Utilize network logging to monitor user activity, such as web browsing and application usage.</p>
+</li>
+<li>
+<p>Install SSL Monitoring: Install an SSL monitoring system to detect any suspicious activity, such as unauthorized access to sensitive data.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detection</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Functional Testing</td>
+<td>OWASP ZAP Proxy</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>Prevention</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Fault Tree Analysis</td>
+<td>HP Fortify</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>Response</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Penetration Testing</td>
+<td>Burp Suite</td>
+<td>All</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Sniffing Attack</h1>
+<p>Sniffing attacks can be tested using the tools included in most network security programs. </p>
+<p>The following steps should be taken to test Sniffing Attacks:</p>
+<ol>
+<li>
+<p>Set up a network and create a designated test environment.</p>
+</li>
+<li>
+<p>Monitor all of the traffic on the network and detect any signs of suspicious activity. This would include anything out of the ordinary, such as changes in IP addresses, traffic amounts, or unexpected errors.</p>
+</li>
+<li>
+<p>Use the tools included in the security program to detect the sources of the suspicious traffic.</p>
+</li>
+<li>
+<p>Actively scan the network in order to detect any malicious programs that might be present.</p>
+</li>
+<li>
+<p>Use a packet sniffer to log all packets and analyze any anomalous behavior.</p>
+</li>
+<li>
+<p>Detect and block any attempts to hijack communications or take control of any system on the network.</p>
+</li>
+<li>
+<p>Perform a vulnerability assessment of the network to ensure that no weak spots are present that could be taken advantage of by a sniffing attack.</p>
+</li>
+<li>
+<p>Test to see if your organization’s security measures are able to detect and block against any sniffing activity.</p>
+</li>
+<li>
+<p>Once the tests have been completed, perform a validation process to ensure that all of the results are accurate and the attack can be blocked and remediated properly.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sniffing Attacks</td>
+<td>White-box</td>
+<td>Static</td>
+<td>Code Review</td>
+<td>Wireshark</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Sniffing Attacks</td>
+<td>Grey-box</td>
+<td>Hybrid</td>
+<td>Fuzz Testing</td>
+<td>Tcpdump</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Sniffing Attacks</td>
+<td>Black-box</td>
+<td>Dynamic</td>
+<td>Protocol Analysis</td>
+<td>Scapy</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Man-in-the-Middle Attack</h1>
+<h2>Testing Man-in-the-Middle Attack</h2>
+<p>Man-in-the-middle (MitM) attacks are a type of cyber attack where an attacker intercepts the communication between two parties, allowing them to listen in on, modify, or block the communication. In order to test for MitM attacks, you must be able to detect if a third-party is attempting to intercept or modify traffic between two parties. </p>
+<ol>
+<li>Disable your firewall temporarily and ensure that any antivirus software is turned off. </li>
+<li>Use command line tools such as <strong>netstat</strong> to monitor incoming and outgoing connections to your system. </li>
+<li>Monitor inbound and outbound traffic for suspicious IP addresses or packets.</li>
+<li>Use <strong>traceroute</strong> and <strong>ping</strong> tests to identify malicious intermediaries on the network. </li>
+<li>Use <strong>arp spoofing</strong> to detect and stop man-in-the-middle attacks. </li>
+<li>Monitor log files for suspicious or irregular behavior. </li>
+<li>Implement solutions such as SSL/TLS or IPSec encryption to ensure the authenticity of data transmitted over the network.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Man-in-the-Middle</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Penetration</td>
+<td>Nmap</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>Man-in-the-Middle</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Source Code</td>
+<td>Infer</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>Man-in-the-Middle</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Vulnerability</td>
+<td>Burp Suite</td>
+<td>Windows</td>
+</tr>
+<tr>
+<td>Man-in-the-Middle</td>
+<td>Grey-box</td>
+<td>Dynamic</td>
+<td>Performance</td>
+<td>WebLink</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>Man-in-the-Middle</td>
+<td>White-box</td>
+<td>Static</td>
+<td>Network</td>
+<td>Wireshark</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>Man-in-the-Middle</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Fuzzing</td>
+<td>Afl</td>
+<td>Windows</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Eavesdropping Attack</h1>
+<p>Eavesdropping attacks are one of the most common and widespread cyberattacks, in which an attacker attempts to gain access and collect sensitive or confidential information sent or stored by individuals or businesses.</p>
+<p>Testing for an eavesdropping attack can be accomplished in several ways. Some of the methods that can be used are outlined below:</p>
+<ol>
+<li>
+<p>Network Sniffing: This involves monitoring network traffic for any suspicious activity. Network packet sniffing tools and protocols such as TCPdump and Wireshark can be used to help detect suspicious activity and potential eavesdropping attempts.</p>
+</li>
+<li>
+<p>System Logs: Reviewing system logs can help to identify any suspicious activity that may be related to an eavesdropping attack. Administrators can also monitor application and network logs for any unauthorized access or changes that may have been made to the system.</p>
+</li>
+<li>
+<p>Password Testing: Utilizing password-cracking tools such as John the Ripper, administrators can test the strength of passwords that are in use against a list of thousands of common passwords. This offers the best idea of how secure a network is against eavesdropping attacks.</p>
+</li>
+<li>
+<p>Penetration Testing: This is a more advanced method of testing for eavesdropping attacks and involves launching sophisticated simulated attacks on an organization's system. Penetration testers use tools such as Metasploit and Nmap to assess the effectiveness of an organization's security measures against different types of attack vectors, including eavesdropping attacks.</p>
+</li>
+<li>
+<p>Antivirus Scanning: This is an important step that should be undertaken regularly. Regularly scanning the system with a reliable antivirus will help to identify any malicious software that may have been installed as part of an eavesdropping attack.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eavesdropping Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Penetration Testing</td>
+<td>Nexpose, Nmap, Metasploit</td>
+<td>Android, iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the CSRF Attack</h1>
+<p>Below are the steps to test for a CSRF attack:</p>
+<ol>
+<li>Ensure that the application is properly allowing and validating CSRF tokens.</li>
+<li>Identify all form entry points in the application.</li>
+<li>Use a proxy tool such as Burp Suite to intercept the request.</li>
+<li>Modify the request on the proxy tool with an incorrect CSRF token.</li>
+<li>Submit the request and observe the response.</li>
+<li>If an error is returned, the application is properly validating the token and the attack is not successful.</li>
+<li>If the request is accepted, the application is not properly validating the CSRF token and the attack is successful.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSRF Attack</td>
+<td>White-Box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>Burp Suite</td>
+<td>iOS &amp; Android</td>
+</tr>
+<tr>
+<td></td>
+<td>Grey-Box</td>
+<td>Static</td>
+<td>Automated</td>
+<td>Nikto</td>
+<td>IOS &amp; Android</td>
+</tr>
+<tr>
+<td></td>
+<td>Black-Box</td>
+<td>Hybrid</td>
+<td>Automated</td>
+<td>Owasp Zap</td>
+<td>iOS &amp; Android</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the SQLi Attack</h1>
+<h2>Testing SQLi Attack</h2>
+<h3>1. Cross-Site Scripting (XSS)</h3>
+<p>Cross-site scripting (XSS) is a type of attack that involves a malicious script being injected into a website. When a user visits the website, the script is executed in their browser. To test for XSS, we can insert a malicious script into the website and see if the script is executed.</p>
+<h3>2. SQL Injection</h3>
+<p>SQL injection is a type of attack where malicious code is inserted into the SQL query in order to gain access to data stored in a database. To test for SQLi attacks, we can insert a malicious query into the website and check if it is executed on the database.</p>
+<h3>3. Parameter Tampering</h3>
+<p>Parameter tampering is a type of attack where parameters of a URL are modified to gain access to restricted information or data. To test for parameter tampering, we can change the values of URL parameters and see if the website is responding with different outputs.</p>
+<h3>4. Brute-Force Attack</h3>
+<p>Brute-force attacks are attempts to guess the username and password of a system using automated tools. To test for brute-force attacks, we can use tools that try different combinations of usernames and passwords and check if the system is able to detect the attempts.</p>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQLi Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>SQLMap</td>
+<td>iOS / Android</td>
+</tr>
+<tr>
+<td>SQLi Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Automated</td>
+<td>OWASP ZAP</td>
+<td>iOS / Android</td>
+</tr>
+<tr>
+<td>SQLi Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Exploration</td>
+<td>Burp Suite</td>
+<td>iOS / Android</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the XSS Attack</h1>
+<p><strong>Testing XSS Attack</strong></p>
+<ol>
+<li>Identify the potential injection points: 
+   - Take a look at webpages for available input fields, parameters in a URL, cookies, and source code.</li>
+<li>Input test payloads:
+   - One of the most common XSS payloads is the <code>&lt;script&gt;alert(1)&lt;/script&gt;</code> tag.</li>
+<li>Monitor the response:
+   - If your payload is successfully executed, you'll likely get an alert box or some other type of notification.</li>
+<li>Assess for vulnerabilities:
+   - Once you've confirmed where the vulnerabilities are, you can start to control and mitigate the attack.</li>
+</ol>
+<p><strong>Prevention of XSS Attack</strong></p>
+<ol>
+<li>Employees: 
+   - Train employees to be aware of XSS attacks so they can spot and report suspicious activities.</li>
+<li>Validate input: 
+   - Validate and filter any user input to ensure that only properly formatted input is accepted.</li>
+<li>Sanitize input: 
+   - Sanitizing data is the process of removing Javascript, HTML, and other malicious code from user input.</li>
+<li>Use Trusted data: 
+   - Be sure to use trusted input whenever possible to minimize the chances of XSS attacks.</li>
+<li>Use Security Headers: 
+   - Use security headers, such as HTTP Strict Transport Security (HSTS), to help prevent XSS attacks.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XSS Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>Burp Suite</td>
+<td>iOS, Android</td>
+</tr>
+<tr>
+<td></td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Automated</td>
+<td>HP WebInspect</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td></td>
+<td>Acunetix</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the SSRF Attack</h1>
+<p><strong>Testing SSRF Attack</strong></p>
+<ol>
+<li>
+<p>Set up an attacker controlled server: This server needs to be able to accept connections from the target server and should log the requests from the target server like the source IP address, used port, timestamp, and any data sent over with the request.</p>
+</li>
+<li>
+<p>Prepare a crafted URL: This URL should lead to the attacker controlled server and is used for the SSRF attack.</p>
+</li>
+<li>
+<p>Send the crafted URL to the target server: This can be done manually by providing the URL as an input for a user or programmatically by sending the URL with a POST request to the target server.</p>
+</li>
+<li>
+<p>Check the logs of the attacker controlled server: After the URL is sent to the target server, the attacker controlled server should log the requests sent by the target server. This is used to analyze the type of requests being sent, the data being sent, and the source IP address.</p>
+</li>
+<li>
+<p>Monitor the environment of the target server: When the target server makes requests to the attacker controlled server, the attacker can set up environment variables, files, resources, etc. in order to exploit the target server.</p>
+</li>
+<li>
+<p>Try to gain access to the target server: If the SSRF attack was successful, the attacker can try to access the target server from the attacker controlled server by using the access gained from the exploited environment of the target server.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server</td>
+<td>White-Box</td>
+<td>Dynamic</td>
+<td>Input Validation</td>
+<td>DSSS - Detection of SSRF</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>Gray-Box</td>
+<td>Dynamic</td>
+<td>Fuzzing</td>
+<td>Burpsuite</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>Black-Box</td>
+<td>Dynamic</td>
+<td>Vulnerability Scanner</td>
+<td>NTOSpider</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>White-Box</td>
+<td>Static</td>
+<td>Source Code Analysis</td>
+<td>Code Editors</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>Gray-Box</td>
+<td>Static</td>
+<td>Source Code Auditing</td>
+<td>Vega</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>Black-Box</td>
+<td>Static</td>
+<td>Manual Review</td>
+<td>Manual Review</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>White-Box</td>
+<td>Hybrid</td>
+<td>Interactive Testing</td>
+<td>Manual Review</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>Gray-Box</td>
+<td>Hybrid</td>
+<td>Penetration Testing</td>
+<td>Metasploit</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>Black-Box</td>
+<td>Hybrid</td>
+<td>Penetration Testing</td>
+<td>Zed Attack Proxy</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>White-Box</td>
+<td>Dynamic</td>
+<td>Input Validation</td>
+<td>DSSS - Detection of SSRF</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>Gray-Box</td>
+<td>Dynamic</td>
+<td>Fuzzing</td>
+<td>Burpsuite</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>Black-Box</td>
+<td>Dynamic</td>
+<td>Vulnerability Scanner</td>
+<td>NTOSpider</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>White-Box</td>
+<td>Static</td>
+<td>Source Code Analysis</td>
+<td>Code Editors</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>Gray-Box</td>
+<td>Static</td>
+<td>Source Code Auditing</td>
+<td>Vega</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>Black-Box</td>
+<td>Static</td>
+<td>Manual Review</td>
+<td>Manual Review</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>White-Box</td>
+<td>Hybrid</td>
+<td>Interactive Testing</td>
+<td>Manual Review</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>Gray-Box</td>
+<td>Hybrid</td>
+<td>Penetration Testing</td>
+<td>Metasploit</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td>Black-Box</td>
+<td>Hybrid</td>
+<td>Penetration Testing</td>
+<td>Burp Suite</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Command Injection Attack</h1>
+<ol>
+<li><strong>Testing for Command Injection</strong></li>
+</ol>
+<p>Command Injection is an attack in which malicious commands are injected into a vulnerable application in order to gain access or obtain privileged information. This type of attack involves taking user input and executing it as code on the system, making it highly dangerous and difficult to detect.</p>
+<p>In order to test for command injection, it is important to first identify any areas of the application that may be vulnerable to attack. Applications which take user input and execute it as code are particularly at risk.</p>
+<p>Once potential vulnerable areas have been identified, test cases can be created to simulate attempts at injecting malicious code. This can be done by attempting to insert special characters or meta-characters into input fields, such as semi-colons, backticks, or quotation marks. If the application responds in an unexpected manner or creates an externally visible result, such as creating an extra file in the directory, it is likely that command injection is possible.</p>
+<p>It is important to note that command injection may not always be easy to spot, as the application may attempt to sanitize user input or where malicious code can be 'hidden' within benign input. As such, testing using all potential input combinations is recommended in order to ensure that vulnerabilities have been adequately identified and addressed.</p>
+<p>Once all potential vulnerabilities have been assessed and remediated, it is recommended to repeat the testing process in order to validate the changes.</p>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command Injection Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Input Fuzzing</td>
+<td>Metasploit</td>
+<td>iOS/Android</td>
+</tr>
+<tr>
+<td>Command Injection Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Variant Analysis</td>
+<td>CodeSonar</td>
+<td>iOS/Android</td>
+</tr>
+<tr>
+<td>Command Injection Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Interactive Fuzzing</td>
+<td>Burp</td>
+<td>iOS/Android</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Code Injection Attack</h1>
+<p>Testing code injection attacks involve attempting to inject malicious code into a web application. Testing code injection is typically done using a few different methods.</p>
+<ol>
+<li>
+<p>Manual Tests: Manual tests involve manual input of potentially malicious code into user inputs and forms within the application. If the application does not appropriately filter or reject suspicious input, this can lead to the vulnerability.</p>
+</li>
+<li>
+<p>Automation Tools: Automation tools, such as Security Scanners, can be used to test for code injection attacks. Tools such as these can detect code injection vulnerabilities with very high accuracy, allowing security teams to quickly identify and mitigate such risks.</p>
+</li>
+<li>
+<p>Penetration Testing: Penetration testing is a manual assessment of security. During this process testers attempt to gain access to restricted areas within an application, by entering or manipulating code in user input fields. This will allow testers to identify potential security weaknesses in an application, and recommend remediation strategies.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code Injection</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Unit Testing</td>
+<td>HP QTP</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>Code Injection</td>
+<td>Grey-box</td>
+<td>Dynamic</td>
+<td>Penetration Testing</td>
+<td>HP Fortify</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>Code Injection</td>
+<td>Black-box</td>
+<td>Static</td>
+<td>Security Scanning</td>
+<td>Burp Suite</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>Code Injection</td>
+<td>White-box</td>
+<td>Hybrid</td>
+<td>Code Review</td>
+<td>Splint</td>
+<td>iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Phishing Attack</h1>
+<ol>
+<li>Create a mock Phishing website: Create a fake website that looks and behaves like the real one in order to fool users into providing their login credentials or other sensitive information. </li>
+<li>Set up traffic monitoring: Monitor incoming traffic to your website to ensure that the fake site isn’t receiving any legitimate requests.</li>
+<li>Analyze the behavior of malicious users: Monitor user behavior on your site and look for any suspicious activity that may indicate a potential attack.</li>
+<li>Send out test emails: Send out phishing emails to members of your staff and monitor their responses. If the email is opened and a link is clicked, you can be sure that your staff needs more education on Phishing attacks.</li>
+<li>Analyze the results: Once all of the test emails have been sent out and the responses analyzed, prepare a report outlining what worked and what didn’t.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phishing Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Penetration</td>
+<td>Metasploit</td>
+<td>iOS, Android</td>
+</tr>
+<tr>
+<td>Phishing Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Source Code</td>
+<td>OWASP ZAP</td>
+<td>iOS, Android</td>
+</tr>
+<tr>
+<td>Phishing Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Fuzzing</td>
+<td>Wfuzz</td>
+<td>iOS, Android</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Pharming Attack</h1>
+<p>Testing a pharming attack requires several steps:</p>
+<ol>
+<li>Use a vulnerability scanner to identify and assess the security of the computer systems, networks, and applications.</li>
+<li>Access the system and perform a detailed analysis of the system logs and audit trails.</li>
+<li>Perform a packet sniffing test to detect any malicious activity.</li>
+<li>Check for any Domain Name System (DNS) anomalies and any suspicious domain redirection. </li>
+<li>Check if the DNS cache poisoning technique has been employed.</li>
+<li>Use a URL analyzer tool to detect any malicious redirects or domain name changes.</li>
+<li>Run a malware scan on the system to detect any malicious code or program.</li>
+<li>Use a honeypot system to detect any suspicious activity on the network.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Automation</td>
+<td>Nmap</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>White-box</td>
+<td>Static</td>
+<td>Manual</td>
+<td>Wireshark</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>System</td>
+<td>Grey-box</td>
+<td>Dynamic</td>
+<td>Automation</td>
+<td>Nessus</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>System</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Manual</td>
+<td>Regshot</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>Black-box</td>
+<td>Dynamic</td>
+<td>Automation</td>
+<td>Core Impact</td>
+<td>Android, iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Spoofing Attack</h1>
+<p>Testing for Spoofing Attacks</p>
+<ol>
+<li>
+<p>Scanning For Open Ports: 
+By using network scanning tools, such as NMAP, one can identify open ports that may be vulnerable to spoofing attacks.</p>
+</li>
+<li>
+<p>Creating Honeypots: 
+Honeypots can be created and deployed on the network to detect and identify malicious behavior.</p>
+</li>
+<li>
+<p>Disabling Unused Services: 
+Unused services can be disabled on the system to reduce the attack surface available to an attacker. </p>
+</li>
+<li>
+<p>Restrict Network Traffic: 
+Network traffic can be restricted on the system to avoid spoofing attacks. </p>
+</li>
+<li>
+<p>Whitelisting: 
+Only applications, IP addresses and services that are known and trusted should be allowed to access the system. All other traffic should be blocked. </p>
+</li>
+<li>
+<p>Implement Firewalls and Intrusion Detection Systems: 
+Firewalls and Intrusion Detection Systems (IDS) should be implemented to detect and prevent unauthorized access and activity. </p>
+</li>
+<li>
+<p>Monitor Network Activity: 
+The network activity should be monitored on a regular basis to identify any suspicious activity that may indicate a spoofing attack. </p>
+</li>
+<li>
+<p>Regularly Update System Software: 
+Systems should be updated regularly with the latest security patches to address known vulnerabilities that can be exploited by attackers.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spoofing Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Exploratory Testing</td>
+<td>SoapUI</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>Spoofing Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Source Code Analysis</td>
+<td>Veracode</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>Spoofing Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Penetration Testing</td>
+<td>Nessus</td>
+<td>iOS &amp; Android</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Session Fixation Attack</h1>
+<h2>Testing for Session Fixation Attack</h2>
+<ol>
+<li>
+<p>Start by testing for session fixation with known tokens. Generate a known token, log into the application and submit the known token in the login form. If the application successfully logs into the system, the application may be vulnerable to session fixation.</p>
+</li>
+<li>
+<p>If the form does not accept known tokens and does not reissue the token, the application may be vulnerable to session fixation.</p>
+</li>
+<li>
+<p>Insert a tracking or logging code into the application and try to use different known tokens and see if they are accepted by the application.</p>
+</li>
+<li>
+<p>After logged in, renew the session and check if the session ID is changed. If it is same as before, it might be vulnerable to session fixation.</p>
+</li>
+<li>
+<p>Log out of the application and try to use the session ID that was captured during login. If the application continues to use the same session ID, it might be vulnerable to session fixation.</p>
+</li>
+<li>
+<p>Create a honeypot page that only registered users can access. Log in with a known token and try to access the page. If the application allows access to the page using the known token, the application might be vulnerable to session fixation.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Session Fixation Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Automated</td>
+<td>Web security scanner (e.g. Acunetix, Netsparker, Burp Suite)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>Grey-box</td>
+<td>Dynamic</td>
+<td>Automated</td>
+<td>Web security scanner (e.g. Acunetix, Netsparker, Burp Suite)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>Black-box</td>
+<td>Dynamic</td>
+<td>Automated</td>
+<td>Web security scanner (e.g. Acunetix, Netsparker, Burp Suite)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>White-box</td>
+<td>Static</td>
+<td>Automated</td>
+<td>Code security scanner (e.g. Checkmarx, Veracode, SonarQube)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Automated</td>
+<td>Code security scanner (e.g. Checkmarx, Veracode, SonarQube)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>Black-box</td>
+<td>Static</td>
+<td>Automated</td>
+<td>Code security scanner (e.g. Checkmarx, Veracode, SonarQube)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>White-box</td>
+<td>Hybrid</td>
+<td>Automated</td>
+<td>Code and web vulnerability scanner (e.g. Appscan, Appspider, Arachni)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>Grey-box</td>
+<td>Hybrid</td>
+<td>Automated</td>
+<td>Code and web vulnerability scanner (e.g. Appscan, Appspider, Arachni)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Automated</td>
+<td>Code and web vulnerability scanner (e.g. Appscan, Appspider, Arachni)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>Grey-box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>Black-box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>White-box</td>
+<td>Static</td>
+<td>Manual</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Fixation Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Session Hijacking Attack</h1>
+<p>Testing Session Hijacking attack requires two machines connected to the same network. The attacker would need to intercept the network traffic from the victim's machine where the session data is being exchanged. It is also important to note that it is possible to hijack cookies from other machines on the same network.</p>
+<p>Here are the steps to test a Session Hijacking attack:</p>
+<ol>
+<li>
+<p>Install a network sniffing tool (such as Wireshark) on both machines to monitor network traffic.</p>
+</li>
+<li>
+<p>Use the sniffing tool to identify any cookies used in the session interaction between the two machines. Note that certain browsers may encrypt the cookie data so the cookie might appear to be encrypted.</p>
+</li>
+<li>
+<p>Intercept the cookie data on the attacker’s machine - the attacker should now have temporary access to the session data.</p>
+</li>
+<li>
+<p>Use the sniffing tool to analyze the data transferred between the two machines and confirm if the session data has been compromised.</p>
+</li>
+<li>
+<p>Try to login to the victim’s session with the stolen credentials or cookies.</p>
+</li>
+<li>
+<p>If successful, the attacker has hijacked the session and should be able to access the victim’s session data. </p>
+</li>
+<li>
+<p>Log out of the session on the attacker's machine and remove all evidence of the session hijacking attack.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Session Hijacking Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Code review</td>
+<td>Burp Suite</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Hijacking Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Vulnerability assessment</td>
+<td>Nessus</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Session Hijacking Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Penetration testing</td>
+<td>Nmap</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Access Point Hijacking Attack</h1>
+<h2>Testing Access Point Hijacking Attack</h2>
+<p>To test an Access Point (AP) Hijacking attack, follow these steps:</p>
+<ol>
+<li>Set up a rogue AP that mimics the legitimate AP. 
+   - Ensure that both SSIDs (Service Set Identifiers) and MAC addresses are identical.</li>
+<li>Create a beacon frame that advertises the rogue AP.</li>
+<li>Capture the beacon frame using a network monitoring tool. 
+   - This will give you an idea of when the legitimate AP is being impersonated.</li>
+<li>Monitor for clients that attempt to authenticate with the rogue AP. 
+   - This will provide further evidence of the attack.</li>
+<li>Confirm that the rogue AP is functioning by trying to access it using a client device.</li>
+<li>Review logs for a record of the attack.</li>
+<li>Attempt to decrypt any traffic captured from the attack. 
+   - This will give you an understanding of the data that was stolen.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access Point Hijacking Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Manual</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Access Point Hijacking Attack</td>
+<td>Grey-box</td>
+<td>Dynamic</td>
+<td>Automation</td>
+<td>Nessus</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Access Point Hijacking Attack</td>
+<td>Black-box</td>
+<td>Static</td>
+<td>Manual</td>
+<td>Nmap</td>
+<td>IOS/Android</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Cellular Rogue Base Station Attack</h1>
+<ol>
+<li>
+<p><strong>Prerequisite</strong>: </p>
+<ul>
+<li>Wireless Access Point </li>
+<li>Wireless testing tool/software </li>
+</ul>
+</li>
+<li>
+<p><strong>Setup</strong>: </p>
+<ul>
+<li>Place the wireless access point with in the testing environment. </li>
+</ul>
+</li>
+<li>
+<p><strong>Testing Procedure</strong>: </p>
+<ul>
+<li>Using wireless testing tool/software, create a wireless environment and record the signal strength and wireless connection status of the legitimate wireless base station. </li>
+<li>Place the rogue base station in the same environment and power it up.</li>
+<li>Again measure the signal strength and wireless connection status of the rogue base station and compare it with the legitimate base station.  </li>
+<li>If the rogue base station is showing higher signal strength than the legitimate one, then it indicates that the rogue base station is stronger than the legitimate one. </li>
+</ul>
+</li>
+<li>
+<p><strong>Analysis</strong>:</p>
+<ul>
+<li>Analyze the result of the comparison and determine whether a cellular rogue base station attack is taking place in the environment or not. </li>
+<li>Use the information gathered from the testing to focus the countermeasures for mitigating the attack.</li>
+</ul>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cellular Rogue Base Station Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Manual testing</td>
+<td>N/A</td>
+<td>Android/iOS</td>
+</tr>
+<tr>
+<td>Cellular Rogue Base Station Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Automated testing</td>
+<td>Veracode</td>
+<td>Android/iOS</td>
+</tr>
+<tr>
+<td>Cellular Rogue Base Station Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Penetration testing</td>
+<td>Metasploit</td>
+<td>Android/iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the GPS Spoofing Attack</h1>
+<p>Testing GPS spoofing can be done in several ways:</p>
+<ol>
+<li>
+<p>Open Path Verification:
+This involves verifying the reported path by comparing it to the landscape or terrain around it. This method can be used to identify any inconsistencies or anomalies in the path reported by the GPS device.</p>
+</li>
+<li>
+<p>Dual Path Verification:
+This involves using two different methods to verify the accuracy of the path reported by the GPS device. The two methods are usually triangulation and celestial navigation. </p>
+</li>
+<li>
+<p>Data Acquisition and Evaluation:
+This method involves collecting and analyzing data from the GPS device in order to identify any discrepancies or errors in its reported path. This is particularly useful when multiple GPS devices are being used in order to verify their reported paths. </p>
+</li>
+<li>
+<p>Monitoring:
+This technique involves continuously monitoring the reported path of the GPS device in order to detect any suspicious behavior or inconsistencies. This method is often used when attempting to detect a spoofed signal.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPS Spoofing Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Automation</td>
+<td>Appium</td>
+<td>Android &amp; iOS</td>
+</tr>
+<tr>
+<td>GPS Spoofing Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Manual</td>
+<td>GPSLogger</td>
+<td>Android &amp; iOS</td>
+</tr>
+<tr>
+<td>GPS Spoofing Attack</td>
+<td>Black-box</td>
+<td>Hybrid</td>
+<td>Automation</td>
+<td>MonkeyTalk</td>
+<td>Android &amp; iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Botnet Attack</h1>
+<h1>Testing a Botnet Attack</h1>
+<p>Botnets are malicious networks of computers infected with malware. They are typically used to generate unwanted traffic on websites, servers, networks, and services. In this article, we will discuss how to test a botnet attack.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Understanding of Botnet attacks </li>
+<li>Knowledge of common botnet testing tools </li>
+</ul>
+<h2>Preparation</h2>
+<ol>
+<li>Install and configure any necessary software, such as emulators and virtual machines. </li>
+<li>Prepare a secure environment for testing the botnet attack. This includes establishing security measures for the testing environment and isolating it from the production environment. </li>
+<li>Configure the necessary hardware and software.</li>
+</ol>
+<h2>Running the Test</h2>
+<ol>
+<li>Establish a connection between the test environment and an external source system.</li>
+<li>Introduce the botnet code into the test environment.</li>
+<li>Activate and monitor the botnet code, tracking how it propagates and gathers information.</li>
+<li>Test the botnet's resilience against security measures.</li>
+<li>Collect data on botnet activity and performance and analyze it. </li>
+</ol>
+<h2>Conclusion</h2>
+<p>Testing a botnet attack is essential in order to assess the effectiveness of security measures and ensure that all systems are adequately protected. With the right preparation and the right tools, it is possible to conduct effective tests and prevent botnet attacks.</p>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Botnet Attack</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Protocol fuzzing</td>
+<td>nmap</td>
+<td>Android</td>
+</tr>
+<tr>
+<td>Botnet Attack</td>
+<td>Black-box</td>
+<td>Dynamic</td>
+<td>Activity monitoring</td>
+<td>Wireshark</td>
+<td>iOS</td>
+</tr>
+<tr>
+<td>Botnet Attack</td>
+<td>Grey-box</td>
+<td>Static</td>
+<td>Source code review</td>
+<td>CheckMarx</td>
+<td>Android/iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Malware as a Service Attack</h1>
+<p>Testing Malware as a Service (MaaS) involves assessing the efficacy of a MaaS solution in detecting, preventing, and responding to potential malicious actors. It is essential to ensure that the MaaS provider has the resources and capabilities to provide effective security and protection while adhering to industry best practices. </p>
+<p>The following steps should be taken in order to test the efficacy of a MaaS solution:</p>
+<ol>
+<li>
+<p>Define test objectives: The first step before testing is to clearly define what needs to be tested and what is to be achieved by the end of the testing process. For example, the objective could be to test and verify the MaaS solution's ability to detect, prevent, and respond to malicious activity. </p>
+</li>
+<li>
+<p>Select test environment: Selecting the appropriate environment for testing is essential to ensure a successful test. The environment should be as similar to the actual production environment as possible. </p>
+</li>
+<li>
+<p>Execute test scenarios: Once the environment is set up, the next step is to execute the various test scenarios which are designed to evaluate the effectiveness of the MaaS solution. </p>
+</li>
+<li>
+<p>Record observations and results: During the testing process, the tester should make a record of the observations and results from the various test scenarios. This data can then be used to analyze the efficacy of the MaaS solution. </p>
+</li>
+<li>
+<p>Analyze test results and draw conclusions: After the testing is complete, the testers should analyze the results in order to determine the efficacy of the MaaS solution. They should also draw conclusions on the ability of the solution to detect, prevent, and respond to various types of malicious activity. </p>
+</li>
+</ol>
+<p>Testing the efficacy of a MaaS solution is essential to ensure that the solution can provide the appropriate level of security and protection. Following the steps outlined above will help ensure that tests are successful and meaningful.</p>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API</td>
+<td>White-Box</td>
+<td>Dynamic</td>
+<td>Automated</td>
+<td>Webproxy</td>
+<td>Android &amp; iOS</td>
+</tr>
+<tr>
+<td>Network Environment</td>
+<td>White-Box</td>
+<td>Static</td>
+<td>Manual</td>
+<td>Nessus Security Center</td>
+<td>Android &amp; iOS</td>
+</tr>
+<tr>
+<td>Application Environment</td>
+<td>Grey-Box</td>
+<td>Hybrid</td>
+<td>Automated</td>
+<td>Burp Suite</td>
+<td>Android &amp; iOS</td>
+</tr>
+<tr>
+<td>End-User Environment</td>
+<td>Black-Box</td>
+<td>Dynamic</td>
+<td>Automated</td>
+<td>Nmap</td>
+<td>Android &amp; iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Bypassing Physical Security Attack</h1>
+<h2>Testing Bypassing Physical Security</h2>
+<p>Physical security is an important part of any security system and must be tested regularly to ensure it is effective. Here are some tips for testing the physical security of your system:</p>
+<ol>
+<li>
+<p>Perform regular patrols around your premises to assess the effectiveness of your physical security measures. </p>
+</li>
+<li>
+<p>Monitor your security cameras to ensure they are in proper working order and can adequately capture any suspicious activity.</p>
+</li>
+<li>
+<p>Use physical penetration tests to evaluate the security of doors, windows, and other access points.</p>
+</li>
+<li>
+<p>Regularly inspect locks, alarms and other security equipments. </p>
+</li>
+<li>
+<p>Test access control systems to verify that identities can be authenticated and access is denied properly.</p>
+</li>
+<li>
+<p>Cart tests can also be used to determine if it is possible to bypass interaction with security personnel.</p>
+</li>
+<li>
+<p>Assess your system for weaknesses, such as unlocked doors, weak locks, unmonitored cameras and access points not adequately secured.</p>
+</li>
+<li>
+<p>Regularly review your system’s response to alarm systems and other security breaches. </p>
+</li>
+<li>
+<p>Use physical security audit to track changes in physical security measures and document any breaches.</p>
+</li>
+</ol>
+<p>By following these tips and regularly testing your physical security systems, you can ensure the safety of your premises and the data contained within.</p>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Physical Security</td>
+<td>White-box</td>
+<td>Dynamic</td>
+<td>Application Penetration Test</td>
+<td>Metasploit, Core Impact</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Physical Security</td>
+<td>Black-box</td>
+<td>Static</td>
+<td>Code Review</td>
+<td>Retire.js, Checkmarx</td>
+<td>Android, iOS</td>
+</tr>
+<tr>
+<td>Physical Security</td>
+<td>Grey-box</td>
+<td>Hybrid</td>
+<td>Hybrid Analysis</td>
+<td>Burp Suite Proxy, Acunetix</td>
+<td>Android, iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the Physical Theft Attack</h1>
+<p>Testing physical theft is not something that can be easily tested, as it requires physical guards and surveillance of the premises. However, here are some steps that can be taken to reduce the likelihood of theft:</p>
+<ol>
+<li>Install motion detectors at all entry and exit points of the building.</li>
+<li>Ensure adequate lighting in and around the premises.</li>
+<li>Implement security cameras both inside and outside the building.</li>
+<li>Install tamper-proof locks on all entrance and exit points.</li>
+<li>Issue swipe cards or security badges to all personnel.</li>
+<li>Vet all personnel before hiring them.</li>
+<li>Ensure that staff do not leave valuables unattended.</li>
+<li>Carry out regular security audits.</li>
+<li>Make sure that all personnel report any suspicious activities.</li>
+<li>Ensure that valuables are not stored in unsecured areas.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Target Testing</th>
+<th align="center">Testing Technique</th>
+<th align="center">Test Analysis</th>
+<th align="center">Test Method</th>
+<th align="center">Test Tool</th>
+<th align="center">Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Hardware Security</td>
+<td align="center">White-box</td>
+<td align="center">Dynamic</td>
+<td align="center">fuzz testing</td>
+<td align="center">[Oss Fuzz] (https://oss-fuzz.com/)</td>
+<td align="center">Android, iOS</td>
+</tr>
+<tr>
+<td align="center">Hardware Security</td>
+<td align="center">White-box</td>
+<td align="center">Static</td>
+<td align="center">code reviews</td>
+<td align="center">[Black Duck] (https://www.blackducksoftware.com/)</td>
+<td align="center">Android, iOS</td>
+</tr>
+<tr>
+<td align="center">Hardware Security</td>
+<td align="center">White-box</td>
+<td align="center">Hybrid</td>
+<td align="center">vulnerability assessment</td>
+<td align="center">[Acunetix] (https://www.acunetix.com/)</td>
+<td align="center">Android, iOS</td>
+</tr>
+<tr>
+<td align="center">Hardware Security</td>
+<td align="center">Grey-box</td>
+<td align="center">Dynamic</td>
+<td align="center">payload-based attack</td>
+<td align="center">[Burp Suite Pro] (https://portswigger.net/burp/pro)</td>
+<td align="center">Android, iOS</td>
+</tr>
+<tr>
+<td align="center">Hardware Security</td>
+<td align="center">Grey-box</td>
+<td align="center">Static</td>
+<td align="center">architecture review</td>
+<td align="center">[Microsoft Security Risk Detection] (https://www.microsoft.com/en-us/security-risk-detection/)</td>
+<td align="center">Android, iOS</td>
+</tr>
+<tr>
+<td align="center">Hardware Security</td>
+<td align="center">Grey-box</td>
+<td align="center">Hybrid</td>
+<td align="center">penetration testing</td>
+<td align="center">[OWASP Zed Attack Proxy] (https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project)</td>
+<td align="center">Android, iOS</td>
+</tr>
+<tr>
+<td align="center">Hardware Security</td>
+<td align="center">Black-box</td>
+<td align="center">Dynamic</td>
+<td align="center">fuzz testing</td>
+<td align="center">[Sulley Fuzzer] (https://github.com/OpenRCE/sulley)</td>
+<td align="center">Android, iOS</td>
+</tr>
+<tr>
+<td align="center">Hardware Security</td>
+<td align="center">Black-box</td>
+<td align="center">Static</td>
+<td align="center">code reviews</td>
+<td align="center">[CheckMarx] (https://www.checkmarx.com/)</td>
+<td align="center">Android, iOS</td>
+</tr>
+<tr>
+<td align="center">Hardware Security</td>
+<td align="center">Black-box</td>
+<td align="center">Hybrid</td>
+<td align="center">vulnerability assessment</td>
+<td align="center">[Netsparker] (https://www.netsparker.com/)</td>
+<td align="center">Android, iOS</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the VM Migration Attack</h1>
+<h4>Testing VM Migration</h4>
+<p>To test Virtual Machine (VM) Migration, the following steps should be taken: </p>
+<ol>
+<li>
+<p>Prepare the source and target environment: Set up the source/target environments and make sure all necessary applications and services that the VM needs is installed and running properly.</p>
+</li>
+<li>
+<p>Configure Migration: Configure the VM's settings such as network, CPU, memory, storage, etc. to be compatible with the source/target environment and verify they are the same between both environments.</p>
+</li>
+<li>
+<p>Test Network Connectivity: Make sure that the source and target environments are properly connected over the network and that the necessary ports are open and accessible.</p>
+</li>
+<li>
+<p>Test Migration Tool: Test the migration tool being used, if any, to make sure it is working properly. </p>
+</li>
+<li>
+<p>Perform Initial Backup: Take an initial backup of the source environment to ensure the VM is properly backed up and can be restored if the migration fails.</p>
+</li>
+<li>
+<p>Begin Migration: Begin migrating the VM from the source to the target environment.</p>
+</li>
+<li>
+<p>Monitor Progress: Monitor the migration process and make sure no errors or warnings occur during the migration.</p>
+</li>
+<li>
+<p>Validate Migration: Once the migration is completed, validate that all services, applications, and settings are intact and working properly.</p>
+</li>
+<li>
+<p>Restore Backup: Restore the initial backup as a contingency plan against any unforeseen errors or failures.</p>
+</li>
+<li>
+<p>Clean Up Source: Clean up the source environment, including removing any unnecessary files, services, or applications that are no longer needed or can be moved over to the target environment.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th align="center">Testing Technique</th>
+<th align="center">Test Analysis</th>
+<th align="center">Test Method</th>
+<th align="center">Test Tool</th>
+<th align="center">Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VM Migration</td>
+<td align="center">White-box</td>
+<td align="center">Dynamic</td>
+<td align="center">Manual Testing</td>
+<td align="center">N/A</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td>VM Migration</td>
+<td align="center">Grey-box</td>
+<td align="center">Dynamic</td>
+<td align="center">Exploratory Testing</td>
+<td align="center">N/A</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td>VM Migration</td>
+<td align="center">Black-box</td>
+<td align="center">Dynamic</td>
+<td align="center">Automated Testing</td>
+<td align="center">Burp Suite</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td>VM Migration</td>
+<td align="center">White-box</td>
+<td align="center">Static</td>
+<td align="center">Code Review</td>
+<td align="center">Veracode</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td>VM Migration</td>
+<td align="center">Grey-box</td>
+<td align="center">Static</td>
+<td align="center">Risk Assessment</td>
+<td align="center">N/A</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td>VM Migration</td>
+<td align="center">Black-box</td>
+<td align="center">Static</td>
+<td align="center">Penetration Testing</td>
+<td align="center">Metasploit</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td>VM Migration</td>
+<td align="center">White-box</td>
+<td align="center">Hybrid</td>
+<td align="center">Traceability Testing</td>
+<td align="center">N/A</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td>VM Migration</td>
+<td align="center">Grey-box</td>
+<td align="center">Hybrid</td>
+<td align="center">Security Testing</td>
+<td align="center">HP WebInspect</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td>VM Migration</td>
+<td align="center">Black-box</td>
+<td align="center">Hybrid</td>
+<td align="center">Application Security Testing</td>
+<td align="center">Acunetix</td>
+<td align="center">iOS/Android</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing Rowhammer Attack</h1>
+<p>Rowhammer is a security vulnerability due to which a malicious user can gain access to memory by repeatedly accessing certain memory locations (rows of memory cells). </p>
+<p>The best way to test for Rowhammer is to use a specialized tool known as RAMBleed. RAMBleed is an open source tool developed by Google researchers which can detect Rowhammer attack traces in the RAM. The following steps can be followed to use RAMBleed to test for Rowhammer:</p>
+<ol>
+<li>Install RAMBleed on the system.</li>
+<li>Start the RAMBleed server.</li>
+<li>Configure the RAMBleed client on the system to be tested.</li>
+<li>Execute the RAMBleed client and wait to see if any attack traces are detected.</li>
+<li>Follow the instructions to interpret the output of RAMBleed.</li>
+<li>If any attack traces were detected, take the necessary steps to fix the vulnerability.</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th>Target Testing</th>
+<th>Testing Technique</th>
+<th>Test Analysis</th>
+<th>Test Method</th>
+<th>Test Tool</th>
+<th>Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory</td>
+<td>White box</td>
+<td>Dynamic</td>
+<td>Assertion</td>
+<td>DRAMstress</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>Grey box</td>
+<td>Static</td>
+<td>Verification</td>
+<td>Memsmash</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>Black box</td>
+<td>Hybrid</td>
+<td>Execution</td>
+<td>Hammertime</td>
+<td>Not applicable</td>
+</tr>
+</tbody>
+</table>
+<h1>Testing the VM Escape Attack</h1>
+<p>There are a few approaches to testing for VM Escape (also known as Virtual Machine Escape). </p>
+<ol>
+<li>
+<p><strong>Code Review</strong>: A comprehensive code review can help identify potential vulnerabilities present in the code which, if exploited, could lead to a VM Escape. This involves a thorough, line-by-line examination of the source code, using techniques such as manual inspection, automated static code analysis and fuzzing.</p>
+</li>
+<li>
+<p><strong>Exploit Testing</strong>: A series of exploitation techniques can be used to try to break out of the virtualized environment. These could include things such as exploiting buffer and account overflow vulnerabilities, command injection and malicious software attempts.</p>
+</li>
+<li>
+<p><strong>Penetration Testing</strong>: Penetration testing involves the use of specialized tools and techniques to break into the virtual environment and gain access to critical resources. This could involve standard methods such as brute force attacks, port scanning, and social engineering.</p>
+</li>
+<li>
+<p><strong>External Auditing</strong>: External auditing involves examining the operating environment from the outside, examining access controls, security protocols and other measures. This can identify any weak points that would allow for a successful VM Escape.</p>
+</li>
+</ol>
+<h2>Testing Tools:</h2>
+<table>
+<thead>
+<tr>
+<th align="center">Target Testing</th>
+<th align="center">Testing Technique</th>
+<th align="center">Test Analysis</th>
+<th align="center">Test Method</th>
+<th align="center">Test Tool</th>
+<th align="center">Mobile Platform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">VM Escape Attack</td>
+<td align="center">White-box</td>
+<td align="center">Dynamic</td>
+<td align="center">Fuzzing</td>
+<td align="center">Peach Fuzzer</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center">VM Escape Attack</td>
+<td align="center">Grey-box</td>
+<td align="center">Static</td>
+<td align="center">Signature Detection</td>
+<td align="center">Codenomicon Defensics</td>
+<td align="center">N/A</td>
+</tr>
+<tr>
+<td align="center">VM Escape Attack</td>
+<td align="center">Black-box</td>
+<td align="center">Hybrid</td>
+<td align="center">Exploitation</td>
+<td align="center">Metasploit</td>
+<td align="center">N/A</td>
+</tr>
+</tbody>
+</table>
