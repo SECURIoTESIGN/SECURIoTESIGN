@@ -43,7 +43,7 @@ import openai
 
 ################################# GLOBAL VARIABLES #################################
 
-openai.api_key="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"
+openai.api_key="Your API Keys"
 
 version = 1
 
