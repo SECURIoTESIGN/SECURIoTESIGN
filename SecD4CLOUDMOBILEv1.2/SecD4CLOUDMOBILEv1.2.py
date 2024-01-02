@@ -33,11 +33,11 @@
 """
 
 import os
+from sys import exit
 import webbrowser
 from markdown import markdown
 from xhtml2pdf import pisa
 from switch import Switch
-from goto import with_goto
 from PyPDF2 import PdfFileMerger
 import openai
 
@@ -1517,11 +1517,7 @@ def security_test_recommendation_convert_report():
 [Arguments]: No arguments
 [Returns]: No return
 """
-@with_goto
 def switch1():
-
-    label.begin
-
     val = 0
     while True:
         try:
@@ -1529,125 +1525,128 @@ def switch1():
             print("-->")
         except ValueError:
             print("Error! Enter a whole number between 1 and 8, according to the menu above!")
-            goto.begin
+            continue
+        
+        if val>8 or val<1:
+            print("Wrong! Enter a whole number between 1 and 8, according to the menu above!")
+            continue
         else:
-            break
+            with Switch(val) as case:
+                if case(1):
+                    print("---")
+                    print("")
+                    print("  **Which way do you want to run this tool?**  ")
+                    print("")
+                    print("  1 - Answer the questions one by one.  ")
+                    print("  2 - Use a text file with the answers already written.  ")
+                    print("")
+                    
+                    input_choice = validateInput(1, 3)
+                    print("")
+                    
+                    # answer the questions by hand
+                    if input_choice == 1:
+                        arqui(version)
+                        domain(version)
+                        authentication(version)
+                        hasDB(version)
+                        userRegist(version)
+                        languages(version)
+                        inputForms(version)
+                        allowUploadFiles(version)
+                        systemLogs(version)
+                        allowUpdateSystem(version)
+                        allowThirdParty(version)
+                        cloudPlatform(version)
+                        hardwareSpecs(version)
+                        dataCenterAcess(version)
+                        print("**The questionnaire is over!**")
+                    
+                    # answers already written in the input file
+                    else:
+                        print("---")
+                        print("")
+                        print("  **What is the name of the input file (ans.txt)?**  ")
+                        print("")
+                        readInputFromFile()
+                    
+                        questions_and_answers["Q1"] = input_list[0]
+                        questions_and_answers["Q2"] = input_list[1]
+                        questions_and_answers["Q3"] = input_list[2]
+                        questions_and_answers["Q4"] = input_list[3]
+                        questions_and_answers["Q5"] = input_list[4]
+                        questions_and_answers["Q6"] = input_list[5]
+                        questions_and_answers["Q7"] = input_list[6]
+                        questions_and_answers["Q8"] = input_list[7]
+                        questions_and_answers["Q9"] = input_list[8]
+                        questions_and_answers["Q10"] = input_list[9]
+                        questions_and_answers["Q11"] = input_list[10]
+                        questions_and_answers["Q12"] = input_list[11]
+                        questions_and_answers["Q13"] = input_list[12]
+                        questions_and_answers["Q14"] = input_list[13]
+                        questions_and_answers["Q15"] = input_list[14]
+                        questions_and_answers["Q16"] = input_list[15]
+                        questions_and_answers["Q17"] = input_list[16]
+                        questions_and_answers["Q18"] = input_list[17]
+                        questions_and_answers["Q19"] = input_list[18]
+                        questions_and_answers["Q20"] = input_list[19]
+                        questions_and_answers["Q21"] = input_list[20]
+                        questions_and_answers["Q22"] = input_list[21]
+                    
+                        information_capture()
+                    
+                        print("# Processing Done! Choose another option to process the requests!")
+                    
+                if case(2):
+                    print("\n********************************************************************************************\n")
+                    print("\t\t The request for security requirements is in progress ... \n\n")
+                    get_requirements()
+                    webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/SECURITY_REQUIREMENTS.pdf')
+                    information_capture()
+                    
+                if case(3):
+                    print("\n********************************************************************************************\n")
+                    print("\t\t The request for best practice guidelines is in progress ... \n\n")
+                    get_security_best_practices()
+                    webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/GOOD_PRACTICES.pdf')
+                    information_capture()
+                    
+                if case(4):
+                    print("\n********************************************************************************************\n")
+                    print("\t\t The request for security mechanisms is in progress ... \n\n")
+                    get_mechanisms()
+                    webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/SECURITY_MECHANISMS.pdf')
+                    information_capture()
+                    
+                if case(5):
+                    print("\n********************************************************************************************\n")
+                    print("\t\t The request for attack models is in progress ... \n\n")
+                    get_attack_models()
+                    webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/ATTACKS_MAPPING.pdf')
+                    information_capture()
+                    
+                if case(6):
+                    print("\n********************************************************************************************\n")
+                    print("\t\t The request for the security testing specification and tools is in progress ... \n\n")
+                    get_security_test_recommendation()
+                    webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/TEST_SPECIFICATION.pdf')
+                    information_capture()
+                    
+                if case(7):
+                    print("\n********************************************************************************************\n")
+                    print("\t\t The full report request is in progress ... \n\n")
+                    fullReport()
+                    webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/FULL_REPORT.pdf')
+                    information_capture()
+                    
+                if case(8):
+                    print("\n\n*** Application finished successfully! ***\n\n")
+                    exit(0)
+                    
+                if case.default:
+                    print("\nError! Insert a valid value between 1 and 8!\n")
 
-    with Switch(val) as case:
-        if case(1):
-            print("---")
-            print("")
-            print("  **Which way do you want to run this tool?**  ")
-            print("")
-            print("  1 - Answer the questions one by one.  ")
-            print("  2 - Use a text file with the answers already written.  ")
-            print("")
-
-            input_choice = validateInput(1, 3)
-            print("")
-
-            # answer the questions by hand
-            if input_choice == 1:
-                arqui(version)
-                domain(version)
-                authentication(version)
-                hasDB(version)
-                userRegist(version)
-                languages(version)
-                inputForms(version)
-                allowUploadFiles(version)
-                systemLogs(version)
-                allowUpdateSystem(version)
-                allowThirdParty(version)
-                cloudPlatform(version)
-                hardwareSpecs(version)
-                dataCenterAcess(version)
-                print("**The questionnaire is over!**")
-
-            # answers already written in the input file
-            else:
-                print("---")
-                print("")
-                print("  **What is the name of the input file (ans.txt)?**  ")
-                print("")
-                readInputFromFile()
-
-                questions_and_answers["Q1"] = input_list[0]
-                questions_and_answers["Q2"] = input_list[1]
-                questions_and_answers["Q3"] = input_list[2]
-                questions_and_answers["Q4"] = input_list[3]
-                questions_and_answers["Q5"] = input_list[4]
-                questions_and_answers["Q6"] = input_list[5]
-                questions_and_answers["Q7"] = input_list[6]
-                questions_and_answers["Q8"] = input_list[7]
-                questions_and_answers["Q9"] = input_list[8]
-                questions_and_answers["Q10"] = input_list[9]
-                questions_and_answers["Q11"] = input_list[10]
-                questions_and_answers["Q12"] = input_list[11]
-                questions_and_answers["Q13"] = input_list[12]
-                questions_and_answers["Q14"] = input_list[13]
-                questions_and_answers["Q15"] = input_list[14]
-                questions_and_answers["Q16"] = input_list[15]
-                questions_and_answers["Q17"] = input_list[16]
-                questions_and_answers["Q18"] = input_list[17]
-                questions_and_answers["Q19"] = input_list[18]
-                questions_and_answers["Q20"] = input_list[19]
-                questions_and_answers["Q21"] = input_list[20]
-                questions_and_answers["Q22"] = input_list[21]
-
-            information_capture()
-
-            print("# Processing Done! Choose another option to process the requests!")
-
-        if case(2):
-            print("\n********************************************************************************************\n")
-            print("\t\t The request for security requirements is in progress ... \n\n")
-            get_requirements()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/SECURITY_REQUIREMENTS.pdf')
-            information_capture()
-
-        if case(3):
-            print("\n********************************************************************************************\n")
-            print("\t\t The request for best practice guidelines is in progress ... \n\n")
-            get_security_best_practices()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/GOOD_PRACTICES.pdf')
-            information_capture()
-
-        if case(4):
-            print("\n********************************************************************************************\n")
-            print("\t\t The request for security mechanisms is in progress ... \n\n")
-            get_mechanisms()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/SECURITY_MECHANISMS.pdf')
-            information_capture()
-
-        if case(5):
-            print("\n********************************************************************************************\n")
-            print("\t\t The request for attack models is in progress ... \n\n")
-            get_attack_models()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/ATTACKS_MAPPING.pdf')
-            information_capture()
-
-        if case(6):
-            print("\n********************************************************************************************\n")
-            print("\t\t The request for the security testing specification and tools is in progress ... \n\n")
-            get_security_test_recommendation()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/TEST_SPECIFICATION.pdf')
-            information_capture()
-
-        if case(7):
-            print("\n********************************************************************************************\n")
-            print("\t\t The full report request is in progress ... \n\n")
-            fullReport()
-            webbrowser.open_new(r'file:///Users/FranciscoChimuco/SecD4CLOUDMOBILEv1.2/FULL_REPORT.pdf')
-            information_capture()
-
-        if case(8):
-            print("\n\n*** Application finished successfully! ***\n\n")
-            exit(0)
-
-        if case.default:
-            print("\nError! Insert a valid value between 1 and 8!\n")
-            goto.begin
+        break
 
 """
 [Summary]: Method responsible for creating the main menu and capturing the user data
