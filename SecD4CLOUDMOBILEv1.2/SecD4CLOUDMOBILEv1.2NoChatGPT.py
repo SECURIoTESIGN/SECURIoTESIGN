@@ -138,7 +138,8 @@ question2 = {
     "15": "Smart Transportation",
     "16": "Smart Waste Monitoring",
     "17": "Smart Wearables",
-    "18": "Smart Home"
+    "18": "Smart City",
+    "19": "Smart Cars"
 }
 
 question3 = {
@@ -447,9 +448,10 @@ def domain(version):
     print(" 16 - Smart Waste Monitoring ")
     print(" 17 - Smart Wearables ")
     print(" 18 - Smart City ")
+    print(" 19 - Smart Cars")
     print("")
 
-    value = validateInput(1, 19)
+    value = validateInput(1, 20)
     questions_and_answers["Q2"] = str(value)
 
 """
