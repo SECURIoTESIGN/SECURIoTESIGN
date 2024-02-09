@@ -16,8 +16,7 @@ To install the markdown, xhtml2pdf, switch and goto packages follow the procedur
  * easy_install markdown.
 4. pip install xhtml2pdf --pre;
 5. pip install switch;
-6. pip install goto-statement;
-7. To run the version with integrated ChatGPT, install the OpenAI API via pip install openai and request an automatically generated subscription key from https://auth0.openai.com/u/login/.
+6. To run the version with integrated ChatGPT, install the OpenAI API via pip install openai and request an automatically generated subscription key from https://auth0.openai.com/u/login/.
 
 # Running the Application
 To compile and run the application, follow the instructions below:
