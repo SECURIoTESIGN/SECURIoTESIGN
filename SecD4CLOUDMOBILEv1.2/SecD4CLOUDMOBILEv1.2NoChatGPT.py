@@ -1559,7 +1559,10 @@ def switch1():
                         cloudPlatform(version)
                         hardwareSpecs(version)
                         dataCenterAcess(version)
+                        
                         print("**The questionnaire is over!**")
+                        
+                        information_capture()
                     
                     # answers already written in the input file
                     else:
