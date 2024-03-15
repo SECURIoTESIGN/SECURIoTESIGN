@@ -3448,10 +3448,10 @@ def get_attack_models():
 
             report.write(open("attack_models/buffer_overflow_attack_model.md", "r").read())
 
-        # Write the scheme in the report
-        report.write("\n\n")
-        report.write("![alt text](attack_models/bufferOverflowAttackTree.png)")
-        report.write("\n\n")
+            # Write the scheme in the report
+            report.write("\n\n")
+            report.write("![alt text](attack_models/bufferOverflowAttackTree.png)")
+            report.write("\n\n")
 
     # Spoofing attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 :
