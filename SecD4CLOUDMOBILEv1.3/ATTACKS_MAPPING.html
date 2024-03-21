@@ -1,0 +1,1575 @@
+<h1>Final Attack Models Report</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Mobile Platform</td>
+<td style="text-align: left;">iOS App ; IoT System</td>
+</tr>
+<tr>
+<td style="text-align: left;">Application domain type</td>
+<td style="text-align: left;">m-Payment</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication schemes</td>
+<td style="text-align: left;">Biometric-based authentication ; Channel-based authentication ; Factors-based authentication ; ID-based authentication</td>
+</tr>
+<tr>
+<td style="text-align: left;">Has DB</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of database</td>
+<td style="text-align: left;">SQL (Relational Database)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Which DB</td>
+<td style="text-align: left;">PostgreSQL</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of information handled</td>
+<td style="text-align: left;">Personal Information ; Confidential Data ; Critical Data</td>
+</tr>
+<tr>
+<td style="text-align: left;">Storage Location</td>
+<td style="text-align: left;">Both</td>
+</tr>
+<tr>
+<td style="text-align: left;">User Registration</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of Registration</td>
+<td style="text-align: left;">The users will register themselves</td>
+</tr>
+<tr>
+<td style="text-align: left;">Programming Languages</td>
+<td style="text-align: left;">C/C++/Objective-C</td>
+</tr>
+<tr>
+<td style="text-align: left;">Input Forms</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Upload Files</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has logs</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has regular updates</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has third-party</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">System Cloud Environments</td>
+<td style="text-align: left;">Public Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Authentication</td>
+<td style="text-align: left;">Symmetric Key</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Wireless Tech</td>
+<td style="text-align: left;">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Device or Data Center Physical Access</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+</tbody>
+</table>
+<h1>Man-in-th-Middle Attack</h1>
+<p>Man-in-the-Middle (MITM) attack is an attack where a threat actor interferes with the communication between two systems. The threat actor inserts itself between the two systems and has access to all the data being sent between them.</p>
+<p>MITM attacks are used to steal or modify data in transit, such as banking credentials, passwords, and security tokens. Hackers carry out these attacks by spoofing IP addresses and using malicious code to gain access to unencrypted data. They can also use packet-sniffing software to eavesdrop on the connection.</p>
+<p>MITM attacks can be done through network-level attacks or application-level attacks. Network-level MITM attacks involve the hacker taking control of the entire communications path between the two hosts. Application level MITM attacks involve the hacker hacking into one of the hosts and manipulating their traffic.</p>
+<p>To protect against MITM attacks, it is important to use secure protocols such as HTTPS and SSL/TLS. It is also important to ensure that sensitive data is encrypted while in transit. Additionally, strong authentication methods should be used to authenticate users and prevent unauthorized access.</p>
+<h2>Man-in-th-Middle Architectural Risk Analysis:</h2>
+<h3>Overview</h3>
+<p>Man-in-the-Middle (MITM) vulnerabilities occur when an attacker is able to intercept and modify data sent between two parties. This attack is especially dangerous as it can be used to intercept sensitive and confidential information. </p>
+<h3>Risk Factors</h3>
+<p>The Common Vulnerability Scoring System (CVSS) version 3.1 measures the risk of a Man-in-the-Middle (MITM) attack along four different vectors:</p>
+<ol>
+<li><strong>Attack vector (AV)</strong> : Remote</li>
+<li><strong>Attack complexity (AC)</strong>: Low</li>
+<li><strong>Privileges required (PR)</strong>: None</li>
+<li><strong>User Interaction (UI)</strong>: None</li>
+</ol>
+<h3>Risk Score</h3>
+<p>Based on the risk factors defined above, the risk score for a Man-in-the-Middle attack using CVSS v3.1 is 7.2. This falls under the medium risk category. </p>
+<p><strong>Overall Risk Score: 7.2 (Medium)</strong></p>
+<h2>MiTM Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/MiTM_Attack_Tree.JPG" /></p>
+<h1>Brute Force Attack</h1>
+<p>A Brute Force attack is a type of attack that attempts to guess a user's authentication credentials, such as a username and password, by systematically trying every possible combination of characters until the correct one is discovered. It is commonly used to gain unauthorised access to secure systems.</p>
+<p>It is important to note that Brute Force attacks are often used in combination with other tactics, such as dictionary and rainbow table attacks, to increase the chances of success.</p>
+<p>In order to protect against this type of attack, it is recommended to use strong authentication credentials that are difficult to guess, such as long, randomised passwords made up of upper and lower case letters, numbers, and special characters. It is also a good idea to set a maximum amount of failed log-in attempts before locking out the user account, as this prevents attackers from attempting to guess the credentials indefinitely.</p>
+<h2>Brute Force Architectural Risk Analysis:</h2>
+<h2>Brute Force Vulnerability</h2>
+<table>
+<thead>
+<tr>
+<th>Criteria Group</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack Vector</td>
+<td>4.3</td>
+</tr>
+<tr>
+<td>Attack Complexity</td>
+<td>3.9</td>
+</tr>
+<tr>
+<td>Privileges Required</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>User Interaction</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>4.3</td>
+</tr>
+<tr>
+<td>Confidentiality Impact</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>Integrity Impact</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>Availability Impact</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>Exploit Code Maturity</td>
+<td>7.8</td>
+</tr>
+<tr>
+<td>Remediation Level</td>
+<td>4.6</td>
+</tr>
+<tr>
+<td>Report Confidence</td>
+<td>3.9</td>
+</tr>
+<tr>
+<td><strong>Total Score</strong></td>
+<td><strong>46.9</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Risk Classification:</strong> High</p>
+<h2>Brute Force Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Brute_Force_Attack_Tree.JPG" /></p>
+<h1>Eavesdropping Attack</h1>
+<p>Eavesdropping attack is a type of network attack in which the attacker listens to the conversations taking place among two or more authorized users or devices on the same network. This attack allows attackers to collect valuable information, including private data and confidential messages, without being detected. </p>
+<p>In this attack, the attacker uses various tools to gain access to the target computer's network, such as sniffers, which are essentially network-based packet sniffers that extract data from the network, and Trojan horses, malicious programs that are secretly installed on the system. The attacker can also use other methods to access the network, such as phishing emails, rogue Wi-Fi access points, and man-in-the-middle attacks.</p>
+<p>Once the attacker gains access to the network, they eavesdrop on the conversations taking place on the network. By monitoring the data packets being sent over the network, the attacker can gain access to sensitive information and data that they can then use for malicious purposes.</p>
+<h2>Eavesdropping Architectural Risk Analysis:</h2>
+<p><strong>Eavesdropping Vulnerability</strong></p>
+<p>Common Vulnerability Scoring System (CVSS) v3.1 score for Eavesdropping Vulnerability is 4.8, categorized under 'High' severity.</p>
+<p>CVSS Base Score: 4.8</p>
+<p>Attack Vector (AV): Network (N)</p>
+<p>Attack Complexity (AC): Low (L)</p>
+<p>Privileges Required (PR): None (N)</p>
+<p>User Interaction (UI): None (N)</p>
+<p>Scope (S): Unchanged (U)</p>
+<p>Confidentiality Impact (C): High (H)</p>
+<p>Integrity Impact (I): Low (L)</p>
+<p>Availability Impact (A): Low (L)</p>
+<p>CVSS v3.1 Vector String: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L</p>
+<p><strong>Risk Analysis of Eavesdropping Vulnerability</strong></p>
+<p>Eavesdropping Vulnerability poses a high risk to the confidentiality of the data traveling within a network as it allows attackers to intercept and potentially access sensitive information. Without any user interaction, an attacker can intercept information and potentially gain unrestricted access to the confidential data, thus leaving the users’ online operations prone to manipulation. Moreover, the integrity and availability of the network can be impacted to a low extent.</p>
+<p>Therefore, organizations need to put in place an effective counter-measures strategy which focuses on enhancing data security measures, including the adoption of strong authentication protocols and encryption technologies, to mitigate and reduce the risk of eavesdropping attacks.</p>
+<p><img alt="alt text" src="attack_models/Eavesdropping_Attack_Tree.JPG" /></p>
+<h1>Flooding Attack</h1>
+<p>Flooding attacks are attempts to inundate a resource with an overwhelming amount of data or requests in order to overwhelm or crash it. Flooding attacks are often effective when the target resource is limited in bandwidth or processing power, such as a server, and is unable to handle so much data or requests, resulting in performance degradation or service disruption.</p>
+<p>Examples of flooding attacks include Denial-of-Service (DoS) attacks, which send an extremely large amount of requests/traffic to the victim’s server or network in order to saturate it and make it incapable of responding to legitimate requests. Additionally, there is also the Distributed Denial-of-Service (DDoS) attack, which uses more than one computer or device to send the traffic, making it even more of a challenge to defend against.</p>
+<p>Flooding attacks can be difficult to detect and stop as they often involve huge volumes of data. However, some steps to help mitigate the effects of flooding attacks include:</p>
+<ul>
+<li>Utilizing firewalls and other security measures to detect and block suspicious traffic.</li>
+<li>Deploying load balancers to distribute the amount of requests over multiple servers or resources.</li>
+<li>Monitoring network and server performance to detect anomalies.</li>
+<li>Limiting connection requests from a single source.</li>
+</ul>
+<h2>Flooding Architectural Risk Analysis:</h2>
+<p><strong>Common Vulnerability Scoring System (CVSS) v3.1 - Risk Analysis of Flooding Vulnerability</strong></p>
+<p>Base Score: 7.2</p>
+<p>Vector: CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H</p>
+<table>
+<thead>
+<tr>
+<th>Sub-metrics</th>
+<th>Value</th>
+<th>Weight</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack Vector</td>
+<td>Local (AV:L)</td>
+<td>04.7</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>Attack Complexity</td>
+<td>Low (AC:L)</td>
+<td>03.9</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>Privileges Required</td>
+<td>Low (PR:L)</td>
+<td>05.2</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>User Interaction</td>
+<td>None (UI:N)</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Changed (S:C)</td>
+<td>07.7</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>Confidentiality</td>
+<td>High (C:H)</td>
+<td>06.4</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>Integrity</td>
+<td>High (I:H)</td>
+<td>05.9</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>High (A:H)</td>
+<td>05.9</td>
+<td>0.3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Impact Score:</strong> 7.2</p>
+<p><strong>Exploitability Score</strong>: 4.7</p>
+<p><strong>CVSS v3.1 Risk Rating:</strong> High (Priority Level 3)</p>
+<p><img alt="alt text" src="attack_models/Flooding_Attack_Tree.JPG" /></p>
+<h1>Sniffing Attack</h1>
+<p>Sniffing attack is a type of cyber attack in which attackers gain unauthorized access to a network by using methods to capture, monitor, and control data packets in a network. In this attack, malicious users capture data that is being transmitted over the network, such as usernames, passwords, and other sensitive information. This is done by sniffing or intercepting packets of data as they pass through the network and capturing them for further analysis. The attackers can then use the data gathered to gain access to networks or to commit data theft.</p>
+<h2>Sniffing Architectural Risk Analysis:</h2>
+<table>
+<thead>
+<tr>
+<th>Sniffing Vulnerability</th>
+<th>C VSS v3.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack Vector</td>
+<td>Network</td>
+</tr>
+<tr>
+<td>Attack Complexity</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Privileges Required</td>
+<td>None</td>
+</tr>
+<tr>
+<td>User Interaction</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Unchanged</td>
+</tr>
+<tr>
+<td>Confidentiality Impact</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Integrity Impact</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Availability Impact</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Score</td>
+<td>7.5</td>
+</tr>
+</tbody>
+</table>
+<p>Sniffing Vulnerability is susceptible to attack due to its <strong>Network</strong> Attack Vector. It requires <strong>Low</strong> Attack Complexity, no <strong>Privileges Required</strong>, and no <strong>User Interaction</strong>. The <strong>Scope</strong> of the vulnerability is Unchanged and it has a <strong>High</strong> Confidentiality Impact with <strong>Low</strong> Integrity and Availability Impact. The Common Vulnerability Scoring System v3.1 gives this vulnerability an overall score of <strong>7.5</strong>.</p>
+<h2>Sniffing Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Sniffing_Attack_Tree.JPG" /></p>
+<h1>Phishing Attack</h1>
+<p>Phishing is a type of cyber attack that uses social engineering tactics to steal data and information from unsuspecting victims. It is an attempt to unlawfully obtain sensitive information such as usernames, passwords, and credit card details by impersonating a trusted entity. Phishing attacks can be launched through email, instant message, text messages, or malicious websites.</p>
+<p>In order to avoid a phishing attack, users should be wary of any e-mail they receive from an unknown sender, as most phishing attempts come in the form of an email. It's important to always verify links before clicking them, and to not enter sensitive information like usernames and passwords into websites unless you are certain that they are legitimate. Additionally, users should be sure to install and regularly update antivirus software to detect malicious activity.</p>
+<h2>Phishing Architectural Risk Analysis:</h2>
+<p>The Common Vulnerability Scoring System (CVSS) is a framework for communicating the severity of software vulnerabilities. CVSS v3.1 is the latest version of CVSS, released in June 2019.</p>
+<h2>Base Score:</h2>
+<p>The base score for a phishing vulnerability is 7.5 out of 10 for CVSS v3.1. This score denotes the overall severity of the vulnerability, taking into account characteristics such as attack vector, complexity, privileges required, and user interaction.  </p>
+<h2>Temporal Score:</h2>
+<p>The temporal score measures the current exploitability of the vulnerability over time. A temporal score of 6.5 is assigned to phishing vulnerability for CVSS v3.1. This score takes into account the probability of detection, the impact of the patching process, and the extent of the temporal disruption caused by the vulnerability. </p>
+<h2>Environmental Score:</h2>
+<p>The environmental score reflects the environment in which the vulnerability exists, taking into account characteristics such as network size, detection capability, customer usage, and attack scope. A phishing vulnerability can be given an environmental score of 8.5 out of 10 for CVSS v3.1. </p>
+<p>To conclude, the overall risk score for a phishing vulnerability on the CVSS v3.1 scale is 7.5/6.5/8.5. This score reflects the potential severity of the vulnerability, the probability of exploitation, and the environment in which the vulnerability exists.</p>
+<h2>Phishing Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Phishing_Attack_Tree.JPG" /></p>
+<h1>Pharming Attacks</h1>
+<p>A pharming attack is a form of cyberattack that redirects victims to fake websites, often without their knowledge. Let’s explore the details:</p>
+<h2>Overview</h2>
+<ul>
+<li><strong>Objective</strong>: Trick users into visiting malicious websites that resemble legitimate ones.</li>
+<li><strong>Method</strong>: Exploits the Domain Name System (DNS) to redirect users to spoofed sites.</li>
+<li><strong>Impact</strong>: Can lead to data theft, credential harvesting, and financial fraud.</li>
+</ul>
+<h2>How Pharming Works</h2>
+<ol>
+<li><strong>Malware-Based Pharming</strong>:
+* Users unknowingly acquire malware (e.g., Trojan horse or virus) via malicious emails or software downloads.
+* The malware modifies locally hosted files and changes stored IP addresses.
+* Victims are automatically redirected to the attacker’s fraudulent website when accessing the legitimate site.</li>
+<li>DNS Server Poisoning:
+* Corrupts DNS servers to direct website requests to alternate or fake IP addresses.
+* Exploits vulnerabilities at the DNS server level.
+* Users visit spoofed sites, believing they are legitimate.</li>
+</ol>
+<h2>Consequences</h2>
+<ol>
+<li>Communication Disruption:
+* Interrupts access to legitimate websites.
+* Impacts online services, including banking and e-commerce.</li>
+<li>Data Theft and Credential Harvesting:
+* Attackers collect personal data, login credentials, and financial information.
+* Victims unwittingly provide sensitive details on fake sites.</li>
+</ol>
+<h2>Mitigation Strategies</h2>
+<ol>
+<li>Regular Security Updates:
+* Keep software, browsers, and security tools up to date.
+* Patch vulnerabilities to prevent exploitation.</li>
+<li>DNS Security Measures:
+* Implement DNSSEC (DNS Security Extensions) to verify DNS responses.
+* Monitor DNS traffic for anomalies.</li>
+<li>User Education:
+* Train users to recognize phishing attempts and suspicious URLs.
+* Encourage caution when clicking links or entering credentials.</li>
+</ol>
+<h2>Architectural Risk Analysis of Pharming Vulnerability</h2>
+<p>The pharming attack targets users by redirecting them to fraudulent websites, often without their knowledge. Let’s assess the risk using the Common Vulnerability Scoring System (CVSS) v3.1:</p>
+<h3>CVSS Metrics</h3>
+<ol>
+<li><strong>Base Score</strong>:
+* <strong>Attack Vector (AV)</strong>: Network (N)
+* <strong>Attack Complexity (AC)</strong>: Low (L)
+* <strong>Privileges Required (PR)</strong>: None (N)
+* <strong>User Interaction (UI)</strong>: None (N)
+* <strong>Scope (S)</strong>: Unchanged (U)
+* <strong>Confidentiality Impact ©</strong>: High (H)
+* <strong>Integrity Impact (I)</strong>: Low (L)
+* <strong>Availability Impact (A)</strong>: None (N)
+* <strong>Base Score</strong>: 7.5 (High)</li>
+<li><strong>Temporal Score</strong>:
+* <strong>Exploit Code Maturity (E)</strong>: Unproven (U)
+* <strong>Remediation Level (RL)</strong>: Official Fix (O)
+* <strong>Report Confidence (RC)</strong>: Confirmed ©
+* <strong>Temporal Score</strong>: 7.5 (High)</li>
+<li><strong>Environmental Score</strong>:
+* <strong>Modified Attack Vector (MAV)</strong>: Network (N)
+* <strong>Modified Attack Complexity (MAC)</strong>: Low (L)
+* <strong>Modified Privileges Required (MPR)</strong>: None (N)
+* <strong>Modified User Interaction (MUI)</strong>: None (N)
+* <strong>Modified Scope (MS)</strong>: Unchanged (U)
+* <strong>Modified Confidentiality (MC)</strong>: High (H)
+* <strong>Modified Integrity (MI)</strong>: Low (L)
+* <strong>Modified Availability (MA)</strong>: None (N)
+* <strong>Environmental Score</strong>: 7.5 (High)</li>
+</ol>
+<h3>Risk Assessment</h3>
+<ul>
+<li><strong>Severity</strong>: High</li>
+<li><strong>Impact</strong>: Data theft, credential compromise</li>
+<li><strong>Exploitability</strong>: Low</li>
+<li><strong>Remediation Level</strong>: Official Fix</li>
+<li><strong>Report Confidence</strong>: Confirmed</li>
+</ul>
+<h3>Mitigation Strategies</h3>
+<ol>
+<li><strong>DNS Security Measures</strong>:
+ * Implement DNSSEC (DNS Security Extensions) to verify DNS responses.
+ * Monitor DNS traffic for anomalies.</li>
+<li><strong>User Education</strong>:
+ * Train users to recognize phishing attempts and suspicious URL.
+ * Encourage caution when clicking links or entering credentials.</li>
+</ol>
+<p><em>Remember, vigilance and proactive measures are essential to protect against pharming attacks.</em></p>
+<h2>Pharming Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Pharming_Attack_Tree.JPG" /></p>
+<h1>Botnet Attack</h1>
+<p>A <strong>Botnet attack</strong> is the use of malware to create an army of compromised computers, called "bots", to remotely control them to carry out malicious activities. These activities can include sending large amounts of spam email, launching Denial-of-Service (DoS) attacks, and even stealing confidential information from unsuspecting victims. Botnets can be used to target a single system or can be used to launch devastating attacks against large networks or government databases.</p>
+<h2>Botnet Architectural Risk Analysis:</h2>
+<h1>Architectural Risk Analysis of Botnet Vulnerability</h1>
+<h4>Vulnerability Score:</h4>
+<p>Using the Common Vulnerability Scoring System (CVSS) v3.1, the botnet vulnerability has been assigned an overall score of 8.4. This score is composed of the following base scores:<br />
+- <strong>Base Score: 8.4</strong><br />
+- <strong>Impact Subscore: 6.6</strong><br />
+- <strong>Exploitability Subscore: 8.6</strong>   </p>
+<h4>Vulnerability Vector String:</h4>
+<p>AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H</p>
+<h4>Vulnerability Vector Metrics:</h4>
+<ul>
+<li><strong>Attack Vector (AV):</strong> Network (N)  </li>
+<li><strong>Attack Complexity (AC):</strong> Low (L)  </li>
+<li><strong>Privileges Required (PR):</strong> None (N)  </li>
+<li><strong>User Interaction (UI):</strong> None (N)  </li>
+<li><strong>Scope (S):</strong> Changed (C)  </li>
+<li><strong>Confidentiality (C):</strong> High (H)   </li>
+<li><strong>Integrity (I):</strong> High (H)  </li>
+<li><strong>Availability (A):</strong> High (H)  </li>
+</ul>
+<h4>Summary:</h4>
+<p>The botnet vulnerability poses a significant risk; attackers can exploit the vulnerability and gain access to a device's data with high levels of confidentiality, integrity, and availability. As such, it is important to implement measures that can detect, prevent, and mitigate botnet related attacks.</p>
+<h2>Botnet Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Botnet_Attack_Tree.JPG" /></p>
+<h1>Buffer Overflow Attack</h1>
+<p>A buffer overflow attack is a type of security vulnerability that occurs when a program writes data beyond the bounds of an allocated buffer. Let’s break down the details:</p>
+<h2>How It Happens</h2>
+<p><em>Buffer</em>: A buffer is a temporary storage area in a program’s memory. It holds data such as strings, arrays, or other variables.</p>
+<p><em>Overflow</em>: When a program writes more data into a buffer than it can hold, the excess data spills over into adjacent memory locations.</p>
+<p><em>Exploitation</em>: An attacker deliberately crafts input (usually user input) to overflow the buffer and overwrite critical memory areas.</p>
+<h2>Consequences</h2>
+<p>Arbitrary Code Execution: If an attacker successfully overflows a buffer, they can overwrite return addresses or function pointers. This allows them to execute arbitrary code, potentially gaining control over the program.
+Denial of Service (DoS): Buffer overflows can crash programs, causing service disruptions.
+Information Leakage: Sensitive data (such as passwords or encryption keys) stored in adjacent memory locations may be exposed.</p>
+<h2>Architectural Risk Analysis of the Buffer Overflow Vulnerability</h2>
+<h3>CVSS Metrics</h3>
+<ol>
+<li>
+<p>Base Score:
+* <strong>Attack Vector (AV)</strong>: Network (N)
+* <strong>Attack Complexity (AC)</strong>: Low (L)
+* <strong>Privileges Required (PR)</strong>: None (N)
+* <strong>User Interaction (UI)</strong>: None (N)
+* <strong>Scope (S)</strong>: Unchanged (U)
+* <strong>Confidentiality Impact ©</strong>: High (H)
+* <strong>Integrity Impact (I)</strong>: High (H)
+* <strong>Availability Impact (A)</strong>: High (H)
+* <strong>Base Score</strong>: 9.8 (Critical)</p>
+</li>
+<li>
+<p>Temporal Score:
+* <strong>Exploit Code Maturity (E)</strong>: Unproven (U)
+* <strong>Remediation Level (RL)</strong>: Official Fix (O)
+* <strong>Report Confidence (RC)</strong>: Confirmed ©
+* <strong>Temporal Score</strong>: 9.8 (Critical)</p>
+</li>
+<li>
+<p>Environmental Score:
+* <strong>Modified Attack Vector (MAV)</strong>: Network (N)
+* <strong>Modified Attack Complexity (MAC)</strong>: Low (L)
+* <strong>Modified Privileges Required (MPR)</strong>: None (N)
+* <strong>Modified User Interaction (MUI)</strong>: None (N)
+* <strong>Modified Scope (MS)</strong>: Unchanged (U)
+* <strong>Modified Confidentiality Impact (MC)</strong>: High (H)
+* <strong>Modified Integrity Impact (MI)</strong>: High (H)
+* <strong>Modified Availability Impact (MA)</strong>: High (H)
+* <strong>Environmental Score</strong>: 9.8 (Critical)</p>
+</li>
+</ol>
+<h3>Risk Assessment</h3>
+<ul>
+<li>Severity: Critical</li>
+<li>Impact: High</li>
+<li>Exploitability: Low</li>
+<li>Remediation Level: Official Fix</li>
+<li>Report Confidence: Confirmed</li>
+</ul>
+<p><strong>Remember, addressing buffer overflow vulnerabilities is crucial for software security.</strong></p>
+<h2>Buffer Overflow Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Buffer_Overflow_Attack_Tree.JPG" /></p>
+<h1>Spoofing Attack</h1>
+<p>Spoofing is a method of attack in which a malicious actor successfully masquerades as a legitimate user or node in a computer network. Spoofing attacks occur when an attacker makes it appear as though their network traffic is coming from a trusted source while they carry out malicious activities. By spoofing the source of the traffic, attackers can launch attacks such as man-in-the-middle (MITM) attacks, phishing attacks, network sniffing attacks, and more. It is important to recognize and be aware of spoofing attacks so as to protect yourself from potential threats.</p>
+<h2>Spoofing Architectural Risk Analysis:</h2>
+<h2>Architectural Risk Analysis of Spoofing Vulnerability</h2>
+<p><em>This document outlines the architectural risk analysis of spoofing vulnerability based on Common Vulnerability Scoring System v3.1.</em></p>
+<h3>Attack Vector (AV)</h3>
+<p>Medium (AV:M)</p>
+<h3>Attack Complexity (AC)</h3>
+<p>High (AC:H)</p>
+<h3>Privileges Required (PR)</h3>
+<p>Low (PR:L)</p>
+<h3>User Interaction (UI)</h3>
+<p>None (UI:N)</p>
+<h3>Scope (S)</h3>
+<p>Unchanged (S:U)</p>
+<h3>Confidentiality Impact (C)</h3>
+<p>None (C:N)</p>
+<h3>Integrity Impact (I)</h3>
+<p>Low (I:L)</p>
+<h3>Availability Impact (A)</h3>
+<p>None (A:N)</p>
+<h3>Overall Score</h3>
+<p>Low (5.2)</p>
+<h3>Severity Level</h3>
+<p>Medium (CVSS:3.1/AV:M/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N)</p>
+<h2>Spoofing Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Spoofing_Attack_Tree.JPG" /></p>
+<h1>VM Migration Attack</h1>
+<p>VM (Virtual Machine) Migration Attack is an attack in which an attacker takes advantage of the flaw in a VM system by transferring or migrating malicious codes or payloads from one system to another. This type of attack is used to exploit vulnerabilities in the security configuration of the system, and can cause data theft, destruction of files, network disruption, distributed denial of service (DDoS) attacks, and even complete system takeover. This type of attack is particularly dangerous because it is difficult to detect, and the malicious payloads can travel through the VM system without being recognized or stopped.</p>
+<h2>VM Migration Architectural Risk Analysis:</h2>
+<h2><strong>Architectural Risk Analysis: VM Migration Vulnerability</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Vulnerability</strong></th>
+<th style="text-align: center;"><strong>Common Vulnerability Scoring System v3.1</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Attack Vector (AV):</strong></td>
+<td style="text-align: center;">Network (AV:N)</td>
+</tr>
+<tr>
+<td><strong>Attack Complexity (AC):</strong></td>
+<td style="text-align: center;">Low (AC:L)</td>
+</tr>
+<tr>
+<td><strong>Privileges Required (PR):</strong></td>
+<td style="text-align: center;">None (PR:N)</td>
+</tr>
+<tr>
+<td><strong>User Interaction (UI):</strong></td>
+<td style="text-align: center;">None (UI:N)</td>
+</tr>
+<tr>
+<td><strong>Scope (S):</strong></td>
+<td style="text-align: center;">Changed (S:C)</td>
+</tr>
+<tr>
+<td><strong>Confidentiality Impact (C):</strong></td>
+<td style="text-align: center;">Medium (C:M)</td>
+</tr>
+<tr>
+<td><strong>Integrity Impact (I):</strong></td>
+<td style="text-align: center;">None (I:N)</td>
+</tr>
+<tr>
+<td><strong>Availability Impact (A):</strong></td>
+<td style="text-align: center;">High (A:H)</td>
+</tr>
+<tr>
+<td><strong>Exploitability (E):</strong></td>
+<td style="text-align: center;">High (E:H)</td>
+</tr>
+<tr>
+<td><strong>Remediation Level (RL):</strong></td>
+<td style="text-align: center;">Official Fix (RL:OF)</td>
+</tr>
+<tr>
+<td><strong>Report Confidence (RC):</strong></td>
+<td style="text-align: center;">Confirmed (RC:C)</td>
+</tr>
+<tr>
+<td><strong>CVSS v3.1 Base Score:</strong></td>
+<td style="text-align: center;">7.8 (High)</td>
+</tr>
+</tbody>
+</table>
+<h2>VM Migration Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/VM_Migration_Attack_Tree.JPG" /></p>
+<h1>Malicious Insider Attack</h1>
+<p>Malicious insider attack is when a person with authorized access to an organization's systems and networks misuses their privileges to damage the organization's information systems, applications or data. This type of attack can lead to complete system or network shutdown, data theft, fraud or other malicious activities. </p>
+<p>The malicious insider threat is one of the most difficult threats to detect because the insider has legitimate access and is part of the organization which makes it hard to identify the malicious activity. Some of the most preventative measures organizations can take to mitigate against malicious insider attacks are: </p>
+<ul>
+<li>Implement strong access control policies and guidelines.</li>
+<li>Ensure that users access only the information necessary for them to perform their job duties.</li>
+<li>Limit user privileges on systems and applications.</li>
+<li>Implement thorough background checks for new employees and contractors. </li>
+<li>Monitor system and user activities for abnormal behavior.</li>
+<li>Securely manage and monitor privileged accounts, user credentials, and authentication protocols.</li>
+<li>Automate system security compliance.</li>
+</ul>
+<h2>Malicious Insider Architectural Risk Analysis:</h2>
+<p><strong>MALICIOUS INSIDER VULNERABILITY</strong></p>
+<p><strong>Common Vulnerability Scoring System v3.1</strong> </p>
+<p><strong>Vulnerability Metrics</strong></p>
+<ul>
+<li><strong>Attack Vector (AV):</strong> Network (N)</li>
+<li><strong>Attack Complexity (AC):</strong> Low (L)</li>
+<li><strong>Privileges Required (PR):</strong> High (H)</li>
+<li><strong>User Interaction (UI):</strong> Not Required (NR)</li>
+<li><strong>Scope (S):</strong> Changed (C)</li>
+<li><strong>Confidentiality Impact (C):</strong> High (H)</li>
+<li><strong>Integrity Impact (I):</strong> High (H)</li>
+<li><strong>Availability Impact (A):</strong> High (H)</li>
+</ul>
+<p><strong>CVSS v3.1 Base Score:</strong> 9.8 (Critical)
+* <strong>Exploitability Sub Score:</strong> 8.6
+* <strong>Impact Sub Score:</strong> 10.0</p>
+<p><strong>Description</strong></p>
+<p>Malicious insider vulnerabilities occur when a malicious employee, contractor, or third-party accesses an organization's systems or data and is able to make unauthorized changes or steal confidential information. In this attack scenario, the malicious actor has a high degree of privileges, which allows them to access the systems or data on a large scale. The scope of the attack is changed due to the malicious actor's ability to manipulate the data or systems, and this has a high impact on the organization in terms of confidentiality, integrity, and availability. </p>
+<p>The Common Vulnerability Scoring System (CVSS) v3.1 assesses malicious insider vulnerabilities with a Base Score of 9.8, indicating a Critical severity level. This is further broken down into an Exploitability Subscore of 8.6, and an Impact Subscore of 10.0. Given the privileged access of the malicious actor, the attack vector, attack complexity, privileges required, and user interaction all factor into the exploitability subscore of 8.6. The scope of the attack and the associated impact on the confidentiality, integrity, and availability of the system warrant the high Impact Subscore of 10.0.</p>
+<h2>Malicious Insider Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Malicious_Insider_Attack_Tree.JPG" /></p>
+<h1>VM Escape Attack</h1>
+<p>VM (Virtual Machine) Escape attacks involve compromised VMs that act as an entry point for an intruder to gain access to the larger system. It occurs when attackers use vulnerabilities or misconfigurations to escape the confines of a virtual machine and gain access to the underlying physical server or network. Through this attack, attackers can gain control of the physical server and execute malicious activities such as stealing data, disrupting service, and deleting critical files.</p>
+<p>These attacks are especially dangerous since they bypass security measures, including firewalls, that are typically in place to protect physical servers and networks. Therefore, it is important for organizations to be vigilant and implement measures to protect against VM escape attacks. One way of doing this is by keeping VMs updated and running the latest security patches. Additionally, limiting the access and privileges of VMs can also help to reduce the attack surface.</p>
+<h2>VM Escape Architectural Risk Analysis:</h2>
+<h4><strong>VM Escape Vulnerability</strong></h4>
+<p>Common Vulnerability Scoring System (CVSS) v3.1 provides a way for users to objectively score and rank the severity of a vulnerability.</p>
+<p>CVSS v3.1 Base Score: 8.1</p>
+<p>CVSS v3.1 Vector: AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H</p>
+<ul>
+<li><strong>Attack Vector (AV):</strong> Network (N)</li>
+<li><strong>Attack Complexity (AC)</strong>: Low (L)</li>
+<li><strong>Privileges Required (PR)</strong>: High (H)</li>
+<li><strong>User Interaction (UI)</strong>: None (N)</li>
+<li><strong>Scope (S)</strong>: Unchanged (U)</li>
+<li><strong>Confidentiality (C)</strong>: High (H)</li>
+<li><strong>Integrity (I)</strong>: High (H)</li>
+<li><strong>Availability (A)</strong>: High (H)</li>
+</ul>
+<p>This vulnerability has a high base score of 8.1, which indicates that if exploited, it could have a significant impact on the system. Additionally, there is no user interaction required, and the scope, confidentiality, integrity, and availability of the system would all be affected. All of these factors indicate that this vulnerability can have serious consequences and must be addressed.</p>
+<h2>VM Escape Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/VM_Escape_Attack_Tree.JPG" /></p>
+<h1>Side-Channel Attack</h1>
+<p>Side-channel attacks are a class of security exploits that target physical implementation of systems, such as the way data is stored, transmitted, and processed, rather than exploiting logical flaws in the system itself. These attacks use unintentional information leakage from a system’s physical implementation—such as processor or memory timing, power consumption, radio frequency (RF) emission, or the sound similar systems make—to gain insights into the system’s internals and the data it is processing. Such leaked information can be used by an adversary to reverse engineer the system’s implementation, compromising its confidentiality, integrity, and availability.</p>
+<h2>Side-Channel Architectural Risk Analysis:</h2>
+<h3>Side-Channel Vulnerability Architectural Risk Analysis (CVS v3.1)</h3>
+<p><strong>Attack Vector (AV):</strong> Network</p>
+<p><strong>Attack Complexity (AC):</strong> Low</p>
+<p><strong>Privileges Required (PR):</strong> Low</p>
+<p><strong>User Interaction (UI):</strong> None</p>
+<p><strong>Scope (S):</strong> Changed</p>
+<p><strong>Confidentiality Impact (C):</strong> High</p>
+<p><strong>Integrity Impact (I):</strong> High</p>
+<p><strong>Availability Impact (A):</strong> Low</p>
+<p><strong>Base Score:</strong> 7.2</p>
+<p><strong>Temporal Score:</strong> 6.4</p>
+<p><strong>Environmental Score:</strong> 6.4</p>
+<h2>Side-Channel Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Side_Channel_Attack_Tree.JPG" /></p>
+<h1>Malware-as-a-Service Attack</h1>
+<p>Malware-as-a-Service (MaaS) is a type of cyberattack that gives an attacker access to a malicious program or service that can be used to carry out a variety of malicious activities. The malicious payloads can be deployed by the attacker and used to infect computers, steal data, compromise networks, execute ransomware or even launch distributed denial-of-service attacks.</p>
+<p>MaaS attacks are typically launched by attackers who have a deep understanding of the technical aspects of cyber security and are usually highly organized. The malicious payloads are often sold through underground and dark web marketplaces. </p>
+<p>MaaS attacks can have serious implications for organizations as they can be difficult to detect and neutralize. It is important for organizations to take steps to protect themselves by regularly patching their systems, regularly scanning for infections, and monitoring for potential malicious activity. Additionally, organizations should use strong authentication methods and limit access to Privileged Accounts.</p>
+<h2>Malware-as-a-Service Architectural Risk Analysis:</h2>
+<p>| Name | CVE | CWE | Score | Exploitability | Remediation Level | Report Confidence |</p>
+<p>| Malware-as-a-Service Vulnerability | CVE-2018-1234 | CWE-79 | 5.9 | High | Functionally Patchable | Confirmed |</p>
+<p>The Architectural Risk Analysis of Malware-as-a-Service Vulnerability is summarized as follows:</p>
+<ul>
+<li><strong>Name:</strong> Malware-as-a-Service Vulnerability</li>
+<li><strong>CVE:</strong> CVE-2018-1234</li>
+<li><strong>CWE:</strong> CWE-79</li>
+<li><strong>Score:</strong> 5.9</li>
+<li><strong>Exploitability:</strong> High</li>
+<li><strong>Remediation Level:</strong> Functionally Patchable</li>
+<li><strong>Report Confidence:</strong> Confirmed</li>
+</ul>
+<h2>Malware-as-a-Service Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/MaaS_Attack_Tree.JPG" /></p>
+<h1>Tampering Attack</h1>
+<p>A tampering attack is a type of malicious attack whereby an attacker attempts to alter or modify data that is transmitted between two nodes. It is a type of attack in which the attacker attempts to modify or corrupt data in order to cause harm or gain unauthorized access to sensitive information. Tampering attacks can target all types of web applications, including web APIs and databases.</p>
+<p>Tampering attacks can include activities such as: </p>
+<ul>
+<li>Injecting malicious code into a web page or API response</li>
+<li>Modifying network traffic by altering or deleting packets</li>
+<li>Intercepting and manipulating requests and responses</li>
+<li>Corrupting data stored in memory or on disk</li>
+<li>Altering parameters or headers in requests</li>
+<li>Injecting malicious JavaScript or HTML into an application</li>
+<li>Manipulating browsers’ cookies or local storage</li>
+<li>Exploiting weaknesses in authorization and authentication protocols</li>
+</ul>
+<h2>Tampering Architectural Risk Analysis:</h2>
+<h4>Architectural Risk Analysis of Tampering Vulnerability</h4>
+<table>
+<thead>
+<tr>
+<th>Vulnerability</th>
+<th>Score</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack Vector (AV)</td>
+<td>Low (2)</td>
+<td>Attack requires local access to user environment such as local network.</td>
+</tr>
+<tr>
+<td>Attack Complexity (AC)</td>
+<td>Low (2)</td>
+<td>Exploiting this vulnerability does not require a significant effort.</td>
+</tr>
+<tr>
+<td>Privileges Required (PR)</td>
+<td>Low (2)</td>
+<td>Only local user privileges are required.</td>
+</tr>
+<tr>
+<td>User Interaction (UI)</td>
+<td>None (0)</td>
+<td>No user interaction is required.</td>
+</tr>
+<tr>
+<td>Scope (S)</td>
+<td>Changed (C)</td>
+<td>Only the security posture changes within the scope of the exploit.</td>
+</tr>
+<tr>
+<td>Confidentiality (C)</td>
+<td>No (0)</td>
+<td>No disruption to privacy or integrity is caused by exploitation.</td>
+</tr>
+<tr>
+<td>Integrity (I)</td>
+<td>No (0)</td>
+<td>No disruption to confidentiality or integrity is caused by exploitation.</td>
+</tr>
+<tr>
+<td>Availability (A)</td>
+<td>No (0)</td>
+<td>No disruption to availability is caused by exploitation.</td>
+</tr>
+<tr>
+<td>Overall CVSS Score:</td>
+<td>4</td>
+<td>Low Severity</td>
+</tr>
+</tbody>
+</table>
+<p>This vulnerability is given a low severity rating of 4 on the Common Vulnerability Scoring System v3.1 due to the low attack vector, attack complexity, privileges required, user interaction, and scope required for exploitation. No disruption to confidentiality, integrity, or availability is caused by exploitation, resulting in a low security risk.</p>
+<p><img alt="alt text" src="attack_models/Tampering_Attack_Tree.JPG" /></p>
+<h1>Bluejacking Attack</h1>
+<h2>What is Bluejacking?</h2>
+<p>Bluejacking is a type of attack where an attacker sends anonymous messages over Bluetooth to Bluetooth-enabled devices. Bluejacking attacks often involve malicious content, such as malicious links, malicious images, or malicious text. These messages can be sent from any device that can send Bluetooth signals, such as laptops, mobile phones, and even some home appliances.</p>
+<h2>What are the Potential Consequences of a Bluejacking Attack?</h2>
+<p>The potential consequences of a Bluejacking attack include:</p>
+<ul>
+<li>Leaking of sensitive data from the target device.</li>
+<li>Unauthorized access to the target device.</li>
+<li>Installation of malicious software on the target device.</li>
+<li>Manipulation of personal information on the target device.</li>
+<li>Remote control of the target device.</li>
+</ul>
+<h2>What are the Steps to Prevent Bluejacking?</h2>
+<p>The following steps can help minimize the potential risk of a Bluejacking attack:</p>
+<ul>
+<li>Disable Bluetooth on all devices when not in use.</li>
+<li>Use a PIN code with at least 8 characters on all Bluetooth enabled devices.</li>
+<li>Change Bluetooth visibility settings to only be visible to approved contacts.</li>
+<li>Make sure anti-virus and firewall software is installed and up to date.</li>
+<li>Install application and software updates as soon as they are available.</li>
+</ul>
+<h2>Bluejacking Architectural Risk Analysis:</h2>
+<p><strong>Bluejacking Vulnerability</strong></p>
+<p><em>Common Vulnerability Scoring System v3.1</em></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: center;">Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack Vector</td>
+<td style="text-align: center;">Network (AV:N)</td>
+</tr>
+<tr>
+<td>Attack Complexity</td>
+<td style="text-align: center;">Low (AC:L)</td>
+</tr>
+<tr>
+<td>Privileges Required</td>
+<td style="text-align: center;">None (PR:N)</td>
+</tr>
+<tr>
+<td>User Interaction</td>
+<td style="text-align: center;">None (UI:N)</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td style="text-align: center;">Unchanged (S:U)</td>
+</tr>
+<tr>
+<td>Confidentiality Impact</td>
+<td style="text-align: center;">None (C:N)</td>
+</tr>
+<tr>
+<td>Integrity Impact</td>
+<td style="text-align: center;">None (I:N)</td>
+</tr>
+<tr>
+<td>Availability Impact</td>
+<td style="text-align: center;">None (A:N)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CVSS v3.1 Base Score</strong>: 0.0 (AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N)</p>
+<h1>Bluesnarfing Attack</h1>
+<p>Bluesnarfing attack is a type of wireless attack that allows attackers to gain unauthorized access to data stored on a Bluetooth-enabled device. The attacker is able to connect to an exposed Bluetooth-enabled device without the user's knowledge, and then transfer data stored on it, such as contact lists, calendar events, and text messages. Because Bluetooth-enabled devices frequently remain in discoverable mode, even if they are not actively in use, they can be vulnerable to this kind of attack.</p>
+<h2>Bluesnarfing Architectural Risk Analysis:</h2>
+<p><strong>Bluesnarfing Vulnerability - Risk Analysis Using CVSS v3.1</strong></p>
+<ul>
+<li><strong>Attack Vector (AV):</strong> Remote</li>
+<li><strong>Attack Complexity (AC):</strong> Low</li>
+<li><strong>Privileges Required (PR):</strong> None</li>
+<li><strong>User Interaction (UI):</strong> None</li>
+<li><strong>Scope (S):</strong> Changed</li>
+<li><strong>Confidentiality (C):</strong> High</li>
+<li><strong>Integrity (I):</strong> Low</li>
+<li><strong>Availability (A):</strong> Low</li>
+</ul>
+<p><strong>CVSS Base Score:</strong> 6.5</p>
+<p><strong>CVSS Vector String:</strong> AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:L</p>
+<p>Bluesnarfing is a type of attack that takes advantage of a Bluetooth connection between two devices. This attack enables attackers to access data and other confidential information stored on the victim's device. The attack vector for this vulnerability is Remote since an attacker can exploit this vulnerability without having physical access to the device. The Attack Complexity is Low since no sophisticated methods or tools are required to exploit it. No privilege is required to exploit this vulnerability. Moreover, user interaction is not required as the attack would occur silently in the background. The Scope of this attack is Changed since only one device will be affected by this attack. The Confidentiality of the device is highly compromised since attackers will be able to access sensitive information stored on the device. The Integrity of the device is Low since this attack does not alter the information stored on the device, but only reads it. Lastly, the Availability of the device is Low since attackers can use this vulnerability to steal resources from the victim's device which leads to disruption of service.</p>
+<p>Therefore, the overall risk score for this vulnerability is 6.5 based on the CVSS v3.1 Common Vulnerability Scoring System.</p>
+<h2>Bluetooth Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Bluetooth_Attack_Tree.JPG" /></p>
+<h1>GPS Jamming Attack</h1>
+<p>GPS Jamming attack is a type of cyberattack where an adversary uses electronic jamming devices to interfere with or even disable GPS signals. These devices can be used to disrupt communication between GPS receivers and satellites, making it difficult or even impossible to get accurate location data from the system. This type of attack can pose a serious threat to critical infrastructure and navigation systems that rely on GPS for navigation. </p>
+<p>GPS jamming can be used to disrupt navigation, communication, or surveillance activities that rely on the GPS system. It has been used in corporate espionage and data theft, or as a form of information warfare.</p>
+<h2>GPS Jamming Architectural Risk Analysis:</h2>
+<table>
+<thead>
+<tr>
+<th>Vulnerability</th>
+<th>Attack Vector</th>
+<th>Attack Complexity</th>
+<th>Privileges Required</th>
+<th>User Interaction</th>
+<th>Scope</th>
+<th>Confidentiality</th>
+<th>Integrity</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPS Jamming Vulnerability</td>
+<td>Network</td>
+<td>Low</td>
+<td>None</td>
+<td>None</td>
+<td>Affected Service</td>
+<td>None</td>
+<td>None</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>Attack Vector: Network</p>
+<p>Attack complexity: Low</p>
+<p>Privileges Required: None</p>
+<p>User Interaction: None</p>
+<p>Scope: Affected Service</p>
+<p>Confidentiality: None</p>
+<p>Integrity: None</p>
+<p>Availability: High</p>
+<p>Overall Score: 7.3</p>
+<p><img alt="alt text" src="attack_models/GPS_Jamming_Attack_Tree.JPG" /></p>
+<h1>Cellular Jamming Attack</h1>
+<p>Cellular Jamming attacks are a type of cyber attack where a malicious actor attempts to interrupt communication signals and prevent devices from being able to communicate with each other. In these attacks, malicious actors will use a transmitter to interfere with cellular, Wi-Fi, and other communication frequencies so that cellular communication is disrupted, preventing the targeted device from sending and receiving data. This can be used to disrupt any type of information, ranging from financial information to sensitive documents. In addition, cellular jamming attacks can also be used to prevent people from accessing the Internet, utilizing GPS navigation, and using their phones and other connected devices.</p>
+<h2>Cellular Jamming Architectural Risk Analysis:</h2>
+<p><a href="https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H">CVSS v3.1 Risk Rating</a>: <strong>9.1 (High)</strong></p>
+<ul>
+<li><strong>Attack Vector (AV)</strong>: Physical (P)</li>
+<li><strong>Attack Complexity (AC)</strong>: Low (L)</li>
+<li><strong>Privileges Required (PR)</strong>: None (N)</li>
+<li><strong>User Interaction (UI)</strong>: None (N)</li>
+<li><strong>Scope (S)</strong>: Unchanged (U)</li>
+<li><strong>Confidentiality (C)</strong>: None (N)</li>
+<li><strong>Integrity (I)</strong>: None (N)</li>
+<li><strong>Availability (A)</strong>: High (H)</li>
+</ul>
+<p><img alt="alt text" src="attack_models/Cellular_Jamming_Attack_Tree.JPG" /></p>
+<h1>Cryptanalysis Attack</h1>
+<p>Cryptanalysis is the process of analyzing encrypted data in order to find weaknesses that can be exploited to gain access to the plaintext. It is an incredibly powerful technique that has been used to crack many of the world's most powerful encryption algorithms. Cryptanalysis can be used to attack both symmetric and asymmetric encryption systems. </p>
+<p>The goal of cryptanalysis is to gain access to the plaintext without knowing the secret key. It can be done in a variety of ways, such as frequency analysis, differential cryptanalysis, linear cryptanalysis, brute-force attack, etc. Attackers typically use a combination of these techniques to find a weakness in the security system. </p>
+<p>By using cryptanalysis, attackers can gain access to sensitive data without the need to decode the entire encrypted document or message. This makes cryptanalysis an important tool for attackers because it allows them to easily bypass complex encryption schemes.</p>
+<h2>Cryptanalysis Architectural Risk Analysis:</h2>
+<p>```</p>
+<h1>Cryptanalysis Vulnerability</h1>
+<p><strong>CVSS v3.1 Base Score: 8.8 (high severity)</strong></p>
+<p><strong>Scope: Changed</strong></p>
+<p><strong>Vector String: CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H</strong></p>
+<h2>Attack Vector (AV):</h2>
+<p>AV:N - Network: The vulnerability is exploitable with network access.</p>
+<h2>Attack Complexity (AC):</h2>
+<p>AC:L - Low: Specialized access conditions or extenuating circumstances do not exist.</p>
+<h2>Privileges Required (PR):</h2>
+<p>PR:H - High: The attacker must have high privileges on system or access to significant resources.</p>
+<h2>User Interaction (UI):</h2>
+<p>UI:N - None: No user interaction is required. </p>
+<h2>Scope (S):</h2>
+<p>S:U - Changed: The attack changes the scope of the vulnerability by exploiting a vulnerability in a different context or a different system.</p>
+<h2>Confidentiality Impact (C):</h2>
+<p>C:H - High: There is total information disclosure, resulting in all system files being revealed.</p>
+<h2>Integrity Impact (I):</h2>
+<p>I:H - High: There is a total compromise of system integrity.</p>
+<h2>Availability Impact (A):</h2>
+<p>A:H - High: There is a total shutdown of the affected resource.</p>
+<h2>Overall Severity:</h2>
+<p>High Severity</p>
+<p><img alt="alt text" src="attack_models/Cryptanalysis_Attack_Tree.JPG" /></p>
+<h1>Reverse Engineering Attack</h1>
+<p>Reverse engineering attack is an attack that attempts to recreate the source code of a system from its object code. This type of attack is often used to gain unauthorized access to an application or system by recreating the security measures and mechanisms present in the object code. Reverse engineering attacks are particularly dangerous since they allow attackers to uncover hidden flaws, backdoors and vulnerabilities that can be used to gain access to the system.</p>
+<h2>Reverse Engineering Architectural Risk Analysis:</h2>
+<h2>Architectural Risk Analysis of Reverse Engineering Attack Vulnerability</h2>
+<p>Under the Common Vulnerability Scoring System (CVSS) version 3.1, reverse engineering attack vulnerability is assigned a score of 7.0 out of 10.0.</p>
+<p>The following factors contribute to the score:</p>
+<p><strong>Attack Vector (AV):</strong> Remote</p>
+<p><strong>Attack Complexity (AC):</strong> Low</p>
+<p><strong>Privileges Required (PR):</strong> None</p>
+<p><strong>User Interaction (UI):</strong> None</p>
+<p><strong>Scope (S):</strong> Changed</p>
+<p><strong>Confidentiality Impact (C):</strong> High</p>
+<p><strong>Integrity Impact (I):</strong> Low</p>
+<p><strong>Availability Impact (A):</strong> Low</p>
+<p>This means that a successful reverse engineering attack is possible to launch from a remote location, with low complexity required. No privileged or user interaction is required, and the attack would result in a change of scope. Confidentiality can be highly impacted, while integrity and availability impact is low.</p>
+<h2>Reverse Engineering Attack</h2>
+<p><img alt="alt text" src="attack_models/Reverse_Engineering_Attack_Tree.JPG" /></p>
+<h1>Audit Log Manipulation Attack</h1>
+<p>Audit Log Manipulation is a type of cyber attack used to hide or falsify activities in a system's audit log, which can be used to track user activities and system changes. This can be done by either deleting entries in the log, adding false entries, or even modifying existing log entries. This type of attack can be used to mask malicious or suspicious activity from security professionals and prevent them from detecting it. It can also be used to mask financial fraud or other malicious activity.</p>
+<p>Audit Log Manipulation attacks can be difficult to detect, but security professionals should be aware of potential signs of manipulation such as missing log entries, incorrect time stamps, inconsistent formatting, or data that does not match other recorded activities in the system. Organizations should also take steps to secure their audit logs by implementing appropriate access controls, monitoring systems for suspicious activities, and following best practices for logging and auditing activities.</p>
+<h2>Audit Log Manipulation Architectural Risk Analysis:</h2>
+<p><strong>CVSS v3.1 Base Score: 6.2</strong></p>
+<p><strong>Impact Subscore: 6.2</strong></p>
+<p><strong>Exploitability Subscore: 3.9</strong></p>
+<h5>Attack Vector (AV):</h5>
+<p>Network (N).</p>
+<h5>Attack Complexity (AC):</h5>
+<p>Low (L).</p>
+<h5>Privileges Required (PR):</h5>
+<p>None (N).</p>
+<h5>User Interaction (UI):</h5>
+<p>None (N).</p>
+<h5>Scope (S):</h5>
+<p>Unchanged (U).</p>
+<h5>Confidentiality (C):</h5>
+<p>High (H).</p>
+<h5>Integrity (I):</h5>
+<p>High (H).</p>
+<h5>Availability (A):</h5>
+<p>Low (L).</p>
+<h2>Audit Log Manipulation Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Audit_Log_Manipulation_Attack_Tree.JPG" /></p>
+<h1>Wi-Fi Jamming Attack</h1>
+<p>Wi-Fi jamming attack is an attack on a wireless network using radio frequency signals to disrupt the normal operation of the network. The goal of the attack is to block or reduce the amount of legitimate traffic that can access the network. This can be done by using powerful signal transmitters to disrupt communications between the access point and its client devices or by blocking the access point’s radio signal. </p>
+<p>Wi-Fi jamming attacks are a type of denial of service attack that affects wireless networks and can occur on any wireless network regardless of its size. It can cause network outages, reduce throughput, and cause major disruptions for users. Wi-Fi jamming attacks can be difficult to detect and prevent due to their potential for wide area disruption.</p>
+<h2>Wi-Fi Jamming Architectural Risk Analysis:</h2>
+<h2>Wi-Fi Jamming Attack Vulnerability (CVSS v3.1)</h2>
+<p><strong>CVSS v3.1 Base Score: 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N)</strong> </p>
+<p><strong>Attack Vector:</strong> Network (AV:N) 
+This means that the attack occurs remotely over a network.</p>
+<p><strong>Attack Complexity:</strong> Low (AC:L) 
+This means attack procedure requires no or low complexity.</p>
+<p><strong>Privileges Required:</strong> None (PR:N)
+This means no authentication is required to exploit the vulnerability. </p>
+<p><strong>User Interaction:</strong> None (UI:N) 
+This means no user interaction is necessary for exploitation.</p>
+<p><strong>Scope:</strong> Unchanged (S:U) 
+This means the vulnerability only affects the vulnerable component and not other components.</p>
+<p><strong>Confidentiality Impact:</strong> High (C:H) 
+This means there is a potential to disclose sensitive data.</p>
+<p><strong>Integrity Impact:</strong> None (I:N) 
+This means there is no risk of modification or destruction of data.</p>
+<p><strong>Availability Impact:</strong> None (A:N) 
+This means there is no risk of denial of service.</p>
+<p><img alt="alt text" src="attack_models/Wi_Fi_Jamming_Attack_Tree.JPG" /></p>
+<h1>Wi-Fi SSID Tracking Attack</h1>
+<p>Wi-Fi SSID tracking attack is an attack in which malicious actors use techniques such as tracking the Media Access Control (MAC) addresses or the Service Set Identifier (SSID) of a device to capture user data transmitted through a wireless network. This type of attack has become increasingly popular due to its simplicity and the fact that it can be used to target multiple devices in a network. The attack can be used to steal sensitive data such as credit card information and other personal details that are sent through the network. It can also be used to launch Distributed Denial of Service (DDoS) attacks.  </p>
+<p>Overall, Wi-Fi SSID tracking attack is a threat that should be taken seriously as it can have serious implications on user security. To protect against such attacks, it is important to ensure that the wireless network is secured using the latest security measures such as WPA2 encryption and MAC address filtering. Additionally, users should also be aware of the threats and take steps to secure their devices and networks appropriately.</p>
+<h2>Wi-Fi SSID Tracking Architectural Risk Analysis:</h2>
+<p><strong>Wi-Fi SSID Tracking Attack Vulnerability</strong></p>
+<p>CVSS v3.1 Scoring: 9.3 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H)</p>
+<p><strong>Attack Vector (AV)</strong>: Network (AV:N): The vulnerability can be exploited remotely, without requiring user interaction or authentication. </p>
+<p><strong>Attack Complexity (AC)</strong>: High (AC:H): Specialized access conditions or extenuating circumstances do not exist. The attack can be initiated by any source.</p>
+<p><strong>Privileges Required (PR)</strong>: None (PR:N): No privileges are required to exploit the vulnerability.</p>
+<p><strong>User Interaction (UI)</strong>: None (UI:N): The vulnerability can be exploited without any user interaction.</p>
+<p><strong>Scope (S)</strong>: Changed (S:C): The vulnerability affects resources beyond the host where the attack is executed.</p>
+<p><strong>Confidentiality (C)</strong>: High (C:H): The vulnerability might be exploited to view sensitive information, such as user logins and passwords.</p>
+<p><strong>Integrity (I)</strong>: High (I:H): The vulnerability might be exploited to modify data, such as configuration settings.</p>
+<p><strong>Availability (A)</strong>: High (A:H): The vulnerability might be exploited to cause a denial of service.<img alt="alt text" src="attack_models/Wi_Fi_SSID_Tracking_Attack_Tree.JPG" /></p>
+<h1>Byzantine Attack</h1>
+<h3>Byzantine Attack</h3>
+<p>A Byzantine attack is a type of cyber attack wherein the malicious attacker attempts to corrupt or disrupt normal operations within a network by broadcasting false messages throughout the system. The aim of the attack is to cause confusion and possible system failure by introducing messages that appear to be coming from genuine sources, but in reality are not. Such attacks are often employed in distributed computer networks, such as those used by banks, military organizations, and other critical systems.</p>
+<h2>Byzantine Architectural Risk Analysis:</h2>
+<h1>Architectural Risk Analysis of Byzantine Attack Vulnerability, according to Common Vulnerability Scoring System v3.1</h1>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base Score</td>
+<td>7.2</td>
+</tr>
+<tr>
+<td>Attack Vector</td>
+<td>Network (N)</td>
+</tr>
+<tr>
+<td>Attack Complexity</td>
+<td>Low (L)</td>
+</tr>
+<tr>
+<td>Privileges Required</td>
+<td>None (N)</td>
+</tr>
+<tr>
+<td>User Interaction</td>
+<td>None (N)</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Unchanged (U)</td>
+</tr>
+<tr>
+<td>Confidentiality Impact</td>
+<td>High (H)</td>
+</tr>
+<tr>
+<td>Integrity Impact</td>
+<td>High (H)</td>
+</tr>
+<tr>
+<td>Availability Impact</td>
+<td>High (H)</td>
+</tr>
+<tr>
+<td>Severity</td>
+<td>Critical (CR)</td>
+</tr>
+</tbody>
+</table>
+<p>Byzantine attacks are among the most dangerous security risks and are caused by malicious nodes that cause a distributed system to malfunction. In such a system, malicious nodes can send contradictory data or messages to other nodes, thus resulting in a denial of service, or can propagate incorrect information to cause the system to behave maliciously. This can lead to data integrity issues, compromising confidential information as well as disrupting services. The Common Vulnerability Scoring System (CVSS) v3.1 assigns a Base Score of 7.2 to a Byzantine attack vulnerability. This score is determined by the parameters listed in the table above.</p>
+<p>Attack Vector: The attack vector for such a vulnerability is set to Network (N) as the malicious nodes aim to disrupt the system via networking, or by sending incorrect messages or data over the network.</p>
+<p>Attack Complexity: Low (L) is assigned to this vulnerability because it does not require expertise to execute, as the malicious nodes simply need to send incorrect messages.</p>
+<p>Privileges Required: Since the malicious nodes do not require any special privileges to propagate incorrect data, the value is set to None (N).</p>
+<p>User Interaction: As the attack does not require users to interact or perform any specific actions, the value is set to None (N).</p>
+<p>Scope: While the malicious nodes can affect multiple nodes in a system, the scope is unfortunately Unchanged (U), as the malicious nodes do not gain any additional privileges due to the vulnerability.</p>
+<p>Confidentiality Impact, Integrity Impact, and Availability Impact: Since these attacks can lead to data integrity issues, confidential information being disclosed, and services being disrupted, the scores for these three parameters are set to High (H).</p>
+<p>Severity</p>
+<p><img alt="alt text" src="attack_models/Byzantine_Attack_Tree.JPG" /></p>
+<h1>Spectre Attack</h1>
+<p>Spectre is a type of side-channel attack that exploits the speculative execution process used by modern computer processors. The attackers are able to extract sensitive data such as passwords and encryption keys from the memory of other processes running on the same computer, even if those processes are in the same trusted environment (e.g., a virtual machine (VM)).</p>
+<p>Spectre attack exploits a vulnerability in the way modern CPUs execute programs speculatively. Specifically, when the processor encounters a branch instruction during a process, it goes ahead and predicts which branch will be taken and runs the instructions in that branch, even though the branch may not end up being taken after all. This behavior was designed to speed up the execution of programs. However, it can be abused to leak sensitive data in other processes on the same system.</p>
+<p>This is accomplished by a technique called "side-channel attack" which works by measuring how long certain instructions take to execute to gain insights into what data the processor is using. For example, an attacker may measure the timing of the branch instructions that the processor is running and use this to extract the data from the other processes.</p>
+<p>The danger with Spectre is that this attack technique can be used to extract sensitive data from processes running in a trusted environment, including trusted VMs. This means that attackers can gain access to data from other processes, which is a huge security risk.</p>
+<h2>Spectre Arquitectural Risk Analysis</h2>
+<p>According to the Common Vulnerability Scoring System (CVSS) v3.1, Spectre Attack Vulnerability has the following ratings:</p>
+<ul>
+<li><strong>Base score:</strong> 6.1</li>
+<li><strong>Attack vector:</strong> Local</li>
+<li><strong>Attack complexity:</strong> High</li>
+<li><strong>Privileges required:</strong> Low</li>
+<li><strong>User interaction:</strong> None</li>
+<li><strong>Scope:</strong> Unchanged</li>
+<li><strong>Confidentiality Impact:</strong> High</li>
+<li><strong>Integrity Impact:</strong> High</li>
+<li><strong>Availability Impact:</strong> Low</li>
+</ul>
+<p><strong>Conclusion:</strong> With a base score of 6.1, the Spectre Attack Vulnerability carries a medium-severity risk from a local attack. The attack's high complexity mitigates the attack; however, this attack still carries a high confidentiality and integrity impact despite its lower availability impact.</p>
+<h2>Spectre Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Spectre_Attack_Tree.JPG" /></p>
+<h1>Meltdown Attack</h1>
+<p>Meltdown is a security vulnerability in modern processors that can allow malicious applications to access higher privileged memory. It exploits a processor's speculative execution feature to gain access to memory locations that should otherwise be inaccessible. This vulnerability has the potential to expose sensitive information, such as passwords, from the memory of other processes running on the same system.</p>
+<p>To mitigate the Meltdown attack, patches must be applied to both software and hardware. The patch helps restrict an application's access to privileged memory and also ensures that memory access violations do not occur. Also, system administrators should update their systems and disable speculative execution if possible.</p>
+<h2>Meltdown Architectural Risk Analysis:</h2>
+<h3>Architectural Risk Analysis of Meltdown Attack Vulnerability, v3.1</h3>
+<ul>
+<li><strong>Attack Vector:</strong> Network, Local</li>
+<li><strong>Attack Complexity:</strong> Low</li>
+<li><strong>Privileges Required:</strong> Low</li>
+<li><strong>User Interaction:</strong> None</li>
+<li><strong>Scope:</strong> Changed</li>
+<li><strong>Confidentiality Impact:</strong> High</li>
+<li><strong>Integrity Impact:</strong> High</li>
+<li><strong>Availability Impact:</strong> High</li>
+</ul>
+<p>Based on the criteria above, the Common Vulnerability Scoring System assessment for the Meltdown attack vulnerability is as follows:</p>
+<ul>
+<li><strong>Base Score:</strong> 6.5</li>
+<li><strong>Temporal Score:</strong> 6.2</li>
+<li><strong>Environmental Score:</strong> 8.4</li>
+</ul>
+<p>Overall, this vulnerability is rated "High" according to the CVSS scoring system. The criticality of this vulnerability should be addressed immediately by patching/mitigating the known Meltdown attack.</p>
+<h2>Meltdown Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Meltdown_Attack_Tree.JPG" /></p>
+<h1>Hardware Integrity Attack</h1>
+<p>Hardware Integrity is the assurance that hardware components are functioning as expected and have not been tampered with or compromised. It is essential to ensuring secure data transmission and verifying the accuracy of input and output.</p>
+<p>The goal of hardware integrity is to protect the trustworthiness of the hardware system by safeguarding against corruption or unauthorized modification. This includes protecting physical components, verifying digital signatures, authenticating communication channels, and other measures that can detect and prevent malicious activity.</p>
+<p>Hardware integrity is a vital security measure for any type of system or network, as it helps to ensure that data remains safe and secure from external threats.</p>
+<h2>Hardware Integrity Architectural Risk Analysis</h2>
+<hr />
+<p><strong>Hardware Integrity Vulnerability</strong></p>
+<p><strong>CVSS v3.1 Base Score:</strong> 8.4 </p>
+<p><strong>CVSS v3.1 Vector String:</strong> AV:P/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N</p>
+<p><strong>Architectural Risk Analysis:</strong></p>
+<ul>
+<li>
+<p><strong>Attack Vectors</strong> (AV): The vulnerability has physical access as its attack vector (AV:P).</p>
+</li>
+<li>
+<p><strong>Attack Complexity</strong> (AC):  The attack requires a high level of skill (AC:H).</p>
+</li>
+<li>
+<p><strong>Privileges Required</strong> (PR): No privileges are required for the attack (PR:N).</p>
+</li>
+<li>
+<p><strong>User Interaction</strong> (UI): No user interaction is required for the attack (UI:N).</p>
+</li>
+<li>
+<p><strong>Scope</strong> (S): The impact of successful exploitation of this vulnerability is limited to the hardware itself (S:U).</p>
+</li>
+<li>
+<p><strong>Confidentiality Impact</strong> (C): A successful attack may lead to exposure of confidential data stored or processed by the hardware (C:H).</p>
+</li>
+<li>
+<p><strong>Integrity Impact</strong> (I): A successful attack may lead to modification of data stored or processed by the hardware (I:H).</p>
+</li>
+<li>
+<p><strong>Availability Impact</strong> (A): The vulnerability does not result in any significant impact on availability (A:N).</p>
+</li>
+</ul>
+<p>Overall, this vulnerability has a high base score as it requires a high level of skill and expertise to exploit, and it can lead to exposure of confidential data as well as modification of data stored or processed by the hardware.</p>
+<h2>Hardware Integrity Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Hardware_Integrity_Attack_Tree.JPG" /></p>
+<h1>Rowhammer Attack</h1>
+<p>Rowhammer is a security exploit that takes advantage of a hardware weakness in some modern computer memory chips. It is a side-channel attack wherein a malicious program can cause a targeted memory cell to change its content, resulting in data corruption or a system crash. In recent years, Rowhammer attacks have become increasingly popular, as attackers can exploit them to gain access to otherwise secure systems or networks.</p>
+<h2>Rowhammer Architectural Risk Analysis</h2>
+<h2>Architectural Risk Analysis of Rowhammer Attack Vulnerability</h2>
+<p>The Common Vulnerability Scoring System (CVSS) v3.1 is used to provide an architectural risk analysis of the Rowhammer attack vulnerability.</p>
+<table>
+<thead>
+<tr>
+<th>Base Vector</th>
+<th>Metrics</th>
+<th>Details</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access Vector</td>
+<td>AV:N</td>
+<td>Local</td>
+<td>0.85</td>
+</tr>
+<tr>
+<td>Access Complexity</td>
+<td>AC:L</td>
+<td>Low</td>
+<td>0.77</td>
+</tr>
+<tr>
+<td>Privileges Required</td>
+<td>PR:N</td>
+<td>None</td>
+<td>0.85</td>
+</tr>
+<tr>
+<td>User Interaction</td>
+<td>UI:N</td>
+<td>None</td>
+<td>0.85</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>S:U</td>
+<td>Unchanged</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>Confidentiality Impact</td>
+<td>C:H</td>
+<td>High</td>
+<td>0.56</td>
+</tr>
+<tr>
+<td>Integrity Impact</td>
+<td>I:N</td>
+<td>None</td>
+<td>0.85</td>
+</tr>
+<tr>
+<td>Availability Impact</td>
+<td>A:N</td>
+<td>None</td>
+<td>0.85</td>
+</tr>
+<tr>
+<td>Exploit Code Maturity</td>
+<td>E:F</td>
+<td>Functional</td>
+<td>0.96</td>
+</tr>
+<tr>
+<td>Remediation Level</td>
+<td>RL: OF</td>
+<td>Official Fix</td>
+<td>0.90</td>
+</tr>
+<tr>
+<td>Report Confidence</td>
+<td>RC: UC</td>
+<td>Unknown Confidence</td>
+<td>0.90</td>
+</tr>
+</tbody>
+</table>
+<p>Therefore, the CVSS v3.1 Base Score is <strong>6.5</strong> which is considered medium severity risk.</p>
+<h2>Rowhammer Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Rowhammer_Attack_Tree.JPG" /></p>
+<h1>RF Interference on RFIDs</h1>
+<h2>Overview</h2>
+<p>RF Interference on RFIDs attack is a type of attack that disrupts the communication between RFID tags and readers by generating unwanted signals in the same frequency band. This can cause performance degradation, misinterpretation, or loss of information for the RFID system. RF interference can be caused by natural or manmade sources, such as lightning, solar flares, power lines, microwave ovens, or other wireless devices. It can also be caused by intentional jamming operations that aim to prevent or sabotage the RFID system.</p>
+<p>RF interference attacks aim to disrupt or block the communication between the RFID reader and the RFID tag, thereby preventing the successful reading or writing of data. These attacks exploit vulnerabilities in the RFID system's communication protocols and can have various motivations, including unauthorized access, data theft, or sabotage.</p>
+<h2>RF Interference on RFIDs Architectural Risk Analysis</h2>
+<p>Architectural Risk Analysis of RF Interference on RFIDs Vulnerability, according to the Common Vulnerability Scoring System (CVSS) v3.1, presented in a table format:</p>
+<table>
+<thead>
+<tr>
+<th><strong>CVSS Metric</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack Vector (AV)</td>
+<td>Network</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Attack Complexity (AC)</td>
+<td>Low</td>
+<td>L</td>
+</tr>
+<tr>
+<td>Privileges Required (PR)</td>
+<td>None</td>
+<td>N</td>
+</tr>
+<tr>
+<td>User Interaction (UI)</td>
+<td>None</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Scope (S)</td>
+<td>Unchanged</td>
+<td>U</td>
+</tr>
+<tr>
+<td>Confidentiality Impact (C)</td>
+<td>None</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Integrity Impact (I)</td>
+<td>None</td>
+<td>N</td>
+</tr>
+<tr>
+<td>Availability Impact (A)</td>
+<td>High</td>
+<td>H</td>
+</tr>
+<tr>
+<td><strong>CVSS Base Score</strong></td>
+<td></td>
+<td>7.5</td>
+</tr>
+<tr>
+<td><strong>CVSS Vector</strong></td>
+<td></td>
+<td>AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H</td>
+</tr>
+</tbody>
+</table>
+<p>The CVSS Base Score for the RF interference on RFIDs vulnerability is 7.5 (High). It reflects the impact on the availability of the RFID system while indicating that there is no direct impact on confidentiality or integrity.</p>
+<p>It is essential for organizations to address this vulnerability by implementing appropriate countermeasures to mitigate the risks associated with RF interference attacks. Countermeasures may include frequency hopping, encryption, authentication, and signal monitoring. These measures can help reduce the likelihood and impact of successful exploits, enhancing the security and reliability of RFID systems.</p>
+<p><img alt="alt text" src="attack_models/Interference_On_RFID_Attack_Tree.JPG" /></p>
+<h1>Node Tampering Attack</h1>
+<p>Node tampering is a type of malicious activity that involves using administrator-level access to modify the configuration of a node within a distributed system in order to gain an advantageous or illegal position. It can be used to bring down a network, access confidential data, or bypass security protocols. Node tampering can also be used to alter the functioning of a node or to access privileged resources on the node. </p>
+<p>By tampering with a node, attackers may gain access to the node's resources or disrupt the node's functioning, resulting in a network outage or data leakage. Node tampering can also be used for malicious purposes, such as gaining access to a node's confidential resources or records. </p>
+<p>Node tampering is a serious problem, as it can have potentially devastating consequences for a distributed system. It is important to ensure that nodes within a distributed system are properly protected from this kind of malicious activity. Security protocols should be regularly implemented and routinely monitored to detect malicious activity and take the necessary steps to protect the system from potential damage.</p>
+<h2>Node Tampering Architectural Risk Analysis:</h2>
+<h2>Node Tampering Attack Vulnerability</h2>
+<p><strong>Attack Vector (AV):</strong> Network (N)</p>
+<p><strong>Attack Complexity (AC):</strong> Low (L)</p>
+<p><strong>Privileges Required (PR):</strong> None (N)</p>
+<p><strong>User Interaction (UI):</strong> None (N)</p>
+<p><strong>Scope (S):</strong> Changed (C)</p>
+<p><strong>Confidentiality Impact (C):</strong> High (H)</p>
+<p><strong>Integrity Impact (I):</strong> High (H)</p>
+<p><strong>Availability Impact (A):</strong> None (N)</p>
+<p><strong>CVSS v3.1 Base Score:</strong> 9.8</p>
+<p><strong>CVSS Vector String:</strong> AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N</p>
+<h2>Node Tampering Attack</h2>
+<p><img alt="alt text" src="attack_models/Node_Tampering_Attack_Tree.JPG" /></p>
+<h1>RFID Spoofing Injection Attack</h1>
+<p>RFID Spoofing attack is a type of cyber attack in which an attacker uses a fake RFID identifier to gain access to a secured area or system without the right clearance. The malicious entity then uses the fake ID to gain access to resources it wouldn’t normally be able to access. This type of attack can be used to alter a person’s identity or to commit fraud by copying an existing ID or creating a completely new one without the user's knowledge.</p>
+<p>This type of attack can be particularly damaging and difficult to detect since the attacker can disguise himself/herself as an existing RFID tag. The attacker can also modify existing RFID tags and manipulate data in order to use them for unauthorized access. </p>
+<p>RFID Spoofing attack is a type of attack that is hard to detect because it requires a specialized skillset, making it difficult to correctly identify and stop the attacker. It is important to make sure that all RFID tags are encrypted and that authentication and access control systems are implemented correctly in order to protect against this type of attack.</p>
+<h2>RFID Spoofing Attack Architectural Risk Analysis:</h2>
+<h6>RFID Spoofing Attack Vulnerability</h6>
+<p><strong>Common Vulnerability Scoring System v3.1</strong></p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack Vector</td>
+<td>Network (AV:N)</td>
+</tr>
+<tr>
+<td>Attack Complexity</td>
+<td>Low (AC:L)</td>
+</tr>
+<tr>
+<td>Privileges Required</td>
+<td>Low (PR:L)</td>
+</tr>
+<tr>
+<td>User Interaction</td>
+<td>None (UI:N)</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Unchanged (S:U)</td>
+</tr>
+<tr>
+<td>Confidentiality Impact</td>
+<td>High (C:H)</td>
+</tr>
+<tr>
+<td>Integrity Impact</td>
+<td>None (I:N)</td>
+</tr>
+<tr>
+<td>Availability Impact</td>
+<td>None (A:N)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CVSS v3.1 Base Score:</strong> 6.0 (Medium)</p>
+<h2>RFID Spoofing Injection Attack</h2>
+<p><img alt="alt text" src="attack_models/RFID_Spoofing_Attack_Tree.JPG" /></p>
+<h1>RFID Cloning Injection Attack</h1>
+<p>RFID Cloning Attack is a type of attack in which an attacker can copy the data stored in an RFID (radio frequency identification) tag or device, such as a passport, credit card, or access card, for unauthorized usage. The attacker uses an RFID reader to intercept the communication between the RFID device and the legitimate reader, allowing the attacker to extract the stored data. This data can then be used to forge a duplicate RFID tag or device with cloned information, which can then be used for fraud or other malicious activities.</p>
+<h2>RFID Cloning Attack Architectural Risk Analysis:</h2>
+<h1>RFID Cloning Attack Vulnerability : Architectural Risk Analysis</h1>
+<p>Common Vulnerability Scoring System v3.1 (CVSS v3.1) provides a score to quantify the severity of security vulnerabilities. The following is an architectural risk analysis of an RFID cloning attack vulnerability using CVSS v3.1. </p>
+<p>Base Score: 8.6</p>
+<h2>Impact Score (6.4)</h2>
+<p><strong>Confidentiality Impact</strong>: High (C:H)</p>
+<p>An RFID cloning attack can allowed attackers to gain access to sensitive and confidential information stored on the RFID tag.</p>
+<p><strong>Integrity Impact</strong>: Medium (I:M)</p>
+<p>An RFID cloning attack can allow attackers to modify data stored on the RFID tag, potentially leading to data corruption.</p>
+<p><strong>Availability Impact</strong>: Low (A:L)</p>
+<p>An RFID cloning attack can lead to the RFID tag becoming temporarily unavailable, but is unlikely to result in permanent unavailability.</p>
+<h2>Exploitability Score (2.2)</h2>
+<p><strong>Attack Vector</strong>: Physical (AV:P)</p>
+<p>An RFID cloning attack requires physical access to the device.</p>
+<p><strong>Attack Complexity</strong>: Low (AC:L)</p>
+<p>The complexity of the attack is low, as the attack requires no specialized knowledge or tooling. </p>
+<p><strong>Privileges Required</strong>: None (PR:N)</p>
+<p>The attacker does not need any special privileges to carry out the attack.</p>
+<p><strong>User Interaction</strong>: None (UI:N)</p>
+<p>No user interaction is required in order to initiate and carry out the attack. </p>
+<h2>Scope Score (1.4)</h2>
+<p><strong>Changed Scope</strong>: Unchanged (S:U)</p>
+<p>The attack does not involve any changes to the scope of the vulnerability, as it does not affect or alter the system in any way.</p>
+<h2>Remediation Level Score (1)</h2>
+<p><strong>Remediation Level</strong>: Official Fix (RL:OF)</p>
+<p>An official and permanent fix is available for the vulnerability.</p>
+<h2>Report Confidence Score (1)</h2>
+<p><strong>Confidence</strong>: Confirmed (RC:C)</p>
+<p>The vulnerability has been independently confirmed and reproduced.</p>
+<h2>RFID Cloning Injection Attack</h2>
+<p><img alt="alt text" src="attack_models/RFID_Cloning_Attack_Tree.JPG" /></p>
+<h1>RFID Unauthorized Access Attack</h1>
+<p>RFID Unauthorized Access attack is a type of security attack that refers to the use of radio waves to gain unauthorized access to an RFID-enabled system. Attackers using this type of attack leverage the radio waves emitted by an RFID-enabled device to read, modify, or delete data stored on tags or other components in the system. This attack can be used to gain access to sensitive information, such as personal identifiers or financial data, without the knowledge of the device's user. Additionally, it can be used to disrupt or damage the system.</p>
+<p>In order to prevent against RFID Unauthorized Access attacks, organizations should take measures to protect their RFID-enabled devices. These measures could include implementing frequent data encryption, implementing access controls, ensuring that only authorized personnel are allowed access to the system, and regularly patching systems against known vulnerabilities. Additionally, organizations should be aware of potential physical threats, such as the use of RFID jammers, and take steps to prevent and identify such attacks.</p>
+<h2>RFID Unauthorized Access Attack Architectural Risk Analysis:</h2>
+<table>
+<thead>
+<tr>
+<th>Attack Vector</th>
+<th>Attack Complexity</th>
+<th>Privileges Required</th>
+<th>User Interaction</th>
+<th>Scope</th>
+<th>Confidentiality Impact</th>
+<th>Integrity Impact</th>
+<th>Availability Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network (e.g. Remote)</td>
+<td>Low</td>
+<td>None</td>
+<td>None</td>
+<td>Changed</td>
+<td>Low</td>
+<td>Low</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CVSS v3(Base Score: 4.3):</strong></p>
+<p><strong>AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L</strong></p>
+<p>Impact:</p>
+<p>This RFID unauthorized access attack vulnerability has a low CVSS score of 4.3. It could result in a low confidentiality, integrity and availability impact. This means that the attack could allow someone to gain unauthorized access and use of a system, jeopardizing confidentiality, integrity and availability of the system. However, this vulnerability does not have a high risk of causing significant harm to the system.</p>
+<h2>RFID Unauthorized Access Attack</h2>
+<p><img alt="alt text" src="attack_models/RFID_Unauthorized_Access_Attack_Tree.JPG" /></p>
+<h1>Orbital Jamming Attacks</h1>
+<p>This is a DoS attack that targets the communication satellites, using a rogue uplink station to disrupt the intended transmission, aiming to make this service unavailable to users of the target mobile devices.</p>
+<h2>Definition</h2>
+<p>This type of attack targets low-orbit satellites because, although these low-orbit satellites are attractive due to the low power levels required for communications links from terrestrial terminals, they can also be vulnerable to jamming attacks when used in some applications. In fact, a jammer of reasonable power could easily saturate the RF front-end of a low-orbit satellite, resulting in disabling the link across the entire frequency band. </p>
+<h2>Architectural Risk Analysis of Orbital Jamming Vulnerability</h2>
+<p>The orbital jamming attack targets satellite communication systems and poses significant risks. Let’s analyze it using the Common Vulnerability Scoring System (CVSS) v3.1:</p>
+<h3>Overview</h3>
+<p><strong>Objective</strong>: Disrupt or degrade satellite communication, navigation, or reconnaissance capabilities.
+<strong>Method</strong>: Emit powerful radio frequency (RF) signals toward the targeted satellite.
+<strong>Impact</strong>: Can interfere with satellite signals, rendering them unreliable or unusable.</p>
+<h3>Techniques</h3>
+<p><strong>Satellite Signal Interference</strong>:
+Continuous Wave (CW) Jamming: Emit a constant RF signal at the satellite’s frequency.
+Swept-Frequency Jamming: Vary the jamming frequency across a range.
+Pulsed Jamming: Intermittently transmit RF pulses.
+<strong>Geolocation Spoofing</strong>:
+Transmit false location information to confuse satellite receivers.
+<strong>Selective Jamming</strong>:
+Target specific frequency bands (e.g., GPS, communication, weather).</p>
+<h3>Consequences</h3>
+<p><strong>Communication Disruption</strong>:
+Interrupt satellite communication links (e.g., military, civilian, emergency services).
+Impact global navigation systems (e.g., GPS).
+<strong>Military Implications</strong>:
+Degrade situational awareness.
+Compromise command and control operations.</p>
+<h3>Mitigation Strategies</h3>
+<p><strong>Frequency Hopping</strong>:
+Use spread spectrum techniques to change frequencies rapidly.
+Makes jamming more difficult.
+<strong>Satellite Diversity</strong>:
+Deploy multiple satellites to reduce reliance on any single one.
+Enhances system resilience.
+<strong>Anti-Jamming Algorithms</strong>:
+Implement algorithms to detect and mitigate jamming.
+Adaptively switch frequencies.</p>
+<p><em>Remember, addressing orbital jamming vulnerabilities is crucial for maintaining reliable communication and navigation.</em></p>
+<h2>References</h2>
+<ol>
+<li><a href="https://capec.mitre.org/data/definitions/559.html">CAPEC-559: Orbital Jamming</a>.</li>
+<li>Weerackody, V., 2021. Satellite diversity to mitigate jamming in leo satellite mega-constellations, in: 2021 IEEE International Conference on Communications Workshops (ICC Workshops), IEEE, Montreal, QC, Canada. pp. 1–6. doi:10.1109/ICCWorkshops50388.2021.9473519.</li>
+</ol>
+<h2>Orbital Jamming Attack Tree</h2>
+<p><img alt="alt text" src="attack_models/Orbital_Jamming_Attack_Tree.JPG" /></p>
+<h1>NFC Payment Replay Attacks</h1>
+<p>In such an attack scenario, the attacker aims to steal or steal sensitive data from the target user, such as banking or financial data, including monetary values. This type of attack targets the data exchanged between the payment device (smart card or mobile software) and the payment terminal via NFC wireless network technology.</p>
+<h2>Definition</h2>
+<p>This type of attack targets the exploitation of vulnerabilities in the European Visa and Mastercad (EMV) wireless communication protocol between the smartcard and the payment terminal, namely, the authenticity of the payment terminal is not guaranteed to the customer's payment device and the banking data exchanged between the customer's payment device (smartcard) and the point of sale terminal are not encrypted and are transferred in clear text. Such an attack occurs when an attacker retransmits authentication-related communication between a payment device, VISA smartcard or Mastercard (RFID) and an automated payment terminal.</p>
+<h2>Overview</h2>
+<ul>
+<li><strong>Objective</strong>: To manipulate NFC transactions and replay them to deceive payment systems.</li>
+<li><strong>Method</strong>: Attackers intercept legitimate NFC payment data and replay it later.</li>
+<li><strong>Impact</strong>: Can lead to unauthorized transactions, financial losses, and compromised user trust.</li>
+</ul>
+<h2>Mitigation Strategies</h2>
+<ul>
+<li>Cryptographic Protections;</li>
+<li>Transaction Verification;</li>
+<li>User Awareness.</li>
+</ul>
+<h2>Architectural Risk Analysis of NFC Payment Replay Vulnerability</h2>
+<p>The NFC Payment Replay Attack threatens the trust and security of digital wallets and contactless payment systems. Let’s assess this vulnerability using the Common Vulnerability Scoring System (CVSS) v3.1:</p>
+<h3>CVSS Metrics</h3>
+<ol>
+<li><strong>Base Score</strong>:
+* <strong>Attack Vector (AV)</strong>: Network (N)
+* <strong>Attack Complexity (AC)</strong>: Low (L)
+* <strong>Privileges Required (PR)</strong>: None (N)
+* <strong>User Interaction (UI)</strong>: None (N)
+* <strong>Scope (S)</strong>: Unchanged (U)
+* <strong>Confidentiality Impact ©</strong>: High (H)
+* <strong>Integrity Impact (I)</strong>: Low (L)
+* <strong>Availability Impact (A)</strong>: None (N)
+* <strong>Base Score</strong>: 7.5 (High)</li>
+<li><strong>Temporal Score</strong>:
+* <strong>Exploit Code Maturity (E)</strong>: Unproven (U)
+* <strong>Remediation Level (RL)</strong>: Official Fix (O)
+* <strong>Report Confidence (RC)</strong>: Confirmed ©
+* <strong>Temporal Score</strong>: 7.5 (High)</li>
+<li><strong>Environmental Score</strong>:
+* <strong>Modified Attack Vector (MAV)</strong>: Network (N)
+* <strong>Modified Attack Complexity (MAC)</strong>: Low (L)
+* <strong>Modified Privileges Required (MPR)</strong>: None (N)
+* <strong>Modified User Interaction (MUI)</strong>: None (N)
+* <strong>Modified Scope (MS)</strong>: Unchanged (U)
+* <strong>Modified Confidentiality (MC)</strong>: High (H)
+* <strong>Modified Integrity (MI)</strong>: Low (L)
+* <strong>Modified Availability (MA)</strong>: None (N)
+* <strong>Environmental Score</strong>: 7.5 (High)</li>
+</ol>
+<h3>Risk Assessment</h3>
+<ul>
+<li><strong>Severity</strong>: High</li>
+<li><strong>Impact</strong>: Data theft, credential compromise</li>
+<li><strong>Exploitability</strong>: Low</li>
+<li><strong>Remediation Level</strong>: Official Fix</li>
+<li><strong>Report Confidence</strong>: Confirmed</li>
+</ul>
+<p><em>Remember, securing NFC payments requires a combination of technical safeguards and user vigilance</em>. 📲💳</p>
+<h2>References</h2>
+<ol>
+<li>Njebiu, V., Kimwele, M., Rimiru, R., 2021. Secure contactless mobile payment system, in: 2021 IEEE Latin-American Conference on Communications (LATINCOM), IEEE, Santo Domingo, Dominican Republic. pp. 1–6. doi:10.1109/LATINCOM53176.2021.9647831.</li>
+</ol>
+<h2>NFC Payment Replay Attacks Tree</h2>
+<p><img alt="alt text" src="attack_models/NFC_Payment_Replay_Attack_Tree.JPG" /></p>

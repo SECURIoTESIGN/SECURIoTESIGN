@@ -5,55 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3472d8af-5303-4cea-8f88-21ed56cf0b08" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ATTACKS_MAPPING.html" beforeDir="false" afterPath="$PROJECT_DIR$/ATTACKS_MAPPING.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATTACKS_MAPPING.md" beforeDir="false" afterPath="$PROJECT_DIR$/ATTACKS_MAPPING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATTACKS_MAPPING.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATTACKS_MAPPING1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATTACKS_MAPPING2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATTACKS_MAPPING3.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATTACKS_MAPPING4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ATTACKS_MAPPING5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FULL_REPORT.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FULL_REPORT1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FULL_REPORT2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FULL_REPORT3.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FULL_REPORT4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FULL_REPORT5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GOOD_PRACTICES.html" beforeDir="false" afterPath="$PROJECT_DIR$/GOOD_PRACTICES.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GOOD_PRACTICES.md" beforeDir="false" afterPath="$PROJECT_DIR$/GOOD_PRACTICES.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GOOD_PRACTICES.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GOOD_PRACTICES1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GOOD_PRACTICES2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GOOD_PRACTICES3.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GOOD_PRACTICES4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GOOD_PRACTICES5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_MECHANISMS.html" beforeDir="false" afterPath="$PROJECT_DIR$/SECURITY_MECHANISMS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_MECHANISMS.md" beforeDir="false" afterPath="$PROJECT_DIR$/SECURITY_MECHANISMS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_MECHANISMS.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_MECHANISMS1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_MECHANISMS2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_MECHANISMS3.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_MECHANISMS4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_MECHANISMS5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_REQUIREMENTS.html" beforeDir="false" afterPath="$PROJECT_DIR$/SECURITY_REQUIREMENTS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_REQUIREMENTS.md" beforeDir="false" afterPath="$PROJECT_DIR$/SECURITY_REQUIREMENTS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_REQUIREMENTS.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_REQUIREMENTS1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_REQUIREMENTS2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_REQUIREMENTS3.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_REQUIREMENTS4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SECURITY_REQUIREMENTS5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SecD4CLOUDMOBILEv1.1.py" beforeDir="false" afterPath="$PROJECT_DIR$/SecD4CLOUDMOBILEv1.1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_SPECIFICATION.html" beforeDir="false" afterPath="$PROJECT_DIR$/TEST_SPECIFICATION.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_SPECIFICATION.md" beforeDir="false" afterPath="$PROJECT_DIR$/TEST_SPECIFICATION.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_SPECIFICATION.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_SPECIFICATION1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_SPECIFICATION2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_SPECIFICATION3.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_SPECIFICATION4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TEST_SPECIFICATION5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ans.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/attackModels/eavesdroppingAttack.md" beforeDir="false" afterPath="$PROJECT_DIR$/attackModels/eavesdroppingAttack.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SecD4CLOUDMOBILEv1.1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SecD4CLOUDMOBILEv1.1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,28 +17,33 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="25Z7U03j9Ao13k97vIJkJ6SSaNG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/FranciscoChimuco/SECURIoTESIGN/SecD4CLOUDMOBILEv1.1"
+  }
+}]]></component>
   <component name="RunManager">
-    <configuration name="SecD4CLOUDMOBILEv1.1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="SecD4CLOUDMOBILEv1.1" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="SecD4CLOUDMOBILEv1.1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../SecD4CLOUDMOBILEv1.2/venv/bin/python" />
+      <option name="SDK_NAME" value="Python 3.11 (SecD4CLOUDMOBILEv1.2)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SecD4CLOUDMOBILEv1.1.py" />

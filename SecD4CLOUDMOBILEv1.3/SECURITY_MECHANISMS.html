@@ -1,0 +1,838 @@
+<h1>Final Security Mechanisms Report</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Mobile Platform</td>
+<td style="text-align: left;">iOS App ; IoT System</td>
+</tr>
+<tr>
+<td style="text-align: left;">Application domain type</td>
+<td style="text-align: left;">m-Payment</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication schemes</td>
+<td style="text-align: left;">Biometric-based authentication ; Channel-based authentication ; Factors-based authentication ; ID-based authentication</td>
+</tr>
+<tr>
+<td style="text-align: left;">Has DB</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of database</td>
+<td style="text-align: left;">SQL (Relational Database)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Which DB</td>
+<td style="text-align: left;">PostgreSQL</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of information handled</td>
+<td style="text-align: left;">Personal Information ; Confidential Data ; Critical Data</td>
+</tr>
+<tr>
+<td style="text-align: left;">Storage Location</td>
+<td style="text-align: left;">Both</td>
+</tr>
+<tr>
+<td style="text-align: left;">User Registration</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of Registration</td>
+<td style="text-align: left;">The users will register themselves</td>
+</tr>
+<tr>
+<td style="text-align: left;">Programming Languages</td>
+<td style="text-align: left;">C/C++/Objective-C</td>
+</tr>
+<tr>
+<td style="text-align: left;">Input Forms</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Upload Files</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has logs</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has regular updates</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has third-party</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">System Cloud Environments</td>
+<td style="text-align: left;">Public Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Authentication</td>
+<td style="text-align: left;">Symmetric Key</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Wireless Tech</td>
+<td style="text-align: left;">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Device or Data Center Physical Access</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+</tbody>
+</table>
+<h1>Security Backup Mechanisms</h1>
+<p>Security Backup Mechanisms for cloud-based mobile apps are procedures to keep data safe and secure in the event of an emergency, such as a computer crash, a user error, or a malicious attack. These mechanisms can include:</p>
+<p>• Access Control: Access control restricts the access of certain parts of the application, such as confidential data or the application’s backend, in order to limit the potential damage caused by malicious activities.</p>
+<p>• Data Encryption: Data Encryption scrambles application data into an unreadable format, making it impossible to access without the decryption key.</p>
+<p>• Password Hashes: Password Hashes are securely stored versions of the users’ passwords to prevent malicious activities such as credentials theft.</p>
+<p>• Tokenization: Tokenization is a mechanism that replaces sensitive data with a token to reduce the risk of data theft. </p>
+<p>• Backup System: A backup system can be used to store application data in separate, secure locations. This data can be used to restore the application to its former state in the event of a disruption.</p>
+<h2>Backup Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Backup</td>
+<td>iOS</td>
+<td>iTunes Backup</td>
+<td>Syncs with iTunes for off-site backup</td>
+<td>7 - Application</td>
+</tr>
+<tr>
+<td>Backup</td>
+<td>Android</td>
+<td>Google Drive</td>
+<td>Google's cloud solution for data storage and backup</td>
+<td>7 - Application</td>
+</tr>
+<tr>
+<td>Backup</td>
+<td>Android</td>
+<td>Third-party cloud solutions</td>
+<td>Solutions such as Dropbox, OneDrive and iCloud Drive</td>
+<td>7 - Application</td>
+</tr>
+<tr>
+<td>Backup</td>
+<td>All</td>
+<td>Local Backup</td>
+<td>On-site backups saved on the device's internal storage</td>
+<td>1 - Physical</td>
+</tr>
+<tr>
+<td>Backup</td>
+<td>All</td>
+<td>External Storage Backup</td>
+<td>Off-site backups saved to external devices such as external hard drives and USB drives</td>
+<td>1 - Physical</td>
+</tr>
+</tbody>
+</table>
+<h1>Security Audit Mechanisms</h1>
+<p>A Security Audit Mechanism is an automated or manual process which evaluates cloud-based mobile apps for security issues. It may include verifying the integrity of the code, inspecting system configurations, testing user authentication and authorization controls, and ensuring that the system is following best practices such as encryption, patching, and regular system updates. A Security Audit Mechanism can also identify potential security weaknesses and provide recommendations for mitigating these. Furthermore, a Security Audit Mechanism can perform performance and reliability checks, as well as other security checks such as penetration testing, infrastructure testing, and security vulnerability scanning. By utilizing these security audit mechanisms, organizations can ensure their cloud-based mobile apps are safe and secure.</p>
+<h2>Audit Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>iOS</td>
+<td>Apple’s App-ID and two factor authentication</td>
+<td>A two-factor authentication and App-ID system used by Apple to verify and authenticate applications running on its iOS mobile platform</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>iOS</td>
+<td>Access control list (ACL)</td>
+<td>A tool used to manage user access to various parts of a mobile application, such as data or services</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Data Protection</td>
+<td>Android</td>
+<td>Google Play Store</td>
+<td>Google’s Play Store protects uploaded applications from malicious code before it is distributed on the platform</td>
+<td>Presentation</td>
+</tr>
+<tr>
+<td>Auditing</td>
+<td>iOS</td>
+<td>App Store</td>
+<td>The App Store provides an audit trail of all applications downloaded, to ensure proper users have the correct permissions to access applications</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Data Validation</td>
+<td>Android</td>
+<td>Android Content Providers</td>
+<td>Android content providers are used to securely store data and detect malicious code before it is passed to applications running on the platform</td>
+<td>Application</td>
+</tr>
+</tbody>
+</table>
+<h1>Cryptographic Algorithms Mechanisms</h1>
+<p>Cryptographic algorithms are used to ensure data confidentiality, authenticity, integrity and non-repudiation in cloud-based mobile apps. To achieve these goals, cryptographic algorithms are often used in combination with mechanisms, such as Digital Signatures, Secret Key Cryptography and Public Key Cryptography. </p>
+<p>Digital Signatures validate the identity and authenticity of communications, while Secret Key Cryptography algorithms like AES, DES and 3DES protect transmitted data through the use of encryption. Public Key Cryptography algorithms like RSA, ECDSA and Diffie-Hellman can also be used to authenticate, encrypt and exchange secret keys between the mobile device and the cloud provider. In addition, protocols such as SSL / TLS can add an extra layer of security while protecting and verifying the communication and providing message integrity.</p>
+<h2>Cryptographic Algorithms Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Security Requirement</th>
+<th style="text-align: left;">Mobile Platform</th>
+<th style="text-align: left;">Mechanism</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: center;">OSI Layer</th>
+<th style="text-align: center;">Use for coding</th>
+<th style="text-align: center;">Use for runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Integrity</td>
+<td style="text-align: left;">Android</td>
+<td style="text-align: left;">HMAC-SHA256</td>
+<td style="text-align: left;">A cryptographic hash function based on SHA256 that combines a shared secret and the message</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">Confidentiality</td>
+<td style="text-align: left;">iOS</td>
+<td style="text-align: left;">AES-128</td>
+<td style="text-align: left;">AES with 128 bit key size that supports authenticated encryption</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">Authentication</td>
+<td style="text-align: left;">iOS</td>
+<td style="text-align: left;">ECDSA</td>
+<td style="text-align: left;">Elliptic Curve Digital Signature Algorithm that provides digital signatures</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Biometric authentication mechanisms in cloud-based mobile apps are methods of authentication relying on the physiological characteristics of a user as a method of accessing the device or application. Examples of popular biometric authentication technologies available for cloud-based mobile devices are fingerprint scanning, facial recognition, and voice recognition. These technologies use advanced algorithms to validate a user’s identity based on the physiological traits unique to each individual. By using these methods, companies and app developers can increase the security of their cloud services while preventing unauthorized access.</p>
+<h2>Biometric Authentication Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication &amp; Access Control</td>
+<td>Android</td>
+<td>Facial Recognition</td>
+<td>Hardware based biometric authentication that uses the device front facing camera to snap a picture of the user's face and match it against stored images</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Authentication &amp; Access Control</td>
+<td>iOS</td>
+<td>Voice Recognition</td>
+<td>Software based biometric authentication that uses the device microphone and internal software to capture the user's voice and match it against stored audio</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Encryption &amp; Decryption</td>
+<td>Android</td>
+<td>2-Factor Authentication with PIN &amp; Pattern</td>
+<td>Combined hardware and software based authentication that requires the user to enter a PIN and draw a pattern on a defined pattern grid.</td>
+<td>Presentation</td>
+</tr>
+<tr>
+<td>Encryption &amp; Decryption</td>
+<td>iOS</td>
+<td>Retina Recognition</td>
+<td>Hardware based biometric authentication that uses the device front facing camera to obtain a high-resolution picture of the user's eye and matches it against stored images</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>IDS &amp; IPS</td>
+<td>Android</td>
+<td>Fingerprint Scan</td>
+<td>Hardware based biometric authentication that uses the device built-in fingerprint scanner to scan the user's fingerprint and match it against stored images</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>IDS &amp; IPS</td>
+<td>iOS</td>
+<td>3-Factor Authentication with PIN, Pattern &amp; Password</td>
+<td>Combined hardware and software-based authentication that requires the user to enter a PIN, draw a pattern on a defined pattern grid, and enter a password</td>
+<td>Presentation</td>
+</tr>
+</tbody>
+</table>
+<p>Channel-based authentication mechanisms in cloud-based mobile apps refer to a set of security protocols that validate users and authorize access to specific resources in a cloud mobile application. This authentication is done through a set of channels, such as biometrics, passwords, OTPs, or mobile phone numbers, each with its own level of security and authentication request. This type of authentication is used to ensure access to sensitive data and improve the overall security of the application.</p>
+<h2>Channel-based Authentication Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Plataform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>Android</td>
+<td>HMAC-SHA256</td>
+<td>Mobile application uses a pre-shared HMAC-SHA256 token to authenticate with the cloud server and establish a secure channel.</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>iOS</td>
+<td>OAuth-2</td>
+<td>Mobile application uses an OAuth-2 access token to authorize requests made to the cloud server and establish a secure channel.</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Identity Management</td>
+<td>Cross-platform</td>
+<td>OpenID Connect</td>
+<td>Mobile application uses OpenID Connect to authenticate with the cloud server and establish a secure channel.</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Data Encryption</td>
+<td>Cross-platform</td>
+<td>TLS/SSL</td>
+<td>Mobile application uses TLS/SSL to encrypt data transmitted between the mobile device and the cloud server.</td>
+<td>Transport</td>
+</tr>
+</tbody>
+</table>
+<p>Factors-based authentication mechanisms in cloud-based mobile apps are methods used to securely access digital resources. They involve the use of two or more authentication factors, such as something that a user knows (e.g., a password), something that a user has (e.g., an authentication code sent to a mobile device), and/or something that a user is (e.g., a biometric scan). Factors-based authentication can help protect mobile apps by providing an extra layer of security, making it less likely that someone unauthorized can access sensitive user data.</p>
+<h2>Factors-based Authentication Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+<th>To Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data Security</td>
+<td>iOS</td>
+<td>Two-factor authentication</td>
+<td>Confirming identity by combination of two unique factors</td>
+<td>Application</td>
+<td>Coding Phase and Runtime</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td>Android</td>
+<td>Biometric authentication</td>
+<td>Confirming identity by using biometric methods</td>
+<td>Application</td>
+<td>Coding Phase and Runtime</td>
+</tr>
+<tr>
+<td>Account Access</td>
+<td>iOS</td>
+<td>User ID &amp; Password</td>
+<td>Confirming identity by using combination of user ID and password</td>
+<td>Application</td>
+<td>Coding Phase and Runtime# ID-based Authentication Mechanisms</td>
+</tr>
+</tbody>
+</table>
+<p>ID-based authentication mechanisms are used to authenticate users in cloud-based mobile applications. This type of authentication typically involves the use of an identifier such as an email address or phone number, as well as a password or some other form of proof of identity. ID-based authentication may also involve the use of biometric markers like fingerprints or facial recognition to verify the user's identity. By using ID-based authentication, mobile applications can ensure that only authorized users are granted access, thereby protecting the data stored and exchanged on the application.</p>
+<h2>ID-based Authentication Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>iOS</td>
+<td>FaceID</td>
+<td>User authenticates with their face</td>
+<td>Layer 7</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>iOS</td>
+<td>Touch ID</td>
+<td>User authenticates with their thumbprint</td>
+<td>Layer 7</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>iOS</td>
+<td>Apple App Tracking Transparency (ATT)</td>
+<td>Authorizes a user’s usage data to be tracked by a third-party for targeted advertising</td>
+<td>Layer 7</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Android</td>
+<td>Fingerprint Authenticator</td>
+<td>User authenticates with their fingerpring</td>
+<td>Layer 7</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Android</td>
+<td>Face Unlock</td>
+<td>User authenticates with their face</td>
+<td>Layer 7</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Android</td>
+<td>Google Play Billing Library</td>
+<td>User authorizes payment for in-app billing</td>
+<td>Layer 7</td>
+</tr>
+</tbody>
+</table>
+<h1>Cryptographic Protocols Authentication Mechanisms</h1>
+<p>Cryptographic protocols mechanisms for cloud-based mobile apps refer to the cryptographic techniques used to protect data and communications between user devices and cloud-services. The protocols involve the encryption of data and messages with symmetric and asymmetric algorithms, the digital signing of messages, the authentication of users, the establishment of secure tunnels, and the use of secure hashing and salting. The goal is to ensure that, if a malicious person attempts to intercept the headers or payload of a cloud-based mobile app, they will be unable to access valuable information.</p>
+<h2>Cryptographic Protocols Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>iOS</td>
+<td>OAuth</td>
+<td>OAuth is an open-standard authorization protocol for allowing access to a protected resource</td>
+<td>Application layer</td>
+</tr>
+<tr>
+<td>Encryption</td>
+<td>Android</td>
+<td>TLS</td>
+<td>Transport Layer Security (TLS) is a cryptographic protocol used to provide secure communications over a computer network</td>
+<td>Transport Layer</td>
+</tr>
+<tr>
+<td>Integrity</td>
+<td>iOS</td>
+<td>SHA-1</td>
+<td>Secure Hash Algorithm (SHA-1) is a cryptographic hash function used to generate a 160-bit hash value</td>
+<td>Application layer</td>
+</tr>
+<tr>
+<td>Non-repudiation</td>
+<td>Android</td>
+<td>HMAC</td>
+<td>HMAC is a cryptographic mechanism used to verify the integrity of a message by using a secret key</td>
+<td>Application layer</td>
+</tr>
+</tbody>
+</table>
+<h1>Access Control Mechanisms</h1>
+<p>Security Access Control Mechanisms (SACMs) are the technical and administrative strategies and tools used to protect cloud-based mobile apps from unauthorized access to confidential data and systems. These mechanisms are designed to restrict access to certain users, manage user privileges, authenticate user accounts, and authorize access requests. Examples of SACMs include multi-factor authentication (MFA), biometric authentication, single-sign-on (SSO), role-based access control (RBAC), application-level encryption, and least privilege access. SACMs allow organizations to properly control who has access to what resources and strictly enforce principles of confidentiality, privacy, and data security.</p>
+<h2>Access Control Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data confidentiality</td>
+<td>Android</td>
+<td>RSA Encryption</td>
+<td>Encryption of data with public and private keys</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Data integrity</td>
+<td>Android</td>
+<td>Hashing</td>
+<td>Use of a hash algorithm such as SHA-2 to ensure that data is not tampered with</td>
+<td>Transport</td>
+</tr>
+<tr>
+<td>Account Management</td>
+<td>iOS</td>
+<td>Two-Factor Authentication</td>
+<td>Use of two-factor authentication to verify user access</td>
+<td>Presentation</td>
+</tr>
+<tr>
+<td>Data access control</td>
+<td>iOS</td>
+<td>Role-Based Access Control (RBAC)</td>
+<td>Defines levels of access based on user roles</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Resource authorization</td>
+<td>iOS</td>
+<td>Authorization Token</td>
+<td>Generates a token at the end of a successful authorization process which is used to grant permission</td>
+<td>Application</td>
+</tr>
+</tbody>
+</table>
+<h1>Inspection Mechanisms</h1>
+<p>An inspection mechanism is a process or tool used to ensure that cloud-based mobile apps meet certain quality and security requirements. Inspection mechanisms involve thoroughly evaluating the source code, architecture, and security of the app to ensure it meets the desired standard. Examples of inspection mechanisms include static code analysis, application security testing, architectural design reviews, and penetration testing. These inspection mechanisms help identify any weaknesses, vulnerabilities, or security issues in the app before it is deployed in the cloud.</p>
+<h2>Inspection Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Security Requirement</th>
+<th style="text-align: center;">Mobile Platform</th>
+<th style="text-align: center;">Mechanism</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Integrity</td>
+<td style="text-align: center;">Android</td>
+<td style="text-align: center;">ProGuard</td>
+<td style="text-align: center;">Code obfuscation</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td style="text-align: center;">Confidentiality</td>
+<td style="text-align: center;">iOS</td>
+<td style="text-align: center;">Secure store</td>
+<td style="text-align: center;">Keychain security</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td style="text-align: center;">Authentication</td>
+<td style="text-align: center;">Android</td>
+<td style="text-align: center;">SafetyNet API</td>
+<td style="text-align: center;">Attest the device integrity</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Android</td>
+<td style="text-align: center;">Android Keystore</td>
+<td style="text-align: center;">Keystore security</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">iOS</td>
+<td style="text-align: center;">Apple push notification service (APNS)</td>
+<td style="text-align: center;">Authentication message</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td style="text-align: center;">Data Validation</td>
+<td style="text-align: center;">Android</td>
+<td style="text-align: center;">DX Guardrail</td>
+<td style="text-align: center;">Verification of data model</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">iOS</td>
+<td style="text-align: center;">SwiftLint</td>
+<td style="text-align: center;">Static analysis</td>
+<td style="text-align: center;">7# Logging Mechanisms</td>
+</tr>
+</tbody>
+</table>
+<p>An inspection mechanism is a process or tool used to ensure that cloud-based mobile apps meet certain quality and security requirements. Inspection mechanisms involve thoroughly evaluating the source code, architecture, and security of the app to ensure it meets the desired standard. Examples of inspection mechanisms include static code analysis, application security testing, architectural design reviews, and penetration testing. These inspection mechanisms help identify any weaknesses, vulnerabilities, or security issues in the app before it is deployed in the cloud.</p>
+<h2>Logging Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Security Requirement</th>
+<th style="text-align: center;">Mobile Plataform</th>
+<th style="text-align: center;">Mechanism</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Authentication</td>
+<td style="text-align: center;">iOS</td>
+<td style="text-align: center;">DeviceCheck</td>
+<td style="text-align: center;">DeviceCheck enables customers to securely store small bits of data on Apple devices during the coding and runtime phases </td>
+<td style="text-align: center;">Application</td>
+</tr>
+<tr>
+<td style="text-align: center;">Access Control</td>
+<td style="text-align: center;">iOS</td>
+<td style="text-align: center;">KeyChain</td>
+<td style="text-align: center;">Apple’s Keychain, is a encrypted storage system that primarily stores passwords, certificates, and encryptionkeys</td>
+<td style="text-align: center;">Application</td>
+</tr>
+<tr>
+<td style="text-align: center;">Auditing</td>
+<td style="text-align: center;">Android</td>
+<td style="text-align: center;">Syslog</td>
+<td style="text-align: center;">System logging mechanism for capturing and persistently logging system and audit-specific events in the Android OS</td>
+<td style="text-align: center;">Transport</td>
+</tr>
+<tr>
+<td style="text-align: center;">Logging</td>
+<td style="text-align: center;">Android</td>
+<td style="text-align: center;">LumberJack</td>
+<td style="text-align: center;">Logging mechanism for logging the events for mobile applications</td>
+<td style="text-align: center;">Application</td>
+</tr>
+</tbody>
+</table>
+<h1>Device Detection Mechanisms</h1>
+<p>Security Device Detection Mechanisms in Cloud-based mobile apps are technologies responsible for detecting the mobile device that is used to access the application. The mechanisms can vary from OS-level or device-level properties and can include biometrics such as facial recognition, fingerprint scanning, and voice recognition. These mechanisms allow cloud-based mobile apps to detect the device used and ensure that only authorized devices are able to access the app, providing an extra level of security against potential malicious activity.</p>
+<h2>Device Detection Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Coding Phase</td>
+<td>iOS</td>
+<td>Mobile App Wrapping</td>
+<td>A tool used to secure enterprise apps</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Coding Phase</td>
+<td>Android</td>
+<td>App Reverse Engineering Protection</td>
+<td>A technique used to protect code from reverse engineering</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Runtime</td>
+<td>iOS</td>
+<td>Jailbreak Detection</td>
+<td>Detects if the device is jailbroken or not</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Runtime</td>
+<td>Android</td>
+<td>Root Detection</td>
+<td>Detection of rooted devices</td>
+<td>Application</td>
+</tr>
+</tbody>
+</table>
+<h1>Physical Location Mechanisms</h1>
+<p>Security physical location mechanisms are applied to cloud-based mobile apps to ensure that user data is not accessed or stored from locations outside of an approved geographic region. These mechanisms include technologies such as geofencing and IP address tracking. Geofencing verifies that user data is being accessed and stored within a predetermined geographic area by creating a virtual fence around the area. IP address tracking allows mobile apps to identify the geographical location associated with a particular IP address in order to verify that a user is located in the approved geographic area. These security location mechanisms are essential for cloud-based mobile apps, as they help prevent unauthorized access to user data from malicious actors located in remote locations.</p>
+<h2>Physical Location Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Security Requirement</th>
+<th style="text-align: center;">Mobile Platform</th>
+<th style="text-align: center;">Mechanism</th>
+<th style="text-align: center;">Description</th>
+<th style="text-align: center;">OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Authenticated Access</td>
+<td style="text-align: center;">iOS</td>
+<td style="text-align: center;">Biometric Scanner</td>
+<td style="text-align: center;">Uses user's fingerprints as part of the authentication process</td>
+<td style="text-align: center;">Physical</td>
+</tr>
+<tr>
+<td style="text-align: center;">Data Integrity</td>
+<td style="text-align: center;">Android</td>
+<td style="text-align: center;">Transparent Encryption</td>
+<td style="text-align: center;">Files are encrypted transparently and automatically</td>
+<td style="text-align: center;">Network</td>
+</tr>
+<tr>
+<td style="text-align: center;">Data Availability</td>
+<td style="text-align: center;">Both</td>
+<td style="text-align: center;">Secure Boot &amp; Root</td>
+<td style="text-align: center;">Ensures that all parts of system are authenticated and verified</td>
+<td style="text-align: center;">Physical</td>
+</tr>
+<tr>
+<td style="text-align: center;">Data Confidentiality</td>
+<td style="text-align: center;">iOS</td>
+<td style="text-align: center;">App sandboxes</td>
+<td style="text-align: center;">Prevents unauthorized access to specific files</td>
+<td style="text-align: center;">Application</td>
+</tr>
+<tr>
+<td style="text-align: center;">Data Security</td>
+<td style="text-align: center;">Android</td>
+<td style="text-align: center;">Full Disk Encryption</td>
+<td style="text-align: center;">Encrypts all data on device</td>
+<td style="text-align: center;">Network</td>
+</tr>
+</tbody>
+</table>
+<h1>Confinement Mechanisms</h1>
+<p>Security Confinement Mechanisms in Cloud-based mobile apps refer to the various measures put in place by app developers to help ensure the security and integrity of data within the app. These mechanisms might include measures like authentication requirements, security protocols, encryption, tokenization, application sandboxing, and isolated virtual machines. These measures help limit the risk of data theft or compromise within a cloud-based mobile application.</p>
+<h2>Confinement Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vulnerability Protection</td>
+<td>Android</td>
+<td>Flask</td>
+<td>Flask is a Python web development framework used to protect against malicious code injections</td>
+<td>Application Layer</td>
+</tr>
+<tr>
+<td>Isolation of Data</td>
+<td>iOS</td>
+<td>Security-Enhanced Linux (SELinux)</td>
+<td>SELinux is a Linux kernel security module used to isolate code from its data</td>
+<td>Network Layer</td>
+</tr>
+<tr>
+<td>Security of Data</td>
+<td>Blackberry</td>
+<td>BitLocker</td>
+<td>BitLocker is a Windows data encryption system meant to protect data while it is stored</td>
+<td>Data Link Layer</td>
+</tr>
+<tr>
+<td>Secure Communications</td>
+<td>Symbian</td>
+<td>IPsec</td>
+<td>IPsec is a protocol suite used in secure communication by authenticating and encrypting data</td>
+<td>Presentation Layer</td>
+</tr>
+<tr>
+<td>Secure Data Transfer</td>
+<td>Palm</td>
+<td>DM-Crypt</td>
+<td>DM-Crypt is a drive encryption system meant to protect data while it is transferred</td>
+<td>Session Layer</td>
+</tr>
+</tbody>
+</table>
+<h1>Filtering Mechanism Mechanisms</h1>
+<p>Security Filtering Mechanisms are built into Cloud-based mobile apps to ensure data is protected from unauthorized access. These mechanisms include multi-factor authentication, data encryption, data loss prevention, and various identity and access management (IAM) tools that control user access and authentication policies. Additionally, mobile app hardening techniques such as static code analysis and dynamic application security testing (DAST) can be used to detect and fix potential security vulnerabilities.</p>
+<h2>Filtering Mechanism Mechanisms Examples:</h2>
+<table>
+<thead>
+<tr>
+<th>Security Requirement</th>
+<th>Mobile Platform</th>
+<th>Mechanism</th>
+<th>Description</th>
+<th>OSI Layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td>iOS</td>
+<td>OAuth2</td>
+<td>OAuth2 provides a secure mechanism for authorizing application access to a user's account</td>
+<td>Application</td>
+</tr>
+<tr>
+<td>Encryption</td>
+<td>Android</td>
+<td>AES</td>
+<td>AES (Advanced Encryption Standard) uses symmetric key cryptography to provide strong encryption of data at rest</td>
+<td>Data Link</td>
+</tr>
+<tr>
+<td>Key Management</td>
+<td>Cross-Platform</td>
+<td>AWS KMS</td>
+<td>AWS KMS (Key Management Service) is a cloud-based service used to manage encryption keys for encrypting/decrypting data</td>
+<td>Transport</td>
+</tr>
+<tr>
+<td>Data Obfuscation</td>
+<td>Cross-Platform</td>
+<td>ProGuard</td>
+<td>ProGuard is a popular open source code obfuscator which helps protect your app's code during coding phase and runtime</td>
+<td>Physical</td>
+</tr>
+</tbody>
+</table>
