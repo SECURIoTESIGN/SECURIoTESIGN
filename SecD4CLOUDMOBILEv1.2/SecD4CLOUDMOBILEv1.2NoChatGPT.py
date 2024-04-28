@@ -1329,7 +1329,7 @@ def print_data():
             comments_list.append(question18[n])
 
     for n in question19:
-        item = questions_and_answers["Q18"]
+        item = questions_and_answers["Q19"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Hardware Specification", ":", question19[n]))
 

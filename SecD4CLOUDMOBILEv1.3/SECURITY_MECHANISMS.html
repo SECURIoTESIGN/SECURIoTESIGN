@@ -9,11 +9,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Mobile Platform</td>
-<td style="text-align: left;">iOS App ; IoT System</td>
+<td style="text-align: left;">Android App ; IoT System</td>
 </tr>
 <tr>
 <td style="text-align: left;">Application domain type</td>
-<td style="text-align: left;">m-Payment</td>
+<td style="text-align: left;">m-Health</td>
 </tr>
 <tr>
 <td style="text-align: left;">Authentication</td>
@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Authentication schemes</td>
-<td style="text-align: left;">Biometric-based authentication ; Channel-based authentication ; Factors-based authentication ; ID-based authentication</td>
+<td style="text-align: left;">Biometric-based authentication ; Factors-based authentication</td>
 </tr>
 <tr>
 <td style="text-align: left;">Has DB</td>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Which DB</td>
-<td style="text-align: left;">PostgreSQL</td>
+<td style="text-align: left;">MySQL</td>
 </tr>
 <tr>
 <td style="text-align: left;">Type of information handled</td>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Programming Languages</td>
-<td style="text-align: left;">C/C++/Objective-C</td>
+<td style="text-align: left;">Java</td>
 </tr>
 <tr>
 <td style="text-align: left;">Input Forms</td>
@@ -77,11 +77,103 @@
 </tr>
 <tr>
 <td style="text-align: left;">System Cloud Environments</td>
-<td style="text-align: left;">Public Cloud</td>
+<td style="text-align: left;">Hybrid Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hardware Specification</td>
+<td style="text-align: left;">Yes</td>
 </tr>
 <tr>
 <td style="text-align: left;">HW Authentication</td>
-<td style="text-align: left;">Symmetric Key</td>
+<td style="text-align: left;">Basic Authentication (user/pass)</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Wireless Tech</td>
+<td style="text-align: left;">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Device or Data Center Physical Access</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mobile Platform</td>
+<td style="text-align: left;">Android App ; IoT System</td>
+</tr>
+<tr>
+<td style="text-align: left;">Application domain type</td>
+<td style="text-align: left;">m-Health</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication schemes</td>
+<td style="text-align: left;">Biometric-based authentication ; Factors-based authentication</td>
+</tr>
+<tr>
+<td style="text-align: left;">Has DB</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of database</td>
+<td style="text-align: left;">SQL (Relational Database)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Which DB</td>
+<td style="text-align: left;">MySQL</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of information handled</td>
+<td style="text-align: left;">Personal Information ; Confidential Data ; Critical Data</td>
+</tr>
+<tr>
+<td style="text-align: left;">Storage Location</td>
+<td style="text-align: left;">Both</td>
+</tr>
+<tr>
+<td style="text-align: left;">User Registration</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of Registration</td>
+<td style="text-align: left;">The users will register themselves</td>
+</tr>
+<tr>
+<td style="text-align: left;">Programming Languages</td>
+<td style="text-align: left;">Java</td>
+</tr>
+<tr>
+<td style="text-align: left;">Input Forms</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Upload Files</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has logs</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has regular updates</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has third-party</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">System Cloud Environments</td>
+<td style="text-align: left;">Hybrid Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hardware Specification</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Authentication</td>
+<td style="text-align: left;">Basic Authentication (user/pass)</td>
 </tr>
 <tr>
 <td style="text-align: left;">HW Wireless Tech</td>
@@ -303,49 +395,6 @@
 </tr>
 </tbody>
 </table>
-<p>Channel-based authentication mechanisms in cloud-based mobile apps refer to a set of security protocols that validate users and authorize access to specific resources in a cloud mobile application. This authentication is done through a set of channels, such as biometrics, passwords, OTPs, or mobile phone numbers, each with its own level of security and authentication request. This type of authentication is used to ensure access to sensitive data and improve the overall security of the application.</p>
-<h2>Channel-based Authentication Mechanisms Examples:</h2>
-<table>
-<thead>
-<tr>
-<th>Security Requirement</th>
-<th>Mobile Plataform</th>
-<th>Mechanism</th>
-<th>Description</th>
-<th>OSI Layer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authentication</td>
-<td>Android</td>
-<td>HMAC-SHA256</td>
-<td>Mobile application uses a pre-shared HMAC-SHA256 token to authenticate with the cloud server and establish a secure channel.</td>
-<td>Application</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>iOS</td>
-<td>OAuth-2</td>
-<td>Mobile application uses an OAuth-2 access token to authorize requests made to the cloud server and establish a secure channel.</td>
-<td>Application</td>
-</tr>
-<tr>
-<td>Identity Management</td>
-<td>Cross-platform</td>
-<td>OpenID Connect</td>
-<td>Mobile application uses OpenID Connect to authenticate with the cloud server and establish a secure channel.</td>
-<td>Application</td>
-</tr>
-<tr>
-<td>Data Encryption</td>
-<td>Cross-platform</td>
-<td>TLS/SSL</td>
-<td>Mobile application uses TLS/SSL to encrypt data transmitted between the mobile device and the cloud server.</td>
-<td>Transport</td>
-</tr>
-</tbody>
-</table>
 <p>Factors-based authentication mechanisms in cloud-based mobile apps are methods used to securely access digital resources. They involve the use of two or more authentication factors, such as something that a user knows (e.g., a password), something that a user has (e.g., an authentication code sent to a mobile device), and/or something that a user is (e.g., a biometric scan). Factors-based authentication can help protect mobile apps by providing an extra layer of security, making it less likely that someone unauthorized can access sensitive user data.</p>
 <h2>Factors-based Authentication Mechanisms Examples:</h2>
 <table>
@@ -382,64 +431,7 @@
 <td>User ID &amp; Password</td>
 <td>Confirming identity by using combination of user ID and password</td>
 <td>Application</td>
-<td>Coding Phase and Runtime# ID-based Authentication Mechanisms</td>
-</tr>
-</tbody>
-</table>
-<p>ID-based authentication mechanisms are used to authenticate users in cloud-based mobile applications. This type of authentication typically involves the use of an identifier such as an email address or phone number, as well as a password or some other form of proof of identity. ID-based authentication may also involve the use of biometric markers like fingerprints or facial recognition to verify the user's identity. By using ID-based authentication, mobile applications can ensure that only authorized users are granted access, thereby protecting the data stored and exchanged on the application.</p>
-<h2>ID-based Authentication Mechanisms Examples:</h2>
-<table>
-<thead>
-<tr>
-<th>Security Requirement</th>
-<th>Mobile Platform</th>
-<th>Mechanism</th>
-<th>Description</th>
-<th>OSI Layer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authentication</td>
-<td>iOS</td>
-<td>FaceID</td>
-<td>User authenticates with their face</td>
-<td>Layer 7</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>iOS</td>
-<td>Touch ID</td>
-<td>User authenticates with their thumbprint</td>
-<td>Layer 7</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>iOS</td>
-<td>Apple App Tracking Transparency (ATT)</td>
-<td>Authorizes a user’s usage data to be tracked by a third-party for targeted advertising</td>
-<td>Layer 7</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Android</td>
-<td>Fingerprint Authenticator</td>
-<td>User authenticates with their fingerpring</td>
-<td>Layer 7</td>
-</tr>
-<tr>
-<td>Authentication</td>
-<td>Android</td>
-<td>Face Unlock</td>
-<td>User authenticates with their face</td>
-<td>Layer 7</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>Android</td>
-<td>Google Play Billing Library</td>
-<td>User authorizes payment for in-app billing</td>
-<td>Layer 7</td>
+<td>Coding Phase and Runtime</td>
 </tr>
 </tbody>
 </table>

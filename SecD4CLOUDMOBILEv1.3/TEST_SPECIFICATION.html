@@ -9,11 +9,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Mobile Platform</td>
-<td style="text-align: left;">iOS App ; IoT System</td>
+<td style="text-align: left;">Android App ; IoT System</td>
 </tr>
 <tr>
 <td style="text-align: left;">Application domain type</td>
-<td style="text-align: left;">m-Payment</td>
+<td style="text-align: left;">m-Health</td>
 </tr>
 <tr>
 <td style="text-align: left;">Authentication</td>
@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Authentication schemes</td>
-<td style="text-align: left;">Biometric-based authentication ; Channel-based authentication ; Factors-based authentication ; ID-based authentication</td>
+<td style="text-align: left;">Biometric-based authentication ; Factors-based authentication</td>
 </tr>
 <tr>
 <td style="text-align: left;">Has DB</td>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Which DB</td>
-<td style="text-align: left;">PostgreSQL</td>
+<td style="text-align: left;">MySQL</td>
 </tr>
 <tr>
 <td style="text-align: left;">Type of information handled</td>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Programming Languages</td>
-<td style="text-align: left;">C/C++/Objective-C</td>
+<td style="text-align: left;">Java</td>
 </tr>
 <tr>
 <td style="text-align: left;">Input Forms</td>
@@ -77,11 +77,103 @@
 </tr>
 <tr>
 <td style="text-align: left;">System Cloud Environments</td>
-<td style="text-align: left;">Public Cloud</td>
+<td style="text-align: left;">Hybrid Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hardware Specification</td>
+<td style="text-align: left;">Yes</td>
 </tr>
 <tr>
 <td style="text-align: left;">HW Authentication</td>
-<td style="text-align: left;">Symmetric Key</td>
+<td style="text-align: left;">Basic Authentication (user/pass)</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Wireless Tech</td>
+<td style="text-align: left;">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Device or Data Center Physical Access</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mobile Platform</td>
+<td style="text-align: left;">Android App ; IoT System</td>
+</tr>
+<tr>
+<td style="text-align: left;">Application domain type</td>
+<td style="text-align: left;">m-Health</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication schemes</td>
+<td style="text-align: left;">Biometric-based authentication ; Factors-based authentication</td>
+</tr>
+<tr>
+<td style="text-align: left;">Has DB</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of database</td>
+<td style="text-align: left;">SQL (Relational Database)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Which DB</td>
+<td style="text-align: left;">MySQL</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of information handled</td>
+<td style="text-align: left;">Personal Information ; Confidential Data ; Critical Data</td>
+</tr>
+<tr>
+<td style="text-align: left;">Storage Location</td>
+<td style="text-align: left;">Both</td>
+</tr>
+<tr>
+<td style="text-align: left;">User Registration</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of Registration</td>
+<td style="text-align: left;">The users will register themselves</td>
+</tr>
+<tr>
+<td style="text-align: left;">Programming Languages</td>
+<td style="text-align: left;">Java</td>
+</tr>
+<tr>
+<td style="text-align: left;">Input Forms</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Upload Files</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has logs</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has regular updates</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has third-party</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">System Cloud Environments</td>
+<td style="text-align: left;">Hybrid Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hardware Specification</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Authentication</td>
+<td style="text-align: left;">Basic Authentication (user/pass)</td>
 </tr>
 <tr>
 <td style="text-align: left;">HW Wireless Tech</td>
@@ -1547,94 +1639,6 @@ Educate personnel who use the RFID system on security best practices to help pre
 <td style="text-align: left;">Exploitation</td>
 <td style="text-align: left;">Metasploit/OWASP ZAP</td>
 <td style="text-align: left;">XCode &amp; Android Studio</td>
-</tr>
-</tbody>
-</table>
-<h1>Bufffer Overflow Attacks Testing</h1>
-<p>Buffer overflow is a type of software vulnerability that occurs when more data is written to a block of memory, or buffer, than it can hold. This excess data then overflows into adjacent memory spaces, potentially overwriting other data or causing the program to behave unpredictably.</p>
-<h2>Testing Buffer Overflow</h2>
-<ol>
-<li>
-<p>Identify Potential Vulnerabilities
-The first step is to identify parts of the system that could potentially be vulnerable to buffer overflow attacks. This typically involves areas where user input is accepted, especially if that input is used in the context of memory operations.</p>
-</li>
-<li>
-<p>Craft Malicious Input
-Next, you’ll need to craft malicious input designed to trigger a buffer overflow. This usually involves input that is larger than the buffer it’s written into. For example, if a buffer can hold 50 characters, you might try inputting 100 characters to see if it causes an overflow.</p>
-</li>
-<li>
-<p>Test the System
-Now it’s time to test the system. Input your crafted data and monitor the system’s response. If the system crashes, behaves unexpectedly, or allows you to execute arbitrary code, it’s likely that a buffer overflow vulnerability exists.</p>
-</li>
-<li>
-<p>Analyze the Results
-After testing, analyze the results. If a vulnerability was found, determine its severity and potential impact. This will help prioritize remediation efforts.</p>
-</li>
-<li>
-<p>Remediate Vulnerabilities
-Finally, remediate any vulnerabilities found. This could involve modifying how the program handles memory, adding bounds checks to prevent overflows, or sanitizing user input to ensure it’s within expected parameters.</p>
-</li>
-</ol>
-<h2>Testing Buffer Overflow Tools</h2>
-<table>
-<thead>
-<tr>
-<th>Target Testing</th>
-<th>Testing Technique</th>
-<th>Test Analysis</th>
-<th>Test Method</th>
-<th>Test Tool</th>
-<th>Mobile Platform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Application Layer</td>
-<td>White-box</td>
-<td>Static</td>
-<td>Code Review</td>
-<td>Flawfinder</td>
-<td>Android, iOS</td>
-</tr>
-<tr>
-<td>Application Layer</td>
-<td>Grey-box</td>
-<td>Dynamic</td>
-<td>Fuzz Testing</td>
-<td>American Fuzzy Lop (AFL)</td>
-<td>Android, iOS</td>
-</tr>
-<tr>
-<td>Application Layer</td>
-<td>Black-box</td>
-<td>Hybrid</td>
-<td>Penetration Testing</td>
-<td>Metasploit</td>
-<td>Android, iOS</td>
-</tr>
-<tr>
-<td>Network Layer</td>
-<td>White-box</td>
-<td>Static</td>
-<td>Code Review</td>
-<td>Wireshark</td>
-<td>Android, iOS</td>
-</tr>
-<tr>
-<td>Network Layer</td>
-<td>Grey-box</td>
-<td>Dynamic</td>
-<td>Traffic Analysis</td>
-<td>Tcpdump</td>
-<td>Android, iOS</td>
-</tr>
-<tr>
-<td>Network Layer</td>
-<td>Black-box</td>
-<td>Hybrid</td>
-<td>Penetration Testing</td>
-<td>Nmap</td>
-<td>Android, iOS</td>
 </tr>
 </tbody>
 </table>

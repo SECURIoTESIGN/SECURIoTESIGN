@@ -22,7 +22,7 @@
 |  System Cloud Environments|  Hybrid Cloud                                                |  
 |  Hardware Specification   |  No                                                          |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; ZigBee|  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ;     |  
 |  Device or Data Center Physical Access|  Yes                                                         |  
 
 
@@ -165,7 +165,6 @@ If a system fails to guarantee non-repudiation requirements, it can lead to a va
 - Legal issues and possible fines/penalties due to non-compliance with regulations
 - Inability to prove ownership or responsibility for an action
 - Difficulty in resolving disputes between parties
-
 # Accountability 
 
 ## Accountability Requirement in Security Engineering

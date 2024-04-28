@@ -9,11 +9,11 @@
 <tbody>
 <tr>
 <td style="text-align: left;">Mobile Platform</td>
-<td style="text-align: left;">iOS App ; IoT System</td>
+<td style="text-align: left;">Android App ; IoT System</td>
 </tr>
 <tr>
 <td style="text-align: left;">Application domain type</td>
-<td style="text-align: left;">m-Payment</td>
+<td style="text-align: left;">m-Health</td>
 </tr>
 <tr>
 <td style="text-align: left;">Authentication</td>
@@ -21,7 +21,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Authentication schemes</td>
-<td style="text-align: left;">Biometric-based authentication ; Channel-based authentication ; Factors-based authentication ; ID-based authentication</td>
+<td style="text-align: left;">Biometric-based authentication ; Factors-based authentication</td>
 </tr>
 <tr>
 <td style="text-align: left;">Has DB</td>
@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Which DB</td>
-<td style="text-align: left;">PostgreSQL</td>
+<td style="text-align: left;">MySQL</td>
 </tr>
 <tr>
 <td style="text-align: left;">Type of information handled</td>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <td style="text-align: left;">Programming Languages</td>
-<td style="text-align: left;">C/C++/Objective-C</td>
+<td style="text-align: left;">Java</td>
 </tr>
 <tr>
 <td style="text-align: left;">Input Forms</td>
@@ -77,11 +77,103 @@
 </tr>
 <tr>
 <td style="text-align: left;">System Cloud Environments</td>
-<td style="text-align: left;">Public Cloud</td>
+<td style="text-align: left;">Hybrid Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hardware Specification</td>
+<td style="text-align: left;">Yes</td>
 </tr>
 <tr>
 <td style="text-align: left;">HW Authentication</td>
-<td style="text-align: left;">Symmetric Key</td>
+<td style="text-align: left;">Basic Authentication (user/pass)</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Wireless Tech</td>
+<td style="text-align: left;">3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC</td>
+</tr>
+<tr>
+<td style="text-align: left;">Device or Data Center Physical Access</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mobile Platform</td>
+<td style="text-align: left;">Android App ; IoT System</td>
+</tr>
+<tr>
+<td style="text-align: left;">Application domain type</td>
+<td style="text-align: left;">m-Health</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Authentication schemes</td>
+<td style="text-align: left;">Biometric-based authentication ; Factors-based authentication</td>
+</tr>
+<tr>
+<td style="text-align: left;">Has DB</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of database</td>
+<td style="text-align: left;">SQL (Relational Database)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Which DB</td>
+<td style="text-align: left;">MySQL</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of information handled</td>
+<td style="text-align: left;">Personal Information ; Confidential Data ; Critical Data</td>
+</tr>
+<tr>
+<td style="text-align: left;">Storage Location</td>
+<td style="text-align: left;">Both</td>
+</tr>
+<tr>
+<td style="text-align: left;">User Registration</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Type of Registration</td>
+<td style="text-align: left;">The users will register themselves</td>
+</tr>
+<tr>
+<td style="text-align: left;">Programming Languages</td>
+<td style="text-align: left;">Java</td>
+</tr>
+<tr>
+<td style="text-align: left;">Input Forms</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">Upload Files</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has logs</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has regular updates</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">The system has third-party</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">System Cloud Environments</td>
+<td style="text-align: left;">Hybrid Cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hardware Specification</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">HW Authentication</td>
+<td style="text-align: left;">Basic Authentication (user/pass)</td>
 </tr>
 <tr>
 <td style="text-align: left;">HW Wireless Tech</td>
@@ -462,62 +554,6 @@
 <p>The botnet vulnerability poses a significant risk; attackers can exploit the vulnerability and gain access to a device's data with high levels of confidentiality, integrity, and availability. As such, it is important to implement measures that can detect, prevent, and mitigate botnet related attacks.</p>
 <h2>Botnet Attack Tree</h2>
 <p><img alt="alt text" src="attack_models/Botnet_Attack_Tree.JPG" /></p>
-<h1>Buffer Overflow Attack</h1>
-<p>A buffer overflow attack is a type of security vulnerability that occurs when a program writes data beyond the bounds of an allocated buffer. Let’s break down the details:</p>
-<h2>How It Happens</h2>
-<p><em>Buffer</em>: A buffer is a temporary storage area in a program’s memory. It holds data such as strings, arrays, or other variables.</p>
-<p><em>Overflow</em>: When a program writes more data into a buffer than it can hold, the excess data spills over into adjacent memory locations.</p>
-<p><em>Exploitation</em>: An attacker deliberately crafts input (usually user input) to overflow the buffer and overwrite critical memory areas.</p>
-<h2>Consequences</h2>
-<p>Arbitrary Code Execution: If an attacker successfully overflows a buffer, they can overwrite return addresses or function pointers. This allows them to execute arbitrary code, potentially gaining control over the program.
-Denial of Service (DoS): Buffer overflows can crash programs, causing service disruptions.
-Information Leakage: Sensitive data (such as passwords or encryption keys) stored in adjacent memory locations may be exposed.</p>
-<h2>Architectural Risk Analysis of the Buffer Overflow Vulnerability</h2>
-<h3>CVSS Metrics</h3>
-<ol>
-<li>
-<p>Base Score:
-* <strong>Attack Vector (AV)</strong>: Network (N)
-* <strong>Attack Complexity (AC)</strong>: Low (L)
-* <strong>Privileges Required (PR)</strong>: None (N)
-* <strong>User Interaction (UI)</strong>: None (N)
-* <strong>Scope (S)</strong>: Unchanged (U)
-* <strong>Confidentiality Impact ©</strong>: High (H)
-* <strong>Integrity Impact (I)</strong>: High (H)
-* <strong>Availability Impact (A)</strong>: High (H)
-* <strong>Base Score</strong>: 9.8 (Critical)</p>
-</li>
-<li>
-<p>Temporal Score:
-* <strong>Exploit Code Maturity (E)</strong>: Unproven (U)
-* <strong>Remediation Level (RL)</strong>: Official Fix (O)
-* <strong>Report Confidence (RC)</strong>: Confirmed ©
-* <strong>Temporal Score</strong>: 9.8 (Critical)</p>
-</li>
-<li>
-<p>Environmental Score:
-* <strong>Modified Attack Vector (MAV)</strong>: Network (N)
-* <strong>Modified Attack Complexity (MAC)</strong>: Low (L)
-* <strong>Modified Privileges Required (MPR)</strong>: None (N)
-* <strong>Modified User Interaction (MUI)</strong>: None (N)
-* <strong>Modified Scope (MS)</strong>: Unchanged (U)
-* <strong>Modified Confidentiality Impact (MC)</strong>: High (H)
-* <strong>Modified Integrity Impact (MI)</strong>: High (H)
-* <strong>Modified Availability Impact (MA)</strong>: High (H)
-* <strong>Environmental Score</strong>: 9.8 (Critical)</p>
-</li>
-</ol>
-<h3>Risk Assessment</h3>
-<ul>
-<li>Severity: Critical</li>
-<li>Impact: High</li>
-<li>Exploitability: Low</li>
-<li>Remediation Level: Official Fix</li>
-<li>Report Confidence: Confirmed</li>
-</ul>
-<p><strong>Remember, addressing buffer overflow vulnerabilities is crucial for software security.</strong></p>
-<h2>Buffer Overflow Attack Tree</h2>
-<p><img alt="alt text" src="attack_models/Buffer_Overflow_Attack_Tree.JPG" /></p>
 <h1>Spoofing Attack</h1>
 <p>Spoofing is a method of attack in which a malicious actor successfully masquerades as a legitimate user or node in a computer network. Spoofing attacks occur when an attacker makes it appear as though their network traffic is coming from a trusted source while they carry out malicious activities. By spoofing the source of the traffic, attackers can launch attacks such as man-in-the-middle (MITM) attacks, phishing attacks, network sniffing attacks, and more. It is important to recognize and be aware of spoofing attacks so as to protect yourself from potential threats.</p>
 <h2>Spoofing Architectural Risk Analysis:</h2>

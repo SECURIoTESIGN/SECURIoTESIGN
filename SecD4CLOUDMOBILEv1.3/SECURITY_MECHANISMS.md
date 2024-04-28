@@ -2,25 +2,48 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Platform          |  iOS App ; IoT System                                        |  
-|  Application domain type  |  m-Payment                                                   |  
+|  Mobile Platform          |  Android App ; IoT System                                    |  
+|  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Channel-based authentication ; Factors-based authentication ; ID-based authentication|  
+|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  PostgreSQL                                                  |  
+|  Which DB                 |  MySQL                                                       |  
 |  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
 |  Storage Location         |  Both                                                        |  
 |  User Registration        |  Yes                                                         |  
 |  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  C/C++/Objective-C                                           |  
+|  Programming Languages    |  Java                                                        |  
 |  Input Forms              |  Yes                                                         |  
 |  Upload Files             |  Yes                                                         |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Public Cloud                                                |  
-|  HW Authentication        |  Symmetric Key                                               |  
+|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  Hardware Specification   |  Yes                                                         |  
+|  HW Authentication        |  Basic Authentication (user/pass)                            |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
+|  Device or Data Center Physical Access|  Yes                                                         |  
+|  Mobile Platform          |  Android App ; IoT System                                    |  
+|  Application domain type  |  m-Health                                                    |  
+|  Authentication           |  Yes                                                         |  
+|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
+|  Has DB                   |  Yes                                                         |  
+|  Type of database         |  SQL (Relational Database)                                   |  
+|  Which DB                 |  MySQL                                                       |  
+|  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
+|  Storage Location         |  Both                                                        |  
+|  User Registration        |  Yes                                                         |  
+|  Type of Registration     |  The users will register themselves                          |  
+|  Programming Languages    |  Java                                                        |  
+|  Input Forms              |  Yes                                                         |  
+|  Upload Files             |  Yes                                                         |  
+|  The system has logs      |  Yes                                                         |  
+|  The system has regular updates|  Yes                                                         |  
+|  The system has third-party|  Yes                                                         |  
+|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  Hardware Specification   |  Yes                                                         |  
+|  HW Authentication        |  Basic Authentication (user/pass)                            |  
 |  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
 |  Device or Data Center Physical Access|  Yes                                                         |  
 
@@ -89,18 +112,7 @@ Biometric authentication mechanisms in cloud-based mobile apps are methods of au
 |Encryption & Decryption|Android|2-Factor Authentication with PIN & Pattern |Combined hardware and software based authentication that requires the user to enter a PIN and draw a pattern on a defined pattern grid. |Presentation |
 |Encryption & Decryption |iOS|Retina Recognition |Hardware based biometric authentication that uses the device front facing camera to obtain a high-resolution picture of the user's eye and matches it against stored images |Application|
 |IDS & IPS |Android|Fingerprint Scan|Hardware based biometric authentication that uses the device built-in fingerprint scanner to scan the user's fingerprint and match it against stored images |Application|
-|IDS & IPS |iOS|3-Factor Authentication with PIN, Pattern & Password|Combined hardware and software-based authentication that requires the user to enter a PIN, draw a pattern on a defined pattern grid, and enter a password|Presentation|# Channel-based Authentication Mechanisms 
-
-Channel-based authentication mechanisms in cloud-based mobile apps refer to a set of security protocols that validate users and authorize access to specific resources in a cloud mobile application. This authentication is done through a set of channels, such as biometrics, passwords, OTPs, or mobile phone numbers, each with its own level of security and authentication request. This type of authentication is used to ensure access to sensitive data and improve the overall security of the application.
-
-## Channel-based Authentication Mechanisms Examples: 
-
-| Security Requirement | Mobile Plataform | Mechanism   | Description                                                                                                                   | OSI Layer     |
-|---------------------|-----------------|-------------|-----------------------------------------------------------------------------------------------------------------------------|---------------|
-| Authentication      | Android         | HMAC-SHA256  | Mobile application uses a pre-shared HMAC-SHA256 token to authenticate with the cloud server and establish a secure channel. | Application   |
-| Authorization       | iOS             | OAuth-2      | Mobile application uses an OAuth-2 access token to authorize requests made to the cloud server and establish a secure channel. | Application   |
-| Identity Management | Cross-platform  | OpenID Connect| Mobile application uses OpenID Connect to authenticate with the cloud server and establish a secure channel.                    | Application   |
-| Data Encryption     | Cross-platform  | TLS/SSL      | Mobile application uses TLS/SSL to encrypt data transmitted between the mobile device and the cloud server.                    | Transport     |# Factors-based Authentication Mechanisms 
+|IDS & IPS |iOS|3-Factor Authentication with PIN, Pattern & Password|Combined hardware and software-based authentication that requires the user to enter a PIN, draw a pattern on a defined pattern grid, and enter a password|Presentation|# Factors-based Authentication Mechanisms 
 
 Factors-based authentication mechanisms in cloud-based mobile apps are methods used to securely access digital resources. They involve the use of two or more authentication factors, such as something that a user knows (e.g., a password), something that a user has (e.g., an authentication code sent to a mobile device), and/or something that a user is (e.g., a biometric scan). Factors-based authentication can help protect mobile apps by providing an extra layer of security, making it less likely that someone unauthorized can access sensitive user data.
 
@@ -110,20 +122,7 @@ Security Requirement | Mobile Platform | Mechanism | Description | OSI Layer | T
 ------------------ | -------------- | ---------- | ----------- | ---------- | ------
 Data Security  | iOS  | Two-factor authentication  | Confirming identity by combination of two unique factors  | Application | Coding Phase and Runtime
 Privacy        | Android    | Biometric authentication | Confirming identity by using biometric methods  | Application  | Coding Phase and Runtime
-Account Access | iOS  | User ID & Password      | Confirming identity by using combination of user ID and password | Application  | Coding Phase and Runtime# ID-based Authentication Mechanisms 
-
-ID-based authentication mechanisms are used to authenticate users in cloud-based mobile applications. This type of authentication typically involves the use of an identifier such as an email address or phone number, as well as a password or some other form of proof of identity. ID-based authentication may also involve the use of biometric markers like fingerprints or facial recognition to verify the user's identity. By using ID-based authentication, mobile applications can ensure that only authorized users are granted access, thereby protecting the data stored and exchanged on the application.
-
-## ID-based Authentication Mechanisms Examples: 
-
-| Security Requirement | Mobile Platform | Mechanism | Description | OSI Layer |
-| --------------- | --------------- | ----------- | ----------- | --------- |
-| Authentication | iOS | FaceID | User authenticates with their face | Layer 7 |
-| Authentication | iOS | Touch ID | User authenticates with their thumbprint | Layer 7 | 
-| Authorization | iOS | Apple App Tracking Transparency (ATT) | Authorizes a user’s usage data to be tracked by a third-party for targeted advertising | Layer 7 |
-| Authentication | Android | Fingerprint Authenticator | User authenticates with their fingerpring | Layer 7 |
-| Authentication | Android | Face Unlock | User authenticates with their face | Layer 7 |
-| Authorization | Android | Google Play Billing Library | User authorizes payment for in-app billing | Layer 7 |
+Account Access | iOS  | User ID & Password      | Confirming identity by using combination of user ID and password | Application  | Coding Phase and Runtime
 
 # Cryptographic Protocols Authentication Mechanisms 
 

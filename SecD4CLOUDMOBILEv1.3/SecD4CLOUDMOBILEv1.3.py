@@ -1614,7 +1614,7 @@ def print_data():
             comments_list.append(question18[n])
 
     for n in question19:
-        item = questions_and_answers["Q18"]
+        item = questions_and_answers["Q19"]
         if item == n:
             print("{:22} {:3} {:40} ".format("Hardware Specification", ":", question19[n]))
 
@@ -1821,88 +1821,68 @@ def switch1():
                     print("")
                     print("  Answer the questions one by one!  ")
                     print("")
-                    #print("  1 - Answer the questions one by one.  ")
-                    #print("  2 - Use a text file with the answers already written.  ")
+                    print("  1 - Answer the questions one by one.  ")
+                    print("  2 - Use a text file with the answers already written.  ")
                     print("")
                     
-                    #input_choice = validateInput(1, 3)
+                    input_choice = validateInput(1, 3)
                     print("")
                     
                     # answer the questions by hand
-                    # if input_choice == 1:
-                    #     arqui(version)
-                    #     domain(version)
-                    #     authentication(version)
-                    #     hasDB(version)
-                    #     userRegist(version)
-                    #     languages(version)
-                    #     inputForms(version)
-                    #     allowUploadFiles(version)
-                    #     systemLogs(version)
-                    #     allowUpdateSystem(version)
-                    #     allowThirdParty(version)
-                    #     cloudPlatform(version)
-                    #     hardwareSpecs(version)
-                    #     dataCenterAcess(version)
+                    if input_choice == 1:
+                        arqui(version)
+                        domain(version)
+                        authentication(version)
+                        hasDB(version)
+                        userRegist(version)
+                        languages(version)
+                        inputForms(version)
+                        allowUploadFiles(version)
+                        systemLogs(version)
+                        allowUpdateSystem(version)
+                        allowThirdParty(version)
+                        cloudPlatform(version)
+                        hardwareSpecs(version)
+                        dataCenterAcess(version)
 
-                    #     print("**The questionnaire is over!**\n\n")
+                        print("**The questionnaire is over!**\n\n")
 
-                    #     information_capture()
-                    
-                    arqui(version)
-                    domain(version)
-                    authentication(version)
-                    hasDB(version)
-                    userRegist(version)
-                    languages(version)
-                    inputForms(version)
-                    allowUploadFiles(version)
-                    systemLogs(version)
-                    allowUpdateSystem(version)
-                    allowThirdParty(version)
-                    cloudPlatform(version)
-                    hardwareSpecs(version)
-                    dataCenterAcess(version)
-
-                    print("**The questionnaire is over!**\n\n")
-
-                    information_capture()
+                        information_capture()
                     
                     # answers already written in the input file
-                    # else:
-                    #     print("---")
-                    #     print("")
-                    #     print("  **What is the name of the input file (ans.txt)?**  ")
-                    #     print("")
-                        
-                    #     readInputFromFile()
+                    else:
+                        print("---")
+                        print("")
+                        print("  **What is the name of the input file (ans.txt)?**  ")
+                        print("")
+                        readInputFromFile()
                     
-                    #     questions_and_answers["Q1"] = input_list[0]
-                    #     questions_and_answers["Q2"] = input_list[1]
-                    #     questions_and_answers["Q3"] = input_list[2]
-                    #     questions_and_answers["Q4"] = input_list[3]
-                    #     questions_and_answers["Q5"] = input_list[4]
-                    #     questions_and_answers["Q6"] = input_list[5]
-                    #     questions_and_answers["Q7"] = input_list[6]
-                    #     questions_and_answers["Q8"] = input_list[7]
-                    #     questions_and_answers["Q9"] = input_list[8]
-                    #     questions_and_answers["Q10"] = input_list[9]
-                    #     questions_and_answers["Q11"] = input_list[10]
-                    #     questions_and_answers["Q12"] = input_list[11]
-                    #     questions_and_answers["Q13"] = input_list[12]
-                    #     questions_and_answers["Q14"] = input_list[13]
-                    #     questions_and_answers["Q15"] = input_list[14]
-                    #     questions_and_answers["Q16"] = input_list[15]
-                    #     questions_and_answers["Q17"] = input_list[16]
-                    #     questions_and_answers["Q18"] = input_list[17]
-                    #     questions_and_answers["Q19"] = input_list[18]
-                    #     questions_and_answers["Q20"] = input_list[19]
-                    #     questions_and_answers["Q21"] = input_list[20]
-                    #     questions_and_answers["Q22"] = input_list[21]
+                        questions_and_answers["Q1"] = input_list[0]
+                        questions_and_answers["Q2"] = input_list[1]
+                        questions_and_answers["Q3"] = input_list[2]
+                        questions_and_answers["Q4"] = input_list[3]
+                        questions_and_answers["Q5"] = input_list[4]
+                        questions_and_answers["Q6"] = input_list[5]
+                        questions_and_answers["Q7"] = input_list[6]
+                        questions_and_answers["Q8"] = input_list[7]
+                        questions_and_answers["Q9"] = input_list[8]
+                        questions_and_answers["Q10"] = input_list[9]
+                        questions_and_answers["Q11"] = input_list[10]
+                        questions_and_answers["Q12"] = input_list[11]
+                        questions_and_answers["Q13"] = input_list[12]
+                        questions_and_answers["Q14"] = input_list[13]
+                        questions_and_answers["Q15"] = input_list[14]
+                        questions_and_answers["Q16"] = input_list[15]
+                        questions_and_answers["Q17"] = input_list[16]
+                        questions_and_answers["Q18"] = input_list[17]
+                        questions_and_answers["Q19"] = input_list[18]
+                        questions_and_answers["Q20"] = input_list[19]
+                        questions_and_answers["Q21"] = input_list[20]
+                        questions_and_answers["Q22"] = input_list[21]
                     
-                    #     information_capture()
+                        information_capture()
                     
-                    #     print("# Processing Done! Choose another option to process the requests!")
+                        print("# Processing Done! Choose another option to process the requests!")
                     
                 if case(2):
                     print("\n********************************************************************************************\n")

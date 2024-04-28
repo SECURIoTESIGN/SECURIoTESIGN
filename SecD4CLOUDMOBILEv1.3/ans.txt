@@ -1,21 +1,22 @@
-2;7;                 # iOS App ; IoT System
-6                    # m-Payment           
+1;7;                 # Android App ; IoT System
+4                    # m-Health            
 1                    # Yes                 
-1;2;3;4;             # Biometric-based authentication ; Channel-based authentication ; Factors-based authentication ; ID-based authentication
+1;3;                 # Biometric-based authentication ; Factors-based authentication
 1                    # Yes                 
 1                    # SQL (Relational Database)
-3                    # PostgreSQL          
+2                    # MySQL               
 1;2;3;               # Personal Information ; Confidential Data ; Critical Data
 3                    # Both                
 1                    # Yes                 
 1                    # The users will register themselves
-2;                   # C/C++/Objective-C   
+4;                   # Java                
 1                    # Yes                 
 1                    # Yes                 
 1                    # Yes                 
 1                    # Yes                 
 1                    # Yes                 
-4                    # Public Cloud        
-2                    # Symmetric Key       
+2                    # Hybrid Cloud        
+1                    # Yes                 
+3                    # Basic Authentication (user/pass)
 1;2;3;5;6;7;8;9;     # 3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC
 1                    # Yes                 
