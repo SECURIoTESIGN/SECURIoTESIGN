@@ -1520,8 +1520,8 @@ def switch1():
     val = 0
     while True:
         try:
-            val = int(input("\nWhat is your option?\n"))
-            print("-->")
+            val = int(input("\nWhat is your option? \nInput >"))
+            #print("Input >")
         except ValueError:
             print("Error! Enter a whole number between 1 and 8, according to the menu above!")
             continue
@@ -1658,16 +1658,15 @@ def switch1():
 def information_capture():
     print("************************************************************************************************")
     print("\nWelcome to SecD4CLOUDMOBILE Framework!\n")
-    print("\nWhat would you like to do?\n")
-    print("\n1. First, Answer the Questions Necessary for Possible Processing")
+    print("\nWhat would you like to do? (1-8)\n")
+    print("\n1. Answer the Questions Required for Processing")
     print("\n2. Security Requirement Elicitation Request")
-    print("\n3. Secure Development Best Practice Guidelines Request")
-    print("\n4. Secure Development Security Mechanisms Request")
+    print("\n3. Secure Development Best Practices Request")
+    print("\n4. Secure Development Mechanisms Request")
     print("\n5. Attack Model Mapping Request")
     print("\n6. Security Test Specification and Tool Request")
     print("\n7. Full Report Request")
     print("\n8. Exit")
-    print("\n\nSelect your option (1-8):")
     switch1()
 
 """
