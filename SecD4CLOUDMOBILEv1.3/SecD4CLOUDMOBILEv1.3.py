@@ -1823,67 +1823,81 @@ def switch1():
                     print("")
                     print("  1 - Answer the questions one by one.  ")
                     print("  2 - Use a text file with the answers already written.  ")
+                    print("  3 - Return to the main menu")
                     print("")
-                    
-                    input_choice = validateInput(1, 3)
-                    print("")
-                    
-                    # answer the questions by hand
-                    if input_choice == 1:
-                        arqui(version)
-                        domain(version)
-                        authentication(version)
-                        hasDB(version)
-                        userRegist(version)
-                        languages(version)
-                        inputForms(version)
-                        allowUploadFiles(version)
-                        systemLogs(version)
-                        allowUpdateSystem(version)
-                        allowThirdParty(version)
-                        cloudPlatform(version)
-                        hardwareSpecs(version)
-                        dataCenterAcess(version)
 
-                        print("**The questionnaire is over!**\n\n")
+                    value = 0
+                    while True:
+                        try:
+                            print("")
+                            value = int(input("-->"))
+                        except ValueError:
+                            print("Error! Enter a whole number between 1 and 3, according to the menu above!")
+                            continue
 
-                        information_capture()
+                        if value > 3 or value < 0:
+                            print("Wrong! Enter a whole number between 1 and 3, according to the menu above!")
+                            continue
+                        else:
                     
-                    # answers already written in the input file
-                    else:
-                        print("---")
-                        print("")
-                        print("  **What is the name of the input file (ans.txt)?**  ")
-                        print("")
-                        readInputFromFile()
-                    
-                        questions_and_answers["Q1"] = input_list[0]
-                        questions_and_answers["Q2"] = input_list[1]
-                        questions_and_answers["Q3"] = input_list[2]
-                        questions_and_answers["Q4"] = input_list[3]
-                        questions_and_answers["Q5"] = input_list[4]
-                        questions_and_answers["Q6"] = input_list[5]
-                        questions_and_answers["Q7"] = input_list[6]
-                        questions_and_answers["Q8"] = input_list[7]
-                        questions_and_answers["Q9"] = input_list[8]
-                        questions_and_answers["Q10"] = input_list[9]
-                        questions_and_answers["Q11"] = input_list[10]
-                        questions_and_answers["Q12"] = input_list[11]
-                        questions_and_answers["Q13"] = input_list[12]
-                        questions_and_answers["Q14"] = input_list[13]
-                        questions_and_answers["Q15"] = input_list[14]
-                        questions_and_answers["Q16"] = input_list[15]
-                        questions_and_answers["Q17"] = input_list[16]
-                        questions_and_answers["Q18"] = input_list[17]
-                        questions_and_answers["Q19"] = input_list[18]
-                        questions_and_answers["Q20"] = input_list[19]
-                        questions_and_answers["Q21"] = input_list[20]
-                        questions_and_answers["Q22"] = input_list[21]
-                    
-                        information_capture()
-                    
-                        print("# Processing Done! Choose another option to process the requests!")
-                    
+                            # answer the questions by hand
+                            if value == 1:
+                                arqui(version)
+                                domain(version)
+                                authentication(version)
+                                hasDB(version)
+                                userRegist(version)
+                                languages(version)
+                                inputForms(version)
+                                allowUploadFiles(version)
+                                systemLogs(version)
+                                allowUpdateSystem(version)
+                                allowThirdParty(version)
+                                cloudPlatform(version)
+                                hardwareSpecs(version)
+                                dataCenterAcess(version)
+
+                                print("**The questionnaire is over!**\n\n")
+
+                                information_capture()
+
+                            # answers already written in the input file
+                            elif value == 2:
+                                print("---")
+                                print("")
+                                print("  **What is the name of the input file (ans.txt)?**  ")
+                                print("")
+                                readInputFromFile()
+
+                                questions_and_answers["Q1"] = input_list[0]
+                                questions_and_answers["Q2"] = input_list[1]
+                                questions_and_answers["Q3"] = input_list[2]
+                                questions_and_answers["Q4"] = input_list[3]
+                                questions_and_answers["Q5"] = input_list[4]
+                                questions_and_answers["Q6"] = input_list[5]
+                                questions_and_answers["Q7"] = input_list[6]
+                                questions_and_answers["Q8"] = input_list[7]
+                                questions_and_answers["Q9"] = input_list[8]
+                                questions_and_answers["Q10"] = input_list[9]
+                                questions_and_answers["Q11"] = input_list[10]
+                                questions_and_answers["Q12"] = input_list[11]
+                                questions_and_answers["Q13"] = input_list[12]
+                                questions_and_answers["Q14"] = input_list[13]
+                                questions_and_answers["Q15"] = input_list[14]
+                                questions_and_answers["Q16"] = input_list[15]
+                                questions_and_answers["Q17"] = input_list[16]
+                                questions_and_answers["Q18"] = input_list[17]
+                                questions_and_answers["Q19"] = input_list[18]
+                                questions_and_answers["Q20"] = input_list[19]
+                                questions_and_answers["Q21"] = input_list[20]
+                                questions_and_answers["Q22"] = input_list[21]
+
+                                information_capture()
+
+                                print("# Processing Done! Choose another option to process the requests!")
+                            else:
+                                information_capture()
+
                 if case(2):
                     print("\n********************************************************************************************\n")
                     print("\t\t The request for security requirements is in progress ... \n\n")
@@ -1943,16 +1957,15 @@ def switch1():
 def information_capture():
     print("************************************************************************************************")
     print("\nWelcome to SecD4CLOUDMOBILE Framework!\n")
-    print("\nWhat would you like to do?\n")
-    print("\n1. First, Answer the Questions Necessary for Possible Processing")
+    print("\nWhat would you like to do? (1-8)\n")
+    print("\n1. Answer the Questions Required for Processing")
     print("\n2. Security Requirement Elicitation Request")
-    print("\n3. Secure Development Best Practice Guidelines Request")
-    print("\n4. Secure Development Security Mechanisms Request")
+    print("\n3. Secure Development Best Practices Request")
+    print("\n4. Secure Development Mechanisms Request")
     print("\n5. Attack Model Mapping Request")
     print("\n6. Security Test Specification and Tool Request")
     print("\n7. Full Report Request")
     print("\n8. Exit")
-    print("\n\nSelect your option (1-8):")
     switch1()
 
 """
