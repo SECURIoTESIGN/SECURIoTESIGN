@@ -2,24 +2,24 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Platform          |  Android App ; IoT System                                    |  
+|  Mobile Platform          |  iOS App                                                     |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
-|  Storage Location         |  Both                                                        |  
+|  Storage Location         |  Remote Storage (Cloud Database)                             |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Type of Registration     |  Will be an administrator that will register the users       |  
+|  Programming Languages    |  C/C++/Objective-C                                           |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
+|  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
 |  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
@@ -287,21 +287,6 @@ Confinement requirements in security engineering are security requirements that 
 ## Warning: 
 
 When confinement requirements are not met, the system can be vulnerable to security vulnerabilities and breaches. Without proper boundaries, malicious actors can have unrestricted access to the system, allowing them to tamper with data, modify settings, or take complete control over the system. This could lead to malicious activities such as unauthorized data exfiltration, espionage, and sabotage. Furthermore, if the system is not properly secured, then attackers can use this access to launch Denial-of-Service (DoS) attacks, spread malware, or install malicious software.
-
-# Interoperability 
-
-## Interoperability Requirement in Security Engineering
-Interoperability is an important requirement in security engineering that requires different systems and components to be able to work together. It involves the ability to exchange data, process signals, interpret codes and store information, allowing systems to interact and coordinate their actions.
-
-Interoperability allows for the secure transfer of data between different systems, ensuring the integrity and availability of the data being exchanged. It also helps to ensure that unauthorized persons are unable to access the data and that any changes to the data can be tracked and reversed.
-
-Interoperability also helps to ensure that the security policies of different systems are respected and enforced and that any changes in security policies are properly implemented and updated. It also helps to reduce the risks associated with implementing incompatible systems and components.
-
-By ensuring systems are interoperable, security risks can be minimized, data can be securely transferred between different entities, and businesses can better manage and control their networks and systems.
-
-## Warning: 
-
-**If we fail to guarantee interoperability requirements, the system could become unreliable. It would be difficult to connect with other systems or devices, and the system would be unable to exchange information with other systems and devices. This would lead to a lack of functionality as the system would not be able to communicate or interact with other systems and devices. Additionally, it could lead to security risks as the system would be more vulnerable to attacks and unauthorized access.**
 
 # Data Origin Authentication 
 

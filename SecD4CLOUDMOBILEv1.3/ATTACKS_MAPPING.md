@@ -2,85 +2,28 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Platform          |  Android App ; IoT System                                    |  
+|  Mobile Platform          |  iOS App                                                     |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
-|  Storage Location         |  Both                                                        |  
+|  Storage Location         |  Remote Storage (Cloud Database)                             |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Type of Registration     |  Will be an administrator that will register the users       |  
+|  Programming Languages    |  C/C++/Objective-C                                           |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
+|  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
 |  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
 |  Device or Data Center Physical Access|  Yes                                                         |  
-|  Mobile Platform          |  Android App ; IoT System                                    |  
-|  Application domain type  |  m-Health                                                    |  
-|  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
-|  Has DB                   |  Yes                                                         |  
-|  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  MySQL                                                       |  
-|  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
-|  Storage Location         |  Both                                                        |  
-|  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
-|  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
-|  The system has logs      |  Yes                                                         |  
-|  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
-|  Hardware Specification   |  Yes                                                         |  
-|  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
-|  Device or Data Center Physical Access|  Yes                                                         |  
-
-
-
-# Man-in-th-Middle Attack 
-
-Man-in-the-Middle (MITM) attack is an attack where a threat actor interferes with the communication between two systems. The threat actor inserts itself between the two systems and has access to all the data being sent between them.
-
-MITM attacks are used to steal or modify data in transit, such as banking credentials, passwords, and security tokens. Hackers carry out these attacks by spoofing IP addresses and using malicious code to gain access to unencrypted data. They can also use packet-sniffing software to eavesdrop on the connection.
-
-MITM attacks can be done through network-level attacks or application-level attacks. Network-level MITM attacks involve the hacker taking control of the entire communications path between the two hosts. Application level MITM attacks involve the hacker hacking into one of the hosts and manipulating their traffic.
-
-To protect against MITM attacks, it is important to use secure protocols such as HTTPS and SSL/TLS. It is also important to ensure that sensitive data is encrypted while in transit. Additionally, strong authentication methods should be used to authenticate users and prevent unauthorized access.
-
-## Man-in-th-Middle Architectural Risk Analysis: 
-
-### Overview
-Man-in-the-Middle (MITM) vulnerabilities occur when an attacker is able to intercept and modify data sent between two parties. This attack is especially dangerous as it can be used to intercept sensitive and confidential information. 
- 
-### Risk Factors
-The Common Vulnerability Scoring System (CVSS) version 3.1 measures the risk of a Man-in-the-Middle (MITM) attack along four different vectors:
-
-1. **Attack vector (AV)** : Remote
-2. **Attack complexity (AC)**: Low
-3. **Privileges required (PR)**: None
-4. **User Interaction (UI)**: None
-
-
-### Risk Score
-Based on the risk factors defined above, the risk score for a Man-in-the-Middle attack using CVSS v3.1 is 7.2. This falls under the medium risk category. 
-
-**Overall Risk Score: 7.2 (Medium)**
-
-## MiTM Attack Tree
-
-![alt text](attack_models/MiTM_Attack_Tree.JPG)
 
 # Brute Force Attack 
 
@@ -88,30 +31,51 @@ A Brute Force attack is a type of attack that attempts to guess a user's authent
 
 It is important to note that Brute Force attacks are often used in combination with other tactics, such as dictionary and rainbow table attacks, to increase the chances of success.
 
-In order to protect against this type of attack, it is recommended to use strong authentication credentials that are difficult to guess, such as long, randomised passwords made up of upper and lower case letters, numbers, and special characters. It is also a good idea to set a maximum amount of failed log-in attempts before locking out the user account, as this prevents attackers from attempting to guess the credentials indefinitely.
 
-## Brute Force Architectural Risk Analysis: 
+## Mitigation
 
-## Brute Force Vulnerability 
+1. **Strong Password Policies**: Enforce the use of strong passwords. Passwords should be long, complex, and unique.
 
-| Criteria Group  | Score  |
-| ---            | ---    |
-| Attack Vector  | 4.3    |
-| Attack Complexity | 3.9    |
-| Privileges Required | 0.8    |
-| User Interaction | 0.0    |
-| Scope | 4.3    |
-| Confidentiality Impact | 4.0    |
-| Integrity Impact | 4.0    |
-| Availability Impact | 4.0    |
-| Exploit Code Maturity | 7.8    |
-| Remediation Level | 4.6    |
-| Report Confidence | 3.9    |
-| **Total Score** | **46.9**    |
+2. **Account Lockout Policies**: After a certain number of failed login attempts, the account should be temporarily locked out.
 
-**Risk Classification:** High
+3. **Two-Factor Authentication (2FA)**: Implementing 2FA can significantly reduce the risk of successful brute force attacks.
 
-## Brute Force Attack Tree
+4. **Captcha**: Use a CAPTCHA system to prevent automated scripts from performing brute force attacks.
+
+5. **Delay Between Login Attempts**: Introduce a delay between login attempts. This slows down an attacker and makes brute force attacks less feasible.
+
+6. **Blacklist/Whitelist IP Addresses**: Blacklist IP addresses that are clearly engaging in malicious activities, and whitelist known good IP addresses.
+
+7. **Use a Web Application Firewall (WAF)**: A WAF can help detect and block brute force attacks.
+
+8. **Limit Login Attempts**: Limit the number of login attempts from a single IP address within a certain time period.
+
+9. **Monitor and Log Failed Logins**: Keep an eye on failed login attempts and set up alerts for suspicious activities.
+
+10. **Use of AI and Machine Learning**: These technologies can learn and adapt to new threats and unusual login patterns, offering another layer of security.
+
+Remember, these are general strategies and may need to be adapted based on the specific use case and environment. It's also important to note that security is a multi-layered approach where one method's weakness is covered by the strength of another. Therefore, a combination of these strategies will provide more robust protection against brute force attacks.
+
+## Brute Force Risk Analysis
+
+| **Factor**                  | **Description**                                                                                                              | **Value**                                                 |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| Vulnerability               | Weak authentication mechanisms (e.g., short passwords, lack of multi-factor authentication) in the mobile app or cloud login | -                                                         |
+| Attack Vector (AV):         | Network (Exploiting login functionality)                                                                                     | Network (N)                                               |
+| Attack Complexity (AC):     | Low (Automated tools can be used for brute-forcing)                                                                          | Low (L)                                                   |
+| Privileges Required (PR):   | None (Attack doesn't require any privileges on the application or cloud)                                                     | None (N)                                                  |
+| User Interaction (UI):      | None (Attack can be automated)                                                                                               | None (N)                                                  |
+| Scope (S):                  | Account Compromise (AC) (Attacker gains unauthorized access to user accounts)                                                | Data Breach (DB) (if attacker accesses confidential data) |
+| Confidentiality Impact (C): | High (Attacker might access confidential user data)                                                                          | High (H)                                                  |
+| Integrity Impact (I):       | High (Attacker might modify user data)                                                                                       | High (H)                                                  |
+| Availability Impact (A):    | Medium (Denial-of-Service attacks with many login attempts can impact availability)                                          | Medium (M)                                                |
+|Base Score (assuming successful exploitation) | 0.85 * (AV:N/AC:L/PR:N/UI:N) * (S:AC/C:H/I:H/A:M) * 0.06 | 0.3 (Low)
+|Temporal Score (TS) | Depends on the processing power available to the attacker and effectiveness of rate limiting | Varies |
+|Environmental Score (ES) | Depends on the strength of password policies (length, complexity), account lockout after failed attempts, and multi-factor authentication (MFA) | Varies |
+|Overall CVSS Score | Base Score + TS + ES | Varies (Depends on TS, ES, and effectiveness of countermeasures) | Low to Medium |
+Risk Rating: | Low to Medium (Depends on TS, ES, and attacker capabilities) | Low to Medium |
+
+## Brute Force Attack Tree Diagram
 
 ![alt text](attack_models/Brute_Force_Attack_Tree.JPG)
 
@@ -123,37 +87,46 @@ In this attack, the attacker uses various tools to gain access to the target com
 
 Once the attacker gains access to the network, they eavesdrop on the conversations taking place on the network. By monitoring the data packets being sent over the network, the attacker can gain access to sensitive information and data that they can then use for malicious purposes.
 
-## Eavesdropping Architectural Risk Analysis: 
+## Mitigation
 
-**Eavesdropping Vulnerability**
+1. **Use Secure Communication Protocols:** Always use secure communication protocols such as HTTPS (Hypertext Transfer Protocol Secure) for data in transit. This ensures that the data is encrypted and cannot be easily intercepted by eavesdroppers.
+2. **Data Encryption:** Encrypt sensitive data at rest and in transit. Use strong encryption algorithms and manage encryption keys securely;
+3. **Secure Wi-Fi Networks:** Encourage users to only use secure and trusted Wi-Fi networks. Public Wi-Fi networks can be a hotbed for eavesdropping attacks;
+4. **VPN:** Use a Virtual Private Network (VPN) for a more secure connection. A VPN can provide a secure tunnel for all data being sent and received;
+5. **Regularly Update and Patch:** Ensure that the cloud and mobile applications are regularly updated and patched. This helps to fix any known vulnerabilities that could be exploited by attackers;
+5. **Access Controls:** Implement strict access controls. Only authorized users should have access to sensitive data;
+6. **Security Headers:** Implement security headers like HTTP Strict Transport Security (HSTS), Content Security Policy (CSP), etc. These headers add an extra layer of protection against eavesdropping attacks;
+7. **Security Testing:** Regularly conduct security testing such as penetration testing and vulnerability assessments to identify and fix any security loopholes;
+8. **User Awareness:** Educate users about the risks of eavesdropping attacks and how they can protect themselves. This includes not opening suspicious emails or clicking on unknown links, and only downloading apps from trusted sources;
+9. **Incident Response Plan:** Have an incident response plan in place. This will ensure that you are prepared to respond effectively in case an eavesdropping attack does occur.
+
+## Eavesdropping Architectural Risk Analysis: 
 
 Common Vulnerability Scoring System (CVSS) v3.1 score for Eavesdropping Vulnerability is 4.8, categorized under 'High' severity.
 
-CVSS Base Score: 4.8
+| **Factor**                                    | **Description**                                                          | **Value**                                                       |
+|-----------------------------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------|
+| Attack   Vector (AV):                         | Network                                                                  | Network   (N)                                                   |
+| Attack   Complexity (AC):                     | Low                                                                      | Low   (L)                                                       |
+| Privileges   Required (PR):                   | None                                                                     | None   (N)                                                      |
+| User   Interaction (UI):                      | None                                                                     | None   (N)                                                      |
+| Scope   (S):                                  | Confidentiality   Impact (attacker can intercept communication)          |         Confidentiality (C)                                     |
+| Confidentiality   Impact (C):                 | High   (if unencrypted data is transmitted)                              | High   (H)                                                      |
+| Confidentiality   Impact (C):                 | Low   (if data is strongly encrypted in transit)                         | Low   (L)                                                       |
+| Integrity   Impact (I):                       | Low   (unless eavesdropping allows data manipulation)                    | Low   (L)                                                       |
+| Availability   Impact (A):                    | None                                                                     | None   (N)                                                      |
+| Base   Score (assuming High Confidentiality): | High   (if unencrypted data is transmitted)                              |         3.5 (Medium) or 1.0 (Low) depending on Encryption       |
+| Temporal   Score (TS):                        | Not   applicable                                                         | N/A                                                             |
+| Environmental   Score (ES):                   | Depends   on network security measures, data sensitivity, user awareness | Varies                                                          |
+| Overall   CVSS Score                          | Base   Score + TS + ES                                                   |         High (H)                                                |
+| Risk   Rating                                 | Based   on Overall CVSS Score                                            |         High (H)                                                |
 
-Attack Vector (AV): Network (N)
-
-Attack Complexity (AC): Low (L)
-
-Privileges Required (PR): None (N)
-
-User Interaction (UI): None (N)
-
-Scope (S): Unchanged (U)
-
-Confidentiality Impact (C): High (H)
-
-Integrity Impact (I): Low (L)
-
-Availability Impact (A): Low (L)
-
-CVSS v3.1 Vector String: AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:L
-
-**Risk Analysis of Eavesdropping Vulnerability**
 
 Eavesdropping Vulnerability poses a high risk to the confidentiality of the data traveling within a network as it allows attackers to intercept and potentially access sensitive information. Without any user interaction, an attacker can intercept information and potentially gain unrestricted access to the confidential data, thus leaving the users’ online operations prone to manipulation. Moreover, the integrity and availability of the network can be impacted to a low extent.
  
 Therefore, organizations need to put in place an effective counter-measures strategy which focuses on enhancing data security measures, including the adoption of strong authentication protocols and encryption technologies, to mitigate and reduce the risk of eavesdropping attacks.
+
+## Eavesdropping Attack Tree Diagram
 
 ![alt text](attack_models/Eavesdropping_Attack_Tree.JPG)
 
@@ -163,227 +136,116 @@ Flooding attacks are attempts to inundate a resource with an overwhelming amount
 
 Examples of flooding attacks include Denial-of-Service (DoS) attacks, which send an extremely large amount of requests/traffic to the victim’s server or network in order to saturate it and make it incapable of responding to legitimate requests. Additionally, there is also the Distributed Denial-of-Service (DDoS) attack, which uses more than one computer or device to send the traffic, making it even more of a challenge to defend against.
 
+## Mitigation
+
 Flooding attacks can be difficult to detect and stop as they often involve huge volumes of data. However, some steps to help mitigate the effects of flooding attacks include:
 
-* Utilizing firewalls and other security measures to detect and block suspicious traffic.
-* Deploying load balancers to distribute the amount of requests over multiple servers or resources.
-* Monitoring network and server performance to detect anomalies.
-* Limiting connection requests from a single source.
+1. Rate Limiting: Implement rate limiting on your servers to prevent any single IP address from sending too many requests in a short period of time;
+2. Traffic Shaping: Use traffic shaping techniques to control the amount and speed of traffic sent or received on a network.
+3. Intrusion Detection Systems (IDS): Use IDS to monitor network traffic for suspicious activity and known threats;
+4. Firewalls: Use firewalls to block unwanted traffic and prevent flooding attacks;
+5. Load Balancing: Distribute network traffic across multiple servers to ensure no single server is overwhelmed with too much traffic;
+6. DDoS Protection Services: Consider using a DDoS protection service that can detect and block flooding attacks;
+7. Redundancy: Design your system to be redundant so that if one part of the system becomes overwhelmed with traffic, the system as a whole can still function;
+8. Regular Monitoring and Logging: Regularly monitor and log traffic to identify patterns and detect potential flooding attacks;
+9. Incident Response Plan: Have an incident response plan in place to quickly and effectively handle flooding attacks when they occur;
+10. User Awareness and Training: Educate users about the risks of flooding attacks and how to report suspicious activity.
 
-## Flooding Architectural Risk Analysis: 
+## Flooding Architectural Risk Analysis 
 
-**Common Vulnerability Scoring System (CVSS) v3.1 - Risk Analysis of Flooding Vulnerability**
+| **Factor**                    | **Description**                                                                                                 | **Value**                                         |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| Attack   Vector (AV):         | Network   (Exploiting application logic)                                                                        | Network   (N)                                     |
+| Attack   Complexity (AC):     | Low   (Requires crafting malicious requests)                                                                    | Low   (L)                                         |
+| Privileges   Required (PR):   | None                                                                                                            | None   (N)                                        |
+| User   Interaction (UI):      | None   (after initial attack setup)                                                                             | None   (N)                                        |
+| Scope   (S):                  | Denial   of Service (attacker disrupts application functionality for legitimate users)                          |         Denial of service (DoS)                   |
+| Confidentiality   Impact (C): | Low                                                                                                            | None   (N)                                        |
+| Integrity   Impact (I):       | Low   (unless flooding crashes the app and corrupts data)                                                       | Low   (L)                                         |
+| Availability   Impact (A):    | High   (attacker can disrupt app functionality for legitimate users)                                            | High   (H)                                        |
+| Base   Score:                 | 0.85   * (AV:N/AC:L/PR:N/UI:N) * (S:DoS/C:N/I:L/A:H)                                                            | 9.9   (Critical)                                    |
+| Overall   CVSS Score          | Base   Score + TS + ES                                                                                          |         Varies (Depends on TS & ES)               |
+| Risk   Rating                 | Based   on Overall CVSS Score                                                                                   |         High to Critical (Depends on TS & ES)       |
 
-Base Score: 7.2
+**CVSS v3.1 Risk Rating:** Critical (Official Fix)
 
-Vector: CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H
-
-|Sub-metrics|Value|Weight|Score|
-|---|---|---|---|
-|Attack Vector | Local (AV:L) | 04.7 | 0.2 |
-|Attack Complexity | Low (AC:L) | 03.9 | 0.2 |
-|Privileges Required | Low (PR:L) | 05.2 | 0.2 |
-|User Interaction | None (UI:N) | 0 | 0 |
-|Scope | Changed (S:C) | 07.7 | 0.3 |
-|Confidentiality | High (C:H) | 06.4 | 0.3 |
-|Integrity | High (I:H) | 05.9 | 0.3 |
-|Availability | High (A:H) | 05.9 | 0.3 |
-
-**Impact Score:** 7.2
-
-**Exploitability Score**: 4.7
-
-**CVSS v3.1 Risk Rating:** High (Priority Level 3)
+## Flooding Attack Tree Diagram
 
 ![alt text](attack_models/Flooding_Attack_Tree.JPG)
 
-# Sniffing Attack 
-
-Sniffing attack is a type of cyber attack in which attackers gain unauthorized access to a network by using methods to capture, monitor, and control data packets in a network. In this attack, malicious users capture data that is being transmitted over the network, such as usernames, passwords, and other sensitive information. This is done by sniffing or intercepting packets of data as they pass through the network and capturing them for further analysis. The attackers can then use the data gathered to gain access to networks or to commit data theft.
-
-## Sniffing Architectural Risk Analysis: 
-
-|Sniffing Vulnerability |C VSS v3.1|
-|-----------------------|----------|
-|Attack Vector          |Network   |
-|Attack Complexity      |Low       |
-|Privileges Required    |None      |
-|User Interaction       |None      |
-|Scope                  |Unchanged |
-|Confidentiality Impact |High      |
-|Integrity Impact       |Low       |
-|Availability Impact    |Low       |
-|Score                  |7.5       |
-
-Sniffing Vulnerability is susceptible to attack due to its **Network** Attack Vector. It requires **Low** Attack Complexity, no **Privileges Required**, and no **User Interaction**. The **Scope** of the vulnerability is Unchanged and it has a **High** Confidentiality Impact with **Low** Integrity and Availability Impact. The Common Vulnerability Scoring System v3.1 gives this vulnerability an overall score of **7.5**.
-
-## Sniffing Attack Tree
-
-![alt text](attack_models/Sniffing_Attack_Tree.JPG)
 
 
+# Buffer Overflow Attack
 
-# Phishing Attack 
+A buffer overflow attack is a type of security vulnerability that occurs when a program writes data beyond the bounds of an allocated buffer. Let’s break down the details:
 
-Phishing is a type of cyber attack that uses social engineering tactics to steal data and information from unsuspecting victims. It is an attempt to unlawfully obtain sensitive information such as usernames, passwords, and credit card details by impersonating a trusted entity. Phishing attacks can be launched through email, instant message, text messages, or malicious websites.
+## How It Happens
 
-In order to avoid a phishing attack, users should be wary of any e-mail they receive from an unknown sender, as most phishing attempts come in the form of an email. It's important to always verify links before clicking them, and to not enter sensitive information like usernames and passwords into websites unless you are certain that they are legitimate. Additionally, users should be sure to install and regularly update antivirus software to detect malicious activity.
+*Buffer*: A buffer is a temporary storage area in a program’s memory. It holds data such as strings, arrays, or other variables.
 
-## Phishing Architectural Risk Analysis: 
+*Overflow*: When a program writes more data into a buffer than it can hold, the excess data spills over into adjacent memory locations.
 
-The Common Vulnerability Scoring System (CVSS) is a framework for communicating the severity of software vulnerabilities. CVSS v3.1 is the latest version of CVSS, released in June 2019.
-
-## Base Score:
-
-The base score for a phishing vulnerability is 7.5 out of 10 for CVSS v3.1. This score denotes the overall severity of the vulnerability, taking into account characteristics such as attack vector, complexity, privileges required, and user interaction.  
-
-## Temporal Score:
-
-The temporal score measures the current exploitability of the vulnerability over time. A temporal score of 6.5 is assigned to phishing vulnerability for CVSS v3.1. This score takes into account the probability of detection, the impact of the patching process, and the extent of the temporal disruption caused by the vulnerability. 
-
-## Environmental Score:
-
-The environmental score reflects the environment in which the vulnerability exists, taking into account characteristics such as network size, detection capability, customer usage, and attack scope. A phishing vulnerability can be given an environmental score of 8.5 out of 10 for CVSS v3.1. 
-
-To conclude, the overall risk score for a phishing vulnerability on the CVSS v3.1 scale is 7.5/6.5/8.5. This score reflects the potential severity of the vulnerability, the probability of exploitation, and the environment in which the vulnerability exists.
-
-## Phishing Attack Tree
-
-![alt text](attack_models/Phishing_Attack_Tree.JPG)
-
-
-
-# Pharming Attacks
-
-A pharming attack is a form of cyberattack that redirects victims to fake websites, often without their knowledge. Let’s explore the details:
-
-## Overview
-
-* **Objective**: Trick users into visiting malicious websites that resemble legitimate ones.
-* **Method**: Exploits the Domain Name System (DNS) to redirect users to spoofed sites.
-* **Impact**: Can lead to data theft, credential harvesting, and financial fraud.
-
-## How Pharming Works
-1. **Malware-Based Pharming**:
-* Users unknowingly acquire malware (e.g., Trojan horse or virus) via malicious emails or software downloads.
-* The malware modifies locally hosted files and changes stored IP addresses.
-* Victims are automatically redirected to the attacker’s fraudulent website when accessing the legitimate site.
-2. DNS Server Poisoning:
-* Corrupts DNS servers to direct website requests to alternate or fake IP addresses.
-* Exploits vulnerabilities at the DNS server level.
-* Users visit spoofed sites, believing they are legitimate.
+*Exploitation*: An attacker deliberately crafts input (usually user input) to overflow the buffer and overwrite critical memory areas.
 
 ## Consequences
 
-1. Communication Disruption:
-* Interrupts access to legitimate websites.
-* Impacts online services, including banking and e-commerce.
-1. Data Theft and Credential Harvesting:
-* Attackers collect personal data, login credentials, and financial information.
-* Victims unwittingly provide sensitive details on fake sites.
+Arbitrary Code Execution: If an attacker successfully overflows a buffer, they can overwrite return addresses or function pointers. This allows them to execute arbitrary code, potentially gaining control over the program.
+Denial of Service (DoS): Buffer overflows can crash programs, causing service disruptions.
+Information Leakage: Sensitive data (such as passwords or encryption keys) stored in adjacent memory locations may be exposed.
 
-## Mitigation Strategies
+## Mitigation
 
-1. Regular Security Updates:
-* Keep software, browsers, and security tools up to date.
-* Patch vulnerabilities to prevent exploitation.
-2. DNS Security Measures:
-* Implement DNSSEC (DNS Security Extensions) to verify DNS responses.
-* Monitor DNS traffic for anomalies.
-3. User Education:
-* Train users to recognize phishing attempts and suspicious URLs.
-* Encourage caution when clicking links or entering credentials.
+1. **Input Validation**: Always validate input from all untrusted data sources. Proper input validation can eliminate the vast majority of software vulnerabilities.
 
-## Architectural Risk Analysis of Pharming Vulnerability
+2. **Boundary Checks**: Ensure that your program does not write past the end of allocated memory regions.
 
-The pharming attack targets users by redirecting them to fraudulent websites, often without their knowledge. Let’s assess the risk using the Common Vulnerability Scoring System (CVSS) v3.1:
+3. **Use Safe Libraries**: Use libraries that abstract away risky APIs. For example, prefer safer versions of functions like `strncpy` over `strcpy`.
 
-### CVSS Metrics
+4. **Compiler-based Defenses**: Use compiler features like StackGuard, ProPolice and the Microsoft Visual Studio /GS flag which help protect against buffer overflow.
 
-1. **Base Score**:
-* **Attack Vector (AV)**: Network (N)
-* **Attack Complexity (AC)**: Low (L)
-* **Privileges Required (PR)**: None (N)
-* **User Interaction (UI)**: None (N)
-* **Scope (S)**: Unchanged (U)
-* **Confidentiality Impact ©**: High (H)
-* **Integrity Impact (I)**: Low (L)
-* **Availability Impact (A)**: None (N)
-* **Base Score**: 7.5 (High)
-2. **Temporal Score**:
-* **Exploit Code Maturity (E)**: Unproven (U)
-* **Remediation Level (RL)**: Official Fix (O)
-* **Report Confidence (RC)**: Confirmed ©
-* **Temporal Score**: 7.5 (High)
-3. **Environmental Score**:
-* **Modified Attack Vector (MAV)**: Network (N)
-* **Modified Attack Complexity (MAC)**: Low (L)
-* **Modified Privileges Required (MPR)**: None (N)
-* **Modified User Interaction (MUI)**: None (N)
-* **Modified Scope (MS)**: Unchanged (U)
-* **Modified Confidentiality (MC)**: High (H)
-* **Modified Integrity (MI)**: Low (L)
-* **Modified Availability (MA)**: None (N)
-* **Environmental Score**: 7.5 (High)
+5. **Address Space Layout Randomization (ASLR)**: ASLR randomizes the memory addresses used by system files and other program components, making it much harder for an attacker to correctly guess the location to jump to within the exploited process's memory.
 
-### Risk Assessment
+6. **Non-Executable Stack**: If the stack is non-executable, then even if a buffer overflow occurs, it will not result in arbitrary code execution.
 
- * **Severity**: High
- * **Impact**: Data theft, credential compromise
- * **Exploitability**: Low
- * **Remediation Level**: Official Fix
- * **Report Confidence**: Confirmed
+7. **Principle of Least Privilege**: Run your application with the fewest privileges possible.
 
-### Mitigation Strategies
+8. **Regular Patching**: Regularly apply patches and updates to your systems and the software running on them.
 
-1. **DNS Security Measures**:
- * Implement DNSSEC (DNS Security Extensions) to verify DNS responses.
- * Monitor DNS traffic for anomalies.
-2. **User Education**:
- * Train users to recognize phishing attempts and suspicious URL.
- * Encourage caution when clicking links or entering credentials.
+9. **Code Review and Static Analysis**: Regularly review code and use static analysis tools.
 
-*Remember, vigilance and proactive measures are essential to protect against pharming attacks.*
- 
-## Pharming Attack Tree
+10. **Fuzz Testing**: Fuzz testing or fuzzing is a Black Box software testing technique, which basically consists in finding implementation bugs using malformed/semi-malformed data injection in an automated fashion.
 
-![alt text](attack_models/Pharming_Attack_Tree.JPG)
+Remember, these are general strategies and may need to be adapted based on the specific use case and environment. It's also important to note that security is a multi-layered approach where one method's weakness is covered by the strength of another. Therefore, a combination of these strategies will provide more robust protection against buffer overflow attacks.
+
+## Risk Analysis of the Buffer Overflow
+
+| **Factor**                  | **Description**                                                                                                                                            | **Value**                                                                      |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Vulnerability               | Improper memory allocation in the mobile application or cloud back-end code, allowing attackers to overwrite adjacent memory locations with malicious code | -                                                                              |
+| Attack Vector (AV):         | Network (Exploiting the vulnerability through a crafted message)                                                                                           | Network (N)                                                                    |
+| Attack Complexity (AC):     | Medium (Crafting a successful exploit might require some effort)                                                                                           | Medium (M)                                                                     |
+| Privileges Required (PR):   | Varies (Depends on the vulnerability location - might require some privileges within the application)                                                      | Varies (N, L, or H)                                                            |
+| User Interaction (UI):      | None (Attack can be triggered through a seemingly normal action)                                                                                           | None (N)                                                                       |
+| Scope (S):                  | Code Execution (CE) (Attacker can execute arbitrary code on the device or server)                                                                          | Potential for Data Breach (DB) (if attacker gains access to confidential data) |
+| Confidentiality Impact (C): | High (Attacker might access confidential user data stored on the device or server if exploited successfully)                                               | High (H)                                                                       |
+| Integrity Impact (I):       | High (Attacker can modify program logic or data)                                                                                                           | High (H)                                                                       |
+| Availability Impact (A):    | High (Application crash or system instability)                                                                                                             | High (H)                                                                       |
+|Base Score (assuming successful exploitation) | 0.85 * (AV:N/AC:M/PR:Varies/UI:N) * (S:CE/C:H/I:H/A:H) * 1.0 | 7.2 (High)
+|Temporal Score (TS) | Depends on exploit code availability for the specific vulnerability | Varies |
+|Environmental Score (ES) | Depends on secure coding practices, input validation, and memory management in the mobile app and cloud environment | Varies |
+|Overall CVSS Score | Base Score + TS + ES | Varies (Depends on TS, ES, and specific privilege requirements) |
+|Risk Rating | High to Critical (Depends on TS, ES, and attack scenario) | High to Critical |
+
+**Remember, addressing buffer overflow vulnerabilities is crucial for software security.**
+
+## Buffer Overflow Attack Tree Diagram
 
 
 
-# Botnet Attack 
 
-A **Botnet attack** is the use of malware to create an army of compromised computers, called "bots", to remotely control them to carry out malicious activities. These activities can include sending large amounts of spam email, launching Denial-of-Service (DoS) attacks, and even stealing confidential information from unsuspecting victims. Botnets can be used to target a single system or can be used to launch devastating attacks against large networks or government databases.
 
-## Botnet Architectural Risk Analysis: 
 
-# Architectural Risk Analysis of Botnet Vulnerability  
-
-#### Vulnerability Score:  
-Using the Common Vulnerability Scoring System (CVSS) v3.1, the botnet vulnerability has been assigned an overall score of 8.4. This score is composed of the following base scores:  
-- **Base Score: 8.4**  
-- **Impact Subscore: 6.6**  
-- **Exploitability Subscore: 8.6**   
-
-#### Vulnerability Vector String:  
-AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-
-#### Vulnerability Vector Metrics:  
-- **Attack Vector (AV):** Network (N)  
-- **Attack Complexity (AC):** Low (L)  
-- **Privileges Required (PR):** None (N)  
-- **User Interaction (UI):** None (N)  
-- **Scope (S):** Changed (C)  
-- **Confidentiality (C):** High (H)   
-- **Integrity (I):** High (H)  
-- **Availability (A):** High (H)  
-
-#### Summary:  
-The botnet vulnerability poses a significant risk; attackers can exploit the vulnerability and gain access to a device's data with high levels of confidentiality, integrity, and availability. As such, it is important to implement measures that can detect, prevent, and mitigate botnet related attacks.
-
-## Botnet Attack Tree
-
-![alt text](attack_models/Botnet_Attack_Tree.JPG)
+![alt text](attack_models/Buffer_Overflow_Attack_Tree.JPG)
 
 
 
@@ -391,53 +253,49 @@ The botnet vulnerability poses a significant risk; attackers can exploit the vul
 
 Spoofing is a method of attack in which a malicious actor successfully masquerades as a legitimate user or node in a computer network. Spoofing attacks occur when an attacker makes it appear as though their network traffic is coming from a trusted source while they carry out malicious activities. By spoofing the source of the traffic, attackers can launch attacks such as man-in-the-middle (MITM) attacks, phishing attacks, network sniffing attacks, and more. It is important to recognize and be aware of spoofing attacks so as to protect yourself from potential threats.
 
+## Mitigation
+
+Sure, here are some mitigation strategies against Spoofing attacks in a cloud, mobile, and IoT ecosystem:
+
+1. **Authentication**: Implement strong authentication mechanisms such as two-factor authentication (2FA) or multi-factor authentication (MFA). This can help ensure that the user or device is who they claim to be;
+
+2. **Encryption**: Use encryption for all data in transit. Protocols such as HTTPS, SSL, and TLS can provide secure communication channels and prevent spoofing;
+
+3. **IP Filtering**: Use IP filtering to block traffic from known malicious IP addresses. This can prevent attackers from spoofing these IP addresses;
+
+4. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers;
+
+5. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules;
+
+6. **User Education**: Educate users about the risks of spoofing attacks and how to recognize them. This includes checking the URL in the address bar and not clicking on suspicious links;
+
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
+
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+
 ## Spoofing Architectural Risk Analysis: 
 
-## Architectural Risk Analysis of Spoofing Vulnerability
+| **Factor**                                   | **Description**                                                                                                                               | **Value**                                     |
+|----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                        | Varies   (Network for some attacks, Physical for others)                                                                                      |         Network (N) & Physical (L)            |
+| Attack   Complexity (AC):                    | Varies   (Depends on the complexity of spoofing technique and vulnerability)                                                                  |         Low (L) to High (H)                   |
+| Privileges   Required (PR):                  | Varies   (Depends on the type of spoofing. May not require any privileges)                                                                    |         None (N) to High (H)                  |
+| User   Interaction (UI):                     | None   (Attack might not require user interaction)                                                                                            | None   (N)                                    |
+| Scope   (S):                                 | Varies   (Depends on the attacker's goal with spoofing)                                                                                       |         Unauthorized Access (UA)              |
+| Confidentiality   Impact (C):                | High   (Spoofed user might access confidential data)                                                                                          | High   (H)                                    |
+| Integrity   Impact (I):                      | High   (Spoofed user might manipulate data)                                                                                                   | High   (H)                                    |
+| Availability   Impact (A):                   | High   (Denial-of-service attacks possible through spoofing)                                                                                  | High   (H)                                    |
+| Base   Score (assuming High impact for all): | 0.85   * (AV:N & L/AC:V/PR:N/UI:N) * (S:UA/C:H/I:H/A:H)                                                                                       | 9.0   (Critical)                              |
+| Temporal   Score (TS):                       | Public   exploit tools available for specific vulnerabilities?                                                                                |         Depends on exploit availability       |
+| Environmental   Score (ES):                  | Depends   on security measures across Mobile App, Cloud, and IoT (strong authentication   protocols, access controls, device identity checks) | Varies                                        |
+| Overall   CVSS Score                         | Base   Score + TS + ES                                                                                                                        |         Varies (Depends on TS & ES)           |
+| Risk   Rating                                | High   to Critical (Depends on TS & ES)                                                                                                       | High   to Critical                            |
 
-_This document outlines the architectural risk analysis of spoofing vulnerability based on Common Vulnerability Scoring System v3.1._
+**Overall, spoofing vulnerabilities pose a high to critical risk in a mobile-cloud-IoT ecosystem. A multi-layered approach with robust authentication, access controls, and device validation measures is essential to reduce the risk of unauthorized access, data breaches, and system disruptions.**
 
-### Attack Vector (AV)
-
-Medium (AV:M)
-
-### Attack Complexity (AC)
-
-High (AC:H)
-
-### Privileges Required (PR)
-
-Low (PR:L)
-
-### User Interaction (UI)
-
-None (UI:N)
-
-### Scope (S)
-
-Unchanged (S:U)
-
-### Confidentiality Impact (C)
-
-None (C:N)
-
-### Integrity Impact (I)
-
-Low (I:L)
-
-### Availability Impact (A)
-
-None (A:N)
-
-### Overall Score
-
-Low (5.2)
-
-### Severity Level
-
-Medium (CVSS:3.1/AV:M/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N)
-
-## Spoofing Attack Tree
+## Spoofing Attack Tree Diagram
 
 ![alt text](attack_models/Spoofing_Attack_Tree.JPG)
 
@@ -445,28 +303,49 @@ Medium (CVSS:3.1/AV:M/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N)
 
 # VM Migration Attack 
 
-VM (Virtual Machine) Migration Attack is an attack in which an attacker takes advantage of the flaw in a VM system by transferring or migrating malicious codes or payloads from one system to another. This type of attack is used to exploit vulnerabilities in the security configuration of the system, and can cause data theft, destruction of files, network disruption, distributed denial of service (DDoS) attacks, and even complete system takeover. This type of attack is particularly dangerous because it is difficult to detect, and the malicious payloads can travel through the VM system without being recognized or stopped.
+VM Migration Attack is an attack in which an attacker takes advantage of the flaw in a VM system by transferring or migrating malicious codes or payloads from one system to another. This type of attack is used to exploit vulnerabilities in the security configuration of the system, and can cause data theft, destruction of files, network disruption, distributed denial of service (DDoS) attacks, and even complete system takeover. This type of attack is particularly dangerous because it is difficult to detect, and the malicious payloads can travel through the VM system without being recognized or stopped.
+
+## Mitigation
+
+1. **Authentication and Authorization**: Implement strong authentication and authorization mechanisms to ensure that only authorized personnel can initiate VM migration;
+
+2. **Secure Communication Channels**: Use secure communication channels such as SSL/TLS for all communications involved in the VM migration process. This can prevent an attacker from intercepting the data during transmission;
+
+3. **Encryption**: Encrypt the data at rest and in transit. This can prevent an attacker from understanding or modifying the data even if they manage to access it;
+
+4. **Monitoring and Auditing**: Monitor and audit all VM migration activities. This can help detect any unauthorized or suspicious activities;
+
+5. **Regular Software Updates**: Keep all software, including hypervisors and operating systems, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers;
+
+6. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules;
+
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
+
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
 ## VM Migration Architectural Risk Analysis: 
 
-## **Architectural Risk Analysis: VM Migration Vulnerability**
+| **Factor**                                   | **Description**                                                                                                   | **Value**                                                                               |
+|----------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| Attack   Vector (AV):                        | Network   (Exploiting the cloud environment)                                                                      | Network   (N)                                                                           |
+| Attack   Complexity (AC):                    | High   (Requires specialized knowledge and potentially complex attack techniques)                                 | High   (H)                                                                              |
+| Privileges   Required (PR):                  | High   (Requires privileged access within the cloud environment)                                                  | High   (H)                                                                              |
+| User   Interaction (UI):                     | None   (Attack might not require user interaction)                                                                | None   (N)                                                                              |
+| Scope   (S):                                 | Varies   (Depends on attacker's capability and migration process)                                                 |         Information Disclosure (attacker gains access to data   during migration)       |
+| Confidentiality   Impact (C):                | High   (Attacker might access confidential data during migration)                                                 | High   (H)                                                                              |
+| Integrity   Impact (I):                      | High   (Data might be manipulated during migration)                                                               | High   (H)                                                                              |
+| Availability   Impact (A):                   | High   (Disrupted migration might impact VM availability)                                                         | High   (H)                                                                              |
+| Base   Score (assuming High impact for all): | 0.85   * (AV:N/AC:H/PR:H/UI:N) * (S:ID/C:H/I:H/A:H)                                                               | 9.0   (Critical)                                                                        |
+| Temporal   Score (TS):                       | Public   exploit code available for specific vulnerabilities?                                                     |         Depends on exploit availability                                                 |
+| Environmental   Score (ES):                  | Depends   on cloud provider's security practices (secure migration protocols,   encryption), network segmentation | Varies                                                                                  |
+| Overall   CVSS Score                         | Base   Score + TS + ES                                                                                            |         Varies (Depends on TS & ES)                                                     |
+| Risk   Rating                                | High   to Critical (Depends on TS & ES)                                                                           | High   to Critical                                                                      |
 
-| **Vulnerability** | **Common Vulnerability Scoring System v3.1**|
-| ------------- |:-------------:|
-| **Attack Vector (AV):** | Network (AV:N) |
-| **Attack Complexity (AC):**| Low (AC:L) |
-| **Privileges Required (PR):** | None (PR:N) |
-| **User Interaction (UI):** | None (UI:N) |
-| **Scope (S):** | Changed (S:C) |
-| **Confidentiality Impact (C):** | Medium (C:M) |
-| **Integrity Impact (I):** | None (I:N) |
-| **Availability Impact (A):** | High (A:H) |
-| **Exploitability (E):** | High (E:H) |
-| **Remediation Level (RL):** | Official Fix (RL:OF) |
-| **Report Confidence (RC):** | Confirmed (RC:C) |
-| **CVSS v3.1 Base Score:** | 7.8 (High) |
+**Overall, VM Migration vulnerabilities are critical for cloud-based deployments with mobile applications relying on cloud storage. Cloud providers need robust security practices for VM migration, and mobile applications should prioritize secure communication with reputable cloud providers.**
 
-## VM Migration Attack Tree
+## VM Migration Attack Tree Diagram
 
 ![alt text](attack_models/VM_Migration_Attack_Tree.JPG)
 
@@ -476,44 +355,36 @@ VM (Virtual Machine) Migration Attack is an attack in which an attacker takes ad
 
 Malicious insider attack is when a person with authorized access to an organization's systems and networks misuses their privileges to damage the organization's information systems, applications or data. This type of attack can lead to complete system or network shutdown, data theft, fraud or other malicious activities. 
 
+## Mitigation
 The malicious insider threat is one of the most difficult threats to detect because the insider has legitimate access and is part of the organization which makes it hard to identify the malicious activity. Some of the most preventative measures organizations can take to mitigate against malicious insider attacks are: 
 
-* Implement strong access control policies and guidelines.
-* Ensure that users access only the information necessary for them to perform their job duties.
-* Limit user privileges on systems and applications.
-* Implement thorough background checks for new employees and contractors. 
-* Monitor system and user activities for abnormal behavior.
-* Securely manage and monitor privileged accounts, user credentials, and authentication protocols.
-* Automate system security compliance.
+1. **Least Privilege Principle:** Implement the principle of least privilege. Each user should have the minimum levels of access necessary to perform their job functions;
+2. **User Access Reviews:** Regularly review user access rights and privileges. This can help identify any inappropriate access rights that could be exploited by a malicious insider;
+3. **Separation of Duties:** Implement separation of duties. This can prevent any single user from having control over an entire process, making it harder for a malicious insider to cause significant damage;
+4. **Monitoring and Auditing:** Implement monitoring and auditing of user activities. This can help detect any unusual or suspicious behavior that could indicate a malicious insider;
+5. **Security Training and Awareness:** Provide regular security training and awareness programs. This can help employees understand the risks associated with their actions and encourage them to report any suspicious activities;
+6. **Incident Response Plan:** Have an incident response plan in place. This can help your organization respond quickly and effectively if a malicious insider is detected.
 
-## Malicious Insider Architectural Risk Analysis: 
+## Malicious Insider Architectural Risk Analysis
 
-**MALICIOUS INSIDER VULNERABILITY**
 
-**Common Vulnerability Scoring System v3.1** 
+| **Factor**                                  | **Description**                                                                                 | **Value**                        |
+|---------------------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------|
+| Attack Vector (AV):                         | Internal (Exploiting authorized access)                                                         | Internal (I)                     |
+| Attack Complexity (AC):                     | Low (Insider already has access)                                                                | Low (L)                          |
+| Privileges Required (PR):                   | Varies (Depends on insider's privileges)                                                        | Low (L), Medium (M), or High (H) |
+| User Interaction (UI):                      | May be required (Depends on insider's actions)                                                  | Required (R) or None (N)         |
+| Scope (S):                                  | Unauthorized Access (insider gains unauthorized access to data or modifies it)                  | Unauthorized Access (U)          |
+| Confidentiality Impact (C):                 | High (insider can access confidential data)                                                     | High (H)                         |
+| Integrity Impact (I):                       | High (insider can modify data)                                                                  | High (H)                         |
+| Availability Impact (A):                    | High (insider can disrupt application or data access)                                           | High (H)                         |
+| Base Score (assuming High for all impacts): | 0.85 * (AV:I/AC:L/PR:V/UI:R) * (S:U/C:H/I:H/A:H)                                                | 9.0 (Critical)                   |
+| Temporal Score (TS):                        | Not applicable (N/A)                                                                            | N/A                              |
+| Environmental Score (ES):                   | Depends on access controls, data encryption, monitoring and detection practices                 | Varies                           |
+| Overall CVSS Score                          | Base Score + TS + ES                                                                            | Varies (Depends on ES)           |
+| Risk Rating                                 | High to Critical (Depends on ES)                                                                | High to Critical                 |
 
-**Vulnerability Metrics**
-
-* **Attack Vector (AV):** Network (N)
-* **Attack Complexity (AC):** Low (L)
-* **Privileges Required (PR):** High (H)
-* **User Interaction (UI):** Not Required (NR)
-* **Scope (S):** Changed (C)
-* **Confidentiality Impact (C):** High (H)
-* **Integrity Impact (I):** High (H)
-* **Availability Impact (A):** High (H)
-
-**CVSS v3.1 Base Score:** 9.8 (Critical)
-* **Exploitability Sub Score:** 8.6
-* **Impact Sub Score:** 10.0
-
-**Description**
-
-Malicious insider vulnerabilities occur when a malicious employee, contractor, or third-party accesses an organization's systems or data and is able to make unauthorized changes or steal confidential information. In this attack scenario, the malicious actor has a high degree of privileges, which allows them to access the systems or data on a large scale. The scope of the attack is changed due to the malicious actor's ability to manipulate the data or systems, and this has a high impact on the organization in terms of confidentiality, integrity, and availability. 
-
-The Common Vulnerability Scoring System (CVSS) v3.1 assesses malicious insider vulnerabilities with a Base Score of 9.8, indicating a Critical severity level. This is further broken down into an Exploitability Subscore of 8.6, and an Impact Subscore of 10.0. Given the privileged access of the malicious actor, the attack vector, attack complexity, privileges required, and user interaction all factor into the exploitability subscore of 8.6. The scope of the attack and the associated impact on the confidentiality, integrity, and availability of the system warrant the high Impact Subscore of 10.0.
-
-## Malicious Insider Attack Tree
+## Malicious Insider Attack Tree Diagram
 
 ![alt text](attack_models/Malicious_Insider_Attack_Tree.JPG)
 
@@ -521,32 +392,58 @@ The Common Vulnerability Scoring System (CVSS) v3.1 assesses malicious insider v
 
 # VM Escape Attack 
 
-VM (Virtual Machine) Escape attacks involve compromised VMs that act as an entry point for an intruder to gain access to the larger system. It occurs when attackers use vulnerabilities or misconfigurations to escape the confines of a virtual machine and gain access to the underlying physical server or network. Through this attack, attackers can gain control of the physical server and execute malicious activities such as stealing data, disrupting service, and deleting critical files.
+VM Escape attacks involve compromised VMs that act as an entry point for an intruder to gain access to the larger system. It occurs when attackers use vulnerabilities or misconfigurations to escape the confines of a virtual machine and gain access to the underlying physical server or network. Through this attack, attackers can gain control of the physical server and execute malicious activities such as stealing data, disrupting service, and deleting critical files.
 
-These attacks are especially dangerous since they bypass security measures, including firewalls, that are typically in place to protect physical servers and networks. Therefore, it is important for organizations to be vigilant and implement measures to protect against VM escape attacks. One way of doing this is by keeping VMs updated and running the latest security patches. Additionally, limiting the access and privileges of VMs can also help to reduce the attack surface.
+## Mitigation
 
-## VM Escape Architectural Risk Analysis: 
+1. **Regular Software Updates**: Keep all software, including hypervisors and operating systems, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
 
-#### **VM Escape Vulnerability**
+2. **Least Privilege Principle**: Limit the privileges of virtual machines. Don't grant more privileges than necessary to a virtual machine.
 
-Common Vulnerability Scoring System (CVSS) v3.1 provides a way for users to objectively score and rank the severity of a vulnerability.
+3. **Isolation**: Isolate virtual machines from each other and from the host system. This can prevent an attacker from gaining access to other systems if they manage to escape from a virtual machine.
 
-CVSS v3.1 Base Score: 8.1
+4. **Intrusion Detection Systems (IDS)**: Use IDS to monitor and detect unusual activity. IDS can help in identifying potential VM escape attacks.
 
-CVSS v3.1 Vector: AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+5. **Firewalls**: Implement firewalls to block unauthorized access to your network. Firewalls can also be used to block ports that are commonly used for VM escape attacks.
 
-- **Attack Vector (AV):** Network (N)
-- **Attack Complexity (AC)**: Low (L)
-- **Privileges Required (PR)**: High (H)
-- **User Interaction (UI)**: None (N)
-- **Scope (S)**: Unchanged (U)
-- **Confidentiality (C)**: High (H)
-- **Integrity (I)**: High (H)
-- **Availability (A)**: High (H)
+6. **Secure Configurations**: Ensure that your cloud and virtual machine configurations are secure. This includes disabling unnecessary services and closing unused network ports.
 
-This vulnerability has a high base score of 8.1, which indicates that if exploited, it could have a significant impact on the system. Additionally, there is no user interaction required, and the scope, confidentiality, integrity, and availability of the system would all be affected. All of these factors indicate that this vulnerability can have serious consequences and must be addressed.
+7. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-## VM Escape Attack Tree
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+
+## VM Escape Risk Analysis
+
+| **Factor**                                   | **Description**                                                                                                | **Value**                                     |
+|----------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                        | Network   (Exploiting the cloud environment)                                                                   | Network   (N)                                 |
+| Attack   Complexity (AC):                    | High   (Requires specialized knowledge and potentially complex exploit development)                            | High   (H)                                    |
+| Privileges   Required (PR):                  | High   (Requires privileges within the virtual machine)                                                        | High   (H)                                    |
+| User   Interaction (UI):                     | None   (Attack might not require user interaction)                                                             | None   (N)                                    |
+| Scope   (S):                                 | Account   Compromise (attacker gains access to other VMs on the same host)                                     |         Data Breach (DB)                      |
+| Confidentiality   Impact (C):                | High   (Attacker might access confidential data in other VMs)                                                  | High   (H)                                    |
+| Integrity   Impact (I):                      | High   (Attacker might manipulate data in other VMs)                                                           | High   (H)                                    |
+| Availability   Impact (A):                   | High   (Attacker might disrupt other VMs on the same host)                                                     | High   (H)                                    |
+| Base   Score (assuming High impact for all): | 0.85   * (AV:N/AC:H/PR:H/UI:N) * (S:DB/C:H/I:H/A:H)                                                            | 9.0   (Critical)                              |
+| Temporal   Score (TS):                       | Public   exploit code available for specific vulnerabilities?                                                  |         Depends on exploit availability       |
+| Environmental   Score (ES):                  | Depends   on cloud provider's security practices (patch management, hypervisor   security), workload isolation | Varies                                        |
+| Overall   CVSS Score                         | Base   Score + TS + ES                                                                                         |         Varies (Depends on TS & ES)           |
+| Risk   Rating                                | High   to Critical (Depends on TS & ES)                                                                        | High   to Critical                            |
+
+**Notes:**
+
+ * The base score is 9.0 (Critical) due to the potential for high impact on confidentiality, integrity, and availability of user data stored on the cloud virtual machine.
+ * The "Scope" (S) is "Data Breach" as a successful VM escape could allow access to confidential data in other VMs sharing the same host.
+ * The Environmental Score is crucial. Here, the focus is on the cloud provider's security practices. Patching vulnerabilities promptly, implementing strong hypervisor security measures, and isolating workloads through proper segmentation can significantly mitigate the risk.
+
+**Mobile Application Impact:**
+
+* While the VM escape vulnerability resides in the cloud environment, a mobile application relying on compromised cloud storage would be indirectly affected.
+* The mobile application itself wouldn't be directly vulnerable, but the user's confidential data stored on the compromised cloud VM could be exposed.
+
+**Overall, VM Escape vulnerabilities are critical for cloud-based deployments. Cloud providers need robust security practices to mitigate the risk. For mobile applications, securing communication with the cloud and storing data only with reputable cloud providers with strong security posture is essential.**
+
+## VM Escape Attack Tree Diagram
 
 ![alt text](attack_models/VM_Escape_Attack_Tree.JPG)
 
@@ -556,33 +453,47 @@ This vulnerability has a high base score of 8.1, which indicates that if exploit
 
 Side-channel attacks are a class of security exploits that target physical implementation of systems, such as the way data is stored, transmitted, and processed, rather than exploiting logical flaws in the system itself. These attacks use unintentional information leakage from a system’s physical implementation—such as processor or memory timing, power consumption, radio frequency (RF) emission, or the sound similar systems make—to gain insights into the system’s internals and the data it is processing. Such leaked information can be used by an adversary to reverse engineer the system’s implementation, compromising its confidentiality, integrity, and availability.
 
-## Side-Channel Architectural Risk Analysis: 
+## Mitigation
 
-### Side-Channel Vulnerability Architectural Risk Analysis (CVS v3.1)
+1. **Isolation**: Isolate processes and users from each other to prevent information leakage. This is especially important in a cloud environment where multiple users may be sharing the same physical resources;
 
-**Attack Vector (AV):** Network
+2. **Noise Injection**: Inject noise into the system to make it harder for an attacker to distinguish the signal from the noise. This can be particularly effective against timing attacks;
 
-**Attack Complexity (AC):** Low
+3. **Reducing Emanations**: Reduce the amount of information that is leaked through side channels. This can be achieved by using low-emission hardware or shielding devices to prevent electromagnetic leaks;
 
-**Privileges Required (PR):** Low
+4. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers;
 
-**User Interaction (UI):** None
+5. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules;
 
-**Scope (S):** Changed
+6. **Regular Audits and Penetration Testing**: Regularly conduct security audits and penetration testing to identify and fix any security vulnerabilities;
 
-**Confidentiality Impact (C):** High
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
 
-**Integrity Impact (I):** High
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-**Availability Impact (A):** Low
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
-**Base Score:** 7.2
+## Side-Channel Architectural Risk Analysis
 
-**Temporal Score:** 6.4
+| **Factor**                                           | **Description**                                                                                                                           | **Value**                                     |
+|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                                | Varies   (Can be physical, network, or local depending on the specific vulnerability   and ecosystem component)                           | Varies   (N/L/P)                              |
+| Attack   Complexity (AC):                            | High   (Requires specialized knowledge and potentially complex analysis of   side-channel information)                                    | High   (H)                                    |
+| Privileges   Required (PR):                          | Varies   (May require physical access for some attacks)                                                                                   |         None (N) to High (H)                  |
+| User   Interaction (UI):                             | None   (Attack might not require user interaction)                                                                                        | None   (N)                                    |
+| Scope   (S):                                         | Information   Disclosure (attacker gains knowledge of confidential data)                                                                  |         Confidentiality (C)                   |
+| Confidentiality   Impact (C):                        | High   (Leaked information might be confidential)                                                                                         | High   (H)                                    |
+| Integrity   Impact (I):                              | Low   (Leakage doesn't directly modify data)                                                                                              | Low   (L)                                     |
+| Availability   Impact (A):                           | Low   (Doesn't affect overall system functionality)                                                                                       | Low   (L)                                     |
+| Base   Score (assuming High Confidentiality Impact): | 0.85   * (AV:V/AC:H/PR:N/UI:N) * (S:C/C:H/I:L/A:L)                                                                                        | 3.9   (Medium)                                |
+| Temporal   Score (TS):                               | Public   exploit code or analysis techniques available?                                                                                   |         Depends on exploit availability       |
+| Environmental   Score (ES):                          | Depends   on security measures across Mobile App, Cloud, and IoT (countermeasures for   side-channel leakage, hardware security features) | Varies                                        |
+| Overall   CVSS Score                                 | Base   Score + TS + ES                                                                                                                    |         Varies (Depends on TS & ES)           |
+| Risk   Rating                                        | Medium   to High (Depends on TS & ES)                                                                                                     | Medium   to High                              |
 
-**Environmental Score:** 6.4
+**Overall, side-channel vulnerabilities pose a medium to high risk in a mobile-cloud-IoT ecosystem. A holistic approach with security measures across all components and secure coding practices is essential to reduce the risk of information disclosure and potential data breaches.**
 
-## Side-Channel Attack Tree
+## Side-Channel Attack Tree Diagram
 
 ![alt text](attack_models/Side_Channel_Attack_Tree.JPG)
 
@@ -596,24 +507,34 @@ MaaS attacks are typically launched by attackers who have a deep understanding o
 
 MaaS attacks can have serious implications for organizations as they can be difficult to detect and neutralize. It is important for organizations to take steps to protect themselves by regularly patching their systems, regularly scanning for infections, and monitoring for potential malicious activity. Additionally, organizations should use strong authentication methods and limit access to Privileged Accounts.
 
+## Mitigation
+
+1. **Endpoint Protection:** Implement strong endpoint protection measures. This includes antivirus software, firewalls, and intrusion detection systems that can identify and block malware;
+2. **Regular Updates and Patches:** Keep your systems and software up-to-date. Regular updates and patches can fix known vulnerabilities that could be exploited by malware;
+3. **User Training and Awareness:** Educate users about the risks of MaaS and how to identify potential threats. This includes training on how to recognize phishing attempts, unsafe websites, and malicious email attachments;
+4. **Network Segmentation:** Use network segmentation to isolate critical systems and data from the rest of the network. This can limit the impact of a malware infection;
+5. **Backup and Recovery:** Regularly backup important data and ensure that you have a recovery plan in place. This can help you restore your systems and data in the event of a malware attack.
+Threat Intelligence: Use threat intelligence services to stay informed about the latest malware threats and vulnerabilities.
+
 ## Malware-as-a-Service Architectural Risk Analysis: 
 
-| Name | CVE | CWE | Score | Exploitability | Remediation Level | Report Confidence |
+| **Factor**                                    | **Description**                                                                                 | **Value**                                      |
+|-----------------------------------------------|-------------------------------------------------------------------------------------------------|------------------------------------------------|
+| Attack   Vector (AV):                         | Network   (Exploiting application or server vulnerabilities)                                    | Network   (N)                                  |
+| Attack   Complexity (AC):                     | Low   (MaaS lowers the barrier to entry for attackers)                                          | Low   (L)                                      |
+| Privileges   Required (PR):                   | Varies   (Depends on the specific application vulnerability)                                    |         Low (L), Medium (M), or High (H)       |
+| User   Interaction (UI):                      | Varies   (Depends on the specific application vulnerability)                                    |         None (N) or Required (R)               |
+| Scope   (S):                                  | Unauthorized   Access (attacker gains access to user data)                                      |         Unauthorized Access (U)                |
+| Confidentiality   Impact (C):                 | High   (attacker can access confidential data)                                                  | High   (H)                                     |
+| Integrity   Impact (I):                       | High   (attacker can modify data)                                                               | High   (H)                                     |
+| Availability   Impact (A):                    | High   (attacker can disrupt application or server functionality)                               | High   (H)                                     |
+| Base   Score (assuming High for all impacts): | 0.85   * (AV:N/AC:L/PR:V/UI:V) * (S:U/C:H/I:H/A:H)                                              | 9.0   (Critical)                               |
+| Temporal   Score (TS):                        | Public   exploit code available for the specific vulnerability?                                 |         Depends on exploit availability        |
+| Environmental   Score (ES):                   | Depends   on application security practices, user awareness, security updates, MaaS   targeting | Varies                                         |
+| Overall   CVSS Score                          | Base   Score + TS + ES                                                                          |         Varies (Depends on TS & ES)            |
+| Risk   Rating                                 | High   to Critical (Depends on TS & ES)                                                         | High   to Critical                             |
 
-| Malware-as-a-Service Vulnerability | CVE-2018-1234 | CWE-79 | 5.9 | High | Functionally Patchable | Confirmed |
- 
-
-The Architectural Risk Analysis of Malware-as-a-Service Vulnerability is summarized as follows:
-
-- **Name:** Malware-as-a-Service Vulnerability
-- **CVE:** CVE-2018-1234
-- **CWE:** CWE-79
-- **Score:** 5.9
-- **Exploitability:** High
-- **Remediation Level:** Functionally Patchable
-- **Report Confidence:** Confirmed
-
-## Malware-as-a-Service Attack Tree
+## Malware-as-a-Service Attack Tree Diagram
 
 ![alt text](attack_models/MaaS_Attack_Tree.JPG)
 
@@ -634,24 +555,57 @@ Tampering attacks can include activities such as:
 - Manipulating browsers’ cookies or local storage
 - Exploiting weaknesses in authorization and authentication protocols
 
-## Tampering Architectural Risk Analysis: 
+## Mitigation
 
-#### Architectural Risk Analysis of Tampering Vulnerability
+1. **Data Encryption**: Encrypt data at rest and in transit. This can prevent an attacker from understanding or modifying the data even if they manage to access it;
 
-| Vulnerability | Score |Description |
-| -- | -- | -- |
-| Attack Vector (AV) |Low (2)| Attack requires local access to user environment such as local network. |
-| Attack Complexity (AC) | Low (2) |Exploiting this vulnerability does not require a significant effort. |
-| Privileges Required (PR) |Low (2) |Only local user privileges are required. |
-| User Interaction (UI) |None (0)|No user interaction is required. |
-| Scope (S) |Changed (C) |Only the security posture changes within the scope of the exploit.|
-| Confidentiality (C) |No (0) |No disruption to privacy or integrity is caused by exploitation. |
-| Integrity (I) |No (0) |No disruption to confidentiality or integrity is caused by exploitation.|
-| Availability (A) |No (0) |No disruption to availability is caused by exploitation. |
-| Overall CVSS Score: | 4 | Low Severity | 
+2. **Integrity Checks**: Use cryptographic hashes to verify the integrity of data and software. This can help detect any unauthorized modifications;
+
+3. **Access Controls**: Implement strong access controls to prevent unauthorized access to data and systems. This includes using strong passwords, two-factor authentication (2FA), and least privilege principles;
+
+4. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers;
+
+5. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules;
+
+6. **Physical Security**: Implement physical security measures to prevent tampering with hardware devices. This is especially important for IoT devices;
+
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
+
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+
+## Tampering Risk Analysis
+
+| **Factor**                                   | **Description**                                                                                                                               | **Value**                                     |
+|----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                        | Varies   (Network for some attacks, Physical for others)                                                                                      |         Network (N) & Physical (L)            |
+| Attack   Complexity (AC):                    | Varies   (Depends on the specific vulnerability and attacker knowledge)                                                                       |         Low (L) to High (H)                   |
+| Privileges   Required (PR):                  | Varies   (May require some privileges on the mobile device or cloud environment for   some attacks)                                           |         Low (L) to High (H)                   |
+| User   Interaction (UI):                     | Varies   (Might require user interaction for specific attack vectors)                                                                         | Optional   (O)                                |
+| Scope   (S):                                 | Data   Integrity Loss (attacker modifies data)                                                                                                | Data   Loss (DL)                              |
+| Confidentiality   Impact (C):                | High   (Tampered data might reveal confidential information)                                                                                  | High   (H)                                    |
+| Integrity   Impact (I):                      | High   (Tampered data can lead to unexpected behavior)                                                                                        | High   (H)                                    |
+| Availability   Impact (A):                   | High   (Tampered data might render the application unusable)                                                                                  | High   (H)                                    |
+| Base   Score (assuming High impact for all): | 0.85   * (AV:N & L/AC:V/PR:L/UI:O) * (S:DL/C:H/I:H/A:H)                                                                                       | 9.0   (Critical)                              |
+| Temporal   Score (TS):                       | Public   exploit code available for specific vulnerabilities?                                                                                 |         Depends on exploit availability       |
+| Environmental   Score (ES):                  | Depends   on security measures across Mobile App, Cloud, and IoT (data integrity   checks, code signing, secure storage, intrusion detection) | Varies                                        |
+| Overall   CVSS Score                         | Base   Score + TS + ES                                                                                                                        |         Varies (Depends on TS & ES)           |
+| Risk   Rating                                | High   to Critical (Depends on TS & ES)                                                                                                       | High   to Critical                            |
 
 
-This vulnerability is given a low severity rating of 4 on the Common Vulnerability Scoring System v3.1 due to the low attack vector, attack complexity, privileges required, user interaction, and scope required for exploitation. No disruption to confidentiality, integrity, or availability is caused by exploitation, resulting in a low security risk.
+Notes:
+
+* The base score is 9.0 (Critical) due to the potential for high impact on confidentiality, integrity, and availability of user data.
+* The "Scope" (S) is "Data Loss" as tampered data can be effectively lost and unusable.
+* The Environmental Score is crucial. Implementing data integrity checks throughout the ecosystem (mobile app, cloud storage, and potentially within IoT devices), code signing for mobile apps and cloud components, secure storage mechanisms for sensitive data, and intrusion detection systems to identify tampering attempts can significantly mitigate the risk.
+
+**Overall, tampering vulnerabilities pose a high to critical risk in a mobile-cloud-IoT ecosystem. A comprehensive security approach with data integrity checks, code signing, secure storage, and intrusion detection across all components is essential to reduce the risk of data breaches, compromised functionality, and system disruptions.**
+
+## Tampering Attack Tree Diagram
+
+
+
 
 ![alt text](attack_models/Tampering_Attack_Tree.JPG)
 
@@ -706,28 +660,56 @@ _Common Vulnerability Scoring System v3.1_
 
 Bluesnarfing attack is a type of wireless attack that allows attackers to gain unauthorized access to data stored on a Bluetooth-enabled device. The attacker is able to connect to an exposed Bluetooth-enabled device without the user's knowledge, and then transfer data stored on it, such as contact lists, calendar events, and text messages. Because Bluetooth-enabled devices frequently remain in discoverable mode, even if they are not actively in use, they can be vulnerable to this kind of attack.
 
-## Bluesnarfing Architectural Risk Analysis: 
+## Mitigation
 
-**Bluesnarfing Vulnerability - Risk Analysis Using CVSS v3.1**
+Bluesnarfing is a type of cyber attack that involves unauthorized access to a device via Bluetooth connection. Here are some general strategies to mitigate Bluesnarfing in Cloud, Mobile, and IoT ecosystems:
 
-- **Attack Vector (AV):** Remote
-- **Attack Complexity (AC):** Low
-- **Privileges Required (PR):** None
-- **User Interaction (UI):** None
-- **Scope (S):** Changed
-- **Confidentiality (C):** High
-- **Integrity (I):** Low
-- **Availability (A):** Low
+1. **Turn off Bluetooth Discovery Mode**: When not needed, turn off your device's Bluetooth discovery mode. This makes your device invisible to other Bluetooth-enabled devices.
 
-**CVSS Base Score:** 6.5
- 
-**CVSS Vector String:** AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:L
+2. **Reject Unknown Connection Requests**: Do not accept any Bluetooth connection requests that you don't recognize.
 
-Bluesnarfing is a type of attack that takes advantage of a Bluetooth connection between two devices. This attack enables attackers to access data and other confidential information stored on the victim's device. The attack vector for this vulnerability is Remote since an attacker can exploit this vulnerability without having physical access to the device. The Attack Complexity is Low since no sophisticated methods or tools are required to exploit it. No privilege is required to exploit this vulnerability. Moreover, user interaction is not required as the attack would occur silently in the background. The Scope of this attack is Changed since only one device will be affected by this attack. The Confidentiality of the device is highly compromised since attackers will be able to access sensitive information stored on the device. The Integrity of the device is Low since this attack does not alter the information stored on the device, but only reads it. Lastly, the Availability of the device is Low since attackers can use this vulnerability to steal resources from the victim's device which leads to disruption of service.
+3. **Regular Software Updates**: Regularly update your device's software to install patches against the latest vulnerabilities.
 
-Therefore, the overall risk score for this vulnerability is 6.5 based on the CVSS v3.1 Common Vulnerability Scoring System.
+For Cloud, Mobile, and IoT ecosystems specifically, consider the following:
 
-## Bluetooth Attack Tree
+1. **Security by Design**: Secure application development across these three technologies can only be achieved when applications and systems are designed and developed with security in mind¹. This will improve the quality of the solutions and ensure that vulnerabilities are identified. It will also help in defining countermeasures against cyberattacks or mitigate the effects of potential threats to the systems.
+
+2. **System Modeling**: Use system modeling to identify potential vulnerabilities and threats. This can help in the development of effective countermeasures.
+
+3. **Regular Audits and Monitoring**: Regularly monitor and audit your systems to detect any unusual activities or potential security breaches.
+
+4. **Use of Secure Cloud Services**: Use secure cloud services for IoT devices. These services provide a spectrum of capabilities, including data storage, data processing, and application hosting, which can help IoT devices collect, analyze, and share data securely.
+
+5. **Data Encryption**: Encrypt sensitive data before storing it in the cloud or transmitting it over the network.
+
+Remember, the key to effective mitigation is a proactive approach to security. Regularly updating security measures and staying informed about the latest threats can go a long way in protecting your systems from Bluesnarfing and other cyber threats.
+
+## Bluesnarfing Risk Analysis: 
+
+| **Factor**                  | **Description**                                                                  | **Value**                                                          |
+|-----------------------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| Vulnerability               | Unsecured Bluetooth connections on the mobile device                             | -                                                                  |
+| Attack Vector (AV):         | Physical (Requires close proximity to the target device)                         | Physical (L)                                                       |
+| Attack Complexity (AC):     | Low (Readily available tools can be used)                                        | Low (L)                                                            |
+| Privileges Required (PR):   | None (Attack doesn't require any privileges on the device)                       | None (N)                                                           |
+| User Interaction (UI):      | None (Attack can be passive and unnoticed)                                       | None (N)                                                           |
+| Scope (S):                  | Information Disclosure (ID) (Attacker might access data like contacts, messages) | Data Breach (DB) (if application data is accessible via Bluetooth) |
+| Confidentiality Impact : | Varies (Depends on the data exposed - Contacts: Medium, Login Credentials: High) | Varies (M to H)                                                    |
+| Integrity Impact (I):       | Low (Limited ability to modify data via Bluetooth)                               | Low (L)                                                            |
+| Availability Impact (A):    | None (Doesn't impact application availability)                                   | N/A                                                                |
+|Base Score (assuming successful exploitation of application data) | 0.85 * (AV:L/AC:L/PR:N/UI:N) * (S:DB/C:H/I:L/A:N/A) | 3.4 (Low)|
+|Temporal Score (TS): | Depends on the prevalence of bluesnarfing attacks and availability of tools | Varies |
+Environmental Score (ES): | Depends on Bluetooth security settings (disabled when not in use), user awareness, and application data access restrictions | Varies |
+|Overall CVSS Score: | Base Score + TS + ES | Varies (Depends on TS, ES, and type of data exposed) | Low to Medium |
+|Risk Rating: | Low to Medium (Depends on TS, ES, and attacker capabilities) | Low to Medium |
+
+## Reference
+
+1. Bluesnarfing: What is it and how to prevent it | NordVPN. https://nordvpn.com/blog/bluesnarfing/.
+2. Attack and System Modeling Applied to IoT, Cloud, and Mobile Ecosystems .... https://dl.acm.org/doi/fullHtml/10.1145/3376123.
+3. Securing Cloud-Based Internet of Things: Challenges and Mitigations. https://arxiv.org/pdf/2402.00356.
+
+## Bluetooth Attack Tree Diagram
 
 ![alt text](attack_models/Bluetooth_Attack_Tree.JPG)
 
@@ -739,29 +721,35 @@ GPS Jamming attack is a type of cyberattack where an adversary uses electronic j
 
 GPS jamming can be used to disrupt navigation, communication, or surveillance activities that rely on the GPS system. It has been used in corporate espionage and data theft, or as a form of information warfare.
 
-## GPS Jamming Architectural Risk Analysis: 
+## Mitigation
 
-| Vulnerability | Attack Vector | Attack Complexity | Privileges Required | User Interaction | Scope | Confidentiality | Integrity | Availability |
-| ------------- | ------------- | ----------------- | ------------------ | ---------------- | ----- | --------------- | --------- | ----------- |
-| GPS Jamming Vulnerability | Network | Low | None | None | Affected Service | None | None | High |
+1. **Use of Anti-Jamming Technology:** Implement anti-jamming technology in your GPS receivers;
+2. **Incorporate Redundant Systems:** Use other navigation systems in addition to GPS, such as GLONASS, Galileo, or BeiDou. This redundancy can provide backup navigation data if GPS signals are jammed;
+3. **Data Validation:** Validate GPS data with other sensor data like accelerometer, gyroscope, and magnetometer readings in mobile devices. This can help identify anomalies in GPS data that might indicate jamming;
+4. **Use of Cryptographic Techniques:** Encrypt the GPS data to prevent unauthorized access and manipulation. This can be done using standard cryptographic techniques;
+5. **Anomaly Detection Systems:** Implement anomaly detection systems that can identify abnormal patterns in the GPS data, which could indicate a jamming attack;
+6. **Regular Updates and Patches:** Keep the GPS system and its software up-to-date. Regular updates and patches can fix known vulnerabilities and improve the system’s resistance to jamming;
+User Awareness: Educate users about the risks of GPS jamming and how to identify potential jamming attacks.
 
-Attack Vector: Network
+## GPS Jamming Architectural Risk Analysis 
 
-Attack complexity: Low
+| **Metric**                   | **Value**   |
+|------------------------------|-------------|
+| Attack Vector                | Physical    |
+| Attack Complexity            | Low         |
+| Privileges Required          | None        |
+| User Interaction             | None        |
+| Scope                        | Unchanged   |
+| Confidentiality Impact       | Low         |
+| Integrity Impact             | None        |
+| Availability Impact          | High        |
+| Exploit Code Maturity        | Unproven    |
+| Remediation Level            | Official Fix|
+| Report Confidence            | Confirmed   |
+| CVSS Base Score              | 7.5 (High)  |
+| CVSS Vector                  | CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H |
 
-Privileges Required: None
-
-User Interaction: None
-
-Scope: Affected Service
-
-Confidentiality: None
-
-Integrity: None
-
-Availability: High
-
-Overall Score: 7.3
+## GPS Jamming Attack Tree Diagram
 
 ![alt text](attack_models/GPS_Jamming_Attack_Tree.JPG)
 
@@ -771,19 +759,46 @@ Overall Score: 7.3
 
 Cellular Jamming attacks are a type of cyber attack where a malicious actor attempts to interrupt communication signals and prevent devices from being able to communicate with each other. In these attacks, malicious actors will use a transmitter to interfere with cellular, Wi-Fi, and other communication frequencies so that cellular communication is disrupted, preventing the targeted device from sending and receiving data. This can be used to disrupt any type of information, ranging from financial information to sensitive documents. In addition, cellular jamming attacks can also be used to prevent people from accessing the Internet, utilizing GPS navigation, and using their phones and other connected devices.
 
-## Cellular Jamming Architectural Risk Analysis: 
+## Mitigation
 
-[CVSS v3.1 Risk Rating](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H): **9.1 (High)**
+1. **Signal Strength Monitoring**: Monitor the strength of your cellular signal. A sudden drop could indicate jamming.
 
+2. **Use of Encrypted Communication**: Encourage the use of encrypted communication apps that do not rely solely on the security of cellular networks. This can prevent an attacker from intercepting the data even if they manage to jam the cellular signal.
 
-- **Attack Vector (AV)**: Physical (P)
-- **Attack Complexity (AC)**: Low (L)
-- **Privileges Required (PR)**: None (N)
-- **User Interaction (UI)**: None (N)
-- **Scope (S)**: Unchanged (U)
-- **Confidentiality (C)**: None (N)
-- **Integrity (I)**: None (N)
-- **Availability (A)**: High (H)
+3. **Frequency Hopping**: Use frequency hopping spread spectrum (FHSS) to rapidly switch among frequency channels. This can make it difficult for a jammer to disrupt the signal.
+
+4. **Security Patches and Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
+
+5. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules.
+
+6. **User Awareness**: Educate users about the risks of cellular jamming and the importance of using secure and encrypted communication channels.
+
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission.
+
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+
+## Cellular Jamming Risk Analysis
+
+| **Factor**                  | **Description**                                                        | **Value**                                                                            |
+|-----------------------------|------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| Vulnerability               | N/A (Disruption, not a vulnerability)                                  | -                                                                                    |
+| Attack Vector (AV):         | Physical (Disrupting cellular signal)                                  | Physical (L)                                                                         |
+| Attack Complexity (AC):     | Low (Relatively simple to jam cellular signals)                        | Low (L)                                                                              |
+| Privileges Required (PR):   | None (Jamming doesn't require privileges)                              | None (N)                                                                             |
+| User Interaction (UI):      | None (Attack doesn't require user interaction)                         | None (N)                                                                             |
+| Scope (S):                  | Availability (disrupts cellular communication)                         | Functionality Impact (FI) (limits mobile app functionality relying on cellular data) |
+| Confidentiality Impact (C): | None (Data confidentiality not directly affected)                      | N/A                                                                                  |
+| Integrity Impact (I):       | None (Data integrity not directly affected)                            | N/A                                                                                  |
+| Availability Impact (A):    | Medium (Disrupts cellular communication and application functionality) | Medium (M)                                                                           |
+|Base Score | 0.85 * (AV:L/AC:L/PR:N/UI:N) * (S:FI/C:N/A/I:N/A/A:M) | 3.4 (Low)|
+|Temporal Score (TS) | N/A | N/A |
+|Environmental Score (ES) | Depends on alternative communication methods (Wi-Fi) and application design (offline functionality) | Varies |
+|Overall CVSS Score: | Base Score + TS + ES | Varies (Depends on TS & ES) |
+| Risk Rating: | Low to Medium (Depends on TS & ES) | Low to Medium |
+
+## Cellular Jamming Attack Tree Diagram 
 
 ![alt text](attack_models/Cellular_Jamming_Attack_Tree.JPG)
 
@@ -797,43 +812,49 @@ The goal of cryptanalysis is to gain access to the plaintext without knowing the
 
 By using cryptanalysis, attackers can gain access to sensitive data without the need to decode the entire encrypted document or message. This makes cryptanalysis an important tool for attackers because it allows them to easily bypass complex encryption schemes.
 
+## Mitigation
+
+1. **Strong Encryption Algorithms**: Use strong and proven encryption algorithms. Avoid using outdated or weak encryption algorithms that have known vulnerabilities.
+
+2. **Key Management**: Implement secure key management practices. This includes generating strong keys, securely storing keys, and regularly rotating keys.
+
+3. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
+
+4. **Secure Communication Channels**: Use secure communication channels such as SSL/TLS for all communications. This can prevent an attacker from intercepting the data during transmission.
+
+5. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules.
+
+6. **User Education**: Educate users about the risks of Cryptanalysis attacks and how to recognize them. This includes not providing sensitive information to untrusted sources.
+
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission.
+
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+
 ## Cryptanalysis Architectural Risk Analysis: 
 
-```
-# Cryptanalysis Vulnerability
+| **Factor**                                    | **Description**                                                   | **Value**                                                                             |
+|-----------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| Attack   Vector (AV):                         | Physical                   |         Physical (L) or Network (N)       |
+| Attack   Complexity (AC):                     | High               | High   (H)                                                                            |
+| Privileges   Required (PR):                   | None   (if data is intercepted)                                   | None   (N)                                                                            |
+| User   Interaction (UI):                      | None                                                              | None   (N)                                                                            |
+| Scope   (S):                                  | Confidentiality   Impact (attacker can decrypt confidential data) |         Confidentiality (C)                                                           |
+| Confidentiality   Impact (C):                 | High   (if compromised data is highly sensitive)                  | High   (H)                                                                            |
+| Integrity   Impact (I):                       | High                   | High   (L)                                                                             |
+| Availability   Impact (A):                    | High                                                              | Low   (L)                                                                            |
+| Base   Score | 8.8                |        High                                 |
+ 
+## Recommendations
 
-**CVSS v3.1 Base Score: 8.8 (high severity)**
+In order to ensure that the mobile application is resilient or immune to the Cryptanalysis Attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
 
-**Scope: Changed**
+## References
+1. [CAPEC-97: Cryptanalysis](https://capec.mitre.org/data/definitions/97.html).
 
-**Vector String: CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H**
-
-## Attack Vector (AV):
-AV:N - Network: The vulnerability is exploitable with network access.
-
-## Attack Complexity (AC):
-AC:L - Low: Specialized access conditions or extenuating circumstances do not exist.
-
-## Privileges Required (PR):
-PR:H - High: The attacker must have high privileges on system or access to significant resources.
-
-## User Interaction (UI):
-UI:N - None: No user interaction is required. 
-
-## Scope (S):
-S:U - Changed: The attack changes the scope of the vulnerability by exploiting a vulnerability in a different context or a different system.
-
-## Confidentiality Impact (C):
-C:H - High: There is total information disclosure, resulting in all system files being revealed.
-
-## Integrity Impact (I):
-I:H - High: There is a total compromise of system integrity.
-
-## Availability Impact (A):
-A:H - High: There is a total shutdown of the affected resource.
-
-## Overall Severity:
-High Severity
+## Cryptanalysis Attacks Tree
+                        
 
 ![alt text](attack_models/Cryptanalysis_Attack_Tree.JPG)
 
@@ -843,87 +864,61 @@ High Severity
 
 Reverse engineering attack is an attack that attempts to recreate the source code of a system from its object code. This type of attack is often used to gain unauthorized access to an application or system by recreating the security measures and mechanisms present in the object code. Reverse engineering attacks are particularly dangerous since they allow attackers to uncover hidden flaws, backdoors and vulnerabilities that can be used to gain access to the system.
 
-## Reverse Engineering Architectural Risk Analysis: 
+## Mitigation
 
-## Architectural Risk Analysis of Reverse Engineering Attack Vulnerability
+1. **Obfuscation**: Obfuscation is the process of making your code harder to understand when it is reverse engineered. This can be done by renaming variables and functions with non-descriptive names, removing debugging information, and using tools that convert your code into an equivalent, but harder to understand version.
 
-Under the Common Vulnerability Scoring System (CVSS) version 3.1, reverse engineering attack vulnerability is assigned a score of 7.0 out of 10.0.
+    ```python
+    # Before obfuscation
+    def calculate_discount(price, discount):
+        return price - (price * discount / 100)
 
-The following factors contribute to the score:
+    # After obfuscation
+    def a(b, c):
+        return b - (b * c / 100)
+    ```
 
-**Attack Vector (AV):** Remote
+2. **Encryption**: Encrypt your code and data to protect it from being easily read. This can be particularly useful for protecting sensitive data such as API keys or user data.
 
-**Attack Complexity (AC):** Low
+3. **Anti-debugging Techniques**: These techniques make it harder for a reverse engineer to step through your code. This can include things like adding false conditional statements, using complex control flow structures, and checking for the presence of a debugger at runtime.
 
-**Privileges Required (PR):** None
+4. **Code Signing**: Code signing involves using a digital signature to verify the integrity of your code. This can prevent an attacker from modifying your code without detection.
 
-**User Interaction (UI):** None
+5. **Use of Native Code**: If possible, write critical parts of your application in native code. It's harder to reverse engineer than managed code.
 
-**Scope (S):** Changed
+6. **Regular Updates**: Regularly update and change your code to make it harder for someone to keep up with what you're doing.
 
-**Confidentiality Impact (C):** High
+7. **API Security**: Ensure that your APIs are secure and only expose necessary information. Use authentication and rate limiting to prevent unauthorized access.
 
-**Integrity Impact (I):** Low
+8. **Security by Design**: Incorporate security from the beginning of the software development lifecycle. Don't treat it as an afterthought.
 
-**Availability Impact (A):** Low
+Remember, no method can provide 100% security against reverse engineering. The goal is to make the process as difficult, time-consuming, and costly as possible to deter potential attackers. It's also important to stay informed about the latest security threats and mitigation strategies. Security is a constantly evolving field, and what works today may not work tomorrow.
 
+## Reverse Engineering Architectural Risk Analysis
 
-This means that a successful reverse engineering attack is possible to launch from a remote location, with low complexity required. No privileged or user interaction is required, and the attack would result in a change of scope. Confidentiality can be highly impacted, while integrity and availability impact is low.
+| **Factor**                                  | **Description**                                                                                                               | **Value**                             |
+|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Attack   Vector (AV):                       | Network   (Exploiting the application code over the network)                                                                  | Network   (N)                         |
+| Attack   Complexity (AC):                   | Varies   (Depends on the complexity of the application and obfuscation techniques)                                            |         Low (L) to High (H)           |
+| Privileges   Required (PR):                 | None   (Publicly available applications can be downloaded and analyzed)                                                       | None   (N)                            |
+| User   Interaction (UI):                    | None   (Attack doesn't require user interaction)                                                                              | None   (N)                            |
+| Scope   (S):                                | Vulnerability   Identification (attacker gains knowledge of potential vulnerabilities)                                        |         Vulnerability Scan (VS)       |
+| Confidentiality   Impact (C):               | Potential   High. Extracted information could include user credentials or application   logic.                                | High   (H)                            |
+| Integrity   Impact (I):                     | Potential   High. Reverse engineered code could be used to create malicious applications                                      | High   (H)                            |
+| Availability   Impact (A):                  | Low   (Doesn't affect application functionality)                                                                              | Low   (L)                             |
+| Base   Score (assuming Low impact for all): | 0.85   * (AV:N/AC:V/PR:N/UI:N) * (S:VS/C:L/I:L/A:L)                                                                           | 7.8   (High)                          |
+| Temporal   Score (TS):                      | Not   Applicable (N/A)                                                                                                        | N/A                                   |
+| Environmental   Score (ES):                 | Depends   on the application's security posture (e.g., code obfuscation, encryption),   security practices during development | Varies                                |
+| Overall   CVSS Score                        | Base   Score + TS + ES                                                                                                        |         Varies (Depends on ES)        |
+| Risk   Rating                               | High   to Critical                                                                                                            | High (H)                              |
 
-## Reverse Engineering Attack 
+This analysis indicates that the Reverse Engineering vulnerability poses a high risk to the confidentiality and integrity of the application, with a CVSS Base Score of 7.8 (High). While it doesn't directly impact availability, successful exploitation could lead to unauthorized access to confidential data and potential tampering with the application's integrity. Temporary fixes may be available, but a comprehensive solution may require deeper remediation efforts.
+
+## Reverse Engineering Attack Diagram
 
 ![alt text](attack_models/Reverse_Engineering_Attack_Tree.JPG)
 
 
-
-# Audit Log Manipulation Attack 
-
-Audit Log Manipulation is a type of cyber attack used to hide or falsify activities in a system's audit log, which can be used to track user activities and system changes. This can be done by either deleting entries in the log, adding false entries, or even modifying existing log entries. This type of attack can be used to mask malicious or suspicious activity from security professionals and prevent them from detecting it. It can also be used to mask financial fraud or other malicious activity.
-
-Audit Log Manipulation attacks can be difficult to detect, but security professionals should be aware of potential signs of manipulation such as missing log entries, incorrect time stamps, inconsistent formatting, or data that does not match other recorded activities in the system. Organizations should also take steps to secure their audit logs by implementing appropriate access controls, monitoring systems for suspicious activities, and following best practices for logging and auditing activities.
-
-## Audit Log Manipulation Architectural Risk Analysis: 
-
-**CVSS v3.1 Base Score: 6.2**
-
-**Impact Subscore: 6.2**
-
-**Exploitability Subscore: 3.9**
-
-
-##### Attack Vector (AV): 
-
-Network (N).
-
-##### Attack Complexity (AC): 
-
-Low (L).
-
-##### Privileges Required (PR): 
-
-None (N).
-
-##### User Interaction (UI): 
-
-None (N).
-
-##### Scope (S): 
-
-Unchanged (U).
-
-##### Confidentiality (C): 
-
-High (H).
-
-##### Integrity (I): 
-
-High (H).
-
-##### Availability (A): 
-
-Low (L).
-
-## Audit Log Manipulation Attack Tree
 
 ![alt text](attack_models/Audit_Log_Manipulation_Attack_Tree.JPG)
 
@@ -935,34 +930,40 @@ Wi-Fi jamming attack is an attack on a wireless network using radio frequency si
 
 Wi-Fi jamming attacks are a type of denial of service attack that affects wireless networks and can occur on any wireless network regardless of its size. It can cause network outages, reduce throughput, and cause major disruptions for users. Wi-Fi jamming attacks can be difficult to detect and prevent due to their potential for wide area disruption.
 
-## Wi-Fi Jamming Architectural Risk Analysis: 
+## Mitigation
 
-## Wi-Fi Jamming Attack Vulnerability (CVSS v3.1)
-**CVSS v3.1 Base Score: 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N)** 
 
-**Attack Vector:** Network (AV:N) 
-This means that the attack occurs remotely over a network.
+## Wi-Fi Jamming Risk Analysis
 
-**Attack Complexity:** Low (AC:L) 
-This means attack procedure requires no or low complexity.
+| **Factor**                    | **Description**                                                                      | **Value**                           |
+|-------------------------------|--------------------------------------------------------------------------------------|-------------------------------------|
+| Attack   Vector (AV):         | Physical   (Disrupting Wi-Fi signal and exploiting the opportunity)                  | Physical   (L)                      |
+| Attack   Complexity (AC):     | Varies   (Depends on the complexity of data interception techniques after jamming)   |         Low (L) to Medium (M)       |
+| Privileges   Required (PR):   | None   (Jamming and basic interception might not require privileges)                 |         None (N) to Low (L)         |
+| User   Interaction (UI):      | None   (Attack doesn't require user interaction)                                     | None   (N)                          |
+| Scope   (S):                  | Data   Breach (if data intercepted during jamming)                                   |         Data Breach (DB)            |
+| Confidentiality   Impact (C): | High   (Intercepted data might reveal confidential user information)                 | High   (H)                          |
+| Integrity   Impact (I):       | High   (Intercepted data could be modified)                                          | High   (H)                          |
+| Availability   Impact (A):    | High   (Jamming disrupts communication, application functionality might be impacted) | High   (H)                          |
 
-**Privileges Required:** None (PR:N)
-This means no authentication is required to exploit the vulnerability. 
+**Exploitation Requirements (modifies base score):**
 
-**User Interaction:** None (UI:N) 
-This means no user interaction is necessary for exploitation.
+**Confidentiality Requirement:** High (Confidentiality is severely impacted if data is intercepted)
+**Integrity Requirement:** High (Integrity is severely impacted if data is intercepted)
+**Availability Requirement:** High (Availability is severely impacted by jamming)
 
-**Scope:** Unchanged (S:U) 
-This means the vulnerability only affects the vulnerable component and not other components.
+Since all confidentiality, integrity, and availability requirements are high, the base score modification factor becomes 1.0.
 
-**Confidentiality Impact:** High (C:H) 
-This means there is a potential to disclose sensitive data.
+**Base Score:** 0.85 * (AV:L/AC:L/PR:N/UI:N) * (S:DB/C:H/I:H/A:H) * 1.0 = 7.2 (High)
 
-**Integrity Impact:** None (I:N) 
-This means there is no risk of modification or destruction of data.
+**Temporal Score (TS):** | Not Applicable (N/A) | N/A |
+**Environmental Score (ES):** | Depends on mobile app's security practices (data encryption in transit), user awareness (using secure Wi-Fi networks), attacker's capability (advanced interception techniques) | Varies |
 
-**Availability Impact:** None (A:N) 
-This means there is no risk of denial of service.
+**Overall CVSS Score:** | Base Score + TS + ES | Varies (Depends on TS & ES) |
+**Risk Rating:** | High to Critical (Depends on ES) | High to Critical |
+
+## Wi-Fi Jamming Attack Tree Diagram
+
 
 ![alt text](attack_models/Wi_Fi_Jamming_Attack_Tree.JPG)
 
@@ -972,68 +973,93 @@ This means there is no risk of denial of service.
 
 Wi-Fi SSID tracking attack is an attack in which malicious actors use techniques such as tracking the Media Access Control (MAC) addresses or the Service Set Identifier (SSID) of a device to capture user data transmitted through a wireless network. This type of attack has become increasingly popular due to its simplicity and the fact that it can be used to target multiple devices in a network. The attack can be used to steal sensitive data such as credit card information and other personal details that are sent through the network. It can also be used to launch Distributed Denial of Service (DDoS) attacks.  
 
-Overall, Wi-Fi SSID tracking attack is a threat that should be taken seriously as it can have serious implications on user security. To protect against such attacks, it is important to ensure that the wireless network is secured using the latest security measures such as WPA2 encryption and MAC address filtering. Additionally, users should also be aware of the threats and take steps to secure their devices and networks appropriately.
+Overall, Wi-Fi SSID tracking attack is a threat that should be taken seriously as it can have serious implications on user security.
 
-## Wi-Fi SSID Tracking Architectural Risk Analysis: 
+## Mitigation
 
-**Wi-Fi SSID Tracking Attack Vulnerability**
+1. **Disable SSID Broadcasting**: Disabling SSID broadcasting can make your network invisible to devices that are not already connected. This can prevent an attacker from discovering your network through SSID tracking;
 
-CVSS v3.1 Scoring: 9.3 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H)
+2. **Randomize MAC Addresses**: Many modern devices support MAC address randomization, which can prevent your device from being tracked using its MAC address;
 
-**Attack Vector (AV)**: Network (AV:N): The vulnerability can be exploited remotely, without requiring user interaction or authentication. 
+3. **Use of VPNs**: Virtual Private Networks (VPNs) can encrypt your internet connection and hide your online activities from eavesdroppers;
 
-**Attack Complexity (AC)**: High (AC:H): Specialized access conditions or extenuating circumstances do not exist. The attack can be initiated by any source.
+4. **Network Security**: Use strong encryption (like WPA3) for your Wi-Fi network to prevent unauthorized access;
 
-**Privileges Required (PR)**: None (PR:N): No privileges are required to exploit the vulnerability.
+5. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers;
 
-**User Interaction (UI)**: None (UI:N): The vulnerability can be exploited without any user interaction.
+6. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules;
 
-**Scope (S)**: Changed (S:C): The vulnerability affects resources beyond the host where the attack is executed.
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
 
-**Confidentiality (C)**: High (C:H): The vulnerability might be exploited to view sensitive information, such as user logins and passwords.
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-**Integrity (I)**: High (I:H): The vulnerability might be exploited to modify data, such as configuration settings.
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
-**Availability (A)**: High (A:H): The vulnerability might be exploited to cause a denial of service.![alt text](attack_models/Wi_Fi_SSID_Tracking_Attack_Tree.JPG)
+## Wi-Fi SSID Tracking Risk Analysis
+
+| **Factor**                    | **Description**                                                                | **Value**                                                                      |
+|-------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Attack   Vector (AV):         | Network   (Tracking SSIDs and exploiting network weaknesses)                   | Network   (N)                                                                  |
+| Attack   Complexity (AC):     | Varies   (Depends on the complexity of subsequent attacks after tracking)      |         Low (L) to High (H)                                                    |
+| Privileges   Required (PR):   | Varies   (Depends on the subsequent attack)                                    |         None (N) to High (H)                                                   |
+| User   Interaction (UI):      | None   (SSID tracking might not require interaction, subsequent attacks might) | Varies   (N to H)                                                              |
+| Scope   (S):                  | Varies   (Depends on the subsequent attack)                                    |         Can range from Information Disclosure (ID) to Data   Breach (DB)       |
+| Confidentiality   Impact (C): | Varies   (Depends on the subsequent attack)                                    |         Low (L) to High (H)                                                    |
+| Integrity   Impact (I):       | Varies   (Depends on the subsequent attack)                                    |         Low (L) to High (H)                                                    |
+| Availability   Impact (A):    | Varies   (Depends on the subsequent attack)                                    |         Low (L) to High (H)                                                    |
+| Base Score | 3.3 (Low) | Low (Low) | 
+|Overall Rating| Base Score + TS + ES | Varies (Depends on TS, ES, and the specific subsequent attack)| 
+|Risk Rating | Low to Critical (Depends on ES and the subsequent attack) |  Low (H) to Critical (C) |
+
+**Overall, Wi-Fi SSID tracking combined with potential subsequent attacks can pose a low to critical risk depending on the specific attack scenario and the security measures in place. A layered security approach across the mobile app, cloud infrastructure, and user behavior is essential to mitigate these risks.**
+
+## Wi-Fi SSID Tracking Attack Tree Diagram![alt text](attack_models/Wi_Fi_SSID_Tracking_Attack_Tree.JPG)
 
 # Byzantine Attack 
 
-### Byzantine Attack
-
 A Byzantine attack is a type of cyber attack wherein the malicious attacker attempts to corrupt or disrupt normal operations within a network by broadcasting false messages throughout the system. The aim of the attack is to cause confusion and possible system failure by introducing messages that appear to be coming from genuine sources, but in reality are not. Such attacks are often employed in distributed computer networks, such as those used by banks, military organizations, and other critical systems.
 
-## Byzantine Architectural Risk Analysis: 
+## Mitigation
 
-# Architectural Risk Analysis of Byzantine Attack Vulnerability, according to Common Vulnerability Scoring System v3.1
+1. **Redundancy**: Implement redundancy in your system. This can be achieved by replicating components or data. If one component fails, the system can continue to operate using the replicas.
 
-| Metric | Value |
-| --- | --- |
-| Base Score | 7.2 |
-| Attack Vector | Network (N) |
-| Attack Complexity | Low (L) |
-| Privileges Required | None (N) |
-| User Interaction | None (N) |
-| Scope | Unchanged (U) |
-| Confidentiality Impact | High (H) |
-| Integrity Impact | High (H) |
-| Availability Impact | High (H) |
-| Severity | Critical (CR) |
+2. **Byzantine Fault Tolerance Algorithms**: Implement Byzantine Fault Tolerance (BFT) algorithms such as the Practical Byzantine Fault Tolerance (PBFT) algorithm. These algorithms can handle failures and ensure the system continues to function correctly even when some components are faulty.
 
-Byzantine attacks are among the most dangerous security risks and are caused by malicious nodes that cause a distributed system to malfunction. In such a system, malicious nodes can send contradictory data or messages to other nodes, thus resulting in a denial of service, or can propagate incorrect information to cause the system to behave maliciously. This can lead to data integrity issues, compromising confidential information as well as disrupting services. The Common Vulnerability Scoring System (CVSS) v3.1 assigns a Base Score of 7.2 to a Byzantine attack vulnerability. This score is determined by the parameters listed in the table above.
+3. **Regular Health Checks**: Perform regular health checks on your system components. This can help detect faulty components early and take corrective action.
 
-Attack Vector: The attack vector for such a vulnerability is set to Network (N) as the malicious nodes aim to disrupt the system via networking, or by sending incorrect messages or data over the network.
+4. **Secure Communication**: Use secure communication protocols to prevent tampering with the messages exchanged between components.
 
-Attack Complexity: Low (L) is assigned to this vulnerability because it does not require expertise to execute, as the malicious nodes simply need to send incorrect messages.
+5. **Authentication and Authorization**: Implement strong authentication and authorization mechanisms to prevent unauthorized access to your system.
 
-Privileges Required: Since the malicious nodes do not require any special privileges to propagate incorrect data, the value is set to None (N).
+6. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
 
-User Interaction: As the attack does not require users to interact or perform any specific actions, the value is set to None (N).
+7. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules.
 
-Scope: While the malicious nodes can affect multiple nodes in a system, the scope is unfortunately Unchanged (U), as the malicious nodes do not gain any additional privileges due to the vulnerability.
+8. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission.
 
-Confidentiality Impact, Integrity Impact, and Availability Impact: Since these attacks can lead to data integrity issues, confidential information being disclosed, and services being disrupted, the scores for these three parameters are set to High (H).
+9. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-Severity
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+
+## Byzantine Risk Analysis
+
+|  **Factor**                  | **Description (Considering Successful Byzantine Attack)**                                                                                | **Value**                                                                 |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| Attack Vector (AV):         | Varies (Depends on exploited weakness - Network, Physical, etc.)                                                                         | Varies (L, N, or Ph)                                                      |
+| Attack Complexity (AC):     | High (Requires understanding of the distributed system and planning)                                                                     | High (H)                                                                  |
+| Privileges Required (PR):   | Varies (Depends on the attack method - Might require some privileges within the system)                                                  | Varies (N, L, or H)                                                       |
+| User Interaction (UI):      | None (Attack doesn't require user interaction)                                                                                           | None (N)                                                                  |
+| Scope (S):                  | Data Breach (DB) (if attacker manipulates data)                                                                                          | Functionality Impact (FI) (disrupts application due to inconsistent data) |
+| Confidentiality Impact (C): | High (Attack might compromise data confidentiality through manipulation)                                                                 | High (H)                                                                  |
+| Integrity Impact (I):       | High (Attack directly targets data integrity)                                                                                            | High (H)                                                                  |
+| Availability Impact (A):    | High (Disrupted communication and inconsistent data can impact application availability)                                                 | High (H)                                                                 |
+|Base Score (assuming successful exploitation)| 0.85 * (AV: Varies/AC:H/PR:Varies/UI:N) * (S:DB/C:H/I:H/A:H) * 1.0 | Varies (Depends on AV & PR) |
+|Temporal Score (TS) | Depends on exploit code availability and complexity of the attack | Varies |
+|Environmental Score (ES) | Depends on security measures in communication protocols, data consistency mechanisms, and consensus algorithms | Varies |
+|Overall CVSS Score | Base Score + TS + ES | Varies (Depends on TS, ES, and specific attack vector/privilege requirements) |
+Risk Rating: | High to Critical (Depends on TS, ES, and attack scenario) | High to Critical |
+
+## Byzantine Attack Tree Diagram
 
 ![alt text](attack_models/Byzantine_Attack_Tree.JPG)
 
@@ -1043,27 +1069,47 @@ Spectre is a type of side-channel attack that exploits the speculative execution
 
 Spectre attack exploits a vulnerability in the way modern CPUs execute programs speculatively. Specifically, when the processor encounters a branch instruction during a process, it goes ahead and predicts which branch will be taken and runs the instructions in that branch, even though the branch may not end up being taken after all. This behavior was designed to speed up the execution of programs. However, it can be abused to leak sensitive data in other processes on the same system.
 
-This is accomplished by a technique called "side-channel attack" which works by measuring how long certain instructions take to execute to gain insights into what data the processor is using. For example, an attacker may measure the timing of the branch instructions that the processor is running and use this to extract the data from the other processes.
+## Mitigation
 
-The danger with Spectre is that this attack technique can be used to extract sensitive data from processes running in a trusted environment, including trusted VMs. This means that attackers can gain access to data from other processes, which is a huge security risk.
+1. **Software Patches**: Keep all software, including operating systems and applications, up to date with the latest patches. Many software vendors have released patches that mitigate the Spectre vulnerability;
+
+2. **Hardware Updates**: Some hardware vendors have released firmware updates that mitigate the Spectre vulnerability. Check with your hardware vendor for any available updates;
+
+3. **Compiler-based Protections**: Use compiler features that help mitigate Spectre. For example, some compilers have options that insert barriers in the code to prevent speculative execution;
+
+4. **Isolation**: Isolate sensitive data and processes from untrusted ones. This is especially important in a cloud environment where multiple users may be sharing the same physical resources;
+
+5. **Reduced Resolution Timers**: Reduce the resolution of timers available to untrusted code. This can make it harder for an attacker to measure the timing differences that the Spectre attack relies on;
+
+6. **User Education**: Educate users about the risks of downloading and running untrusted code, which could potentially exploit the Spectre vulnerability;
+
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
+
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
 ## Spectre Arquitectural Risk Analysis 
 
-According to the Common Vulnerability Scoring System (CVSS) v3.1, Spectre Attack Vulnerability has the following ratings:
+| **Factor**                                           | **Description**                                                                                                                             | **Value**                                     |
+|------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                                | Local   (Requires physical access to the device or malicious code execution)                                                                | Local   (L)                                   |
+| Attack   Complexity (AC):                            | High   (Requires specialized knowledge and potentially complex attack techniques)                                                           | High   (H)                                    |
+| Privileges   Required (PR):                          | Varies   (User-level for some attacks, higher privileges for others)                                                                        |         Low (L) to High (H)                   |
+| User   Interaction (UI):                             | Varies   (Might require user interaction to initiate the attack)                                                                            | Optional   (O)                                |
+| Scope   (S):                                         | Information   Disclosure (attacker gains knowledge of confidential data)                                                                    |         Confidentiality (C)                   |
+| Confidentiality   Impact (C):                        | High   (Leaked information might be confidential user data)                                                                                 | High   (H)                                    |
+| Integrity   Impact (I):                              | Low   (Leakage doesn't directly modify data)                                                                                                | Low   (L)                                     |
+| Availability   Impact (A):                           | Low   (Doesn't affect overall system functionality)                                                                                         | Low   (L)                                     |
+| Base   Score (assuming High Confidentiality Impact): | 0.85   * (AV:L/AC:H/PR:L/UI:O) * (S:C/C:H/I:L/A:L)                                                                                          | 3.9   (Medium)                                |
+| Temporal   Score (TS):                               | Public   exploit code available for specific devices/processors?                                                                            |         Depends on exploit availability       |
+| Environmental   Score (ES):                          | Depends   on hardware mitigation features (Spectre patches), software mitigations   (e.g., compiler optimizations), user awareness training | Varies                                        |
+| Overall   CVSS Score                                 | Base   Score + TS + ES                                                                                                                      |         Varies (Depends on TS & ES)           |
+| Risk   Rating                                        | Medium   to High (Depends on TS & ES)                                                                                                       | Medium   to High                              |
 
-- **Base score:** 6.1
-- **Attack vector:** Local
-- **Attack complexity:** High
-- **Privileges required:** Low
-- **User interaction:** None
-- **Scope:** Unchanged
-- **Confidentiality Impact:** High
-- **Integrity Impact:** High
-- **Availability Impact:** Low
+**Overall, Spectre vulnerabilities pose a medium to high risk in a mobile-cloud-IoT ecosystem. A combined approach with hardware mitigation features, software security measures, and user education is essential to reduce the risk of information disclosure.**
 
-**Conclusion:** With a base score of 6.1, the Spectre Attack Vulnerability carries a medium-severity risk from a local attack. The attack's high complexity mitigates the attack; however, this attack still carries a high confidentiality and integrity impact despite its lower availability impact.
-
-## Spectre Attack Tree 
+## Spectre Attack Tree Diagram
 
 
 
@@ -1073,30 +1119,34 @@ According to the Common Vulnerability Scoring System (CVSS) v3.1, Spectre Attack
 
 Meltdown is a security vulnerability in modern processors that can allow malicious applications to access higher privileged memory. It exploits a processor's speculative execution feature to gain access to memory locations that should otherwise be inaccessible. This vulnerability has the potential to expose sensitive information, such as passwords, from the memory of other processes running on the same system.
 
-To mitigate the Meltdown attack, patches must be applied to both software and hardware. The patch helps restrict an application's access to privileged memory and also ensures that memory access violations do not occur. Also, system administrators should update their systems and disable speculative execution if possible.
+## Mitigation
 
-## Meltdown Architectural Risk Analysis: 
+1. **Kernel Page Table Isolation (KPTI):** Implement KPTI to separate user space and kernel space memory. This can prevent unauthorized access to kernel memory;
+2. **Regular Updates and Patches:** Keep your systems and software up-to-date. Regular updates and patches can fix known vulnerabilities that could be exploited by Meltdown;
+3. **Microcode Updates:** Apply microcode updates provided by the CPU manufacturer. These updates can provide additional protections against Meltdown;
+3. **Disable Hyper-Threading:** If possible, disable hyper-threading on the CPU. This can reduce the potential attack surface for Meltdown;
+4. **Use of Virtualization:** Use virtualization technologies that provide strong isolation between virtual machines. This can limit the impact of a Meltdown attack on a single virtual machine;
+5. **Monitoring and Auditing:** Implement monitoring and auditing of system activities. This can help detect any unusual or suspicious behavior that could indicate a Meltdown attack.
 
-### Architectural Risk Analysis of Meltdown Attack Vulnerability, v3.1
+## Meltdown Architectural Risk Analysis 
 
-* **Attack Vector:** Network, Local
-* **Attack Complexity:** Low
-* **Privileges Required:** Low
-* **User Interaction:** None
-* **Scope:** Changed
-* **Confidentiality Impact:** High
-* **Integrity Impact:** High
-* **Availability Impact:** High
+| **Factor**                                    | **Description**                                                                    | **Value**                                                               |
+|-----------------------------------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| Attack   Vector (AV):                         | Physical   (Requires physical access to the device)                                | Physical   (L)                                                          |
+| Attack   Complexity (AC):                     | High   (Requires advanced knowledge and tools to exploit)                          | High   (H)                                                              |
+| Privileges   Required (PR):                   | Low   (Leverages hardware vulnerability)                                           | N/A                                                                     |
+| User   Interaction (UI):                      | None   (User doesn't need to interact with the exploit)                            | None   (N)                                                              |
+| Scope   (S):                                  | Information   Disclosure (attacker can potentially steal data from user processes) |         Confidentiality (C)                                             |
+| Confidentiality   Impact (C):                 | High   (if user data is processed on the device)                                   | High   (H)                                                              |
+| Integrity   Impact (I):                       | High   (Meltdown doesn't directly modify data)                                      | Low   (L)                                                               |
+| Availability   Impact (A):                    | High   (Meltdown doesn't directly impact application functionality)                 | Low   (L)                                                               |
+| Base   Score (assuming High Confidentiality): | 0.85   * (AV:L/AC:H/PR:N/UI:N) * (S:C/C:H/I:L/A:L)                                 | 9.8   (Critical)                                                          |
+| Temporal   Score (TS):                        | Public   exploit code available?                                                   |         Depends on exploit availability and device patch   status       |
+| Environmental   Score (ES):                   | Depends   on device security patches, user awareness, data sensitivity             | Varies                                                                  |
+| Overall   CVSS Score                          | Base   Score + TS + ES                                                             |         High to Critical (Depends on TS & ES)                                     |
 
-Based on the criteria above, the Common Vulnerability Scoring System assessment for the Meltdown attack vulnerability is as follows:
+## Meltdown Attack Tree Diagram
 
-* **Base Score:** 6.5
-* **Temporal Score:** 6.2
-* **Environmental Score:** 8.4
-
-Overall, this vulnerability is rated "High" according to the CVSS scoring system. The criticality of this vulnerability should be addressed immediately by patching/mitigating the known Meltdown attack.
-
-## Meltdown Attack Tree 
 
 
 ![alt text](attack_models/Meltdown_Attack_Tree.JPG)
@@ -1109,35 +1159,38 @@ The goal of hardware integrity is to protect the trustworthiness of the hardware
 
 Hardware integrity is a vital security measure for any type of system or network, as it helps to ensure that data remains safe and secure from external threats.
 
+## Mitigation
+
+1. Hardware Security Modules (HSMs): Use HSMs to manage digital keys securely. HSMs provide a secure environment for cryptographic operations and protect against physical tampering;
+2. Secure Boot: Implement secure boot processes to ensure that only trusted software is loaded during the boot process. This can prevent unauthorized modifications to the hardware;
+3. Hardware Attestation: Use hardware attestation services to verify the integrity of the hardware. These services can check if the hardware has been tampered with or modified;
+4. Tamper-Evident Designs: Use tamper-evident designs in your hardware. These designs can show signs of tampering, alerting you to potential integrity issues;
+5. Regular Audits and Inspections: Conduct regular audits and inspections of your hardware. This can help identify any potential integrity issues early.
+User Awareness: Educate users about the importance of hardware integrity. Users should be aware of the risks associated with tampered hardware and know how to identify signs of tampering.
+
 ## Hardware Integrity Architectural Risk Analysis 
 
----
+| **Factor**                  | **Description**                                                                                               | **Value**                                        |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| Vulnerability               | Weaknesses in hardware components (mobile device, cloud servers) allowing unauthorized access or manipulation | -                                                |
+| Attack Vector (AV):         | Varies (Depends on the attack method - physical access, remote exploit)                                       | Varies (L, N, or Ph)                             |
+| Attack Complexity (AC):     | High (Requires specialized knowledge and potentially complex exploit development)                             | High (H)                                         |
+| Privileges Required (PR):   | Varies (Depends on the vulnerability - physical access might be required)                                     | Varies (N, L, or H)                              |
+| User Interaction (UI):      | None (Attack might not require user interaction)                                                              | None (N)                                         |
+| Scope (S):                  | Varies (Depends on attacker's capability and compromised hardware)                                            | Data Breach (DB) (if confidential data accessed) |
+| Confidentiality Impact (C): | High (Attacker might access confidential user data stored in the cloud)                                       | High (H)                                         |
+| Integrity Impact (I):       | High (Attacker might manipulate data on the compromised hardware)                                             | High (H)                                         |
+| Availability Impact (A):    | High (Compromised hardware might impact application functionality)                                            | High (H)                                         |
 
-**Hardware Integrity Vulnerability**
+Base Score (assuming successful exploitation): 0.85 * (AV: Varies/AC:H/PR:Varies/UI:N) * (S:DB/C:H/I:H/A:H) * 1.0 = Varies (Depends on AV & PR) |
 
-**CVSS v3.1 Base Score:** 8.4 
+Temporal Score (TS): | Depends on exploit code availability for specific vulnerabilities | Varies |
+Environmental Score (ES): | Depends on security practices (secure boot, hardware verification), mobile device management (MDM), cloud security posture (secure servers, intrusion detection) | Varies |
 
-**CVSS v3.1 Vector String:** AV:P/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N
+Overall CVSS Score: | Base Score + TS + ES | Varies (Depends on TS, ES, and specific attack vector/privilege requirements) |
+Risk Rating: | High to Critical (Depends on TS, ES, and specific attack scenario) | High to Critical |
 
-**Architectural Risk Analysis:**
-
-* **Attack Vectors** (AV): The vulnerability has physical access as its attack vector (AV:P).
-
-* **Attack Complexity** (AC):  The attack requires a high level of skill (AC:H).
-
-* **Privileges Required** (PR): No privileges are required for the attack (PR:N).
-
-* **User Interaction** (UI): No user interaction is required for the attack (UI:N).
-
-* **Scope** (S): The impact of successful exploitation of this vulnerability is limited to the hardware itself (S:U).
-
-* **Confidentiality Impact** (C): A successful attack may lead to exposure of confidential data stored or processed by the hardware (C:H).
-
-* **Integrity Impact** (I): A successful attack may lead to modification of data stored or processed by the hardware (I:H).
-
-* **Availability Impact** (A): The vulnerability does not result in any significant impact on availability (A:N).
-
-Overall, this vulnerability has a high base score as it requires a high level of skill and expertise to exploit, and it can lead to exposure of confidential data as well as modification of data stored or processed by the hardware.
+**Overall, Hardware Integrity vulnerabilities pose a high to critical risk for mobile cloud-based applications. Implementing robust security measures across the mobile device, cloud infrastructure, and application development process is essential to mitigate the risk of data breaches, compromised data integrity, and potential application disruptions.**
 
 ## Hardware Integrity Attack Tree 
 
@@ -1149,219 +1202,53 @@ Overall, this vulnerability has a high base score as it requires a high level of
 
 Rowhammer is a security exploit that takes advantage of a hardware weakness in some modern computer memory chips. It is a side-channel attack wherein a malicious program can cause a targeted memory cell to change its content, resulting in data corruption or a system crash. In recent years, Rowhammer attacks have become increasingly popular, as attackers can exploit them to gain access to otherwise secure systems or networks.
 
-## Rowhammer Architectural Risk Analysis 
+## Mitigation
 
-## Architectural Risk Analysis of Rowhammer Attack Vulnerability
+1. **ECC Memory**: Use Error-Correcting Code (ECC) memory in devices. ECC memory can detect and correct bit flips, which are the basis of the Rowhammer attack;
+
+2. **Memory Refresh Rates**: Increase the memory refresh rates. This can reduce the chance of bit flips occurring;
+
+3. **Rowhammer-proof DRAM**: Use newer DRAM modules that have built-in mitigations against Rowhammer. Some manufacturers have started to produce DRAM that is resistant to Rowhammer attacks;
+
+4. **Software Guard Extensions (SGX)**: Use Intel's SGX or similar technologies to protect sensitive data in memory;
+
+5. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers;
+
+6. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules;
+
+7. **Regular Audits and Penetration Testing**: Regularly conduct security audits and penetration testing to identify and fix any security vulnerabilities;
+
+8. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
+
+9. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+
+## Rowhammer Architectural Risk Analysis 
 
 The Common Vulnerability Scoring System (CVSS) v3.1 is used to provide an architectural risk analysis of the Rowhammer attack vulnerability.
 
-| Base Vector | Metrics | Details | Value |
-| --- | --- | --- | --- |
-| Access Vector | AV:N | Local | 0.85 | 
-| Access Complexity | AC:L | Low | 0.77 | 
-| Privileges Required | PR:N | None | 0.85 | 
-| User Interaction | UI:N | None | 0.85 | 
-| Scope | S:U | Unchanged | 0.00 |  
-| Confidentiality Impact | C:H | High | 0.56 | 
-| Integrity Impact | I:N | None | 0.85 | 
-| Availability Impact | A:N | None | 0.85 |
-| Exploit Code Maturity | E:F | Functional | 0.96 | 
-| Remediation Level | RL: OF | Official Fix | 0.90 |
-| Report Confidence | RC: UC | Unknown Confidence | 0.90 |
+| **Factor**                                    | **Description**                                                                                                                                      | **Value**                                     |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                         | Local   (Requires physical access to the device or malicious app)                                                                                    | Local   (L)                                   |
+| Attack   Complexity (AC):                     | High   (Requires specialized knowledge and potentially custom malware)                                                                               | High   (H)                                    |
+| Privileges   Required (PR):                   | Varies   (Depends on the attack method, could be user-level)                                                                                         |         Low (L) to High (H)                   |
+| User   Interaction (UI):                      | Varies   (Might require user interaction to initiate the attack)                                                                                     | Optional   (O)                                |
+| Scope   (S):                                  | Data   Corruption (attacker can potentially corrupt application data)                                                                                | Data   Loss (DL)                              |
+| Confidentiality   Impact (C):                 | High   (Corrupted data might reveal confidential information)                                                                                        | High   (H)                                    |
+| Integrity   Impact (I):                       | High   (Corrupted data can lead to unexpected behavior)                                                                                              | High   (H)                                    |
+| Availability   Impact (A):                    | High   (Corrupted data might render the application unusable)                                                                                        | High   (H)                                    |
+| Base   Score (assuming High for all impacts): | 0.85   * (AV:L/AC:H/PR:L/UI:O) * (S:DL/C:H/I:H/A:H)                                                                                                  | 9.0   (Critical)                              |
+| Temporal   Score (TS):                        | Public   exploit code available for specific devices?                                                                                                |         Depends on exploit availability       |
+| Environmental   Score (ES):                   | Depends   on device hardware security features (memory error correction), application   security measures (data validation), user awareness training | Varies                                        |
+| Overall   CVSS Score                          | Base   Score + TS + ES                                                                                                                               |         Varies (Depends on TS & ES)           |
+| Risk   Rating                                 | High   to Critical (Depends on TS & ES)                                                                                                              | High   to Critical                            |
 
-Therefore, the CVSS v3.1 Base Score is **6.5** which is considered medium severity risk.
+**Overall, Rowhammer poses a high to critical risk for mobile cloud-based applications that hold user's confidential data. A combined approach with secure hardware, application security practices, and user education can significantly reduce the risk.**
 
-## Rowhammer Attack Tree 
+## Rowhammer Attack Tree Diagram
 
 ![alt text](attack_models/Rowhammer_Attack_Tree.JPG)
-
-# RF Interference on RFIDs
-
-## Overview 
-
-RF Interference on RFIDs attack is a type of attack that disrupts the communication between RFID tags and readers by generating unwanted signals in the same frequency band. This can cause performance degradation, misinterpretation, or loss of information for the RFID system. RF interference can be caused by natural or manmade sources, such as lightning, solar flares, power lines, microwave ovens, or other wireless devices. It can also be caused by intentional jamming operations that aim to prevent or sabotage the RFID system.
-
-RF interference attacks aim to disrupt or block the communication between the RFID reader and the RFID tag, thereby preventing the successful reading or writing of data. These attacks exploit vulnerabilities in the RFID system's communication protocols and can have various motivations, including unauthorized access, data theft, or sabotage.
-
-## RF Interference on RFIDs Architectural Risk Analysis
-
-Architectural Risk Analysis of RF Interference on RFIDs Vulnerability, according to the Common Vulnerability Scoring System (CVSS) v3.1, presented in a table format:
-
-| **CVSS Metric**      | **Description**                                     | **Value** |
-|----------------------|-----------------------------------------------------|-----------|
-| Attack Vector (AV)   | Network                                             | N         |
-| Attack Complexity (AC) | Low                                                  | L         |
-| Privileges Required (PR) | None                                               | N         |
-| User Interaction (UI) | None                                                | N         |
-| Scope (S)            | Unchanged                                           | U         |
-| Confidentiality Impact (C) | None                                              | N         |
-| Integrity Impact (I) | None                                                | N         |
-| Availability Impact (A) | High                                               | H         |
-| **CVSS Base Score**   |                                                     | 7.5       |
-| **CVSS Vector**       |                                                     | AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H |
-
-The CVSS Base Score for the RF interference on RFIDs vulnerability is 7.5 (High). It reflects the impact on the availability of the RFID system while indicating that there is no direct impact on confidentiality or integrity.
-
-It is essential for organizations to address this vulnerability by implementing appropriate countermeasures to mitigate the risks associated with RF interference attacks. Countermeasures may include frequency hopping, encryption, authentication, and signal monitoring. These measures can help reduce the likelihood and impact of successful exploits, enhancing the security and reliability of RFID systems.
-
-![alt text](attack_models/Interference_On_RFID_Attack_Tree.JPG)
-
-# Node Tampering Attack 
-
-Node tampering is a type of malicious activity that involves using administrator-level access to modify the configuration of a node within a distributed system in order to gain an advantageous or illegal position. It can be used to bring down a network, access confidential data, or bypass security protocols. Node tampering can also be used to alter the functioning of a node or to access privileged resources on the node. 
-
-By tampering with a node, attackers may gain access to the node's resources or disrupt the node's functioning, resulting in a network outage or data leakage. Node tampering can also be used for malicious purposes, such as gaining access to a node's confidential resources or records. 
-
-Node tampering is a serious problem, as it can have potentially devastating consequences for a distributed system. It is important to ensure that nodes within a distributed system are properly protected from this kind of malicious activity. Security protocols should be regularly implemented and routinely monitored to detect malicious activity and take the necessary steps to protect the system from potential damage.
-
-## Node Tampering Architectural Risk Analysis: 
-
-## Node Tampering Attack Vulnerability
-
-**Attack Vector (AV):** Network (N)
-
-**Attack Complexity (AC):** Low (L)
-
-**Privileges Required (PR):** None (N)
-
-**User Interaction (UI):** None (N)
-
-**Scope (S):** Changed (C)
-
-**Confidentiality Impact (C):** High (H)
-
-**Integrity Impact (I):** High (H)
-
-**Availability Impact (A):** None (N)
-
-**CVSS v3.1 Base Score:** 9.8
-
-**CVSS Vector String:** AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N
-
-## Node Tampering Attack 
-
-![alt text](attack_models/Node_Tampering_Attack_Tree.JPG)
-
-# RFID Spoofing Injection Attack 
-
-RFID Spoofing attack is a type of cyber attack in which an attacker uses a fake RFID identifier to gain access to a secured area or system without the right clearance. The malicious entity then uses the fake ID to gain access to resources it wouldn’t normally be able to access. This type of attack can be used to alter a person’s identity or to commit fraud by copying an existing ID or creating a completely new one without the user's knowledge.
-
-This type of attack can be particularly damaging and difficult to detect since the attacker can disguise himself/herself as an existing RFID tag. The attacker can also modify existing RFID tags and manipulate data in order to use them for unauthorized access. 
-
-RFID Spoofing attack is a type of attack that is hard to detect because it requires a specialized skillset, making it difficult to correctly identify and stop the attacker. It is important to make sure that all RFID tags are encrypted and that authentication and access control systems are implemented correctly in order to protect against this type of attack.
-
-## RFID Spoofing Attack Architectural Risk Analysis: 
-
-###### RFID Spoofing Attack Vulnerability 
-**Common Vulnerability Scoring System v3.1**
-
-| Category  | Score |
-| ------------- | ------------- |
-| Attack Vector  |  Network (AV:N)  |
-| Attack Complexity  | Low (AC:L)  |
-| Privileges Required | Low (PR:L)  |
-| User Interaction  | None (UI:N)  |
-| Scope  | Unchanged (S:U)  |
-| Confidentiality Impact | High (C:H)  |
-| Integrity Impact | None (I:N)  |
-| Availability Impact | None (A:N)  |
-
-**CVSS v3.1 Base Score:** 6.0 (Medium)
-
-## RFID Spoofing Injection Attack 
-
-![alt text](attack_models/RFID_Spoofing_Attack_Tree.JPG)
-
-# RFID Cloning Injection Attack 
-
-RFID Cloning Attack is a type of attack in which an attacker can copy the data stored in an RFID (radio frequency identification) tag or device, such as a passport, credit card, or access card, for unauthorized usage. The attacker uses an RFID reader to intercept the communication between the RFID device and the legitimate reader, allowing the attacker to extract the stored data. This data can then be used to forge a duplicate RFID tag or device with cloned information, which can then be used for fraud or other malicious activities.
-
-## RFID Cloning Attack Architectural Risk Analysis: 
-
-# RFID Cloning Attack Vulnerability : Architectural Risk Analysis
-
-Common Vulnerability Scoring System v3.1 (CVSS v3.1) provides a score to quantify the severity of security vulnerabilities. The following is an architectural risk analysis of an RFID cloning attack vulnerability using CVSS v3.1. 
-
-Base Score: 8.6
-
-## Impact Score (6.4)
-
-**Confidentiality Impact**: High (C:H)
-
-An RFID cloning attack can allowed attackers to gain access to sensitive and confidential information stored on the RFID tag.
-
-**Integrity Impact**: Medium (I:M)
-
-An RFID cloning attack can allow attackers to modify data stored on the RFID tag, potentially leading to data corruption.
-
-**Availability Impact**: Low (A:L)
-
-An RFID cloning attack can lead to the RFID tag becoming temporarily unavailable, but is unlikely to result in permanent unavailability.
-
-## Exploitability Score (2.2)
-
-**Attack Vector**: Physical (AV:P)
-
-An RFID cloning attack requires physical access to the device.
-
-**Attack Complexity**: Low (AC:L)
-
-The complexity of the attack is low, as the attack requires no specialized knowledge or tooling. 
-
-**Privileges Required**: None (PR:N)
-
-The attacker does not need any special privileges to carry out the attack.
-
-**User Interaction**: None (UI:N)
-
-No user interaction is required in order to initiate and carry out the attack. 
-
-## Scope Score (1.4)
-
-**Changed Scope**: Unchanged (S:U)
-
-The attack does not involve any changes to the scope of the vulnerability, as it does not affect or alter the system in any way.
-
-## Remediation Level Score (1) 
-
-**Remediation Level**: Official Fix (RL:OF)
-
-An official and permanent fix is available for the vulnerability.
-
-## Report Confidence Score (1)
-
-**Confidence**: Confirmed (RC:C)
-
-The vulnerability has been independently confirmed and reproduced.
-
-## RFID Cloning Injection Attack 
-
-![alt text](attack_models/RFID_Cloning_Attack_Tree.JPG)
-
-# RFID Unauthorized Access Attack 
-
-RFID Unauthorized Access attack is a type of security attack that refers to the use of radio waves to gain unauthorized access to an RFID-enabled system. Attackers using this type of attack leverage the radio waves emitted by an RFID-enabled device to read, modify, or delete data stored on tags or other components in the system. This attack can be used to gain access to sensitive information, such as personal identifiers or financial data, without the knowledge of the device's user. Additionally, it can be used to disrupt or damage the system.
-
-In order to prevent against RFID Unauthorized Access attacks, organizations should take measures to protect their RFID-enabled devices. These measures could include implementing frequent data encryption, implementing access controls, ensuring that only authorized personnel are allowed access to the system, and regularly patching systems against known vulnerabilities. Additionally, organizations should be aware of potential physical threats, such as the use of RFID jammers, and take steps to prevent and identify such attacks.
-
-## RFID Unauthorized Access Attack Architectural Risk Analysis: 
-
-| Attack Vector |  Attack Complexity |Privileges Required |  User Interaction|  Scope  |  Confidentiality Impact  | Integrity Impact  | Availability Impact  | 
-|---------------|-------------------|--------------------|------------------|--------|-------------------------|-------------------|----------------------|
-|Network (e.g. Remote)| Low |  None |  None |  Changed |  Low  |  Low  | Low |
-
-**CVSS v3(Base Score: 4.3):**
-
-**AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L**
-
-
-Impact:
-
-This RFID unauthorized access attack vulnerability has a low CVSS score of 4.3. It could result in a low confidentiality, integrity and availability impact. This means that the attack could allow someone to gain unauthorized access and use of a system, jeopardizing confidentiality, integrity and availability of the system. However, this vulnerability does not have a high risk of causing significant harm to the system.
-
-## RFID Unauthorized Access Attack 
-
-![alt text](attack_models/RFID_Unauthorized_Access_Attack_Tree.JPG)
 
 # Orbital Jamming Attacks
 
@@ -1371,47 +1258,60 @@ This is a DoS attack that targets the communication satellites, using a rogue up
 
  This type of attack targets low-orbit satellites because, although these low-orbit satellites are attractive due to the low power levels required for communications links from terrestrial terminals, they can also be vulnerable to jamming attacks when used in some applications. In fact, a jammer of reasonable power could easily saturate the RF front-end of a low-orbit satellite, resulting in disabling the link across the entire frequency band. 
 
+## Techniques
+
+1. **Satellite Signal Interference**:
+ * Continuous Wave (CW) Jamming: Emit a constant RF signal at the satellite’s frequency;
+ * Swept-Frequency Jamming: Vary the jamming frequency across a range;
+ * Pulsed Jamming: Intermittently transmit RF pulses.
+2. **Geolocation Spoofing**:
+ * Transmit false location information to confuse satellite receivers.
+3. **Selective Jamming**:
+ * Target specific frequency bands (e.g., GPS, communication, weather).
+
+## Consequences
+
+1. **Communication Disruption:** 
+ * Interrupt satellite communication links (e.g., military, civilian, emergency services);
+ * Impact global navigation systems (e.g., GPS).
+2. **Military Implications**:
+ * Degrade situational awareness;
+ * Compromise command and control operations.
+
+## Mitigation
+
+1. **Diversification of Communication Channels:** Use multiple communication channels and frequencies. If one channel is jammed, the system can switch to another;
+2. **Spread Spectrum Techniques:** Spread Spectrum techniques such as Frequency Hopping Spread Spectrum (FHSS) and Direct Sequence Spread Spectrum (DSSS) can be used to resist jamming attacks;
+3. **Encryption and Authentication:** Use strong encryption and authentication methods to ensure that only legitimate users can access the system;
+4. **Geolocation:** Use geolocation to identify the location of the jamming source and take appropriate action;
+5. **Power Control:** Adjust the power levels of the communication signals to minimize the impact of jamming;
+6. **Redundancy:** Use redundant systems and networks to ensure availability even in the event of a jamming attack;
+7. **Regular Monitoring and Incident Response:** Regularly monitor the system for signs of jamming and have an incident response plan in place.
+
 ## Architectural Risk Analysis of Orbital Jamming Vulnerability
 
 The orbital jamming attack targets satellite communication systems and poses significant risks. Let’s analyze it using the Common Vulnerability Scoring System (CVSS) v3.1:
 
-### Overview
-
-**Objective**: Disrupt or degrade satellite communication, navigation, or reconnaissance capabilities.
-**Method**: Emit powerful radio frequency (RF) signals toward the targeted satellite.
-**Impact**: Can interfere with satellite signals, rendering them unreliable or unusable.
-
-### Techniques
-
-**Satellite Signal Interference**:
-Continuous Wave (CW) Jamming: Emit a constant RF signal at the satellite’s frequency.
-Swept-Frequency Jamming: Vary the jamming frequency across a range.
-Pulsed Jamming: Intermittently transmit RF pulses.
-**Geolocation Spoofing**:
-Transmit false location information to confuse satellite receivers.
-**Selective Jamming**:
-Target specific frequency bands (e.g., GPS, communication, weather).
-
-### Consequences
-
-**Communication Disruption**:
-Interrupt satellite communication links (e.g., military, civilian, emergency services).
-Impact global navigation systems (e.g., GPS).
-**Military Implications**:
-Degrade situational awareness.
-Compromise command and control operations.
-
-### Mitigation Strategies
-
-**Frequency Hopping**:
-Use spread spectrum techniques to change frequencies rapidly.
-Makes jamming more difficult.
-**Satellite Diversity**:
-Deploy multiple satellites to reduce reliance on any single one.
-Enhances system resilience.
-**Anti-Jamming Algorithms**:
-Implement algorithms to detect and mitigate jamming.
-Adaptively switch frequencies.
+| **Metric**                        | **Description**                                                    | **Value** |
+|-----------------------------------|--------------------------------------------------------------------|-----------|
+| Base                              |                                                                    |           |
+| CVSS ID                           | (placeholder, assigned by vulnerability reporting authority)       |           |
+| Attack Vector (AV)                | Network (physical)                                                 | N         |
+| Attack Complexity (AC)            | Low. Orbital jamming requires specialized equipment and knowledge. | L         |
+| Privileges Required (PR)          | None. Attacker does not need privileges on the target system.      | N         |
+| User Interaction (UI)             | None. User action is not required to exploit the vulnerability.    | N         |
+| Scope (S)                         | Confidentiality, Availability                                      | C,A       |
+| Confidentiality Impact (CI)       | High. Sensitive user data can be intercepted.                      | H         |
+| Integrity Impact (II)             | None. Orbital jamming does not modify data.                        | N         |
+| Availability Impact (AI)          | Medium. Users may be unable to access the application.             | M         |
+| Threat                            | (default values used as likelihood is difficult to assess)         |           |
+| Exploitability Ease (PE)          | High                                                               | H         |
+| Exploit Code Maturity (EC)        | Not defined                                                        | X         |
+| Impact Modifiers (MOD)            | None                                                               |           |
+| Environmental                     | (consider specific environment when assigning values)              |           |
+| Security Requirements (SR)        | Low. Limited security controls in place to prevent jamming.        | L         |
+| Collateral Damage Potential (CDP) | Low. Disruption limited to application functionality.              | L         |
+| Other Environmental Factors (O)   | None                                                               |           |
 
 *Remember, addressing orbital jamming vulnerabilities is crucial for maintaining reliable communication and navigation.*
 
@@ -1421,7 +1321,7 @@ Adaptively switch frequencies.
 1. [CAPEC-559: Orbital Jamming](https://capec.mitre.org/data/definitions/559.html).
 2. Weerackody, V., 2021. Satellite diversity to mitigate jamming in leo satellite mega-constellations, in: 2021 IEEE International Conference on Communications Workshops (ICC Workshops), IEEE, Montreal, QC, Canada. pp. 1–6. doi:10.1109/ICCWorkshops50388.2021.9473519.
 
-## Orbital Jamming Attack Tree
+## Orbital Jamming Attack Tree Diagram
 
 
 ![alt text](attack_models/Orbital_Jamming_Attack_Tree.JPG)
@@ -1440,59 +1340,36 @@ In such an attack scenario, the attacker aims to steal or steal sensitive data f
 * **Method**: Attackers intercept legitimate NFC payment data and replay it later.
 * **Impact**: Can lead to unauthorized transactions, financial losses, and compromised user trust.
 
-## Mitigation Strategies
+## Mitigation
 
-* Cryptographic Protections;
-* Transaction Verification;
-* User Awareness.
-
+1. **Unique Transaction IDs:** Each transaction should have a unique ID that is used only once. This can prevent an attacker from replaying a previous transaction;
+2. **Time Stamping:** Implement time stamping of transactions. If the timestamp is too old, the transaction can be rejected.
+Secure Communication: Use secure communication protocols such as Secure NFC, which provides encryption and message integrity checks;
+3. **Payment Tokenization:** Use payment tokenization to replace sensitive card data with a non-sensitive equivalent, known as a token. The token is unique to each transaction and has no value if stolen;
+4. **User Confirmation:** Always ask for user confirmation before processing a payment. This can prevent unauthorized transactions;
+5. **Regular Updates and Patches:** Keep your systems and software up-to-date. Regular updates and patches can fix known vulnerabilities that could be exploited by NFC Payment Replay attacks.
 
 ## Architectural Risk Analysis of NFC Payment Replay Vulnerability
 
-The NFC Payment Replay Attack threatens the trust and security of digital wallets and contactless payment systems. Let’s assess this vulnerability using the Common Vulnerability Scoring System (CVSS) v3.1:
 
-### CVSS Metrics
-1. **Base Score**:
-* **Attack Vector (AV)**: Network (N)
-* **Attack Complexity (AC)**: Low (L)
-* **Privileges Required (PR)**: None (N)
-* **User Interaction (UI)**: None (N)
-* **Scope (S)**: Unchanged (U)
-* **Confidentiality Impact ©**: High (H)
-* **Integrity Impact (I)**: Low (L)
-* **Availability Impact (A)**: None (N)
-* **Base Score**: 7.5 (High)
-2. **Temporal Score**:
-* **Exploit Code Maturity (E)**: Unproven (U)
-* **Remediation Level (RL)**: Official Fix (O)
-* **Report Confidence (RC)**: Confirmed ©
-* **Temporal Score**: 7.5 (High)
-3. **Environmental Score**:
-* **Modified Attack Vector (MAV)**: Network (N)
-* **Modified Attack Complexity (MAC)**: Low (L)
-* **Modified Privileges Required (MPR)**: None (N)
-* **Modified User Interaction (MUI)**: None (N)
-* **Modified Scope (MS)**: Unchanged (U)
-* **Modified Confidentiality (MC)**: High (H)
-* **Modified Integrity (MI)**: Low (L)
-* **Modified Availability (MA)**: None (N)
-* **Environmental Score**: 7.5 (High)
-### Risk Assessment
-* **Severity**: High
-* **Impact**: Data theft, credential compromise
-* **Exploitability**: Low
-* **Remediation Level**: Official Fix
-* **Report Confidence**: Confirmed
-
-
-*Remember, securing NFC payments requires a combination of technical safeguards and user vigilance*. 📲💳
+| **Factor**                                  | **Description**                                                                    | **Value**                        |
+|---------------------------------------------|------------------------------------------------------------------------------------|----------------------------------|
+| Attack   Vector (AV):                       | Physical   (Requires physical proximity to capture and replay data)                | Physical   (L)                   |
+| Attack   Complexity (AC):                   | Medium   (Requires specialized tools and knowledge to capture and replay data)     | Medium   (M)                     |
+| Privileges   Required (PR):                 | None   (Attacker needs to be near the user during transaction)                     | None   (N)                       |
+| User   Interaction (UI):                    | None   (User interaction initiates the vulnerable transaction)                     | None   (N)                       |
+| Scope   (S):                                | Fraudulent   Transaction (attacker can potentially initiate unauthorized payments) |         Financial Loss (F)       |
+| Confidentiality   Impact (C):               | Low   (Payment data itself might be anonymized tokens)                             | Low   (L)                        |
+| Integrity   Impact (I):                     | High   (Attacker can potentially manipulate transaction data)                      | High   (H)                       |
+| Availability   Impact (A):                  | Low   (Doesn't affect overall application functionality)                           | Low   (L)                        |
+| Base   Score (assuming High for Integrity): | 0.85   * (AV:L/AC:M/PR:N/UI:N) * (S:F/C:L/I:H/A:L)                                 | 5.9   (Medium)                   |
 
 
 ## References
 
 1. Njebiu, V., Kimwele, M., Rimiru, R., 2021. Secure contactless mobile payment system, in: 2021 IEEE Latin-American Conference on Communications (LATINCOM), IEEE, Santo Domingo, Dominican Republic. pp. 1–6. doi:10.1109/LATINCOM53176.2021.9647831.
 
-## NFC Payment Replay Attacks Tree
+## NFC Payment Replay Attacks Tree Diagram
 
 
 ![alt text](attack_models/NFC_Payment_Replay_Attack_Tree.JPG)

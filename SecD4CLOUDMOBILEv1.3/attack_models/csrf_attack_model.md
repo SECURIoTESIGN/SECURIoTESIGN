@@ -1,60 +1,50 @@
+# Cross Site Request Forgery Attacks
 
+Cross-Site Request Forgery (CSRF) is an attack that forces an end user to perform unwanted actions in an application in which they are currently authenticated.
 
-## CSRF Arquitectural Risk Analysis: 
+## Definition
+The purpose of this type of attack is to change state and not to steal data, since the attacker is prevented from seeing the response to the falsified request. The necessary for this type of attack to succeed is the existence of permission to make changes via GET requests.
 
-## Architectural Risk Analysis of CSRF Vulnerability
-
-####Description 
-
-Cross-Site Request Forgery (CSRF) is a type of attack which occurs when a malicious website, email, or message causes the victim’s web browser to perform an unwanted action on a trusted site. It means that the malicious website can trick the user's browser into sending a malicious request to the vulnerable site without the user's knowledge.
-
-####Scoring
-
-| Category | Metric | Value |
-| --- | --- | --- |
-| Exploitability | Attack Vector | Network |
-| Exploitability | Attack Complexity | Low | 
-| Exploitability | Privileges Required | None | 
-| Exploitability | User Interaction | Required | 
-| Impact | Scope | Changed | 
-| Impact | Confidentiality | Low |
-| Impact | Integrity | Low | 
-| Impact | Availability | None |
-
-####Risk Score 
-
-A risk score of 2.6 (from 0.0 to 10.0) is calculated according to the Common Vulnerability Scoring System v3.1.
-
-####Mitigation Strategies
+## Mitigation Strategies
 
 Strict measures should be taken to ensure that the web application is not vulnerable to the CSRF attack. The following approaches can be taken for protecting against CSRF attack:
 
-1. Implement Cross-Site Request Forgery tokens.
-2. Use Same-Site Cookies.
-3. Use Captcha. 
-4. Set HTTP headers like X-Frame-Options, X-XSS-Protection and Content-Security-Policy.
-5. Implement Post/Redirect/Get design to all requests.
-6. Use one-time tokens while sending forms.
-7. Use JavaScript token validation.
-8. Validate each request on server side.
+1. **Use of Anti-CSRF Tokens**: Implement anti-CSRF tokens in your application. These tokens can be added to forms and AJAX calls and validated on the server. Since the token is unique for each session, it makes it difficult for an attacker to forge a request.
+
+2. **Same-Site Cookies**: Use SameSite cookie attribute which allows you to declare if your cookie should be restricted to a first-party or same-site context. This can help to prevent CSRF attacks by making it impossible for a browser to send a cookie along with cross-site requests.
+
+3. **Checking HTTP Headers**: Many CSRF attacks are done via AJAX from a different domain, which typically don't include certain headers that are included in same-domain requests. Checking for these headers on the server can be a good way to block CSRF attacks.
+
+4. **User Interaction**: Require user interaction for sensitive actions. For example, you could require the user to re-enter their password or use a CAPTCHA.
+
+5. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
+
+6. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules.
+
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission.
+
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
 ## CSRF Arquitectural Risk Analysis: 
 
-### Arquitectural Risk Analysis for CSRF Vulnerability
-
 In accordance with Common Vulnerability Scoring System (CVSS) v3.1, the arquitectural risk analysis of cross site request forgery (CSRF) vulnerability will focus on the following metrics:
 
-| Metric | Score |
-|-------|------|
-| Attack Vector | Network (AV:N) |
-| Attack Complexity | Low (AC:L) |
-| Privileges Required | None (PR:N) |
-| User Interaction | None (UI:N) |
-| Scope | Changed (S:C) |
-| Confidentiality | None (C:N) |
-| Integrity | None (I:N) |
-| Availability | None (A:N) |
+| **Factor**                  | **Description**                                                                                                    | **Value**                           |
+|-----------------------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| Attack Vector (AV):         | Network                                                                | Network (N)                         |
+| Attack Complexity (AC):     | Low                                                                | Low (L)                             |
+| Privileges Required (PR):   | None                                                                   | None (N)                            |
+| User Interaction (UI):      | Required                                            | Required (R)                        |
+| Scope (S):                  | Unchanged                                     | Unauthorized Access (U)             |
+| Confidentiality Impact (C): | High                                                            | High (H)                            |
+| Integrity Impact (I):       | High                                                                              | High (H)                            |
+| Availability Impact (A):    | Medium                                   | Medium (M)                          |
+| Base Score:                 | High                                                                   | 7.1 (High) |
+| Risk Rating                 | Based on Overall CVSS Score                                                                                        | High (Depends on TS & ES) |
  
-This risk is classified as a **CVSS v3.1 Base Score of 6.4**, with a **High Vector Severity (VSR) of 6.4**. The high vector severity indicates that the vulnerability has a high potential for exploitation and should be addressed with an urgency. 
-
+The high vector severity indicates that the vulnerability has a high potential for exploitation and should be addressed with an urgency. 
 This risk should be remediated immediately, as exploiting the vulnerability may result in malicious code execution, data manipulation/corruption, and other undesired system behaviors. It is recommended to implement mitigating technologies, such as input and output validation, content security policies, and request tokens to reduce the risk associated with this vulnerability.
+
+## CSRF Attack Tree Diagram

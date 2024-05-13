@@ -2,46 +2,24 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Platform          |  Android App ; IoT System                                    |  
+|  Mobile Platform          |  iOS App                                                     |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
-|  Storage Location         |  Both                                                        |  
+|  Storage Location         |  Remote Storage (Cloud Database)                             |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Type of Registration     |  Will be an administrator that will register the users       |  
+|  Programming Languages    |  C/C++/Objective-C                                           |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
+|  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
-|  Hardware Specification   |  Yes                                                         |  
-|  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
-|  Device or Data Center Physical Access|  Yes                                                         |  
-|  Mobile Platform          |  Android App ; IoT System                                    |  
-|  Application domain type  |  m-Health                                                    |  
-|  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
-|  Has DB                   |  Yes                                                         |  
-|  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  MySQL                                                       |  
-|  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
-|  Storage Location         |  Both                                                        |  
-|  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
-|  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
-|  The system has logs      |  Yes                                                         |  
-|  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
 |  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
@@ -281,129 +259,6 @@ System | Black-box | Static | Integration Testing | UML | iOS
 Security | Gray-box | Hybrid | Security Testing | Fuzzing Tool | Windows Phone
 Performance | White-box | Dynamic | Regression Testing |Apache jMeter | Cross Platform
 
-# Testing the Malicious Insider Attack 
-
-**Testing Malicious Insider Attacks**
-
-1. Monitor user behavior: Organizations should monitor user behavior for unusual activity and behavior, such as sudden spikes in data transfer or download activity or an increase in requests for data that would be outside of the user’s normal job roles.
-
-2. Physical security: Organizations should ensure that physical access to systems is limited to authorized personnel and that access controls are regularly reviewed and updated.
-
-3. Conduct network access reviews: Regularly reviewing user access to resources and data can uncover potential malicious insiders.
-
-4. Educate users on security: End users should be educated on security policies and procedures to ensure they understand the risks associated with malicious insider activity and understand how to protect themselves and the organization.
-
-5. Network segmentation: Segmenting networks into different access tiers can limit the reach of malicious insiders.
-
-6. Implement data encryption: Access to data should be encrypted to reduce the potential damage of a malicious insider attack.
-
-7. Monitor access logs: Organizations should monitor user access logs to detect any unauthorized access to sensitive data or resources.
-
-8. Use two-factor authentication: Organizations should implement two-factor authentication for accessing sensitive systems and data.
-
-## Testing Tools: 
-
-| Target Testing | Testing Technique | Test Analysis | Test Method | Test Tool | Mobile Platform |
-|---|---|---|---|---|---|
-| Malicious Insider Attacks | White-Box | Dynamic | Fuzzing | Sulley | iOS NeuroMobi |
-|  | Grey-Box | Static | Penetration | Nessus | Android DroidRox |
-|  | Black-Box | Hybrid  | Risk Assessment | Burp Suite | Windows Pranker |
-
-# Testing the Sniffing Attack 
-
-To detect sniffing attacks, the following steps should be followed:
-
-1. Monitor Network Activity:  Monitor your network for unusually high levels of traffic, and compare it to what is normal. High amounts of traffic can indicate malicious activity.
-
-2. Perform Packet Capture: Use packet capture techniques such as port mirroring or port spanning to monitor all the packets that travel between two locations or over a network. This will allow you to analyze the data in detail and detect any malicious activity.
-
-3. Track Source IP Addresses: Track the source IP addresses of incoming packets to determine any suspicious activity. Malicious IPs can be blocked and monitored later.
-
-4. Compare Protocols: Compare the protocols used in the captured network traffic. If any unusual or unfamiliar protocols are used, the traffic should be investigated further.
-
-5. Utilize Intrusion Detection Systems (IDS): Utilize Intrusion Detection Systems (IDS) to detect any anomalies in the network traffic. IDS systems analyze packets in real-time and look for any suspicious activity.
-
-6. Use Network Scanning Tools: Utilize tools such as Nmap to identify open ports, services and vulnerabilities that need to be patched.
-
-7. Use Antivirus Software: Use antivirus software to detect and prevent malicious activity. Antivirus software should be updated regularly for maximum protection.
-
-8. Implement Encryption: Encrypt data before sending it over a network. This will prevent malicious actors from decrypting and accessing confidential data.
-
-## Testing Tools: 
-
-| Target Testing | Testing Technique | Test Analysis   | Test Method    | Test Tool          | Mobile Platform |
-| ------------- | ---------------- | -------------- | -------------- |------------------ | ----------------|
-| Network       | White-box        | Dynamic        | Network Sniffer| Wireshark/Ethereal | None            |
-| Network       | Grey-box         | Dynamic        | Network & Host | Nmap              | None            |
-| Network       | Grey-box         | Dynamic        | Protocol Tests | Ncat              | None            |
-| Host          | White-box        | Static         | File Scanning  | NESSUS            | None            |
-| Host          | Grey-box         | Hybrid         | Application    | Burp Suite        | iOS/Android     |	  
-| Application   | Black-box        | Dynamic        | Code Analysis  | FindBugs          | iOS/Android     |
-
-# Testing the Man-in-the-Middle Attack 
-
-### Testing Man-in-the-Middle Attack
-
-1. Set up a virtual network using a virtual machine or other virtual environment.
-
-2. Place a malicious node between two unsuspecting hosts within the same network.
-
-3. Configure the malicious node to intercept and redirect all traffic it receives from the unsuspecting hosts.
-
-4. Verify that the malicious node is effectively intercepting the data, by attempting to ping or connect to one of the unsuspecting hosts.
-
-5. Attempt to gain access to data that is flowing through the malicious node.
-
-6. Monitor the node for malicious activity.
-
-7. Analyze the data logs to identify any suspicious activity.
-
-7. Remove the malicious node from the environment.
-
-8. Change any credentials, passwords, or other information that was intercepted.
-
-9. Monitor the environment for any further malicious activity.
-
-## Testing Tools: 
-
-| Target Testing      | Testing Technique    | Test Analysis      | Test Method         | Test Tool                     | Mobile Platform |
-|--------------------|---------------------|-------------------|--------------------|-------------------------------|----------------|
-| MITM Attack        | White-box           | Dynamic           | Dynamic Analysis   | Mitmproxy, Wireshark          | Android, iOS   |
-|                    | Grey-box            | Static            | Penetration Tests  | Paros, Burp Suite             |                 |
-|                    | Black-box           | Hybrid            | Misconfiguration  | Nmap, Scapy                   |                 |
-
-# Testing the Eavesdropping Attack 
-
-Testing Eavesdropping attacks typically involve the following steps:
-
-1. Set up the environment: 
-   - Choose a testing tool (ie Wireshark, Cain & Abel, etc)
-   - Configure the network 
-
-2. Launch the attack:
-   - Use the chosen tool to monitor the traffic on the network
-   - Search for unencrypted data in transit 
-
-3. Analyze the results: 
-   - Investigate any suspicious packets to identify any confidential information
-   - Review the logs to identify any unauthorized access attempts
-
-4. Document the results: 
-   - Document any discovered confidential data and unauthorized access attempts 
-   - Present the analysis findings in a clear, organized format (Markdown is a great option) 
-   
-5. Prevent further attacks:
-   - Leverage the findings to identify any security vulnerabilities in the network 
-   - Implement appropriate security measures to protect against future eavesdropping attempts
-
-## Testing Tools: 
-
-| Target Testing    | Testing Technique | Test Analysis    | Test Method    | Test Tool    | Mobile Platform |
-| ----------------- | ---------------- | --------------- | ------------- | ------------ | ---------------|
-| Eavesdropping     | White-box        | Dynamic         | Unit Testing  | JUnit        | iOS/Android    |
-|                   | Grey-box         | Static          | Penetration   | Metasploit   |                |
-|                   | Black-box        | Hybrid          | Security      | Nmap         |                |
-
 # Testing the Access Point Hijacking Attack 
 
 1. **Reconnaissance:** Utilize network reconnaissance techniques to identify wireless access points within range. These can include passive approaches such as wireless network scanning with a tool like [Kismet](https://www.kismetwireless.net/), or active approaches such as using a tool like [Aircrack-ng](https://www.aircrack-ng.org/).
@@ -472,160 +327,6 @@ Testing GPS spoofing involves running tests to ensure that the GPS receiver is c
 |                      |                  |               |             | Burp Suite |                |
 |                      | Black-box        |               |             | Appium    |                |
 
-# Testing the RF interference on RFID Attack
-
-## Overview
-
-To test RF interference on RFID (Radio Frequency Identification) devices, you can follow these steps:
-
-1. **Understand RF Interference**: RF interference refers to the disruption or distortion of radio waves that can affect the performance of RFID systems. It can be caused by various sources such as other RF devices, electrical equipment, or environmental factors. By testing RF interference, you can identify potential vulnerabilities in RFID systems.
-
-2. **Select a Test Environment**: Set up a controlled test environment where you can simulate different interference scenarios. Ensure that the environment is free from external RF signals that could interfere with the test results. You may use an isolated room or shielded enclosure to minimize external interference.
-
-3. **Choose Test Equipment**: Select appropriate test equipment for generating RF interference. This may include RF signal generators, power amplifiers, attenuators, and spectrum analyzers. The specific equipment required will depend on the nature of the interference you want to simulate.
-
-4. **Identify Interference Scenarios**: Determine the types of interference scenarios you want to test. These could include intentional interference from malicious attackers or unintentional interference from nearby RF devices or equipment. Consider factors such as frequency, power level, and modulation techniques that are likely to affect the RFID system.
-
-5. **Configure the Test Setup**: Connect the RF signal generator or other interference-generating equipment to the RFID system in a controlled manner. Follow the equipment's user manuals and specifications to ensure proper setup. Set the parameters such as frequency, power level, and modulation according to the identified interference scenarios.
-
-6. **Monitor RFID System Performance**: Activate the RFID system and monitor its performance during the interference tests. Use a spectrum analyzer or other monitoring tools to observe changes in signal strength, signal-to-noise ratio, or any other relevant parameters. Record the impact of the interference on the RFID system's functionality, range, and reliability.
-
-7. **Repeat and Vary Tests**: Conduct multiple tests with different interference scenarios to evaluate the RFID system's robustness against various types of interference. Vary the interference parameters, such as frequency, power level, and modulation, to simulate realistic attack scenarios. Document the results of each test for analysis and comparison.
-
-8. **Analyze Test Results**: Review the collected data and analyze the effects of RF interference on the RFID system. Identify any weaknesses or vulnerabilities that were exposed during the tests. Consider the potential impact of interference on the system's security, data integrity, and overall performance.
-
-9. **Implement Countermeasures**: Based on the test results and analysis, develop appropriate countermeasures to mitigate the identified vulnerabilities. These countermeasures may involve implementing shielding techniques, employing encryption or authentication mechanisms, or adjusting the RFID system's operating parameters.
-
-10. **Retest and Validate**: Once countermeasures are implemented, retest the RFID system to validate the effectiveness of the countermeasures. Ensure that the system can withstand or minimize the impact of RF interference without compromising its functionality or security.
-
-By following these steps, you can effectively test RF interference on RFID systems and enhance their resilience against potential attacks.
-
-## Testing Tool
-
-| Target Testing | Testing Technique | Test Analysis | Test Method | Test Tool | Mobile Platform |
-|---------------|------------------|---------------|-------------|-----------|----------------|
-| RFID Attack   | Grey-box         | Dynamic       | Active      | RF Signal Generator, Spectrum Analyzer | Android, iOS |
-
-
-
-# Testing the Node Tampering Attack 
-
-Testing for node tampering can vary depending on the specific environment and the security measures that have been implemented. Unfortunately, there is no one-size-fits-all method for testing this type of attack. However, some of the steps that should be taken include:
-
-1. Verify that integrity checking is enabled for files transferred or stored by the node. This includes the use of checksums, signature checking, or data verification.
-
-2. Verify that the node has a robust access control policy in place and that it is continuously monitored and updated when necessary.
-
-3. Monitor system logs for suspicious activities such as unexpected node communications, node access, and attempts to modify node-installed files.
-
-4. Implement periodic scans for malicious software and malware.
-
-5. Verify that the node is configured to run only approved, signed software.
-
-6. Ensure that users are granted least access privileges necessary to perform their job duties.
-
-7. Perform periodic vulnerability scans of the node in order to identify exploitable weaknesses.
-
-8. Educate users on best security practices, such as setting strong passwords and avoiding untrusted sites or downloads.
-
-## Testing Tools: 
-
-Target Testing | Testing Technique | Test Analysis | Test Method | Test Tool | Mobile Platform
---- | --- | --- | --- | --- | ---
-Node Tampering | White-box | Dynamic | Attacker-in-the-middle | OWASP ZAP | Android, iOS
-
-# Testing the RFID Spoofing Attack 
-
-**Testing RFID Spoofing Attacks:**
-
-1. In order to test potential RFID spoofing attacks, a special device called an RFID emulator or cloner is needed. 
-2. An RFID emulator is a device that behaves and responds to an authentic RFID card or tag in the same way that a genuine RFID tag would.
-3. It is used to simulate and inject messages into a system to see how it responds. 
-4. The RFID emulator is designed to intercept and analyze the communication between an RFID reader and a tag or card. 
-5. The emulator then transmits a fake tag response, which is then seen by the reader as a legitimate tag. 
-6. By running this test, you can detect and prevent any spoofing attacks. 
-7. If the RFID reader responds as expected, then you have successfully identified any potential RFID spoofing attack.
-
-## Testing Tools: 
-
-Target Testing | Testing Technique | Test Analysis | Test Method | Test Tool | Mobile Plataform
---- | --- | --- | --- | --- | --- 
-RFID | White-box | Dynamic | Penetration Testing | Nessus | iOS
-RFID | Grey-box | Static | Fuzz Testing | OWASP Zap | Android
-RFID | Black-box | Hybrid | Security Analysis | Metasploit | iOS/Android
-
-# Testing the RFID Cloning Attack 
-
-Testing RFID cloning involves using an RFID reader to scan different identification tags to determine if there are any discrepancies. 
-
-To test RFID cloning: 
-
-1. Place the two RFID tags or cards to be tested in front of the reader. 
-
-2. Scan each tag individually using the RFID reader. 
-
-3. Compare the response data from each scan to determine if the tags match or if there is any variation. If the tags match, then the RFID cloning is successful. 
-
-4. If the scans produce different results, then the cloning attempt has failed and further investigation is needed to determine the cause. 
-
-5. After the results have been examined, reset the reader and repeat the tests with the next RFID tag. 
-
-By performing this process, it is possible to correctly identify any discrepancies in an RFID clone attempt.
-
-## Testing Tools: 
-
-| Target Testing | Testing Technique | Test Analysis | Test Method | Test Tool | Mobile Platform |
-|:-------------:|:----------------:|:------------:|:----------:|:---------:|:--------------:|
-| Design        | White-box       | Static       | Manual     | N/A       | N/A            |
-| Code          | White-box       | Static       | Manual     | N/A       | N/A            |
-| Implementation| White-Box       | Dynamic      | Automated  | FuzzyByte  | Android        |
-| Design        | Grey-box        | Static       | Manual     | N/A       | N/A            |
-| Code          | Grey-box        | Static       | Manual     | N/A       | N/A            |
-| Implementation| Grey-Box        | Dynamic      | Automated  | Peach      | iOS            |
-| Design        | Black-box       | Static       | Manual     | N/A       | N/A            |
-| Code          | Black-box       | Static       | Manual     | N/A       | N/A            |
-| Implementation| Black-Box       | Hybrid       | Automated  | Metasploit | Android        |
-
-# Testing the RFID Unauthorized Access Attack 
-
-1. **Risk Identification**  
-Identify the risks associated with RFID unauthorized access attacks, such as data leakage, disruption of services, or other forms of malicious activity.
-
-2. **Vulnerability Assessment**  
-Verify existing RFID systems by running scans, code review, and other forms of security auditing to detect any potential vulnerabilities.
-
-3. **Penetration Testing**  
-Conduct penetration testing on the system to assess the level of protection against unauthorized access attacks, by attempting to compromise the RFID system through exploiting identified vulnerabilities.
-
-4. **Monitoring**  
-Once the system is tested, create a plan to regularly monitor and audit the system to detect any suspicious activities or new vulnerabilities.
-
-5. **Response Plan**  
-Develop a response plan for when an unauthorized access attack is detected, outlining how the incident should be handled and how to respond to it.
-
-6. **Education and Awareness**  
-Educate personnel who use the RFID system on security best practices to help prevent potential unauthorized access attacks.
-
-## Testing Tools: 
-
-1. **Risk Identification**  
-Identify the risks associated with RFID unauthorized access attacks, such as data leakage, disruption of services, or other forms of malicious activity.
-
-2. **Vulnerability Assessment**  
-Verify existing RFID systems by running scans, code review, and other forms of security auditing to detect any potential vulnerabilities.
-
-3. **Penetration Testing**  
-Conduct penetration testing on the system to assess the level of protection against unauthorized access attacks, by attempting to compromise the RFID system through exploiting identified vulnerabilities.
-
-4. **Monitoring**  
-Once the system is tested, create a plan to regularly monitor and audit the system to detect any suspicious activities or new vulnerabilities.
-
-5. **Response Plan**  
-Develop a response plan for when an unauthorized access attack is detected, outlining how the incident should be handled and how to respond to it.
-
-6. **Education and Awareness**  
-Educate personnel who use the RFID system on security best practices to help prevent potential unauthorized access attacks.
-
 # Testing the Botnet Attack 
 
 Testing a Botnet attack can be done using a variety of different techniques and methods. 
@@ -678,6 +379,38 @@ Target Testing | Testing Technique | Test Analysis | Test Method | Test Tool | M
 Network | White-box | Dynamic | Traffic Simulation | Wireshark/Snort | Not Applicable 
 Application | Grey-box | Static | Code Analysis | Burp Suite/Nmap | App Scanner 
 System | Black-box | Hybrid | Exploitation | Metasploit/OWASP ZAP | XCode & Android Studio
+
+# Bufffer Overflow Attacks Testing
+
+ Buffer overflow is a type of software vulnerability that occurs when more data is written to a block of memory, or buffer, than it can hold. This excess data then overflows into adjacent memory spaces, potentially overwriting other data or causing the program to behave unpredictably.
+
+## Testing Buffer Overflow
+
+1. Identify Potential Vulnerabilities
+The first step is to identify parts of the system that could potentially be vulnerable to buffer overflow attacks. This typically involves areas where user input is accepted, especially if that input is used in the context of memory operations.
+
+2. Craft Malicious Input
+Next, you’ll need to craft malicious input designed to trigger a buffer overflow. This usually involves input that is larger than the buffer it’s written into. For example, if a buffer can hold 50 characters, you might try inputting 100 characters to see if it causes an overflow.
+
+3. Test the System
+Now it’s time to test the system. Input your crafted data and monitor the system’s response. If the system crashes, behaves unexpectedly, or allows you to execute arbitrary code, it’s likely that a buffer overflow vulnerability exists.
+
+4. Analyze the Results
+After testing, analyze the results. If a vulnerability was found, determine its severity and potential impact. This will help prioritize remediation efforts.
+
+5. Remediate Vulnerabilities
+Finally, remediate any vulnerabilities found. This could involve modifying how the program handles memory, adding bounds checks to prevent overflows, or sanitizing user input to ensure it’s within expected parameters.
+
+## Testing Buffer Overflow Tools
+
+| Target Testing    | Testing Technique | Test Analysis | Test Method         | Test Tool                | Mobile Platform |
+|-------------------|-------------------|---------------|---------------------|--------------------------|-----------------|
+| Application Layer | White-box         | Static        | Code Review         | Flawfinder               | Android, iOS    |
+| Application Layer | Grey-box          | Dynamic       | Fuzz Testing        | American Fuzzy Lop (AFL) | Android, iOS    |
+| Application Layer | Black-box         | Hybrid        | Penetration Testing | Metasploit               | Android, iOS    |
+| Network Layer     | White-box         | Static        | Code Review         | Wireshark                | Android, iOS    |
+| Network Layer     | Grey-box          | Dynamic       | Traffic Analysis    | Tcpdump                  | Android, iOS    |
+| Network Layer     | Black-box         | Hybrid        | Penetration Testing | Nmap                     | Android, iOS    |
 
 # Testing the Bypassing Physical Security Attack 
 

@@ -17,35 +17,21 @@ These types of applications are vulnerable to code injection attacks because of 
 
 ### CVSS v3.1 Metrics
 
-#### Attack Vector (AV)
-Network (N)
-
-#### Attack Complexity (AC)
-Low (L)
-
-#### Privileges Required (PR)
-None (N)
-
-#### User Interaction (UI)
-Required (R)
-
-#### Scope (S)
-Unchanged (U)
-
-#### Confidentiality (C)
-High (H)
-
-#### Integrity (I)
-High (H)
-
-#### Availability (A)
-High (H)
-
-### CVSS v3.1 Base Score
-The base score is calculated based on the above metrics. For a Code Injection vulnerability with these metrics, the base score would typically be high.
-
-### Impact
-Code Injection vulnerabilities can have a significant impact on the confidentiality, integrity, and availability of the system. An attacker could potentially execute arbitrary code, leading to unauthorized access to sensitive data, modification of data, or disruption of the service.
+| **Factor**                    | **Description**                                                                                | **Value**                                                                           |
+|-------------------------------|------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| Attack   Vector (AV):         | Network   (Exploiting application logic)                                                       | Network   (N)                                                                       |
+| Attack   Complexity (AC):     | Medium   (Requires crafting malicious input)                                                   | Medium   (M)                                                                        |
+| Privileges   Required (PR):   | None   (if vulnerability is user-facing)                                                       |         None (N) or Low (L) (if vulnerability requires some   user privilege)       |
+| User   Interaction (UI):      | Required   (User needs to provide malicious input)                                             | Required   (R)                                                                      |
+| Scope   (S):                  | Unauthorized   Access (attacker gains access to system)                                        |         Unauthorized Access (U)                                                     |
+| Confidentiality   Impact (C): | High   (access to confidential data)                                                           | High   (H)                                                                          |
+| Integrity   Impact (I):       | High   (attacker can modify data)                                                              | High   (H)                                                                          |
+| Availability   Impact (A):    | High   (attacker can disrupt application functionality)                                        | High   (H)                                                                          |
+| Base   Score:                 | 0.85   * (AV:N/AC:M/PR:N/UI:R) * (S:U/C:H/I:H/A:H)                                             | 9.0   (Critical)                                                                    |
+| Temporal   Score (TS):        | Public   exploit code available?                                                               |         Depends on exploit availability                                             |
+| Environmental   Score (ES):   | Depends   on application deployment (cloud vs on-device), user awareness, patching   practices | Varies                                                                              |
+| Overall   CVSS Score          | Base   Score + TS + ES                                                                         |         Varies (Depends on TS & ES)                                                 |
+| Risk   Rating                 | Based   on Overall CVSS Score                                                                  |         High to Critical (Depends on TS & ES)                                       |
 
 ### Mitigation
 Mitigation strategies for Code Injection vulnerabilities typically include input validation, use of parameterized queries, and least privilege principle.
@@ -55,5 +41,3 @@ Mitigation strategies for Code Injection vulnerabilities typically include input
 1. O.S., J.N., Mary Saira Bhanu, S., 2018. A survey on code injection attacks in mobile cloud computing environment, in: 2018 8th International Conference on Cloud Computing, Data Science Engineering (Confluence)IEEE, Noida, India. pp. 1–6. doi:10.1109/CONFLUENCE.2018.8443032.
 
 ## Code Injection Attacks Diagram
-
-

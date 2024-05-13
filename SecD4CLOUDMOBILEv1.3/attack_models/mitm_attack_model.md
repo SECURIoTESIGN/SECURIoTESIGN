@@ -6,25 +6,31 @@ MITM attacks are used to steal or modify data in transit, such as banking creden
 
 MITM attacks can be done through network-level attacks or application-level attacks. Network-level MITM attacks involve the hacker taking control of the entire communications path between the two hosts. Application level MITM attacks involve the hacker hacking into one of the hosts and manipulating their traffic.
 
-To protect against MITM attacks, it is important to use secure protocols such as HTTPS and SSL/TLS. It is also important to ensure that sensitive data is encrypted while in transit. Additionally, strong authentication methods should be used to authenticate users and prevent unauthorized access.
+## Mitigation
 
-## Man-in-th-Middle Architectural Risk Analysis: 
+1. **Use of HTTPS:** Always use HTTPS for all communications. HTTPS encrypts the data between the client and the server, making it difficult for a MitM attacker to read or modify the data.
+2. **Certificate Pinning:** Implement certificate pinning in your mobile applications. This involves hard coding the server’s certificate or public key within the application. The app can then verify the server’s identity by comparing the server’s certificate with the pinned certificate.
+3. **VPN:** Encourage users to use a Virtual Private Network (VPN) when connecting to your services, especially when they are using public Wi-Fi networks.
+4. **Two-Factor Authentication (2FA):** Implement 2FA to add an extra layer of security. Even if an attacker manages to intercept the user’s credentials, they would still need the second factor to gain access.
+5. **Regular Updates and Patches:** Keep your systems and software up-to-date. Regular updates and patches can fix known vulnerabilities that could be exploited by MitM attacks.
+6. **User Awareness:** Educate users about the risks of MitM attacks and how to identify potential threats. This includes training on how to recognize phishing attempts, unsafe websites, and malicious email attachments.
 
-### Overview
-Man-in-the-Middle (MITM) vulnerabilities occur when an attacker is able to intercept and modify data sent between two parties. This attack is especially dangerous as it can be used to intercept sensitive and confidential information. 
- 
-### Risk Factors
-The Common Vulnerability Scoring System (CVSS) version 3.1 measures the risk of a Man-in-the-Middle (MITM) attack along four different vectors:
+## Man-in-th-Middle Architectural Risk Analysis
 
-1. **Attack vector (AV)** : Remote
-2. **Attack complexity (AC)**: Low
-3. **Privileges required (PR)**: None
-4. **User Interaction (UI)**: None
+| **Factor**                                    | **Description**                                                                                                 | **Value**                                     |
+|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                         | Network   (Exploiting unencrypted communication)                                                                | Network   (N)                                 |
+| Attack   Complexity (AC):                     | Medium   (Requires setting up a MitM attack)                                                                    | Medium   (M)                                  |
+| Privileges   Required (PR):                   | None   (Attacker needs to intercept communication)                                                              | None   (N)                                    |
+| User   Interaction (UI):                      | None   (User doesn't need to interact with the attack)                                                          | None   (N)                                    |
+| Scope   (S):                                  | Varies   (Depends on intercepted data)                                                                          | Intercept   (I)                               |
+| Confidentiality   Impact (C):                 | High   (attacker can steal confidential data)                                                                   | High   (H)                                    |
+| Integrity   Impact (I):                       | High   (attacker can modify data in transit)                                                                    | High   (H)                                    |
+| Availability   Impact (A):                    | Medium   (attacker can potentially disrupt communication)                                                       | Medium   (M)                                  |
+| Base   Score (assuming High for all impacts): | 0.85   * (AV:N/AC:M/PR:N/UI:N) * (S:I/C:H/I:H/A:M)                                                              | 8.5   (High)                                  |
+| Temporal   Score (TS):                        | Public   exploit tools available for MitM attacks?                                                              |         Depends on exploit availability       |
+| Environmental   Score (ES):                   | Depends   on application's security practices (encryption), network security measures   (HTTPS), user awareness | Varies                                        |
 
+**Overall, a Man-in-the-Middle attack poses a significant risk to mobile cloud-based applications that hold user confidential data. Implementing strong encryption (HTTPS) for communication and educating users about secure network practices can mitigate this risk.**
 
-### Risk Score
-Based on the risk factors defined above, the risk score for a Man-in-the-Middle attack using CVSS v3.1 is 7.2. This falls under the medium risk category. 
-
-**Overall Risk Score: 7.2 (Medium)**
-
-## MiTM Attack Tree
+## MiTM Attack Tree Diagram

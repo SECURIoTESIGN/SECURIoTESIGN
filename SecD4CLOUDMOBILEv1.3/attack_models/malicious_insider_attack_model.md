@@ -2,41 +2,33 @@
 
 Malicious insider attack is when a person with authorized access to an organization's systems and networks misuses their privileges to damage the organization's information systems, applications or data. This type of attack can lead to complete system or network shutdown, data theft, fraud or other malicious activities. 
 
+## Mitigation
 The malicious insider threat is one of the most difficult threats to detect because the insider has legitimate access and is part of the organization which makes it hard to identify the malicious activity. Some of the most preventative measures organizations can take to mitigate against malicious insider attacks are: 
 
-* Implement strong access control policies and guidelines.
-* Ensure that users access only the information necessary for them to perform their job duties.
-* Limit user privileges on systems and applications.
-* Implement thorough background checks for new employees and contractors. 
-* Monitor system and user activities for abnormal behavior.
-* Securely manage and monitor privileged accounts, user credentials, and authentication protocols.
-* Automate system security compliance.
+1. **Least Privilege Principle:** Implement the principle of least privilege. Each user should have the minimum levels of access necessary to perform their job functions;
+2. **User Access Reviews:** Regularly review user access rights and privileges. This can help identify any inappropriate access rights that could be exploited by a malicious insider;
+3. **Separation of Duties:** Implement separation of duties. This can prevent any single user from having control over an entire process, making it harder for a malicious insider to cause significant damage;
+4. **Monitoring and Auditing:** Implement monitoring and auditing of user activities. This can help detect any unusual or suspicious behavior that could indicate a malicious insider;
+5. **Security Training and Awareness:** Provide regular security training and awareness programs. This can help employees understand the risks associated with their actions and encourage them to report any suspicious activities;
+6. **Incident Response Plan:** Have an incident response plan in place. This can help your organization respond quickly and effectively if a malicious insider is detected.
 
-## Malicious Insider Architectural Risk Analysis: 
+## Malicious Insider Architectural Risk Analysis
 
-**MALICIOUS INSIDER VULNERABILITY**
 
-**Common Vulnerability Scoring System v3.1** 
+| **Factor**                                  | **Description**                                                                                 | **Value**                        |
+|---------------------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------|
+| Attack Vector (AV):                         | Internal (Exploiting authorized access)                                                         | Internal (I)                     |
+| Attack Complexity (AC):                     | Low (Insider already has access)                                                                | Low (L)                          |
+| Privileges Required (PR):                   | Varies (Depends on insider's privileges)                                                        | Low (L), Medium (M), or High (H) |
+| User Interaction (UI):                      | May be required (Depends on insider's actions)                                                  | Required (R) or None (N)         |
+| Scope (S):                                  | Unauthorized Access (insider gains unauthorized access to data or modifies it)                  | Unauthorized Access (U)          |
+| Confidentiality Impact (C):                 | High (insider can access confidential data)                                                     | High (H)                         |
+| Integrity Impact (I):                       | High (insider can modify data)                                                                  | High (H)                         |
+| Availability Impact (A):                    | High (insider can disrupt application or data access)                                           | High (H)                         |
+| Base Score (assuming High for all impacts): | 0.85 * (AV:I/AC:L/PR:V/UI:R) * (S:U/C:H/I:H/A:H)                                                | 9.0 (Critical)                   |
+| Temporal Score (TS):                        | Not applicable (N/A)                                                                            | N/A                              |
+| Environmental Score (ES):                   | Depends on access controls, data encryption, monitoring and detection practices                 | Varies                           |
+| Overall CVSS Score                          | Base Score + TS + ES                                                                            | Varies (Depends on ES)           |
+| Risk Rating                                 | High to Critical (Depends on ES)                                                                | High to Critical                 |
 
-**Vulnerability Metrics**
-
-* **Attack Vector (AV):** Network (N)
-* **Attack Complexity (AC):** Low (L)
-* **Privileges Required (PR):** High (H)
-* **User Interaction (UI):** Not Required (NR)
-* **Scope (S):** Changed (C)
-* **Confidentiality Impact (C):** High (H)
-* **Integrity Impact (I):** High (H)
-* **Availability Impact (A):** High (H)
-
-**CVSS v3.1 Base Score:** 9.8 (Critical)
-* **Exploitability Sub Score:** 8.6
-* **Impact Sub Score:** 10.0
-
-**Description**
-
-Malicious insider vulnerabilities occur when a malicious employee, contractor, or third-party accesses an organization's systems or data and is able to make unauthorized changes or steal confidential information. In this attack scenario, the malicious actor has a high degree of privileges, which allows them to access the systems or data on a large scale. The scope of the attack is changed due to the malicious actor's ability to manipulate the data or systems, and this has a high impact on the organization in terms of confidentiality, integrity, and availability. 
-
-The Common Vulnerability Scoring System (CVSS) v3.1 assesses malicious insider vulnerabilities with a Base Score of 9.8, indicating a Critical severity level. This is further broken down into an Exploitability Subscore of 8.6, and an Impact Subscore of 10.0. Given the privileged access of the malicious actor, the attack vector, attack complexity, privileges required, and user interaction all factor into the exploitability subscore of 8.6. The scope of the attack and the associated impact on the confidentiality, integrity, and availability of the system warrant the high Impact Subscore of 10.0.
-
-## Malicious Insider Attack Tree
+## Malicious Insider Attack Tree Diagram

@@ -2,46 +2,24 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Platform          |  Android App ; IoT System                                    |  
+|  Mobile Platform          |  iOS App                                                     |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
-|  Storage Location         |  Both                                                        |  
+|  Storage Location         |  Remote Storage (Cloud Database)                             |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Type of Registration     |  Will be an administrator that will register the users       |  
+|  Programming Languages    |  C/C++/Objective-C                                           |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
+|  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
-|  Hardware Specification   |  Yes                                                         |  
-|  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
-|  Device or Data Center Physical Access|  Yes                                                         |  
-|  Mobile Platform          |  Android App ; IoT System                                    |  
-|  Application domain type  |  m-Health                                                    |  
-|  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
-|  Has DB                   |  Yes                                                         |  
-|  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  MySQL                                                       |  
-|  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
-|  Storage Location         |  Both                                                        |  
-|  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
-|  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
-|  The system has logs      |  Yes                                                         |  
-|  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
 |  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
@@ -218,16 +196,3 @@ Security Confinement Mechanisms in Cloud-based mobile apps refer to the various 
 |Security of Data |Blackberry|BitLocker|BitLocker is a Windows data encryption system meant to protect data while it is stored |Data Link Layer|
 |Secure Communications|Symbian|IPsec|IPsec is a protocol suite used in secure communication by authenticating and encrypting data |Presentation Layer|
 |Secure Data Transfer |Palm|DM-Crypt |DM-Crypt is a drive encryption system meant to protect data while it is transferred |Session Layer|
-
-# Filtering Mechanism Mechanisms 
-
-Security Filtering Mechanisms are built into Cloud-based mobile apps to ensure data is protected from unauthorized access. These mechanisms include multi-factor authentication, data encryption, data loss prevention, and various identity and access management (IAM) tools that control user access and authentication policies. Additionally, mobile app hardening techniques such as static code analysis and dynamic application security testing (DAST) can be used to detect and fix potential security vulnerabilities.
-
-## Filtering Mechanism Mechanisms Examples: 
-
-| Security Requirement | Mobile Platform | Mechanism | Description | OSI Layer |
-|---------------------|----------------|----------|------------|-----------|
-| Authentication      | iOS            | OAuth2   | OAuth2 provides a secure mechanism for authorizing application access to a user's account | Application |
-| Encryption          | Android        | AES      | AES (Advanced Encryption Standard) uses symmetric key cryptography to provide strong encryption of data at rest | Data Link |
-| Key Management      | Cross-Platform | AWS KMS  | AWS KMS (Key Management Service) is a cloud-based service used to manage encryption keys for encrypting/decrypting data | Transport |
-| Data Obfuscation    | Cross-Platform | ProGuard | ProGuard is a popular open source code obfuscator which helps protect your app's code during coding phase and runtime | Physical   |

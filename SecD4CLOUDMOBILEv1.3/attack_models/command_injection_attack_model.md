@@ -27,32 +27,20 @@ This is a class of attacks to which web applications are susceptible, resulting 
 
 ### CVSS v3.1 Metrics
 
-#### Attack Vector (AV)
-Network (N)
-
-#### Attack Complexity (AC)
-Low (L)
-
-#### Privileges Required (PR)
-None (N)
-
-#### User Interaction (UI)
-None (N)
-
-#### Scope (S)
-Unchanged (U)
-
-#### Confidentiality (C)
-High (H)
-
-#### Integrity (I)
-High (H)
-
-#### Availability (A)
-High (H)
-
-### CVSS v3.1 Base Score
-The base score is calculated based on the above metrics. For a Command Injection vulnerability with these metrics, the base score would typically be high.
+| **Factor**                    | **Description**                                                                                          | **Value**                                     |
+|-------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):         | Network   (Exploiting application logic)                                                                 | Network   (N)                                 |
+| Attack   Complexity (AC):     | Medium   (Requires crafting malicious input)                                                             | Medium   (M)                                  |
+| Privileges   Required (PR):   | Low   (Requires some privilege to execute commands)                                                      | Low   (L)                                     |
+| User   Interaction (UI):      | Required   (User needs to provide malicious input)                                                       | Required   (R)                                |
+| Scope   (S):                  | Unauthorized   Access (attacker gains access to system)                                                  |         Unauthorized Access (U)               |
+| Confidentiality   Impact (C): | High   (access to confidential data on the server)                                                       | High   (H)                                    |
+| Integrity   Impact (I):       | High   (attacker can modify system files)                                                                | High   (H)                                    |
+| Availability   Impact (A):    | High   (attacker can disrupt system functionality)                                                       | High   (H)                                    |
+| Base   Score:                 | 0.85   * (AV:N/AC:M/PR:L/UI:R) * (S:U/C:H/I:H/A:H)                                                       | 9.0   (Critical)                              |
+| Temporal   Score (TS):        | Public   exploit code available?                                                                         |         Depends on exploit availability       |
+| Environmental   Score (ES):   | Depends   on application permissions (access to sensitive systems), user awareness,   patching practices | Varies                                        |
+| Overall   CVSS Score          | Base   Score + TS + ES                                                                                   |         Varies (Depends on TS & ES)           |
 
 ## Impact
 Command Injection vulnerabilities can have a significant impact on the confidentiality, integrity, and availability of the system. An attacker could potentially execute arbitrary commands, leading to unauthorized access to sensitive data, modification of data, or disruption of the service.

@@ -4,34 +4,37 @@ Flooding attacks are attempts to inundate a resource with an overwhelming amount
 
 Examples of flooding attacks include Denial-of-Service (DoS) attacks, which send an extremely large amount of requests/traffic to the victim’s server or network in order to saturate it and make it incapable of responding to legitimate requests. Additionally, there is also the Distributed Denial-of-Service (DDoS) attack, which uses more than one computer or device to send the traffic, making it even more of a challenge to defend against.
 
+## Mitigation
+
 Flooding attacks can be difficult to detect and stop as they often involve huge volumes of data. However, some steps to help mitigate the effects of flooding attacks include:
 
-* Utilizing firewalls and other security measures to detect and block suspicious traffic.
-* Deploying load balancers to distribute the amount of requests over multiple servers or resources.
-* Monitoring network and server performance to detect anomalies.
-* Limiting connection requests from a single source.
+1. Rate Limiting: Implement rate limiting on your servers to prevent any single IP address from sending too many requests in a short period of time;
+2. Traffic Shaping: Use traffic shaping techniques to control the amount and speed of traffic sent or received on a network.
+3. Intrusion Detection Systems (IDS): Use IDS to monitor network traffic for suspicious activity and known threats;
+4. Firewalls: Use firewalls to block unwanted traffic and prevent flooding attacks;
+5. Load Balancing: Distribute network traffic across multiple servers to ensure no single server is overwhelmed with too much traffic;
+6. DDoS Protection Services: Consider using a DDoS protection service that can detect and block flooding attacks;
+7. Redundancy: Design your system to be redundant so that if one part of the system becomes overwhelmed with traffic, the system as a whole can still function;
+8. Regular Monitoring and Logging: Regularly monitor and log traffic to identify patterns and detect potential flooding attacks;
+9. Incident Response Plan: Have an incident response plan in place to quickly and effectively handle flooding attacks when they occur;
+10. User Awareness and Training: Educate users about the risks of flooding attacks and how to report suspicious activity.
 
-## Flooding Architectural Risk Analysis: 
+## Flooding Architectural Risk Analysis 
 
-**Common Vulnerability Scoring System (CVSS) v3.1 - Risk Analysis of Flooding Vulnerability**
+| **Factor**                    | **Description**                                                                                                 | **Value**                                         |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
+| Attack   Vector (AV):         | Network   (Exploiting application logic)                                                                        | Network   (N)                                     |
+| Attack   Complexity (AC):     | Low   (Requires crafting malicious requests)                                                                    | Low   (L)                                         |
+| Privileges   Required (PR):   | None                                                                                                            | None   (N)                                        |
+| User   Interaction (UI):      | None   (after initial attack setup)                                                                             | None   (N)                                        |
+| Scope   (S):                  | Denial   of Service (attacker disrupts application functionality for legitimate users)                          |         Denial of service (DoS)                   |
+| Confidentiality   Impact (C): | Low                                                                                                            | None   (N)                                        |
+| Integrity   Impact (I):       | Low   (unless flooding crashes the app and corrupts data)                                                       | Low   (L)                                         |
+| Availability   Impact (A):    | High   (attacker can disrupt app functionality for legitimate users)                                            | High   (H)                                        |
+| Base   Score:                 | 0.85   * (AV:N/AC:L/PR:N/UI:N) * (S:DoS/C:N/I:L/A:H)                                                            | 9.9   (Critical)                                    |
+| Overall   CVSS Score          | Base   Score + TS + ES                                                                                          |         Varies (Depends on TS & ES)               |
+| Risk   Rating                 | Based   on Overall CVSS Score                                                                                   |         High to Critical (Depends on TS & ES)       |
 
-Base Score: 7.2
+**CVSS v3.1 Risk Rating:** Critical (Official Fix)
 
-Vector: CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H
-
-|Sub-metrics|Value|Weight|Score|
-|---|---|---|---|
-|Attack Vector | Local (AV:L) | 04.7 | 0.2 |
-|Attack Complexity | Low (AC:L) | 03.9 | 0.2 |
-|Privileges Required | Low (PR:L) | 05.2 | 0.2 |
-|User Interaction | None (UI:N) | 0 | 0 |
-|Scope | Changed (S:C) | 07.7 | 0.3 |
-|Confidentiality | High (C:H) | 06.4 | 0.3 |
-|Integrity | High (I:H) | 05.9 | 0.3 |
-|Availability | High (A:H) | 05.9 | 0.3 |
-
-**Impact Score:** 7.2
-
-**Exploitability Score**: 4.7
-
-**CVSS v3.1 Risk Rating:** High (Priority Level 3)
+## Flooding Attack Tree Diagram

@@ -2,26 +2,44 @@
 
 Wi-Fi SSID tracking attack is an attack in which malicious actors use techniques such as tracking the Media Access Control (MAC) addresses or the Service Set Identifier (SSID) of a device to capture user data transmitted through a wireless network. This type of attack has become increasingly popular due to its simplicity and the fact that it can be used to target multiple devices in a network. The attack can be used to steal sensitive data such as credit card information and other personal details that are sent through the network. It can also be used to launch Distributed Denial of Service (DDoS) attacks.  
 
-Overall, Wi-Fi SSID tracking attack is a threat that should be taken seriously as it can have serious implications on user security. To protect against such attacks, it is important to ensure that the wireless network is secured using the latest security measures such as WPA2 encryption and MAC address filtering. Additionally, users should also be aware of the threats and take steps to secure their devices and networks appropriately.
+Overall, Wi-Fi SSID tracking attack is a threat that should be taken seriously as it can have serious implications on user security.
 
-## Wi-Fi SSID Tracking Architectural Risk Analysis: 
+## Mitigation
 
-**Wi-Fi SSID Tracking Attack Vulnerability**
+1. **Disable SSID Broadcasting**: Disabling SSID broadcasting can make your network invisible to devices that are not already connected. This can prevent an attacker from discovering your network through SSID tracking;
 
-CVSS v3.1 Scoring: 9.3 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H)
+2. **Randomize MAC Addresses**: Many modern devices support MAC address randomization, which can prevent your device from being tracked using its MAC address;
 
-**Attack Vector (AV)**: Network (AV:N): The vulnerability can be exploited remotely, without requiring user interaction or authentication. 
+3. **Use of VPNs**: Virtual Private Networks (VPNs) can encrypt your internet connection and hide your online activities from eavesdroppers;
 
-**Attack Complexity (AC)**: High (AC:H): Specialized access conditions or extenuating circumstances do not exist. The attack can be initiated by any source.
+4. **Network Security**: Use strong encryption (like WPA3) for your Wi-Fi network to prevent unauthorized access;
 
-**Privileges Required (PR)**: None (PR:N): No privileges are required to exploit the vulnerability.
+5. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers;
 
-**User Interaction (UI)**: None (UI:N): The vulnerability can be exploited without any user interaction.
+6. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules;
 
-**Scope (S)**: Changed (S:C): The vulnerability affects resources beyond the host where the attack is executed.
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
 
-**Confidentiality (C)**: High (C:H): The vulnerability might be exploited to view sensitive information, such as user logins and passwords.
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-**Integrity (I)**: High (I:H): The vulnerability might be exploited to modify data, such as configuration settings.
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
-**Availability (A)**: High (A:H): The vulnerability might be exploited to cause a denial of service.
+## Wi-Fi SSID Tracking Risk Analysis
+
+| **Factor**                    | **Description**                                                                | **Value**                                                                      |
+|-------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Attack   Vector (AV):         | Network   (Tracking SSIDs and exploiting network weaknesses)                   | Network   (N)                                                                  |
+| Attack   Complexity (AC):     | Varies   (Depends on the complexity of subsequent attacks after tracking)      |         Low (L) to High (H)                                                    |
+| Privileges   Required (PR):   | Varies   (Depends on the subsequent attack)                                    |         None (N) to High (H)                                                   |
+| User   Interaction (UI):      | None   (SSID tracking might not require interaction, subsequent attacks might) | Varies   (N to H)                                                              |
+| Scope   (S):                  | Varies   (Depends on the subsequent attack)                                    |         Can range from Information Disclosure (ID) to Data   Breach (DB)       |
+| Confidentiality   Impact (C): | Varies   (Depends on the subsequent attack)                                    |         Low (L) to High (H)                                                    |
+| Integrity   Impact (I):       | Varies   (Depends on the subsequent attack)                                    |         Low (L) to High (H)                                                    |
+| Availability   Impact (A):    | Varies   (Depends on the subsequent attack)                                    |         Low (L) to High (H)                                                    |
+| Base Score | 3.3 (Low) | Low (Low) | 
+|Overall Rating| Base Score + TS + ES | Varies (Depends on TS, ES, and the specific subsequent attack)| 
+|Risk Rating | Low to Critical (Depends on ES and the subsequent attack) |  Low (H) to Critical (C) |
+
+**Overall, Wi-Fi SSID tracking combined with potential subsequent attacks can pose a low to critical risk depending on the specific attack scenario and the security measures in place. A layered security approach across the mobile app, cloud infrastructure, and user behavior is essential to mitigate these risks.**
+
+## Wi-Fi SSID Tracking Attack Tree Diagram

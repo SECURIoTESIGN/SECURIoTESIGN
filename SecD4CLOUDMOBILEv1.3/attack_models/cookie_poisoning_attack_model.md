@@ -6,22 +6,42 @@ This type of attack usually involves the attacker sending out malicious scripts 
 
 Cookie poisoning attacks can also be used to disrupt a website's functionality and lead to denial of service attacks.
 
-Fortunately, cookie poisoning attacks can be mitigated with proper security measures. For example, organizations can use encryption and other types of data protection techniques to make cookies more secure. They can also use firewalls and other security controls to protect their networks from attackers. Additionally, web developers can build safer websites by using anti-CSRF tokens and other security measures.
+## Mitigation
+
+1. **Secure and HttpOnly Flags**: Use the Secure and HttpOnly flags for cookies. The Secure flag ensures that the cookie is only sent over HTTPS, preventing it from being intercepted. The HttpOnly flag prevents client-side scripts from accessing the cookie, protecting it from cross-site scripting (XSS) attacks.
+
+2. **SameSite Attribute**: Use the SameSite attribute for cookies. This attribute can prevent cross-site request forgery (CSRF) attacks by restricting when the cookie is sent.
+
+3. **Encryption**: Encrypt sensitive data stored in cookies. This can prevent an attacker from understanding the data even if they manage to access the cookie.
+
+4. **Validation**: Validate all data, especially that which is stored in cookies. This can prevent an attacker from injecting malicious data.
+
+5. **Session Management**: Implement strong session management practices. This includes generating new session IDs after login and regularly expiring sessions.
+
+6. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
+
+7. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules.
+
+8. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission.
+
+9. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
 ## Cookie Poisoning Architectural Risk Analysis: 
 
-CVSS v3.1 Base Score:
-7.3 (High)
+| **Factor**                    | **Description**                                                                                    | **Value**                                                                              |
+|-------------------------------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| Attack   Vector (AV):         | Network   (Exploiting application session management)                                              | Network   (N)                                                                          |
+| Attack   Complexity (AC):     | Medium   (Requires crafting a malicious cookie or exploiting another vulnerability to   inject it) | Medium   (M)                                                                           |
+| Privileges   Required (PR):   | None   (if attacker can inject cookie directly)                                                    |         None (N) or Low (L) (if another vulnerability is   needed for injection)       |
+| User   Interaction (UI):      | None   (after initial compromise)                                                                  | None   (N)                                                                             |
+| Scope   (S):                  | Session   Hijacking (attacker gains access to user's session)                                      |         Unauthorized Access (U)                                                        |
+| Confidentiality   Impact (C): | High   (access to user's data within the session)                                                  | High   (H)                                                                             |
+| Integrity   Impact (I):       | Medium   (attacker can potentially modify data within the session)                                 | Medium   (M)                                                                           |
+| Availability   Impact (A):    | Low   (attacker might disrupt the user's session, but not overall application   availability)      | Low   (L)                                                                              |
+| Base   Score:                 | 0.85   * (AV:N/AC:M/PR:N/UI:N) * (S:U/C:H/I:M/A:L)                                                 | 5.4   (Medium)                                                                         |
+| Temporal   Score (TS):        | Public   exploit code available?                                                                   |         Depends on exploit availability                                                |
+| Environmental   Score (ES):   | Depends   on session expiration times, secure flag usage, user awareness of phishing   attacks     | Varies                                                                                 |
 
-## Details
-Vector:
-AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
-
-Calculating Impact Subscore
-Impact Subscore: 6.8 (High)
-
-Calculating Exploitability Subscore
-Exploitability Subscore: 8.6 (High)
-
-## Summary
-Cookie Poisoning Vulnerability is rated as High severity according to Common Vulnerability Scoring System v3.1. It has an impact subscore of 6.8 and exploitability subscore of 8.6 respectively.
+## Cookie Poisoning Attack Tree

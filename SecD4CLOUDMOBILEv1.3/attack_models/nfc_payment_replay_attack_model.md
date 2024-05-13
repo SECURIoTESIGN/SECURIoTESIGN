@@ -12,56 +12,33 @@ In such an attack scenario, the attacker aims to steal or steal sensitive data f
 * **Method**: Attackers intercept legitimate NFC payment data and replay it later.
 * **Impact**: Can lead to unauthorized transactions, financial losses, and compromised user trust.
 
-## Mitigation Strategies
+## Mitigation
 
-* Cryptographic Protections;
-* Transaction Verification;
-* User Awareness.
-
+1. **Unique Transaction IDs:** Each transaction should have a unique ID that is used only once. This can prevent an attacker from replaying a previous transaction;
+2. **Time Stamping:** Implement time stamping of transactions. If the timestamp is too old, the transaction can be rejected.
+Secure Communication: Use secure communication protocols such as Secure NFC, which provides encryption and message integrity checks;
+3. **Payment Tokenization:** Use payment tokenization to replace sensitive card data with a non-sensitive equivalent, known as a token. The token is unique to each transaction and has no value if stolen;
+4. **User Confirmation:** Always ask for user confirmation before processing a payment. This can prevent unauthorized transactions;
+5. **Regular Updates and Patches:** Keep your systems and software up-to-date. Regular updates and patches can fix known vulnerabilities that could be exploited by NFC Payment Replay attacks.
 
 ## Architectural Risk Analysis of NFC Payment Replay Vulnerability
 
-The NFC Payment Replay Attack threatens the trust and security of digital wallets and contactless payment systems. Let’s assess this vulnerability using the Common Vulnerability Scoring System (CVSS) v3.1:
 
-### CVSS Metrics
-1. **Base Score**:
-* **Attack Vector (AV)**: Network (N)
-* **Attack Complexity (AC)**: Low (L)
-* **Privileges Required (PR)**: None (N)
-* **User Interaction (UI)**: None (N)
-* **Scope (S)**: Unchanged (U)
-* **Confidentiality Impact ©**: High (H)
-* **Integrity Impact (I)**: Low (L)
-* **Availability Impact (A)**: None (N)
-* **Base Score**: 7.5 (High)
-2. **Temporal Score**:
-* **Exploit Code Maturity (E)**: Unproven (U)
-* **Remediation Level (RL)**: Official Fix (O)
-* **Report Confidence (RC)**: Confirmed ©
-* **Temporal Score**: 7.5 (High)
-3. **Environmental Score**:
-* **Modified Attack Vector (MAV)**: Network (N)
-* **Modified Attack Complexity (MAC)**: Low (L)
-* **Modified Privileges Required (MPR)**: None (N)
-* **Modified User Interaction (MUI)**: None (N)
-* **Modified Scope (MS)**: Unchanged (U)
-* **Modified Confidentiality (MC)**: High (H)
-* **Modified Integrity (MI)**: Low (L)
-* **Modified Availability (MA)**: None (N)
-* **Environmental Score**: 7.5 (High)
-### Risk Assessment
-* **Severity**: High
-* **Impact**: Data theft, credential compromise
-* **Exploitability**: Low
-* **Remediation Level**: Official Fix
-* **Report Confidence**: Confirmed
-
-
-*Remember, securing NFC payments requires a combination of technical safeguards and user vigilance*. 📲💳
+| **Factor**                                  | **Description**                                                                    | **Value**                        |
+|---------------------------------------------|------------------------------------------------------------------------------------|----------------------------------|
+| Attack   Vector (AV):                       | Physical   (Requires physical proximity to capture and replay data)                | Physical   (L)                   |
+| Attack   Complexity (AC):                   | Medium   (Requires specialized tools and knowledge to capture and replay data)     | Medium   (M)                     |
+| Privileges   Required (PR):                 | None   (Attacker needs to be near the user during transaction)                     | None   (N)                       |
+| User   Interaction (UI):                    | None   (User interaction initiates the vulnerable transaction)                     | None   (N)                       |
+| Scope   (S):                                | Fraudulent   Transaction (attacker can potentially initiate unauthorized payments) |         Financial Loss (F)       |
+| Confidentiality   Impact (C):               | Low   (Payment data itself might be anonymized tokens)                             | Low   (L)                        |
+| Integrity   Impact (I):                     | High   (Attacker can potentially manipulate transaction data)                      | High   (H)                       |
+| Availability   Impact (A):                  | Low   (Doesn't affect overall application functionality)                           | Low   (L)                        |
+| Base   Score (assuming High for Integrity): | 0.85   * (AV:L/AC:M/PR:N/UI:N) * (S:F/C:L/I:H/A:L)                                 | 5.9   (Medium)                   |
 
 
 ## References
 
 1. Njebiu, V., Kimwele, M., Rimiru, R., 2021. Secure contactless mobile payment system, in: 2021 IEEE Latin-American Conference on Communications (LATINCOM), IEEE, Santo Domingo, Dominican Republic. pp. 1–6. doi:10.1109/LATINCOM53176.2021.9647831.
 
-## NFC Payment Replay Attacks Tree
+## NFC Payment Replay Attacks Tree Diagram

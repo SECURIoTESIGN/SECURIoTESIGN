@@ -29,15 +29,23 @@ A pharming attack is a form of cyberattack that redirects victims to fake websit
 
 ## Mitigation Strategies
 
-1. Regular Security Updates:
-* Keep software, browsers, and security tools up to date.
-* Patch vulnerabilities to prevent exploitation.
-2. DNS Security Measures:
-* Implement DNSSEC (DNS Security Extensions) to verify DNS responses.
-* Monitor DNS traffic for anomalies.
-3. User Education:
-* Train users to recognize phishing attempts and suspicious URLs.
-* Encourage caution when clicking links or entering credentials.
+1. **Secure DNS Practices**: Use DNSSEC (Domain Name System Security Extensions) to ensure that the DNS responses are not tampered with. This can prevent attackers from redirecting users to malicious sites.
+
+2. **SSL Certificates**: Use SSL (Secure Sockets Layer) certificates for websites. This ensures that the connection between the user's browser and the server is encrypted and secure.
+
+3. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
+
+4. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules.
+
+5. **User Education**: Educate users about the risks of clicking on suspicious links and the importance of checking the URL in the address bar before entering any sensitive information.
+
+6. **Two-Factor Authentication (2FA)**: Implement 2FA to add an extra layer of security. This requires users to provide two different authentication factors to verify themselves.
+
+7. **Regular Audits and Penetration Testing**: Regularly conduct security audits and penetration testing to identify and fix any security vulnerabilities.
+
+8. **Use of Secure Mobile Applications**: Encourage users to only download apps from trusted sources like official app stores, and to regularly update them.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
 ## Architectural Risk Analysis of Pharming Vulnerability
 
@@ -45,49 +53,24 @@ The pharming attack targets users by redirecting them to fraudulent websites, of
 
 ### CVSS Metrics
 
-1. **Base Score**:
-* **Attack Vector (AV)**: Network (N)
-* **Attack Complexity (AC)**: Low (L)
-* **Privileges Required (PR)**: None (N)
-* **User Interaction (UI)**: None (N)
-* **Scope (S)**: Unchanged (U)
-* **Confidentiality Impact ©**: High (H)
-* **Integrity Impact (I)**: Low (L)
-* **Availability Impact (A)**: None (N)
-* **Base Score**: 7.5 (High)
-2. **Temporal Score**:
-* **Exploit Code Maturity (E)**: Unproven (U)
-* **Remediation Level (RL)**: Official Fix (O)
-* **Report Confidence (RC)**: Confirmed ©
-* **Temporal Score**: 7.5 (High)
-3. **Environmental Score**:
-* **Modified Attack Vector (MAV)**: Network (N)
-* **Modified Attack Complexity (MAC)**: Low (L)
-* **Modified Privileges Required (MPR)**: None (N)
-* **Modified User Interaction (MUI)**: None (N)
-* **Modified Scope (MS)**: Unchanged (U)
-* **Modified Confidentiality (MC)**: High (H)
-* **Modified Integrity (MI)**: Low (L)
-* **Modified Availability (MA)**: None (N)
-* **Environmental Score**: 7.5 (High)
+| **Factor**                                                      | **Description**                                                                                                                  | **Value**                             |
+|-----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Attack   Vector (AV):                                           | Social   (Exploits user trust and redirects to a phishing site)                                                                  | Social   (S)                          |
+| Attack   Complexity (AC):                                       | Low   (Pharming websites can be relatively easy to set up)                                                                       | Low   (L)                             |
+| Privileges   Required (PR):                                     | None   (User clicks the malicious link)                                                                                          | None   (N)                            |
+| User   Interaction (UI):                                        | Required   (User clicks the malicious link)                                                                                      | Required   (R)                        |
+| Scope   (S):                                                    | Account   Compromise (attacker gains access to user's account)                                                                   |         Unauthorized Access (U)       |
+| Confidentiality   Impact (C):                                   | High   (attacker can steal confidential data)                                                                                    | High   (H)                            |
+| Integrity   Impact (I):                                         | High   (attacker can tamper with data on the fake site)                                                                          | High   (H)                            |
+| Availability   Impact (A):                                      | Low   (Doesn't affect application functionality)                                                                                 | Low   (L)                             |
+| Base   Score (assuming High for Confidentiality and Integrity): | 0.85   * (AV:S/AC:L/PR:N/UI:R) * (S:U/C:H/I:H/A:L)                                                                               | 8.5   (High)                          |
+| Temporal   Score (TS):                                          | Not   Applicable (N/A)                                                                                                           | N/A                                   |
+| Environmental   Score (ES):                                     | Depends   on user awareness training, application security measures (e.g., SSL   certificate validation), anti-phishing features | Varies                                |
+| Overall   CVSS Score                                            | Base   Score + TS + ES                                                                                                           |         Varies (Depends on ES)        |
+| Risk   Rating                                                   | High   to Critical (Depends on ES)                                                                                               | High   to Critical                    |
 
-### Risk Assessment
-
- * **Severity**: High
- * **Impact**: Data theft, credential compromise
- * **Exploitability**: Low
- * **Remediation Level**: Official Fix
- * **Report Confidence**: Confirmed
-
-### Mitigation Strategies
-
-1. **DNS Security Measures**:
- * Implement DNSSEC (DNS Security Extensions) to verify DNS responses.
- * Monitor DNS traffic for anomalies.
-2. **User Education**:
- * Train users to recognize phishing attempts and suspicious URL.
- * Encourage caution when clicking links or entering credentials.
+Overall, Pharming poses a high to critical risk for mobile cloud-based applications that hold user's confidential data. Implementing a layered approach with user education, application security measures, and potential anti-phishing features can significantly reduce the risk.
 
 *Remember, vigilance and proactive measures are essential to protect against pharming attacks.*
  
-## Pharming Attack Tree
+## Pharming Attack Tree Diagram

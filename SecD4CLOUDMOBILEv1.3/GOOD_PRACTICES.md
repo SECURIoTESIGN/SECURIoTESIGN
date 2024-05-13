@@ -2,170 +2,30 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
-|  Mobile Platform          |  Android App ; IoT System                                    |  
+|  Mobile Platform          |  iOS App                                                     |  
 |  Application domain type  |  m-Health                                                    |  
 |  Authentication           |  Yes                                                         |  
 |  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
 |  Has DB                   |  Yes                                                         |  
 |  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  MySQL                                                       |  
+|  Which DB                 |  SQLite                                                      |  
 |  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
-|  Storage Location         |  Both                                                        |  
+|  Storage Location         |  Remote Storage (Cloud Database)                             |  
 |  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
+|  Type of Registration     |  Will be an administrator that will register the users       |  
+|  Programming Languages    |  C/C++/Objective-C                                           |  
 |  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
+|  Upload Files             |  No                                                          |  
 |  The system has logs      |  Yes                                                         |  
 |  The system has regular updates|  Yes                                                         |  
 |  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
-|  Hardware Specification   |  Yes                                                         |  
-|  HW Authentication        |  Basic Authentication (user/pass)                            |  
-|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
-|  Device or Data Center Physical Access|  Yes                                                         |  
-|  Mobile Platform          |  Android App ; IoT System                                    |  
-|  Application domain type  |  m-Health                                                    |  
-|  Authentication           |  Yes                                                         |  
-|  Authentication schemes   |  Biometric-based authentication ; Factors-based authentication|  
-|  Has DB                   |  Yes                                                         |  
-|  Type of database         |  SQL (Relational Database)                                   |  
-|  Which DB                 |  MySQL                                                       |  
-|  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
-|  Storage Location         |  Both                                                        |  
-|  User Registration        |  Yes                                                         |  
-|  Type of Registration     |  The users will register themselves                          |  
-|  Programming Languages    |  Java                                                        |  
-|  Input Forms              |  Yes                                                         |  
-|  Upload Files             |  Yes                                                         |  
-|  The system has logs      |  Yes                                                         |  
-|  The system has regular updates|  Yes                                                         |  
-|  The system has third-party|  Yes                                                         |  
-|  System Cloud Environments|  Hybrid Cloud                                                |  
+|  System Cloud Environments|  Private Cloud                                               |  
 |  Hardware Specification   |  Yes                                                         |  
 |  HW Authentication        |  Basic Authentication (user/pass)                            |  
 |  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS  ; RFID  ; NFC |  
 |  Device or Data Center Physical Access|  Yes                                                         |  
 
 
-
-# IoT Security Best Practices Guidelines
-
-Internet of Things (IoT) devices fall into three main categories:
-
-* Sensors, which gather data;
-* Actuators, which effect actions;
-* Gateways, which act as communication hubs and may also implement some 
-automation logic.
-
-All these device types may stand alone or be embedded in a larger product. They may also be complemented by a web application or mobile device app and cloud based service.
-IoT devices, services and software, and the communication  channels that connect them, are at risk of attack by a variety of malicious parties.
-
-Malicious intent commonly takes advantage of poor design, but even unintentional leakage of data due to ineffective security controls can also bring dire consequences to consumers and vendors. Thus it is vital that IoT devices and services have security designed in from the outset.
-
-
-## Classification of Data
-
-* Define a data classification scheme and document it; 
-* Assess every item of data stored, processed, transmitted or received by a device and apply a data classification rating to it;
-* Ensure the security design protects every data item and collections of items against unauthorised viewing, changing or deletion, to at least its classification rating or higher.
-
-
-## Physical Security
-
-* Any interface used for administration or test purposes during development should be removed from a production device, disabled or made physically inaccessible;
-* All test access points on production units must be disabled or locked, for example by blowing on-chip fuses to disable JTAG;
-* If a production device must have an administration port, ensure it has effective access controls, e.g. strong credential management, restricted ports, secure protocols etc.;
-* Make the device circuitry physically inaccessible to tampering, e.g. epoxy chips to circuit board, resin encapsulation, hiding data and address lines under these components etc;
-* Provide secure protective casing and mounting options for deployment of devices in exposed locations;
-* For high-security deployments, consider design measures such as active masking or shielding to protect against side-channel attacks.
-
-
-## Device Secure Boot
-
-* Make sure the ROM-based secure boot function is always used. Use a multi-stage boot loader initiated by a minimal amount of read-only code; 
-* Use a hardware-based tamper-resistant capability (e.g. a microcontroller security subsystem, Secure Access Module (SAM) or Trusted Platform Module (TPM)) to store crucial data items and run the trusted authentication/cryptographic functions required for the boot process. Its limited secure storage capacity must hold the read-only first stage of the boot loader and all other data required to verify the authenticity of firmware;
-* Check each stage of boot code is valid and trusted immediately before running that code. Validating code immediately before its use can reduce the risk of attacks; 
-* At each stage of the boot sequence, wherever possible, check that only the expected hardware is present and matches the stage's configuration parameters;
-* Do not boot the next stage of device functionality until the previous stage has been successfully booted;
-* Ensure failures at any stage of the boot sequence fail gracefully into a secure state, to ensure no unauthorised access is gained to underlying systems, code or data. Any code run must have been previously authenticated.
-
-
-## Secure Operating System
-
-* Include in the operating system (OS) only those components (libraries, modules, packages etc.) that are required to support the functions of the device;
-* Shipment should include the latest stable OS component versions available;
-* Devices should be designed and shipped with the most secure configuration in place; 
-* Continue to update OS components to the latest stable versions throughout the lifetime of a deployed device;
-* Disable all ports, protocols and services that are not used;
-* Set permissions so users/applications cannot write to the root file system;
-* If required, accounts for ordinary users/applications must have minimum access rights to perform the necessary functions. Separate administrator accounts (if required)will have greater rights of access. Do not run anything as root unless genuinely unavoidable;
-* Ensure all files and directories are given the minimum access rights to perform the required functions;
-* Consider implementing an encrypted file system.
-
-
-## Application Security
-
-
-* Applications must be operated at the lowest privilege level possible, not as root. Applications must only have access to those resources they need; 
-* Applications should be isolated from each other. For example, use sandboxing techniques such as virtual machines, containerisation, Secure Computing Mode (seccomp), etc
-* Ensure compliance with in-country data processing regulations;
-* Ensure all errors are handled gracefully and any messages produced do not reveal any sensitive information;
-* Never hard-code credentials into an application. Credentials must be stored separately in secure trusted storage and must be updateable in a way that ensures security is maintained;
-* Remove all default user accounts and passwords;
-* Use the most recent stable version of the operating system and libraries;
-* Never deploy debug versions of code. The distribution should not include compilers, files containing developer comments, sample code, etc.;
-* Consider the impact on the application/system if network connectivity is lost. Aim to maintain  normal functionality and security wherever possible.
-
-
-## Credential Management
-
-* A device should be uniquely identifiable by means of a factory-set tamper resistant hardware identifier if possible;
-* Use good password management techniques, for example no blank or simple passwords allowed,  never send passwords across a network (wired or wireless) in clear text, and employ a secure password reset process;
-* Each password stored for authenticating credentials must use an industry standard hash function, along with a unique salt value that is not obvious (for example, not a username);
-* Store credentials or encryption keys in a Secure Access Module (SAM), Trusted Platform Module  (TPM), Hardware Security Module (HSM) or trusted key store if possible;
-* Aim to use 2-factor authentication for accessing sensitive data if possible;
-* Ensure a trusted & reliable time source is available where authentication methods require this, e.g. for digital certificates;
-* A certificate used to identify a device must be unique and only used to identify that onedevice. Do not reuse the certificate across multiple devices;
-* A "factory reset" function must fully remove all user data/credentials stored on a device.
-
-
-## Encryption
-
-* When configuring a secure connection, if an encryption protocol offers a negotiable selection of algorithms, remove weaker options so they cannot be selected for use in a downgrade attack;
-* Store encryption keys in a Secure Access Module (SAM), Trusted Platform Module (TPM), Hardware Security Module (HSM) or trusted key store if possible;
-* Do not use insecure protocols, e.g. FTP, Telnet;
-* It should be possible to securely replace encryption keys remotely;
-* If implementing public/private key cryptography, use unique keys per device and avoid using global keys. A device's private key should be generated by that device or supplied by an associated secure credential solution, e.g. smart card. It should remain on that  device and never be shared/visible to elsewhere. 
-
-
-## Network Connections
-
-* Activate only those network interfaces that are required (wired, wireless - including Bluetooth etc.);
-* Run only those services on the network that are required;
-* Open up only those network ports that are required;
-* Run a correctly configured software firewall on the device if possible;
-* Always use secure protocols, e.g. HTTPS, SFTP;
-* Never exchange credentials in clear text or over weak solutions such as HTTP Basic Authentication;
-* Authenticate every incoming connection to ensure it comes from a legitimate source.
-* Authenticate the destination before sending sensitive data.
-
-
-## Logging
-
-* Ensure all logged data comply with prevailing data protection regulations;
-* Run the logging function in its own operating system process, separate from other functions;
-* Store log files in their own partition, separate from other system files.
-* Set log file maximum size and rotate logs;
-* Where logging capacity is limited, just log start-up and shutdown parameters, login/access attempts and anything unexpected;
-* Restrict access rights to log files to the minimum required to function;
-* If logging to a central repository, send log data over a secure channel if the logs carry sensitive data and/or protection against tampering of logs must be assured;
-* Implement log "levels" so that lightweight logging can be the standard approach, but with the option to run more detailed logging when required;
-* Monitor and analyse logs regularly to extract valuable information and insight;
-* Passwords and other secret information should not ever be displayed in logs.
-
-
-(https://www.iotsecurityfoundation.org/wp-content/uploads/2019/03/Best-Practice-Guides-Release-1.2.1.pdf)[https://www.iotsecurityfoundation.org/wp-content/uploads/2019/03/Best-Practice-Guides-Release-1.2.1.pdf]
 
 # Security Best Practices Guidelines for Authentication 
 
@@ -328,32 +188,6 @@ A Denial-of-Service (DoS) attack is a malicious attempt to make a system unavail
 
 9. **Educate Your Staff:** Make sure that your staff is aware of the risks associated with DoS attacks and how to recognize suspicious activity. Train them periodically to ensure they are up-to-date on the
 
-# Security Best Practices Guidelines for File Upload 
-
-## File Upload Security Best Practices
-
-It is essential to establish effective security guidelines for the file upload process. The following are best practices that can help ensure privacy and security of systems and data:
-
-1. **Limiting Accessibility:** Access to file uploads should be restricted, and user credentials should be verified each time an upload is attempted.
-
-2. **Requiring Authentication:** Establish strong authentication methods such as two-factor authentication for any user attempting to upload files.
-
-3. **Monitoring Uploads:** Monitor the uploads occurring on an ongoing basis for any malicious activity.
-
-4. **Backups:** Establish a backup policy that addresses the time frequency of file uploads and the recovery process in the event of a security incident or disaster.
-
-5. **File Size Limitations:** Place limits on the size of files that can be uploaded to help prevent malicious file uploads.
-
-6. **Data Validation:** Establish data validation processes such as virus scanning to help ensure that only clean files are being uploaded into the system.
-
-7. **Encryption:** Encrypt the data being uploaded to help ensure its privacy and security.
-
-8. **Auditing:** Establish an audit policy to review the upload process and ensure that it is operating securely.
-
-9. **Logging:** Log any file uploads to track and monitor activity.
-
-10. **Patching:** Update the system with the latest security patches to ensure the latest protections are in place.
-
 # Security Best Practices Guidelines for Injection Prevention 
 
 # Injection Prevention Best Practices
@@ -393,32 +227,6 @@ References:
 - https://www.veracode.com/security/injection-prevention 
 - https://www.netsparker.com/blog/web-security/prevent-sql-injection-attacks/ 
 - https://www.zeropointsecurity.com/injection-attacks
-
-# Security Best Practices Guidelines for Injection Prevention in Java 
-
-#Injection Prevention in Java
-
-##Best Practices
-
-1. **Input Validation**: Validate user input to ensure that it adheres to acceptable format, length, type, and value before passing it to the application.
-
-2. **Whitelisting**: Use whitelisting for accepting input data instead of blacklisting - that is, allow valid values and reject anything else.
-
-3. **Parameterised Queries**: Use parameterised queries (aka prepared statements) when working with user input. This uses parameter binding instead of concatenation to construct queries, which makes it resistant to SQL injection attacks.
-
-4. **Stored Procedures**: Use stored procedures with input validation instead of dynamic queries.
-
-5. **Object Relational Mapping (ORM)**: Use an ORM framework for accessing a database that provides database query parameterization and avoids the developers from writing dynamic SQL queries.
-
-6. **Use an Escape Mechanism**: Use an escape function for escaping any potentially dangerous characters when user input is passed to a backend system.
-
-7. **Escaping Wildcard Characters**: Escape all wildcard characters in user-supplied data to prevent wildcards expanding into a larger list of values when used in comparison operations.
-
-8. **Disable Object Relational Mapping (ORM) Metacommands**: Disable ORM meta-commands (like Direct SQL) for preventing an application passing user input directly to a database without validation. 
-
-9. **Enforce Timeouts and Request Limits**: Enforce request timeouts and limit the number of requests an application allows from a particular user to limit the risk of attacks.
-
-10. **Regular Security Scanning**: Perform regular security scanning of your application and use automated tools to check for anonymous access points, missing patches, and malicious code.
 
 # Security Best Practices Guidelines for Logging 
 

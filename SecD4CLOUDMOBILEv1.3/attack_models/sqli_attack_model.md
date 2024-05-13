@@ -1,28 +1,56 @@
-# SQLi Attack 
+# SQL Injection Attacks
 
-Malicious QR Code attack is a form of cyber attack that takes advantage of Quick Response (QR) codes to perpetrate malicious activities. This type of attack works by embedding malicious code into QR codes that lead unsuspecting victims to malicious websites or applications when scanned. These malicious QR codes can be found in physical locations, such as on printed ads, posters, or packaging, or they can be sent electronically through email, text, or social media. If a victim unwittingly scans the malicious QR code, the malicious code embedded within it will be executed and could result in malicious activities such as data harvesting, installation of malware, or other malicious activities. Victims of malicious QR code attacks should always exercise caution when interacting with QR codes as they could lead to malicious websites and activities.
+In this type of attack, an attacker could provide malicious input with a clever mix of characters and meta characters from a form (e.g., login form) to alter the logic of the SQL command.
 
-## Malicious SQLi Architectural Risk Analysis: 
 
-### Arquitectural Risk Analysis of SQLi Vulnerability
+## Definition
 
-**Common Vulnerability Scoring System v3.1:**
+Structured Query Language (SQL) Injection Attack is a code injection technique commonly used to attack web applications where an attacker enters SQL characters or keywords into an SQL statement through superuser input parameters for the purpose to change the logic of the desired query.
 
-| Metric | Score | 
-| :--- | :--- | 
-| Attack Vector | Network (AV:N) | 
-| Attack Complexity | Low (AC:L) | 
-| Privileges Required | None (PR:N) | 
-| User Interaction | None (UI:N) | 
-| Scope | Changed (S:C) | 
-| Confidentiality | High (C:H) | 
-| Integrity | High (I:H) | 
-| Availability | High (A:H) | 
+## Mitigation
 
-**Overall Score: 9.3 (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H)**
+1. **Input Validation**: Validate input data thoroughly. Use a whitelist of accepted characters, and reject any input that contains characters not on the list;
 
-SQLi Vulnerability presents a high risk arquitecture due to its potential negative consequences upoming from its exploitation, according to the [Common Vulnerability Scoring System v3.1](https://www.first.org/cvss/v3.1/), the impact of this vulnerability is rated as a 9.3. 
+2. **Parameterized Queries**: Use parameterized queries or prepared statements to ensure that input data is treated as literal values and not executable code;
 
-The Attack Vector score is Network (AV:N), meaning that the vulnerability exploit is deleivered through the network, such as Internet or an internal network, requiring no user interaction. The Attack Complexity score is Low (AC:L), implying that the vulnerability can be exlpoited with little effort and/or knowledge. The Privileges Required score is None (PR:N) so no privileged access is neccessary to exploit the vulnerability. The User Interaction score is None (UI:N), meaning that no user interaction is needed for the exploitation of this vulnerability. The Scope score is Changed (S:C), meaning that the risk affects other resources in the system due to the unauthorized access.
+3. **Least Privilege Principle**: Limit the privileges of database accounts used by web applications. Don't use the database root account, and don't grant more privileges than necessary to a user account;
 
-The Confidentiality score is High (C:H) because the attacker can find private information as a result of exploitation of SQLi Vulnerability, so providing access to confidential information could have a major impact. The Integrity score is High (I:H) because the attacker is able to modify or even delete private information which greatly impacts the integrity of the system. The Availability score is
+4. **Regular Software Updates**: Keep all software, including operating systems, databases, and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers;
+
+5. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules;
+
+6. **User Education**: Educate users about the risks of SQL Injection attacks and how to recognize them. This includes not providing sensitive information to untrusted sources;
+
+7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
+
+8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+
+## SQLi Vulnerability Risk Analysis
+
+| **Factor**                                   | **Description**                                                                                                                                                                                  | **Value**                                     |
+|----------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                        | Network   (Exploiting the mobile application)                                                                                                                                                    | Network   (N)                                 |
+| Attack   Complexity (AC):                    | Varies   (Low for basic attacks, High for complex ones)                                                                                                                                          |         Low (L) to High (H)                   |
+| Privileges   Required (PR):                  | None   (Attacker doesn't need privileges on the application)                                                                                                                                     | None   (N)                                    |
+| User   Interaction (UI):                     | Required   (User provides the malicious input)                                                                                                                                                   | Required   (R)                                |
+| Scope   (S):                                 | Varies   (Depending on attacker capability and database access)                                                                                                                                  |         Data Breach (DB)                      |
+| Confidentiality   Impact (C):                | High   (Attacker might access sensitive user data)                                                                                                                                               | High   (H)                                    |
+| Integrity   Impact (I):                      | High   (Attacker might manipulate or corrupt data)                                                                                                                                               | High   (H)                                    |
+| Availability   Impact (A):                   | High   (Attacker might disrupt database access)                                                                                                                                                  | High   (H)                                    |
+| Base   Score (assuming High impact for all): | 0.85   * (AV:N/AC:V/PR:N/UI:R) * (S:DB/C:H/I:H/A:H)                                                                                                                                              | 9.0   (Critical)                              |
+| Temporal   Score (TS):                       | Public   exploit code available for specific vulnerabilities?                                                                                                                                    |         Depends on exploit availability       |
+| Environmental   Score (ES):                  | Depends   on security measures in mobile app (input validation & sanitization),   cloud database security (secure coding practices, stored procedures),   intrusion detection/prevention systems | Varies                                        |
+| Overall   CVSS Score                         | Base   Score + TS + ES                                                                                                                                                                           |         Varies (Depends on TS & ES)           |
+| Risk   Rating                                | High   to Critical (Depends on TS & ES)                                                                                                                                                          | High   to Critical                            |
+
+Notes:
+
+* The base score is 9.0 (Critical) due to the potential for high impact on confidentiality, integrity, and availability of user data.
+* The "Scope" (S) is "Data Breach" as attackers can steal sensitive data from the database.
+* The Environmental Score is crucial. Implementing input validation and sanitization in the mobile app to ensure clean data reaches the server, using stored procedures in the cloud database to minimize user input in queries, and deploying intrusion detection/prevention systems to identify and block malicious attempts can significantly mitigate the risk.
+
+**Overall, SQL injection vulnerabilities pose a high to critical risk in a mobile cloud-based application. Secure coding practices, input validation, and layered security throughout the mobile app and cloud environment are essential to reduce the risk of data breaches, data manipulation, and database disruptions.**
+
+## SQLi Attack Tree Diagram

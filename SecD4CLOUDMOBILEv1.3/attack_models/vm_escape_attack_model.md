@@ -1,28 +1,54 @@
 # VM Escape Attack 
 
-VM (Virtual Machine) Escape attacks involve compromised VMs that act as an entry point for an intruder to gain access to the larger system. It occurs when attackers use vulnerabilities or misconfigurations to escape the confines of a virtual machine and gain access to the underlying physical server or network. Through this attack, attackers can gain control of the physical server and execute malicious activities such as stealing data, disrupting service, and deleting critical files.
+VM Escape attacks involve compromised VMs that act as an entry point for an intruder to gain access to the larger system. It occurs when attackers use vulnerabilities or misconfigurations to escape the confines of a virtual machine and gain access to the underlying physical server or network. Through this attack, attackers can gain control of the physical server and execute malicious activities such as stealing data, disrupting service, and deleting critical files.
 
-These attacks are especially dangerous since they bypass security measures, including firewalls, that are typically in place to protect physical servers and networks. Therefore, it is important for organizations to be vigilant and implement measures to protect against VM escape attacks. One way of doing this is by keeping VMs updated and running the latest security patches. Additionally, limiting the access and privileges of VMs can also help to reduce the attack surface.
+## Mitigation
 
-## VM Escape Architectural Risk Analysis: 
+1. **Regular Software Updates**: Keep all software, including hypervisors and operating systems, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
 
-#### **VM Escape Vulnerability**
+2. **Least Privilege Principle**: Limit the privileges of virtual machines. Don't grant more privileges than necessary to a virtual machine.
 
-Common Vulnerability Scoring System (CVSS) v3.1 provides a way for users to objectively score and rank the severity of a vulnerability.
+3. **Isolation**: Isolate virtual machines from each other and from the host system. This can prevent an attacker from gaining access to other systems if they manage to escape from a virtual machine.
 
-CVSS v3.1 Base Score: 8.1
+4. **Intrusion Detection Systems (IDS)**: Use IDS to monitor and detect unusual activity. IDS can help in identifying potential VM escape attacks.
 
-CVSS v3.1 Vector: AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H
+5. **Firewalls**: Implement firewalls to block unauthorized access to your network. Firewalls can also be used to block ports that are commonly used for VM escape attacks.
 
-- **Attack Vector (AV):** Network (N)
-- **Attack Complexity (AC)**: Low (L)
-- **Privileges Required (PR)**: High (H)
-- **User Interaction (UI)**: None (N)
-- **Scope (S)**: Unchanged (U)
-- **Confidentiality (C)**: High (H)
-- **Integrity (I)**: High (H)
-- **Availability (A)**: High (H)
+6. **Secure Configurations**: Ensure that your cloud and virtual machine configurations are secure. This includes disabling unnecessary services and closing unused network ports.
 
-This vulnerability has a high base score of 8.1, which indicates that if exploited, it could have a significant impact on the system. Additionally, there is no user interaction required, and the scope, confidentiality, integrity, and availability of the system would all be affected. All of these factors indicate that this vulnerability can have serious consequences and must be addressed.
+7. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-## VM Escape Attack Tree
+Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+
+## VM Escape Risk Analysis
+
+| **Factor**                                   | **Description**                                                                                                | **Value**                                     |
+|----------------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                        | Network   (Exploiting the cloud environment)                                                                   | Network   (N)                                 |
+| Attack   Complexity (AC):                    | High   (Requires specialized knowledge and potentially complex exploit development)                            | High   (H)                                    |
+| Privileges   Required (PR):                  | High   (Requires privileges within the virtual machine)                                                        | High   (H)                                    |
+| User   Interaction (UI):                     | None   (Attack might not require user interaction)                                                             | None   (N)                                    |
+| Scope   (S):                                 | Account   Compromise (attacker gains access to other VMs on the same host)                                     |         Data Breach (DB)                      |
+| Confidentiality   Impact (C):                | High   (Attacker might access confidential data in other VMs)                                                  | High   (H)                                    |
+| Integrity   Impact (I):                      | High   (Attacker might manipulate data in other VMs)                                                           | High   (H)                                    |
+| Availability   Impact (A):                   | High   (Attacker might disrupt other VMs on the same host)                                                     | High   (H)                                    |
+| Base   Score (assuming High impact for all): | 0.85   * (AV:N/AC:H/PR:H/UI:N) * (S:DB/C:H/I:H/A:H)                                                            | 9.0   (Critical)                              |
+| Temporal   Score (TS):                       | Public   exploit code available for specific vulnerabilities?                                                  |         Depends on exploit availability       |
+| Environmental   Score (ES):                  | Depends   on cloud provider's security practices (patch management, hypervisor   security), workload isolation | Varies                                        |
+| Overall   CVSS Score                         | Base   Score + TS + ES                                                                                         |         Varies (Depends on TS & ES)           |
+| Risk   Rating                                | High   to Critical (Depends on TS & ES)                                                                        | High   to Critical                            |
+
+**Notes:**
+
+ * The base score is 9.0 (Critical) due to the potential for high impact on confidentiality, integrity, and availability of user data stored on the cloud virtual machine.
+ * The "Scope" (S) is "Data Breach" as a successful VM escape could allow access to confidential data in other VMs sharing the same host.
+ * The Environmental Score is crucial. Here, the focus is on the cloud provider's security practices. Patching vulnerabilities promptly, implementing strong hypervisor security measures, and isolating workloads through proper segmentation can significantly mitigate the risk.
+
+**Mobile Application Impact:**
+
+* While the VM escape vulnerability resides in the cloud environment, a mobile application relying on compromised cloud storage would be indirectly affected.
+* The mobile application itself wouldn't be directly vulnerable, but the user's confidential data stored on the compromised cloud VM could be exposed.
+
+**Overall, VM Escape vulnerabilities are critical for cloud-based deployments. Cloud providers need robust security practices to mitigate the risk. For mobile applications, securing communication with the cloud and storing data only with reputable cloud providers with strong security posture is essential.**
+
+## VM Escape Attack Tree Diagram

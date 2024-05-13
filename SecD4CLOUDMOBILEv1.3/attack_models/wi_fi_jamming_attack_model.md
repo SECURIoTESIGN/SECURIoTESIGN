@@ -4,31 +4,36 @@ Wi-Fi jamming attack is an attack on a wireless network using radio frequency si
 
 Wi-Fi jamming attacks are a type of denial of service attack that affects wireless networks and can occur on any wireless network regardless of its size. It can cause network outages, reduce throughput, and cause major disruptions for users. Wi-Fi jamming attacks can be difficult to detect and prevent due to their potential for wide area disruption.
 
-## Wi-Fi Jamming Architectural Risk Analysis: 
+## Mitigation
 
-## Wi-Fi Jamming Attack Vulnerability (CVSS v3.1)
-**CVSS v3.1 Base Score: 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N)** 
 
-**Attack Vector:** Network (AV:N) 
-This means that the attack occurs remotely over a network.
+## Wi-Fi Jamming Risk Analysis
 
-**Attack Complexity:** Low (AC:L) 
-This means attack procedure requires no or low complexity.
+| **Factor**                    | **Description**                                                                      | **Value**                           |
+|-------------------------------|--------------------------------------------------------------------------------------|-------------------------------------|
+| Attack   Vector (AV):         | Physical   (Disrupting Wi-Fi signal and exploiting the opportunity)                  | Physical   (L)                      |
+| Attack   Complexity (AC):     | Varies   (Depends on the complexity of data interception techniques after jamming)   |         Low (L) to Medium (M)       |
+| Privileges   Required (PR):   | None   (Jamming and basic interception might not require privileges)                 |         None (N) to Low (L)         |
+| User   Interaction (UI):      | None   (Attack doesn't require user interaction)                                     | None   (N)                          |
+| Scope   (S):                  | Data   Breach (if data intercepted during jamming)                                   |         Data Breach (DB)            |
+| Confidentiality   Impact (C): | High   (Intercepted data might reveal confidential user information)                 | High   (H)                          |
+| Integrity   Impact (I):       | High   (Intercepted data could be modified)                                          | High   (H)                          |
+| Availability   Impact (A):    | High   (Jamming disrupts communication, application functionality might be impacted) | High   (H)                          |
 
-**Privileges Required:** None (PR:N)
-This means no authentication is required to exploit the vulnerability. 
+**Exploitation Requirements (modifies base score):**
 
-**User Interaction:** None (UI:N) 
-This means no user interaction is necessary for exploitation.
+**Confidentiality Requirement:** High (Confidentiality is severely impacted if data is intercepted)
+**Integrity Requirement:** High (Integrity is severely impacted if data is intercepted)
+**Availability Requirement:** High (Availability is severely impacted by jamming)
 
-**Scope:** Unchanged (S:U) 
-This means the vulnerability only affects the vulnerable component and not other components.
+Since all confidentiality, integrity, and availability requirements are high, the base score modification factor becomes 1.0.
 
-**Confidentiality Impact:** High (C:H) 
-This means there is a potential to disclose sensitive data.
+**Base Score:** 0.85 * (AV:L/AC:L/PR:N/UI:N) * (S:DB/C:H/I:H/A:H) * 1.0 = 7.2 (High)
 
-**Integrity Impact:** None (I:N) 
-This means there is no risk of modification or destruction of data.
+**Temporal Score (TS):** | Not Applicable (N/A) | N/A |
+**Environmental Score (ES):** | Depends on mobile app's security practices (data encryption in transit), user awareness (using secure Wi-Fi networks), attacker's capability (advanced interception techniques) | Varies |
 
-**Availability Impact:** None (A:N) 
-This means there is no risk of denial of service.
+**Overall CVSS Score:** | Base Score + TS + ES | Varies (Depends on TS & ES) |
+**Risk Rating:** | High to Critical (Depends on ES) | High to Critical |
+
+## Wi-Fi Jamming Attack Tree Diagram

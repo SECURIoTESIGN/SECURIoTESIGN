@@ -4,30 +4,32 @@ Node tampering is a type of malicious activity that involves using administrator
 
 By tampering with a node, attackers may gain access to the node's resources or disrupt the node's functioning, resulting in a network outage or data leakage. Node tampering can also be used for malicious purposes, such as gaining access to a node's confidential resources or records. 
 
-Node tampering is a serious problem, as it can have potentially devastating consequences for a distributed system. It is important to ensure that nodes within a distributed system are properly protected from this kind of malicious activity. Security protocols should be regularly implemented and routinely monitored to detect malicious activity and take the necessary steps to protect the system from potential damage.
+## Mitigation
 
-## Node Tampering Architectural Risk Analysis: 
+1. Physical Security: Implement physical security measures to protect IoT devices from tampering. This could include secure device enclosures or tamper-evident seals;
+2. Secure Boot: Use secure boot mechanisms to ensure that the IoT device only boots up with software that is trusted by the manufacturer;
+3. Device Authentication: Each IoT device should have a unique identity and should authenticate itself before it can join the network;
+4. Data Encryption: Encrypt data at rest and in transit. This can prevent a malicious node from intercepting and tampering with the data;
+5. Regular Firmware Updates: Regularly update the firmware of IoT devices. Firmware updates often include patches for known security vulnerabilities;
+6. Intrusion Detection Systems (IDS): Implement IDS in the cloud to monitor network traffic and detect any suspicious activities that could indicate a tampering attack.
 
-## Node Tampering Attack Vulnerability
+## Node Tampering Architectural Risk Analysis
 
-**Attack Vector (AV):** Network (N)
+| **Factor**                                    | **Description**                                                                                                   | **Value**                                     |
+|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| Attack   Vector (AV):                         | Physical   (Requires physical access to the tampered node)                                                        | Physical   (L)                                |
+| Attack   Complexity (AC):                     | Varies   (Depends on the complexity of tampering and exploiting the node)                                         |         Low (L) to High (H)                   |
+| Privileges   Required (PR):                   | Varies   (Depends on the node's role and access)                                                                  |         None (N) to High (H)                  |
+| User   Interaction (UI):                      | None   (User interaction might trigger the attack consequences)                                                   | None   (N)                                    |
+| Scope   (S):                                  | Varies   (Depends on the tampered node's function and data access)                                                |         Data Breach (DB)                      |
+| Confidentiality   Impact (C):                 | High   (Tampered node can steal confidential data)                                                                | High   (H)                                    |
+| Integrity   Impact (I):                       | High   (Tampered node can manipulate data)                                                                        | High   (H)                                    |
+| Availability   Impact (A):                    | High   (Tampered node can disrupt system functionality)                                                           | High   (H)                                    |
+| Base   Score (assuming High for all impacts): | 0.85   * (AV:L/AC:V/PR:V/UI:N) * (S:DB/C:H/I:H/A:H)                                                               | 9.0   (Critical)                              |
+| Temporal   Score (TS):                        | Public   exploit code available for specific node vulnerabilities?                                                |         Depends on exploit availability       |
+| Environmental   Score (ES):                   | Depends   on security measures in the IoT system (tamper detection, encryption), node   isolation, user awareness | Varies                                        |
+| Overall   CVSS Score                          | Base   Score + TS + ES                                                                                            |         Varies (Depends on TS & ES)           |
 
-**Attack Complexity (AC):** Low (L)
+**Overall, Node Tampering poses a high to critical risk for IoT systems that hold user's confidential data. Implementing robust security measures throughout the system and raising user awareness are essential to mitigate this risk.**
 
-**Privileges Required (PR):** None (N)
-
-**User Interaction (UI):** None (N)
-
-**Scope (S):** Changed (C)
-
-**Confidentiality Impact (C):** High (H)
-
-**Integrity Impact (I):** High (H)
-
-**Availability Impact (A):** None (N)
-
-**CVSS v3.1 Base Score:** 9.8
-
-**CVSS Vector String:** AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N
-
-## Node Tampering Attack 
+## Node Tampering Attack Tree Diagram

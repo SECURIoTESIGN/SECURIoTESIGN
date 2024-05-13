@@ -6,23 +6,34 @@ RF Interference on RFIDs attack is a type of attack that disrupts the communicat
 
 RF interference attacks aim to disrupt or block the communication between the RFID reader and the RFID tag, thereby preventing the successful reading or writing of data. These attacks exploit vulnerabilities in the RFID system's communication protocols and can have various motivations, including unauthorized access, data theft, or sabotage.
 
+## Mitigation
+
+1. **Frequency Hopping:** Implement frequency hopping spread spectrum (FHSS) in your RFID systems. This technique changes the frequency of the signal at regular intervals, making it harder for an attacker to interfere with the signal;
+2. **Signal Shielding:* Use signal shielding techniques to protect your RFID systems from unwanted RF signals. This can be achieved by using materials that block RF signals, such as metal or special types of paint;
+3. **Error Correction Codes:** Implement error correction codes in your RFID systems. These codes can detect and correct errors in the data transmitted over the RF signal, reducing the impact of interference;
+4. **Power Level Adjustments:** Adjust the power level of the RFID reader to minimize the impact of interference. This can be done dynamically based on the level of interference detected;
+5. **Use of Anti-Collision Protocols:** Implement anti-collision protocols to prevent interference between multiple RFID tags that are in the range of the same reader;
+6. **Regular Monitoring and Auditing:** Regularly monitor the performance of your RFID systems and conduct audits to identify and address any potential interference issues.
+
 ## RF Interference on RFIDs Architectural Risk Analysis
 
 Architectural Risk Analysis of RF Interference on RFIDs Vulnerability, according to the Common Vulnerability Scoring System (CVSS) v3.1, presented in a table format:
 
-| **CVSS Metric**      | **Description**                                     | **Value** |
-|----------------------|-----------------------------------------------------|-----------|
-| Attack Vector (AV)   | Network                                             | N         |
-| Attack Complexity (AC) | Low                                                  | L         |
-| Privileges Required (PR) | None                                               | N         |
-| User Interaction (UI) | None                                                | N         |
-| Scope (S)            | Unchanged                                           | U         |
-| Confidentiality Impact (C) | None                                              | N         |
-| Integrity Impact (I) | None                                                | N         |
-| Availability Impact (A) | High                                               | H         |
-| **CVSS Base Score**   |                                                     | 7.5       |
-| **CVSS Vector**       |                                                     | AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H |
+| **Factor**                    | **Description**                                                                | **Value**                                                                                   |
+|-------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| Attack   Vector (AV):         | Physical   (Disrupting RFID communication)                                     | Physical   (L)                                                                              |
+| Attack   Complexity (AC):     | Low   (Relatively simple to generate RF interference)                          | Low   (L)                                                                                   |
+| Privileges   Required (PR):   | None   (Disrupting communication doesn't require privileges)                   | None   (N)                                                                                  |
+| User   Interaction (UI):      | None   (Attack doesn't require user interaction)                               | None   (N)                                                                                  |
+| Scope   (S):                  | Interruption   (disrupts communication and data access)                        |         Data Breach (DB) (if data not encrypted and strong   authentication bypassed)       |
+| Confidentiality   Impact (C): | High   (Data might be exposed if not encrypted and authentication is bypassed) | High   (H)                                                                                  |
+| Integrity   Impact (I):       | High   (Intercepted data might be modified if not integrity checks in place)   | High   (H)                                                                                  |
+|Base Score (assuming successful exploitation) | 0.85 * (AV:L/AC:L/PR:N/UI:N) * (S:DB/C:H/I:H/A:H) * 1.0  | 7.2 (High)|
+|Temporal Score (TS) | N/A | N/A |
+|Environmental Score (ES): | Depends on RFID tag security features (encryption), mobile app security (data handling), physical security measures (against unauthorized access) | Varies |
+|Overall CVSS Score | Base Score + TS + ES | Varies (Depends on TS & ES) |
+|Risk Rating| High to Critical (Depends on ES) | High to Critical |
 
-The CVSS Base Score for the RF interference on RFIDs vulnerability is 7.5 (High). It reflects the impact on the availability of the RFID system while indicating that there is no direct impact on confidentiality or integrity.
+**Overall, RF interference on RFIDs can pose a high to critical risk depending on the security measures in place. Implementing robust security throughout the mobile-cloud-RFID ecosystem is essential to mitigate the risk of data breaches and ensure data confidentiality, integrity, and availability.**
 
-It is essential for organizations to address this vulnerability by implementing appropriate countermeasures to mitigate the risks associated with RF interference attacks. Countermeasures may include frequency hopping, encryption, authentication, and signal monitoring. These measures can help reduce the likelihood and impact of successful exploits, enhancing the security and reliability of RFID systems.
+## RF Interference on RFIDs Attack Tree 

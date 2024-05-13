@@ -1805,8 +1805,8 @@ def switch1():
     val = 0
     while True:
         try:
-            val = int(input("\nWhat is your option?\n"))
-            print("-->")
+            val = int(input("\nWhat is your option?\n --> "))
+            #print("-->")
         except ValueError:
             print("Error! Enter a whole number between 1 and 8, according to the menu above!")
             continue
@@ -1858,7 +1858,7 @@ def switch1():
                                 dataCenterAcess(version)
 
                                 print("**The questionnaire is over!**\n\n")
-
+                                print_data()
                                 information_capture()
 
                             # answers already written in the input file
@@ -1978,7 +1978,7 @@ def get_requirements():
     print("  Processing information.....")
     print("")
 
-    print_data()
+   # print_data()
 
     report = open("SECURITY_REQUIREMENTS.md", "w")
     report.write("# Final Security Requirements Report " + '\n')
@@ -2454,7 +2454,20 @@ def get_attack_models():
 
         # Write de scheme in the report
         report.write("\n\n")
-        report.write("![alt text](attack_models/Cache_DNS_Poisoning_Attack_Tree.JPG)")
+        report.write("![alt text](attack_models/Cookie_Poisoning_Attack_Tree.JPG)")
+        report.write("\n\n")
+
+    # Cache Poisoning attack model
+    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (
+                questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
+        report.write("\n")
+        report.write("\n")
+
+        report.write(open("attack_models/cache_poisoning_attack_model.md", "r").read())
+
+        # Write de scheme in the report
+        report.write("\n\n")
+        report.write("![alt text](attack_models/Cache_Poisoning_Attack_Tree.JPG)")
         report.write("\n\n")
 
     # Malicious QR Code attack model
