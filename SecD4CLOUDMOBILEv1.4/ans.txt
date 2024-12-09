@@ -1,0 +1,22 @@
+4;7;                 # Hybrid Application ; IoT System
+11                   # Smart Air Quality   
+1                    # Yes                 
+1;2;4;2;             # Biometric-based authentication ; Channel-based authentication ; ID-based authentication ; Channel-based authentication
+1                    # Yes                 
+1                    # SQL (Relational Database)
+2                    # MySQL               
+1;2;                 # Personal Information ; Confidential Data
+2                    # Remote Storage (Cloud Database)
+1                    # Yes                 
+1                    # The users will register themselves
+11;                  # Dart                
+1                    # Yes                 
+2                    # No                  
+1                    # Yes                 
+1                    # Yes                 
+1                    # Yes                 
+4                    # Public Cloud        
+1                    # Yes                 
+3                    # Basic Authentication (user/pass)
+1;2;3;5;6;5;7;11;    # 3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; Bluetooth  ; GPS  ; LoRa
+1                    # Yes                 
