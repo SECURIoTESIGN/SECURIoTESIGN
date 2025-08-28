@@ -23,7 +23,8 @@ To compile and run the application, follow the instructions below:
 1. Clone or download the project from the project's main page;
 2. Open the project using any of the previous IDEs;
 3. Compile and run the application using the main.py file, which must be executed from the IDE or terminal;
-4. Or you can download the SecD4CLOUDMOBILEv1.4 executable from https://drive.google.com/file/d/1KPReCgsFmKMwTOVf81rby2hWwwCFOxeb/view?usp=sharing.   
+4. Or you can download the SecD4CLOUDMOBILEv1.5 executable from https://drive.google.com/file/d/1KPReCgsFmKMwTOVf81rby2hWwwCFOxeb/view?usp=sharing.   
 
 # Acknowledgment
+
 This Work was developed under Doctoral Grant, supported by project CENTRO-01-0145-FEDER-000019 - C4 - Competence Center in Cloud Computing, Research Line 1: Cloud Systems, Work package WP 1.2 - Security by Construction in Cloud and Internet of Things Ecosystems, funded by the 2020 Center, cofinanced by the European Regional Development Fund (ERDF) through the Programa Operacional Regional do Centro (Centro 2020), in the scope of the Sistema de Apoio à Investigação Científica e Tecnológica - Programas Integrados de IC&DT.
