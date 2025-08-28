@@ -1,0 +1,37 @@
+# IoT and LoRa Security Mechanisms
+
+The IoT ecosystem offers a flexible approach to organizing smart applications and constructing consumer-oriented infrastructure. However, several issues affect the security and privacy of the parties involved, particularly concerning low-power IoT devices. Often, there is a trade-off between implementing cybersecurity measures and maintaining operational efficiency within established tolerances. Consequently, the implementation of data protection and cyber defense mechanisms tends to be prioritized last.
+
+Below is a summary of the security mechanisms to be implemented for the IoT and LoRa/NB-IoT ecosystem.
+
+
+| **Security Requirement**         | **Mobile Platform** | **Mechanism Name**           | **Description**                                                                 | **Mechanism Example**                                      | **OSI Model Layer**   |
+|----------------------------------|---------------------|------------------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------|------------------------|
+| **Data Confidentiality**         | Android, iOS        | End-to-End Encryption        | Ensures that only authorized parties can access data in transit.               | TLS 1.3 for HTTPS communication between app and cloud     | Transport, Application |
+|                                  | Android, iOS        | AES Encryption               | Encrypts sensitive data stored on devices and in the cloud.                    | AES-256 for local storage and cloud databases             | Application, Presentation|
+| **Data Integrity**               | Android, iOS        | Data Integrity Checks        | Validates that data is not altered during transmission or storage.             | HMAC-SHA256 for message authentication                    | Transport, Application |
+|                                  | Android, iOS        | Digital Signatures           | Ensures authenticity and integrity of data sent between devices and servers.   | RSA/ECC signatures for sensitive data exchange            | Application            |
+| **User Authentication**          | Android             | OAuth 2.0 / OpenID Connect   | Secure user authentication to access cloud services.                           | Firebase Authentication                                   | Application            |
+|                                  | iOS                 | Biometric Authentication     | Ensures only authorized users can access the app.                              | Face ID / Touch ID                                        | Application, Presentation|
+|                                  | Android, iOS        | Multi-Factor Authentication  | Adds an extra layer of security by combining passwords and OTPs.               | Google Authenticator                                      | Application            |
+| **Access Control**               | Android, iOS        | Role-Based Access Control    | Restricts access based on user roles to limit data exposure.                   | AWS IAM Policies                                          | Application            |
+|                                  | Android, iOS        | Mobile Device Management     | Enforces security policies on mobile devices, especially for lost/stolen cases.| Microsoft Intune                                          | Application, Network   |
+| **Data Privacy**                 | Android, iOS        | Data Anonymization           | Protects user privacy by masking personal identifiers before analysis.         | Pseudonymizing names and addresses                        | Application            |
+|                                  | Android, iOS        | Encrypted Identifiers        | Uses temporary, encrypted IDs for user tracking to protect privacy.            | Subscription Concealed Identifier (SUCI) in 5G            | Network, Application   |
+| **Secure Communication**         | Android, iOS        | VPN / IPsec                  | Encrypts all traffic over untrusted networks, like public Wi-Fi.               | OpenVPN or IPsec for Ethernet connections                 | Network, Data Link     |
+|                                  | Android, iOS        | LoRaWAN AES Encryption       | Encrypts data transmitted over LoRa networks.                                  | LoRaWAN AES-128 for IoT sensor data                       | Network, Data Link     |
+| **Device Authentication**        | IoT Devices         | Device Certificates          | Authenticates IoT devices to prevent unauthorized access.                      | X.509 certificates for device authentication              | Data Link, Network     |
+|                                  | Android, iOS        | Mutual Authentication        | Ensures both server and device verify each other's identity.                   | TLS with mutual certificates                              | Transport, Application |
+| **Network Security**             | Android, iOS        | Firewalls                    | Filters network traffic to block malicious connections.                        | Cloudflare WAF for cloud server protection                | Network                |
+|                                  | IoT Devices         | Intrusion Detection Systems  | Monitors traffic for suspicious activities and potential breaches.             | Snort IDS for IoT and cloud networks                      | Network, Application   |
+| **Data Availability**            | Android, iOS        | DDoS Protection              | Protects the cloud backend from Distributed Denial of Service attacks.         | AWS Shield for cloud services                             | Network, Application   |
+|                                  | Android, iOS        | Load Balancers               | Distributes traffic to prevent overload and ensure service uptime.             | AWS Elastic Load Balancer                                 | Transport              |
+| **Firmware and Software Updates**| IoT Devices         | Secure Firmware Updates      | Ensures devices receive authenticated and encrypted updates.                   | Over-the-air updates with digital signatures              | Application, Data Link |
+|                                  | Android, iOS        | App Store Verification       | Ensures only approved and verified apps are installed on devices.              | Google Play Protect / Apple App Store policies            | Application            |
+| **Compliance & Auditing**        | Android, iOS        | Logging & Auditing           | Tracks access and changes to sensitive data for compliance.                    | AWS CloudTrail for monitoring access logs                 | Application, Network   |
+|                                  | Android, iOS        | GDPR / CCPA Compliance       | Ensures compliance with data protection regulations for user data.             | User data access requests, consent management             | Application         
+
+## References 
+  |
+1. Bouzidi, M., Gupta, N., Cheikh, F. A., Shalaginov, A., & Derawi, M. (2022). A novel architectural framework on IoT ecosystem, security aspects and mechanisms: a comprehensive survey. IEEE Access, 10, 101362-101384.
+2. Devalal, S., & Karthikeyan, A. (2018, March). LoRa technology-an overview. In 2018 second international conference on electronics, communication and aerospace technology (ICECA) (pp. 284-290). IEEE.
