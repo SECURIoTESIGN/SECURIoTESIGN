@@ -6,29 +6,6 @@ db = DataHandler()
 
 class CMSREModule:
 
-       """
-    [Summary]: Method responsible for processing information about CSRE
-    [Arguments]: No arguments
-    [Return]: No return
-    """
-    def requirements_convert_report(self):
-        # input_filename = ("guides/example_report.md")
-        # input_filename = "some_markdown.md")
-        input_filename = ("SECURITY_REQUIREMENTS.md")
-
-        output_filename = ("SECURITY_REQUIREMENTS.html")
-
-        with open(input_filename, "r") as f:
-            html_text = markdown(f.read(), extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
-
-        out = open(output_filename, "w")
-        out.write(html_text)
-
-        # writing in pdf file, the html content
-
-        resultFile = open("SECURITY_REQUIREMENTS.pdf", "w+b")
-        pisa.CreatePDF(html_text, dest=resultFile)
-
     """
     [Summary]: Method responsible for processing information about CSRE
     [Arguments]: No arguments
@@ -184,3 +161,25 @@ class CMSREModule:
         report.close()
         self.requirements_convert_report()
         print("\n\n # Processing done! Check your requirements in the SECURITY_REQUIREMENTS.pdf file")
+           """
+    [Summary]: Method responsible for processing information about CSRE
+    [Arguments]: No arguments
+    [Return]: No return
+    """
+    def requirements_convert_report(self):
+        # input_filename = ("guides/example_report.md")
+        # input_filename = "some_markdown.md")
+        input_filename = ("SECURITY_REQUIREMENTS.md")
+
+        output_filename = ("SECURITY_REQUIREMENTS.html")
+
+        with open(input_filename, "r") as f:
+            html_text = markdown(f.read(), extensions=['markdown.extensions.tables', 'markdown.extensions.sane_lists'])
+
+        out = open(output_filename, "w")
+        out.write(html_text)
+
+        # writing in pdf file, the html content
+
+        resultFile = open("SECURITY_REQUIREMENTS.pdf", "w+b")
+        pisa.CreatePDF(html_text, dest=resultFile)
