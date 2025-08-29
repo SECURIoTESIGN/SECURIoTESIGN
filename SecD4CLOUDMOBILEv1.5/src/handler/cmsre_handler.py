@@ -6,6 +6,11 @@ db = DataHandler()
 
 class CMSREModule:
 
+       """
+    [Summary]: Method responsible for processing information about CSRE
+    [Arguments]: No arguments
+    [Return]: No return
+    """
     def requirements_convert_report(self):
         # input_filename = ("guides/example_report.md")
         # input_filename = "some_markdown.md")
@@ -35,7 +40,7 @@ class CMSREModule:
         print("  Processing information.....")
         print("")
 
-        # print_data()
+        print_data()
 
         report = open("SECURITY_REQUIREMENTS.md", "w")
         report.write("# Final Security Requirements Report " + '\n')
