@@ -2,6 +2,28 @@
 
 |                           |                                                              |  
 |  :--------                |  :---------                                                  |  
+|  Mobile Platform          |  Android App                                                 |  
+|  Application domain type  |  m-Health                                                    |  
+|  Authentication           |  Yes                                                         |  
+|  Authentication schemes   |  Biometric-based authentication ; Channel-based authentication ; ID-based authentication|  
+|  Has DB                   |  Yes                                                         |  
+|  Type of database         |  SQL (Relational Database)                                   |  
+|  Which DB                 |  MySQL                                                       |  
+|  Type of information handled|  Personal Information ; Confidential Data ; Critical Data    |  
+|  Storage Location         |  Both                                                        |  
+|  User Registration        |  Yes                                                         |  
+|  Type of Registration     |  The users will register themselves                          |  
+|  Programming Languages    |  Java                                                        |  
+|  Input Forms              |  Yes                                                         |  
+|  Upload Files             |  Yes                                                         |  
+|  The system has logs      |  Yes                                                         |  
+|  The system has regular updates|  Yes                                                         |  
+|  The system has third-party|  Yes                                                         |  
+|  System Cloud Environments|  Public Cloud                                                |  
+|  Hardware Specification   |  Yes                                                         |  
+|  HW Authentication        |  Basic Authentication (user/pass)                            |  
+|  HW Wireless Tech         |  3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; GPS                |  
+|  Device or Data Center Physical Access|  Yes                                                         |  
 
 
 
