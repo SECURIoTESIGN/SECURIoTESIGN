@@ -1,44 +1,43 @@
-# Bluejacking Attack 
+# Bluejacking Attack Model
 
-## What is Bluejacking?
+## Definition
 
 Bluejacking is a type of attack where an attacker sends anonymous messages over Bluetooth to Bluetooth-enabled devices. Bluejacking attacks often involve malicious content, such as malicious links, malicious images, or malicious text. These messages can be sent from any device that can send Bluetooth signals, such as laptops, mobile phones, and even some home appliances.
 
-## What are the Potential Consequences of a Bluejacking Attack?
+## Attack Categories
 
-The potential consequences of a Bluejacking attack include:
+| **Category**             | **Description**                                                                 |
+|--------------------------|---------------------------------------------------------------------------------|
+| **Unsolicited Messaging**| Sends anonymous messages to nearby devices via Bluetooth Object Exchange (OBEX).|
+| **Social Engineering**   | Uses messages to trick users into clicking malicious links or installing apps.  |
+| **Cloud Relay Exploits** | Messages may trigger cloud-based app actions (e.g., opening URLs, syncing data).|
+| **IoT Disruption**       | Sends commands or spam to smart devices with Bluetooth interfaces (e.g., speakers, wearables). |
+| **Mobile App Injection** | Malicious apps use Bluetooth APIs to send bluejacking payloads to nearby devices. |
 
-- Leaking of sensitive data from the target device.
-- Unauthorized access to the target device.
-- Installation of malicious software on the target device.
-- Manipulation of personal information on the target device.
-- Remote control of the target device.
+---
 
-## What are the Steps to Prevent Bluejacking?
+## Mitigation Strategies
 
-The following steps can help minimize the potential risk of a Bluejacking attack:
+| **Layer**            | **Mitigation**                                                                 |
+|----------------------|--------------------------------------------------------------------------------|
+| **Device Level**     | Disable Bluetooth when not in use, set device to non-discoverable mode, restrict OBEX access. |
+| **App Level**        | Limit Bluetooth permissions, validate incoming messages, block unsolicited triggers. |
+| **Cloud Level**      | Authenticate Bluetooth-originated actions before syncing or executing cloud functions. |
+| **IoT Firmware**     | Restrict Bluetooth profiles, enforce secure pairing, auto-expire open connections. |
+| **User Behavior**    | Educate users to ignore unknown messages and avoid pairing in public spaces.     |
 
-- Disable Bluetooth on all devices when not in use.
-- Use a PIN code with at least 8 characters on all Bluetooth enabled devices.
-- Change Bluetooth visibility settings to only be visible to approved contacts.
-- Make sure anti-virus and firewall software is installed and up to date.
-- Install application and software updates as soon as they are available.
+---
 
-## Bluejacking Architectural Risk Analysis: 
+## Risk Assessment (DREAD Model)
 
-**Bluejacking Vulnerability**
+| **Category**         | **Assessment**                                                                 | **Score (1-10)** |
+|----------------------|---------------------------------------------------------------------------------|------------------|
+| **Damage Potential** | Typically low, but can escalate via phishing or app manipulation.               | **5**            |
+| **Reproducibility**  | Easily repeatable with basic tools and open Bluetooth targets.                  | **8**            |
+| **Exploitability**   | Requires minimal skill; tools like BTScanner and mobile apps can automate it.   | **7**            |
+| **Affected Users**   | Any user with Bluetooth enabled and discoverable in public areas.               | **6**            |
+| **Discoverability**  | Highly visible; messages appear on user screens, making detection immediate.    | **9**            |
 
-_Common Vulnerability Scoring System v3.1_
+**Total DREAD Score: 35 / 5 = 7**; Rating: **Moderate Risk**
 
-|  Parameter | Score|
-|-----------|:----:|
-| Attack Vector | Network (AV:N) |
-| Attack Complexity | Low (AC:L) |
-| Privileges Required | None (PR:N) |
-| User Interaction | None (UI:N) |
-| Scope | Unchanged (S:U) |
-| Confidentiality Impact | None (C:N) |
-| Integrity Impact | None (I:N) |
-| Availability Impact | None (A:N) |
-
-**CVSS v3.1 Base Score**: 0.0 (AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N)
+---

@@ -1,9 +1,11 @@
-# Cross Site Request Forgery Attacks
+# Cross-Site Request Forgery Attacks Model
 
 Cross-Site Request Forgery (CSRF) is an attack that forces an end user to perform unwanted actions in an application in which they are currently authenticated.
 
 ## Definition
 The purpose of this type of attack is to change state and not to steal data, since the attacker is prevented from seeing the response to the falsified request. The necessary for this type of attack to succeed is the existence of permission to make changes via GET requests.
+
+---
 
 ## Mitigation Strategies
 
@@ -13,7 +15,7 @@ Strict measures should be taken to ensure that the web application is not vulner
 
 2. **Same-Site Cookies**: Use SameSite cookie attribute which allows you to declare if your cookie should be restricted to a first-party or same-site context. This can help to prevent CSRF attacks by making it impossible for a browser to send a cookie along with cross-site requests.
 
-3. **Checking HTTP Headers**: Many CSRF attacks are done via AJAX from a different domain, which typically don't include certain headers that are included in same-domain requests. Checking for these headers on the server can be a good way to block CSRF attacks.
+3. **Checking HTTP Headers**: Many CSRF attacks are done via AJAX from a different domain, which typically do not include certain headers that are included in same-domain requests. Checking for these headers on the server can be a good way to block CSRF attacks.
 
 4. **User Interaction**: Require user interaction for sensitive actions. For example, you could require the user to re-enter their password or use a CAPTCHA.
 
@@ -25,26 +27,32 @@ Strict measures should be taken to ensure that the web application is not vulner
 
 8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
-## CSRF Arquitectural Risk Analysis: 
+---
 
-In accordance with Common Vulnerability Scoring System (CVSS) v3.1, the arquitectural risk analysis of cross site request forgery (CSRF) vulnerability will focus on the following metrics:
+## Risk Assessment (DREAD Model)
 
-| **Factor**                  | **Description**                                                                                                    | **Value**                           |
-|-----------------------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------|
-| Attack Vector (AV):         | Network                                                                | Network (N)                         |
-| Attack Complexity (AC):     | Low                                                                | Low (L)                             |
-| Privileges Required (PR):   | None                                                                   | None (N)                            |
-| User Interaction (UI):      | Required                                            | Required (R)                        |
-| Scope (S):                  | Unchanged                                     | Unauthorized Access (U)             |
-| Confidentiality Impact (C): | High                                                            | High (H)                            |
-| Integrity Impact (I):       | High                                                                              | High (H)                            |
-| Availability Impact (A):    | Medium                                   | Medium (M)                          |
-| Base Score:                 | High                                                                   | 7.1 (High) |
-| Risk Rating                 | Based on Overall CVSS Score                                                                                        | High (Depends on TS & ES) |
- 
-The high vector severity indicates that the vulnerability has a high potential for exploitation and should be addressed with an urgency. 
-This risk should be remediated immediately, as exploiting the vulnerability may result in malicious code execution, data manipulation/corruption, and other undesired system behaviors. It is recommended to implement mitigating technologies, such as input and output validation, content security policies, and request tokens to reduce the risk associated with this vulnerability.
+| **Category**         | **Assessment**                                                                 | **Score (1-10)** |
+|----------------------|---------------------------------------------------------------------------------|------------------|
+| **Damage Potential** | Can lead to unauthorized actions, data loss, or device manipulation.            | **8**            |
+| **Reproducibility**  | Easily repeatable with crafted links or forms.                                 | **8**            |
+| **Exploitability**   | Low to moderate skill required; many tools and templates exist.                 | **7**            |
+| **Affected Users**   | Any authenticated user interacting with vulnerable services.                    | **7**            |
+| **Discoverability**  | Often undetected unless logs are reviewed or user reports anomalies.            | **7**            |
+
+**Total DREAD Score: 37 / 5 = 7.4**; Rating: **High Risk**.
+
+---
+
+## References
+
+1. [OWASP CSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
+2. NIST SP 800-63B: Digital Identity Guidelines.
+3. ENISA Threat Landscape Report 2023 - [https://www.enisa.europa.eu/publications](https://www.enisa.europa.eu/publications).
+4. IEEE Security & Privacy: CSRF in Mobile and Cloud Applications (2022).
+5. [Mitre ATT&CK Framework - Web Session Manipulation](https://attack.mitre.org).
+6. SANS Institute: Web Application Security and CSRF Defense Whitepapers.
+
+---
 
 ## CSRF Attack Tree Diagram

@@ -1,11 +1,18 @@
-# Command Injection Attacks
+# Command Injection Attacks Model
 
 This type of attack targets unvalidated and not properly sanitised user input, aiming to compromise the normal execution of a web application by causing an unintended exit. E.g., "an SQL Command injection attack occurs when a malicious user, through specifically crafted input, causes a web application to generate and send a query that functions differently than the programmer intended".
 
+---
 
 ## Definition
 
-This is a class of attacks to which web applications are susceptible, resulting from the semantic gap existing between database interpretation and web application interpretation, as well as from the inappropriate handling of user input. The negative technical impact of this type of attack is the execution of unauthorised commands, thus affecting the confidentiality, integrity and availability of the system. There are several variants of this type of attack:
+This is a class of attacks to which web applications are susceptible, resulting from the semantic gap existing between database interpretation and web application interpretation, as well as from the inappropriate handling of user input. The negative technical impact of this type of attack is the execution of unauthorised commands, thus affecting the confidentiality, integrity and availability of the system. 
+
+---
+
+## Attack Categories
+
+There are several variants of this type of attack:
 
 * LDAP Injection;
 * IMAP/SMTP Command Injection;
@@ -13,50 +20,45 @@ This is a class of attacks to which web applications are susceptible, resulting 
 * Manipulating Writeable Terminal Devices;
 * SQL Injectio; 
 * NoSQL Injection;
-* OS Command Injection. 
+* OS Command Injection.
+
+--- 
  
-## Technical Impact or Attack Powers
+## Mitigation Strategies
 
-* Modify and Read Data;
-* Gain Privileges;
-* Bypass Protection Mechanism;
-* Unreliable Execution; 
-* Execute Unauthorized Commands.
+| **Layer**            | **Mitigation**                                                                 |
+|----------------------|--------------------------------------------------------------------------------|
+| **App Level**        | Avoid passing user input to system shells, use parameterized functions, validate and sanitize inputs. |
+| **Cloud Services**   | Restrict shell access, isolate execution environments, monitor for anomalous command patterns. |
+| **Mobile APIs**      | Enforce strict input validation, use allowlists, avoid dynamic command construction. |
+| **IoT Firmware**     | Disable shell access unless essential, validate configuration inputs, encrypt telemetry. |
+| **Security Testing** | Perform static and dynamic code analysis, fuzz testing, and penetration testing. |
 
-## Risk Architectural Analysis: Command Injection Vulnerability
+---
 
-### CVSS v3.1 Metrics
+## Risk Assessment (DREAD Model)
 
-| **Factor**                    | **Description**                                                                                          | **Value**                                     |
-|-------------------------------|----------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| Attack   Vector (AV):         | Network   (Exploiting application logic)                                                                 | Network   (N)                                 |
-| Attack   Complexity (AC):     | Medium   (Requires crafting malicious input)                                                             | Medium   (M)                                  |
-| Privileges   Required (PR):   | Low   (Requires some privilege to execute commands)                                                      | Low   (L)                                     |
-| User   Interaction (UI):      | Required   (User needs to provide malicious input)                                                       | Required   (R)                                |
-| Scope   (S):                  | Unauthorized   Access (attacker gains access to system)                                                  |         Unauthorized Access (U)               |
-| Confidentiality   Impact (C): | High   (access to confidential data on the server)                                                       | High   (H)                                    |
-| Integrity   Impact (I):       | High   (attacker can modify system files)                                                                | High   (H)                                    |
-| Availability   Impact (A):    | High   (attacker can disrupt system functionality)                                                       | High   (H)                                    |
-| Base   Score:                 | 0.85   * (AV:N/AC:M/PR:L/UI:R) * (S:U/C:H/I:H/A:H)                                                       | 9.0   (Critical)                              |
-| Temporal   Score (TS):        | Public   exploit code available?                                                                         |         Depends on exploit availability       |
-| Environmental   Score (ES):   | Depends   on application permissions (access to sensitive systems), user awareness,   patching practices | Varies                                        |
-| Overall   CVSS Score          | Base   Score + TS + ES                                                                                   |         Varies (Depends on TS & ES)           |
+| **Category**         | **Assessment**                                                                 | **Score (1–10)** |
+|----------------------|---------------------------------------------------------------------------------|------------------|
+| **Damage Potential** | Can lead to full system compromise, data theft, and persistent backdoors.       | **9**            |
+| **Reproducibility**  | Easily repeatable once vulnerability is discovered.                             | **8**            |
+| **Exploitability**   | Moderate skill required; many known vectors and tools exist.                    | **7**            |
+| **Affected Users**   | All users interacting with the compromised service or device.                   | **8**            |
+| **Discoverability**  | Detectable with proper logging and monitoring, but often missed in early stages. | **8**            |
 
-## Impact
-Command Injection vulnerabilities can have a significant impact on the confidentiality, integrity, and availability of the system. An attacker could potentially execute arbitrary commands, leading to unauthorized access to sensitive data, modification of data, or disruption of the service.
+**Total DREAD Score: 40 / 5**; Rating: **High Risk**
 
-## Mitigation
-Mitigation strategies for Command Injection vulnerabilities typically include input validation, use of secure APIs, and least privilege principle.
-
-Please consult with a security professional to get accurate risk and mitigation strategies for your specific context.
- 
-## Recommendations
-
-In order to ensure that the mobile application is resilient or immune to the Command Injection attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+---
 
 ## References
+
 1. Su, Z., Wassermann, G., 2006. The essence of command injection attacks in web applications, in: Conference Record of the 33rd ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages, Association for Computing Machinery, New York, NY, USA. p. 372–382. URL: https://doi.org/10.1145/1111037.1111070, doi:10.1145/1111037.1111070.
 2. [CAPEC-248: Command Injection](https://capec.mitre.org/data/definitions/248.html).
+3. [Mitre ATT&CK Framework – Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059/)
+4. SANS Institute: Injection Attacks and Secure Coding Practices Whitepapers.
+5. [OWASP Command Injection Guide](https://owasp.org/www-community/attacks/Command_Injection).
+
+---
 
 ## Command Injection Attacks Diagram
 

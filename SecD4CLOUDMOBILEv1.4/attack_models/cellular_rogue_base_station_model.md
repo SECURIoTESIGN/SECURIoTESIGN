@@ -1,10 +1,26 @@
-# Cellular Rogue Base Station Attacks
+# Cellular Rogue Base Station Attacks Model
 
 In this attack scenario, the attacker uses his own fake equipment, imitating a legitimate cellular base station. Since cellular devices connect to whichever station has the strongest signal, the attacker can easily convince a targeted cellular device to talk to the rogue base station.
+
+---
 
 ## Definition
 
  Cellular Rogue Base Station is a security threat targeting a mobile phone network that can exploit the radio interface between smartphones and base stations, potentially launching passive or active attacks against user equipment. Such attacks range from acquiring the International Mobile Subscriber Identifier (IMSI) of subscribers, DoS, leaking private information on 4G networks and eavesdropping.
+
+---
+
+## Attack Categories
+
+| **Category**                  | **Description**                                                                 |
+|------------------------------|---------------------------------------------------------------------------------|
+| **IMSI Catching**            | Captures International Mobile Subscriber Identity (IMSI) numbers to track or deanonymize users. |
+| **Man-in-the-Middle (MitM)** | Intercepts and manipulates voice, SMS, or data traffic between device and network. |
+| **Downgrade Attacks**        | Forces devices to connect using insecure protocols (e.g., 2G instead of 4G/5G). |
+| **IoT Hijacking**            | Tricks IoT modules (e.g., smart meters, vehicle trackers) into connecting and executing rogue commands. |
+| **Cloud Relay Disruption**   | Blocks or alters data destined for cloud services, causing sync failures or false telemetry. |
+
+---
 
 ## Mitigation
 
@@ -22,36 +38,34 @@ In this attack scenario, the attacker uses his own fake equipment, imitating a l
 
 7. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
+---
 
-## Cellular Rogue Base Station Risk Analysis
- 
-| Factor                              | Description                                                                      | Value                                                |
-|-------------------------------------|----------------------------------------------------------------------------------|------------------------------------------------------|
-| Vulnerability                       | User   unknowingly connects to a rogue base station                              | -                                                    |
-| Attack   Vector (AV):               | Network   (Exploiting cellular network protocols)                                | Network   (N)                                        |
-| Attack   Complexity (AC):           | Low                                                                              | Low   (L)                                            |
-| Privileges   Required (PR):         | None                                                                             | None   (N)                                           |
-| User   Interaction (UI):            | None                                                                             | None   (N)                                           |
-| Scope   (S):                        | Confidentiality   or Integrity (depending on data encryption)                    | Confidentiality   (C) or Integrity (I)               |
-| Confidentiality   Impact (C):       | High   (if unencrypted data)                                                     | High   (H)                                           |
-| Confidentiality   Impact (C):       | Low   (if strongly encrypted data)                                               | Low   (L)                                            |
-| Integrity   Impact (I):             | High   (if critical functions rely on data integrity)                            | High   (H)                                           |
-| Integrity   Impact (I):             | Low   (if data manipulation has minimal impact)                                  | Low   (L)                                            |
-| Availability   Impact (A):          | Medium   (disrupts user experience)                                              | Medium   (M)                                         |
-| Base   Score (assuming High C & I): | 0.85   * (AV:N/AC:L/PR:N/UI:N) * (S:C/C:H/I:H/A:M)                               | Depending   on Encryption: 7.5 (Medium) or 4.0 (Low) |
-| Temporal   Score (TS):              | Exploit   code publicly available?                                               | Depends   on specific exploit                        |
-| Environmental   Score (ES):         | Depends   on application security, user awareness, detection/mitigation measures | Varies                                               |
-| Overall   CVSS Score                | Base   Score + TS + ES                                                           | Varies   (Depends on Encryption & ES)                |
-| Risk   Rating                       | Based   on Overall CVSS Score                                                    | Low   to Critical (Depends on Encryption & ES)       |
+## Risk Assessment (DREAD Model)
 
-## Recommendations
+| **Category**         | **Assessment**                                                                 | **Score (1-10)** |
+|----------------------|---------------------------------------------------------------------------------|------------------|
+| **Damage Potential** | Can lead to surveillance, data interception, device hijacking, and cloud service disruption. | **9**            |
+| **Reproducibility**  | Easily repeatable with off-the-shelf hardware and open-source BTS software.     | **8**            |
+| **Exploitability**   | Moderate skill required; tools and tutorials are widely available.              | **7**            |
+| **Affected Users**   | Any mobile or IoT device within range; impact scales with density and mobility. | **8**            |
+| **Discoverability**  | Difficult to detect without specialized RF monitoring or firmware-level alerts. | **8**            |
 
-In order to ensure that the mobile application is resilient or immune to the Cellular Rogue Base Station attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+**Total DREAD Score: 40 / 5 = 8**; Rating: **High Risk**.
+
+---
 
 ## References
+
 1. [CAPEC-617: Cellular Rogue Base Station](https://capec.mitre.org/data/definitions/617.html).
 2. araçay, L., Bilgin, Z., Gündüz, A.B., Çomak, P., Tomur, E., Soykan, E.U., Gülen, U., Karakoç, F., 2021. A network-based positioning method to locate false base stations. IEEE Access 9, 111368–111382. doi:10.1109/ACCESS.2021.3103673.
+3. [ENISA Threat Landscape Report 2023](https://www.enisa.europa.eu/publications)
+4. NIST SP 800-187: Guide to LTE Security
+5. IEEE Communications Magazine: Security Challenges in 5G and Rogue Base Stations (2022)
+6. [OWASP Mobile Security Project](https://owasp.org/www-project-mobile-security/)
+7. Mitre ATT&CK Framework – [Network Sniffing and Protocol Manipulation](https://attack.mitre.org)
+8. SANS Institute: IMSI Catchers and Cellular Threats Whitepapers
+
+---
 
 ## Cellular Rogue Base Station Attacks Diagram

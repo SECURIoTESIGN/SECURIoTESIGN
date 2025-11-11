@@ -1,45 +1,56 @@
-# Byzantine Attack 
+# Byzantine Attack Model
 
 A Byzantine attack is a type of cyber attack wherein the malicious attacker attempts to corrupt or disrupt normal operations within a network by broadcasting false messages throughout the system. The aim of the attack is to cause confusion and possible system failure by introducing messages that appear to be coming from genuine sources, but in reality are not. Such attacks are often employed in distributed computer networks, such as those used by banks, military organizations, and other critical systems.
 
-## Mitigation
+---
 
-1. **Redundancy**: Implement redundancy in your system. This can be achieved by replicating components or data. If one component fails, the system can continue to operate using the replicas.
+## Attack Categories
 
-2. **Byzantine Fault Tolerance Algorithms**: Implement Byzantine Fault Tolerance (BFT) algorithms such as the Practical Byzantine Fault Tolerance (PBFT) algorithm. These algorithms can handle failures and ensure the system continues to function correctly even when some components are faulty.
+| **Category**                  | **Description**                                                                 |
+|------------------------------|---------------------------------------------------------------------------------|
+| **Malicious Node Behavior**  | Nodes intentionally send incorrect or conflicting data to disrupt consensus.   |
+| **Data Poisoning**           | Injects false telemetry or sensor data into IoT networks, misleading cloud analytics. |
+| **Consensus Sabotage**       | Targets distributed consensus algorithms (e.g., blockchain, federated learning) to prevent agreement. |
+| **Cloud Microservice Drift** | Compromised services behave inconsistently, causing failures in orchestration or state replication. |
+| **Mobile App Collusion**     | Malicious apps coordinate to manipulate shared data or cloud sync behavior.     |
 
-3. **Regular Health Checks**: Perform regular health checks on your system components. This can help detect faulty components early and take corrective action.
+---
 
-4. **Secure Communication**: Use secure communication protocols to prevent tampering with the messages exchanged between components.
+## Mitigation Strategies
 
-5. **Authentication and Authorization**: Implement strong authentication and authorization mechanisms to prevent unauthorized access to your system.
+| **Layer**            | **Mitigation**                                                                 |
+|----------------------|--------------------------------------------------------------------------------|
+| **Protocol Level**   | Use Byzantine Fault Tolerant (BFT) algorithms like PBFT, Raft with safeguards, or Tendermint. |
+| **IoT Device Level** | Validate sensor data across multiple sources, apply anomaly detection, isolate untrusted nodes. |
+| **Cloud Level**      | Implement quorum-based decision making, monitor for inconsistent state replication. |
+| **Mobile App Level** | Restrict inter-app communication, validate sync data integrity, enforce app sandboxing. |
+| **Security Monitoring** | Use distributed logging, behavior analysis, and trust scoring to detect rogue nodes. |
 
-6. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
+---
 
-7. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules.
+## Risk Assessment (DREAD Model)
 
-8. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission.
+| **Category**         | **Assessment**                                                                 | **Score (1-10)** |
+|----------------------|---------------------------------------------------------------------------------|------------------|
+| **Damage Potential** | Can disrupt entire distributed systems, corrupt data, and undermine trust.      | **9**            |
+| **Reproducibility**  | Varies by system; once a node is compromised, behavior can be repeated.         | **7**            |
+| **Exploitability**   | Requires access to internal nodes or weak consensus protocols.                  | **6**            |
+| **Affected Users**   | All users relying on the integrity of distributed services or IoT data.         | **8**            |
+| **Discoverability**  | Difficult to detect due to subtle inconsistencies and lack of centralized control. | **8**            |
 
-9. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+**Total DREAD Score: 38 / 5**; Rating: **High Risk**.
 
-Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+---
 
-## Byzantine Risk Analysis
+## References
 
-|  **Factor**                  | **Description (Considering Successful Byzantine Attack)**                                                                                | **Value**                                                                 |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| Attack Vector (AV):         | Varies (Depends on exploited weakness - Network, Physical, etc.)                                                                         | Varies (L, N, or Ph)                                                      |
-| Attack Complexity (AC):     | High (Requires understanding of the distributed system and planning)                                                                     | High (H)                                                                  |
-| Privileges Required (PR):   | Varies (Depends on the attack method - Might require some privileges within the system)                                                  | Varies (N, L, or H)                                                       |
-| User Interaction (UI):      | None (Attack doesn't require user interaction)                                                                                           | None (N)                                                                  |
-| Scope (S):                  | Data Breach (DB) (if attacker manipulates data)                                                                                          | Functionality Impact (FI) (disrupts application due to inconsistent data) |
-| Confidentiality Impact (C): | High (Attack might compromise data confidentiality through manipulation)                                                                 | High (H)                                                                  |
-| Integrity Impact (I):       | High (Attack directly targets data integrity)                                                                                            | High (H)                                                                  |
-| Availability Impact (A):    | High (Disrupted communication and inconsistent data can impact application availability)                                                 | High (H)                                                                 |
-|Base Score (assuming successful exploitation)| 0.85 * (AV: Varies/AC:H/PR:Varies/UI:N) * (S:DB/C:H/I:H/A:H) * 1.0 | Varies (Depends on AV & PR) |
-|Temporal Score (TS) | Depends on exploit code availability and complexity of the attack | Varies |
-|Environmental Score (ES) | Depends on security measures in communication protocols, data consistency mechanisms, and consensus algorithms | Varies |
-|Overall CVSS Score | Base Score + TS + ES | Varies (Depends on TS, ES, and specific attack vector/privilege requirements) |
-Risk Rating: | High to Critical (Depends on TS, ES, and attack scenario) | High to Critical |
+1. [OWASP Internet of Things Project](https://owasp.org/www-project-internet-of-things/)
+2. NIST SP 800-207: Zero Trust Architecture
+3. ENISA Threat Landscape Report 2023 – [https://www.enisa.europa.eu/publications](https://www.enisa.europa.eu/publications)
+4. IEEE Transactions on Dependable and Secure Computing: *Byzantine Fault Tolerance in Distributed Systems* (2022)
+5. [Mitre ATT&CK Framework – Impact Techniques](https://attack.mitre.org)
+6. SANS Institute: *Distributed System Security and Fault Tolerance* Whitepapers
+
+---
 
 ## Byzantine Attack Tree Diagram

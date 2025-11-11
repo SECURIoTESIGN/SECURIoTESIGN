@@ -1,54 +1,59 @@
-# Bluejacking Attacks
+# Bluejacking Attacks Model
 
-During a BlueJacking attack, the attacker sends unsolicited messages to a device to trick the user into using an access code. This enables the adversary to access files on the targeted device. The devices involved in the attack and the exact source of the message received need to be within a specific range, 10 m, for the attack to be successful. This attack is commonly used in crowded areas (e.g., airports, shopping malls, and train stations). While it does not usually involve the alteration of data, it could make devices susceptible to other attacks.
- 
+D# Bluejacking & Bluesnarfing Attacks in Cloud-Based Mobile App and IoT Ecosystems
 
-## Mitigation
+Bluetooth-based attacks like **Bluejacking** and **Bluesnarfing** pose unique risks in mobile and IoT environments, especially when devices are cloud-connected. These attacks exploit vulnerabilities in short-range wireless communication to disrupt services, steal data, or compromise user trust.
 
-Bluejacking is a type of cyber attack that involves sending unsolicited messages to Bluetooth-enabled devices. Here are some general strategies to mitigate Bluejacking in Cloud, Mobile, and IoT ecosystems:
+---
 
-1. **Turn off Bluetooth When Not in Use**: This can prevent unauthorized access to your device⁴.
-2. **Use Non-Descriptive Device Names**: Using non-descriptive names for your devices can make it harder for attackers to identify them⁴.
-3. **Reject Unknown Connection Requests**: Do not accept any Bluetooth connection requests that you don't recognize⁴.
+## Attack Categories
 
-For Cloud, Mobile, and IoT ecosystems specifically, consider the following:
+| **Attack Type**     | **Description**                                                                 |
+|---------------------|---------------------------------------------------------------------------------|
+| **Bluejacking**     | Sends unsolicited messages to nearby Bluetooth-enabled devices. Often harmless but can be used for phishing or social engineering. |
+| **Bluesnarfing**    | Unauthorized access to data on a Bluetooth-enabled device (e.g., contacts, messages, files). More severe and stealthy. |
+| **Cloud Relay Exploits** | Hijacked Bluetooth sessions can be relayed to cloud apps, enabling remote data exfiltration or session hijacking. |
+| **IoT Device Hijacking** | Exploits weak Bluetooth pairing on smart devices (e.g., wearables, sensors) to inject commands or extract telemetry. |
+| **Mobile App Injection** | Malicious apps use Bluetooth APIs to scan, connect, or manipulate nearby devices without user consent. |
 
-1. **Security by Design**: Secure application development across these three technologies can only be achieved when applications and systems are designed and developed with security in mind¹. This will improve the quality of the solutions and ensure that vulnerabilities are identified¹.
-2. **System Modeling**: Use system modeling to identify potential vulnerabilities and threats. This can help in the development of effective countermeasures¹.
-3. **Regular Audits and Monitoring**: Regularly monitor and audit your systems to detect any unusual activities or potential security breaches.
-4. **Use of Secure Cloud Services**: Use secure cloud services for IoT devices. These services provide a spectrum of capabilities, including data storage, data processing, and application hosting, which can help IoT devices collect, analyze, and share data securely².
-5. **Data Encryption**: Encrypt sensitive data before storing it in the cloud or transmitting it over the network.
+---
 
-Remember, the key to effective mitigation is a proactive approach to security. Regularly updating security measures and staying informed about the latest threats can go a long way in protecting your systems from Bluejacking and other cyber threats.
+## Mitigation Strategies
 
+| **Layer**            | **Mitigation**                                                                 |
+|----------------------|--------------------------------------------------------------------------------|
+| **Device Level**     | Disable Bluetooth when not in use, enforce secure pairing, use device-level encryption. |
+| **App Level**        | Restrict Bluetooth permissions, validate device identity, monitor API usage.   |
+| **Cloud Level**      | Authenticate Bluetooth-originated data before syncing, apply anomaly detection on device telemetry. |
+| **IoT Firmware**     | Enforce firmware signing, disable insecure Bluetooth profiles, auto-expire pairing sessions. |
+| **User Behavior**    | Educate users to reject unknown pairing requests and avoid public Bluetooth zones. |
 
-## Bluejacking Risk Analysis
+---
 
-| **Factor**                  | **Description**                                            | **Value**                                                                  |
-|-----------------------------|------------------------------------------------------------|----------------------------------------------------------------------------|
-| Vulnerability               | Unsecured Bluetooth connections on the mobile device       | -                                                                          |
-| Attack Vector (AV):         | Physical (Requires close proximity to the target device)   | Physical (L)                                                               |
-| Attack Complexity (AC):     | Low ( readily available tools can be used)                 | Low (L)                                                                    |
-| Privileges Required (PR):   | None (Attack doesn't require any privileges on the device) | None (N)                                                                   |
-| User Interaction (UI):      | None (Attack is passive and sends unsolicited messages)    | None (N)                                                                   |
-| Scope (S):                  | Nuisance (Sending unwanted messages)                       | Social Engineering (SE) (Potential gateway for social engineering attacks) |
-| Confidentiality Impact (C): | None (Doesn't expose confidential data)                    | Low (Limited potential information disclosure through social engineering)  |
-| Integrity Impact (I):       | None (Doesn't impact data integrity)                       | Low (Limited potential data manipulation through social engineering)       |
-| Availability Impact (A):    | None (Doesn't impact application availability)             | N/A                                                                       |
-| Base Score |N/A |N/A |
-|Temporal Score (TS) | Low (Bluejacking is a less common attack method compared to others) | Low (L) |
-|Environmental Score (ES) | Depends on Bluetooth security settings, user awareness of social engineering tactics | Varies (L to M) |
-|Overall CVSS Score | Base Score + TS + ES | Varies (L to M) |
-|Risk Rating: | Low (Depends on TS, ES, and potential for social engineering) | Low to Medium |
+## Risk Assessment (DREAD Model)
 
-## Recommendations
+| **Category**         | **Assessment**                                                                 | **Score (1-10)** |
+|----------------------|---------------------------------------------------------------------------------|------------------|
+| **Damage Potential** | Bluesnarfing can expose sensitive data; Bluejacking may lead to phishing or social engineering. | **7**            |
+| **Reproducibility**  | Easily repeatable in open environments with basic tools.                        | **8**            |
+| **Exploitability**   | Moderate skill required; tools like BTScanner and BlueSnarfer are widely available. | **7**            |
+| **Affected Users**   | Any user with Bluetooth enabled in public or insecure zones.                    | **6**            |
+| **Discoverability**  | Bluejacking is visible; Bluesnarfing is stealthy and harder to detect.          | **7**            |
 
-In order to ensure that the mobile application is resilient or immune to the Bluejacking attack, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+**Total DREAD Score: 35 / 5 = 7**; Rating: **Moderate to High Risk**
+
+---
 
 ## References
-1. atel, N., Wimmer, H., Rebman, C.M., 2021. Investigating bluetooth vulnerabilities to defend from attacks, in: 2021 5th International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT), IEEE, Ankara, Turkey. pp. 549–554. doi:10.1109/ISMSIT52890.2021.9604655.
+1. Patel, N., Wimmer, H., Rebman, C.M., 2021. Investigating bluetooth vulnerabilities to defend from attacks, in: 2021 5th International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT), IEEE, Ankara, Turkey. pp. 549–554. doi:10.1109/ISMSIT52890.2021.9604655.
 2. Attack and System Modeling Applied to IoT, Cloud, and Mobile Ecosystems .... https://dl.acm.org/doi/fullHtml/10.1145/3376123.
 3. Secure cloud-based mobile apps: attack taxonomy, requirements .... https://link.springer.com/article/10.1007/s10207-023-00669-z.
 4. Securing Cloud-Based Internet of Things: Challenges and Mitigations. https://arxiv.org/pdf/2402.00356.
+
+---
+
+
+
+
 
 

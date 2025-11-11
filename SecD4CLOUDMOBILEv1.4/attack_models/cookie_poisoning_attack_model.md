@@ -1,10 +1,24 @@
-# Cookie Poisoning Attack 
+# Cookie Poisoning Attack Model
 
-Cookie Poisoning is a type of attack that an attacker uses to modify a web browser's cookie data. It is used to gain unauthorized access to a user's account, steal their personal information, or inject malicious code into a website. 
+Cookie Poisoning is a type of attack that an attacker uses to modify a web browser cookie data. It is used to gain unauthorized access to a user account, steal their personal information, or inject malicious code into a website. 
 
-This type of attack usually involves the attacker sending out malicious scripts that modify a user's cookie data. The attacker can then use the cookies to gain access to the user's personal information or inject malicious code into a website. 
+This type of attack usually involves the attacker sending out malicious scripts that modify a user cookie data. The attacker can then use the cookies to gain access to the user personal information or inject malicious code into a website. 
 
-Cookie poisoning attacks can also be used to disrupt a website's functionality and lead to denial of service attacks.
+Cookie poisoning attacks can also be used to disrupt a website functionality and lead to denial of service attacks.
+
+---
+
+## Attack Categories
+
+| **Category**               | **Description**                                                                 |
+|----------------------------|---------------------------------------------------------------------------------|
+| **Session Hijacking**      | Modifies session cookies to impersonate legitimate users.                       |
+| **Privilege Escalation**   | Alters role or access-level fields in cookies to gain admin rights.             |
+| **Tampered Authentication**| Changes authentication tokens or flags to bypass login mechanisms.              |
+| **IoT Device Spoofing**    | Manipulates cookies used by IoT dashboards or mobile apps to control devices.   |
+| **Cloud Sync Manipulation**| Alters cookies used in cloud sync processes to inject false data or disrupt workflows. |
+
+---
 
 ## Mitigation
 
@@ -26,22 +40,31 @@ Cookie poisoning attacks can also be used to disrupt a website's functionality a
 
 9. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+---
 
-## Cookie Poisoning Architectural Risk Analysis: 
+## Risk Assessment (DREAD Model)
 
-| **Factor**                    | **Description**                                                                                    | **Value**                                                                              |
-|-------------------------------|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Attack   Vector (AV):         | Network   (Exploiting application session management)                                              | Network   (N)                                                                          |
-| Attack   Complexity (AC):     | Medium   (Requires crafting a malicious cookie or exploiting another vulnerability to   inject it) | Medium   (M)                                                                           |
-| Privileges   Required (PR):   | None   (if attacker can inject cookie directly)                                                    |         None (N) or Low (L) (if another vulnerability is   needed for injection)       |
-| User   Interaction (UI):      | None   (after initial compromise)                                                                  | None   (N)                                                                             |
-| Scope   (S):                  | Session   Hijacking (attacker gains access to user's session)                                      |         Unauthorized Access (U)                                                        |
-| Confidentiality   Impact (C): | High   (access to user's data within the session)                                                  | High   (H)                                                                             |
-| Integrity   Impact (I):       | Medium   (attacker can potentially modify data within the session)                                 | Medium   (M)                                                                           |
-| Availability   Impact (A):    | Low   (attacker might disrupt the user's session, but not overall application   availability)      | Low   (L)                                                                              |
-| Base   Score:                 | 0.85   * (AV:N/AC:M/PR:N/UI:N) * (S:U/C:H/I:M/A:L)                                                 | 5.4   (Medium)                                                                         |
-| Temporal   Score (TS):        | Public   exploit code available?                                                                   |         Depends on exploit availability                                                |
-| Environmental   Score (ES):   | Depends   on session expiration times, secure flag usage, user awareness of phishing   attacks     | Varies                                                                                 |
+| **Category**         | **Assessment**                                                                 | **Score (1-10)** |
+|----------------------|---------------------------------------------------------------------------------|------------------|
+| **Damage Potential** | Can lead to unauthorized access, data theft, and device manipulation.           | **8**            |
+| **Reproducibility**  | Easily repeatable with browser tools or intercepting proxies.                   | **8**            |
+| **Exploitability**   | Low to moderate skill required; tools like Burp Suite simplify the process.     | **7**            |
+| **Affected Users**   | Any user relying on cookie-based sessions or device control.                    | **7**            |
+| **Discoverability**  | Detectable with proper logging and validation, but often missed in weak setups. | **7**            |
+
+**Total DREAD Score: 37 / 5 = 7.4**; Rating: **High Risk**.
+
+---
+
+## Bibliography
+
+1. [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
+2. NIST SP 800-63B: Digital Identity Guidelines
+3. ENISA Threat Landscape Report 2023 - [https://www.enisa.europa.eu/publications](https://www.enisa.europa.eu/publications).
+4. IEEE Security & Privacy: Cookie-Based Threats in Mobile and IoT Systems (2022).
+5. [Mitre ATT&CK Framework - Session Manipulation](https://attack.mitre.org).
+6. SANS Institute: Web Application Security and Cookie Tampering Whitepapers.
+
+---
 
 ## Cookie Poisoning Attack Tree

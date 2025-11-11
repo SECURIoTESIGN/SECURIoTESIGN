@@ -1,10 +1,27 @@
-# Cryptanalysis Attack 
+# Cryptanalysis Attack Model
 
-Cryptanalysis is the process of analyzing encrypted data in order to find weaknesses that can be exploited to gain access to the plaintext. It is an incredibly powerful technique that has been used to crack many of the world's most powerful encryption algorithms. Cryptanalysis can be used to attack both symmetric and asymmetric encryption systems. 
+The goal of cryptanalysis is to gain access to the plaintext without knowing the secret key.
 
-The goal of cryptanalysis is to gain access to the plaintext without knowing the secret key. It can be done in a variety of ways, such as frequency analysis, differential cryptanalysis, linear cryptanalysis, brute-force attack, etc. Attackers typically use a combination of these techniques to find a weakness in the security system. 
+## Definition
+
+Cryptanalysis is the process of analyzing encrypted data in order to find weaknesses that can be exploited to gain access to the plaintext. It is an incredibly powerful technique that has been used to crack many of the world most powerful encryption algorithms. Cryptanalysis can be used to attack both symmetric and asymmetric encryption systems. 
 
 By using cryptanalysis, attackers can gain access to sensitive data without the need to decode the entire encrypted document or message. This makes cryptanalysis an important tool for attackers because it allows them to easily bypass complex encryption schemes.
+
+---
+
+## Attack Categories
+
+| **Category**               | **Description**                                                                 |
+|----------------------------|---------------------------------------------------------------------------------|
+| **Ciphertext-Only Attack** | Attacker has access only to encrypted data and attempts to deduce the plaintext or key. |
+| **Known-Plaintext Attack** | Attacker knows some plaintext-ciphertext pairs and uses them to break the encryption. |
+| **Chosen-Plaintext Attack**| Attacker can encrypt arbitrary plaintexts and analyze the resulting ciphertexts. |
+| **Side-Channel Attack**     | Exploits physical characteristics (e.g., timing, power consumption) of cryptographic operations. |
+| **Brute Force Cryptanalysis** | Systematically tries all possible keys until the correct one is found. |
+| **Quantum Cryptanalysis**  | Uses quantum algorithms (e.g., Shor algorithm) to break classical encryption schemes. |
+
+---
 
 ## Mitigation
 
@@ -24,28 +41,35 @@ By using cryptanalysis, attackers can gain access to sensitive data without the 
 
 8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
 
-Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
 
-## Cryptanalysis Architectural Risk Analysis: 
+---
 
-| **Factor**                                    | **Description**                                                   | **Value**                                                                             |
-|-----------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| Attack   Vector (AV):                         | Physical                   |         Physical (L) or Network (N)       |
-| Attack   Complexity (AC):                     | High               | High   (H)                                                                            |
-| Privileges   Required (PR):                   | None   (if data is intercepted)                                   | None   (N)                                                                            |
-| User   Interaction (UI):                      | None                                                              | None   (N)                                                                            |
-| Scope   (S):                                  | Confidentiality   Impact (attacker can decrypt confidential data) |         Confidentiality (C)                                                           |
-| Confidentiality   Impact (C):                 | High   (if compromised data is highly sensitive)                  | High   (H)                                                                            |
-| Integrity   Impact (I):                       | High                   | High   (L)                                                                             |
-| Availability   Impact (A):                    | High                                                              | Low   (L)                                                                            |
-| Base   Score | 8.8                |        High                                 |
- 
-## Recommendations
+## Risk Assessment (DREAD Model)
 
-In order to ensure that the mobile application is resilient or immune to the Cryptanalysis Attacks, it is recommended that the measures described in the good practice report and the security testing present in the full report are followed.
+| **Category**         | **Assessment**                                                                 | **Score (1-10)** |
+|----------------------|---------------------------------------------------------------------------------|------------------|
+| **Damage Potential** | Can lead to full data exposure, identity theft, and system compromise.          | **9**            |
+| **Reproducibility**  | Varies by method; side-channel and brute force are repeatable with resources.   | **7**            |
+| **Exploitability**   | High skill and resources required for advanced attacks; easier for weak crypto. | **6**            |
+| **Affected Users**   | All users whose data is encrypted using vulnerable or exposed keys.             | **8**            |
+| **Discoverability**  | Often undetected until data is decrypted or leaked; side-channel attacks are stealthy. | **7**            |
+
+**Total DREAD Score: 37 / 5 = 7.4**; Rating: **High Risk**
+
+---
 
 ## References
+
 1. [CAPEC-97: Cryptanalysis](https://capec.mitre.org/data/definitions/97.html).
+
+2. [OWASP Cryptographic Storage Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html)
+3. NIST SP 800-57: Recommendation for Key Management
+4. ENISA Threat Landscape Report 2023 – [https://www.enisa.europa.eu/publications](https://www.enisa.europa.eu/publications)
+5. IEEE Transactions on Information Forensics and Security: Modern Cryptanalysis Techniques (2022)
+6. [Mitre ATT&CK Framework – Cryptographic Abuse](https://attack.mitre.org)
+7. SANS Institute: Cryptography and Cryptanalysis in the Real World Whitepapers
+
+---
 
 ## Cryptanalysis Attacks Tree
                         

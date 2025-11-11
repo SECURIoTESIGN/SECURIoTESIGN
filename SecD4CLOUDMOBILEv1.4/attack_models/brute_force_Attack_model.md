@@ -1,51 +1,56 @@
-# Brute Force Attack 
+# Brute Force Attack Model
 
-A Brute Force attack is a type of attack that attempts to guess a user's authentication credentials, such as a username and password, by systematically trying every possible combination of characters until the correct one is discovered. It is commonly used to gain unauthorised access to secure systems.
+A **Brute Force Attack** involves systematically guessing credentials (e.g., passwords, PINs, API keys) until the correct one is found. In cloud-connected mobile apps and IoT devices, brute force attacks can compromise user accounts, device access, and cloud services—especially when weak authentication mechanisms are used.
 
-It is important to note that Brute Force attacks are often used in combination with other tactics, such as dictionary and rainbow table attacks, to increase the chances of success.
+---
 
+## Attack Categories
 
-## Mitigation
+| **Category**               | **Description**                                                                 |
+|----------------------------|---------------------------------------------------------------------------------|
+| **Password Cracking**      | Automated guessing of user passwords using dictionaries or random combinations. |
+| **PIN/Passcode Attacks**   | Targets mobile lock screens or IoT device interfaces with numeric brute force.  |
+| **API Key Guessing**       | Attempts to discover valid API keys or tokens used in cloud services.           |
+| **Credential Stuffing**    | Uses leaked credentials from other breaches to brute-force logins.              |
+| **Bluetooth Pairing Abuse**| Repeated attempts to pair with devices using default or weak PINs.              |
 
-1. **Strong Password Policies**: Enforce the use of strong passwords. Passwords should be long, complex, and unique.
+---
 
-2. **Account Lockout Policies**: After a certain number of failed login attempts, the account should be temporarily locked out.
+## Mitigation Strategies
 
-3. **Two-Factor Authentication (2FA)**: Implementing 2FA can significantly reduce the risk of successful brute force attacks.
+| **Layer**            | **Mitigation**                                                                 |
+|----------------------|--------------------------------------------------------------------------------|
+| **Device Level**     | Enforce lockout after failed attempts, use biometric authentication, disable default credentials. |
+| **App Level**        | Implement rate limiting, CAPTCHA, multi-factor authentication (MFA), and password complexity rules. |
+| **Cloud Level**      | Monitor login attempts, apply geo-fencing, enforce token expiration and rotation. |
+| **IoT Firmware**     | Require secure pairing, enforce PIN complexity, auto-expire pairing sessions. |
+| **User Behavior**    | Encourage use of password managers, avoid reuse of credentials, enable MFA.     |
 
-4. **Captcha**: Use a CAPTCHA system to prevent automated scripts from performing brute force attacks.
+---
 
-5. **Delay Between Login Attempts**: Introduce a delay between login attempts. This slows down an attacker and makes brute force attacks less feasible.
+## Risk Assessment (DREAD Model)
 
-6. **Blacklist/Whitelist IP Addresses**: Blacklist IP addresses that are clearly engaging in malicious activities, and whitelist known good IP addresses.
+| **Category**         | **Assessment**                                                                 | **Score (1-10)** |
+|----------------------|---------------------------------------------------------------------------------|------------------|
+| **Damage Potential** | Can lead to full account takeover, data theft, and unauthorized device control. | **8**            |
+| **Reproducibility**  | Easily repeatable with automated tools and scripts.                             | **9**            |
+| **Exploitability**   | Low barrier to entry; many tools available (e.g., Hydra, Burp Suite, Medusa).   | **8**            |
+| **Affected Users**   | Any user or device with weak or reused credentials.                             | **7**            |
+| **Discoverability**  | Detectable with proper monitoring, but often missed without rate controls.      | **7**            |
 
-7. **Use a Web Application Firewall (WAF)**: A WAF can help detect and block brute force attacks.
+**Total DREAD Score: 39 / 5; Rating: High Risk**
 
-8. **Limit Login Attempts**: Limit the number of login attempts from a single IP address within a certain time period.
+---
 
-9. **Monitor and Log Failed Logins**: Keep an eye on failed login attempts and set up alerts for suspicious activities.
+## References
 
-10. **Use of AI and Machine Learning**: These technologies can learn and adapt to new threats and unusual login patterns, offering another layer of security.
+1. [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
+2. NIST SP 800-63B: Digital Identity Guidelines
+3. ENISA Threat Landscape Report 2023 – [https://www.enisa.europa.eu/publications](https://www.enisa.europa.eu/publications)
+4. IEEE Access: Brute Force Detection in Cloud and Mobile Systems (2022)
+5. [Mitre ATT&CK Framework – Brute Force](https://attack.mitre.org/techniques/T1110/)
+6. SANS Institute: Password Attacks and Defense Strategies Whitepapers
 
-Remember, these are general strategies and may need to be adapted based on the specific use case and environment. It's also important to note that security is a multi-layered approach where one method's weakness is covered by the strength of another. Therefore, a combination of these strategies will provide more robust protection against brute force attacks.
-
-## Brute Force Risk Analysis
-
-| **Factor**                  | **Description**                                                                                                              | **Value**                                                 |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| Vulnerability               | Weak authentication mechanisms (e.g., short passwords, lack of multi-factor authentication) in the mobile app or cloud login | -                                                         |
-| Attack Vector (AV):         | Network (Exploiting login functionality)                                                                                     | Network (N)                                               |
-| Attack Complexity (AC):     | Low (Automated tools can be used for brute-forcing)                                                                          | Low (L)                                                   |
-| Privileges Required (PR):   | None (Attack doesn't require any privileges on the application or cloud)                                                     | None (N)                                                  |
-| User Interaction (UI):      | None (Attack can be automated)                                                                                               | None (N)                                                  |
-| Scope (S):                  | Account Compromise (AC) (Attacker gains unauthorized access to user accounts)                                                | Data Breach (DB) (if attacker accesses confidential data) |
-| Confidentiality Impact (C): | High (Attacker might access confidential user data)                                                                          | High (H)                                                  |
-| Integrity Impact (I):       | High (Attacker might modify user data)                                                                                       | High (H)                                                  |
-| Availability Impact (A):    | Medium (Denial-of-Service attacks with many login attempts can impact availability)                                          | Medium (M)                                                |
-|Base Score (assuming successful exploitation) | 0.85 * (AV:N/AC:L/PR:N/UI:N) * (S:AC/C:H/I:H/A:M) * 0.06 | 0.3 (Low)
-|Temporal Score (TS) | Depends on the processing power available to the attacker and effectiveness of rate limiting | Varies |
-|Environmental Score (ES) | Depends on the strength of password policies (length, complexity), account lockout after failed attempts, and multi-factor authentication (MFA) | Varies |
-|Overall CVSS Score | Base Score + TS + ES | Varies (Depends on TS, ES, and effectiveness of countermeasures) | Low to Medium |
-Risk Rating: | Low to Medium (Depends on TS, ES, and attacker capabilities) | Low to Medium |
+---
 
 ## Brute Force Attack Tree Diagram
