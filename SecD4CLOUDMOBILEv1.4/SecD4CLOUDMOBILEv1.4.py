@@ -2361,6 +2361,8 @@ def get_security_best_practices():
 [Arguments]: No arguments
 [Return]: No return
 """
+
+
 def get_attack_models():
     print("")
     print("  Processing information.....")
@@ -2370,21 +2372,24 @@ def get_attack_models():
     report.write("# Final Attack Models Report  " + '\n')
     report.write("\n")
 
-    report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", "", "|", "", "|"))
-    report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", ":--------", "|", ":---------", "|"))
+    # report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", "", "|", "", "|"))
+    # report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", ":--------", "|", ":---------", "|"))
 
     '''
     for i in range( 0,len(table_for_report) ):
         report.write("| " + table_for_report[i][0] + " | " + table_for_report[i][1] + " | \n" )
     '''
     for i in range(0, len(table_for_report)):
-        report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
+        report.write(
+            "{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
 
     report.write("\n")
 
     # MitM attack model
-    if questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+    if questions_and_answers["Q5"].find("1") != -1 and (
+            questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2397,19 +2402,20 @@ def get_attack_models():
 
     # Brute Force attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q13"].find("1") != -1:
+                report.write(open("attack_models/brute_force_Attack_model.md", "r").read())
 
-            report.write(open("attack_models/brute_force_Attack_model.md", "r").read())
-
-            # Write the scheme in the report
-            report.write("\n\n")
-            report.write("![alt text](attack_models/Brute_Force_Attack_Tree.JPG)")
-            report.write("\n\n")
+                # Write the scheme in the report
+                report.write("\n\n")
+                report.write("![alt text](attack_models/Brute_Force_Attack_Tree.JPG)")
+                report.write("\n\n")
 
     # Eavesdropping attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write(open("attack_models/eavesdropping_attack_model.md", "r").read())
 
             # Write the scheme in the report
@@ -2418,8 +2424,10 @@ def get_attack_models():
             report.write("\n\n")
 
     # XSS attack model
-    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1 and (questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1 and (
+            questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2431,8 +2439,10 @@ def get_attack_models():
             report.write("\n\n")
 
     # CSRF attack model
-    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1 and (questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+    if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1 and (
+            questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2444,7 +2454,8 @@ def get_attack_models():
             report.write("\n\n")
 
     # Cookie Poisoning attack model
-    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
+    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (
+            questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
         report.write("\n")
         report.write("\n")
 
@@ -2457,7 +2468,7 @@ def get_attack_models():
 
     # Cache Poisoning attack model
     if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and (
-                questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
+            questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
         report.write("\n")
         report.write("\n")
 
@@ -2469,8 +2480,10 @@ def get_attack_models():
         report.write("\n\n")
 
     # Malicious QR Code attack model
-    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and \
+            questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2482,8 +2495,11 @@ def get_attack_models():
             report.write("\n\n")
 
     # SQLi attack model
-    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and questions_and_answers["Q3"].find("1") != -1 :
-        if questions_and_answers["Q5"].find("1") != -1 and questions_and_answers["Q6"].find("1") != -1 and (questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q7"].find("3") != -1):
+    if (questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1) and \
+            questions_and_answers["Q3"].find("1") != -1:
+        if questions_and_answers["Q5"].find("1") != -1 and questions_and_answers["Q6"].find("1") != -1 and (
+                questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
+                questions_and_answers["Q7"].find("3") != -1):
             report.write("\n")
             report.write("\n")
 
@@ -2496,8 +2512,8 @@ def get_attack_models():
 
     # Flooding attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write(open("attack_models/flooding_attack_model.md", "r").read())
 
             # Write the scheme in the report
@@ -2506,19 +2522,21 @@ def get_attack_models():
             report.write("\n\n")
 
     # Sniffing attack model
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
+            questions_and_answers["Q18"].find("4") != -1 or questions_and_answers["Q18"].find("2") != -1):
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write(open("attack_models/sniffing_attack_model.md", "r").read())
 
             # Write the scheme in the report
             report.write("\n\n")
             report.write("![alt text](attack_models/Sniffing_Attack_Tree.JPG)")
             report.write("\n\n")
-    
+
     # Phishing attack model
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2530,8 +2548,9 @@ def get_attack_models():
             report.write("\n\n")
 
     # Pharming attack model
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2543,8 +2562,10 @@ def get_attack_models():
             report.write("\n\n")
 
     # Botnet attack model
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
+            questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1):
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2570,7 +2591,8 @@ def get_attack_models():
                 report.write("\n\n")
 
     # Buffer Overflow attack model
-    if questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("6") != -1 or questions_and_answers["Q1"].find("7") != -1:
+    if questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("6") != -1 or \
+            questions_and_answers["Q1"].find("7") != -1:
         if questions_and_answers["Q12"].find("2") != -1:
             report.write("\n")
             report.write("\n")
@@ -2583,8 +2605,9 @@ def get_attack_models():
             report.write("\n\n")
 
     # Spoofing attack model
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 :
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2597,7 +2620,8 @@ def get_attack_models():
 
     # If the system was development for Android, iOS, Tizen and embedded platforms (Attack on VM at migration )
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2609,8 +2633,9 @@ def get_attack_models():
             report.write("\n\n")
 
     # Malicious Insider attack model
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 :
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             if questions_and_answers["Q22"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2622,22 +2647,55 @@ def get_attack_models():
                 report.write("![alt text](attack_models/Malicious_Insider_Attack_Tree.JPG)")
                 report.write("\n\n")
 
+    # Bypassing Physical Security attack model
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q22"].find("1") != -1:
+                report.write("\n")
+                report.write("\n")
+
+                report.write(open("attack_models/bypassing_physical_security_model.md", "r").read())
+
+                # Write the scheme in the report
+                report.write("\n\n")
+                report.write("![alt text](attack_models/Bypassing_Physical_Security_Attack_Tree.JPG)")
+                report.write("\n\n")
+
+        # Physical Theft attack model
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q22"].find("1") != -1:
+                report.write("\n")
+                report.write("\n")
+
+                report.write(open("attack_models/physical_theft_attack_model.md", "r").read())
+
+                # Write the scheme in the report
+                report.write("\n\n")
+                report.write(
+                    "![alt text](attack_models/physical_theft_attack_tree.JPG)")
+                report.write("\n\n")
+
     # VM Escape attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("attack_models/vm_escape_attack_model.md", "r").read())
+            report.write(open("attack_models/VM-Escape-Attacks-Model.md", "r").read())
 
             # Write the scheme in the report
             report.write("\n\n")
             report.write("![alt text](attack_models/VM_Escape_Attack_Tree.JPG)")
             report.write("\n\n")
 
-   # Side-Channel attack model
+    # Side-Channel attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2648,9 +2706,12 @@ def get_attack_models():
             report.write("![alt text](attack_models/Side_Channel_Attack_Tree.JPG)")
             report.write("\n\n")
 
-    # Malware-as-a-Service attack model
-        if (questions_and_answers["Q1"].find("1") != -1 or questions_and_answers["Q1"].find("2") != -1) or questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("5") != -1 or questions_and_answers["Q1"].find("6") != -1 or questions_and_answers["Q1"].find("7") != -1:
-            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        # Malware-as-a-Service attack model
+        if (questions_and_answers["Q1"].find("1") != -1 or questions_and_answers["Q1"].find("2") != -1) or \
+                questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("5") != -1 or \
+                questions_and_answers["Q1"].find("6") != -1 or questions_and_answers["Q1"].find("7") != -1:
+            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                    questions_and_answers["Q8"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
 
@@ -2663,7 +2724,8 @@ def get_attack_models():
 
     # Tampering attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             if questions_and_answers["Q22"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2674,10 +2736,11 @@ def get_attack_models():
                 report.write("\n\n")
                 report.write("![alt text](attack_models/Tampering_Attack_Tree.JPG)")
                 report.write("\n\n")
-    
+
     # Bluejacking and Bluesnarfing attack Model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             if questions_and_answers["Q21"].find("5") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2694,7 +2757,8 @@ def get_attack_models():
 
     # GPS Jamming attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             if questions_and_answers["Q21"].find("7") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2706,10 +2770,26 @@ def get_attack_models():
                 report.write("![alt text](attack_models/GPS_Jamming_Attack_Tree.JPG)")
                 report.write("\n\n")
 
+    # GPS Spoofing attack model
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q21"].find("7") != -1:
+                report.write("\n")
+                report.write("\n")
+
+                report.write(open("attack_models/gps_spoofing_attack_model.md", "r").read())
+
+                # Write the scheme in the report
+                report.write("\n\n")
+                report.write("![alt text](attack_models/gps_spoofing_attack_tree.JPG)")
+                report.write("\n\n")
+
     # Code injection attack model
     if questions_and_answers["Q1"].find("3") != -1 and questions_and_answers["Q1"].find("4") != -1:
         if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                    questions_and_answers["Q8"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
 
@@ -2723,7 +2803,8 @@ def get_attack_models():
     # SSRF attack model
     if questions_and_answers["Q1"].find("3") != -1 and questions_and_answers["Q1"].find("4") != -1:
         if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                    questions_and_answers["Q8"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
 
@@ -2737,7 +2818,8 @@ def get_attack_models():
     # Command Injection attack model
     if questions_and_answers["Q1"].find("3") != -1 and questions_and_answers["Q1"].find("4") != -1:
         if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                    questions_and_answers["Q8"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
 
@@ -2747,11 +2829,13 @@ def get_attack_models():
                 report.write("\n\n")
                 report.write("![alt text](attack_models/Command_Injection_Attack_Tree.JPG)")
                 report.write("\n\n")
-    
+
     # Cellular Jamming attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-            if questions_and_answers["Q21"].find("1") != -1 or questions_and_answers["Q21"].find("2") != -1 or questions_and_answers["Q21"].find("3") != -1 or questions_and_answers["Q21"].find("4") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q21"].find("1") != -1 or questions_and_answers["Q21"].find("2") != -1 or \
+                    questions_and_answers["Q21"].find("3") != -1 or questions_and_answers["Q21"].find("4") != -1:
                 report.write("\n")
                 report.write("\n")
 
@@ -2762,9 +2846,27 @@ def get_attack_models():
                 report.write("![alt text](attack_models/Cellular_Jamming_Attack_Tree.JPG)")
                 report.write("\n\n")
 
+    # Cellular Rogue Base Station Attack model
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q21"].find("1") != -1 or questions_and_answers["Q21"].find("2") != -1 or \
+                    questions_and_answers["Q21"].find("3") != -1 or questions_and_answers["Q21"].find(
+                "4") != -1:
+                report.write("\n")
+                report.write("\n")
+
+                report.write(open("attack_models/cellular_rogue_base_station_model.md", "r").read())
+
+                # Write the scheme in the report
+                report.write("\n\n")
+                report.write("![alt text](attack_models/Cellular_Rogue_Base_Station_Attack_Tree.JPG)")
+                report.write("\n\n")
+
     # Cryptanalysis attack Model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
@@ -2776,22 +2878,24 @@ def get_attack_models():
             report.write("\n\n")
 
     # Reverse Engineering attack model
-    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
-            report.write("\n")
-            report.write("\n")
+    if questions_and_answers["Q1"].find("1") != -1 or questions_and_answers["Q1"].find("2") != -1:
+        if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                    questions_and_answers["Q8"].find("3") != -1:
+                report.write("\n")
+                report.write("\n")
+                report.write(open("attack_models/reverse_engineering_attack_model.md", "r").read())
 
-            report.write(open("attack_models/reverse_engineering_attack_model.md", "r").read())
-
-            # Tampering Detection attack tree diagram
-            # Write the scheme in the report
-            report.write("\n\n")
-            report.write("![alt text](attack_models/Reverse_Engineering_Attack_Tree.JPG)")
-            report.write("\n\n")
+                # Tampering Detection attack tree diagram
+                # Write the scheme in the report
+                report.write("\n\n")
+                report.write("![alt text](attack_models/Reverse_Engineering_Attack_Tree.JPG)")
+                report.write("\n\n")
 
     # Audit Log Manipulation attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             if questions_and_answers["Q14"].find("1") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2807,7 +2911,8 @@ def get_attack_models():
 
     # Wi-Fi Jamming Attack Model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             if questions_and_answers["Q21"].find("6") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2821,7 +2926,8 @@ def get_attack_models():
 
     # Wi-Fi SSID Tracking attack model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             if questions_and_answers["Q21"].find("6") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2830,9 +2936,24 @@ def get_attack_models():
 
                 # Write the scheme in the report
                 report.write("![alt text](attack_models/Wi_Fi_SSID_Tracking_Attack_Tree.JPG)")
+
+    # Access Point Hijacking attack model
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q21"].find("6") != -1:
+                report.write("\n")
+                report.write("\n")
+
+                report.write(open("attack_models/access_point_hijacking_model.md", "r").read())
+
+                # Write the scheme in the report
+                report.write("![alt text](attack_models/Wi_Fi_SSID_Tracking_Attack_Tree.JPG)")
+
     # Byzantine Attack Model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             if questions_and_answers["Q21"].find("6") != -1:
                 report.write("\n")
                 report.write("\n")
@@ -2859,7 +2980,8 @@ def get_attack_models():
 
     # Spectre Attack Model
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
-            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
+            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
+            questions_and_answers["Q8"].find("3") != -1):
         if questions_and_answers["Q22"].find("1") != -1:
             report.write("\n")
             report.write("\n")
@@ -3041,11 +3163,14 @@ def get_attack_models():
     attack_models_convert_report()
     print("\n\n # Processing done! Check your attack models in the ATTACKS_MAPPING.pdf file")
 
+
 """
 [Summary]: Method responsible for processing information about STSAT module
 [Arguments]: No arguments
 [Return]: No return
 """
+
+
 def get_security_test_recommendation():
     print("")
     print("  Processing information.....")
@@ -3063,19 +3188,22 @@ def get_security_test_recommendation():
         report.write("| " + table_for_report[i][0] + " | " + table_for_report[i][1] + " | \n" )
     '''
     for i in range(0, len(table_for_report)):
-        report.write("{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
+        report.write(
+            "{:3}{:25}{:3}{:60}{:3}\n".format("|", table_for_report[i][0], "|", table_for_report[i][1], "|"))
 
     report.write("\n")
 
-
     # Testing DoS Jamming attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
-            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
-        if questions_and_answers["Q21"].find("1") != -1 or questions_and_answers["Q21"].find("2") != -1 or questions_and_answers["Q21"].find("3") != -1:
+            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
+            questions_and_answers["Q8"].find("3") != -1):
+        if questions_and_answers["Q21"].find("1") != -1 or questions_and_answers["Q21"].find("2") != -1 or \
+                questions_and_answers["Q21"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/cellular_jamming_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/cellular_jamming_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Wi-Fi Jamming attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3085,7 +3213,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/wi_fi_jamming_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/wi_fi_jamming_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing NFC Payment Replay attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3095,7 +3224,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/nfc_payment_replay_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/nfc_payment_replay_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Orbital Jamming attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3106,7 +3236,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/orbital_jamming_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/orbital_jamming_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing GPS Jamming attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3116,7 +3247,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/gps_jamming_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/gps_jamming_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Bluesnarfing attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3126,7 +3258,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/bluesnarfing_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/bluesnarfing_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Bluejacking attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3136,17 +3269,19 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/bluejacking_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/bluejacking_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Wi-Fi SSID Tracking attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
             questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
             questions_and_answers["Q8"].find("3") != -1):
         if questions_and_answers["Q21"].find("6") != -1:
-                report.write("\n")
-                report.write("\n")
+            report.write("\n")
+            report.write("\n")
 
-                report.write(open("security_test_recommendation/wi_fi_ssid_tracking_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/wi_fi_ssid_tracking_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Byzantine attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3156,7 +3291,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/byzantine_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/byzantine_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing On-Off attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3166,7 +3302,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/on_off_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/on_off_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Malicious Insider attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3175,7 +3312,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/malicious_insider_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/malicious_insider_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Sniffing attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3184,7 +3322,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/sniffing_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/sniffing_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing MitM attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3193,7 +3332,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/mitm_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/mitm_testing_guide.md", "r", errors="ignore").read())
 
     # Testing Eavesdropping attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3202,16 +3342,20 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/eavesdropping_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/eavesdropping_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing CSRF attack
     if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
-        if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and questions_and_answers["Q6"].find("1") != -1 and (
-                questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
+        if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and \
+                questions_and_answers["Q6"].find("1") != -1 and (
+                questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
+                questions_and_answers["Q8"].find("3") != -1):
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/csrf_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/csrf_testing_guide.md", "r", errors="ignore").read())
 
     # Testing SQLi attacks
     if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
@@ -3222,7 +3366,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/sqli_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/sqli_testing_guide.md", "r", errors="ignore").read())
 
     # Testing XSS attacks
     if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
@@ -3233,7 +3378,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/xss_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/xss_testing_guide.md", "r", errors="ignore").read())
 
     # Testing SSRF attacks
     if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
@@ -3244,7 +3390,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/ssrf_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/ssrf_testing_guide.md", "r", errors="ignore").read())
 
     # Testing Command Injection attacks
     if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
@@ -3255,7 +3402,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/command_injection_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/command_injection_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Command Injection attacks
     if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
@@ -3266,60 +3414,99 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/code_injection_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/code_injection_testing_guide.md", "r",
+                              errors="ignore").read())
+
+    # Testing Audit Log Manipulation attacks
+    if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
+        if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and \
+                questions_and_answers["Q6"].find("1") != -1 and (
+                questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
+                questions_and_answers["Q8"].find("3") != -1):
+            report.write("\n")
+            report.write("\n")
+
+            report.write(
+                open("security_test_recommendation/audit_log_manipulation_testing_guide.md", "r",
+                     errors="ignore").read())
+
+    # Testing Brute Force Attacks
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q13"].find("1") != -1:
+                report.write("\n")
+                report.write("\n")
+
+                report.write(open("security_test_recommendation/brute_force_testing_guide.md", "r",
+                                  errors="ignore").read())
+
+    # Testing Cryptanalysis Attacks
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
+
+            report.write(open("security_test_recommendation/cryptanalysis_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Phishing attacks
-    if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
-        if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and \
-                questions_and_answers["Q6"].find("1") != -1 and (
-                questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
-                questions_and_answers["Q8"].find("3") != -1):
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/phishing_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/phishing_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Pharming attack
-    if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
-        if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and \
-                questions_and_answers["Q6"].find("1") != -1 and (
-                questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
-                questions_and_answers["Q8"].find("3") != -1):
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/pharming_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/pharming_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Spoofing attack
-    if questions_and_answers["Q1"].find("4") != -1 or questions_and_answers["Q1"].find("3") != -1:
-        if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and \
-                questions_and_answers["Q6"].find("1") != -1 and (
-                questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
-                questions_and_answers["Q8"].find("3") != -1):
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and \
+            questions_and_answers["Q6"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/spoofing_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/spoofing_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Session Fixation attack
     if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1:
         if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-            if questions_and_answers["Q8"].find("1") != -1 and questions_and_answers["Q8"].find("2") != -1 and questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q8"].find("1") != -1 and questions_and_answers["Q8"].find("2") != -1 and \
+                    questions_and_answers["Q8"].find("3") != -1:
                 if questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1:
                     report.write("\n")
                     report.write("\n")
 
-                    report.write(open("security_test_recommendation/session_fixation_testing_guide.md", "r").read())
+                    report.write(
+                        open("security_test_recommendation/session_fixation_testing_guide.md", "r",
+                             errors="ignore").read())
 
     # Testing Session Hijacking attacks
     if questions_and_answers["Q1"].find("3") != -1 or questions_and_answers["Q1"].find("4") != -1:
         if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-            if questions_and_answers["Q8"].find("1") != -1 and questions_and_answers["Q8"].find("2") != -1 and questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q8"].find("1") != -1 and questions_and_answers["Q8"].find("2") != -1 and \
+                    questions_and_answers["Q8"].find("3") != -1:
                 if questions_and_answers["Q18"].find("2") != -1 or questions_and_answers["Q18"].find("4") != -1:
                     report.write("\n")
                     report.write("\n")
 
-                    report.write(open("security_test_recommendation/session_hijacking_testing_guide.md", "r").read())
+                    report.write(
+                        open("security_test_recommendation/session_hijacking_testing_guide.md", "r",
+                             errors="ignore").read())
 
     # Testing Access Point Hijacking attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3328,7 +3515,9 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/access_point_hijacking_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/access_point_hijacking_testing_guide.md", "r",
+                     errors="ignore").read())
 
     # Testing Cellular Rogue Base Station attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3338,14 +3527,17 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/cellular_rogue_base_station_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/cellular_rogue_base_station_testing_guide.md", "r",
+                     errors="ignore").read())
 
     # Testing GPS Spoofing attack
     if questions_and_answers["Q21"].find("7") != -1:
         report.write("\n")
         report.write("\n")
 
-        report.write(open("security_test_recommendation/gps_spoofing_testing_guide.md", "r").read())
+        report.write(open("security_test_recommendation/gps_spoofing_testing_guide.md", "r",
+                          errors="ignore").read())
 
     # Testing RF Interference on RFIDs attack
     if questions_and_answers["Q1"].find("7") != -1:
@@ -3353,7 +3545,19 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/interference_on_rfid_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/interference_on_rfid_testing_guide.md", "r",
+                              errors="ignore").read())
+
+    # Testing Tampering Attack
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q22"].find("1") != -1:
+                report.write("\n")
+                report.write("\n")
+
+                report.write(open("security_test_recommendation/tampering_testing_guide.md", "r",
+                                  errors="ignore").read())
 
     # Testing Node Tampering attack
     if questions_and_answers["Q1"].find("7") != -1:
@@ -3362,7 +3566,8 @@ def get_security_test_recommendation():
                 report.write("\n")
                 report.write("\n")
 
-                report.write(open("security_test_recommendation/node_tampering_testing_guide.md", "r").read())
+                report.write(open("security_test_recommendation/node_tampering_testing_guide.md", "r",
+                                  errors="ignore").read())
 
     # Testing Node Jamming in WSNs attack
     if questions_and_answers["Q1"].find("7") != -1:
@@ -3370,7 +3575,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/node_jamming_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/node_jamming_testing_guide.md", "r",
+                              errors="ignore").read())
 
         # Testing Sybil attack
         if questions_and_answers["Q1"].find("7") != -1:
@@ -3378,7 +3584,8 @@ def get_security_test_recommendation():
                 report.write("\n")
                 report.write("\n")
 
-                report.write(open("security_test_recommendation/sybil_testing_guide.md", "r").read())
+                report.write(open("security_test_recommendation/sybil_testing_guide.md", "r",
+                                  errors="ignore").read())
 
     # Testing Malicious Node Injection attack
     if questions_and_answers["Q1"].find("7") != -1:
@@ -3386,7 +3593,9 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/malicious_node_injection_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/malicious_node_injection_testing_guide.md", "r",
+                     errors="ignore").read())
 
     # Testing RFID Spoofing attack
     if questions_and_answers["Q1"].find("7") != -1:
@@ -3394,7 +3603,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/rfid_Spoofing_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/rfid_Spoofing_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing RFID Cloning attack
     if questions_and_answers["Q1"].find("7") != -1:
@@ -3402,7 +3612,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/rfid_cloning_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/rfid_cloning_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing RFID Unauthorized Access attack
     if questions_and_answers["Q1"].find("7") != -1:
@@ -3410,47 +3621,69 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/rfid_unauthorized_access_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/rfid_unauthorized_access_testing_guide.md", "r",
+                     errors="ignore").read())
 
     # Testing Botnet attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/botnet_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/botnet_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Malware-as-a-Service attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/maas_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/maas_testing_guide.md", "r", errors="ignore").read())
+
+    # Testing Flooding Attack
+    if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
+            report.write("\n")
+            report.write("\n")
+
+            report.write(open("security_test_recommendation/flooding_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Buffer Overflow attacks
-    if questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("6") != -1 or questions_and_answers["Q1"].find("7") != -1:
+    if questions_and_answers["Q1"].find("2") != -1 or questions_and_answers["Q1"].find("6") != -1 or \
+            questions_and_answers["Q1"].find("7") != -1:
         if questions_and_answers["Q12"].find("2") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/buffer_overflow_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/buffer_overflow_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Bypassing Physical Security attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/bps_testing_guide.md", "r").read())
+            report.write(
+                open("security_test_recommendation/bps_testing_guide.md", "r", errors="ignore").read())
 
     # Testing Physical theft attack
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+        if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                questions_and_answers["Q8"].find("3") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/physical_theft_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/physical_theft_testing_guide.md", "r",
+                              errors="ignore").read())
 
         # Testing VM Migration attacks
         if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
@@ -3459,16 +3692,19 @@ def get_security_test_recommendation():
                 report.write("\n")
                 report.write("\n")
 
-                report.write(open("security_test_recommendation/vm_migration_testing_guide.md", "r").read())
+                report.write(open("security_test_recommendation/vm_migration_testing_guide.md", "r",
+                                  errors="ignore").read())
 
     # Testing Side-Channel attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
-            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
+            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
+            questions_and_answers["Q8"].find("3") != -1):
         if questions_and_answers["Q22"].find("1") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/side_channel_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/side_channel_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Spectre attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3478,7 +3714,8 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/spectre_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/spectre_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Meltdown attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
@@ -3488,47 +3725,56 @@ def get_security_test_recommendation():
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/meltdown_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/meltdown_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Hardware Integrity attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
-                questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
-                questions_and_answers["Q8"].find("3") != -1):
+            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
+            questions_and_answers["Q8"].find("3") != -1):
         if questions_and_answers["Q22"].find("1") != -1:
             report.write("\n")
             report.write("\n")
 
-            report.write(open("security_test_recommendation/hardware_integrity_testing_guide.md", "r").read())
+            report.write(open("security_test_recommendation/hardware_integrity_testing_guide.md", "r",
+                              errors="ignore").read())
 
     # Testing Rowhammer attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
-                questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
-                questions_and_answers["Q8"].find("3") != -1):
+            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
+            questions_and_answers["Q8"].find("3") != -1):
         report.write("\n")
         report.write("\n")
 
-        report.write(open("security_test_recommendation/rowhammer_testing_guide.md", "r").read())
+        report.write(
+            open("security_test_recommendation/rowhammer_testing_guide.md", "r", errors="ignore").read())
 
     # Testing Reverse Engineering attacks
-    if questions_and_answers["Q1"].find("1") != -1 and questions_and_answers["Q5"].find("2") != -1:
+    if questions_and_answers["Q1"].find("1") != -1 or questions_and_answers["Q1"].find("2") != -1:
         if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1:
-            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1:
+            if questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or \
+                    questions_and_answers["Q8"].find("3") != -1:
                 report.write("\n")
                 report.write("\n")
 
-                report.write(open("security_test_recommendation/rea_testing_guide.md", "r").read())
+                report.write(
+                    open("security_test_recommendation/reverse_engineering_testing_guide.md", "r",
+                         errors="ignore").read())
 
     # Testing VM Escape attacks
     if questions_and_answers["Q3"].find("1") != -1 and questions_and_answers["Q5"].find("1") != -1 and (
-            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or questions_and_answers["Q8"].find("3") != -1):
+            questions_and_answers["Q8"].find("1") != -1 or questions_and_answers["Q8"].find("2") != -1 or
+            questions_and_answers["Q8"].find("3") != -1):
         report.write("\n")
         report.write("\n")
 
-        report.write(open("security_test_recommendation/vm_escape_testing_guide.md", "r").read())
-    
+        report.write(
+            open("security_test_recommendation/vm_escape_testing_guide.md", "r", errors="ignore").read())
+
     report.close()
     security_test_recommendation_convert_report()
-    print("\n\n # Processing done! Check your security test specification and automation tools in the TEST_SPECIFICATION.pdf file")
+    print(
+        "\n\n # Processing done! Check your security test specification and automation tools in the TEST_SPECIFICATION.pdf file")
 
 """
 [Summary]: Method responsible for processing information about SME module
