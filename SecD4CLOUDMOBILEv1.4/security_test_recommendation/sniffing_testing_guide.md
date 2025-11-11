@@ -1,30 +1,118 @@
-# Testing the Sniffing Attack 
+# security Testing Setup for Sniffing Attacks
 
-To detect sniffing attacks, the following steps should be followed:
+## 1. Overview
 
-1. Monitor Network Activity:  Monitor your network for unusually high levels of traffic, and compare it to what is normal. High amounts of traffic can indicate malicious activity.
+Sniffing attacks capture network traffic (cleartext credentials, tokens, telemetry) between IoT devices, mobile clients and cloud services &mdash; test to find misconfigured links, weak crypto, or exposed telemetry.
 
-2. Perform Packet Capture: Use packet capture techniques such as port mirroring or port spanning to monitor all the packets that travel between two locations or over a network. This will allow you to analyze the data in detail and detect any malicious activity.
+---
 
-3. Track Source IP Addresses: Track the source IP addresses of incoming packets to determine any suspicious activity. Malicious IPs can be blocked and monitored later.
+## 2. Quick Test Workflow
 
-4. Compare Protocols: Compare the protocols used in the captured network traffic. If any unusual or unfamiliar protocols are used, the traffic should be investigated further.
+1. **Scope & inventory** &mdash; list device types, network paths (device&rarr;gateway, gateway&rarr;cloud, mobile&rarr;cloud), protocols (HTTP, MQTT, CoAP, plain TCP/UDP).
+2. **Baseline capture** &mdash; passively capture normal traffic at gateway & cloud ingress (pcap) to learn expected flows.
+3. **Active sniff tests (lab)** &mdash; run controlled MITM/sniffing (proxy, ARP/ND spoofing, rogue AP) in isolated lab to see if secrets leak.
+4. **Protocol checks** &mdash; verify TLS on all links, certificate validation, MQTT over TLS, MQTT client auth, and avoid plaintext protocols.
+5. **Detection validation** &mdash; ensure IDS/Zeek/ELK detect unauthorized sniffing patterns (ARP spikes, new DHCP leases, TLS strip attempts).
+6. **Remediate & retest** &mdash; enforce encryption, mutual auth, certificate pinning, and harden network segmentation; repeat captures.
 
-5. Utilize Intrusion Detection Systems (IDS): Utilize Intrusion Detection Systems (IDS) to detect any anomalies in the network traffic. IDS systems analyze packets in real-time and look for any suspicious activity.
+---
 
-6. Use Network Scanning Tools: Utilize tools such as Nmap to identify open ports, services and vulnerabilities that need to be patched.
+## 3. Security Test Approach & Tools
 
-7. Use Antivirus Software: Use antivirus software to detect and prevent malicious activity. Antivirus software should be updated regularly for maximum protection.
+<table border="1" cellpadding="6" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Test approach</th>
+      <th>Analysis Type</th>
+      <th>Approach name</th>
+      <th>Testing Tool</th>
+      <th>Tool Hyperlink</th>
+      <th>Platform</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Black-box</td>
+      <td>DAST</td>
+      <td>Passive packet capture</td>
+      <td>Wireshark / tshark</td>
+      <td><a href="https://www.wireshark.org/">Wireshark</a></td>
+      <td>Both</td>
+    </tr>
+    <tr>
+      <td>Black-box</td>
+      <td>DAST</td>
+      <td>Network sniff + MITM (ARP/ND)</td>
+      <td>Bettercap / Ettercap</td>
+      <td><a href="https://github.com/bettercap/bettercap">Bettercap</a> / <a href="https://www.ettercap-project.org/">Ettercap</a></td>
+      <td>Both</td>
+    </tr>
+    <tr>
+      <td>Gray-box</td>
+      <td>DAST</td>
+      <td>HTTP/HTTPS proxy & request manipulation</td>
+      <td>mitmproxy / Burp Suite</td>
+      <td><a href="https://mitmproxy.org/">mitmproxy</a> / <a href="https://portswigger.net/burp">Burp Suite</a></td>
+      <td>Both</td>
+    </tr>
+    <tr>
+      <td>Gray-box</td>
+      <td>DAST</td>
+      <td>Wireless sniffing & rogue AP</td>
+      <td>Kismet / hostapd (rogue AP)</td>
+      <td><a href="https://www.kismetwireless.net/">Kismet</a></td>
+      <td>Both (Wi-Fi)</td>
+    </tr>
+    <tr>
+      <td>Gray-box</td>
+      <td>DAST</td>
+      <td>BLE sniffing (mobile/IoT)</td>
+      <td>Ubertooth / nRF Sniffer</td>
+      <td><a href="https://github.com/greatscottgadgets/ubertooth">Ubertooth</a></td>
+      <td>Both (BLE)</td>
+    </tr>
+    <tr>
+      <td>White-box</td>
+      <td>SAST</td>
+      <td>Code/config review for insecure transports</td>
+      <td>Semgrep / CodeQL</td>
+      <td><a href="https://semgrep.dev/">Semgrep</a> / <a href="https://github.com/github/codeql">CodeQL</a></td>
+      <td>Cloud & mobile</td>
+    </tr>
+    <tr>
+      <td>Gray-box</td>
+      <td>DAST</td>
+      <td>Network monitoring / detection</td>
+      <td>Zeek / Suricata + ELK</td>
+      <td><a href="https://www.zeek.org/">Zeek</a> / <a href="https://suricata.io/">Suricata</a></td>
+      <td>Both (network)</td>
+    </tr>
+    <tr>
+      <td>Black-box</td>
+      <td>DAST</td>
+      <td>Traffic replay / fuzzing</td>
+      <td>tcpreplay / scapy</td>
+      <td><a href="https://tcpreplay.appneta.com/">tcpreplay</a> / <a href="https://scapy.net/">scapy</a></td>
+      <td>Both</td>
+    </tr>
+  </tbody>
+</table>
 
-8. Implement Encryption: Encrypt data before sending it over a network. This will prevent malicious actors from decrypting and accessing confidential data.
+---
 
-## Testing Tools: 
+## 4. Minimal Testbed & Checklist
 
-| Target Testing | Testing Technique | Test Analysis   | Test Method    | Test Tool          | Mobile Platform |
-| ------------- | ---------------- | -------------- | -------------- |------------------ | ----------------|
-| Network       | White-box        | Dynamic        | Network Sniffer| Wireshark/Ethereal | None            |
-| Network       | Grey-box         | Dynamic        | Network & Host | Nmap              | None            |
-| Network       | Grey-box         | Dynamic        | Protocol Tests | Ncat              | None            |
-| Host          | White-box        | Static         | File Scanning  | NESSUS            | None            |
-| Host          | Grey-box         | Hybrid         | Application    | Burp Suite        | iOS/Android     |	  
-| Application   | Black-box        | Dynamic        | Code Analysis  | FindBugs          | iOS/Android     |
+* Isolated lab VLAN or physical air-gap.
+* Capture points: near device (Wi-Fi/BLE sniffer), at gateway uplink, at cloud ingress.
+* Test devices: representative IoT nodes, Android phone (with/without root), staging cloud service.
+* Logging: PCAPs, Zeek logs forwarded to ELK/Splunk.
+* Safety: never sniff on public/production networks without written permission.
+
+---
+
+## 5. References
+
+1. Sicari, S., Rizzardi, A., Grieco, L. A., & Coen-Porisini, A. (2015). Security, privacy and trust in Internet of Things: The road ahead. *Computer Networks*, 76, 146-164.
+2. Miorandi, D., Sicari, S., De Pellegrini, F., & Chlamtac, I. (2012). Internet of things: Vision, applications and research challenges. *Ad Hoc Networks*, 10(7), 1497-1516.
+3. Wu, T., Breitinger, F., & Niemann, S. (2021). IoT network traffic analysis: Opportunities and challenges for forensic investigators?. *Forensic Science International: Digital Investigation*, 38, 301123.
+4. Almutairi, M., & Sheldon, F. T. (2025). IoT-Cloud Integration Security: A Survey of Challenges, Solutions, and Directions. *Electronics*, 14(7), 1394.
