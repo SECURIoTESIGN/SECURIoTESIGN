@@ -1,8 +1,7 @@
 # Physical Security 
 
-## Physical Security
 
-Physical Security is the protection of people, property, and information onsite. It involves protecting physical assets from potential risks such as fire, theft, vandalism, and natural disasters.
+**Physical Security** is the protection of people, property, and information onsite. It involves protecting physical assets from potential risks such as fire, theft, vandalism, and natural disasters.
 
 The following should be considered when designing physical security:
 
@@ -13,8 +12,6 @@ The following should be considered when designing physical security:
 - Systems Security: Ensuring the integrity of the digital systems and networks within the facility by implementing security measures, such as
 
 ## Warning: 
-
-##### Potential Consequences of Failing to Guarantee Physical Security Requirements
 
 - Theft or destruction of hardware components and systems.
 - Potential exposure of confidential data or information.

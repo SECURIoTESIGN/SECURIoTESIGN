@@ -1,7 +1,6 @@
 # Tamper Detection 
 
-## Tamper Detection 
-Tamper detection is a requirement in security engineering that detects and alerts for any changes made to the system. This type of security helps to ensure that confidential information is safe and not accessible to unauthorized personnel. Tamper detection technology can detect any changes made to the system such as adding or removing files, changing configurations, and more. Additionally, tamper detection can trigger other protective measures such as locking down a system or triggering alerts when a malicious attack is detected.
+**Tamper detection** is a requirement in security engineering that detects and alerts for any changes made to the system. This type of security helps to ensure that confidential information is safe and not accessible to unauthorized personnel. Tamper detection technology can detect any changes made to the system such as adding or removing files, changing configurations, and more. Additionally, tamper detection can trigger other protective measures such as locking down a system or triggering alerts when a malicious attack is detected.
 
 ## Warning: 
 

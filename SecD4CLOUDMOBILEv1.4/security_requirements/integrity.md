@@ -1,8 +1,6 @@
 # Integrity 
 
-## Integrity Requirement in Security Engineering
-
-Integrity is one of the key security requirements that must be addressed in security engineering. This requirement is used to ensure the accuracy and completeness of data and systems.
+**Integrity** is one of the key security requirements that must be addressed in security engineering. This requirement is used to ensure the accuracy and completeness of data and systems.
 
 The integrity requirement helps to protect against malicious attacks, such as data tampering, data manipulation, or unauthorized access. It also helps to ensure that data is kept secure and stored in its original form.
 

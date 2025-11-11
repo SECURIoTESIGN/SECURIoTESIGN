@@ -1,8 +1,6 @@
 # Availability 
 
-## Availability Requirement in Security Engineering
-
-Availability requirement in security engineering refers to the need for secure systems to remain operational and available to users when required. Achieving availability without sacrificing security is often a challenge, as attackers may attempt to disrupt system availability in order to deny service or gain access to sensitive information.
+**Availability** requirement in security engineering refers to the need for secure systems to remain operational and available to users when required. Achieving availability without sacrificing security is often a challenge, as attackers may attempt to disrupt system availability in order to deny service or gain access to sensitive information.
 
 Security engineering must therefore consider and account for the availability of system components, including network connections, storage systems, and web applications. Examples of availability requirements include: 
 
@@ -12,7 +10,7 @@ Security engineering must therefore consider and account for the availability of
 * Developing backup strategies and business continuity plans to ensure that systems maintain acceptable levels of service.
 * Measuring service availability in order to identify areas of improvement.
 
-Availability is a key concern in security engineering
+Availability is a key concern in security engineering.
 
 ## Warning: 
 

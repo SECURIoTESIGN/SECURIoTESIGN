@@ -1,8 +1,6 @@
 # Accountability 
 
-## Accountability Requirement in Security Engineering
-
-Security engineering is the process of designing and building secure systems. A key feature of security engineering is the requirement for accountability. This means that when something goes wrong with a system, it must be possible to determine who was responsible for the incident and take appropriate action.
+Security engineering is the process of designing and building secure systems. A key feature of security engineering is the requirement for **accountability**. This means that when something goes wrong with a system, it must be possible to determine who was responsible for the incident and take appropriate action.
 
 Accountability has several components including:
 

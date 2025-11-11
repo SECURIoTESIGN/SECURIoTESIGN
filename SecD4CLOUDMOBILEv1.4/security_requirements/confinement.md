@@ -1,8 +1,6 @@
 # Confinement 
 
-**Confinement requirement in security engineering**
-
-Confinement requirements in security engineering are security requirements that ensure that privileged operations and activities (both internal and external) are constrained so that they cannot be abused or manipulated for malicious purposes. These requirements are generally implemented using a combination of hardware, software, processes, policies, and other safeguards. By confining privileged operations and activities within a secure boundary and ensuring that only authorized and authenticated parties can access these operations and activities, confidential information and systems remain safe and secure.
+**Confinement** requirements in security engineering are security requirements that ensure that privileged operations and activities (both internal and external) are constrained so that they cannot be abused or manipulated for malicious purposes. These requirements are generally implemented using a combination of hardware, software, processes, policies, and other safeguards. By confining privileged operations and activities within a secure boundary and ensuring that only authorized and authenticated parties can access these operations and activities, confidential information and systems remain safe and secure.
 
 ## Warning: 
 

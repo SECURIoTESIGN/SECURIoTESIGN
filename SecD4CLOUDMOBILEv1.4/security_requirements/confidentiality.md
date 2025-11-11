@@ -1,8 +1,6 @@
 # Confidentiality 
 
-**Confidentiality Requirement in Security Engineering** 
-
-Confidentiality is a critical security requirement in the engineering of any system. It ensures that only authorized users can access sensitive information, protecting the system from unwanted disclosure of information. Confidentiality can be achieved through the implementation of encryption, authentication, and access control mechanisms. Additionally, physical security measures such as restricted access to areas where confidential data is located and restricting the number of personnel authorized to access it can enhance the security of the system.
+**Confidentiality** is a critical security requirement in the engineering of any system. It ensures that only authorized users can access sensitive information, protecting the system from unwanted disclosure of information. Confidentiality can be achieved through the implementation of encryption, authentication, and access control mechanisms. Additionally, physical security measures such as restricted access to areas where confidential data is located and restricting the number of personnel authorized to access it can enhance the security of the system.
 
 Confidentiality is also an important element of security engineering processes. Engineering teams must develop mechanisms that protect from unauthorized disclosure of information while still allowing authorized users to access it. Such mechanisms may involve the implementation of encryption, authentication, and access control mechanisms, as well as the use of secure coding practices to ensure that confidential information is not inadvertently disclosed through coding errors. Additionally, engineering teams must ensure that the system maintains an adequate level of confidentiality throughout its entire life cycle, as any
 

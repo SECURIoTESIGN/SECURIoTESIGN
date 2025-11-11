@@ -1,8 +1,6 @@
-# Authentication 
+# Authenticity 
 
-### Authentication Requirement in Security Engineering
-
-Authentication is a security measure which requires a user to prove their identity before accessing resources or taking certain actions on a system. Authentication requirements are essential for anything related to security engineering, as they are the basis for ensuring access to the system and resources is being done by authorized personnel. Authentication requirements can typically involve one or more of the following: 
+**Authenticity** is a security measure which requires a user to prove their identity before accessing resources or taking certain actions on a system. Authenticity requirements are essential for anything related to security engineering, as they are the basis for ensuring access to the system and resources is being done by authorized personnel. Authenticity requirements can typically involve one or more of the following: 
 
 - **Username and Password:** A unique username and password combination is often the most common way to authenticate an individual. Passwords should meet the security guidelines set by the organization and must be changed regularly. 
 
@@ -12,4 +10,4 @@ Authentication is a security measure which requires a user to prove their identi
 
 ## Warning: 
 
-**If we fail to guarantee authentication requirements, the system may become vulnerable to security threats. Malicious attackers may gain unauthorized access to the system and perform malicious activities such as data theft, manipulation of data, or denial of service. This could lead to significant financial losses, reputational damage, and legal ramifications.**
+**If we fail to guarantee authenticity requirements, the system may become vulnerable to security threats. Malicious attackers may gain unauthorized access to the system and perform malicious activities such as data theft, manipulation of data, or denial of service. This could lead to significant financial losses, reputational damage, and legal ramifications.**
