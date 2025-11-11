@@ -14,10 +14,52 @@ Security Backup Mechanisms for cloud-based mobile apps are procedures to keep da
 
 ## Backup Mechanisms Examples: 
 
-Security Requirement | Mobile Platform | Mechanism | Description | OSI Layer |
--------------------- | -------------- | --------- | ----------- | --------- |
-Backup  | iOS |  iTunes Backup |  Syncs with iTunes for off-site backup | 7 - Application |
-Backup  | Android | Google Drive |  Google's cloud solution for data storage and backup | 7 - Application |
-Backup  | Android | Third-party cloud solutions | Solutions such as Dropbox, OneDrive and iCloud Drive | 7 - Application |
-Backup | All | Local Backup | On-site backups saved on the device's internal storage | 1 - Physical |
-Backup | All | External Storage Backup | Off-site backups saved to external devices such as external hard drives and USB drives | 1 - Physical |
+
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid gray; padding: 8px;">Security Requirement</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mobile Platform</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mechanism</th>
+      <th style="border: 1px solid gray; padding: 8px;">Description</th>
+      <th style="border: 1px solid gray; padding: 8px;">OSI Layer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">iTunes Backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">Syncs with iTunes for off-site backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">7 - Application</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">Google Drive</td>
+      <td style="border: 1px solid gray; padding: 8px;">Google's cloud solution for data storage and backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">7 - Application</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">Third-party cloud solutions</td>
+      <td style="border: 1px solid gray; padding: 8px;">Solutions such as Dropbox, OneDrive and iCloud Drive</td>
+      <td style="border: 1px solid gray; padding: 8px;">7 - Application</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">All</td>
+      <td style="border: 1px solid gray; padding: 8px;">Local Backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">On-site backups saved on the device's internal storage</td>
+      <td style="border: 1px solid gray; padding: 8px;">1 - Physical</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">All</td>
+      <td style="border: 1px solid gray; padding: 8px;">External Storage Backup</td>
+      <td style="border: 1px solid gray; padding: 8px;">Off-site backups saved to external devices such as external hard drives and USB drives</td>
+      <td style="border: 1px solid gray; padding: 8px;">1 - Physical</td>
+    </tr>
+  </tbody>
+</table>

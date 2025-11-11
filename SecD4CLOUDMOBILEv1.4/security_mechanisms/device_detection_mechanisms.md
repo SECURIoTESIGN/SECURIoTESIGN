@@ -4,9 +4,44 @@ Security Device Detection Mechanisms in Cloud-based mobile apps are technologies
 
 ## Device Detection Mechanisms Examples: 
 
-| Security Requirement | Mobile Platform | Mechanism  | Description  | OSI Layer  |
-| ------------------- | -------------- | ---------- | ------------ | ---------- |
-| Coding Phase | iOS | Mobile App Wrapping | A tool used to secure enterprise apps | Application |
-| Coding Phase | Android | App Reverse Engineering Protection | A technique used to protect code from reverse engineering | Application |
-| Runtime | iOS | Jailbreak Detection | Detects if the device is jailbroken or not |   Application |
-| Runtime | Android | Root Detection | Detection of rooted devices | Application |
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid gray; padding: 8px;">Security Requirement</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mobile Platform</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mechanism</th>
+      <th style="border: 1px solid gray; padding: 8px;">Description</th>
+      <th style="border: 1px solid gray; padding: 8px;">OSI Layer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Coding Phase</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">Mobile App Wrapping</td>
+      <td style="border: 1px solid gray; padding: 8px;">A tool used to secure enterprise apps</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Coding Phase</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">App Reverse Engineering Protection</td>
+      <td style="border: 1px solid gray; padding: 8px;">A technique used to protect code from reverse engineering</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Runtime</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">Jailbreak Detection</td>
+      <td style="border: 1px solid gray; padding: 8px;">Detects if the device is jailbroken or not</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Runtime</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">Root Detection</td>
+      <td style="border: 1px solid gray; padding: 8px;">Detection of rooted devices</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+    </tr>
+  </tbody>
+</table>

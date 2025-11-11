@@ -4,8 +4,41 @@ Factors-based authentication mechanisms in cloud-based mobile apps are methods u
 
 ## Factors-based Authentication Mechanisms Examples: 
 
-Security Requirement | Mobile Platform | Mechanism | Description | OSI Layer | To Use
------------------- | -------------- | ---------- | ----------- | ---------- | ------
-Data Security  | iOS  | Two-factor authentication  | Confirming identity by combination of two unique factors  | Application | Coding Phase and Runtime
-Privacy        | Android    | Biometric authentication | Confirming identity by using biometric methods  | Application  | Coding Phase and Runtime
-Account Access | iOS  | User ID & Password      | Confirming identity by using combination of user ID and password | Application  | Coding Phase and Runtime
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid gray; padding: 8px;">Security Requirement</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mobile Platform</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mechanism</th>
+      <th style="border: 1px solid gray; padding: 8px;">Description</th>
+      <th style="border: 1px solid gray; padding: 8px;">OSI Layer</th>
+      <th style="border: 1px solid gray; padding: 8px;">To Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Data Security</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">Two-factor authentication</td>
+      <td style="border: 1px solid gray; padding: 8px;">Confirming identity by combination of two unique factors</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+      <td style="border: 1px solid gray; padding: 8px;">Coding Phase and Runtime</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Privacy</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">Biometric authentication</td>
+      <td style="border: 1px solid gray; padding: 8px;">Confirming identity by using biometric methods</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+      <td style="border: 1px solid gray; padding: 8px;">Coding Phase and Runtime</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Account Access</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">User ID & Password</td>
+      <td style="border: 1px solid gray; padding: 8px;">Confirming identity by using combination of user ID and password</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+      <td style="border: 1px solid gray; padding: 8px;">Coding Phase and Runtime</td>
+    </tr>
+  </tbody>
+</table>

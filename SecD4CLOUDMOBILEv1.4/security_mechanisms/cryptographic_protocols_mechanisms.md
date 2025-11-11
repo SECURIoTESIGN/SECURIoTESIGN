@@ -4,9 +4,44 @@ Cryptographic protocols mechanisms for cloud-based mobile apps refer to the cryp
 
 ## Cryptographic Protocols Mechanisms Examples: 
 
-| Security Requirement | Mobile Platform | Mechanism | Description | OSI Layer |
-| ------- | ------------ | ----------- | ----------- | ------ |
-| Authentication | iOS | OAuth | OAuth is an open-standard authorization protocol for allowing access to a protected resource | Application layer |
-| Encryption | Android | TLS | Transport Layer Security (TLS) is a cryptographic protocol used to provide secure communications over a computer network | Transport Layer |
-| Integrity | iOS | SHA-1 | Secure Hash Algorithm (SHA-1) is a cryptographic hash function used to generate a 160-bit hash value | Application layer |
-| Non-repudiation | Android | HMAC | HMAC is a cryptographic mechanism used to verify the integrity of a message by using a secret key | Application layer |
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid gray; padding: 8px;">Security Requirement</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mobile Platform</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mechanism</th>
+      <th style="border: 1px solid gray; padding: 8px;">Description</th>
+      <th style="border: 1px solid gray; padding: 8px;">OSI Layer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Authentication</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">OAuth</td>
+      <td style="border: 1px solid gray; padding: 8px;">OAuth is an open-standard authorization protocol for allowing access to a protected resource</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application layer</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Encryption</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">TLS</td>
+      <td style="border: 1px solid gray; padding: 8px;">Transport Layer Security (TLS) is a cryptographic protocol used to provide secure communications over a computer network</td>
+      <td style="border: 1px solid gray; padding: 8px;">Transport Layer</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Integrity</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">SHA-1</td>
+      <td style="border: 1px solid gray; padding: 8px;">Secure Hash Algorithm (SHA-1) is a cryptographic hash function used to generate a 160-bit hash value</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application layer</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Non-repudiation</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">HMAC</td>
+      <td style="border: 1px solid gray; padding: 8px;">HMAC is a cryptographic mechanism used to verify the integrity of a message by using a secret key</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application layer</td>
+    </tr>
+  </tbody>
+</table>

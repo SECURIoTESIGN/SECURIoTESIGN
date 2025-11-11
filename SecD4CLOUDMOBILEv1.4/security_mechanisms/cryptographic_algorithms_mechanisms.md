@@ -6,8 +6,45 @@ Digital Signatures validate the identity and authenticity of communications, whi
 
 ## Cryptographic Algorithms Mechanisms Examples: 
 
-| Security Requirement |Mobile Platform  |Mechanism       |Description                                                                                |OSI Layer  | Use for coding | Use for runtime |
-|:-------------------:|:---------------|:---------------|:------------------------------------------------------------------------------------------|:---------:|:--------------:|:---------------:|
-| Integrity           | Android        | HMAC-SHA256    | A cryptographic hash function based on SHA256 that combines a shared secret and the message | 7         | Yes            | Yes             |
-| Confidentiality     | iOS            | AES-128        | AES with 128 bit key size that supports authenticated encryption                           | 6         | Yes            | Yes             |
-| Authentication      | iOS            | ECDSA          | Elliptic Curve Digital Signature Algorithm that provides digital signatures                | 7         | Yes            | Yes             |
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid gray; padding: 8px;">Security Requirement</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mobile Platform</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mechanism</th>
+      <th style="border: 1px solid gray; padding: 8px;">Description</th>
+      <th style="border: 1px solid gray; padding: 8px;">OSI Layer</th>
+      <th style="border: 1px solid gray; padding: 8px;">Use for coding</th>
+      <th style="border: 1px solid gray; padding: 8px;">Use for runtime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Integrity</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">HMAC-SHA256</td>
+      <td style="border: 1px solid gray; padding: 8px;">A cryptographic hash function based on SHA256 that combines a shared secret and the message</td>
+      <td style="border: 1px solid gray; padding: 8px;">7</td>
+      <td style="border: 1px solid gray; padding: 8px;">Yes</td>
+      <td style="border: 1px solid gray; padding: 8px;">Yes</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Confidentiality</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">AES-128</td>
+      <td style="border: 1px solid gray; padding: 8px;">AES with 128 bit key size that supports authenticated encryption</td>
+      <td style="border: 1px solid gray; padding: 8px;">6</td>
+      <td style="border: 1px solid gray; padding: 8px;">Yes</td>
+      <td style="border: 1px solid gray; padding: 8px;">Yes</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Authentication</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">ECDSA</td>
+      <td style="border: 1px solid gray; padding: 8px;">Elliptic Curve Digital Signature Algorithm that provides digital signatures</td>
+      <td style="border: 1px solid gray; padding: 8px;">7</td>
+      <td style="border: 1px solid gray; padding: 8px;">Yes</td>
+      <td style="border: 1px solid gray; padding: 8px;">Yes</td>
+    </tr>
+  </tbody>
+</table>

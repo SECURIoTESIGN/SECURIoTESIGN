@@ -4,10 +4,51 @@ A Security Audit Mechanism is an automated or manual process which evaluates clo
 
 ## Audit Mechanisms Examples: 
 
-Security Requirement | Mobile Platform | Mechanism | Description | OSI Layer
------------- | ------------- | ------------- | ------------- | -------------
-Authentication | iOS | Apple’s App-ID and two factor authentication | A two-factor authentication and App-ID system used by Apple to verify and authenticate applications running on its iOS mobile platform | Application
-Authorization | iOS | Access control list (ACL) | A tool used to manage user access to various parts of a mobile application, such as data or services | Application
-Data Protection | Android | Google Play Store |Google’s Play Store protects uploaded applications from malicious code before it is distributed on the platform | Presentation 
-Auditing | iOS | App Store | The App Store provides an audit trail of all applications downloaded, to ensure proper users have the correct permissions to access applications | Application 
-Data Validation | Android | Android Content Providers | Android content providers are used to securely store data and detect malicious code before it is passed to applications running on the platform |Application
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid gray; padding: 8px;">Security Requirement</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mobile Platform</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mechanism</th>
+      <th style="border: 1px solid gray; padding: 8px;">Description</th>
+      <th style="border: 1px solid gray; padding: 8px;">OSI Layer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Authentication</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">Apple’s App-ID and two factor authentication</td>
+      <td style="border: 1px solid gray; padding: 8px;">A two-factor authentication and App-ID system used by Apple to verify and authenticate applications running on its iOS mobile platform</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Authorization</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">Access control list (ACL)</td>
+      <td style="border: 1px solid gray; padding: 8px;">A tool used to manage user access to various parts of a mobile application, such as data or services</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Data Protection</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">Google Play Store</td>
+      <td style="border: 1px solid gray; padding: 8px;">Google’s Play Store protects uploaded applications from malicious code before it is distributed on the platform</td>
+      <td style="border: 1px solid gray; padding: 8px;">Presentation</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Auditing</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">App Store</td>
+      <td style="border: 1px solid gray; padding: 8px;">The App Store provides an audit trail of all applications downloaded, to ensure proper users have the correct permissions to access applications</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Data Validation</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android Content Providers</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android content providers are used to securely store data and detect malicious code before it is passed to applications running on the platform</td>
+      <td style="border: 1px solid gray; padding: 8px;">Application</td>
+    </tr>
+  </tbody>
+</table>

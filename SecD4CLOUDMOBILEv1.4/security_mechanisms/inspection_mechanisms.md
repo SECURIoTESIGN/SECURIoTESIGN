@@ -4,12 +4,62 @@ An inspection mechanism is a process or tool used to ensure that cloud-based mob
 
 ## Inspection Mechanisms Examples: 
 
-Security Requirement     | Mobile Platform | Mechanism                                     | Description                    | OSI Layer
-:----------------------:|:---------------:|:--------------------------------------------:|:-----------------------------:|:-----:
-Integrity               | Android         | ProGuard                                     | Code obfuscation              | 8
-Confidentiality         | iOS             | Secure store                                 | Keychain security             | 7
-Authentication          | Android         | SafetyNet API                                | Attest the device integrity   | 7
-                         | Android         | Android Keystore                            | Keystore security            | 7
-                         | iOS             | Apple push notification service (APNS)      | Authentication message       | 7
-Data Validation         | Android         | DX Guardrail                                 | Verification of data model   | 7
-                         | iOS             | SwiftLint                                    | Static analysis              | 7
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="border: 1px solid gray; padding: 8px;">Security Requirement</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mobile Platform</th>
+      <th style="border: 1px solid gray; padding: 8px;">Mechanism</th>
+      <th style="border: 1px solid gray; padding: 8px;">Description</th>
+      <th style="border: 1px solid gray; padding: 8px;">OSI Layer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Integrity</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">ProGuard</td>
+      <td style="border: 1px solid gray; padding: 8px;">Code obfuscation</td>
+      <td style="border: 1px solid gray; padding: 8px;">8</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Confidentiality</td>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">Secure store</td>
+      <td style="border: 1px solid gray; padding: 8px;">Keychain security</td>
+      <td style="border: 1px solid gray; padding: 8px;">7</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;" rowspan="3">Authentication</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">SafetyNet API</td>
+      <td style="border: 1px solid gray; padding: 8px;">Attest the device integrity</td>
+      <td style="border: 1px solid gray; padding: 8px;">7</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android Keystore</td>
+      <td style="border: 1px solid gray; padding: 8px;">Keystore security</td>
+      <td style="border: 1px solid gray; padding: 8px;">7</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">Apple push notification service (APNS)</td>
+      <td style="border: 1px solid gray; padding: 8px;">Authentication message</td>
+      <td style="border: 1px solid gray; padding: 8px;">7</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;" rowspan="2">Data Validation</td>
+      <td style="border: 1px solid gray; padding: 8px;">Android</td>
+      <td style="border: 1px solid gray; padding: 8px;">DX Guardrail</td>
+      <td style="border: 1px solid gray; padding: 8px;">Verification of data model</td>
+      <td style="border: 1px solid gray; padding: 8px;">7</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid gray; padding: 8px;">iOS</td>
+      <td style="border: 1px solid gray; padding: 8px;">SwiftLint</td>
+      <td style="border: 1px solid gray; padding: 8px;">Static analysis</td>
+      <td style="border: 1px solid gray; padding: 8px;">7</td>
+    </tr>
+  </tbody>
+</table>
