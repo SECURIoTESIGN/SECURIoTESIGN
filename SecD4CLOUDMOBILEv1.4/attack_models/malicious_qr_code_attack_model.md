@@ -1,32 +1,76 @@
-# Malicious QR Code Attack 
+# Malicious QR Code Attack Model
 
-Malicious QR Code attacks involve the use of QR codes (Quick Response Code) that, when scanned by unsuspecting users, can launch malicious applications or websites that contain malware. These QR Codes can be found in emails, websites, ads, or printed material, and can be used by hackers to launch malicious code on user devices.
+## Definition
 
-In order to protect against malicious QR code attacks, users should be aware of what kind of content they are accessing through their devices and avoid clicking on any suspicious links. Furthermore, if a user is unsure of a QR code's origin, it is important to scan the code using specialized software (e.g. antivirus and anti-malware programs) to ensure it is safe before interacting with it.
+**Malicious QR code attack** - the use of QR (Quick Response) codes to deliver or enable malicious actions: directing users to phishing websites, triggering unintended actions (Wi‑Fi configuration, payment initiation), downloading malware, or leaking device/cloud credentials. In cloud, mobile and IoT contexts, malicious QR codes can be used to provision rogue devices, falsify onboarding flows, or redirect telemetry to attacker-controlled endpoints.
 
-## Mitigation
+## Attack Categories
 
-1. **QR Code Validation:** Implement QR code validation in your applications. This can help identify any malicious URLs or data embedded in the QR code;
-2. **Secure QR Code Readers:** Use secure QR code readers that can detect malicious URLs and provide warnings to users;
-3. **User Confirmation:** Always ask for user confirmation before opening a URL or executing an action from a scanned QR code;
-4. **URL Reputation Check:** Implement URL reputation checks to identify and block known malicious URLs.
-5. **Regular Updates and Patches:** Keep your QR code reading software up-to-date. Regular updates and patches can fix known vulnerabilities and improve the system’s resistance to attacks;
-6. **User Awareness:** Educate users about the risks of scanning unknown QR codes and how to identify potential malicious QR codes.
+* **Phishing / credential harvesting:** QR codes direct users to cloned cloud login pages to capture credentials or MFA tokens.
+* **Malicious provisioning / onboarding abuse:** attacker-supplied QR codes provision devices with attacker-controlled endpoints, SSH keys, or misconfigured IoT settings.
+* **Drive-by payloads / malware delivery:** QR points to downloadable payloads (malicious apps, configuration files) which, when installed on mobile or edge devices, compromise devices or cloud credentials.
+* **Payment / transaction fraud:** QR codes trigger fraudulent payment URIs or redirect to manipulated payment flows.
+* **Network misconfiguration:** QR encodes rogue Wi‑Fi SSID/password or VPN settings that cause devices to join attacker-controlled networks for interception.
+* **Supply-chain and labeling attacks:** tampered product labels or stickers with replaced legitimate QR codes (logistics/asset mgmt manipulation) that cause mis-tagging or data injection into cloud systems.
 
-## Malicious QR Code Architectural Risk Analysis 
+---
 
-| **Factor**                                    | **Description**                                                                                       | **Value**                                     |
-|-----------------------------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| Attack   Vector (AV):                         | Network   (Exploiting user interaction with QR code)                                                  | Network   (N)                                 |
-| Attack   Complexity (AC):                     | Medium   (Requires crafting a malicious QR code)                                                      | Medium   (M)                                  |
-| Privileges   Required (PR):                   | None   (User needs to scan the code)                                                                  | None   (N)                                    |
-| User   Interaction (UI):                      | Required   (User needs to scan the malicious QR code)                                                 | Required   (R)                                |
-| Scope   (S):                                  | Varies   (Depends on the type of malicious content)                                                   |         Unauthorized Access (U)               |
-| Confidentiality   Impact (C):                 | High   (if QR code leads to phishing for credentials)                                                 |         High (H) or Low (L)                   |
-| Integrity   Impact (I):                       | High   (if QR code leads to malware download)                                                         |         High (H) or Low (L)                   |
-| Availability   Impact (A):                    | Medium   (if QR code leads to denial-of-service attack)                                               |         High (H) or Medium (M)                |
-| Base   Score (assuming High for all impacts): | 0.85   * (AV:N/AC:M/PR:N/UI:R) * (S:U/C:H/I:H/A:H)                                                    | 9.0   (Critical)                              |
-| Temporal   Score (TS):                        | Public   exploit code available?                                                                      |         Depends on exploit availability       |
-| Environmental   Score (ES):                   | Depends   on user awareness, application's QR code scanning validation, security   awareness training | Varies                                        |
+## Mitigations & Defensive Controls
+
+**UI/UX & user controls**
+
+* Display destination URL preview with domain highlighting and certificate checks before opening; warn users about non-HTTPS or foreign domains.
+* Limit automatic execution of actions from QR scans (require user confirmation for provisioning, Wi‑Fi join, app install, or payments).
+
+**Provisioning & onboarding hardening**
+
+* Out-of-band verification for device provisioning (compare serials, use manufacturer-signed manifests, or one-time pairing codes).
+* Use device attestation and mutual auth during onboarding so scanning a QR alone cannot provision full access.
+
+**Mobile / endpoint protections**
+
+* Enforce app-store-only installs and block sideloading on managed devices; verify app signatures and use MDM policies.
+* Endpoint detection: block automatic handling of URI schemes that can trigger privileged actions without user consent.
+
+**Cloud & backend controls**
+
+* Validate provisioning tokens and pairings on server-side (short-lived tokens, binding to device identity).
+* Monitor for anomalous provisioning events, sudden new device registrations, or unexpected endpoints receiving telemetry.
+
+**Operational & physical controls**
+
+* Protect physical QR deployments: tamper-evident labels, regular inspection of public posters/labels, use secure placement (inside kiosks), and logging of printed QR batch IDs.
+* Training & awareness: educate staff and customers about QR risks and safe scanning practices.
+
+---
+
+## DREAD risk assessment (0-10)
+
+| Factor           | Score | Rationale                                                                                                                                           |
+| ---------------- | ----: | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Damage Potential | **7** | Can lead to credential theft, device compromise, fraudulent transactions or rogue provisioning—impact ranges moderate to high depending on context. |
+| Reproducibility  | **9** | Creating malicious QR codes is trivial and inexpensive; wide distribution (stickering, posters, digital images) is easy.                            |
+| Exploitability   | **7** | Requires human interaction (scan) but social engineering and ubiquity of QR use make exploitation likely.                                           |
+| Affected Users   | **7** | Can impact many users if placed in public locations or distributed via popular channels; provisioning abuse can affect entire device fleets.        |
+| Discoverability  | **8** | Targets and vectors are easy to discover (public posters, product labels, onboarding flows); malicious QR codes are visible and can be tested.      |
+
+**Digit-by-digit DREAD arithmetic (explicit):**
+Sum = 7 + 9 + 7 + 7 + 8 = 38.
+Average = 38 / 5 = 7.6.
+
+**DREAD average = 7.6**; Rating: **High priority** (recommend immediate UX/endpoint mitigations and hardening of provisioning flows).
+
+---
+
+## References
+
+1. Krombholz, K., Hobel, H., Huber, M., & Weippl, E. (2014). *QR code security: A survey of attacks and countermeasures.* In Proceedings of the International Conference on Availability, Reliability and Security (ARES). [https://doi.org/10.1109/ARES.2014.34](https://doi.org/10.1109/ARES.2014.34)
+2. OWASP Foundation. (2023). *OWASP Mobile Top Ten and QR code considerations.* OWASP. [https://owasp.org/](https://owasp.org/)
+3. National Institute of Standards and Technology. (2021). *NIST Special Publication 800-163: Vetting the Security of Mobile Applications.* NIST. [https://doi.org/10.6028/NIST.SP.800-163](https://doi.org/10.6028/NIST.SP.800-163)
+4. ENISA. (2020). *Threat Landscape for Phishing and Social Engineering.* European Union Agency for Cybersecurity. [https://www.enisa.europa.eu/](https://www.enisa.europa.eu/)
+5. Zhang, Y., & Yu, S. (2019). *Attacks on QR code-based payment systems and mitigations.* IEEE Communications Surveys & Tutorials (Selected articles).
+
+---
+                                     |
 
 ## Malicious QR Code Attack Tree Diagram

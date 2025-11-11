@@ -1,35 +1,54 @@
-# GPS Jamming Attack 
+# GPS (GNSS) Jamming Attack Model
 
-GPS Jamming attack is a type of cyberattack where an adversary uses electronic jamming devices to interfere with or even disable GPS signals. These devices can be used to disrupt communication between GPS receivers and satellites, making it difficult or even impossible to get accurate location data from the system. This type of attack can pose a serious threat to critical infrastructure and navigation systems that rely on GPS for navigation. 
+## Definition
+**GPS jamming** is the deliberate transmission of radio-frequency noise or interfering signals that overwhelm or mask legitimate Global Navigation Satellite System (GNSS) signals (e.g., GPS, GLONASS, Galileo). The effect is loss or degradation of positioning, navigation, and timing (PNT) services for receivers in the interference footprint.
 
-GPS jamming can be used to disrupt navigation, communication, or surveillance activities that rely on the GPS system. It has been used in corporate espionage and data theft, or as a form of information warfare.
+---
 
-## Mitigation
+## Attack Categories (examples)
 
-1. **Use of Anti-Jamming Technology:** Implement anti-jamming technology in your GPS receivers;
-2. **Incorporate Redundant Systems:** Use other navigation systems in addition to GPS, such as GLONASS, Galileo, or BeiDou. This redundancy can provide backup navigation data if GPS signals are jammed;
-3. **Data Validation:** Validate GPS data with other sensor data like accelerometer, gyroscope, and magnetometer readings in mobile devices. This can help identify anomalies in GPS data that might indicate jamming;
-4. **Use of Cryptographic Techniques:** Encrypt the GPS data to prevent unauthorized access and manipulation. This can be done using standard cryptographic techniques;
-5. **Anomaly Detection Systems:** Implement anomaly detection systems that can identify abnormal patterns in the GPS data, which could indicate a jamming attack;
-6. **Regular Updates and Patches:** Keep the GPS system and its software up-to-date. Regular updates and patches can fix known vulnerabilities and improve the system’s resistance to jamming;
-User Awareness: Educate users about the risks of GPS jamming and how to identify potential jamming attacks.
+- **Noise jamming (barrage/spot/sweep):** Broadband or narrowband noise that raises the noise floor and prevents receivers from tracking satellites.
+- **Repeater/DRFM jamming:** Re-transmission of GNSS signals with distortions to confuse receivers.
+- **Localized tactical jamming:** Small portable jammers (vehicle-mounted or handheld) targeting nearby receivers.
+- **Wide-area/military-grade jamming:** High-power emitters or coordinated networks that affect large regions (airports, coastlines, cities).
+- **Hybrid jamming + spoofing campaigns:** Jamming to deny then spoofing to inject false PNT once receivers lose lock.
 
-## GPS Jamming Architectural Risk Analysis 
+---
 
-| **Metric**                   | **Value**   |
-|------------------------------|-------------|
-| Attack Vector                | Physical    |
-| Attack Complexity            | Low         |
-| Privileges Required          | None        |
-| User Interaction             | None        |
-| Scope                        | Unchanged   |
-| Confidentiality Impact       | Low         |
-| Integrity Impact             | None        |
-| Availability Impact          | High        |
-| Exploit Code Maturity        | Unproven    |
-| Remediation Level            | Official Fix|
-| Report Confidence            | Confirmed   |
-| CVSS Base Score              | 7.5 (High)  |
-| CVSS Vector                  | CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H |
+## Mitigation & Controls
+**Detection & situational awareness**: continuous monitoring of GNSS signal strength, SNR, satellite count, and sudden Time/Position discontinuities; deploy spectrum monitoring stations.
+
+**Receiver-level measures**: use multi-constellation, multi-frequency receivers; implement RAIM/RAIM+ and anomaly detection; integrate INS/odometry for short-term holdover; use antenna gain, shielding, and directional/null-steering antennas (CRPA).
+
+**Network & system-level**: diversify PNT sources (GNSS + terrestrial timing sources, e.g., eLoran or network time), deploy centralized monitoring/alerting, and use authenticated GNSS services where available (OSNMA for Galileo).
+
+**Operational**: produce contingency procedures and training (aviation, maritime); coordinate with regulators, CERTs and spectrum authorities; plan exclusion zones and rapid response to identified jammers.
+
+---
+
+## DREAD Risk Assessment (0-10)
+| Factor | Score | Rationale |
+|---|---:|---|
+| Damage Potential | 8 | Critical for safety-of-life systems (aviation, maritime, emergency services) and infrastructure (telecom, finance) where accurate PNT is required. |
+| Reproducibility | 7 | Low-cost jammers exist and techniques are well-known; large-scale jamming requires more resources but is feasible. |
+| Exploitability | 7 | Requires access to jammers or attackers with RF expertise; misuse of available devices common. |
+| Affected Users | 7 | Localized to regional impacts typically, but can affect many users in the footprint (aircraft, ships, vehicles). |
+| Discoverability | 8 | Targets are discoverable (airports, ports, critical infrastructure), ongoing interference is detectable via signal metrics. |
+
+**Average DREAD = (8+7+7+7+8)/5 = 7.4**; Rating: **High**
+
+**Priority:** High — implement monitoring and short-term mitigations (INS holdover, antenna upgrades), and coordinate regulatory/operational responses.
+
+---
+
+## References (select)
+1. [GNSS Interference](https://www.icao.int/filebrowser/download/5520?fid=5520&utm_source=chatgpt.com).
+2. [GNSS Outage and Alterations Leading to Communication](https://ad.easa.europa.eu/blob/EASA_SIB_2022_02_R3.pdf/SIB_2022-02R3_1?utm_source=chatgpt.com).
+3. [Space threat landscape - ENISA](https://www.enisa.europa.eu/sites/default/files/2025-03/Space_Threat_Landscape_Report_fin.pdf?utm_source=chatgpt.com). 
+4. [initial assessment of the potential impact from a jamming](https://www.ntia.gov/files/ntia/publications/ntiatechnicalmemorandum_10_468.pdf?utm_source=chatgpt.com). 
+5. [GNSS under attack: Recognizing and mitigating jamming](https://www.gpsworld.com/gnss-under-attack-recognizing-and-mitigating-jamming-and-spoofing-threats/?utm_source=chatgpt.com). 
+6. [Toughen GPS to resist jamming and spoofing](https://www.gpsworld.com/toughen-gps-to-resist-jamming-and-spoofing/?utm_source=chatgpt.com). 
+
+---
 
 ## GPS Jamming Attack Tree Diagram

@@ -1,76 +1,79 @@
-# Pharming Attacks
+# Pharming Attack Model
 
-A pharming attack is a form of cyberattack that redirects victims to fake websites, often without their knowledge. Let’s explore the details:
+## Definition
 
-## Overview
+**Pharming** is an attack that redirects users or devices from legitimate network resources to attacker-controlled endpoints — typically by corrupting name-resolution or provisioning mechanisms (DNS cache poisoning, rogue DHCP, hosts-file modification, or compromised resolvers). Unlike phishing (which lures users with malicious links), pharming **breaks or subverts the name-to-address mapping** so victims transparently connect to fraudulent cloud APIs, update servers, or IoT backends and disclose credentials, tokens or telemetry.
 
-* **Objective**: Trick users into visiting malicious websites that resemble legitimate ones.
-* **Method**: Exploits the Domain Name System (DNS) to redirect users to spoofed sites.
-* **Impact**: Can lead to data theft, credential harvesting, and financial fraud.
+---
 
-## How Pharming Works
-1. **Malware-Based Pharming**:
-* Users unknowingly acquire malware (e.g., Trojan horse or virus) via malicious emails or software downloads.
-* The malware modifies locally hosted files and changes stored IP addresses.
-* Victims are automatically redirected to the attacker’s fraudulent website when accessing the legitimate site.
-2. DNS Server Poisoning:
-* Corrupts DNS servers to direct website requests to alternate or fake IP addresses.
-* Exploits vulnerabilities at the DNS server level.
-* Users visit spoofed sites, believing they are legitimate.
+## Attack Categories
 
-## Consequences
+* **DNS cache poisoning / spoofing:** corrupting recursive resolver caches so domain names resolve to attacker IPs.
+* **Compromised authoritative DNS / zone takeover:** attacker obtains control of DNS zone (compromised registrar, DNS provider) and points services to malicious hosts.
+* **Rogue/compromised recursive resolver (ISP or enterprise):** attacker controls or poisons resolver used by many clients.
+* **Rogue DHCP / network gateway (MITM + DHCP):** on local networks an attacker supplies malicious DNS settings via DHCP to force clients to a malicious resolver.
+* **Hosts-file / firmware modification on device:** local modification on mobile or IoT device (malware or tampering) causing name overrides.
+* **Compromised provisioning / bootstrap servers:** attacker subverts device provisioning (e.g., supply-chain or CI/CD) to ship devices with malicious DNS endpoints or certificate trust anchors.
+* **TLS/PKI misuse combined with pharming:** attacker uses fraudulent certs (compromised CA, misplaced trust anchors) so redirected traffic appears secure.
 
-1. Communication Disruption:
-* Interrupts access to legitimate websites.
-* Impacts online services, including banking and e-commerce.
-1. Data Theft and Credential Harvesting:
-* Attackers collect personal data, login credentials, and financial information.
-* Victims unwittingly provide sensitive details on fake sites.
+---
 
-## Mitigation Strategies
+## Mitigations & Defensive Controls
 
-1. **Secure DNS Practices**: Use DNSSEC (Domain Name System Security Extensions) to ensure that the DNS responses are not tampered with. This can prevent attackers from redirecting users to malicious sites.
+**DNS & network layer**
 
-2. **SSL Certificates**: Use SSL (Secure Sockets Layer) certificates for websites. This ensures that the connection between the user's browser and the server is encrypted and secure.
+* **DNSSEC** for authoritative zones and resolvers to validate DNS data integrity end-to-end.
+* **Use trusted recursive resolvers / DoH/DoT:** employ DNS-over-TLS or DNS-over-HTTPS with authenticated resolvers and pin resolver endpoints where possible.
+* **Harden registrar/DNS-provider accounts:** MFA, registrar lock, monitoring for unauthorized zone changes and two-person approval for zone changes.
+* **Egress/NGFW rules:** whitelist DNS servers and block arbitrary DNS port egress; detect unusual DNS server configs via DHCP.
+* **Network segmentation & secure DHCP:** restrict DHCP providers, use 802.1X for network access to prevent rogue DHCP, and monitor DHCP leases for unexpected options.
 
-3. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
+**Endpoint & application**
 
-4. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules.
+* **Strict TLS & certificate validation:** enforce certificate validation, certificate transparency monitoring, HSTS and reject connections with invalid certs.
+* **Pinning & mTLS:** use certificate pinning or mTLS (mutual TLS) for device↔cloud authentication so simple redirect cannot impersonate services.
+* **Avoid hardcoded insecure DNS / fallback logic:** devices should not silently accept arbitrary DNS changes; require authenticated reconfiguration.
+* **Secure provisioning & attestation:** bind onboarding to out-of-band secrets, signed manifests and hardware-backed device identity to prevent boot-time redirects.
 
-5. **User Education**: Educate users about the risks of clicking on suspicious links and the importance of checking the URL in the address bar before entering any sensitive information.
+**Cloud & backend**
 
-6. **Two-Factor Authentication (2FA)**: Implement 2FA to add an extra layer of security. This requires users to provide two different authentication factors to verify themselves.
+* **Endpoint allowlisting & token binding:** require device identity attestation and bind short-lived tokens to device credentials or mTLS sessions.
+* **Monitor for anomalous client IPs / resolver patterns:** correlate incoming requests with expected resolver pools and geolocation.
+* **Zone-change monitoring & rollback:** log and alert on DNS zone edits and enable rapid rollback and emergency delegation control.
 
-7. **Regular Audits and Penetration Testing**: Regularly conduct security audits and penetration testing to identify and fix any security vulnerabilities.
+**Operational & detection**
 
-8. **Use of Secure Mobile Applications**: Encourage users to only download apps from trusted sources like official app stores, and to regularly update them.
+* **Logging & alerting:** monitor DNS query patterns, sudden spikes in NXDOMAIN or unusual TTLs, and certificate validation failures; integrate resolver telemetry with SIEM.
+* **Incident playbooks & registrar contacts:** maintain registrar/hosting provider contacts and pre-authorised emergency steps (domain lock, registrar recovery).
+* **User/device education & hardening:** instruct users to avoid unknown Wi-Fi for sensitive flows; for managed devices use MDM policies to lock network settings.
 
-Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+---
 
-## Architectural Risk Analysis of Pharming Vulnerability
+## DREAD Risk Assessment (0-10)
 
-The pharming attack targets users by redirecting them to fraudulent websites, often without their knowledge. Let’s assess the risk using the Common Vulnerability Scoring System (CVSS) v3.1:
+| DREAD Factor         | Score (0-10) | Rationale                                                                                                                                                                |
+| -------------------- | -----------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Damage Potential** |        **8** | Redirected traffic can expose credentials, tokens, firmware images, and telemetry — enabling large-scale account takeover, device compromise or fraudulent provisioning. |
+| **Reproducibility**  |        **8** | DNS/DHCP-based redirection techniques are well-known and can be automated (rogue resolvers, poisoned caches, rogue DHCP).                                                |
+| **Exploitability**   |        **7** | Requires access to DNS chain (resolver, registrar) or local network; many environments historically had weak controls.                                                   |
+| **Affected Users**   |        **8** | Resolver/zone compromises can affect many users/devices (ISP customers, enterprise endpoints, device fleets).                                                            |
+| **Discoverability**  |        **7** | Name-resolution anomalies and unexpected certs are detectable, but silent exploitation (valid-looking certs, transient DHCP) can delay detection.                        |
 
-### CVSS Metrics
+**Digit-by-digit arithmetic (explicit):**
+Sum = 8 + 8 + 7 + 8 + 7 = **38**.
+Average = 38 / 5 = **7.6**; Rating: **High / Critical**
 
-| **Factor**                                                      | **Description**                                                                                                                  | **Value**                             |
-|-----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| Attack   Vector (AV):                                           | Social   (Exploits user trust and redirects to a phishing site)                                                                  | Social   (S)                          |
-| Attack   Complexity (AC):                                       | Low   (Pharming websites can be relatively easy to set up)                                                                       | Low   (L)                             |
-| Privileges   Required (PR):                                     | None   (User clicks the malicious link)                                                                                          | None   (N)                            |
-| User   Interaction (UI):                                        | Required   (User clicks the malicious link)                                                                                      | Required   (R)                        |
-| Scope   (S):                                                    | Account   Compromise (attacker gains access to user's account)                                                                   |         Unauthorized Access (U)       |
-| Confidentiality   Impact (C):                                   | High   (attacker can steal confidential data)                                                                                    | High   (H)                            |
-| Integrity   Impact (I):                                         | High   (attacker can tamper with data on the fake site)                                                                          | High   (H)                            |
-| Availability   Impact (A):                                      | Low   (Doesn't affect application functionality)                                                                                 | Low   (L)                             |
-| Base   Score (assuming High for Confidentiality and Integrity): | 0.85   * (AV:S/AC:L/PR:N/UI:R) * (S:U/C:H/I:H/A:L)                                                                               | 8.5   (High)                          |
-| Temporal   Score (TS):                                          | Not   Applicable (N/A)                                                                                                           | N/A                                   |
-| Environmental   Score (ES):                                     | Depends   on user awareness training, application security measures (e.g., SSL   certificate validation), anti-phishing features | Varies                                |
-| Overall   CVSS Score                                            | Base   Score + TS + ES                                                                                                           |         Varies (Depends on ES)        |
-| Risk   Rating                                                   | High   to Critical (Depends on ES)                                                                                               | High   to Critical                    |
+---
 
-Overall, Pharming poses a high to critical risk for mobile cloud-based applications that hold user's confidential data. Implementing a layered approach with user education, application security measures, and potential anti-phishing features can significantly reduce the risk.
+## References
 
-*Remember, vigilance and proactive measures are essential to protect against pharming attacks.*
+1. Ristic, I. (2016). *DNS Security: Defending the Domain Name System.* O’Reilly Media.
+2. OWASP Foundation. (2023). *OWASP Cheat Sheet: DNS Security and Best Practices.* OWASP. [https://owasp.org/](https://owasp.org/)
+3. National Institute of Standards and Technology. (2020). *NIST SP 800-81: Secure Domain Name System (DNS) Deployment Guide.* NIST. [https://csrc.nist.gov/](https://csrc.nist.gov/) (see DNS guidance)
+4. European Union Agency for Cybersecurity. (2020). *ENISA Threat Landscape and DNS Security Recommendations.* ENISA. [https://www.enisa.europa.eu/](https://www.enisa.europa.eu/)
+5. Internet Engineering Task Force. (2011). *RFC 5914: DNS Security Threats and Practices* (and related RFCs on DNSSEC/DoT). IETF. [https://www.ietf.org/](https://www.ietf.org/)
+
+---
+
  
 ## Pharming Attack Tree Diagram

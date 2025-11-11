@@ -1,43 +1,57 @@
-# Hardware Integrity Attack 
+# Hardware Integrity Attack Model
 
-Hardware Integrity is the assurance that hardware components are functioning as expected and have not been tampered with or compromised. It is essential to ensuring secure data transmission and verifying the accuracy of input and output.
+## Definition
 
-The goal of hardware integrity is to protect the trustworthiness of the hardware system by safeguarding against corruption or unauthorized modification. This includes protecting physical components, verifying digital signatures, authenticating communication channels, and other measures that can detect and prevent malicious activity.
+A **hardware integrity attack** targets the trustworthiness of physical components and firmware in cloud and mobile ecosystem or IoT systems. Attackers may insert malicious chips, alter firmware, exploit debug interfaces, or tamper with devices in the supply chain—ultimately compromising data integrity, device control, and cloud authentication.
 
-Hardware integrity is a vital security measure for any type of system or network, as it helps to ensure that data remains safe and secure from external threats.
+---
+
+## Attack Categories
+
+* **Supply-chain insertion:** malicious implants or counterfeit components during manufacturing.
+* **Firmware compromise:** unauthorized firmware flashing or persistent BIOS/BMC malware.
+* **Rollback/Update abuse:** reintroducing vulnerable firmware to regain control.
+* **Physical tampering:** JTAG, probing, or invasive modification of chips.
+* **Side-channel/fault injection:** extracting secrets via power, EM, or timing analysis.
+* **Hardware Trojan/Management controller compromise:** persistent backdoors and root-of-trust subversion.
+
+---
 
 ## Mitigation
 
-1. Hardware Security Modules (HSMs): Use HSMs to manage digital keys securely. HSMs provide a secure environment for cryptographic operations and protect against physical tampering;
-2. Secure Boot: Implement secure boot processes to ensure that only trusted software is loaded during the boot process. This can prevent unauthorized modifications to the hardware;
-3. Hardware Attestation: Use hardware attestation services to verify the integrity of the hardware. These services can check if the hardware has been tampered with or modified;
-4. Tamper-Evident Designs: Use tamper-evident designs in your hardware. These designs can show signs of tampering, alerting you to potential integrity issues;
-5. Regular Audits and Inspections: Conduct regular audits and inspections of your hardware. This can help identify any potential integrity issues early.
-User Awareness: Educate users about the importance of hardware integrity. Users should be aware of the risks associated with tampered hardware and know how to identify signs of tampering.
+* **Hardware root-of-trust:** TPM, secure boot, and attestation.
+* **Signed firmware and anti-rollback protections.**
+* **Trusted supply chain:** vendor vetting, provenance records, and hardware attestation.
+* **Physical security:** tamper detection, enclosure protection, and JTAG lockdown.
+* **Cloud integration controls:** device identity verification before provisioning.
+* **Continuous monitoring:** firmware hash validation, anomaly detection, and centralized alerts.
 
-## Hardware Integrity Architectural Risk Analysis 
+---
 
-| **Factor**                  | **Description**                                                                                               | **Value**                                        |
-|-----------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| Vulnerability               | Weaknesses in hardware components (mobile device, cloud servers) allowing unauthorized access or manipulation | -                                                |
-| Attack Vector (AV):         | Varies (Depends on the attack method - physical access, remote exploit)                                       | Varies (L, N, or Ph)                             |
-| Attack Complexity (AC):     | High (Requires specialized knowledge and potentially complex exploit development)                             | High (H)                                         |
-| Privileges Required (PR):   | Varies (Depends on the vulnerability - physical access might be required)                                     | Varies (N, L, or H)                              |
-| User Interaction (UI):      | None (Attack might not require user interaction)                                                              | None (N)                                         |
-| Scope (S):                  | Varies (Depends on attacker's capability and compromised hardware)                                            | Data Breach (DB) (if confidential data accessed) |
-| Confidentiality Impact (C): | High (Attacker might access confidential user data stored in the cloud)                                       | High (H)                                         |
-| Integrity Impact (I):       | High (Attacker might manipulate data on the compromised hardware)                                             | High (H)                                         |
-| Availability Impact (A):    | High (Compromised hardware might impact application functionality)                                            | High (H)                                         |
+## DREAD Risk Assessment
 
-Base Score (assuming successful exploitation): 0.85 * (AV: Varies/AC:H/PR:Varies/UI:N) * (S:DB/C:H/I:H/A:H) * 1.0 = Varies (Depends on AV & PR) |
+| Factor           | Score | Justification                                                   |
+| ---------------- | :---: | --------------------------------------------------------------- |
+| Damage Potential |   9   | Could expose cryptographic keys or enable persistent backdoors. |
+| Reproducibility  |   6   | Moderate—depends on sophistication of attack.                   |
+| Exploitability   |   7   | Some devices expose easy entry points (unsigned OTA, debug).    |
+| Affected Users   |   8   | Compromise of one component class affects many systems.         |
+| Discoverability  |   6   | Physical or firmware trojans difficult to detect.               |
 
-Temporal Score (TS): | Depends on exploit code availability for specific vulnerabilities | Varies |
-Environmental Score (ES): | Depends on security practices (secure boot, hardware verification), mobile device management (MDM), cloud security posture (secure servers, intrusion detection) | Varies |
+**Average DREAD = (9+6+7+8+6)/5 = 7.2**; Rating: **High Risk**.
 
-Overall CVSS Score: | Base Score + TS + ES | Varies (Depends on TS, ES, and specific attack vector/privilege requirements) |
-Risk Rating: | High to Critical (Depends on TS, ES, and specific attack scenario) | High to Critical |
+---
 
-**Overall, Hardware Integrity vulnerabilities pose a high to critical risk for mobile cloud-based applications. Implementing robust security measures across the mobile device, cloud infrastructure, and application development process is essential to mitigate the risk of data breaches, compromised data integrity, and potential application disruptions.**
+## References
+
+1. European Union Agency for Cybersecurity. (2022). *ENISA Threat Landscape for Supply Chain Attacks.* ENISA. [https://www.enisa.europa.eu/publications/threat-landscape-for-supply-chain-attacks](https://www.enisa.europa.eu/publications/threat-landscape-for-supply-chain-attacks)
+2. National Institute of Standards and Technology. (2020). *NIST SP 800-193: Platform Firmware Resiliency Guidelines.* NIST. [https://doi.org/10.6028/NIST.SP.800-193](https://doi.org/10.6028/NIST.SP.800-193)
+3. National Institute of Standards and Technology. (2018). *NIST SP 800-161: Supply Chain Risk Management Practices for Federal Information Systems and Organizations.* NIST. [https://doi.org/10.6028/NIST.SP.800-161](https://doi.org/10.6028/NIST.SP.800-161)
+4. ETSI. (2019). *ETSI EN 303 645 V2.1.1 — Cyber Security for Consumer Internet of Things: Baseline Requirements.* ETSI. [https://www.etsi.org/standards](https://www.etsi.org/standards)
+5. OWASP Foundation. (2023). *OWASP IoT Security Verification Standard (ISVS) & IoT Top 10.* [https://owasp.org/www-project-internet-of-things](https://owasp.org/www-project-internet-of-things)
+6. GSM Association. (2021). *GSMA IoT Security Guidelines & Assessment Checklist.* GSMA. [https://www.gsma.com/security/iot-security-guidelines/](https://www.gsma.com/security/iot-security-guidelines/)
+
+---
 
 ## Hardware Integrity Attack Tree 
 

@@ -1,32 +1,67 @@
-# Meltdown Attack 
+# Meltdown Attack Model
 
-Meltdown is a security vulnerability in modern processors that can allow malicious applications to access higher privileged memory. It exploits a processor's speculative execution feature to gain access to memory locations that should otherwise be inaccessible. This vulnerability has the potential to expose sensitive information, such as passwords, from the memory of other processes running on the same system.
+## Definition
 
-## Mitigation
+**Meltdown** is a microarchitectural, speculative-execution side-channel vulnerability that allows unprivileged code to infer contents of privileged memory (kernel, hypervisor, or co-tenant memory) by exploiting out-of-order execution side effects. In cloud, mobile and IoT contexts it threatens confidentiality of keys, credentials and sensitive data in co-resident VMs/containers, native mobile components, and embedded device firmware/processes.
 
-1. **Kernel Page Table Isolation (KPTI):** Implement KPTI to separate user space and kernel space memory. This can prevent unauthorized access to kernel memory;
-2. **Regular Updates and Patches:** Keep your systems and software up-to-date. Regular updates and patches can fix known vulnerabilities that could be exploited by Meltdown;
-3. **Microcode Updates:** Apply microcode updates provided by the CPU manufacturer. These updates can provide additional protections against Meltdown;
-3. **Disable Hyper-Threading:** If possible, disable hyper-threading on the CPU. This can reduce the potential attack surface for Meltdown;
-4. **Use of Virtualization:** Use virtualization technologies that provide strong isolation between virtual machines. This can limit the impact of a Meltdown attack on a single virtual machine;
-5. **Monitoring and Auditing:** Implement monitoring and auditing of system activities. This can help detect any unusual or suspicious behavior that could indicate a Meltdown attack.
+---
 
-## Meltdown Architectural Risk Analysis 
+## Relevant attack categories (cloud / mobile / IoT specifics)
 
-| **Factor**                                    | **Description**                                                                    | **Value**                                                               |
-|-----------------------------------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| Attack   Vector (AV):                         | Physical   (Requires physical access to the device)                                | Physical   (L)                                                          |
-| Attack   Complexity (AC):                     | High   (Requires advanced knowledge and tools to exploit)                          | High   (H)                                                              |
-| Privileges   Required (PR):                   | Low   (Leverages hardware vulnerability)                                           | N/A                                                                     |
-| User   Interaction (UI):                      | None   (User doesn't need to interact with the exploit)                            | None   (N)                                                              |
-| Scope   (S):                                  | Information   Disclosure (attacker can potentially steal data from user processes) |         Confidentiality (C)                                             |
-| Confidentiality   Impact (C):                 | High   (if user data is processed on the device)                                   | High   (H)                                                              |
-| Integrity   Impact (I):                       | High   (Meltdown doesn't directly modify data)                                      | Low   (L)                                                               |
-| Availability   Impact (A):                    | High   (Meltdown doesn't directly impact application functionality)                 | Low   (L)                                                               |
-| Base   Score (assuming High Confidentiality): | 0.85   * (AV:L/AC:H/PR:N/UI:N) * (S:C/C:H/I:L/A:L)                                 | 9.8   (Critical)                                                          |
-| Temporal   Score (TS):                        | Public   exploit code available?                                                   |         Depends on exploit availability and device patch   status       |
-| Environmental   Score (ES):                   | Depends   on device security patches, user awareness, data sensitivity             | Varies                                                                  |
-| Overall   CVSS Score                          | Base   Score + TS + ES                                                             |         High to Critical (Depends on TS & ES)                                     |
+* **Co-tenant VM/container attacks (cloud):** attacker runs crafted native code in a VM/container on a shared host to read host/kernel or other guest memory.
+* **Guest→host or guest→guest leakage (hypervisor weakness):** compromises secrets across tenant boundaries on vulnerable hosts.
+* **Native/mobile app exploitation:** apps with native code (or JIT engines) on mobile devices that can execute crafted sequences to leak OS or other app memory (mitigations vary by OS).
+* **Compromised IoT firmware / local code execution:** where an attacker can run code locally (malware, compromised service, or rogue update) to read kernel or other process memory on embedded devices.
+* **Chained attacks:** use leaked secrets (API keys, tokens) to escalate to cloud control planes, provisioned services, or lateral movement across IoT fleets.
+
+---
+
+## Mitigations & defensive controls
+
+* **Apply vendor patches & microcode updates** (KPTI, microcode fixes) promptly on servers, mobile OS, and device firmware.
+* **Cloud tenancy controls:** use dedicated hosts for high-sensitivity tenants, enforce cloud provider isolation features, and prefer VMs over weaker isolation when needed.
+* **Disable SMT/Hyperthreading** on hosts where strict confidentiality is required (trade-off: performance).
+* **Harden execution environments:** minimize native/untrusted code execution, restrict JIT usage in untrusted contexts, disable features that expose high-resolution timers.
+* **Browser & mobile hardening:** update browsers/webviews (site isolation, JIT mitigations), apply OS updates and vendor mitigations.
+* **IoT hardening:** secure boot, signed firmware, network segmentation, restrict ability to run arbitrary native code, and decommission unpatchable devices.
+* **Operational:** inventory vulnerable CPU families, track patch/microcode deployment status, and monitor for anomalous post-leak behaviors (unexpected credential use).
+
+---
+
+## DREAD Risk Assessment (scores 0-10)
+
+| DREAD Factor     | Score (0-10) | Rationale                                                                                                                       |
+| ---------------- | -----------: | ------------------------------------------------------------------------------------------------------------------------------- |
+| Damage Potential |            9 | Can expose kernel secrets, cryptographic keys and cross-tenant secrets — leading to large breaches.                             |
+| Reproducibility  |            8 | Well-documented PoCs exist and techniques are reproducible on vulnerable platforms.                                             |
+| Exploitability   |            7 | Requires ability to execute native/unprivileged code on target (achievable in many cloud, IoT, or compromised mobile contexts). |
+| Affected Users   |            8 | Multi-tenant cloud hosts, fleets of IoT devices, or many mobile users (depending on app/native code exposure) can be impacted.  |
+| Discoverability  |            6 | Vulnerable hardware/firmware presence is discoverable, but detecting active exploitation is difficult (side-channel stealth).   |
+
+**Digit-by-digit arithmetic (explicit):**
+Sum = 9 + 8 + 7 + 8 + 6 = 38.
+Average = 38 / 5 = 7.6.
+
+**DREAD average = 7.6**; Rating: **High / Critical**
+
+### Detection signals & short playbook
+
+**Detection signals:** unexpected use of stolen credentials, sudden abnormal accesses post-exploit, inventory of unpatched hosts, or anomaly in process/kernel timing (detection of exploitation itself is very hard).
+**Immediate (0–6 hrs):** confirm patch/microcode status across estate, isolate unpatched high-value hosts (dedicated hosts or pause co-tenants), apply mitigations (KPTI, microcode), and disable SMT where required.
+**Short term (days–weeks):** deploy patches broadly, update browsers/OS/firmware, review service exposure to native code execution, and require dedicated hosts for critical workloads.
+**Long term:** retire vulnerable CPU generations where feasible, integrate speculative-execution risk into architecture decisions, and maintain continuous patch/microcode monitoring.
+
+---
+
+## References
+
+1. Lipp, M., Schwarz, M., Gruss, D., Prescher, T., Haas, W., Fogh, A., Horn, J., Mangard, S., et al. (2018). *Meltdown: Reading kernel memory from user space.* In *Proceedings of the 27th USENIX Security Symposium* (pp. 973–990). USENIX Association. [https://www.usenix.org/conference/usenixsecurity18/presentation/lipp](https://www.usenix.org/conference/usenixsecurity18/presentation/lipp)
+2. Google Project Zero. (2018). *Meltdown & Spectre* (research website). [https://meltdownattack.com/](https://meltdownattack.com/)
+3. National Vulnerability Database. (2018). *CVE-2017-5754 — Rogue Data Cache Load (Meltdown).* NVD. [https://nvd.nist.gov/vuln/detail/CVE-2017-5754](https://nvd.nist.gov/vuln/detail/CVE-2017-5754)
+4. Intel Corporation. (2018). *Rogue Data Cache Load (Meltdown) — advisory and software mitigations.* Intel. [https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/advisory-guidance/rogue-data-cache-load.html](https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/advisory-guidance/rogue-data-cache-load.html)
+
+---
+          |
 
 ## Meltdown Attack Tree Diagram
 

@@ -1,72 +1,85 @@
-# Orbital Jamming Attacks
-
-This is a DoS attack that targets the communication satellites, using a rogue uplink station to disrupt the intended transmission, aiming to make this service unavailable to users of the target mobile devices.
+# Orbital Jamming Attack Model
 
 ## Definition
 
- This type of attack targets low-orbit satellites because, although these low-orbit satellites are attractive due to the low power levels required for communications links from terrestrial terminals, they can also be vulnerable to jamming attacks when used in some applications. In fact, a jammer of reasonable power could easily saturate the RF front-end of a low-orbit satellite, resulting in disabling the link across the entire frequency band. 
+**Orbital jamming** is the deliberate transmission of radio-frequency energy (from ground transmitters or space-based platforms) that interferes with satellite communications, GNSS (positioning, navigation, timing), inter-satellite links or satellite control links. Effects range from degraded telemetry and loss of PNT to denial of satellite comms (uplink/downlink) that break cloud APIs, mobile location services, and IoT device timing/provisioning that depend on space links.
 
-## Techniques
+---
 
-1. **Satellite Signal Interference**:
- * Continuous Wave (CW) Jamming: Emit a constant RF signal at the satellite’s frequency;
- * Swept-Frequency Jamming: Vary the jamming frequency across a range;
- * Pulsed Jamming: Intermittently transmit RF pulses.
-2. **Geolocation Spoofing**:
- * Transmit false location information to confuse satellite receivers.
-3. **Selective Jamming**:
- * Target specific frequency bands (e.g., GPS, communication, weather).
+## Attack Categories
 
-## Consequences
+* **Ground-based uplink jamming:** high-power terrestrial transmitters overwhelm satellite uplink frequencies (blocking commands, telemetry).
+* **Downlink / receiver jamming:** interfering signals drown satellite downlinks (user data, GNSS signals) so mobile apps and IoT gateways lose service or timing.
+* **Space-based (on-orbit) jammers:** hostile satellites or payloads intentionally emit interference (targeted at specific constellations or regions).
+* **Inter-satellite link (ISL) jamming:** disruption of cross-link communications in constellations (affecting mesh routing and LEO cloud backhaul).
+* **GNSS jamming (broadband / spot / directional):** prevents receivers from locking or increases errors (impacts mobile location, IoT time sync, telecom timing).
+* **Spoof-assisted denial:** combine jamming to force loss of lock, then spoof signals to inject false position/time.
+* **Collateral/unintentional interference:** misconfigured ground stations, spectrum collisions, or out-of-band emissions that emulate jamming.
 
-1. **Communication Disruption:** 
- * Interrupt satellite communication links (e.g., military, civilian, emergency services);
- * Impact global navigation systems (e.g., GPS).
-2. **Military Implications**:
- * Degrade situational awareness;
- * Compromise command and control operations.
+---
 
-## Mitigation
+## Mitigations & Defensive Controls
 
-1. **Diversification of Communication Channels:** Use multiple communication channels and frequencies. If one channel is jammed, the system can switch to another;
-2. **Spread Spectrum Techniques:** Spread Spectrum techniques such as Frequency Hopping Spread Spectrum (FHSS) and Direct Sequence Spread Spectrum (DSSS) can be used to resist jamming attacks;
-3. **Encryption and Authentication:** Use strong encryption and authentication methods to ensure that only legitimate users can access the system;
-4. **Geolocation:** Use geolocation to identify the location of the jamming source and take appropriate action;
-5. **Power Control:** Adjust the power levels of the communication signals to minimize the impact of jamming;
-6. **Redundancy:** Use redundant systems and networks to ensure availability even in the event of a jamming attack;
-7. **Regular Monitoring and Incident Response:** Regularly monitor the system for signs of jamming and have an incident response plan in place.
+**Spacecraft & RF design**
 
-## Architectural Risk Analysis of Orbital Jamming Vulnerability
+* **Antenna & link robustness:** high-gain directional antennas, beam-steering, adaptive null-forming and spatial filtering to reject interferers.
+* **Frequency / waveform resilience:** spread-spectrum, frequency hopping, wideband receivers, and coding/forward error correction to withstand interference.
+* **Power & link margins:** design with margin and adaptive power control to sustain degraded channels.
 
-The orbital jamming attack targets satellite communication systems and poses significant risks. Let’s analyze it using the Common Vulnerability Scoring System (CVSS) v3.1:
+**Operational & constellation design**
 
-| **Metric**                        | **Description**                                                    | **Value** |
-|-----------------------------------|--------------------------------------------------------------------|-----------|
-| Base                              |                                                                    |           |
-| CVSS ID                           | (placeholder, assigned by vulnerability reporting authority)       |           |
-| Attack Vector (AV)                | Network (physical)                                                 | N         |
-| Attack Complexity (AC)            | Low. Orbital jamming requires specialized equipment and knowledge. | L         |
-| Privileges Required (PR)          | None. Attacker does not need privileges on the target system.      | N         |
-| User Interaction (UI)             | None. User action is not required to exploit the vulnerability.    | N         |
-| Scope (S)                         | Confidentiality, Availability                                      | C,A       |
-| Confidentiality Impact (CI)       | High. Sensitive user data can be intercepted.                      | H         |
-| Integrity Impact (II)             | None. Orbital jamming does not modify data.                        | N         |
-| Availability Impact (AI)          | Medium. Users may be unable to access the application.             | M         |
-| Threat                            | (default values used as likelihood is difficult to assess)         |           |
-| Exploitability Ease (PE)          | High                                                               | H         |
-| Exploit Code Maturity (EC)        | Not defined                                                        | X         |
-| Impact Modifiers (MOD)            | None                                                               |           |
-| Environmental                     | (consider specific environment when assigning values)              |           |
-| Security Requirements (SR)        | Low. Limited security controls in place to prevent jamming.        | L         |
-| Collateral Damage Potential (CDP) | Low. Disruption limited to application functionality.              | L         |
-| Other Environmental Factors (O)   | None                                                               |           |
+* **Redundancy & diversity:** multi-constellation GNSS usage, multi-orbital-layer architectures, alternative downlink paths, and multiple ground stations to mitigate localized jamming.
+* **Inter-satellite routing & re-routing:** robust ISL routing that can route around jammed nodes.
+* **Authenticated command & control:** strong crypto and replay-protected command channels so jamming cannot be combined with spoofed commands to hijack assets.
 
-*Remember, addressing orbital jamming vulnerabilities is crucial for maintaining reliable communication and navigation.*
+**Detection, monitoring & response**
 
+* **Space and terrestrial spectrum monitoring:** deploy ground and spaceborne sensors to detect elevated noise floors, direction-of-arrival and geographic footprints.
+* **Anomaly correlation to cloud services:** correlate sudden PNT loss, bursty telemetry gaps, or mobile app location errors with satellite health and RF monitoring.
+* **Rapid contingency & fallback:** switch services to alternate PNT (e.g., eLoran / network time / local dead-reckoning), route cloud APIs through unaffected ground stations, and degrade gracefully (safety modes).
 
+**Policy & coordination**
+
+* **Regulatory enforcement & reporting:** engage ITU/national regulators for jammer source mitigation and use incident reporting (FCC, national spectrum authorities).
+* **Operational coordination:** pre-arranged escalation with spectrum authorities, satellite operators and CERTs; publish warnings and no-fly/operate advisories for affected services.
+
+**Application/cloud level**
+
+* **Resilient app design:** avoid single-source dependence on GNSS/time; use fused location (cell + Wi-Fi + inertial), validate timestamps and require multi-factor location proofs for critical actions.
+* **Autoscale protections:** avoid automatic business logic that amplifies outages (e.g., aggressive autoscaling on telemetry loss).
+
+---
+
+## DREAD Risk Assessment (0-10)
+
+| DREAD Factor     | Score (0-10) | Rationale                                                                                                                                            |
+| ---------------- | -----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Damage Potential |        **9** | Disruption of GNSS or satcom can break safety-critical navigation, telecom timing, cloud synchronization, and IoT control — large systemic impact.   |
+| Reproducibility  |        **7** | Ground jammers are affordable and documented; on-orbit jamming is harder but feasible for state actors or sophisticated groups.                      |
+| Exploitability   |        **6** | Requires RF equipment and proximity or space assets; easier for GNSS jamming near receivers, harder for targeted ISL/on-orbit attacks.               |
+| Affected Users   |        **9** | Wide impact — mobile users (navigation), telecom providers, cloud services reliant on satellite links, and large IoT fleets for timing/provisioning. |
+| Discoverability  |        **7** | Elevated noise and loss of lock are detectable; attributing source (ground vs space, accidental vs deliberate) can be complex.                       |
+
+**Digit-by-digit arithmetic:**
+Sum = 9 + 7 + 6 + 9 + 7 = **38**.
+**Average = 38 / 5 = 7.6**; Rating: **High / Critical**.
+
+---
 
 ## References
-1. [CAPEC-559: Orbital Jamming](https://capec.mitre.org/data/definitions/559.html).
-2. Weerackody, V., 2021. Satellite diversity to mitigate jamming in leo satellite mega-constellations, in: 2021 IEEE International Conference on Communications Workshops (ICC Workshops), IEEE, Montreal, QC, Canada. pp. 1–6. doi:10.1109/ICCWorkshops50388.2021.9473519.
+
+1. International Telecommunication Union. (2024). *FAQ on GNSS interference* (Radiocommunication Sector). ITU. [https://www.itu.int/en/ITU-R/Documents/FAQs%20on%20GNSS%20Interference.pdf](https://www.itu.int/en/ITU-R/Documents/FAQs%20on%20GNSS%20Interference.pdf)
+  ([ITU][1])
+2. United Nations Office for Outer Space Affairs. (2024). *Interference detection and mitigation for GNSS* (ICG/UNOOSA materials). UNOOSA. [https://www.unoosa.org/](https://www.unoosa.org/)
+  ([unoosa.org][2])
+3. European Space Agency. (2025). *Navigating through interference at Jammertest* (ESA briefing). ESA. [https://www.esa.int/Applications/Satellite_navigation/Navigating_through_interference_at_Jammertest](https://www.esa.int/Applications/Satellite_navigation/Navigating_through_interference_at_Jammertest)
+  ([European Space Agency][3])
+4. Federal Communications Commission. (2022). *Jammer enforcement and reporting* (Guidance for harmful interference). FCC. [https://www.fcc.gov/enforcement/areas/jammers](https://www.fcc.gov/enforcement/areas/jammers)
+  ([Federal Communications Commission][4])
+5. European Union Aviation Safety Agency. (2025). *GNSS outages and mitigation for aviation & services.* EASA. [https://www.easa.europa.eu/](https://www.easa.europa.eu/)
+  ([EASA][5])
+
+---
+
 
 ## Orbital Jamming Attack Tree Diagram
