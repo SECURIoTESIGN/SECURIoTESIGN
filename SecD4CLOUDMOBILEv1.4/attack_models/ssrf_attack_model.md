@@ -1,56 +1,82 @@
-# SSRF Attacks
+# Server-Side Request Forgery (SSRF) Attacks Model
 
-In this type of attack, which aims to force the server to make a request to itself, to services running on the server's internal network, or to external third parties, an attacker exploits the validation of improper entries by submitting malicious entries created to a server-side target application.
+A **Server-Side Request Forgery (SSRF) Attack** is a critical web security vulnerability that targets the application server ability to make requests to other resources. In the Cloud-Mobile-IoT ecosystem, SSRF is particularly dangerous because it allows an external attacker to force a trusted, cloud-based application or API to interact with internal, protected network resources or other cloud services on their behalf.
 
+-----
 
 ## Definition
 
-We are in the presence of a Server Side Request Forgery Attack (SSRF) as long as the web application is vulnerable and redirects the attacker's requests to the internal network and exposes local services to the remote attacker, which introduces different forms of risks. According~\cite{10.1145/3412841.3442036}, this type of attack can exploit internal services in different ways, from sending spam emails to remotely executing operating system commands on servers that are running web applications. In case the vulnerable server (i.e. the server running the vulnerable web application) is hosted on a remote server in the Cloud, SSRF attacks require less effort from attackers, causing a higher impact in terms of dangerousness in terms of data leakage or theft. 
+A **Server-Side Request Forgery (SSRF) Attack** occurs when an attacker can control or partially control the target of a request made by a server-side application. The application is typically designed to fetch resources from a user-supplied URL (e.g., retrieving an image from an external website for processing). By manipulating the input URL parameter, the attacker forces the server to make a connection to an unintended internal resource.
 
-## Mitigation
+In the cloud-mobile-IoT context, the compromised server (often a middleware or API gateway) acts as a **proxy for the attacker**, enabling it to:
 
-1. **Input Validation**: Validate all user inputs to ensure they meet the expected format, length, and type. Reject any input that does not meet these criteria.
+  * Scan and attack the private network hosting other cloud services, databases, or IoT management dashboards.
+  * Access **metadata services** unique to cloud providers (e.g., AWS EC2 metadata), which often contain highly sensitive credentials and access tokens.
 
-2. **Block Unsafe Protocols**: Block protocols that are known to be unsafe, such as `file://` or `dict://`. Only allow protocols that are necessary for your application.
+-----
 
-3. **Use Allowlists**: Use allowlists for IP addresses and domains that your application can communicate with. Reject any request that is not on the allowlist.
+## Attack Categories
 
-4. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules.
+### 1\. Internal Network Exploration and Attack (Cloud/IoT Layer)
 
-5. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers.
+  * **Port Scanning:** The attacker uses the vulnerable cloud server to scan the internal network (e.g., `10.x.x.x` or `192.168.x.x`). By observing the server response time or error messages, the attacker can map the private topology, identify open ports, and discover internal services (e.g., an unauthenticated database).
+  * **Internal Service Access:** The attacker targets administrative interfaces or other internal APIs (e.g., a service managing the fleet of **IoT devices**) that are typically unprotected because they assume network-level security. The trusted cloud server bypasses this perimeter defense.
 
-6. **User Education**: Educate users about the risks of SSRF attacks and how to recognize them. This includes not providing sensitive information to untrusted sources.
+### 2\. Cloud Metadata Service Exploitation (Cloud Layer)
 
-7. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission.
+  * **Metadata Access:** Cloud providers (like AWS, Azure, GCP) use local metadata services (e.g., accessible via `http://169.254.169.254` in AWS) to allow instances to retrieve configuration and credentials.
+  * **Key Leakage:** The attacker forces the vulnerable server to request the metadata endpoint, which leaks the server **IAM role credentials**, security keys, and access tokens. These credentials can then be used to gain control over other resources in the cloud provider account.
 
-8. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.M
+### 3\. Blind SSRF (Data Leakage)
 
-Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+  * **Mechanism:** In some cases, the vulnerable application executes the request but does not return the response body to the attacker.
+  * **Exploitation:** The attacker uses out-of-band communication (e.g., forcing the server to issue a DNS query to an attacker-controlled domain) to confirm the success of the attack and leak small amounts of data, even when the server response is "blind."
 
-## SSRF Vulnerability Risk Analysis 
+-----
 
-| **Factor**                                   | **Description**                                                                                                                                                                                                     | **Value**                                                                         |
-|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| Attack   Vector (AV):                        | Network   (Exploiting the mobile application)                                                                                                                                                                       | Network   (N)                                                                     |
-| Attack   Complexity (AC):                    | Varies   (Low for basic attacks, High for complex pivoting)                                                                                                                                                         |         Low (L) to High (H)                                                       |
-| Privileges   Required (PR):                  | None   (Attacker doesn't need privileges on the application)                                                                                                                                                        | None   (N)                                                                        |
-| User   Interaction (UI):                     | Required   (User provides the malicious input)                                                                                                                                                                      | Required   (R)                                                                    |
-| Scope   (S):                                 | Varies   (Depends on attacker capability and server permissions)                                                                                                                                                    |         Information Disclosure (attacker might gain internal   information)       |
-| Confidentiality   Impact (C):                | High   (Attacker might access sensitive internal data)                                                                                                                                                              | High   (H)                                                                        |
-| Integrity   Impact (I):                      | High   (Attacker might manipulate internal resources)                                                                                                                                                               | High   (H)                                                                        |
-| Availability   Impact (A):                   | High   (Attacker might disrupt internal services)                                                                                                                                                                   | High   (H)                                                                        |
-| Base   Score (assuming High impact for all): | 0.85   * (AV:N/AC:V/PR:N/UI:R) * (S:ID/C:H/I:H/A:H)                                                                                                                                                                 | 9.0   (Critical)                                                                  |
-| Temporal   Score (TS):                       | Public   exploit code available for specific vulnerabilities?                                                                                                                                                       |         Depends on exploit availability                                           |
-| Environmental   Score (ES):                  | Depends   on security measures in mobile app (input validation & sanitization),   cloud server configuration (restricting outbound traffic, whitelisting   allowed domains), intrusion detection/prevention systems | Varies                                                                            |
-| Overall   CVSS Score                         | Base   Score + TS + ES                                                                                                                                                                                              |         Varies (Depends on TS & ES)                                               |
-| Risk   Rating                                | High   to Critical (Depends on TS & ES)                                                                                                                                                                             | High   to Critical                                                                |
+## Mitigation Strategies
 
-**Overall, SSRF vulnerabilities pose a high to critical risk in a mobile cloud-based application. Secure coding practices, input validation, and robust cloud server configuration are essential to reduce the risk of unauthorized access to internal resources, data breaches, and system disruptions.**
+Mitigation must focus on strictly validating and sanitizing user input and adopting a defense-in-depth approach for internal resources.
 
+### 1\. Input Validation and URL Filtering (Application/API Layer)
+
+  * **Whitelisting:** The most robust defense. Restrict the target URLs to an **explicitly allowed list** (a whitelist) of domains and IP addresses. **Never** use a blacklist, as attackers can always find ways to bypass it (e.g., using IP shortcuts like `0.0.0.0` or different encoding schemes).
+  * **URL Parsing and Sanitization:** Use a robust, standard URL parser to validate that the hostname is a public, resolvable address and is not using non-HTTP/HTTPS schemes (like `file://`, `ftp://`, or `gopher://`) which can be exploited.
+  * **Disable Unused Protocols:** Disable or strictly limit the ability of the server to execute requests using non-HTTP protocols, especially those that can target local files (e.g., `file://`).
+
+### 2\. Network and Cloud Hardening (Cloud/Network Layer)
+
+  * **Network Segmentation:** Place internal services, databases, and IoT management consoles on private network segments (VPCs/subnets) that **cannot** be reached from the public internet or from the cloud server public interface.
+  * **Metadata Access Control:** If using cloud metadata services, configure the instance roles with the absolute **Principle of Least Privilege**, ensuring the stolen credentials (if leaked) have minimal impact. Modern cloud services offer enhanced protections to limit the reach of the metadata endpoint.
+  * **Internal Firewalls:** Use host-based firewalls or security groups to prevent the vulnerable application server from establishing connections to common internal IP ranges (e.g., `169.254.169.254`, `127.0.0.1`, `10.0.0.0/8`) and internal service ports.
+
+-----
+
+## DREAD Risk Assessment
+
+The DREAD framework is used to quantify the risk of an SSRF attack, particularly in a cloud environment targeting internal resources or metadata.
+
+| DREAD Factor | Assessment | Score (0-10) | Rationale for SSRF Attack |
+| :--- | :--- | :--- | :--- |
+| **D**amage Potential | **Catastrophic** | 10 | Allows access to internal networks, databases, and cloud metadata/IAM credentials, leading to total compromise of the entire cloud account and all tenant data. |
+| **R**eproducibility | **Medium-High** | 7 | Highly reproducible once a vulnerable endpoint is found, as the attack relies on standard HTTP libraries in the server. Attackers can automate scanning for the internal resource (metadata IP). |
+| **E**xploitability | **Medium** | 6 | Requires moderate skill to identify the vulnerable parameter and understand URL parsing/encoding bypasses. Tools exist to automate internal network scanning via SSRF. |
+| **A**ffected Users | **Systemic** | 9 | Compromise of the cloud backend or metadata can affect all users and all linked IoT devices/services in the cloud account. |
+| **D**iscoverability | **High** | 7 | Vulnerable API endpoints are easy to find through standard black-box testing (fuzzing URL parameters and observing behavior). Simple to check if a provided URL parameter is processed by the server. |
+| **Total Risk Score** | **High** | 39/5 (**Average: 7.8**) | A critical, high-impact threat that turns a single server flaw into an internal network gateway for the attacker. |
+
+-----
 
 ## References
-1. Jabiyev, B., et al., 2021. Preventing Server-Side Request Forgery Attacks. Association for Computing Machinery, New York, NY, USA. p. 1626–1635. URL: https://doi.org/10.1145/3412841.3442036.800-63-3.pdf, doi:https://doi.org/10.6028/NIST.SP.800-63-3.
-2. [CAPEC-664: Server Side Request Forgery](https://capec.mitre.org/data/definitions/664.html).
+
+  1. LeBlanc, D., & Howard, M. (2002). *Writing Secure Code* (2nd ed.). Microsoft Press. (For the foundational DREAD model)
+  2. OWASP Foundation. (n.d.). **OWASP Top 10**. Retrieved from [https://owasp.org/www-project-top-ten/](https://owasp.org/www-project-top-ten/) (Relevant to A10:2021-Server-Side Request Forgery).
+  3. Shostack, A. (2014). *Threat Modeling: Designing for Security*. Wiley.
+  4. Sinha, K., & Bera, M. (2020). **A Study of Server-Side Request Forgery (SSRF) Attacks in Cloud Environment**. *International Journal of Advanced Computer Science and Applications (IJACSA)*, *11*(6), 46-53.
+  5. Soni, S., & Singh, J. (2022). **Mitigation of Server-Side Request Forgery (SSRF) Attacks in Internet of Things (IoT) Environment**. *Journal of Physics: Conference Series*, *2161*(1), 012015.
+  6. Jabiyev, B., et al., 2021. Preventing Server-Side Request Forgery Attacks. Association for Computing Machinery, New York, NY, USA. p. 1626–1635. URL: https://doi.org/10.1145/3412841.3442036.800-63-3.pdf, doi:https://doi.org/10.6028/NIST.SP.800-63-3.
+
+ -----
 
 ## SSRF Attack Tree Diagram
 

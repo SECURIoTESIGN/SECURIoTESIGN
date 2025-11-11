@@ -1,44 +1,77 @@
-# Phishing Attack 
+# Phishing Attack Model
 
-Phishing is a type of cyber attack that uses social engineering tactics to steal data and information from unsuspecting victims. It is an attempt to unlawfully obtain sensitive information such as usernames, passwords, and credit card details by impersonating a trusted entity. Phishing attacks can be launched through email, instant message, text messages, or malicious websites.
+## Definition
 
-## Mitigation
+**Phishing** is a **social engineering attack** that deceives users or devices into revealing sensitive information (e.g., credentials, tokens, financial data) or executing malicious actions by impersonating legitimate entities. Unlike pharming, phishing depends on **user interaction or device trust**—through fake emails, SMS (smishing), voice calls (vishing), QR codes (quishing), or in-app prompts that trick users or automated clients into connecting to malicious endpoints or approving attacker-initiated actions.
 
-1. **Education and Awareness**: Conduct regular training and awareness programs to educate users about phishing attacks and how to identify them;
+In **cloud-based mobile and IoT ecosystems**, phishing can lead to unauthorized access to cloud accounts, IoT device hijacking, API key theft, and lateral compromise across multi-tenant systems.
 
-2. **Email Filters**: Use email filters to scan for phishing emails and block them;
+---
 
-3. **Firewalls**: Deploy firewalls to block malicious IP addresses and protect the network from phishing attacks;
+## Attack Categories
 
-4. **Anti-Phishing Toolbars**: Use anti-phishing toolbars that can run quick checks on the sites that you are visiting and compare them to lists of known phishing sites;
+* **Email / credential phishing:** fraudulent cloud login or SSO pages used to capture credentials and MFA tokens.
+* **Smishing & vishing:** SMS or calls with malicious links or OTP requests targeting mobile users and IoT administrators.
+* **OAuth & SSO token theft:** consent phishing attacks using fake OAuth app authorizations to gain access to cloud data or device control APIs.
+* **Malicious QR code (Quishing):** deceptive QR codes in IoT dashboards or printed labels redirect to attacker sites.
+* **Mobile app phishing:** trojanized mobile apps or fake updates prompting credential entry.
+* **In-app / push notification phishing:** fake MFA prompts or admin access requests used to trick operators.
+* **IoT management portal impersonation:** forged cloud dashboards or provisioning servers intercept device registration and telemetry.
 
-5. **Regular Updates**: Keep all systems and software updated with the latest security patches;
+---
 
-6. **Two-Factor Authentication (2FA)**: Implement two-factor authentication to add an extra layer of security;
+## Mitigations & Defensive Controls
 
-7. **Regular Backups**: Regularly backup data to reduce the impact in case a phishing attack leads to data loss.
+**User & identity protection**
 
-Please note that the effectiveness of these strategies may vary depending on the specific circumstances and the capabilities of the attacker. It's always a good idea to consult with a cybersecurity expert when dealing with these types of threats.
+* **Phishing-resistant authentication:** adopt **FIDO2/WebAuthn** or hardware-backed MFA to eliminate credential reuse.
+* **Token binding & short-lived credentials:** use OAuth tokens with narrow scopes and expiry to reduce damage if stolen.
+* **Behavioral analytics:** detect anomalies in login patterns, device fingerprints, and geolocation.
+* **Security awareness & simulation:** continuous phishing training and simulated campaigns for administrators and operators.
 
-## Phishing Architectural Risk Analysis: 
+**Technical & infrastructure controls**
 
-The Common Vulnerability Scoring System (CVSS) is a framework for communicating the severity of software vulnerabilities. CVSS v3.1 is the latest version of CVSS, released in June 2019.
-| **Factor**                                                      | **Description**                                                                                                                   | **Value**                             |
-|-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| Attack   Vector (AV):                                           | Social   (Exploits user trust to reveal credentials)                                                                              | Social   (S)                          |
-| Attack   Complexity (AC):                                       | Low   (Crafting phishing messages can be relatively easy)                                                                         | Low   (L)                             |
-| Privileges   Required (PR):                                     | None   (User reveals credentials)                                                                                                 | None   (N)                            |
-| User   Interaction (UI):                                        | Required   (User clicks the link or enters credentials)                                                                           | Required   (R)                        |
-| Scope   (S):                                                    | Account   Compromise (attacker gains access to user's account)                                                                    |         Unauthorized Access (U)       |
-| Confidentiality   Impact (C):                                   | High   (attacker can steal confidential data)                                                                                     | High   (H)                            |
-| Integrity   Impact (I):                                         | High   (attacker can tamper with data within the account)                                                                         | High   (H)                            |
-| Availability   Impact (A):                                      | Low   (Doesn't affect application functionality)                                                                                  | Low   (L)                             |
-| Base   Score (assuming High for Confidentiality and Integrity): | 0.85   * (AV:S/AC:L/PR:N/UI:R) * (S:U/C:H/I:H/A:L)                                                                                | 8.5   (High)                          |
-| Temporal   Score (TS):                                          | Not   Applicable (N/A)                                                                                                            | N/A                                   |
-| Environmental   Score (ES):                                     | Depends   on user awareness training, application security measures (e.g., multi-factor   authentication), anti-phishing features | Varies                                |
-| Overall   CVSS Score                                            | Base   Score + TS + ES                                                                                                            |         Varies (Depends on ES)        |
-| Risk   Rating                                                   | High   to Critical (Depends on ES)                                                                                                | High   to Critical                    |
+* **Email and content filtering:** enable DMARC, DKIM, SPF and advanced threat protection (ATP) for cloud email.
+* **Browser & app hardening:** implement Safe Browsing APIs, URL reputation checks, and certificate pinning in mobile apps.
+* **Cloud identity protections:** enforce conditional access (risk-based login policies) and continuous verification (Zero Trust).
+* **IoT provisioning integrity:** require signed manifests and device attestation for onboarding.
+* **API key rotation & least privilege:** store secrets securely, avoid embedding credentials in code, and rotate keys automatically.
 
-**Overall, Phishing poses a high to critical risk for mobile cloud-based applications that hold user's confidential data. Implementing a layered approach with user education, application security measures (like MFA), and potential anti-phishing features can significantly reduce the risk.**
+**Detection & response**
+
+* **Monitor login anomalies:** detect impossible travel, device changes, and repeated failed logins.
+* **Threat intelligence integration:** ingest feeds of known phishing domains, lookalike hostnames, and attacker infrastructure.
+* **User reporting:** simple in-app or email report phishing buttons connected to SOC workflow.
+* **Incident automation:** automated account lock, token revocation, and password reset for compromised identities.
+
+---
+
+## 4) DREAD Risk Assessment
+
+| DREAD Factor         | Score | Rationale                                                                                                 |
+| -------------------- | :---: | --------------------------------------------------------------------------------------------------------- |
+| **Damage Potential** | **9** | Credential or token theft can grant access to cloud systems, IoT control layers, and sensitive user data. |
+| **Reproducibility**  | **9** | Highly repeatable; attackers reuse templates, kits, and phishing-as-a-service platforms.                  |
+| **Exploitability**   | **8** | Low cost and easily automated via email, SMS, or fake apps; success depends on human error.               |
+| **Affected Users**   | **8** | Large-scale impact—users, admins, or fleets of IoT devices tied to shared credentials.                    |
+| **Discoverability**  | **6** | Attack pages often transient; detection possible via filtering and domain analysis but reactive.          |
+
+**Digit-by-digit arithmetic:**
+**Sum = 9 + 9 + 8 + 8 + 6 = 40**
+**Average = 40 / 5 = 8.0** ; Rating: **High / Critical**
+
+---
+
+## References
+
+1. National Institute of Standards and Technology. (2020). *NIST SP 800-63B: Digital Identity Guidelines – Authentication and Lifecycle Management.* NIST. [https://doi.org/10.6028/NIST.SP.800-63b](https://doi.org/10.6028/NIST.SP.800-63b)
+2. OWASP Foundation. (2023). *OWASP Phishing Defense Cheat Sheet.* OWASP. [https://owasp.org/](https://owasp.org/)
+3. ENISA. (2022). *Phishing – Threat Landscape and Mitigation Guidelines.* European Union Agency for Cybersecurity. [https://www.enisa.europa.eu/](https://www.enisa.europa.eu/)
+4. Microsoft. (2024). *Phishing-resistant MFA and identity protection in cloud environments.* Microsoft Security Blog. [https://www.microsoft.com/security/blog/](https://www.microsoft.com/security/blog/)
+5. Anti-Phishing Working Group. (2025). *Phishing Activity Trends Report.* APWG. [https://apwg.org/](https://apwg.org/)
+
+
+---
+
 
 ## Phishing Attack Tree Diagram

@@ -1,49 +1,75 @@
 # Rowhammer Attack 
 
-Rowhammer is a security exploit that takes advantage of a hardware weakness in some modern computer memory chips. It is a side-channel attack wherein a malicious program can cause a targeted memory cell to change its content, resulting in data corruption or a system crash. In recent years, Rowhammer attacks have become increasingly popular, as attackers can exploit them to gain access to otherwise secure systems or networks.
+## Definition
 
-## Mitigation
+**Rowhammer** is a microarchitectural hardware fault-induction attack that repeatedly accesses (*hammers*) DRAM rows to cause bit-flips in adjacent memory rows. Attackers exploit these induced flips to corrupt data or flip security-critical bits (e.g., page tables, permissions) and thereby escalate privileges, break isolation between tenants, or tamper firmware/keys. Variants run locally (native code), in sandboxed environments (JIT/JavaScript), or via malicious firmware on IoT devices.
 
-1. **ECC Memory**: Use Error-Correcting Code (ECC) memory in devices. ECC memory can detect and correct bit flips, which are the basis of the Rowhammer attack;
+---
 
-2. **Memory Refresh Rates**: Increase the memory refresh rates. This can reduce the chance of bit flips occurring;
+## Attack Categories 
 
-3. **Rowhammer-proof DRAM**: Use newer DRAM modules that have built-in mitigations against Rowhammer. Some manufacturers have started to produce DRAM that is resistant to Rowhammer attacks;
+* **Local native Rowhammer:** attacker executes tight memory access patterns in an unprivileged process (VM/ container) to flip kernel or co-tenant data. (Cloud multi-tenancy threat.)
+* **Browser / JIT variants (remote):** using high-resolution timers and JIT optimizations (Rowhammer.js) to perform attack from JavaScript — impacts mobile browsers and webviews.
+* **Firmware / embedded Rowhammer:** malware on IoT devices or malicious firmware triggers bit flips to alter device behaviour or extract secrets.
+* **Cross-VM/tenant attacks:** co-resident VMs or containers on same physical host cause bit-flips in neighbor VMs (cloud confidentiality/integrity risk).
+* **Targeted data corruption:** precise targeting of page table entries, crypto key material or attestation state to subvert trust anchors.
 
-4. **Software Guard Extensions (SGX)**: Use Intel's SGX or similar technologies to protect sensitive data in memory;
+---
 
-5. **Regular Software Updates**: Keep all software, including operating systems and applications, up to date. This helps to patch any known vulnerabilities that could be exploited by attackers;
+## Mitigations & Defensive Controls
 
-6. **Firewalls and Intrusion Detection Systems (IDS)**: Use firewalls and IDS to monitor and control incoming and outgoing network traffic based on predetermined security rules;
+**Hardware & platform**
 
-7. **Regular Audits and Penetration Testing**: Regularly conduct security audits and penetration testing to identify and fix any security vulnerabilities;
+* **ECC DRAM:** use ECC memory (correctable and detectable errors) in servers and critical gateways. (Note: ECC may not prevent all flips but reduces risk.)
+* **Memory controller mitigations:** enable vendor TRR/targeted row refresh, increased DRAM refresh rates, or other hardware fixes where supported.
+* **Dedicated hosts / CPU pinning:** avoid untrusted co-residency (dedicated physical hosts for sensitive tenants/services).
 
-8. **Secure Cloud Configurations**: Ensure that your cloud configurations are secure and that all data is encrypted during transmission;
+**OS / hypervisor / runtime**
 
-9. **IoT Security Measures**: Implement IoT-specific security measures such as device authentication, secure booting, and hardware-based security solutions.
+* **Physical isolation:** place untrusted workloads in separate NUMA/physical banks when possible.
+* **Memory allocation hardening:** avoid predictable placement of security-critical structures adjacent to attacker-controlled pages; use guard rows / hole-punching for sensitive allocations.
+* **Disable or restrict JIT/High-res timers:** restrict JIT compilation and high-resolution timers in untrusted web contexts (browsers implemented mitigations after Rowhammer.js).
+* **Process / container hardening:** limit unprivileged processes’ ability to do repeated cache bypassing; use kernel-level throttles on memory access patterns if feasible.
 
-Remember, security is a continuous process and it's important to stay updated with the latest threats and mitigation strategies.
+**IoT / mobile**
 
-## Rowhammer Architectural Risk Analysis 
+* **Firmware updates:** apply microcode/firmware and SoC vendor mitigations where available.
+* **Hardened device design:** prefer SoCs with hardware rowhammer mitigations, use secure boot/attestation so flipped bits cannot subvert measured boot, and isolate critical keys in secure elements.
+* **Limit native code exposure:** avoid installing unknown native modules; enforce app store vetting and runtime integrity checks on mobile/embedded platforms.
 
-The Common Vulnerability Scoring System (CVSS) v3.1 is used to provide an architectural risk analysis of the Rowhammer attack vulnerability.
+**Detection & monitoring**
 
-| **Factor**                                    | **Description**                                                                                                                                      | **Value**                                     |
-|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| Attack   Vector (AV):                         | Local   (Requires physical access to the device or malicious app)                                                                                    | Local   (L)                                   |
-| Attack   Complexity (AC):                     | High   (Requires specialized knowledge and potentially custom malware)                                                                               | High   (H)                                    |
-| Privileges   Required (PR):                   | Varies   (Depends on the attack method, could be user-level)                                                                                         |         Low (L) to High (H)                   |
-| User   Interaction (UI):                      | Varies   (Might require user interaction to initiate the attack)                                                                                     | Optional   (O)                                |
-| Scope   (S):                                  | Data   Corruption (attacker can potentially corrupt application data)                                                                                | Data   Loss (DL)                              |
-| Confidentiality   Impact (C):                 | High   (Corrupted data might reveal confidential information)                                                                                        | High   (H)                                    |
-| Integrity   Impact (I):                       | High   (Corrupted data can lead to unexpected behavior)                                                                                              | High   (H)                                    |
-| Availability   Impact (A):                    | High   (Corrupted data might render the application unusable)                                                                                        | High   (H)                                    |
-| Base   Score (assuming High for all impacts): | 0.85   * (AV:L/AC:H/PR:L/UI:O) * (S:DL/C:H/I:H/A:H)                                                                                                  | 9.0   (Critical)                              |
-| Temporal   Score (TS):                        | Public   exploit code available for specific devices?                                                                                                |         Depends on exploit availability       |
-| Environmental   Score (ES):                   | Depends   on device hardware security features (memory error correction), application   security measures (data validation), user awareness training | Varies                                        |
-| Overall   CVSS Score                          | Base   Score + TS + ES                                                                                                                               |         Varies (Depends on TS & ES)           |
-| Risk   Rating                                 | High   to Critical (Depends on TS & ES)                                                                                                              | High   to Critical                            |
+* Monitor corrected ECC counts, DRAM error rates and sudden bursts of correctable errors; set alerts for anomalous error patterns.
+* Watch for suspicious high-frequency memory access patterns from a process or VM, unexplained crashes, or integrity verification failures (measured boot mismatches).
 
-**Overall, Rowhammer poses a high to critical risk for mobile cloud-based applications that hold user's confidential data. A combined approach with secure hardware, application security practices, and user education can significantly reduce the risk.**
+---
+
+## DREAD Risk Assessment (0-10)
+
+| DREAD Factor     | Score (0-10) | Rationale                                                                                                                                     |
+| ---------------- | -----------: | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Damage Potential |        **9** | Can yield privilege escalation, cross-tenant data compromise, and persistent integrity subversion (kernel, hypervisor, keys).                 |
+| Reproducibility  |        **7** | Proven in many DRAM generations and across platforms; success depends on specific DRAM chips, placement and noise — reproducible with effort. |
+| Exploitability   |        **7** | Requires ability to execute tight memory access patterns or run JIT code (feasible in many cloud, browser and some IoT contexts).             |
+| Affected Users   |        **8** | Multi-tenant cloud services, fleets of IoT devices, and mobile users (via browsers) can be impacted at scale.                                 |
+| Discoverability  |        **5** | Silent bit-flips are stealthy; detection relies on ECC/monitoring or integrity checks — active exploitation can be hard to observe.           |
+
+**Digit-by-digit arithmetic (explicit):**
+Sum = 9 + 7 + 7 + 8 + 5 = **36**.
+Average = 36 / 5 = **7.2**.
+
+**DREAD average = 7.2**; Rating: **High Risk**.
+
+---
+
+## References
+
+1. Kim, Y., Daly, R., Kim, J., Fallin, C., Lee, J. H., Lee, D., et al. (2014). *Flipping Bits in Memory Without Accessing Them: An Experimental Study of DRAM Disturbance Errors.* Proceedings of the 41st International Symposium on Computer Architecture (ISCA).
+2. Seaborn, M., & Dullien, T. (2015). *Exploiting the DRAM Rowhammer Bug to Gain Kernel Privileges.* (Technical report / exploit write-up).
+3. Gruss, D., Maurice, C., & Mangard, S. (2016). *Rowhammer.js: A Remote Software-Induced Fault Attack in JavaScript.* (Conference/whitepaper describing JIT/browser variant).
+4. Bitar, N., Heninger, N., Lipp, M., et al. (2019). *Survey and Mitigations for DRAM Disturbance and Rowhammer.* (Survey and mitigation recommendations).
+
+---
+
 
 ## Rowhammer Attack Tree Diagram
