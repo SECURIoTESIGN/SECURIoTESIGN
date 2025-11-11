@@ -1,22 +1,22 @@
-4;7;                 # Hybrid Application ; IoT System
-11                   # Smart Air Quality   
+4;7;1;7;             # Hybrid Application ; IoT System ; Android App ; IoT System
+17                   # Smart Wearables     
 1                    # Yes                 
-1;2;4;2;             # Biometric-based authentication ; Channel-based authentication ; ID-based authentication ; Channel-based authentication
+1;2;4;2;1;3;         # Biometric-based authentication ; Channel-based authentication ; ID-based authentication ; Channel-based authentication ; Biometric-based authentication ; Factors-based authentication
 1                    # Yes                 
 1                    # SQL (Relational Database)
-2                    # MySQL               
-1;2;                 # Personal Information ; Confidential Data
-2                    # Remote Storage (Cloud Database)
+4                    # SQLite              
+1;2;1;2;3;           # Personal Information ; Confidential Data ; Personal Information ; Confidential Data ; Critical Data
+3                    # Both                
 1                    # Yes                 
 1                    # The users will register themselves
-11;                  # Dart                
+11;9;                # Dart ; Kotlin       
 1                    # Yes                 
 2                    # No                  
 1                    # Yes                 
 1                    # Yes                 
 1                    # Yes                 
-4                    # Public Cloud        
+2                    # Hybrid Cloud        
 1                    # Yes                 
 3                    # Basic Authentication (user/pass)
-1;2;3;5;6;5;7;11;    # 3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; Bluetooth  ; GPS  ; LoRa
+1;2;3;5;6;5;7;11;1;2;3;5;6;6;5;7; # 3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; Bluetooth  ; GPS  ; LoRa ; 3G ; 4G/LTE ; 5G ; Bluetooth  ; Wi-Fi  ; Wi-Fi  ; Bluetooth  ; GPS 
 1                    # Yes                 
