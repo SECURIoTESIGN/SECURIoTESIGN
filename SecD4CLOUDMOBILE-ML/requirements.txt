@@ -1,0 +1,14 @@
+mysql-connector-python
+numpy
+pandas
+scipy
+scikit-learn
+dask[dataframe]
+pyarrow
+imbalanced-learn
+scikit-multilearn
+networkx
+python-louvain
+liac-arff
+matplotlib
+requests
